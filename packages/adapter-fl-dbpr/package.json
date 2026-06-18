@@ -1,0 +1,24 @@
+{
+  "name": "@opentrade/adapter-fl-dbpr",
+  "version": "0.1.0",
+  "type": "module",
+  "description": "Florida DBPR construction-license adapter for OpenTrade Registry.",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "vitest run tests/**/*.test.ts"
+  },
+  "dependencies": {
+    "@opentrade/core": "workspace:*"
+  },
+  "devDependencies": {
+    "vitest": "^2.1.8"
+  }
+}
+

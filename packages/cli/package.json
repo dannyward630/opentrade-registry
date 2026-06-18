@@ -1,0 +1,23 @@
+{
+  "name": "@opentrade/cli",
+  "version": "0.1.0",
+  "type": "module",
+  "description": "Command-line interface for OpenTrade Registry.",
+  "bin": {
+    "opentrade": "./dist/index.js"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "cli": "tsx src/index.ts"
+  },
+  "dependencies": {
+    "@opentrade/adapter-fl-dbpr": "workspace:*",
+    "@opentrade/core": "workspace:*",
+    "zod": "^3.24.1"
+  },
+  "devDependencies": {
+    "tsx": "^4.19.2"
+  }
+}
+

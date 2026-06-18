@@ -1,0 +1,37 @@
+{
+  "id": "us.fl.dbpr.construction",
+  "name": "Florida DBPR Construction Industry Licenses",
+  "jurisdiction": {
+    "country": "US",
+    "state": "FL"
+  },
+  "agency": {
+    "name": "Florida Department of Business and Professional Regulation",
+    "url": "https://www2.myfloridalicense.com/"
+  },
+  "sourceType": "bulk_csv",
+  "sourceUrl": "https://www2.myfloridalicense.com/sto/file_download/extracts/CONSTRUCTIONLICENSE_1.csv",
+  "documentationUrl": "https://www2.myfloridalicense.com/construction-industry/public-records/",
+  "dataDictionaryUrl": "https://www2.myfloridalicense.com/about-us/understanding-dbpr-codes/",
+  "termsUrl": null,
+  "updateFrequency": "unknown",
+  "tradeCoverage": ["construction"],
+  "licenseTypesIncluded": ["construction industry licenses"],
+  "knownExclusions": [
+    "Source coverage and exclusions must be verified against official documentation before generated datasets are redistributed."
+  ],
+  "hasBulkDownload": true,
+  "hasLiveLookup": true,
+  "requiresJavaScript": "unknown",
+  "requiresCaptcha": "unknown",
+  "requiresAccount": false,
+  "rateLimitNotes": null,
+  "redistributionStatus": "unknown",
+  "publicRecordsNotes": "Official public-record source. Generated dataset redistribution is not assumed to be allowed.",
+  "adapterStatus": "implemented",
+  "adapterPackage": "@opentrade/adapter-fl-dbpr",
+  "testFixturePath": "packages/adapter-fl-dbpr/fixtures/construction-license-sample.csv",
+  "lastVerifiedAt": null,
+  "maintainerNotes": "Use source URL, fetched time, caveats, raw record, and fingerprint in downstream exports."
+}
+

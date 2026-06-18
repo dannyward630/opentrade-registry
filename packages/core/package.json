@@ -1,0 +1,20 @@
+{
+  "name": "@opentrade/core",
+  "version": "0.1.0",
+  "type": "module",
+  "description": "Core schemas, adapter contracts, and normalization utilities for OpenTrade Registry.",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
+  },
+  "dependencies": {
+    "zod": "^3.24.1"
+  }
+}
+

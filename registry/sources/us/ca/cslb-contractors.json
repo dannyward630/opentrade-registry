@@ -1,0 +1,37 @@
+{
+  "id": "us.ca.cslb.contractors",
+  "name": "California CSLB Master List of Licensed Contractors",
+  "jurisdiction": {
+    "country": "US",
+    "state": "CA"
+  },
+  "agency": {
+    "name": "Contractors State License Board",
+    "url": "https://www.cslb.ca.gov/"
+  },
+  "sourceType": "bulk_xlsx",
+  "sourceUrl": "https://www.cslb.ca.gov/onlineservices/dataportal/",
+  "documentationUrl": "https://www.cslb.ca.gov/onlineservices/dataportal/",
+  "dataDictionaryUrl": null,
+  "termsUrl": null,
+  "updateFrequency": "unknown",
+  "tradeCoverage": ["construction"],
+  "licenseTypesIncluded": ["contractor licenses"],
+  "knownExclusions": [
+    "Exact source coverage, file contents, and exclusions must be confirmed against official CSLB documentation before adapter implementation."
+  ],
+  "hasBulkDownload": true,
+  "hasLiveLookup": true,
+  "requiresJavaScript": "unknown",
+  "requiresCaptcha": "unknown",
+  "requiresAccount": "unknown",
+  "rateLimitNotes": null,
+  "redistributionStatus": "unknown",
+  "publicRecordsNotes": "Official public-record source. Generated dataset redistribution is not assumed to be allowed.",
+  "adapterStatus": "planned",
+  "adapterPackage": "@opentrade/adapter-ca-cslb",
+  "testFixturePath": null,
+  "lastVerifiedAt": null,
+  "maintainerNotes": "Only a source-registry entry exists in v0.1; no California adapter logic is implemented."
+}
+
