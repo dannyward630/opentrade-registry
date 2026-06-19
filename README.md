@@ -11,6 +11,21 @@ OpenTrade Registry is an open-source framework for discovering, importing, norma
 
 It is standalone, local-first, source-cited, provenance-first public-records infrastructure. It is not a contractor marketplace, not a review platform, not a risk scoring system, not a hosted account system, and not connected to any external product.
 
+## What It Is
+
+- A source registry for official public agency license data.
+- A canonical schema for contractor and skilled-trade license records.
+- Adapter contracts and local-file tooling for importing and normalizing source records.
+- A CLI for validating sources, exporting fixture data, and checking one license against a local source file.
+
+## What It Is Not
+
+- Not a contractor marketplace.
+- Not a review platform.
+- Not a risk scoring system.
+- Not a hosted account system.
+- Not a substitute for checking the official agency source directly.
+
 ## Current Status
 
 The v0.1 foundation supports Florida DBPR construction-license records from a local fixture file, normalizes them to a canonical schema, exports JSONL, and verifies one license number against that local source.
@@ -93,7 +108,17 @@ pnpm cli -- verify \
 
 OpenTrade Registry stores source URLs, fetched times, caveats, raw records, and fingerprints so downstream users can understand provenance. Generated datasets should not be published unless redistribution is clearly allowed by the source.
 
-Use careful verification language. Correct: "No matching record was found in this source as of the checked time." Incorrect: "This contractor is unlicensed."
+## Safety Language
+
+Use careful verification language.
+
+Correct:
+
+> No matching record was found in this source as of the checked time.
+
+Incorrect:
+
+> This contractor is unlicensed.
 
 Source coverage varies by jurisdiction and agency. Records can be incomplete, stale, omitted, or superseded by a different official source.
 
