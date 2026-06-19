@@ -3,6 +3,34 @@
   "version": "0.1.0",
   "type": "module",
   "description": "Command-line interface for OpenTrade Registry.",
+  "license": "MIT",
+  "homepage": "https://github.com/dannyward630/opentrade-registry#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dannyward630/opentrade-registry.git",
+    "directory": "packages/cli"
+  },
+  "bugs": {
+    "url": "https://github.com/dannyward630/opentrade-registry/issues"
+  },
+  "keywords": [
+    "opentrade",
+    "cli",
+    "contractor-licenses",
+    "public-records",
+    "license-verification",
+    "typescript"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
   "bin": {
     "opentrade": "./dist/index.js"
   },
@@ -20,4 +48,3 @@
     "tsx": "^4.19.2"
   }
 }
-
