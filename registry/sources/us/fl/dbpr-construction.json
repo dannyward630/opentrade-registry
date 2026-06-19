@@ -13,25 +13,25 @@
   "sourceUrl": "https://www2.myfloridalicense.com/sto/file_download/extracts/CONSTRUCTIONLICENSE_1.csv",
   "documentationUrl": "https://www2.myfloridalicense.com/construction-industry/public-records/",
   "dataDictionaryUrl": "https://www2.myfloridalicense.com/about-us/understanding-dbpr-codes/",
-  "termsUrl": null,
-  "updateFrequency": "unknown",
+  "termsUrl": "https://www2.myfloridalicense.com/privacy-statement/",
+  "updateFrequency": "unknown; verify against the official public-records page before relying on freshness assumptions",
   "tradeCoverage": ["construction"],
   "licenseTypesIncluded": ["construction industry licenses"],
   "knownExclusions": [
-    "Source coverage and exclusions must be verified against official documentation before generated datasets are redistributed."
+    "Source coverage and exclusions must be verified against official documentation before generated datasets are redistributed.",
+    "This source entry is limited to DBPR construction-industry records and does not represent every Florida trade, local license, complaint, or discipline source."
   ],
   "hasBulkDownload": true,
   "hasLiveLookup": true,
   "requiresJavaScript": "unknown",
   "requiresCaptcha": "unknown",
   "requiresAccount": false,
-  "rateLimitNotes": null,
+  "rateLimitNotes": "Use the official bulk file responsibly. Network sync is not enabled in v0.1, and automated downloads should be opt-in.",
   "redistributionStatus": "unknown",
-  "publicRecordsNotes": "Official public-record source. Generated dataset redistribution is not assumed to be allowed.",
+  "publicRecordsNotes": "Official public-record source for Florida DBPR construction-industry data. Absence from this source is not proof that a license does not exist elsewhere.",
   "adapterStatus": "implemented",
   "adapterPackage": "@opentrade/adapter-fl-dbpr",
   "testFixturePath": "packages/adapter-fl-dbpr/fixtures/construction-license-sample.csv",
-  "lastVerifiedAt": null,
+  "lastVerifiedAt": "2026-06-19T00:00:00.000Z",
   "maintainerNotes": "Use source URL, fetched time, caveats, raw record, and fingerprint in downstream exports."
 }
-
