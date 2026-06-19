@@ -13,25 +13,25 @@
   "sourceUrl": "https://www.cslb.ca.gov/onlineservices/dataportal/",
   "documentationUrl": "https://www.cslb.ca.gov/onlineservices/dataportal/",
   "dataDictionaryUrl": null,
-  "termsUrl": null,
-  "updateFrequency": "unknown",
+  "termsUrl": "https://www.cslb.ca.gov/About_Us/Privacy_Policy.aspx",
+  "updateFrequency": "unknown; verify against the official data portal before relying on freshness assumptions",
   "tradeCoverage": ["construction"],
   "licenseTypesIncluded": ["contractor licenses"],
   "knownExclusions": [
-    "Exact source coverage, file contents, and exclusions must be confirmed against official CSLB documentation before adapter implementation."
+    "Exact source coverage, file contents, and exclusions must be confirmed against official CSLB documentation before adapter implementation.",
+    "This source entry does not yet model companion files such as personnel, bond, or workers' compensation data."
   ],
   "hasBulkDownload": true,
   "hasLiveLookup": true,
   "requiresJavaScript": "unknown",
   "requiresCaptcha": "unknown",
   "requiresAccount": "unknown",
-  "rateLimitNotes": null,
+  "rateLimitNotes": "No adapter is implemented yet. Any future download support should be opt-in and should respect official data portal guidance.",
   "redistributionStatus": "unknown",
-  "publicRecordsNotes": "Official public-record source. Generated dataset redistribution is not assumed to be allowed.",
+  "publicRecordsNotes": "Official public-record source metadata only. Generated dataset redistribution is not assumed to be allowed.",
   "adapterStatus": "planned",
   "adapterPackage": "@opentrade/adapter-ca-cslb",
   "testFixturePath": null,
-  "lastVerifiedAt": null,
+  "lastVerifiedAt": "2026-06-19T00:00:00.000Z",
   "maintainerNotes": "Only a source-registry entry exists in v0.1; no California adapter logic is implemented."
 }
-
