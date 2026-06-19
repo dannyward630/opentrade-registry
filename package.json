@@ -4,6 +4,27 @@
   "private": true,
   "type": "module",
   "description": "Open-source framework for official contractor and skilled-trade license records.",
+  "license": "MIT",
+  "homepage": "https://github.com/dannyward630/opentrade-registry",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dannyward630/opentrade-registry.git"
+  },
+  "bugs": {
+    "url": "https://github.com/dannyward630/opentrade-registry/issues"
+  },
+  "keywords": [
+    "contractor-licenses",
+    "public-records",
+    "license-verification",
+    "typescript",
+    "cli",
+    "open-data",
+    "florida-dbpr"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
   "packageManager": "pnpm@9.15.4",
   "scripts": {
     "build": "corepack pnpm -r build",
