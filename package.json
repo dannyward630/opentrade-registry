@@ -32,6 +32,7 @@
     "typecheck": "corepack pnpm -r typecheck",
     "registry:validate": "vitest run tests/source-registry.test.ts",
     "cleanliness:scan": "node scripts/cleanliness-scan.mjs",
+    "pack:check": "corepack pnpm build && node scripts/pack-check.mjs",
     "cli": "corepack pnpm --filter @opentrade/cli cli"
   },
   "devDependencies": {
