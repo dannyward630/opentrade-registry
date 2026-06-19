@@ -8,6 +8,8 @@ const cliPath = join(process.cwd(), "packages", "cli", "src", "index.ts");
 const tsxPath = join(process.cwd(), "packages", "cli", "node_modules", ".bin", "tsx");
 const sampleFixture = join(process.cwd(), "packages", "adapter-fl-dbpr", "fixtures", "construction-license-sample.csv");
 const edgeFixture = join(process.cwd(), "packages", "adapter-fl-dbpr", "fixtures", "construction-license-edge-cases.csv");
+const expectedJsonl = join(process.cwd(), "examples", "basic-sync", "expected", "sample-record.jsonl");
+const expectedCsv = join(process.cwd(), "examples", "basic-sync", "expected", "sample-record.csv");
 
 describe("opentrade CLI", () => {
   it("lists, shows, and validates sources", () => {
@@ -34,7 +36,13 @@ describe("opentrade CLI", () => {
       expect(json.format).toBe("jsonl");
       expect(json.stats.rawRecordCount).toBe(5);
       expect(json.stats.normalizedRecordCount).toBe(5);
-      expect(readFileSync(outPath, "utf8").trim().split("\n")).toHaveLength(5);
+      const lines = readFileSync(outPath, "utf8").trim().split("\n");
+      const generated = JSON.parse(lines[0]);
+      const expected = JSON.parse(readFileSync(expectedJsonl, "utf8"));
+      expect(lines).toHaveLength(5);
+      expect(Object.keys(generated).sort()).toEqual(Object.keys(expected).sort());
+      expect(generated.license.licenseNumber).toBe(expected.license.licenseNumber);
+      expect(generated.status.normalized).toBe(expected.status.normalized);
     } finally {
       rmSync(dir, { recursive: true, force: true });
     }
@@ -56,9 +64,8 @@ describe("opentrade CLI", () => {
       ]);
 
       const csv = readFileSync(outPath, "utf8");
-      expect(csv.split("\n")[0]).toBe(
-        "sourceId,licenseNumber,licenseNumberNormalized,typeLabel,tradeCategories,status,expirationDate,licenseeName,dbaName,sourceUrl,fetchedAt,fingerprint",
-      );
+      const expectedHeader = readFileSync(expectedCsv, "utf8").split("\n")[0];
+      expect(csv.split("\n")[0]).toBe(expectedHeader);
       expect(csv).toContain("CGC012345");
       expect(csv).toContain(",active,");
       expect(csv).not.toContain("rawRecordJson");

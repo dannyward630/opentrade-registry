@@ -1,0 +1,2 @@
+sourceId,licenseNumber,licenseNumberNormalized,typeLabel,tradeCategories,status,expirationDate,licenseeName,dbaName,sourceUrl,fetchedAt,fingerprint
+us.fl.dbpr.construction,CGC012345,CGC012345,Certified General Contractor,general_contracting,active,2030-08-31T00:00:00.000Z,"DOE, ALEX",,https://www2.myfloridalicense.com/sto/file_download/extracts/CONSTRUCTIONLICENSE_1.csv,2026-01-01T00:00:00.000Z,3638d35922d21100d9d938b3a9e8fb92eb1def65226438c12b739969791d92e5
