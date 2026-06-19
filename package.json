@@ -27,6 +27,7 @@
   },
   "packageManager": "pnpm@9.15.4",
   "scripts": {
+    "verify": "corepack pnpm build && corepack pnpm typecheck && corepack pnpm test && corepack pnpm registry:validate && corepack pnpm cleanliness:scan",
     "build": "corepack pnpm -r build",
     "test": "vitest run",
     "typecheck": "corepack pnpm -r typecheck",
