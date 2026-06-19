@@ -1,0 +1,6 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Data-use and legal caveats
+    url: https://github.com/dannyward630/opentrade-registry/blob/main/docs/legal-and-data-use.md
+    about: Read this before requesting publication of generated datasets.
+

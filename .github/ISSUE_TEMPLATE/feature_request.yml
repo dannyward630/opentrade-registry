@@ -1,0 +1,44 @@
+name: Feature request
+description: Suggest a source, adapter, CLI command, export format, or documentation improvement.
+title: "[Feature]: "
+labels: ["enhancement"]
+body:
+  - type: textarea
+    id: summary
+    attributes:
+      label: Summary
+      description: What should OpenTrade Registry support?
+    validations:
+      required: true
+  - type: dropdown
+    id: category
+    attributes:
+      label: Category
+      options:
+        - Source registry metadata
+        - Adapter
+        - CLI
+        - Export format
+        - Documentation
+        - Testing
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: source
+    attributes:
+      label: Official source details
+      description: For source or adapter requests, include official agency URLs and data-use caveats if known.
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Acceptance criteria
+      description: How should this be tested or documented?
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Checks
+      options:
+        - label: This request does not require bypassing login walls, CAPTCHAs, or technical controls.
+          required: true
+

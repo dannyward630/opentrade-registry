@@ -1,0 +1,53 @@
+name: Bug report
+description: Report a reproducible problem in schemas, adapters, CLI commands, or documentation.
+title: "[Bug]: "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting a problem. Please avoid including unnecessary personal data from public records.
+  - type: textarea
+    id: summary
+    attributes:
+      label: Summary
+      description: What happened?
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Steps to reproduce
+      description: Include the command, fixture, or source metadata entry involved.
+      placeholder: |
+        1. Run `corepack pnpm cli -- ...`
+        2. Observe ...
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behavior
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Version or commit
+      placeholder: 0.1.0 or commit SHA
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Checks
+      options:
+        - label: I did not include unnecessary personal data.
+          required: true
+        - label: I understand a missing record in one source is not proof that a license does not exist.
+          required: true
+
