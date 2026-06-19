@@ -27,12 +27,13 @@
   },
   "packageManager": "pnpm@9.15.4",
   "scripts": {
-    "verify": "corepack pnpm build && corepack pnpm typecheck && corepack pnpm test && corepack pnpm registry:validate && corepack pnpm cleanliness:scan",
+    "verify": "corepack pnpm build && corepack pnpm typecheck && corepack pnpm test && corepack pnpm registry:validate && corepack pnpm cleanliness:scan && corepack pnpm files:check",
     "build": "corepack pnpm -r build",
     "test": "vitest run",
     "typecheck": "corepack pnpm -r typecheck",
     "registry:validate": "vitest run tests/source-registry.test.ts",
     "cleanliness:scan": "node scripts/cleanliness-scan.mjs",
+    "files:check": "node scripts/files-check.mjs",
     "pack:check": "corepack pnpm build && node scripts/pack-check.mjs",
     "cli": "corepack pnpm --filter @opentrade/cli cli"
   },
