@@ -3,6 +3,34 @@
   "version": "0.1.0",
   "type": "module",
   "description": "Core schemas, adapter contracts, and normalization utilities for OpenTrade Registry.",
+  "license": "MIT",
+  "homepage": "https://github.com/dannyward630/opentrade-registry#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dannyward630/opentrade-registry.git",
+    "directory": "packages/core"
+  },
+  "bugs": {
+    "url": "https://github.com/dannyward630/opentrade-registry/issues"
+  },
+  "keywords": [
+    "opentrade",
+    "contractor-licenses",
+    "public-records",
+    "license-verification",
+    "zod",
+    "typescript"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
@@ -17,4 +45,3 @@
     "zod": "^3.24.1"
   }
 }
-
