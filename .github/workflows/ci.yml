@@ -24,18 +24,8 @@ jobs:
       - name: Install dependencies
         run: corepack pnpm install --frozen-lockfile
 
-      - name: Build
-        run: corepack pnpm build
+      - name: Verify
+        run: corepack pnpm verify
 
-      - name: Typecheck
-        run: corepack pnpm typecheck
-
-      - name: Test
-        run: corepack pnpm test
-
-      - name: Validate source registry
-        run: corepack pnpm registry:validate
-
-      - name: Cleanliness scan
-        run: corepack pnpm cleanliness:scan
-
+      - name: Package dry-run
+        run: corepack pnpm pack:check
