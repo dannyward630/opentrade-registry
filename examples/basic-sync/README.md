@@ -41,6 +41,15 @@ pnpm cli -- sync us.fl.dbpr.construction \
 
 The CSV export intentionally includes a narrow set of canonical fields and does not include full raw source JSON.
 
+## Expected Fixture-Derived Output
+
+Small expected outputs are checked in under `examples/basic-sync/expected/`:
+
+- `sample-record.jsonl`: one canonical JSONL record generated from the tiny fixture.
+- `sample-record.csv`: a safe CSV header and one representative row.
+
+These files are documentation fixtures, not generated public datasets.
+
 Remove generated outputs after experimenting:
 
 ```bash
