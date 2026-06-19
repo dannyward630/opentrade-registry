@@ -1,10 +1,21 @@
 # OpenTrade Registry
 
+[![CI](https://github.com/dannyward630/opentrade-registry/actions/workflows/ci.yml/badge.svg)](https://github.com/dannyward630/opentrade-registry/actions/workflows/ci.yml)
+[![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+![Node 20+](https://img.shields.io/badge/node-%3E%3D20-43853d)
+![TypeScript](https://img.shields.io/badge/types-TypeScript-3178c6)
+![Local first](https://img.shields.io/badge/data-local--first-0f766e)
+![No network tests](https://img.shields.io/badge/tests-no--network--by--default-7c3aed)
+
 OpenTrade Registry is an open-source framework for discovering, importing, normalizing, validating, verifying, and exporting official contractor and skilled-trade license records from public agencies.
 
 It is standalone, local-first, source-cited, provenance-first public-records infrastructure. It is not a contractor marketplace, not a review platform, not a risk scoring system, not a hosted account system, and not connected to any external product.
 
+## Current Status
+
 The v0.1 foundation supports Florida DBPR construction-license records from a local fixture file, normalizes them to a canonical schema, exports JSONL, and verifies one license number against that local source.
+
+It does not download live agency data yet. Network source sync is intentionally disabled in v0.1.
 
 ## Requirements
 
