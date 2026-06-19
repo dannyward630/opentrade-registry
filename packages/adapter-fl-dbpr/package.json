@@ -3,6 +3,35 @@
   "version": "0.1.0",
   "type": "module",
   "description": "Florida DBPR construction-license adapter for OpenTrade Registry.",
+  "license": "MIT",
+  "homepage": "https://github.com/dannyward630/opentrade-registry#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dannyward630/opentrade-registry.git",
+    "directory": "packages/adapter-fl-dbpr"
+  },
+  "bugs": {
+    "url": "https://github.com/dannyward630/opentrade-registry/issues"
+  },
+  "keywords": [
+    "opentrade",
+    "florida-dbpr",
+    "contractor-licenses",
+    "public-records",
+    "license-verification",
+    "typescript"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "fixtures"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
@@ -21,4 +50,3 @@
     "vitest": "^2.1.8"
   }
 }
-
