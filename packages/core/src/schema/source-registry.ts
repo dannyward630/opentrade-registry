@@ -3,6 +3,10 @@ import { sourceRedistributionStatusSchema, sourceTypeSchema } from "./canonical-
 
 const unknownableBooleanSchema = z.union([z.boolean(), z.literal("unknown")]);
 
+export const sourceDiscoveryStatusSchema = z.enum(["needs_research", "researched", "blocked", "deprecated"]);
+export const adapterMaturitySchema = z.enum(["registry_only", "fixture_adapter", "local_file_adapter", "network_opt_in"]);
+export const coverageScopeSchema = z.enum(["statewide", "state_agency_partial", "local_only", "unknown"]);
+
 export const sourceRegistryEntrySchema = z.object({
   id: z.string().min(1),
   name: z.string().min(1),
@@ -34,11 +38,19 @@ export const sourceRegistryEntrySchema = z.object({
   redistributionStatus: sourceRedistributionStatusSchema,
   publicRecordsNotes: z.string().nullable().optional(),
   adapterStatus: z.enum(["planned", "implemented", "experimental", "deprecated"]),
+  sourceDiscoveryStatus: sourceDiscoveryStatusSchema,
+  adapterMaturity: adapterMaturitySchema,
+  coverageScope: coverageScopeSchema,
   adapterPackage: z.string().min(1).nullable().optional(),
   testFixturePath: z.string().min(1).nullable().optional(),
+  officialLookupUrl: z.string().url().nullable().optional(),
+  officialBulkDownloadNotes: z.string().nullable().optional(),
+  researchNotes: z.string().nullable().optional(),
   lastVerifiedAt: z.string().datetime().nullable().optional(),
   maintainerNotes: z.string().nullable().optional(),
 });
 
 export type SourceRegistryEntry = z.infer<typeof sourceRegistryEntrySchema>;
-
+export type SourceDiscoveryStatus = z.infer<typeof sourceDiscoveryStatusSchema>;
+export type AdapterMaturity = z.infer<typeof adapterMaturitySchema>;
+export type CoverageScope = z.infer<typeof coverageScopeSchema>;

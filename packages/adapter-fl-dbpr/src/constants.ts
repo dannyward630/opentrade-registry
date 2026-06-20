@@ -36,8 +36,14 @@ export const FL_DBPR_SOURCE_ENTRY: SourceRegistryEntry = {
   redistributionStatus: "unknown",
   publicRecordsNotes: "Official public-record source. Generated dataset redistribution is not assumed to be allowed.",
   adapterStatus: "implemented",
+  sourceDiscoveryStatus: "researched",
+  adapterMaturity: "local_file_adapter",
+  coverageScope: "state_agency_partial",
   adapterPackage: "@opentrade/adapter-fl-dbpr",
   testFixturePath: "packages/adapter-fl-dbpr/fixtures/construction-license-sample.csv",
+  officialLookupUrl: "https://www.myfloridalicense.com/wl11.asp",
+  officialBulkDownloadNotes: "The v0.1 adapter reads local CSV files that match the official DBPR construction-license extract shape.",
+  researchNotes: "Florida has multiple state and local licensing sources. This entry covers DBPR construction-industry records only.",
   lastVerifiedAt: null,
   maintainerNotes: "Use source URL, fetched time, caveats, raw record, and fingerprint in downstream exports.",
 };
@@ -94,4 +100,3 @@ export const CLASS_LABELS: Record<string, string> = {
   "RP:B": "Residential Pool/Spa Contractor",
   "RP:C": "Pool/Spa Contractor Service",
 };
-

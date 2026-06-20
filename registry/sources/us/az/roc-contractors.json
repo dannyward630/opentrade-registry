@@ -1,0 +1,43 @@
+{
+  "id": "us.az.roc.contractors",
+  "name": "Arizona Registrar of Contractors License Records",
+  "jurisdiction": {
+    "country": "US",
+    "state": "AZ"
+  },
+  "agency": {
+    "name": "Arizona Registrar of Contractors",
+    "url": "https://roc.az.gov/"
+  },
+  "sourceType": "html_lookup",
+  "sourceUrl": "https://roc.az.gov/posting-list",
+  "documentationUrl": "https://roc.az.gov/posting-list",
+  "dataDictionaryUrl": null,
+  "termsUrl": "https://az.gov/policies",
+  "updateFrequency": "unknown; verify against the official posting-list page before relying on freshness assumptions",
+  "tradeCoverage": ["construction"],
+  "licenseTypesIncluded": ["contractor licenses"],
+  "knownExclusions": [
+    "The posting-list and search pages require additional research before file formats, historical coverage, and exclusions are modeled.",
+    "Local registrations or permits outside AZ ROC scope are not represented by this source entry."
+  ],
+  "hasBulkDownload": "unknown",
+  "hasLiveLookup": true,
+  "requiresJavaScript": "unknown",
+  "requiresCaptcha": "unknown",
+  "requiresAccount": false,
+  "rateLimitNotes": "No adapter is implemented yet. Any future automated access should prefer official downloadable posting-list files if available.",
+  "redistributionStatus": "unknown",
+  "publicRecordsNotes": "Official source metadata only. Absence from this source is not proof that a license does not exist elsewhere.",
+  "adapterStatus": "planned",
+  "sourceDiscoveryStatus": "researched",
+  "adapterMaturity": "registry_only",
+  "coverageScope": "statewide",
+  "adapterPackage": "@opentrade/adapter-az-roc",
+  "testFixturePath": null,
+  "officialLookupUrl": "https://azroc.my.site.com/AZRoc/s/contractor-search",
+  "officialBulkDownloadNotes": "Arizona ROC publishes posting-list information; exact downloadable file locations and formats need follow-up research before adapter work.",
+  "researchNotes": "Useful source-discovery pilot for a lookup-oriented or posting-list adapter, but not ready for parsing logic.",
+  "lastVerifiedAt": "2026-06-21T00:00:00.000Z",
+  "maintainerNotes": "Do not automate portal access unless it is lawful, technically stable, and respects posted controls."
+}
