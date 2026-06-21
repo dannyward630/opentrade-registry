@@ -23,6 +23,7 @@ describe("opentrade CLI", () => {
     expect(list).toContain("us.tx.tdlr.all_licenses");
     expect(list).toContain("us.wa.lni.contractors");
     expect(list).toContain("us.or.ccb.active_licenses");
+    expect(list).toContain("us.mn.dli.licenses_registrations");
     expect(list).toContain("local_file_adapter");
     expect(list).toContain("fixture_adapter");
     const show = runCli(["sources", "show", "us.ca.cslb.contractors"]).stdout;
@@ -30,7 +31,7 @@ describe("opentrade CLI", () => {
     expect(show).toContain("maturity: registry_only");
     expect(show).toContain("coverage:");
     expect(show).toContain("known exclusions:");
-    expect(runCli(["sources", "validate"]).stdout).toContain("Validated 9 source registry entries.");
+    expect(runCli(["sources", "validate"]).stdout).toContain("Validated 14 source registry entries.");
   });
 
   it("rejects registry-only sources for sync and verify with neutral wording", () => {

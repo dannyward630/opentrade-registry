@@ -1,0 +1,43 @@
+{
+  "id": "us.ut.dopl.contractors",
+  "name": "Utah DOPL Contractor License Lookup",
+  "jurisdiction": {
+    "country": "US",
+    "state": "UT"
+  },
+  "agency": {
+    "name": "Utah Division of Professional Licensing",
+    "url": "https://commerce.utah.gov/dopl/"
+  },
+  "sourceType": "html_lookup",
+  "sourceUrl": "https://secure.utah.gov/llv/search/index.html",
+  "documentationUrl": "https://commerce.utah.gov/dopl/contracting/",
+  "dataDictionaryUrl": null,
+  "termsUrl": "https://www.utah.gov/policies/",
+  "updateFrequency": "The official lookup page displays a current-as-of date; verify at lookup time before relying on freshness assumptions.",
+  "tradeCoverage": ["contracting"],
+  "licenseTypesIncluded": ["Utah DOPL contractor license records exposed by the Licensee Lookup & Verification System"],
+  "knownExclusions": [
+    "Local permits, business registrations, and non-DOPL authorizations are outside this source entry.",
+    "Classification and qualifier details require source-specific research before normalization."
+  ],
+  "hasBulkDownload": "unknown",
+  "hasLiveLookup": true,
+  "requiresJavaScript": "unknown",
+  "requiresCaptcha": "unknown",
+  "requiresAccount": false,
+  "rateLimitNotes": "No adapter is implemented. Do not automate lookup pages unless access terms and technical controls are reviewed.",
+  "redistributionStatus": "unknown",
+  "publicRecordsNotes": "Official lookup source metadata only. Absence from this source is not proof that a license does not exist elsewhere.",
+  "adapterStatus": "planned",
+  "sourceDiscoveryStatus": "researched",
+  "adapterMaturity": "registry_only",
+  "coverageScope": "state_agency_partial",
+  "adapterPackage": "@opentrade/adapter-ut-dopl",
+  "testFixturePath": null,
+  "officialLookupUrl": "https://secure.utah.gov/llv/search/index.html",
+  "officialBulkDownloadNotes": "No official bulk download has been confirmed in this phase.",
+  "researchNotes": "Registry-only source for Utah DOPL contractor lookup. Future work should research contractor classification coding.",
+  "lastVerifiedAt": "2026-06-21T00:00:00.000Z",
+  "maintainerNotes": "Preserve the lookup page's freshness wording if adapter work begins."
+}

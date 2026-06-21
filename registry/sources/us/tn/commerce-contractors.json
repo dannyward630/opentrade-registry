@@ -1,0 +1,43 @@
+{
+  "id": "us.tn.commerce.contractors",
+  "name": "Tennessee Board for Licensing Contractors",
+  "jurisdiction": {
+    "country": "US",
+    "state": "TN"
+  },
+  "agency": {
+    "name": "Tennessee Department of Commerce and Insurance",
+    "url": "https://www.tn.gov/commerce.html"
+  },
+  "sourceType": "html_lookup",
+  "sourceUrl": "https://www.tn.gov/commerce/regboards/contractors.html",
+  "documentationUrl": "https://www.tn.gov/commerce/regboards/contractors.html",
+  "dataDictionaryUrl": null,
+  "termsUrl": "https://www.tn.gov/web-policies.html",
+  "updateFrequency": "unknown; verify against the official license verification system before relying on freshness assumptions",
+  "tradeCoverage": ["contractors", "home improvement", "limited licensed electricians", "limited licensed plumbers"],
+  "licenseTypesIncluded": ["Contractor and related board license records exposed through Tennessee's official verification links"],
+  "knownExclusions": [
+    "Tennessee licensing thresholds and county-specific home-improvement coverage require source-specific review before normalization.",
+    "Local permits, business registrations, and non-board authorizations are outside this source entry."
+  ],
+  "hasBulkDownload": "unknown",
+  "hasLiveLookup": true,
+  "requiresJavaScript": "unknown",
+  "requiresCaptcha": "unknown",
+  "requiresAccount": false,
+  "rateLimitNotes": "No adapter is implemented. Prefer documented export options if discovered before considering lookup automation.",
+  "redistributionStatus": "unknown",
+  "publicRecordsNotes": "Official board and lookup metadata only. Absence from this source is not proof that a license does not exist elsewhere.",
+  "adapterStatus": "planned",
+  "sourceDiscoveryStatus": "researched",
+  "adapterMaturity": "registry_only",
+  "coverageScope": "state_agency_partial",
+  "adapterPackage": "@opentrade/adapter-tn-commerce",
+  "testFixturePath": null,
+  "officialLookupUrl": "https://verify.tn.gov/",
+  "officialBulkDownloadNotes": "No official bulk download has been confirmed in this phase.",
+  "researchNotes": "Registry-only source for Tennessee contractor board verification. Future work should model license thresholds and county-specific home-improvement caveats.",
+  "lastVerifiedAt": "2026-06-21T00:00:00.000Z",
+  "maintainerNotes": "Do not flatten Tennessee license types without reviewing board scope and thresholds."
+}

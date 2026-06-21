@@ -21,6 +21,7 @@ OpenTrade Registry is early. The next releases should stay modest: make the firs
 - Washington L&I fixture adapter.
 - Oregon CCB fixture adapter.
 - Researched registry entries for Oregon CCB, Nevada NSCB, North Carolina NCLBGC, and Virginia DPOR.
+- Researched registry entries for Georgia SOS, Minnesota DLI, South Carolina LLR, Tennessee Commerce, and Utah DOPL.
 
 ## v0.3
 
@@ -32,7 +33,7 @@ OpenTrade Registry is early. The next releases should stay modest: make the firs
 
 ## v0.4
 
-- First 10 state source registry entries.
+- First 15 state source registry entries.
 - More fixture-supported adapters.
 - Clear reporting for registry-only and adapter-supported sources.
 - State expansion workflow documented well enough for new contributors to add research-first entries.

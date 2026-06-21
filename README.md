@@ -22,7 +22,7 @@ The current build is still intentionally small. It supports Florida DBPR constru
 - Convert a tiny Washington L&I fixture into canonical records.
 - Export canonical records as JSONL or CSV.
 - Check one license number against a local source file.
-- Inspect researched source metadata for Arizona, California, Florida, Nevada, North Carolina, Oregon, Texas, Virginia, and Washington.
+- Inspect researched source metadata for Arizona, California, Florida, Georgia, Minnesota, Nevada, North Carolina, Oregon, South Carolina, Tennessee, Texas, Utah, Virginia, and Washington.
 
 ## What This Project Does Not Do
 
@@ -138,7 +138,7 @@ Adapter maturity is tracked separately from source research:
 - Level 3: opt-in network sync with freshness metadata.
 - Level 4: verification semantics reviewed against official source caveats.
 
-Florida DBPR is currently a local-file adapter with opt-in URL sync through the CLI. Oregon CCB, Texas TDLR, and Washington L&I are fixture-supported. Arizona ROC, California CSLB, Nevada NSCB, North Carolina NCLBGC, and Virginia DPOR are registry-only entries.
+Florida DBPR is currently a local-file adapter with opt-in URL sync through the CLI. Oregon CCB, Texas TDLR, and Washington L&I are fixture-supported. Arizona ROC, California CSLB, Georgia SOS, Minnesota DLI, Nevada NSCB, North Carolina NCLBGC, South Carolina LLR, Tennessee Commerce, Utah DOPL, and Virginia DPOR are registry-only entries.
 
 ## Project Layout
 
