@@ -68,6 +68,32 @@ describe("hosted API", () => {
     });
   });
 
+  it("fills legacy partial database metadata from registry files before validation", async () => {
+    const result = await loadSourcesForApi({
+      databaseClient: createFakeDatabaseClient({
+        rows: [
+          {
+            ...createSourceRow("us.fl.dbpr.construction", "FL"),
+            metadata: {
+              adapterPackage: "@opentrade/adapter-fl-dbpr",
+              officialLookupUrl: "https://www.myfloridalicense.com/wl11.asp",
+              publicRecordsNotes: "Legacy partial metadata row.",
+            },
+            last_verified_at: "2026-06-19 00:00:00+00",
+          },
+        ],
+      }),
+    });
+
+    expect(result.origin).toBe("database");
+    expect(result.sources[0]).toMatchObject({
+      id: "us.fl.dbpr.construction",
+      hasBulkDownload: true,
+      hasLiveLookup: true,
+      lastVerifiedAt: "2026-06-19T00:00:00.000Z",
+    });
+  });
+
   it("falls back to registry files when database source loading fails", async () => {
     const result = await loadSourcesForApi({
       databaseClient: createFakeDatabaseClient({
