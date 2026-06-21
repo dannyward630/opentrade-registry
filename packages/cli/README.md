@@ -11,6 +11,7 @@ opentrade sources validate
 opentrade sync us.fl.dbpr.construction --file ./fixture.csv --out ./records.jsonl
 opentrade sync us.fl.dbpr.construction --url <official-csv-url> --allow-network --out ./records.jsonl
 opentrade sync us.tx.tdlr.all_licenses --file ./tdlr-fixture.csv --out ./records.jsonl
+opentrade sync us.wa.lni.contractors --file ./wa-fixture.csv --out ./records.jsonl
 opentrade sync us.fl.dbpr.construction --file ./fixture.csv --out ./records.csv --format csv
 opentrade verify --source us.fl.dbpr.construction --file ./fixture.csv --license CGC012345
 ```
