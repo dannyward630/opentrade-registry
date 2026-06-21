@@ -44,7 +44,7 @@ The most important fields are:
 
 `registry/us-coverage.json` tracks state-by-state progress toward broader coverage. It is intentionally high level. A state can be listed there before a detailed source entry exists.
 
-Today, Florida DBPR is a local-file adapter with opt-in URL sync through the CLI. Oregon CCB, Texas TDLR, and Washington L&I are fixture-supported. Arizona ROC, California CSLB, Georgia SOS, Minnesota DLI, Nevada NSCB, North Carolina NCLBGC, South Carolina LLR, Tennessee Commerce, Utah DOPL, and Virginia DPOR are researched registry-only entries.
+Today, Florida DBPR is a local-file adapter with opt-in URL sync through the CLI. Oregon CCB, Texas TDLR, and Washington L&I are fixture-supported. Alabama General Contractors Board, Arizona ROC, California CSLB, Georgia SOS, Louisiana LSLBC, Michigan LARA, Minnesota DLI, Nevada NSCB, North Carolina NCLBGC, Pennsylvania OAG, South Carolina LLR, Tennessee Commerce, Utah DOPL, Virginia DPOR, and Wisconsin DSPS are researched registry-only entries.
 
 Minnesota, Oregon, and Washington are open-data-shaped sources. Alabama, Georgia, Louisiana, Michigan, Nevada, North Carolina, Pennsylvania, South Carolina, Tennessee, Utah, Virginia, and Wisconsin are lookup-oriented or still need bulk-export research in this phase, so their registry entries intentionally stop before parser or automation work.
 
