@@ -4,6 +4,7 @@ import {
   canonicalTradeLicenseRecordSchema,
   adapterMaturitySchema,
   normalizeLicenseNumber,
+  parseCsvLine,
   sourceDiscoveryStatusSchema,
   sourceRegistryEntrySchema,
 } from "@opentrade/core";
@@ -21,6 +22,7 @@ import {
 describe("public package imports", () => {
   it("imports stable public APIs from core and the Florida adapter", () => {
     expect(normalizeLicenseNumber("cgc-012345")).toBe("CGC012345");
+    expect(parseCsvLine('"ACME, INC.",CGC012345')).toEqual(["ACME, INC.", "CGC012345"]);
     expect(buildFingerprint({ a: 1 })).toMatch(/^[a-f0-9]{64}$/);
     expect(canonicalTradeLicenseRecordSchema).toBeDefined();
     expect(sourceRegistryEntrySchema).toBeDefined();
