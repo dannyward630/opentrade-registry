@@ -1,7 +1,6 @@
-import { isAbsolute, resolve } from "node:path";
-import type { CanonicalTradeLicenseRecord, ImportStats } from "@opentrade/core";
 import { requireAdapter } from "../adapters.js";
-import { parseSyncFormat, writeCanonicalRecords } from "../import/export.js";
+import { parseSyncFormat } from "../import/export.js";
+import { runAdapterSync } from "../import/sync-runner.js";
 
 export async function syncSource(input: {
   rootDir: string;
@@ -32,41 +31,13 @@ export async function syncSource(input: {
   }
 
   const format = parseSyncFormat(input.format);
-  const startedAt = new Date().toISOString();
-  const stats: ImportStats = {
-    sourceId: input.sourceId,
-    startedAt,
-    rawRecordCount: 0,
-    normalizedRecordCount: 0,
-    warningCount: 0,
-    errorCount: 0,
-  };
-
-  const records: CanonicalTradeLicenseRecord[] = [];
-  for await (const rawRecord of adapter.streamRawRecords({
-    filePath: resolveFromRoot(input.rootDir, input.file),
-    sourceLastModifiedAt: input.sourceLastModifiedAt,
-  })) {
-    stats.rawRecordCount += 1;
-    stats.warningCount += rawRecord.warnings?.length ?? 0;
-    records.push(await adapter.normalize(rawRecord));
-    stats.normalizedRecordCount += 1;
-  }
-
-  stats.finishedAt = new Date().toISOString();
-
-  const outputPath = resolveFromRoot(input.rootDir, input.out);
-  await writeCanonicalRecords({ outputPath, format, records });
-
-  const result = {
-    sourceId: input.sourceId,
-    outputPath,
+  const result = await runAdapterSync({
+    adapter,
+    rootDir: input.rootDir,
+    filePath: input.file,
+    outPath: input.out,
     format,
-    stats,
-  };
-  console.log(input.json ? JSON.stringify(result, null, 2) : `Wrote ${records.length} ${format.toUpperCase()} canonical records to ${outputPath}.`);
-}
-
-function resolveFromRoot(rootDir: string, path: string): string {
-  return isAbsolute(path) ? path : resolve(rootDir, path);
+    sourceLastModifiedAt: input.sourceLastModifiedAt,
+  });
+  console.log(input.json ? JSON.stringify(result, null, 2) : `Wrote ${result.stats.normalizedRecordCount} ${format.toUpperCase()} canonical records to ${result.outputPath}.`);
 }
