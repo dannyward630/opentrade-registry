@@ -17,3 +17,9 @@ OpenTrade Registry is pre-1.0. Security fixes target the latest `main` branch un
 - Raw public-record preservation.
 - Generated exports.
 - Package publishing and release provenance.
+
+## Dependency Security
+
+Dependabot monitors npm workspace dependencies and GitHub Actions weekly. When it opens an alert or update PR, prefer upgrading the affected package or transitive toolchain instead of dismissing the alert.
+
+Run `corepack pnpm security:audit` before security-focused releases or dependency-update PRs. The main `verify` script intentionally does not include live advisory checks so normal development is not blocked by registry timing or newly published advisories unrelated to a code change.
