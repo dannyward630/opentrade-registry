@@ -28,6 +28,16 @@ importers:
         specifier: ^2.1.8
         version: 2.1.9(@types/node@20.19.43)
 
+  packages/adapter-tx-tdlr:
+    dependencies:
+      '@opentrade/core':
+        specifier: workspace:*
+        version: link:../core
+    devDependencies:
+      vitest:
+        specifier: ^2.1.8
+        version: 2.1.9(@types/node@20.19.43)
+
   packages/cli:
     dependencies:
       '@opentrade/adapter-fl-dbpr':

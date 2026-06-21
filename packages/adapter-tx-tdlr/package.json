@@ -1,0 +1,52 @@
+{
+  "name": "@opentrade/adapter-tx-tdlr",
+  "version": "0.1.0",
+  "type": "module",
+  "description": "Texas TDLR fixture adapter for OpenTrade Registry.",
+  "license": "MIT",
+  "homepage": "https://github.com/dannyward630/opentrade-registry#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dannyward630/opentrade-registry.git",
+    "directory": "packages/adapter-tx-tdlr"
+  },
+  "bugs": {
+    "url": "https://github.com/dannyward630/opentrade-registry/issues"
+  },
+  "keywords": [
+    "opentrade",
+    "texas-tdlr",
+    "contractor-licenses",
+    "public-records",
+    "license-verification",
+    "typescript"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "fixtures"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "vitest run tests/**/*.test.ts"
+  },
+  "dependencies": {
+    "@opentrade/core": "workspace:*"
+  },
+  "devDependencies": {
+    "vitest": "^2.1.8"
+  }
+}
