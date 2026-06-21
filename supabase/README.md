@@ -18,6 +18,12 @@ Row-level security is enabled. Public read policies are added for `registry_sour
 
 Apply the SQL in `migrations/` with your preferred Supabase workflow. Generated public-record datasets should remain local unless redistribution is clearly allowed by the official source terms.
 
+Public source metadata can be seeded from `supabase/seeds/registry_sources.sql`. Regenerate that file after source registry changes:
+
+```bash
+corepack pnpm db:seed:generate
+```
+
 Required hosted environment variables:
 
 - `OPENTRADE_SUPABASE_URL`
