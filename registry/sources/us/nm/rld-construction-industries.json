@@ -1,0 +1,44 @@
+{
+  "id": "us.nm.rld.construction_industries",
+  "name": "New Mexico RLD Construction Industries License Verification",
+  "jurisdiction": {
+    "country": "US",
+    "state": "NM"
+  },
+  "agency": {
+    "name": "New Mexico Regulation and Licensing Department",
+    "url": "https://www.rld.nm.gov/"
+  },
+  "sourceType": "html_lookup",
+  "sourceUrl": "https://www.rld.nm.gov/about-us/public-information-hub/verify-a-license/",
+  "documentationUrl": "https://www.rld.nm.gov/about-us/public-information-hub/verify-a-license/",
+  "dataDictionaryUrl": null,
+  "termsUrl": "https://www.rld.nm.gov/about-us/public-information-hub/",
+  "updateFrequency": "unknown; verify against the official Construction Industries verification path before relying on freshness assumptions",
+  "tradeCoverage": ["general_contracting", "electrical", "plumbing", "mechanical", "hvac", "other"],
+  "licenseTypesIncluded": ["New Mexico Construction Industries Division license records exposed by the official verification path"],
+  "knownExclusions": [
+    "The RLD verification page routes Construction Industries Division verification to an external PSI search path.",
+    "Local permits, business registrations, and non-RLD authorizations are outside this source entry.",
+    "RLD boards and commissions license lookup is separate from the Construction Industries Division path and may need separate entries."
+  ],
+  "hasBulkDownload": "unknown",
+  "hasLiveLookup": true,
+  "requiresJavaScript": "unknown",
+  "requiresCaptcha": "unknown",
+  "requiresAccount": false,
+  "rateLimitNotes": "No adapter is implemented. Do not automate external lookup paths unless terms and technical controls are reviewed.",
+  "redistributionStatus": "unknown",
+  "publicRecordsNotes": "Official lookup source metadata only. Absence from this source is not proof that a license or permit does not exist elsewhere.",
+  "adapterStatus": "planned",
+  "sourceDiscoveryStatus": "researched",
+  "adapterMaturity": "registry_only",
+  "coverageScope": "state_agency_partial",
+  "adapterPackage": "@opentrade/adapter-nm-rld",
+  "testFixturePath": null,
+  "officialLookupUrl": "https://public.psiexams.com/search.jsp",
+  "officialBulkDownloadNotes": "No official bulk download has been confirmed in this phase.",
+  "researchNotes": "Registry-only source for New Mexico Construction Industries verification. Future work should review PSI search fields and whether a state-hosted export exists.",
+  "lastVerifiedAt": "2026-06-22T00:00:00.000Z",
+  "maintainerNotes": "Keep the RLD-versus-PSI lookup split visible in future docs and verification behavior."
+}

@@ -1,0 +1,44 @@
+{
+  "id": "us.md.dllr.home_improvement_contractors",
+  "name": "Maryland MHIC Home Improvement Contractor License Search",
+  "jurisdiction": {
+    "country": "US",
+    "state": "MD"
+  },
+  "agency": {
+    "name": "Maryland Department of Labor Maryland Home Improvement Commission",
+    "url": "https://labor.maryland.gov/license/mhic/"
+  },
+  "sourceType": "html_lookup",
+  "sourceUrl": "https://labor.maryland.gov/license/mhic/",
+  "documentationUrl": "https://labor.maryland.gov/license/mhic/",
+  "dataDictionaryUrl": null,
+  "termsUrl": "https://www.maryland.gov/pages/privacy_security.aspx",
+  "updateFrequency": "unknown; verify against the official MHIC license search before relying on freshness assumptions",
+  "tradeCoverage": ["home_improvement", "roofing", "solar", "other"],
+  "licenseTypesIncluded": ["Maryland Home Improvement Commission contractor and salesperson license records exposed by official license search paths"],
+  "knownExclusions": [
+    "MHIC is scoped to home improvement work and does not represent every Maryland construction, local permit, trade, or business credential.",
+    "Maryland's former home improvement subcontractor license category has been eliminated; preserve this caveat in future normalization.",
+    "Complaint, guaranty fund, discipline, and insurance details require separate source review before modeling."
+  ],
+  "hasBulkDownload": "unknown",
+  "hasLiveLookup": true,
+  "requiresJavaScript": "unknown",
+  "requiresCaptcha": "unknown",
+  "requiresAccount": false,
+  "rateLimitNotes": "No adapter is implemented. Do not automate lookup pages unless access rules and technical controls are reviewed.",
+  "redistributionStatus": "unknown",
+  "publicRecordsNotes": "Official lookup source metadata only. Absence from this source is not proof that a license or registration does not exist elsewhere.",
+  "adapterStatus": "planned",
+  "sourceDiscoveryStatus": "researched",
+  "adapterMaturity": "registry_only",
+  "coverageScope": "state_agency_partial",
+  "adapterPackage": "@opentrade/adapter-md-dllr",
+  "testFixturePath": null,
+  "officialLookupUrl": "https://www.dllr.state.md.us/cgi-bin/ElectronicLicensing/OP_search/OP_search.cgi?calling_app=HIC::HIC_qselect",
+  "officialBulkDownloadNotes": "No official bulk download has been confirmed in this phase.",
+  "researchNotes": "Registry-only source for Maryland MHIC home improvement contractor verification. Future work should review license-search result fields and MHIC scope before fixture work.",
+  "lastVerifiedAt": "2026-06-22T00:00:00.000Z",
+  "maintainerNotes": "Preserve MHIC scope and subcontractor-category caveats in future verification output."
+}

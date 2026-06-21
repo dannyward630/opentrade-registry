@@ -1,0 +1,44 @@
+{
+  "id": "us.ct.dcp.home_improvement_contractors",
+  "name": "Connecticut DCP eLicense Home Improvement Contractor Lookup",
+  "jurisdiction": {
+    "country": "US",
+    "state": "CT"
+  },
+  "agency": {
+    "name": "Connecticut Department of Consumer Protection",
+    "url": "https://portal.ct.gov/dcp"
+  },
+  "sourceType": "html_lookup",
+  "sourceUrl": "https://portal.ct.gov/dcp/verify-a-license",
+  "documentationUrl": "https://portal.ct.gov/dcp/verify-a-license",
+  "dataDictionaryUrl": null,
+  "termsUrl": "https://portal.ct.gov/policies",
+  "updateFrequency": "unknown; verify against the Connecticut eLicense portal before relying on freshness assumptions",
+  "tradeCoverage": ["home_improvement", "other"],
+  "licenseTypesIncluded": ["Connecticut licenses, permits, and registrations exposed by DCP/eLicense lookup, including home improvement contractor registrations where available"],
+  "knownExclusions": [
+    "The eLicense portal covers many license and registration types and this source entry does not isolate every construction-relevant credential.",
+    "Local permits, municipal registrations, and non-DCP authorizations are outside this source entry.",
+    "Roster generation is referenced by the official page, but bulk-export terms and fixture-safe fields require future review."
+  ],
+  "hasBulkDownload": "unknown",
+  "hasLiveLookup": true,
+  "requiresJavaScript": "unknown",
+  "requiresCaptcha": "unknown",
+  "requiresAccount": false,
+  "rateLimitNotes": "No adapter is implemented. Prefer official roster/export mechanisms if confirmed before lookup automation.",
+  "redistributionStatus": "unknown",
+  "publicRecordsNotes": "Official lookup source metadata only. Absence from this source is not proof that a license, permit, or registration does not exist elsewhere.",
+  "adapterStatus": "planned",
+  "sourceDiscoveryStatus": "researched",
+  "adapterMaturity": "registry_only",
+  "coverageScope": "state_agency_partial",
+  "adapterPackage": "@opentrade/adapter-ct-dcp",
+  "testFixturePath": null,
+  "officialLookupUrl": "https://www.elicense.ct.gov/Lookup/LicenseLookup.aspx",
+  "officialBulkDownloadNotes": "The official DCP page links to eLicense roster generation, but no redistribution-safe bulk path is confirmed in this phase.",
+  "researchNotes": "Registry-only source for Connecticut DCP/eLicense lookup. Future work should narrow home improvement contractor fields and roster terms before adapter work.",
+  "lastVerifiedAt": "2026-06-22T00:00:00.000Z",
+  "maintainerNotes": "Keep the broad eLicense scope explicit and avoid treating all eLicense professions as construction records."
+}
