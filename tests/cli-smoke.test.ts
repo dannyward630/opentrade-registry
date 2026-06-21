@@ -27,6 +27,11 @@ describe("opentrade CLI", () => {
     expect(list).toContain("us.oh.commerce.ocilb_contractors");
     expect(list).toContain("us.wi.dsps.dwelling_trades");
     expect(list).toContain("us.mn.dli.licenses_registrations");
+    expect(list).toContain("us.ct.dcp.home_improvement_contractors");
+    expect(list).toContain("us.md.dllr.home_improvement_contractors");
+    expect(list).toContain("us.nj.dca.home_improvement_contractors");
+    expect(list).toContain("us.nm.rld.construction_industries");
+    expect(list).toContain("us.wv.labor.contractors");
     expect(list).toContain("local_file_adapter");
     expect(list).toContain("fixture_adapter");
     const show = runCli(["sources", "show", "us.ca.cslb.contractors"]).stdout;
@@ -42,7 +47,13 @@ describe("opentrade CLI", () => {
     expect(ohio).toContain("Ohio Construction Industry Licensing Board Contractor License Lookup");
     expect(ohio).toContain("maturity: registry_only");
     expect(ohio).toContain("roster");
-    expect(runCli(["sources", "validate"]).stdout).toContain("Validated 24 source registry entries.");
+    const connecticut = runCli(["sources", "show", "us.ct.dcp.home_improvement_contractors"]).stdout;
+    expect(connecticut).toContain("Connecticut DCP eLicense Home Improvement Contractor Lookup");
+    expect(connecticut).toContain("maturity: registry_only");
+    const westVirginia = runCli(["sources", "show", "us.wv.labor.contractors"]).stdout;
+    expect(westVirginia).toContain("West Virginia Division of Labor Contractor License Search");
+    expect(westVirginia).toContain("maturity: registry_only");
+    expect(runCli(["sources", "validate"]).stdout).toContain("Validated 29 source registry entries.");
   });
 
   it("rejects registry-only sources for sync and verify with neutral wording", () => {
@@ -68,6 +79,28 @@ describe("opentrade CLI", () => {
     );
     expect(verify.stderr).toContain("Source us.ca.cslb.contractors is registered for metadata, but no verify adapter is implemented yet.");
     expect(verify.stderr).toContain("opentrade sources show us.ca.cslb.contractors");
+
+    for (const sourceId of [
+      "us.ct.dcp.home_improvement_contractors",
+      "us.md.dllr.home_improvement_contractors",
+      "us.nj.dca.home_improvement_contractors",
+      "us.nm.rld.construction_industries",
+      "us.wv.labor.contractors",
+    ]) {
+      const unsupportedSync = runCli(
+        ["sync", sourceId, "--file", sampleFixture, "--out", join(tmpdir(), `unused-${sourceId}.jsonl`)],
+        2,
+        { allowStderr: true },
+      );
+      expect(unsupportedSync.stderr).toContain(`Source ${sourceId} is registered for metadata, but no sync adapter is implemented yet.`);
+
+      const unsupported = runCli(
+        ["verify", "--source", sourceId, "--file", sampleFixture, "--license", "UNKNOWN"],
+        2,
+        { allowStderr: true },
+      );
+      expect(unsupported.stderr).toContain(`Source ${sourceId} is registered for metadata, but no verify adapter is implemented yet.`);
+    }
   });
 
   it("syncs fixture data to JSONL with structured stats", () => {

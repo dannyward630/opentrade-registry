@@ -1,0 +1,155 @@
+import { readFile, readdir } from "node:fs/promises";
+import { join } from "node:path";
+import { createClient } from "@supabase/supabase-js";
+import { sourceRegistryEntrySchema, type SourceRegistryEntry } from "@opentrade/core";
+
+export type SourceApiOrigin = "database" | "registry_files";
+
+export type SourceApiResult = {
+  origin: SourceApiOrigin;
+  sources: SourceRegistryEntry[];
+  databaseError?: string;
+};
+
+type RegistryDatabaseRow = {
+  id: string;
+  name: string;
+  jurisdiction: unknown;
+  agency: unknown;
+  source_type: string;
+  source_url: string;
+  documentation_url: string | null;
+  adapter_status: string;
+  adapter_maturity: string;
+  source_discovery_status: string;
+  coverage_scope: string;
+  redistribution_status: string;
+  metadata: Record<string, unknown> | null;
+  last_verified_at: string | null;
+};
+
+export type RegistryDatabaseClient = {
+  from(table: "registry_sources"): {
+    select(columns: string, options?: { count?: "exact"; head?: boolean }): unknown;
+  };
+};
+
+type QueryBuilder = {
+  order(column: string, options: { ascending: boolean }): Promise<{ data: RegistryDatabaseRow[] | null; error: { message: string } | null }>;
+};
+
+export async function loadSourcesForApi(options: { rootDir?: string; databaseClient?: RegistryDatabaseClient | null } = {}): Promise<SourceApiResult> {
+  const rootDir = options.rootDir ?? process.cwd();
+  const databaseClient = options.databaseClient ?? createDatabaseClientFromEnv();
+
+  if (databaseClient) {
+    try {
+      return {
+        origin: "database",
+        sources: await loadSourcesFromDatabase(databaseClient),
+      };
+    } catch (error) {
+      return {
+        origin: "registry_files",
+        sources: await loadSourcesFromFiles(rootDir),
+        databaseError: error instanceof Error ? error.message : "Unknown database source loading error",
+      };
+    }
+  }
+
+  return {
+    origin: "registry_files",
+    sources: await loadSourcesFromFiles(rootDir),
+  };
+}
+
+export async function loadSourcesFromFiles(rootDir = process.cwd()): Promise<SourceRegistryEntry[]> {
+  const sourceRoot = join(rootDir, "registry", "sources");
+  const files = await listJsonFiles(sourceRoot);
+  const sources = [];
+
+  for (const file of files) {
+    const content = JSON.parse(await readFile(file, "utf8"));
+    sources.push(sourceRegistryEntrySchema.parse(content));
+  }
+
+  return sources.sort((a, b) => a.id.localeCompare(b.id));
+}
+
+export async function loadSourcesFromDatabase(client: RegistryDatabaseClient): Promise<SourceRegistryEntry[]> {
+  const query = client.from("registry_sources").select("*") as QueryBuilder;
+  const { data, error } = await query.order("id", { ascending: true });
+
+  if (error) {
+    throw new Error(error.message);
+  }
+
+  return (data ?? []).map(mapDatabaseRowToSource);
+}
+
+export async function countSourcesFromDatabase(client: RegistryDatabaseClient): Promise<number> {
+  const query = client.from("registry_sources").select("id", { count: "exact", head: true }) as Promise<{
+    count: number | null;
+    error: { message: string } | null;
+  }>;
+  const { count, error } = await query;
+
+  if (error) {
+    throw new Error(error.message);
+  }
+
+  return count ?? 0;
+}
+
+export function createDatabaseClientFromEnv(): RegistryDatabaseClient | null {
+  const supabaseUrl = process.env.OPENTRADE_SUPABASE_URL;
+  const supabaseAnonKey = process.env.OPENTRADE_SUPABASE_ANON_KEY;
+
+  if (!supabaseUrl || !supabaseAnonKey) {
+    return null;
+  }
+
+  return createClient(supabaseUrl, supabaseAnonKey, {
+    auth: {
+      persistSession: false,
+    },
+  }) as RegistryDatabaseClient;
+}
+
+function mapDatabaseRowToSource(row: RegistryDatabaseRow): SourceRegistryEntry {
+  return sourceRegistryEntrySchema.parse({
+    ...(row.metadata ?? {}),
+    id: row.id,
+    name: row.name,
+    jurisdiction: row.jurisdiction,
+    agency: row.agency,
+    sourceType: row.source_type,
+    sourceUrl: row.source_url,
+    documentationUrl: row.documentation_url,
+    adapterStatus: row.adapter_status,
+    adapterMaturity: row.adapter_maturity,
+    sourceDiscoveryStatus: row.source_discovery_status,
+    coverageScope: row.coverage_scope,
+    redistributionStatus: row.redistribution_status,
+    lastVerifiedAt: row.last_verified_at,
+  });
+}
+
+async function listJsonFiles(directory: string): Promise<string[]> {
+  const entries = await readdir(directory, { withFileTypes: true });
+  const files: string[] = [];
+
+  for (const entry of entries) {
+    const path = join(directory, entry.name);
+    if (entry.isDirectory()) {
+      files.push(...(await listJsonFiles(path)));
+      continue;
+    }
+
+    if (entry.isFile() && entry.name.endsWith(".json")) {
+      files.push(path);
+    }
+  }
+
+  return files;
+}

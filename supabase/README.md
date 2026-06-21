@@ -22,6 +22,7 @@ Public source metadata can be seeded from `supabase/seeds/registry_sources.sql`.
 
 ```bash
 corepack pnpm db:seed:generate
+corepack pnpm db:seed:check
 ```
 
 Required hosted environment variables:

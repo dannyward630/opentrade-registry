@@ -138,7 +138,7 @@ Adapter maturity is tracked separately from source research:
 - Level 3: opt-in network sync with freshness metadata.
 - Level 4: verification semantics reviewed against official source caveats.
 
-Florida DBPR is currently a local-file adapter with opt-in URL sync through the CLI. Oregon CCB, Texas TDLR, and Washington L&I are fixture-supported. Alabama General Contractors Board, Arkansas Contractors Licensing Board, Arizona ROC, California CSLB, Colorado DORA, Georgia SOS, Iowa DIAL, Louisiana LSLBC, Massachusetts OPSI, Michigan LARA, Minnesota DLI, Nevada NSCB, North Carolina NCLBGC, Ohio OCILB, Pennsylvania OAG, South Carolina LLR, Tennessee Commerce, Utah DOPL, Virginia DPOR, and Wisconsin DSPS are registry-only entries.
+Florida DBPR is currently a local-file adapter with opt-in URL sync through the CLI. Oregon CCB, Texas TDLR, and Washington L&I are fixture-supported. Alabama General Contractors Board, Arkansas Contractors Licensing Board, Arizona ROC, California CSLB, Colorado DORA, Connecticut DCP, Georgia SOS, Iowa DIAL, Louisiana LSLBC, Maryland MHIC, Massachusetts OPSI, Michigan LARA, Minnesota DLI, Nevada NSCB, New Jersey DCA, New Mexico RLD, North Carolina NCLBGC, Ohio OCILB, Pennsylvania OAG, South Carolina LLR, Tennessee Commerce, Utah DOPL, Virginia DPOR, West Virginia Labor, and Wisconsin DSPS are registry-only entries.
 
 ## Project Layout
 
@@ -163,6 +163,7 @@ corepack pnpm build
 corepack pnpm test
 corepack pnpm typecheck
 corepack pnpm registry:validate
+corepack pnpm db:seed:check
 corepack pnpm cleanliness:scan
 corepack pnpm web:build
 ```

@@ -4,6 +4,7 @@ import { join } from "node:path";
 const root = process.cwd();
 const sourceRoot = join(root, "registry", "sources");
 const outputPath = join(root, "supabase", "seeds", "registry_sources.sql");
+const shouldCheck = process.argv.includes("--check");
 
 const files = await listJsonFiles(sourceRoot);
 const sources = [];
@@ -14,6 +15,20 @@ for (const file of files) {
 
 sources.sort((a, b) => a.id.localeCompare(b.id));
 
+const sql = buildSeedSql(sources);
+
+if (shouldCheck) {
+  const current = await readFile(outputPath, "utf8");
+  if (current !== sql) {
+    console.error(`${outputPath} is out of date. Run corepack pnpm db:seed:generate.`);
+    process.exitCode = 1;
+  }
+} else {
+  await writeFile(outputPath, sql, "utf8");
+  console.log(`Wrote ${sources.length} source rows to ${outputPath}`);
+}
+
+function buildSeedSql(sourceEntries) {
 const columns = [
   "id",
   "name",
@@ -38,8 +53,8 @@ const lines = [
   ") values",
 ];
 
-for (let index = 0; index < sources.length; index += 1) {
-  const source = sources[index];
+for (let index = 0; index < sourceEntries.length; index += 1) {
+  const source = sourceEntries[index];
   const metadata = { ...source };
   for (const key of [
     "id",
@@ -76,7 +91,7 @@ for (let index = 0; index < sources.length; index += 1) {
     sqlNullableTimestamp(source.lastVerifiedAt),
   ];
 
-  lines.push(`  (${values.join(", ")})${index === sources.length - 1 ? "" : ","}`);
+  lines.push(`  (${values.join(", ")})${index === sourceEntries.length - 1 ? "" : ","}`);
 }
 
 lines.push(
@@ -98,8 +113,8 @@ lines.push(
   ""
 );
 
-await writeFile(outputPath, `${lines.join("\n")}\n`, "utf8");
-console.log(`Wrote ${sources.length} source rows to ${outputPath}`);
+return `${lines.join("\n")}\n`;
+}
 
 async function listJsonFiles(directory) {
   const entries = await readdir(directory, { withFileTypes: true });

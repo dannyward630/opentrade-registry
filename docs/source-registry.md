@@ -44,9 +44,9 @@ The most important fields are:
 
 `registry/us-coverage.json` tracks state-by-state progress toward broader coverage. It is intentionally high level. A state can be listed there before a detailed source entry exists.
 
-Today, Florida DBPR is a local-file adapter with opt-in URL sync through the CLI. Oregon CCB, Texas TDLR, and Washington L&I are fixture-supported. Alabama General Contractors Board, Arkansas Contractors Licensing Board, Arizona ROC, California CSLB, Colorado DORA, Georgia SOS, Iowa DIAL, Louisiana LSLBC, Massachusetts OPSI, Michigan LARA, Minnesota DLI, Nevada NSCB, North Carolina NCLBGC, Ohio OCILB, Pennsylvania OAG, South Carolina LLR, Tennessee Commerce, Utah DOPL, Virginia DPOR, and Wisconsin DSPS are researched registry-only entries.
+Today, Florida DBPR is a local-file adapter with opt-in URL sync through the CLI. Oregon CCB, Texas TDLR, and Washington L&I are fixture-supported. Alabama General Contractors Board, Arkansas Contractors Licensing Board, Arizona ROC, California CSLB, Colorado DORA, Connecticut DCP, Georgia SOS, Iowa DIAL, Louisiana LSLBC, Maryland MHIC, Massachusetts OPSI, Michigan LARA, Minnesota DLI, Nevada NSCB, New Jersey DCA, New Mexico RLD, North Carolina NCLBGC, Ohio OCILB, Pennsylvania OAG, South Carolina LLR, Tennessee Commerce, Utah DOPL, Virginia DPOR, West Virginia Labor, and Wisconsin DSPS are researched registry-only entries.
 
-Minnesota, Oregon, and Washington are open-data-shaped sources. Alabama, Arkansas, Colorado, Georgia, Iowa, Louisiana, Massachusetts, Michigan, Nevada, North Carolina, Ohio, Pennsylvania, South Carolina, Tennessee, Utah, Virginia, and Wisconsin are lookup-oriented or still need bulk-export research in this phase, so their registry entries intentionally stop before parser or automation work.
+Minnesota, Oregon, and Washington are open-data-shaped sources. Alabama, Arkansas, Colorado, Connecticut, Georgia, Iowa, Louisiana, Maryland, Massachusetts, Michigan, Nevada, New Jersey, New Mexico, North Carolina, Ohio, Pennsylvania, South Carolina, Tennessee, Utah, Virginia, West Virginia, and Wisconsin are lookup-oriented or still need bulk-export research in this phase, so their registry entries intentionally stop before parser or automation work.
 
 ## Contribution Notes
 

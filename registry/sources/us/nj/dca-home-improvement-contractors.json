@@ -1,0 +1,44 @@
+{
+  "id": "us.nj.dca.home_improvement_contractors",
+  "name": "New Jersey Division of Consumer Affairs Home Improvement Contractor Verification",
+  "jurisdiction": {
+    "country": "US",
+    "state": "NJ"
+  },
+  "agency": {
+    "name": "New Jersey Division of Consumer Affairs",
+    "url": "https://www.njconsumeraffairs.gov/"
+  },
+  "sourceType": "html_lookup",
+  "sourceUrl": "https://www.njconsumeraffairs.gov/hec/Pages/verification.aspx",
+  "documentationUrl": "https://www.njconsumeraffairs.gov/hec/Pages/verification.aspx",
+  "dataDictionaryUrl": null,
+  "termsUrl": "https://www.nj.gov/nj/legal.html",
+  "updateFrequency": "unknown; verify against the official Division of Consumer Affairs verification path before relying on freshness assumptions",
+  "tradeCoverage": ["home_improvement", "other"],
+  "licenseTypesIncluded": ["New Jersey home improvement contractor registration records exposed by the official public verification path"],
+  "knownExclusions": [
+    "This source entry is scoped to home improvement contractor registration and does not represent every New Jersey construction, local permit, trade, or business credential.",
+    "The official page points to public web verification rather than a confirmed bulk dataset.",
+    "Home elevation contractor and other consumer affairs registration types may need separate source entries if modeled."
+  ],
+  "hasBulkDownload": "unknown",
+  "hasLiveLookup": true,
+  "requiresJavaScript": "unknown",
+  "requiresCaptcha": "unknown",
+  "requiresAccount": false,
+  "rateLimitNotes": "No adapter is implemented. Prefer official export options if discovered before lookup automation.",
+  "redistributionStatus": "unknown",
+  "publicRecordsNotes": "Official lookup source metadata only. Absence from this source is not proof that a registration or license does not exist elsewhere.",
+  "adapterStatus": "planned",
+  "sourceDiscoveryStatus": "researched",
+  "adapterMaturity": "registry_only",
+  "coverageScope": "state_agency_partial",
+  "adapterPackage": "@opentrade/adapter-nj-dca",
+  "testFixturePath": null,
+  "officialLookupUrl": "https://newjersey.mylicense.com/verification/Search.aspx?facility=Y",
+  "officialBulkDownloadNotes": "No official bulk download has been confirmed in this phase.",
+  "researchNotes": "Registry-only source for New Jersey home improvement contractor registration verification. Future work should review profession filters and result fields before fixture work.",
+  "lastVerifiedAt": "2026-06-22T00:00:00.000Z",
+  "maintainerNotes": "Keep registration wording clear; do not imply complete statewide contractor-license coverage."
+}

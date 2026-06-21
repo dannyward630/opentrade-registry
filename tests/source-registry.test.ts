@@ -30,7 +30,7 @@ type UsCoverageIndex = {
 describe("source registry", () => {
   it("validates every source registry entry", async () => {
     const files = await listJsonFiles(join(process.cwd(), "registry", "sources"));
-    expect(files.length).toBeGreaterThanOrEqual(24);
+    expect(files.length).toBeGreaterThanOrEqual(29);
 
     const parsed = [];
     for (const file of files) {
@@ -43,14 +43,18 @@ describe("source registry", () => {
       "us.az.roc.contractors",
       "us.ca.cslb.contractors",
       "us.co.dora.trades",
+      "us.ct.dcp.home_improvement_contractors",
       "us.fl.dbpr.construction",
       "us.ga.sos.residential_general_contractors",
       "us.ia.dial.contractor_registration",
       "us.la.lslbc.contractors",
       "us.ma.dol.opsi_construction_supervisors",
+      "us.md.dllr.home_improvement_contractors",
       "us.mi.lara.residential_builders",
       "us.mn.dli.licenses_registrations",
       "us.nc.nclbgc.general_contractors",
+      "us.nj.dca.home_improvement_contractors",
+      "us.nm.rld.construction_industries",
       "us.nv.nscb.contractors",
       "us.oh.commerce.ocilb_contractors",
       "us.or.ccb.active_licenses",
@@ -62,6 +66,7 @@ describe("source registry", () => {
       "us.va.dpor.contractors",
       "us.wa.lni.contractors",
       "us.wi.dsps.dwelling_trades",
+      "us.wv.labor.contractors",
     ]);
     expect(parsed.every((entry) => entry.redistributionStatus === "unknown")).toBe(true);
     expect(parsed.every((entry) => entry.sourceDiscoveryStatus === "researched")).toBe(true);
@@ -198,15 +203,19 @@ describe("source registry", () => {
     expect(coverage.states.find((entry) => entry.state === "AL")?.status).toBe("registry_entry_added");
     expect(coverage.states.find((entry) => entry.state === "AR")?.status).toBe("registry_entry_added");
     expect(coverage.states.find((entry) => entry.state === "CO")?.status).toBe("registry_entry_added");
+    expect(coverage.states.find((entry) => entry.state === "CT")?.status).toBe("registry_entry_added");
     expect(coverage.states.find((entry) => entry.state === "GA")?.status).toBe("registry_entry_added");
     expect(coverage.states.find((entry) => entry.state === "IA")?.status).toBe("registry_entry_added");
     expect(coverage.states.find((entry) => entry.state === "LA")?.status).toBe("registry_entry_added");
+    expect(coverage.states.find((entry) => entry.state === "MD")?.status).toBe("registry_entry_added");
     expect(coverage.states.find((entry) => entry.state === "MA")?.status).toBe("registry_entry_added");
     expect(coverage.states.find((entry) => entry.state === "MI")?.status).toBe("registry_entry_added");
     expect(coverage.states.find((entry) => entry.state === "MN")?.status).toBe("registry_entry_added");
     expect(coverage.states.find((entry) => entry.state === "CA")?.status).toBe("registry_entry_added");
     expect(coverage.states.find((entry) => entry.state === "AZ")?.status).toBe("registry_entry_added");
     expect(coverage.states.find((entry) => entry.state === "NC")?.status).toBe("registry_entry_added");
+    expect(coverage.states.find((entry) => entry.state === "NJ")?.status).toBe("registry_entry_added");
+    expect(coverage.states.find((entry) => entry.state === "NM")?.status).toBe("registry_entry_added");
     expect(coverage.states.find((entry) => entry.state === "NV")?.status).toBe("registry_entry_added");
     expect(coverage.states.find((entry) => entry.state === "OH")?.status).toBe("registry_entry_added");
     expect(coverage.states.find((entry) => entry.state === "OR")?.status).toBe("fixture_supported");
@@ -218,6 +227,7 @@ describe("source registry", () => {
     expect(coverage.states.find((entry) => entry.state === "VA")?.status).toBe("registry_entry_added");
     expect(coverage.states.find((entry) => entry.state === "WA")?.status).toBe("fixture_supported");
     expect(coverage.states.find((entry) => entry.state === "WI")?.status).toBe("registry_entry_added");
+    expect(coverage.states.find((entry) => entry.state === "WV")?.status).toBe("registry_entry_added");
   });
 });
 
