@@ -23,6 +23,7 @@ OpenTrade Registry is early. The next releases should stay modest: make the firs
 - Researched registry entries for Oregon CCB, Nevada NSCB, North Carolina NCLBGC, and Virginia DPOR.
 - Researched registry entries for Georgia SOS, Minnesota DLI, South Carolina LLR, Tennessee Commerce, and Utah DOPL.
 - Researched registry entries for Alabama General Contractors Board, Louisiana LSLBC, Michigan LARA, Pennsylvania OAG, and Wisconsin DSPS.
+- Researched registry entries for Arkansas ACLB, Colorado DORA, Iowa DIAL, Massachusetts OPSI, and Ohio OCILB.
 
 ## v0.3
 
@@ -34,7 +35,7 @@ OpenTrade Registry is early. The next releases should stay modest: make the firs
 
 ## v0.4
 
-- First 25 state source registry entries.
+- First 30 state source registry entries.
 - More fixture-supported adapters.
 - Clear reporting for registry-only and adapter-supported sources.
 - State expansion workflow documented well enough for new contributors to add research-first entries.

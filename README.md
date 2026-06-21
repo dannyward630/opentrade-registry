@@ -22,7 +22,7 @@ The current build is still intentionally small. It supports Florida DBPR constru
 - Convert a tiny Washington L&I fixture into canonical records.
 - Export canonical records as JSONL or CSV.
 - Check one license number against a local source file.
-- Inspect researched source metadata for Alabama, Arizona, California, Florida, Georgia, Louisiana, Michigan, Minnesota, Nevada, North Carolina, Oregon, Pennsylvania, South Carolina, Tennessee, Texas, Utah, Virginia, Washington, and Wisconsin.
+- Inspect researched source metadata for Alabama, Arkansas, Arizona, California, Colorado, Florida, Georgia, Iowa, Louisiana, Massachusetts, Michigan, Minnesota, Nevada, North Carolina, Ohio, Oregon, Pennsylvania, South Carolina, Tennessee, Texas, Utah, Virginia, Washington, and Wisconsin.
 
 ## What This Project Does Not Do
 
@@ -138,7 +138,7 @@ Adapter maturity is tracked separately from source research:
 - Level 3: opt-in network sync with freshness metadata.
 - Level 4: verification semantics reviewed against official source caveats.
 
-Florida DBPR is currently a local-file adapter with opt-in URL sync through the CLI. Oregon CCB, Texas TDLR, and Washington L&I are fixture-supported. Alabama General Contractors Board, Arizona ROC, California CSLB, Georgia SOS, Louisiana LSLBC, Michigan LARA, Minnesota DLI, Nevada NSCB, North Carolina NCLBGC, Pennsylvania OAG, South Carolina LLR, Tennessee Commerce, Utah DOPL, Virginia DPOR, and Wisconsin DSPS are registry-only entries.
+Florida DBPR is currently a local-file adapter with opt-in URL sync through the CLI. Oregon CCB, Texas TDLR, and Washington L&I are fixture-supported. Alabama General Contractors Board, Arkansas Contractors Licensing Board, Arizona ROC, California CSLB, Colorado DORA, Georgia SOS, Iowa DIAL, Louisiana LSLBC, Massachusetts OPSI, Michigan LARA, Minnesota DLI, Nevada NSCB, North Carolina NCLBGC, Ohio OCILB, Pennsylvania OAG, South Carolina LLR, Tennessee Commerce, Utah DOPL, Virginia DPOR, and Wisconsin DSPS are registry-only entries.
 
 ## Project Layout
 
