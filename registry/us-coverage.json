@@ -10,7 +10,7 @@
     "network_opt_in_supported"
   ],
   "states": [
-    { "state": "AL", "status": "not_started", "sourceIds": [], "notes": "No statewide source has been researched yet." },
+    { "state": "AL", "status": "registry_entry_added", "sourceIds": ["us.al.genconbd.general_contractors"], "notes": "Alabama general contractors board license roster source metadata exists; no adapter is implemented." },
     { "state": "AK", "status": "not_started", "sourceIds": [], "notes": "No statewide source has been researched yet." },
     { "state": "AZ", "status": "registry_entry_added", "sourceIds": ["us.az.roc.contractors"], "notes": "Arizona ROC source metadata has been added; no adapter is implemented." },
     { "state": "AR", "status": "not_started", "sourceIds": [], "notes": "No statewide source has been researched yet." },
@@ -28,11 +28,11 @@
     { "state": "IA", "status": "not_started", "sourceIds": [], "notes": "No statewide source has been researched yet." },
     { "state": "KS", "status": "not_started", "sourceIds": [], "notes": "No statewide source has been researched yet." },
     { "state": "KY", "status": "not_started", "sourceIds": [], "notes": "No statewide source has been researched yet." },
-    { "state": "LA", "status": "not_started", "sourceIds": [], "notes": "No statewide source has been researched yet." },
+    { "state": "LA", "status": "registry_entry_added", "sourceIds": ["us.la.lslbc.contractors"], "notes": "Louisiana State Licensing Board for Contractors lookup source metadata exists; no adapter is implemented." },
     { "state": "ME", "status": "not_started", "sourceIds": [], "notes": "No statewide source has been researched yet." },
     { "state": "MD", "status": "not_started", "sourceIds": [], "notes": "No statewide source has been researched yet." },
     { "state": "MA", "status": "not_started", "sourceIds": [], "notes": "No statewide source has been researched yet." },
-    { "state": "MI", "status": "not_started", "sourceIds": [], "notes": "No statewide source has been researched yet." },
+    { "state": "MI", "status": "registry_entry_added", "sourceIds": ["us.mi.lara.residential_builders"], "notes": "Michigan LARA residential builder lookup source metadata exists; no adapter is implemented." },
     { "state": "MN", "status": "registry_entry_added", "sourceIds": ["us.mn.dli.licenses_registrations"], "notes": "Minnesota DLI license and registration export source metadata exists; no adapter is implemented." },
     { "state": "MS", "status": "not_started", "sourceIds": [], "notes": "No statewide source has been researched yet." },
     { "state": "MO", "status": "not_started", "sourceIds": [], "notes": "No statewide source has been researched yet." },
@@ -48,7 +48,7 @@
     { "state": "OH", "status": "not_started", "sourceIds": [], "notes": "No statewide source has been researched yet." },
     { "state": "OK", "status": "not_started", "sourceIds": [], "notes": "No statewide source has been researched yet." },
     { "state": "OR", "status": "fixture_supported", "sourceIds": ["us.or.ccb.active_licenses"], "notes": "Oregon CCB active-license fixture adapter is implemented for a tiny hand-authored sample with official column names." },
-    { "state": "PA", "status": "not_started", "sourceIds": [], "notes": "No statewide source has been researched yet." },
+    { "state": "PA", "status": "registry_entry_added", "sourceIds": ["us.pa.oag.home_improvement_contractors"], "notes": "Pennsylvania OAG home improvement contractor search source metadata exists; no adapter is implemented." },
     { "state": "RI", "status": "not_started", "sourceIds": [], "notes": "No statewide source has been researched yet." },
     { "state": "SC", "status": "registry_entry_added", "sourceIds": ["us.sc.llr.contractors"], "notes": "South Carolina LLR contractor lookup source metadata exists; no adapter is implemented." },
     { "state": "SD", "status": "not_started", "sourceIds": [], "notes": "No statewide source has been researched yet." },
@@ -59,7 +59,7 @@
     { "state": "VA", "status": "registry_entry_added", "sourceIds": ["us.va.dpor.contractors"], "notes": "Virginia DPOR lookup source metadata exists; no adapter is implemented." },
     { "state": "WA", "status": "fixture_supported", "sourceIds": ["us.wa.lni.contractors"], "notes": "Washington L&I fixture adapter is implemented for a tiny hand-authored sample with official column names." },
     { "state": "WV", "status": "not_started", "sourceIds": [], "notes": "No statewide source has been researched yet." },
-    { "state": "WI", "status": "not_started", "sourceIds": [], "notes": "No statewide source has been researched yet." },
+    { "state": "WI", "status": "registry_entry_added", "sourceIds": ["us.wi.dsps.dwelling_trades"], "notes": "Wisconsin DSPS LicensE dwelling and trades credential lookup source metadata exists; no adapter is implemented." },
     { "state": "WY", "status": "not_started", "sourceIds": [], "notes": "No statewide source has been researched yet." }
   ]
 }

@@ -1,0 +1,43 @@
+{
+  "id": "us.al.genconbd.general_contractors",
+  "name": "Alabama Licensing Board for General Contractors License Roster",
+  "jurisdiction": {
+    "country": "US",
+    "state": "AL"
+  },
+  "agency": {
+    "name": "Alabama Licensing Board for General Contractors",
+    "url": "https://genconbd.alabama.gov/"
+  },
+  "sourceType": "html_lookup",
+  "sourceUrl": "https://licensesearch.alabama.gov/",
+  "documentationUrl": "https://genconbd.alabama.gov/",
+  "dataDictionaryUrl": null,
+  "termsUrl": "https://licensesearch.alabama.gov/Home/Policies",
+  "updateFrequency": "unknown; verify against the official license roster before relying on freshness assumptions",
+  "tradeCoverage": ["general contracting", "commercial contracting"],
+  "licenseTypesIncluded": ["Alabama general contractor license records exposed by the official license roster"],
+  "knownExclusions": [
+    "Residential home builder licensing is handled by the Alabama Home Builders Licensure Board and is outside this source entry.",
+    "Specialty trade boards, local permits, business registrations, and non-board authorizations are outside this source entry."
+  ],
+  "hasBulkDownload": "unknown",
+  "hasLiveLookup": true,
+  "requiresJavaScript": "unknown",
+  "requiresCaptcha": "unknown",
+  "requiresAccount": false,
+  "rateLimitNotes": "No adapter is implemented. Any future access should respect lookup controls and prefer official bulk options if discovered.",
+  "redistributionStatus": "unknown",
+  "publicRecordsNotes": "Official lookup source metadata only. Absence from this source is not proof that a license does not exist elsewhere.",
+  "adapterStatus": "planned",
+  "sourceDiscoveryStatus": "researched",
+  "adapterMaturity": "registry_only",
+  "coverageScope": "state_agency_partial",
+  "adapterPackage": "@opentrade/adapter-al-genconbd",
+  "testFixturePath": null,
+  "officialLookupUrl": "https://licensesearch.alabama.gov/",
+  "officialBulkDownloadNotes": "No official bulk download has been confirmed in this phase.",
+  "researchNotes": "Registry-only source for Alabama general contractor roster lookup. Future work should add separate entries for residential home builders and specialty trade boards if researched.",
+  "lastVerifiedAt": "2026-06-21T00:00:00.000Z",
+  "maintainerNotes": "Keep the general-contractor-board scope explicit; do not imply all Alabama construction or trade authorizations are covered."
+}
