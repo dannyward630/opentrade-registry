@@ -1,19 +1,21 @@
 # @opentrade/cli
 
-Command-line interface for OpenTrade Registry.
+The CLI is the simplest way to use OpenTrade Registry from this repository. It lists source metadata, validates the registry, syncs supported local files, and checks one license number against a local source file.
 
 ## Commands
 
 ```bash
 opentrade sources list
-opentrade sources show us.fl.dbpr.construction
+opentrade sources show us.tx.tdlr.all_licenses
 opentrade sources validate
 opentrade sync us.fl.dbpr.construction --file ./fixture.csv --out ./records.jsonl
 opentrade sync us.fl.dbpr.construction --file ./fixture.csv --out ./records.csv --format csv
 opentrade verify --source us.fl.dbpr.construction --file ./fixture.csv --license CGC012345
 ```
 
-Use `--json` for structured command output where supported.
+Use `--json` when you need structured output.
+
+`sources list` and `sources show` include registry-only sources. `sync` and `verify` only run for sources with implemented adapters.
 
 ## Exit Codes
 
@@ -25,5 +27,4 @@ Use `--json` for structured command output where supported.
 - `5`: ambiguous match
 - `6`: validation failed
 
-No command performs live source downloads in v0.1.
-
+The CLI does not download live agency data in v0.1.

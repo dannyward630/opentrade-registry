@@ -1,24 +1,20 @@
 # Florida DBPR URL Sync Design
 
-OpenTrade Registry v0.1 only reads local files. A future Florida DBPR URL sync path should remain explicit and opt-in.
+v0.1 reads local files only. A future Florida DBPR download path should stay explicit, opt-in, and easy to audit.
 
-Planned flags:
+## Planned Flags
 
-- `--url <source-url>`: source URL to fetch instead of a local file
-- `--allow-network`: required guard before any network request is made
-- `--source-last-modified <iso-date>`: optional caller-provided source freshness metadata
+- `--url <source-url>`: fetch a source URL instead of reading a local file.
+- `--allow-network`: required before any network request is made.
+- `--source-last-modified <iso-date>`: optional caller-provided source freshness metadata.
 
-Future behavior:
+## Intended Behavior
 
 - Refuse network sync unless `--allow-network` is present.
-- Prefer official bulk file URLs over page automation.
-- Fetch remote metadata with `HEAD` when available.
-- Preserve `Last-Modified`, `ETag`, fetched time, source URL, caveats, raw record data, and fingerprint.
+- Prefer the official bulk CSV URL over page automation.
+- Capture remote metadata such as `Last-Modified`, `ETag`, fetched time, source URL, caveats, raw record data, and fingerprint.
 - Keep network tests out of default local and CI runs.
 
-Operational cautions:
+## Operational Notes
 
-- Respect posted terms and robots guidance where applicable.
-- Do not bypass CAPTCHAs, login walls, or technical controls.
-- Do not publish generated datasets unless redistribution is clearly allowed.
-
+Use the official source responsibly. Respect posted terms and technical controls. Do not publish generated datasets unless redistribution is clearly allowed.

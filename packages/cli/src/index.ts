@@ -122,6 +122,9 @@ function findProjectRoot(): string {
 function printHelp() {
   console.log(`OpenTrade Registry CLI
 
+Work with registered public sources and supported local files.
+v0.1 does not download live agency data.
+
 Commands:
   opentrade sources list [--json]
   opentrade sources show <sourceId> [--json]

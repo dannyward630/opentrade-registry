@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "type": "module",
-  "description": "Open-source framework for official contractor and skilled-trade license records.",
+  "description": "Local-first toolkit for working with official contractor and skilled-trade license records.",
   "license": "MIT",
   "homepage": "https://github.com/dannyward630/opentrade-registry",
   "repository": {

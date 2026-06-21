@@ -15,6 +15,7 @@ body:
     attributes:
       label: Category
       options:
+        - New source research
         - Source registry metadata
         - Adapter
         - CLI
@@ -41,4 +42,3 @@ body:
       options:
         - label: This request does not require bypassing login walls, CAPTCHAs, or technical controls.
           required: true
-

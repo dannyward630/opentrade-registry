@@ -1,20 +1,21 @@
-# OpenTrade Registry Documentation
+# OpenTrade Registry Docs
 
-This directory collects the public design, usage, and data-use notes for OpenTrade Registry.
+These docs explain how the project models official sources, writes adapters, and keeps source context attached to normalized records.
 
 ## Start Here
 
-- [Architecture](architecture.md): source registry, adapters, canonical schema, CLI, and local-first exports.
-- [Canonical Schema](canonical-schema.md): normalized record shape and provenance fields.
-- [Source Registry](source-registry.md): metadata model for official public agency sources.
-- [Adapter Authoring](adapter-authoring.md): how source adapters should be structured and tested.
-- [Legal And Data Use](legal-and-data-use.md): source caveats, redistribution posture, and careful language.
-- [Florida DBPR URL Sync Design](florida-dbpr-url-sync.md): future network-sync design, disabled in v0.1.
-- [Roadmap](roadmap.md): staged project direction.
-- [Release Process](release-process.md): release steps once package publishing begins.
-- [Package Publishing](package-publishing.md): dry-run packaging checks and npm readiness.
+- [Architecture](architecture.md): how the registry, adapters, canonical records, and CLI fit together.
+- [Canonical Schema](canonical-schema.md): what a normalized record keeps and why raw records stay attached.
+- [Source Registry](source-registry.md): how official sources are described before and after adapter support exists.
+- [Source Research Template](source-research-template.md): the checklist to use before adding a new source.
+- [Adapter Authoring](adapter-authoring.md): practical guidance for writing a source adapter.
+- [California CSLB Adapter Plan](adapters/california-cslb.md): early notes for a future California adapter.
+- [Legal And Data Use](legal-and-data-use.md): readable data-use guardrails.
+- [Florida DBPR URL Sync Design](florida-dbpr-url-sync.md): planned opt-in live download behavior.
+- [Roadmap](roadmap.md): modest release goals.
+- [Release Process](release-process.md): release checklist.
+- [Package Publishing](package-publishing.md): dry-run packaging checks.
 
-## Current Boundaries
+## Current Boundary
 
-OpenTrade Registry v0.1 is local-first and fixture-driven. It does not download live agency files during normal commands or tests, and it does not publish generated datasets.
-
+v0.1 works from local files. It does not download live agency files during normal commands or tests, and it does not publish generated datasets.

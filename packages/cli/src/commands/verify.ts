@@ -1,12 +1,11 @@
 import { isAbsolute, resolve } from "node:path";
-import { floridaDbprConstructionAdapter, FL_DBPR_CONSTRUCTION_SOURCE_ID } from "@opentrade/adapter-fl-dbpr";
+import { FL_DBPR_CONSTRUCTION_SOURCE_ID } from "@opentrade/adapter-fl-dbpr";
 import { normalizeLicenseNumber, type CanonicalTradeLicenseRecord, type TradeLicenseVerificationResult } from "@opentrade/core";
+import { requireAdapter } from "../adapters.js";
 
 export async function verifyLicense(input: { rootDir: string; sourceId?: string; file?: string; license?: string; json?: boolean }) {
   const sourceId = input.sourceId ?? FL_DBPR_CONSTRUCTION_SOURCE_ID;
-  if (sourceId !== FL_DBPR_CONSTRUCTION_SOURCE_ID) {
-    throw Object.assign(new Error(`Source is not supported by v0.1 verify: ${sourceId}`), { exitCode: 2 });
-  }
+  const adapter = requireAdapter(sourceId, "verify");
 
   if (!input.file) {
     throw Object.assign(new Error("Missing --file for local-file verification."), { exitCode: 2 });
@@ -26,8 +25,8 @@ export async function verifyLicense(input: { rootDir: string; sourceId?: string;
   }
 
   const candidates: CanonicalTradeLicenseRecord[] = [];
-  for await (const rawRecord of floridaDbprConstructionAdapter.streamRawRecords({ filePath: resolveFromRoot(input.rootDir, input.file) })) {
-    const record = await floridaDbprConstructionAdapter.normalize(rawRecord);
+  for await (const rawRecord of adapter.streamRawRecords({ filePath: resolveFromRoot(input.rootDir, input.file) })) {
+    const record = await adapter.normalize(rawRecord);
     const normalizedCandidates = new Set([
       normalizeLicenseNumber(record.license.licenseNumber),
       record.license.licenseNumberNormalized,

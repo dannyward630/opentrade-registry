@@ -1,0 +1,43 @@
+{
+  "id": "us.tx.tdlr.all_licenses",
+  "name": "Texas TDLR All Licenses",
+  "jurisdiction": {
+    "country": "US",
+    "state": "TX"
+  },
+  "agency": {
+    "name": "Texas Department of Licensing and Regulation",
+    "url": "https://www.tdlr.texas.gov/"
+  },
+  "sourceType": "bulk_csv",
+  "sourceUrl": "https://data.texas.gov/dataset/TDLR-All-Licenses/7358-krk7",
+  "documentationUrl": "https://data.texas.gov/dataset/TDLR-All-Licenses/7358-krk7",
+  "dataDictionaryUrl": "https://data.texas.gov/api/views/7358-krk7/columns.json",
+  "termsUrl": "https://data.texas.gov/stories/s/9e82-j4cb",
+  "updateFrequency": "unknown; verify on the Texas Open Data Portal before relying on freshness assumptions",
+  "tradeCoverage": ["multiple regulated trades"],
+  "licenseTypesIncluded": ["TDLR license holders"],
+  "knownExclusions": [
+    "The dataset spans many TDLR license types and is not limited to construction or skilled-trade licenses.",
+    "Texas licensing is split across state and local authorities; this source does not represent every Texas contractor or trade authorization."
+  ],
+  "hasBulkDownload": true,
+  "hasLiveLookup": true,
+  "requiresJavaScript": "unknown",
+  "requiresCaptcha": "unknown",
+  "requiresAccount": false,
+  "rateLimitNotes": "No adapter is implemented yet. Any future download support should use the official open-data export responsibly and remain opt-in.",
+  "redistributionStatus": "unknown",
+  "publicRecordsNotes": "Official open-data source metadata only. Absence from this source is not proof that a license does not exist elsewhere.",
+  "adapterStatus": "planned",
+  "sourceDiscoveryStatus": "researched",
+  "adapterMaturity": "registry_only",
+  "coverageScope": "state_agency_partial",
+  "adapterPackage": "@opentrade/adapter-tx-tdlr",
+  "testFixturePath": null,
+  "officialLookupUrl": "https://www.tdlr.texas.gov/verify.htm",
+  "officialBulkDownloadNotes": "The Texas Open Data Portal lists downloadable formats for the TDLR All Licenses dataset. A future adapter should narrow trade coverage carefully.",
+  "researchNotes": "Good candidate for the first non-Florida data-portal adapter because the source has official open-data metadata and CSV export paths.",
+  "lastVerifiedAt": "2026-06-21T00:00:00.000Z",
+  "maintainerNotes": "Do not treat all TDLR rows as contractor records without license-type filtering."
+}

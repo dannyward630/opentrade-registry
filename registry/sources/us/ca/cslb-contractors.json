@@ -30,8 +30,14 @@
   "redistributionStatus": "unknown",
   "publicRecordsNotes": "Official public-record source metadata only. Generated dataset redistribution is not assumed to be allowed.",
   "adapterStatus": "planned",
+  "sourceDiscoveryStatus": "researched",
+  "adapterMaturity": "registry_only",
+  "coverageScope": "statewide",
   "adapterPackage": "@opentrade/adapter-ca-cslb",
   "testFixturePath": null,
+  "officialLookupUrl": "https://www.cslb.ca.gov/onlineservices/checklicenseII/checklicense.aspx",
+  "officialBulkDownloadNotes": "CSLB describes downloadable master-list data and companion files on its public data portal. No adapter or fixture is implemented yet.",
+  "researchNotes": "Treat this as registry metadata only until the master-list file shape, companion files, and redistribution posture are reviewed in detail.",
   "lastVerifiedAt": "2026-06-19T00:00:00.000Z",
   "maintainerNotes": "Only a source-registry entry exists in v0.1; no California adapter logic is implemented."
 }

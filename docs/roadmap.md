@@ -1,31 +1,46 @@
 # Roadmap
 
+OpenTrade Registry is early. The next releases should stay modest: make the first adapter reliable, make the registry useful, then add more sources without rushing into fragile live access.
+
 ## v0.1
 
-- Core canonical schema
-- Source registry validation
-- Florida DBPR fixture adapter
-- JSONL export
-- Local-file verify command
+- Core canonical schema.
+- Source registry validation.
+- Florida DBPR fixture adapter.
+- JSONL and CSV export from a local file.
+- Local-file license check.
 
 ## v0.2
 
-- Real Florida DBPR URL sync
-- Better CSV streaming
-- Import statistics
-- More adapter tests
-- CSV export
-- Network tests remain opt-in and outside normal CI
+- Registry coverage model.
+- More researched state source entries.
+- Better Florida DBPR local-file handling.
+- Clearer import statistics and warnings.
+- Opt-in design for live Florida DBPR download.
 
 ## v0.3
 
-- SQLite cache
-- California CSLB research and adapter
-- Adapter quality badges
+- California CSLB fixture adapter or Texas open-data adapter.
+- Adapter quality badges.
+- Shared import pipeline hardening.
+- Possible SQLite cache research.
+
+## v0.4
+
+- First 10 state source registry entries.
+- More fixture-supported adapters.
+- Clear reporting for registry-only and adapter-supported sources.
+
+## v1.0
+
+- All-state source registry coverage.
+- Stable adapter API.
+- Stable canonical schema with a documented compatibility policy.
+- No-network-by-default behavior preserved.
 
 ## Later
 
-- Postgres export
-- More state and local sources
-- Optional portal adapters
-- Complaint and discipline data where lawful and technically stable
+- SQLite or Postgres export packages.
+- More state and local sources.
+- Optional portal adapters where lawful and technically stable.
+- Complaint and discipline data where the source terms, format, and caveats are understood.

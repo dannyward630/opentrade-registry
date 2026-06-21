@@ -1,9 +1,7 @@
-import { mkdir, writeFile } from "node:fs/promises";
-import { dirname, isAbsolute, resolve } from "node:path";
-import { floridaDbprConstructionAdapter, FL_DBPR_CONSTRUCTION_SOURCE_ID } from "@opentrade/adapter-fl-dbpr";
+import { isAbsolute, resolve } from "node:path";
 import type { CanonicalTradeLicenseRecord, ImportStats } from "@opentrade/core";
-
-type SyncFormat = "jsonl" | "csv";
+import { requireAdapter } from "../adapters.js";
+import { parseSyncFormat, writeCanonicalRecords } from "../import/export.js";
 
 export async function syncSource(input: {
   rootDir: string;
@@ -16,9 +14,7 @@ export async function syncSource(input: {
   sourceLastModifiedAt?: string;
   json?: boolean;
 }) {
-  if (input.sourceId !== FL_DBPR_CONSTRUCTION_SOURCE_ID) {
-    throw Object.assign(new Error(`Source is not supported by v0.1 sync: ${input.sourceId}`), { exitCode: 2 });
-  }
+  const adapter = requireAdapter(input.sourceId, "sync");
 
   if (input.url || input.allowNetwork) {
     throw Object.assign(
@@ -47,21 +43,20 @@ export async function syncSource(input: {
   };
 
   const records: CanonicalTradeLicenseRecord[] = [];
-  for await (const rawRecord of floridaDbprConstructionAdapter.streamRawRecords({
+  for await (const rawRecord of adapter.streamRawRecords({
     filePath: resolveFromRoot(input.rootDir, input.file),
     sourceLastModifiedAt: input.sourceLastModifiedAt,
   })) {
     stats.rawRecordCount += 1;
     stats.warningCount += rawRecord.warnings?.length ?? 0;
-    records.push(await floridaDbprConstructionAdapter.normalize(rawRecord));
+    records.push(await adapter.normalize(rawRecord));
     stats.normalizedRecordCount += 1;
   }
 
   stats.finishedAt = new Date().toISOString();
 
   const outputPath = resolveFromRoot(input.rootDir, input.out);
-  await mkdir(dirname(outputPath), { recursive: true });
-  await writeFile(outputPath, format === "jsonl" ? toJsonl(records) : toCsv(records), "utf8");
+  await writeCanonicalRecords({ outputPath, format, records });
 
   const result = {
     sourceId: input.sourceId,
@@ -74,61 +69,4 @@ export async function syncSource(input: {
 
 function resolveFromRoot(rootDir: string, path: string): string {
   return isAbsolute(path) ? path : resolve(rootDir, path);
-}
-
-function parseSyncFormat(value: string | undefined): SyncFormat {
-  if (!value || value === "jsonl") {
-    return "jsonl";
-  }
-
-  if (value === "csv") {
-    return "csv";
-  }
-
-  throw Object.assign(new Error(`Unsupported sync format: ${value}. Use jsonl or csv.`), { exitCode: 2 });
-}
-
-function toJsonl(records: CanonicalTradeLicenseRecord[]): string {
-  return `${records.map((record) => JSON.stringify(record)).join("\n")}\n`;
-}
-
-function toCsv(records: CanonicalTradeLicenseRecord[]): string {
-  const header = [
-    "sourceId",
-    "licenseNumber",
-    "licenseNumberNormalized",
-    "typeLabel",
-    "tradeCategories",
-    "status",
-    "expirationDate",
-    "licenseeName",
-    "dbaName",
-    "sourceUrl",
-    "fetchedAt",
-    "fingerprint",
-  ];
-  const rows = records.map((record) => [
-    record.sourceId,
-    record.license.licenseNumber,
-    record.license.licenseNumberNormalized,
-    record.license.typeLabel ?? "",
-    record.license.tradeCategories?.join("|") ?? "",
-    record.status.normalized,
-    record.dates.expirationDate ?? "",
-    record.identity.licenseeName ?? "",
-    record.identity.dbaName ?? "",
-    record.source.sourceUrl,
-    record.source.fetchedAt,
-    record.raw.fingerprint,
-  ]);
-
-  return `${[header, ...rows].map((row) => row.map(csvCell).join(",")).join("\n")}\n`;
-}
-
-function csvCell(value: string): string {
-  if (!/[",\n\r]/.test(value)) {
-    return value;
-  }
-
-  return `"${value.replaceAll("\"", "\"\"")}"`;
 }
