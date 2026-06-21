@@ -1,6 +1,8 @@
 import type { AdapterWarning, NormalizedLicenseStatus, TradeCategory } from "@opentrade/core";
 import type { TexasTdlrRow } from "./map.js";
 
+export type TexasTdlrLicenseRelevance = "trade_relevant" | "possibly_trade_relevant" | "not_trade_relevant" | "unknown";
+
 export function normalizeTexasTdlrStatus(input: { expirationDate?: string | null }): {
   normalized: NormalizedLicenseStatus;
   isCurrent: boolean | null;
@@ -37,8 +39,42 @@ export function mapTexasTdlrTradeCategory(licenseType: string | null | undefined
   return "unknown";
 }
 
+export function classifyTexasTdlrLicenseRelevance(licenseType: string | null | undefined): TexasTdlrLicenseRelevance {
+  const normalized = licenseType?.toLowerCase() ?? "";
+  if (!normalized) {
+    return "unknown";
+  }
+
+  if (
+    normalized.includes("air conditioning") ||
+    normalized.includes("refrigeration") ||
+    normalized.includes("electrical") ||
+    normalized.includes("electrician") ||
+    normalized.includes("water well")
+  ) {
+    return "trade_relevant";
+  }
+
+  if (normalized.includes("contractor") || normalized.includes("technician") || normalized.includes("installer")) {
+    return "possibly_trade_relevant";
+  }
+
+  if (
+    normalized.includes("barber") ||
+    normalized.includes("cosmetology") ||
+    normalized.includes("auctioneer") ||
+    normalized.includes("driver") ||
+    normalized.includes("tow")
+  ) {
+    return "not_trade_relevant";
+  }
+
+  return "unknown";
+}
+
 export function buildTexasTdlrWarnings(row: TexasTdlrRow): AdapterWarning[] {
   const warnings: AdapterWarning[] = [];
+  const relevance = classifyTexasTdlrLicenseRelevance(row.licenseType);
 
   if (!row.licenseNumber) {
     warnings.push({
@@ -52,6 +88,14 @@ export function buildTexasTdlrWarnings(row: TexasTdlrRow): AdapterWarning[] {
     warnings.push({
       code: "unknown_license_type",
       message: `Texas TDLR license type is not categorized yet: ${row.licenseType || "(blank)"}.`,
+      recordFingerprint: row.fingerprint,
+    });
+  }
+
+  if (relevance === "not_trade_relevant") {
+    warnings.push({
+      code: "non_trade_license_type",
+      message: `Texas TDLR license type appears outside contractor and skilled-trade scope: ${row.licenseType}.`,
       recordFingerprint: row.fingerprint,
     });
   }
