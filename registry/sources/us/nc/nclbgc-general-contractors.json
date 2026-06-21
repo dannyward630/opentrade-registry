@@ -1,0 +1,43 @@
+{
+  "id": "us.nc.nclbgc.general_contractors",
+  "name": "North Carolina Licensing Board for General Contractors Verify License Search",
+  "jurisdiction": {
+    "country": "US",
+    "state": "NC"
+  },
+  "agency": {
+    "name": "North Carolina Licensing Board for General Contractors",
+    "url": "https://www.nclbgc.org/"
+  },
+  "sourceType": "html_lookup",
+  "sourceUrl": "https://portal.nclbgc.org/Public/Search",
+  "documentationUrl": "https://www.nclbgc.org/",
+  "dataDictionaryUrl": null,
+  "termsUrl": "https://www.nclbgc.org/privacy-policy/",
+  "updateFrequency": "unknown; verify against the official search before relying on freshness assumptions",
+  "tradeCoverage": ["general contracting"],
+  "licenseTypesIncluded": ["North Carolina general contractor licenses and qualifiers exposed by the public search"],
+  "knownExclusions": [
+    "This source is scoped to the North Carolina general contractors board and does not cover every construction-related license or local authorization in North Carolina.",
+    "The official source is lookup-oriented; bulk file availability has not been confirmed."
+  ],
+  "hasBulkDownload": "unknown",
+  "hasLiveLookup": true,
+  "requiresJavaScript": "unknown",
+  "requiresCaptcha": "unknown",
+  "requiresAccount": false,
+  "rateLimitNotes": "No adapter is implemented. Any future access should respect lookup controls and prefer official bulk options if available.",
+  "redistributionStatus": "unknown",
+  "publicRecordsNotes": "Official lookup source metadata only. Absence from this source is not proof that a license does not exist elsewhere.",
+  "adapterStatus": "planned",
+  "sourceDiscoveryStatus": "researched",
+  "adapterMaturity": "registry_only",
+  "coverageScope": "state_agency_partial",
+  "adapterPackage": "@opentrade/adapter-nc-nclbgc",
+  "testFixturePath": null,
+  "officialLookupUrl": "https://portal.nclbgc.org/Public/Search",
+  "officialBulkDownloadNotes": "No official bulk download has been confirmed in this phase.",
+  "researchNotes": "Useful source for general-contractor verification semantics, but not broad enough to represent all North Carolina skilled trades.",
+  "lastVerifiedAt": "2026-06-21T00:00:00.000Z",
+  "maintainerNotes": "Keep the source scope visible in CLI and docs to avoid overbroad statewide claims."
+}

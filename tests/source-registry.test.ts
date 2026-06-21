@@ -29,7 +29,7 @@ type UsCoverageIndex = {
 describe("source registry", () => {
   it("validates every source registry entry", async () => {
     const files = await listJsonFiles(join(process.cwd(), "registry", "sources"));
-    expect(files.length).toBeGreaterThanOrEqual(4);
+    expect(files.length).toBeGreaterThanOrEqual(9);
 
     const parsed = [];
     for (const file of files) {
@@ -40,7 +40,12 @@ describe("source registry", () => {
       "us.az.roc.contractors",
       "us.ca.cslb.contractors",
       "us.fl.dbpr.construction",
+      "us.nc.nclbgc.general_contractors",
+      "us.nv.nscb.contractors",
+      "us.or.ccb.active_licenses",
       "us.tx.tdlr.all_licenses",
+      "us.va.dpor.contractors",
+      "us.wa.lni.contractors",
     ]);
     expect(parsed.every((entry) => entry.redistributionStatus === "unknown")).toBe(true);
     expect(parsed.every((entry) => entry.sourceDiscoveryStatus === "researched")).toBe(true);
@@ -128,8 +133,13 @@ describe("source registry", () => {
     }
     expect(coverage.states.find((entry) => entry.state === "FL")?.status).toBe("local_file_supported");
     expect(coverage.states.find((entry) => entry.state === "CA")?.status).toBe("registry_entry_added");
-    expect(coverage.states.find((entry) => entry.state === "TX")?.status).toBe("fixture_supported");
     expect(coverage.states.find((entry) => entry.state === "AZ")?.status).toBe("registry_entry_added");
+    expect(coverage.states.find((entry) => entry.state === "NC")?.status).toBe("registry_entry_added");
+    expect(coverage.states.find((entry) => entry.state === "NV")?.status).toBe("registry_entry_added");
+    expect(coverage.states.find((entry) => entry.state === "OR")?.status).toBe("registry_entry_added");
+    expect(coverage.states.find((entry) => entry.state === "TX")?.status).toBe("fixture_supported");
+    expect(coverage.states.find((entry) => entry.state === "VA")?.status).toBe("registry_entry_added");
+    expect(coverage.states.find((entry) => entry.state === "WA")?.status).toBe("registry_entry_added");
   });
 });
 
