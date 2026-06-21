@@ -13,6 +13,7 @@ export async function syncSource(input: {
   allowNetwork?: boolean;
   sourceLastModifiedAt?: string;
   json?: boolean;
+  strict?: boolean;
 }) {
   const adapter = requireAdapter(input.sourceId, "sync");
 
@@ -45,6 +46,7 @@ export async function syncSource(input: {
       sourceLastModifiedAt: input.sourceLastModifiedAt ?? downloaded?.metadata.lastModifiedAt,
       fetchedAt: downloaded?.metadata.fetchedAt,
       remoteSnapshot: downloaded?.metadata,
+      strict: input.strict,
     });
     console.log(input.json ? JSON.stringify(result, null, 2) : `Wrote ${result.stats.normalizedRecordCount} ${format.toUpperCase()} canonical records to ${result.outputPath}.`);
   } finally {

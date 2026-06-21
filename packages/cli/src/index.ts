@@ -55,6 +55,7 @@ async function main() {
       allowNetwork: parsed.flags["allow-network"] === true,
       sourceLastModifiedAt: stringFlag(parsed, "source-last-modified"),
       json,
+      strict: parsed.flags.strict === true,
     });
     return;
   }
@@ -129,7 +130,7 @@ Commands:
   opentrade sources list [--json]
   opentrade sources show <sourceId> [--json]
   opentrade sources validate [--json]
-  opentrade sync <sourceId> --file <path> --out <path> [--format jsonl|csv] [--json]
+  opentrade sync <sourceId> --file <path> --out <path> [--format jsonl|csv] [--json] [--strict]
   opentrade verify --source <sourceId> --file <path> --license <licenseNumber> [--json]
 `);
 }

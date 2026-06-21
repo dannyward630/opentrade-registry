@@ -1,5 +1,5 @@
 import { createServer, type Server } from "node:http";
-import { mkdtempSync, readFileSync, rmSync } from "node:fs";
+import { mkdtempSync, readFileSync, rmSync, writeFileSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { spawn, spawnSync } from "node:child_process";
@@ -186,6 +186,52 @@ describe("opentrade CLI", () => {
       expect(csv).toContain(",active,");
       expect(csv).not.toContain("PrimaryPrincipalName");
       expect(csv.trim().split("\n")).toHaveLength(7);
+    } finally {
+      rmSync(dir, { recursive: true, force: true });
+    }
+  });
+
+  it("reports row-level normalization errors while writing valid records unless strict", () => {
+    const dir = mkdtempSync(join(tmpdir(), "opentrade-row-errors-"));
+    try {
+      const fixturePath = join(dir, "washington-with-bad-row.csv");
+      const fixture = readFileSync(washingtonFixture, "utf8");
+      const badRow =
+        'MISSING LICENSE,,CC,Construction Contractor,999 ERROR RD,,SEATTLE,WA,98101,2065550199,01/01/2020,12/31/2099,LLC,Limited Liability Company,GEN,General Contractor,,,604009999,"ERROR, CASEY",A,ACTIVE,';
+      writeFileSync(fixturePath, `${fixture.trim()}\n${badRow}\n`, "utf8");
+
+      const outPath = join(dir, "records.jsonl");
+      const result = runCli([
+        "sync",
+        "us.wa.lni.contractors",
+        "--file",
+        fixturePath,
+        "--out",
+        outPath,
+        "--json",
+      ]);
+      const json = JSON.parse(result.stdout);
+      expect(json.stats.rawRecordCount).toBe(7);
+      expect(json.stats.normalizedRecordCount).toBe(6);
+      expect(json.stats.errorCount).toBe(1);
+      expect(json.errors[0].message).toContain("Failed to normalize record 7");
+      expect(readFileSync(outPath, "utf8").trim().split("\n")).toHaveLength(6);
+
+      const strictOutPath = join(dir, "strict.jsonl");
+      const strict = runCli(
+        [
+          "sync",
+          "us.wa.lni.contractors",
+          "--file",
+          fixturePath,
+          "--out",
+          strictOutPath,
+          "--strict",
+        ],
+        1,
+        { allowStderr: true },
+      );
+      expect(strict.stderr).toContain("Failed to normalize record 7");
     } finally {
       rmSync(dir, { recursive: true, force: true });
     }
