@@ -30,7 +30,7 @@ type UsCoverageIndex = {
 describe("source registry", () => {
   it("validates every source registry entry", async () => {
     const files = await listJsonFiles(join(process.cwd(), "registry", "sources"));
-    expect(files.length).toBeGreaterThanOrEqual(19);
+    expect(files.length).toBeGreaterThanOrEqual(24);
 
     const parsed = [];
     for (const file of files) {
@@ -39,15 +39,20 @@ describe("source registry", () => {
 
     expect(parsed.map((entry) => entry.id).sort()).toEqual([
       "us.al.genconbd.general_contractors",
+      "us.ar.aclb.contractors",
       "us.az.roc.contractors",
       "us.ca.cslb.contractors",
+      "us.co.dora.trades",
       "us.fl.dbpr.construction",
       "us.ga.sos.residential_general_contractors",
+      "us.ia.dial.contractor_registration",
       "us.la.lslbc.contractors",
+      "us.ma.dol.opsi_construction_supervisors",
       "us.mi.lara.residential_builders",
       "us.mn.dli.licenses_registrations",
       "us.nc.nclbgc.general_contractors",
       "us.nv.nscb.contractors",
+      "us.oh.commerce.ocilb_contractors",
       "us.or.ccb.active_licenses",
       "us.pa.oag.home_improvement_contractors",
       "us.sc.llr.contractors",
@@ -191,14 +196,19 @@ describe("source registry", () => {
     }
     expect(coverage.states.find((entry) => entry.state === "FL")?.status).toBe("local_file_supported");
     expect(coverage.states.find((entry) => entry.state === "AL")?.status).toBe("registry_entry_added");
+    expect(coverage.states.find((entry) => entry.state === "AR")?.status).toBe("registry_entry_added");
+    expect(coverage.states.find((entry) => entry.state === "CO")?.status).toBe("registry_entry_added");
     expect(coverage.states.find((entry) => entry.state === "GA")?.status).toBe("registry_entry_added");
+    expect(coverage.states.find((entry) => entry.state === "IA")?.status).toBe("registry_entry_added");
     expect(coverage.states.find((entry) => entry.state === "LA")?.status).toBe("registry_entry_added");
+    expect(coverage.states.find((entry) => entry.state === "MA")?.status).toBe("registry_entry_added");
     expect(coverage.states.find((entry) => entry.state === "MI")?.status).toBe("registry_entry_added");
     expect(coverage.states.find((entry) => entry.state === "MN")?.status).toBe("registry_entry_added");
     expect(coverage.states.find((entry) => entry.state === "CA")?.status).toBe("registry_entry_added");
     expect(coverage.states.find((entry) => entry.state === "AZ")?.status).toBe("registry_entry_added");
     expect(coverage.states.find((entry) => entry.state === "NC")?.status).toBe("registry_entry_added");
     expect(coverage.states.find((entry) => entry.state === "NV")?.status).toBe("registry_entry_added");
+    expect(coverage.states.find((entry) => entry.state === "OH")?.status).toBe("registry_entry_added");
     expect(coverage.states.find((entry) => entry.state === "OR")?.status).toBe("fixture_supported");
     expect(coverage.states.find((entry) => entry.state === "PA")?.status).toBe("registry_entry_added");
     expect(coverage.states.find((entry) => entry.state === "SC")?.status).toBe("registry_entry_added");

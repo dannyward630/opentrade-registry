@@ -1,0 +1,43 @@
+{
+  "id": "us.oh.commerce.ocilb_contractors",
+  "name": "Ohio Construction Industry Licensing Board Contractor License Lookup",
+  "jurisdiction": {
+    "country": "US",
+    "state": "OH"
+  },
+  "agency": {
+    "name": "Ohio Department of Commerce Construction Industry Licensing Board",
+    "url": "https://com.ohio.gov/divisions-and-programs/industrial-compliance/boards/ohio-construction-industry-licensing-board"
+  },
+  "sourceType": "html_lookup",
+  "sourceUrl": "https://com.ohio.gov/divisions-and-programs/industrial-compliance/boards/ohio-construction-industry-licensing-board/verifying-licensed-contractors",
+  "documentationUrl": "https://com.ohio.gov/divisions-and-programs/industrial-compliance/boards/ohio-construction-industry-licensing-board",
+  "dataDictionaryUrl": null,
+  "termsUrl": "https://com.ohio.gov/privacy-notice",
+  "updateFrequency": "unknown; verify against the official OCILB eLicense lookup before relying on freshness assumptions",
+  "tradeCoverage": ["electrical", "hvac", "plumbing", "mechanical", "other"],
+  "licenseTypesIncluded": ["Ohio OCILB electrical, HVAC, hydronics, plumbing, and refrigeration contractor licenses exposed by the eLicense lookup"],
+  "knownExclusions": [
+    "Ohio OCILB covers specific commercial trade contractor licenses and does not represent statewide general contractor licensing.",
+    "Local general contractor licenses, local permits, and non-OCILB authorizations are outside this source entry."
+  ],
+  "hasBulkDownload": "unknown",
+  "hasLiveLookup": true,
+  "requiresJavaScript": true,
+  "requiresCaptcha": "unknown",
+  "requiresAccount": false,
+  "rateLimitNotes": "No adapter is implemented. The OCILB eLicense site has lookup and roster features, but access and redistribution terms require review.",
+  "redistributionStatus": "unknown",
+  "publicRecordsNotes": "Official lookup source metadata only. Absence from this source is not proof that a license, registration, or local authorization does not exist elsewhere.",
+  "adapterStatus": "planned",
+  "sourceDiscoveryStatus": "researched",
+  "adapterMaturity": "registry_only",
+  "coverageScope": "state_agency_partial",
+  "adapterPackage": "@opentrade/adapter-oh-commerce",
+  "testFixturePath": null,
+  "officialLookupUrl": "https://elicense4.com.ohio.gov/lookup/licenselookup.aspx",
+  "officialBulkDownloadNotes": "The OCILB eLicense site exposes roster generation/download pages, but terms, fields, and redistribution permission require further review before adapter work.",
+  "researchNotes": "Registry-only source for Ohio OCILB commercial trade contractor lookup. Future work should research roster downloads and local general-contractor coverage separately.",
+  "lastVerifiedAt": "2026-06-21T00:00:00.000Z",
+  "maintainerNotes": "Do not describe this as all Ohio contractor coverage; OCILB is limited to selected commercial trades."
+}
