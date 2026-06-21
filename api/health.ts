@@ -8,7 +8,9 @@ export default async function handler(_request: ApiRequest, response: ApiRespons
 
 export async function getHealthStatus(options: { rootDir?: string; databaseClient?: RegistryDatabaseClient | null } = {}) {
   const fileRegistrySourceCount = (await loadSourcesFromFiles(options.rootDir)).length;
-  const databaseClient = Object.hasOwn(options, "databaseClient") ? options.databaseClient : createDatabaseClientFromEnv();
+  const databaseClient = Object.prototype.hasOwnProperty.call(options, "databaseClient")
+    ? options.databaseClient
+    : createDatabaseClientFromEnv();
 
   if (!databaseClient) {
     return {
