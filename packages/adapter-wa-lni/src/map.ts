@@ -58,8 +58,8 @@ export type WashingtonLniRow = {
 };
 
 export function mapWashingtonLniFields(fields: string[], header: string[] = [...WA_LNI_COLUMNS]): WashingtonLniRow {
-  if (fields.length !== header.length) {
-    throw new Error(`Unexpected Washington L&I record width. Expected ${header.length} columns, received ${fields.length}.`);
+  if (fields.length < header.length) {
+    throw new Error(`Unexpected Washington L&I record width. Expected at least ${header.length} columns, received ${fields.length}.`);
   }
 
   const raw = Object.fromEntries(
