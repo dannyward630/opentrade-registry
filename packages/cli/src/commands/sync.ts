@@ -1,5 +1,6 @@
 import { requireAdapter } from "../adapters.js";
 import { parseSyncFormat } from "../import/export.js";
+import { downloadSourceToTempFile } from "../import/network.js";
 import { runAdapterSync } from "../import/sync-runner.js";
 
 export async function syncSource(input: {
@@ -15,14 +16,15 @@ export async function syncSource(input: {
 }) {
   const adapter = requireAdapter(input.sourceId, "sync");
 
-  if (input.url || input.allowNetwork) {
-    throw Object.assign(
-      new Error("Network sync is planned for a future release. v0.1 requires --file and does not download source data."),
-      { exitCode: 3 },
-    );
+  if (input.url && !input.allowNetwork) {
+    throw Object.assign(new Error("Network sync requires --allow-network. Use --file for local sync."), { exitCode: 3 });
   }
 
-  if (!input.file) {
+  if (input.allowNetwork && !input.url) {
+    throw Object.assign(new Error("Missing --url for network sync."), { exitCode: 2 });
+  }
+
+  if (!input.file && !input.url) {
     throw Object.assign(new Error("Missing --file for local-file sync."), { exitCode: 2 });
   }
 
@@ -31,13 +33,21 @@ export async function syncSource(input: {
   }
 
   const format = parseSyncFormat(input.format);
-  const result = await runAdapterSync({
-    adapter,
-    rootDir: input.rootDir,
-    filePath: input.file,
-    outPath: input.out,
-    format,
-    sourceLastModifiedAt: input.sourceLastModifiedAt,
-  });
-  console.log(input.json ? JSON.stringify(result, null, 2) : `Wrote ${result.stats.normalizedRecordCount} ${format.toUpperCase()} canonical records to ${result.outputPath}.`);
+  const downloaded = input.url ? await downloadSourceToTempFile(input.url) : null;
+
+  try {
+    const result = await runAdapterSync({
+      adapter,
+      rootDir: input.rootDir,
+      filePath: downloaded?.filePath ?? input.file!,
+      outPath: input.out,
+      format,
+      sourceLastModifiedAt: input.sourceLastModifiedAt ?? downloaded?.metadata.lastModifiedAt,
+      fetchedAt: downloaded?.metadata.fetchedAt,
+      remoteSnapshot: downloaded?.metadata,
+    });
+    console.log(input.json ? JSON.stringify(result, null, 2) : `Wrote ${result.stats.normalizedRecordCount} ${format.toUpperCase()} canonical records to ${result.outputPath}.`);
+  } finally {
+    await downloaded?.cleanup();
+  }
 }
