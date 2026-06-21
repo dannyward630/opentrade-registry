@@ -13,9 +13,46 @@ const expectedCsv = join(process.cwd(), "examples", "basic-sync", "expected", "s
 
 describe("opentrade CLI", () => {
   it("lists, shows, and validates sources", () => {
-    expect(runCli(["sources", "list"]).stdout).toContain("us.fl.dbpr.construction");
-    expect(runCli(["sources", "show", "us.fl.dbpr.construction"]).stdout).toContain("Florida DBPR Construction Industry Licenses");
-    expect(runCli(["sources", "validate"]).stdout).toContain("Validated 2 source registry entries.");
+    const list = runCli(["sources", "list"]).stdout;
+    expect(list).toContain("us.fl.dbpr.construction");
+    expect(list).toContain("us.ca.cslb.contractors");
+    expect(list).toContain("local_file_adapter");
+    expect(list).toContain("registry_only");
+    const show = runCli(["sources", "show", "us.ca.cslb.contractors"]).stdout;
+    expect(show).toContain("California CSLB Master List of Licensed Contractors");
+    expect(show).toContain("maturity: registry_only");
+    expect(runCli(["sources", "validate"]).stdout).toContain("Validated 4 source registry entries.");
+  });
+
+  it("rejects registry-only sources for sync and verify with neutral wording", () => {
+    const sync = runCli(
+      [
+        "sync",
+        "us.ca.cslb.contractors",
+        "--file",
+        sampleFixture,
+        "--out",
+        join(tmpdir(), "unused-opentrade.jsonl"),
+      ],
+      2,
+      { allowStderr: true },
+    );
+    expect(sync.stderr).toContain("Source us.ca.cslb.contractors is registered for metadata, but no sync adapter is implemented yet.");
+
+    const verify = runCli(
+      [
+        "verify",
+        "--source",
+        "us.tx.tdlr.all_licenses",
+        "--file",
+        sampleFixture,
+        "--license",
+        "TACLA000000",
+      ],
+      2,
+      { allowStderr: true },
+    );
+    expect(verify.stderr).toContain("Source us.tx.tdlr.all_licenses is registered for metadata, but no verify adapter is implemented yet.");
   });
 
   it("syncs fixture data to JSONL with structured stats", () => {
@@ -106,13 +143,15 @@ describe("opentrade CLI", () => {
   });
 });
 
-function runCli(args: string[], expectedStatus = 0) {
+function runCli(args: string[], expectedStatus = 0, options: { allowStderr?: boolean } = {}) {
   const result = spawnSync(tsxPath, [cliPath, "--", ...args], {
     cwd: process.cwd(),
     encoding: "utf8",
   });
 
   expect(result.status).toBe(expectedStatus);
-  expect(result.stderr).toBe("");
+  if (!options.allowStderr) {
+    expect(result.stderr).toBe("");
+  }
   return result;
 }

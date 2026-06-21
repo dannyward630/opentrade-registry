@@ -23,7 +23,7 @@ export async function listSources(rootDir: string, options: { json?: boolean }) 
   }
 
   for (const entry of entries) {
-    console.log(`${entry.id}\t${entry.adapterStatus}\t${entry.name}`);
+    console.log(`${entry.id}\t${entry.adapterStatus}\t${entry.adapterMaturity}\t${entry.name}`);
   }
 }
 
@@ -45,6 +45,8 @@ export async function showSource(rootDir: string, sourceId: string, options: { j
   console.log(`type: ${entry.sourceType}`);
   console.log(`url: ${entry.sourceUrl}`);
   console.log(`status: ${entry.adapterStatus}`);
+  console.log(`maturity: ${entry.adapterMaturity}`);
+  console.log(`discovery: ${entry.sourceDiscoveryStatus}`);
   console.log(`redistribution: ${entry.redistributionStatus}`);
 }
 
@@ -66,4 +68,3 @@ async function listJsonFiles(directory: string): Promise<string[]> {
 
   return files;
 }
-
