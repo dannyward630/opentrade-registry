@@ -24,6 +24,14 @@ Expected project settings:
 
 The repository also includes root API functions under `api/`. Vercel packages `registry/**/*.json` with those functions so the source API can load source metadata at runtime.
 
+`/api/sources` is database-first when Supabase environment variables are configured. If the database is not configured or the database read fails, the endpoint falls back to the checked-in registry files. Responses include:
+
+- `origin: "database"` when rows were read from Supabase.
+- `origin: "registry_files"` when rows were read from the checked-in registry.
+- `count` and `sources`, preserving the existing response shape.
+
+`/api/health` reports the checked-in file source count and, when Supabase is configured, the database source count. The `sourceCountMatchesFiles` field should be `true` after the seed SQL has been applied.
+
 ## Supabase
 
 The database is optional. Apply the migration in `supabase/migrations/` to create:
@@ -38,6 +46,15 @@ Set these Vercel environment variables after the project exists:
 - `OPENTRADE_SUPABASE_ANON_KEY`
 
 The hosted health endpoint reports `database.configured: false` until those variables are set. Do not expose service role credentials to browser code.
+
+After adding registry entries:
+
+```bash
+corepack pnpm db:seed:generate
+corepack pnpm db:seed:check
+```
+
+Apply `supabase/seeds/registry_sources.sql` to the Supabase project, then confirm `/api/health` reports matching file and database source counts. Generated public-record datasets are not seeded into Supabase.
 
 ## Data-Use Guardrails
 

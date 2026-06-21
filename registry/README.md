@@ -24,6 +24,11 @@ Examples:
 - `registry/sources/us/wi/dsps-dwelling-trades.json`
 - `registry/sources/us/ar/aclb-contractors.json`
 - `registry/sources/us/oh/commerce-ocilb-contractors.json`
+- `registry/sources/us/ct/dcp-home-improvement-contractors.json`
+- `registry/sources/us/md/dllr-home-improvement-contractors.json`
+- `registry/sources/us/nj/dca-home-improvement-contractors.json`
+- `registry/sources/us/nm/rld-construction-industries.json`
+- `registry/sources/us/wv/labor-contractors.json`
 
 `registry/us-coverage.json` tracks state-by-state progress. It may list a state before a detailed source has been researched.
 
@@ -52,10 +57,17 @@ Run:
 
 ```bash
 corepack pnpm registry:validate
+corepack pnpm db:seed:check
 ```
 
 For a quick source-quality summary, run:
 
 ```bash
 corepack pnpm source:quality
+```
+
+Regenerate the optional hosted seed after changing registry entries:
+
+```bash
+corepack pnpm db:seed:generate
 ```
