@@ -36,6 +36,21 @@ Keep commits small and cohesive. Prefer separate commits for metadata, docs, sou
 - Include known exclusions and caveats in plain language.
 - Do not add generated bulk datasets.
 
+## Adding A New State
+
+1. Start with `docs/source-research-template.md`.
+2. Confirm the source is official and public.
+3. Add a source entry under `registry/sources/us/<state>/`.
+4. Update `registry/us-coverage.json`.
+5. Run `corepack pnpm registry:validate`.
+6. Add a tiny fixture only when parser work begins.
+7. Implement parser, mapper, normalizer, and verification behavior in a source-specific adapter package.
+8. Keep network access disabled by default.
+9. Add CLI smoke coverage for supported operations and unsupported registry-only behavior.
+10. Run `corepack pnpm verify`.
+
+State coverage progresses through registry metadata before adapter implementation. A registry-only source is useful when it clearly identifies the official source and caveats.
+
 ## Package Publishing
 
 Packages are not published yet. Before publishing, confirm npm package-name availability, release credentials, provenance settings, and source metadata licensing.

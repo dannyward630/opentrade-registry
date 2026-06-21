@@ -16,6 +16,16 @@ Optional capabilities:
 - fetch remote snapshot metadata
 - look up a single license if the source supports live lookup
 
+## Adapter Quality Levels
+
+- Level 0: registry metadata only.
+- Level 1: fixture parses and normalizes.
+- Level 2: local public file sync.
+- Level 3: opt-in network sync with freshness metadata.
+- Level 4: verification semantics reviewed against official source caveats.
+
+New states should usually start at Level 0. Move to parser work only after the official source, access rules, and caveats are documented.
+
 ## Expected Package Shape
 
 ```text

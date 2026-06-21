@@ -7,7 +7,9 @@ This directory collects the public design, usage, and data-use notes for OpenTra
 - [Architecture](architecture.md): source registry, adapters, canonical schema, CLI, and local-first exports.
 - [Canonical Schema](canonical-schema.md): normalized record shape and provenance fields.
 - [Source Registry](source-registry.md): metadata model for official public agency sources.
+- [Source Research Template](source-research-template.md): checklist for adding researched public source entries.
 - [Adapter Authoring](adapter-authoring.md): how source adapters should be structured and tested.
+- [California CSLB Adapter Plan](adapters/california-cslb.md): no-network plan for a future California adapter.
 - [Legal And Data Use](legal-and-data-use.md): source caveats, redistribution posture, and careful language.
 - [Florida DBPR URL Sync Design](florida-dbpr-url-sync.md): future network-sync design, disabled in v0.1.
 - [Roadmap](roadmap.md): staged project direction.
@@ -17,4 +19,3 @@ This directory collects the public design, usage, and data-use notes for OpenTra
 ## Current Boundaries
 
 OpenTrade Registry v0.1 is local-first and fixture-driven. It does not download live agency files during normal commands or tests, and it does not publish generated datasets.
-

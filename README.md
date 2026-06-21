@@ -32,6 +32,18 @@ The v0.1 foundation supports Florida DBPR construction-license records from a lo
 
 It does not download live agency data yet. Network source sync is intentionally disabled in v0.1.
 
+## Source And Adapter Maturity
+
+OpenTrade Registry tracks source coverage separately from adapter support:
+
+- Level 0: registry metadata only.
+- Level 1: fixture parses and normalizes.
+- Level 2: local public file sync.
+- Level 3: opt-in network sync with freshness metadata.
+- Level 4: verification semantics reviewed against official source caveats.
+
+The current registry includes researched metadata for Florida DBPR, California CSLB, Texas TDLR, and Arizona ROC. Florida DBPR is the only local-file adapter today.
+
 ## Requirements
 
 - Node.js 20+
@@ -47,6 +59,8 @@ registry/sources            Source registry metadata
 docs                        Architecture and data-use documentation
 examples                    Minimal usage examples
 ```
+
+See `registry/us-coverage.json` for state-by-state coverage status.
 
 ## Development
 
