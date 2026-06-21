@@ -47,7 +47,7 @@
     { "state": "ND", "status": "not_started", "sourceIds": [], "notes": "No statewide source has been researched yet." },
     { "state": "OH", "status": "not_started", "sourceIds": [], "notes": "No statewide source has been researched yet." },
     { "state": "OK", "status": "not_started", "sourceIds": [], "notes": "No statewide source has been researched yet." },
-    { "state": "OR", "status": "registry_entry_added", "sourceIds": ["us.or.ccb.active_licenses"], "notes": "Oregon CCB active-license open-data source metadata exists; no adapter is implemented." },
+    { "state": "OR", "status": "fixture_supported", "sourceIds": ["us.or.ccb.active_licenses"], "notes": "Oregon CCB active-license fixture adapter is implemented for a tiny hand-authored sample with official column names." },
     { "state": "PA", "status": "not_started", "sourceIds": [], "notes": "No statewide source has been researched yet." },
     { "state": "RI", "status": "not_started", "sourceIds": [], "notes": "No statewide source has been researched yet." },
     { "state": "SC", "status": "not_started", "sourceIds": [], "notes": "No statewide source has been researched yet." },

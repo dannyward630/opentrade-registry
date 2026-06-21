@@ -14,6 +14,11 @@ import {
   normalizeDbprStatus,
 } from "@opentrade/adapter-fl-dbpr";
 import {
+  normalizeOregonCcbStatus,
+  oregonCcbActiveLicensesAdapter,
+  OR_CCB_ACTIVE_LICENSES_SOURCE_ID,
+} from "@opentrade/adapter-or-ccb";
+import {
   texasTdlrAllLicensesAdapter,
   TX_TDLR_ALL_LICENSES_SOURCE_ID,
   normalizeTexasTdlrStatus,
@@ -36,6 +41,13 @@ describe("public package imports", () => {
     expect(FL_DBPR_CONSTRUCTION_SOURCE_ID).toBe("us.fl.dbpr.construction");
     expect(floridaDbprConstructionAdapter.sourceId).toBe("us.fl.dbpr.construction");
     expect(normalizeDbprStatus({ primaryStatusCode: "S", secondaryStatusCode: "A" }).normalized).toBe("suspended");
+    expect(OR_CCB_ACTIVE_LICENSES_SOURCE_ID).toBe("us.or.ccb.active_licenses");
+    expect(oregonCcbActiveLicensesAdapter.sourceId).toBe("us.or.ccb.active_licenses");
+    expect(
+      normalizeOregonCcbStatus({
+        expirationDate: "2099-12-31T00:00:00.000Z",
+      } as Parameters<typeof normalizeOregonCcbStatus>[0]).normalized,
+    ).toBe("active");
     expect(TX_TDLR_ALL_LICENSES_SOURCE_ID).toBe("us.tx.tdlr.all_licenses");
     expect(texasTdlrAllLicensesAdapter.sourceId).toBe("us.tx.tdlr.all_licenses");
     expect(normalizeTexasTdlrStatus({ expirationDate: "2099-12-31T00:00:00.000Z" }).normalized).toBe("active");
