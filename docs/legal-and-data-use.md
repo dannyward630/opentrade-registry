@@ -8,12 +8,15 @@ OpenTrade Registry helps with public records. It is not legal advice, and it doe
 - Respect posted terms, privacy notices, and robots guidance where applicable.
 - Do not bypass CAPTCHAs, login walls, or technical controls.
 - Keep normal tests offline.
+- Treat `--allow-network` as an explicit operational choice. Do not add live agency downloads to default test runs.
 
 ## Be Careful With Generated Data
 
 Do not publish generated datasets unless the source clearly allows redistribution. When in doubt, publish the adapter code, source metadata, and instructions instead of republishing the records.
 
 If you export records, keep the source URL, fetched time, caveats, raw record, and fingerprint with the data. Those fields help users understand where the record came from and when it was checked.
+
+Downloaded files should stay local unless redistribution is clearly allowed. For examples and tests, prefer tiny hand-authored fixtures over copied public bulk rows.
 
 ## Avoid Overclaiming
 

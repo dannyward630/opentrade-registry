@@ -14,6 +14,7 @@ The dry run should show:
 
 - `@opentrade/core`: compiled files and README.
 - `@opentrade/adapter-fl-dbpr`: compiled files, README, and small fixtures.
+- `@opentrade/adapter-tx-tdlr`: compiled files, README, and small fixtures.
 - `@opentrade/cli`: compiled files and README.
 
 Generated bulk datasets should not appear in any package.

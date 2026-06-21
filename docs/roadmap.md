@@ -16,11 +16,12 @@ OpenTrade Registry is early. The next releases should stay modest: make the firs
 - More researched state source entries.
 - Better Florida DBPR local-file handling.
 - Clearer import statistics and warnings.
-- Opt-in design for live Florida DBPR download.
+- Explicit opt-in URL sync with remote freshness metadata.
+- Texas TDLR fixture adapter.
 
 ## v0.3
 
-- California CSLB fixture adapter or Texas open-data adapter.
+- California CSLB fixture adapter or deeper Texas open-data support.
 - Adapter quality badges.
 - Shared import pipeline hardening.
 - Possible SQLite cache research.

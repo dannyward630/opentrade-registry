@@ -11,12 +11,13 @@ OpenTrade Registry helps developers work with official contractor and skilled-tr
 
 Contractor-license data is public, but it is scattered. One agency might publish a CSV file. Another might offer an Excel download. Another might only provide a lookup page. OpenTrade Registry gives those sources a common registry, a canonical record shape, and adapter contracts so each source can be handled consistently.
 
-v0.1 is intentionally small. It supports Florida DBPR construction-license records from a local fixture file. It can normalize those records to JSONL or CSV and check one license number against the local file. It does not download live agency data yet.
+The current build is still intentionally small. It supports Florida DBPR construction-license records from local files, can opt into URL-based sync when `--allow-network` is provided, and includes a fixture adapter for Texas TDLR. Normal tests do not download live agency data.
 
 ## What You Can Do Today
 
 - Validate the source registry.
 - Convert the Florida DBPR sample file into canonical records.
+- Convert a tiny Texas TDLR fixture into canonical records.
 - Export canonical records as JSONL or CSV.
 - Check one license number against a local source file.
 - Inspect researched source metadata for Florida DBPR, California CSLB, Texas TDLR, and Arizona ROC.
@@ -77,9 +78,17 @@ corepack pnpm cli -- verify \
   --license CGC012345
 ```
 
+Try the Texas TDLR fixture adapter:
+
+```bash
+corepack pnpm cli -- sync us.tx.tdlr.all_licenses \
+  --file packages/adapter-tx-tdlr/fixtures/all-licenses-sample.csv \
+  --out ./texas.jsonl
+```
+
 ## Why Local Files First?
 
-v0.1 works from local files so tests stay reliable and users can inspect exactly what they are importing. Live agency download is planned as an explicit opt-in path later. Normal tests do not contact agency websites.
+OpenTrade Registry starts from local files so tests stay reliable and users can inspect exactly what they are importing. URL sync is explicit: callers must pass both `--url` and `--allow-network`. Normal tests do not contact agency websites.
 
 ## Why Keep Source Provenance?
 
@@ -111,13 +120,14 @@ Adapter maturity is tracked separately from source research:
 - Level 3: opt-in network sync with freshness metadata.
 - Level 4: verification semantics reviewed against official source caveats.
 
-Florida DBPR is currently the only local-file adapter. California CSLB, Texas TDLR, and Arizona ROC are registry-only entries.
+Florida DBPR is currently a local-file adapter with opt-in URL sync through the CLI. Texas TDLR is fixture-supported. California CSLB and Arizona ROC are registry-only entries.
 
 ## Project Layout
 
 ```text
 packages/core               Schemas, adapter contracts, and normalization helpers
 packages/adapter-fl-dbpr    Florida DBPR construction-license adapter
+packages/adapter-tx-tdlr    Texas TDLR fixture adapter
 packages/cli                opentrade command-line interface
 registry/sources            Source metadata for official agency sources
 registry/us-coverage.json   State-by-state coverage progress
@@ -137,6 +147,6 @@ corepack pnpm cleanliness:scan
 
 ## Roadmap
 
-The next work is to harden the shared ingestion path, add opt-in Florida DBPR live-file support, and continue building a researched source registry state by state. Broader adapter coverage will come after the registry and adapter contracts stay boring and predictable.
+The next work is to make URL sync more source-aware, improve Texas license-type filtering, and continue building a researched source registry state by state. Broader adapter coverage will come after the registry and adapter contracts stay boring and predictable.
 
 See [docs/roadmap.md](docs/roadmap.md) for the current plan.
