@@ -1,0 +1,43 @@
+{
+  "id": "us.nv.nscb.contractors",
+  "name": "Nevada State Contractors Board License Search",
+  "jurisdiction": {
+    "country": "US",
+    "state": "NV"
+  },
+  "agency": {
+    "name": "Nevada State Contractors Board",
+    "url": "https://www.nvcontractorsboard.com/"
+  },
+  "sourceType": "html_lookup",
+  "sourceUrl": "https://app.nvcontractorsboard.com/Clients/NVSCB/Public/ContractorLicenseSearch/ContractorLicenseSearch.aspx",
+  "documentationUrl": "https://www.nvcontractorsboard.com/licensing/",
+  "dataDictionaryUrl": null,
+  "termsUrl": "https://www.nvcontractorsboard.com/",
+  "updateFrequency": "unknown; verify against the official license search before relying on freshness assumptions",
+  "tradeCoverage": ["construction"],
+  "licenseTypesIncluded": ["Nevada contractor licenses"],
+  "knownExclusions": [
+    "This registry entry is for an official lookup path, not a confirmed bulk download.",
+    "Local permits, business registrations, and other state or local authorizations may be outside NSCB scope."
+  ],
+  "hasBulkDownload": "unknown",
+  "hasLiveLookup": true,
+  "requiresJavaScript": "unknown",
+  "requiresCaptcha": "unknown",
+  "requiresAccount": false,
+  "rateLimitNotes": "No adapter is implemented. Do not automate lookup pages unless access terms and technical controls are reviewed.",
+  "redistributionStatus": "unknown",
+  "publicRecordsNotes": "Official lookup source metadata only. Absence from this source is not proof that a license does not exist elsewhere.",
+  "adapterStatus": "planned",
+  "sourceDiscoveryStatus": "researched",
+  "adapterMaturity": "registry_only",
+  "coverageScope": "statewide",
+  "adapterPackage": "@opentrade/adapter-nv-nscb",
+  "testFixturePath": null,
+  "officialLookupUrl": "https://app.nvcontractorsboard.com/Clients/NVSCB/Public/ContractorLicenseSearch/ContractorLicenseSearch.aspx",
+  "officialBulkDownloadNotes": "No official bulk download has been confirmed in this phase.",
+  "researchNotes": "Registry-only source for now because the official path is lookup-oriented.",
+  "lastVerifiedAt": "2026-06-21T00:00:00.000Z",
+  "maintainerNotes": "Future work should first look for a documented public export before considering portal automation."
+}

@@ -1,41 +1,12 @@
 import { createReadStream } from "node:fs";
 import { createInterface } from "node:readline";
-import { buildFingerprint, type RawSourceRecord } from "@opentrade/core";
+import { buildFingerprint, parseCsvLine, type RawSourceRecord } from "@opentrade/core";
 import { FL_DBPR_CONSTRUCTION_SOURCE_ID } from "./constants.js";
 import { mapConstructionCsvFields, type DbprConstructionRow } from "./map.js";
 import { buildDbprRecordWarnings } from "./normalize.js";
 
 export function parseConstructionCsvLine(line: string): string[] {
-  const values: string[] = [];
-  let current = "";
-  let inQuotes = false;
-
-  for (let index = 0; index < line.length; index += 1) {
-    const character = line[index];
-
-    if (character === "\"") {
-      const nextCharacter = line[index + 1];
-      if (inQuotes && nextCharacter === "\"") {
-        current += "\"";
-        index += 1;
-        continue;
-      }
-
-      inQuotes = !inQuotes;
-      continue;
-    }
-
-    if (character === "," && !inQuotes) {
-      values.push(current);
-      current = "";
-      continue;
-    }
-
-    current += character;
-  }
-
-  values.push(current);
-  return values;
+  return parseCsvLine(line);
 }
 
 export function parseConstructionCsvRow(line: string): DbprConstructionRow {

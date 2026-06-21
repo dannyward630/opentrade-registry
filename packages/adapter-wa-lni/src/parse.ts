@@ -1,19 +1,19 @@
 import { createReadStream } from "node:fs";
 import { createInterface } from "node:readline";
 import { buildFingerprint, parseCsvLine, type RawSourceRecord } from "@opentrade/core";
-import { TX_TDLR_ALL_LICENSES_SOURCE_ID } from "./constants.js";
-import { mapTexasTdlrFields, TDLR_COLUMNS, type TexasTdlrRow } from "./map.js";
-import { buildTexasTdlrWarnings } from "./normalize.js";
+import { WA_LNI_CONTRACTORS_SOURCE_ID } from "./constants.js";
+import { mapWashingtonLniFields, WA_LNI_COLUMNS, type WashingtonLniRow } from "./map.js";
+import { buildWashingtonLniWarnings } from "./normalize.js";
 
-export function parseTexasTdlrCsvLine(line: string): string[] {
+export function parseWashingtonLniCsvLine(line: string): string[] {
   return parseCsvLine(line);
 }
 
-export function parseTexasTdlrCsvRow(line: string, header: string[] = [...TDLR_COLUMNS]): TexasTdlrRow {
-  return mapTexasTdlrFields(parseTexasTdlrCsvLine(line), header);
+export function parseWashingtonLniCsvRow(line: string, header: string[] = [...WA_LNI_COLUMNS]): WashingtonLniRow {
+  return mapWashingtonLniFields(parseWashingtonLniCsvLine(line), header);
 }
 
-export async function* streamTexasTdlrCsvFile(input: {
+export async function* streamWashingtonLniCsvFile(input: {
   filePath: string;
   fetchedAt?: string;
   sourceLastModifiedAt?: string | null;
@@ -35,21 +35,21 @@ export async function* streamTexasTdlrCsvFile(input: {
       }
 
       if (!header) {
-        header = parseTexasTdlrCsvLine(trimmedLine);
+        header = parseWashingtonLniCsvLine(trimmedLine);
         validateHeader(header);
         continue;
       }
 
       rowNumber += 1;
-      const record = parseTexasTdlrCsvRow(trimmedLine, header);
+      const record = parseWashingtonLniCsvRow(trimmedLine, header);
       yield {
-        sourceId: TX_TDLR_ALL_LICENSES_SOURCE_ID,
+        sourceId: WA_LNI_CONTRACTORS_SOURCE_ID,
         record,
         rowNumber,
         fetchedAt,
         sourceLastModifiedAt: input.sourceLastModifiedAt ?? null,
         fingerprint: buildFingerprint(record.raw),
-        warnings: buildTexasTdlrWarnings(record),
+        warnings: buildWashingtonLniWarnings(record),
       };
 
       if (input.limit && rowNumber >= input.limit) {
@@ -62,9 +62,9 @@ export async function* streamTexasTdlrCsvFile(input: {
 }
 
 function validateHeader(header: string[]): void {
-  for (const column of TDLR_COLUMNS) {
+  for (const column of WA_LNI_COLUMNS) {
     if (!header.includes(column)) {
-      throw new Error(`Texas TDLR CSV is missing required column: ${column}.`);
+      throw new Error(`Washington L&I CSV is missing required column: ${column}.`);
     }
   }
 }

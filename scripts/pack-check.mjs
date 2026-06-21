@@ -1,7 +1,13 @@
 import { spawnSync } from "node:child_process";
 import { join } from "node:path";
 
-const packages = ["packages/core", "packages/adapter-fl-dbpr", "packages/adapter-tx-tdlr", "packages/cli"];
+const packages = [
+  "packages/core",
+  "packages/adapter-fl-dbpr",
+  "packages/adapter-tx-tdlr",
+  "packages/adapter-wa-lni",
+  "packages/cli",
+];
 
 for (const packageDir of packages) {
   const result = spawnSync("npm", ["pack", "--dry-run", "--json"], {

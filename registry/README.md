@@ -15,6 +15,11 @@ Examples:
 - `registry/sources/us/ca/cslb-contractors.json`
 - `registry/sources/us/tx/tdlr-all-licenses.json`
 - `registry/sources/us/az/roc-contractors.json`
+- `registry/sources/us/wa/lni-contractors.json`
+- `registry/sources/us/or/ccb-active-licenses.json`
+- `registry/sources/us/nv/nscb-contractors.json`
+- `registry/sources/us/nc/nclbgc-general-contractors.json`
+- `registry/sources/us/va/dpor-contractors.json`
 
 `registry/us-coverage.json` tracks state-by-state progress. It may list a state before a detailed source has been researched.
 

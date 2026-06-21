@@ -1,0 +1,76 @@
+name: New source research
+description: Propose an official license source for a state, locality, or agency.
+title: "[Source research]: "
+labels: ["source-research"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this for official agency sources only. Do not include generated bulk data or unnecessary personal data.
+  - type: input
+    id: jurisdiction
+    attributes:
+      label: Jurisdiction
+      description: State, county, city, or agency scope.
+      placeholder: WA, Oregon CCB, City of ...
+    validations:
+      required: true
+  - type: input
+    id: agency
+    attributes:
+      label: Official agency
+      placeholder: Washington State Department of Labor & Industries
+    validations:
+      required: true
+  - type: input
+    id: source_url
+    attributes:
+      label: Official source URL
+      description: Dataset, download, lookup, or agency page.
+    validations:
+      required: true
+  - type: input
+    id: lookup_url
+    attributes:
+      label: Official lookup URL
+      description: Individual license lookup page, if different from the source URL.
+  - type: dropdown
+    id: source_shape
+    attributes:
+      label: Source shape
+      options:
+        - Official bulk download or API
+        - Official lookup page only
+        - Unknown
+    validations:
+      required: true
+  - type: textarea
+    id: coverage
+    attributes:
+      label: Coverage and exclusions
+      description: What license types are included, and what is known to be excluded?
+    validations:
+      required: true
+  - type: textarea
+    id: access_controls
+    attributes:
+      label: Access controls and terms
+      description: Note CAPTCHAs, login walls, JavaScript requirements, posted terms, rate limits, or redistribution uncertainty.
+    validations:
+      required: true
+  - type: textarea
+    id: testing
+    attributes:
+      label: Suggested fixture/testing approach
+      description: Describe how to test offline with a tiny hand-authored fixture.
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Checks
+      options:
+        - label: This request uses an official public source.
+          required: true
+        - label: This request does not require bypassing CAPTCHAs, login walls, or technical controls.
+          required: true
+        - label: I understand generated datasets should not be published unless redistribution is clearly allowed.
+          required: true

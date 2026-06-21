@@ -10,6 +10,7 @@ import {
   sourceRegistryEntrySchema,
   buildFingerprint,
   normalizeLicenseNumber,
+  parseCsvLine,
   type AdapterMaturity,
   type SourceDiscoveryStatus,
   type TradeLicenseSourceAdapter,
@@ -24,6 +25,7 @@ import {
 - Source discovery, coverage scope, and adapter maturity types.
 - Adapter interface and shared result types.
 - Generic fingerprint, license-number, and text normalization helpers.
+- Generic CSV line parsing for simple source fixtures.
 - Neutral verification result types.
 
 This package does not read agency websites, write to a database, or know about any one state source.

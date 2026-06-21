@@ -56,6 +56,12 @@ Keep normal tests offline. Use small fixtures that exercise parsing, mapping, st
 
 If a future adapter supports live download, network tests should be opt-in and separate from default CI.
 
+Implemented adapters should also pass the shared adapter conformance test. That test checks metadata, availability, fixture streaming, canonical normalization, source URL preservation, and fingerprint shape across every registered adapter.
+
+## Lookup-Only Sources
+
+Some official sources only expose a lookup page or a portal. Start those as `registry_only`. Do not add browser or portal automation until source terms, technical controls, and verification caveats have been reviewed. Prefer an official bulk export or API whenever one exists.
+
 ## Verification Language
 
 A missing match means no record was found in the checked source at the checked time. It does not prove that no license exists elsewhere.

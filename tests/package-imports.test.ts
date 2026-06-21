@@ -4,6 +4,7 @@ import {
   canonicalTradeLicenseRecordSchema,
   adapterMaturitySchema,
   normalizeLicenseNumber,
+  parseCsvLine,
   sourceDiscoveryStatusSchema,
   sourceRegistryEntrySchema,
 } from "@opentrade/core";
@@ -17,10 +18,16 @@ import {
   TX_TDLR_ALL_LICENSES_SOURCE_ID,
   normalizeTexasTdlrStatus,
 } from "@opentrade/adapter-tx-tdlr";
+import {
+  normalizeWashingtonLniStatus,
+  washingtonLniContractorsAdapter,
+  WA_LNI_CONTRACTORS_SOURCE_ID,
+} from "@opentrade/adapter-wa-lni";
 
 describe("public package imports", () => {
   it("imports stable public APIs from core and the Florida adapter", () => {
     expect(normalizeLicenseNumber("cgc-012345")).toBe("CGC012345");
+    expect(parseCsvLine('"ACME, INC.",CGC012345')).toEqual(["ACME, INC.", "CGC012345"]);
     expect(buildFingerprint({ a: 1 })).toMatch(/^[a-f0-9]{64}$/);
     expect(canonicalTradeLicenseRecordSchema).toBeDefined();
     expect(sourceRegistryEntrySchema).toBeDefined();
@@ -32,5 +39,14 @@ describe("public package imports", () => {
     expect(TX_TDLR_ALL_LICENSES_SOURCE_ID).toBe("us.tx.tdlr.all_licenses");
     expect(texasTdlrAllLicensesAdapter.sourceId).toBe("us.tx.tdlr.all_licenses");
     expect(normalizeTexasTdlrStatus({ expirationDate: "2099-12-31T00:00:00.000Z" }).normalized).toBe("active");
+    expect(WA_LNI_CONTRACTORS_SOURCE_ID).toBe("us.wa.lni.contractors");
+    expect(washingtonLniContractorsAdapter.sourceId).toBe("us.wa.lni.contractors");
+    expect(
+      normalizeWashingtonLniStatus({
+        statusCode: "S",
+        statusLabel: "SUSPENDED",
+        expirationDate: "2099-12-31T00:00:00.000Z",
+      } as Parameters<typeof normalizeWashingtonLniStatus>[0]).normalized,
+    ).toBe("suspended");
   });
 });
