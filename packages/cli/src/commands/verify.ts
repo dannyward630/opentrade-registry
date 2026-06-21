@@ -6,6 +6,8 @@ import { requireAdapter } from "../adapters.js";
 export async function verifyLicense(input: { rootDir: string; sourceId?: string; file?: string; license?: string; json?: boolean }) {
   const sourceId = input.sourceId ?? FL_DBPR_CONSTRUCTION_SOURCE_ID;
   const adapter = requireAdapter(sourceId, "verify");
+  const metadata = await adapter.getSourceMetadata();
+  const jurisdiction = `${metadata.jurisdiction.country}-${metadata.jurisdiction.state}`;
 
   if (!input.file) {
     throw Object.assign(new Error("Missing --file for local-file verification."), { exitCode: 2 });
@@ -15,6 +17,7 @@ export async function verifyLicense(input: { rootDir: string; sourceId?: string;
   if (!normalizedQuery) {
     const result = buildVerificationResult({
       sourceId,
+      jurisdiction,
       license: input.license,
       result: "missing_required_input",
       records: [],
@@ -40,6 +43,7 @@ export async function verifyLicense(input: { rootDir: string; sourceId?: string;
 
   const result = buildVerificationResult({
     sourceId,
+    jurisdiction,
     license: input.license,
     result: candidates.length === 0 ? "not_found" : candidates.length === 1 ? "matched" : "ambiguous",
     records: candidates,
@@ -58,6 +62,7 @@ export async function verifyLicense(input: { rootDir: string; sourceId?: string;
 
 function buildVerificationResult(input: {
   sourceId: string;
+  jurisdiction: string;
   license?: string;
   result: TradeLicenseVerificationResult["result"];
   records: CanonicalTradeLicenseRecord[];
@@ -65,7 +70,7 @@ function buildVerificationResult(input: {
 }): TradeLicenseVerificationResult {
   return {
     sourceId: input.sourceId,
-    jurisdiction: "US-FL",
+    jurisdiction: input.jurisdiction,
     query: {
       licenseNumber: input.license,
     },

@@ -3,8 +3,9 @@ import { getAdapter, listImplementedSourceIds, requireAdapter } from "../package
 
 describe("CLI adapter registry", () => {
   it("resolves implemented adapters and rejects registry-only sources", () => {
-    expect(listImplementedSourceIds()).toEqual(["us.fl.dbpr.construction"]);
+    expect(listImplementedSourceIds()).toEqual(["us.fl.dbpr.construction", "us.tx.tdlr.all_licenses"]);
     expect(getAdapter("us.fl.dbpr.construction")?.sourceId).toBe("us.fl.dbpr.construction");
+    expect(getAdapter("us.tx.tdlr.all_licenses")?.sourceId).toBe("us.tx.tdlr.all_licenses");
     expect(getAdapter("us.ca.cslb.contractors")).toBeNull();
     expect(() => requireAdapter("us.ca.cslb.contractors", "sync")).toThrow(/no sync adapter is implemented yet/i);
   });
