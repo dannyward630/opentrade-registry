@@ -18,6 +18,28 @@ New states should usually start as `registry_only`. Move to adapter work after t
 - Level 3: opt-in network sync with freshness metadata.
 - Level 4: verification semantics reviewed against official source caveats.
 
+## Moving A Source Through The Levels
+
+Level 0 to Level 1:
+
+- Confirm the source is official and update the registry entry.
+- Add a tiny hand-authored fixture using official column names.
+- Implement parser, mapper, normalizer, and source adapter files.
+- Add parser, mapping, CLI sync, CLI verify, and adapter conformance tests.
+
+Level 1 to Level 2:
+
+- Test against a downloaded official file shape without committing the download.
+- Accept harmless column reordering and extra columns where the source format supports it.
+- Keep row-level warnings and source caveats visible.
+- Promote maturity only after local-file behavior is stable.
+
+Level 2 to Level 3:
+
+- Keep network access opt-in with `--allow-network`.
+- Capture fetched time, source URL, last-modified, ETag, and content length when available.
+- Use local or mocked HTTP tests by default; live agency tests must stay opt-in.
+
 ## Expected Package Shape
 
 ```text
@@ -57,6 +79,8 @@ Keep normal tests offline. Use small fixtures that exercise parsing, mapping, st
 If a future adapter supports live download, network tests should be opt-in and separate from default CI.
 
 Implemented adapters should also pass the shared adapter conformance test. That test checks metadata, availability, fixture streaming, canonical normalization, source URL preservation, and fingerprint shape across every registered adapter.
+
+Sync should report row-level normalization errors where possible. Use `--strict` when a sync should fail on the first bad normalized record.
 
 ## Lookup-Only Sources
 

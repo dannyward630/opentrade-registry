@@ -10,13 +10,14 @@ opentrade sources show us.tx.tdlr.all_licenses
 opentrade sources validate
 opentrade sync us.fl.dbpr.construction --file ./fixture.csv --out ./records.jsonl
 opentrade sync us.fl.dbpr.construction --url <official-csv-url> --allow-network --out ./records.jsonl
+opentrade sync us.or.ccb.active_licenses --file ./oregon-fixture.csv --out ./records.jsonl
 opentrade sync us.tx.tdlr.all_licenses --file ./tdlr-fixture.csv --out ./records.jsonl
 opentrade sync us.wa.lni.contractors --file ./wa-fixture.csv --out ./records.jsonl
 opentrade sync us.fl.dbpr.construction --file ./fixture.csv --out ./records.csv --format csv
 opentrade verify --source us.fl.dbpr.construction --file ./fixture.csv --license CGC012345
 ```
 
-Use `--json` when you need structured output.
+Use `--json` when you need structured output. Use `--strict` for sync commands that should fail on the first row-level normalization error.
 
 `sources list` and `sources show` include registry-only sources. `sync` and `verify` only run for sources with implemented adapters. URL sync requires `--allow-network`.
 

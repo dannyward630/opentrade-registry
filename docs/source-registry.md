@@ -44,7 +44,7 @@ The most important fields are:
 
 `registry/us-coverage.json` tracks state-by-state progress toward broader coverage. It is intentionally high level. A state can be listed there before a detailed source entry exists.
 
-Today, Florida DBPR is a local-file adapter with opt-in URL sync through the CLI. Texas TDLR and Washington L&I are fixture-supported. Arizona ROC, California CSLB, Nevada NSCB, North Carolina NCLBGC, Oregon CCB, and Virginia DPOR are researched registry-only entries.
+Today, Florida DBPR is a local-file adapter with opt-in URL sync through the CLI. Oregon CCB, Texas TDLR, and Washington L&I are fixture-supported. Arizona ROC, California CSLB, Nevada NSCB, North Carolina NCLBGC, and Virginia DPOR are researched registry-only entries.
 
 Washington and Oregon are open-data-shaped sources. Nevada, North Carolina, and Virginia are lookup-oriented sources in this phase, so their registry entries intentionally stop before parser or automation work.
 

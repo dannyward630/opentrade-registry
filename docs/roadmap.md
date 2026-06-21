@@ -19,14 +19,15 @@ OpenTrade Registry is early. The next releases should stay modest: make the firs
 - Explicit opt-in URL sync with remote freshness metadata.
 - Texas TDLR fixture adapter.
 - Washington L&I fixture adapter.
+- Oregon CCB fixture adapter.
 - Researched registry entries for Oregon CCB, Nevada NSCB, North Carolina NCLBGC, and Virginia DPOR.
 
 ## v0.3
 
-- California CSLB fixture adapter, Oregon CCB fixture adapter, or deeper Texas/Washington open-data support.
+- California CSLB fixture adapter or deeper Oregon/Texas/Washington open-data support.
 - Adapter quality badges.
-- Shared import pipeline hardening.
-- More source registry consistency checks.
+- Shared import pipeline hardening, including row-level sync error reporting.
+- More source registry and adapter metadata consistency checks.
 - Possible SQLite cache research.
 
 ## v0.4

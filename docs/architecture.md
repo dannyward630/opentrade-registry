@@ -14,7 +14,7 @@ Each source entry includes the agency, jurisdiction, source URL, documentation l
 
 Adapters are small packages for one official source. They read raw source records, preserve the original data, and normalize each record into the canonical schema.
 
-A bulk adapter might read CSV, XLSX, JSON, or an API response. A lookup-only adapter might check one license number at a time. Florida DBPR has local-file support, and Texas TDLR and Washington L&I have fixture support.
+A bulk adapter might read CSV, XLSX, JSON, or an API response. A lookup-only adapter might check one license number at a time. Florida DBPR has local-file support, and Oregon CCB, Texas TDLR, and Washington L&I have fixture support.
 
 ## Canonical Records
 

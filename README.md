@@ -11,12 +11,13 @@ OpenTrade Registry helps developers work with official contractor and skilled-tr
 
 Contractor-license data is public, but it is scattered. One agency might publish a CSV file. Another might offer an Excel download. Another might only provide a lookup page. OpenTrade Registry gives those sources a common registry, a canonical record shape, and adapter contracts so each source can be handled consistently.
 
-The current build is still intentionally small. It supports Florida DBPR construction-license records from local files, can opt into URL-based sync when `--allow-network` is provided, and includes fixture adapters for Texas TDLR and Washington L&I. Normal tests do not download live agency data.
+The current build is still intentionally small. It supports Florida DBPR construction-license records from local files, can opt into URL-based sync when `--allow-network` is provided, and includes fixture adapters for Oregon CCB, Texas TDLR, and Washington L&I. Normal tests do not download live agency data.
 
 ## What You Can Do Today
 
 - Validate the source registry.
 - Convert the Florida DBPR sample file into canonical records.
+- Convert a tiny Oregon CCB fixture into canonical records.
 - Convert a tiny Texas TDLR fixture into canonical records.
 - Convert a tiny Washington L&I fixture into canonical records.
 - Export canonical records as JSONL or CSV.
@@ -87,6 +88,14 @@ corepack pnpm cli -- sync us.tx.tdlr.all_licenses \
   --out ./texas.jsonl
 ```
 
+Try the Oregon CCB fixture adapter:
+
+```bash
+corepack pnpm cli -- sync us.or.ccb.active_licenses \
+  --file packages/adapter-or-ccb/fixtures/active-licenses-sample.csv \
+  --out ./oregon.jsonl
+```
+
 Try the Washington L&I fixture adapter:
 
 ```bash
@@ -129,13 +138,14 @@ Adapter maturity is tracked separately from source research:
 - Level 3: opt-in network sync with freshness metadata.
 - Level 4: verification semantics reviewed against official source caveats.
 
-Florida DBPR is currently a local-file adapter with opt-in URL sync through the CLI. Texas TDLR and Washington L&I are fixture-supported. Arizona ROC, California CSLB, Nevada NSCB, North Carolina NCLBGC, Oregon CCB, and Virginia DPOR are registry-only entries.
+Florida DBPR is currently a local-file adapter with opt-in URL sync through the CLI. Oregon CCB, Texas TDLR, and Washington L&I are fixture-supported. Arizona ROC, California CSLB, Nevada NSCB, North Carolina NCLBGC, and Virginia DPOR are registry-only entries.
 
 ## Project Layout
 
 ```text
 packages/core               Schemas, adapter contracts, and normalization helpers
 packages/adapter-fl-dbpr    Florida DBPR construction-license adapter
+packages/adapter-or-ccb     Oregon CCB fixture adapter
 packages/adapter-tx-tdlr    Texas TDLR fixture adapter
 packages/adapter-wa-lni     Washington L&I fixture adapter
 packages/cli                opentrade command-line interface
@@ -157,6 +167,6 @@ corepack pnpm cleanliness:scan
 
 ## Roadmap
 
-The next work is to make URL sync more source-aware, improve Texas and Washington fixture coverage, and continue building a researched source registry state by state. Broader adapter coverage will come after the registry and adapter contracts stay boring and predictable.
+The next work is to make URL sync more source-aware, improve Oregon, Texas, and Washington fixture coverage, and continue building a researched source registry state by state. Broader adapter coverage will come after the registry and adapter contracts stay boring and predictable.
 
 See [docs/roadmap.md](docs/roadmap.md) for the current plan.
