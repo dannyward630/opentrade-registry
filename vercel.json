@@ -1,0 +1,10 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "buildCommand": "corepack pnpm install --frozen-lockfile && corepack pnpm --filter @opentrade/web build",
+  "outputDirectory": "apps/web/dist",
+  "functions": {
+    "api/**/*.ts": {
+      "includeFiles": "registry/**/*.json"
+    }
+  }
+}

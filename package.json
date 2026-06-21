@@ -35,9 +35,12 @@
     "cleanliness:scan": "node scripts/cleanliness-scan.mjs",
     "files:check": "node scripts/files-check.mjs",
     "source:quality": "node scripts/source-quality-report.mjs",
+    "db:seed:generate": "node scripts/generate-registry-source-seed.mjs",
     "security:audit": "corepack pnpm audit --prod=false",
     "pack:check": "corepack pnpm build && node scripts/pack-check.mjs",
-    "cli": "corepack pnpm --filter @opentrade/cli cli"
+    "cli": "corepack pnpm --filter @opentrade/cli cli",
+    "web:build": "corepack pnpm --filter @opentrade/web build",
+    "web:dev": "corepack pnpm --filter @opentrade/web dev"
   },
   "devDependencies": {
     "@opentrade/adapter-fl-dbpr": "workspace:*",
@@ -45,6 +48,7 @@
     "@opentrade/adapter-tx-tdlr": "workspace:*",
     "@opentrade/adapter-wa-lni": "workspace:*",
     "@opentrade/core": "workspace:*",
+    "@supabase/supabase-js": "^2.87.1",
     "@types/node": "^20.17.14",
     "typescript": "^5.7.3",
     "vite": "^8.0.16",

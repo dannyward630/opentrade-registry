@@ -149,6 +149,7 @@ packages/adapter-or-ccb     Oregon CCB fixture adapter
 packages/adapter-tx-tdlr    Texas TDLR fixture adapter
 packages/adapter-wa-lni     Washington L&I fixture adapter
 packages/cli                opentrade command-line interface
+apps/web                    Optional hosted status page and source API
 registry/sources            Source metadata for official agency sources
 registry/us-coverage.json   State-by-state coverage progress
 docs                        Architecture, authoring, and data-use notes
@@ -163,7 +164,10 @@ corepack pnpm test
 corepack pnpm typecheck
 corepack pnpm registry:validate
 corepack pnpm cleanliness:scan
+corepack pnpm web:build
 ```
+
+Hosted deployment is optional. See [docs/deployment/vercel-supabase.md](docs/deployment/vercel-supabase.md) for the Vercel/Supabase setup.
 
 ## Roadmap
 
