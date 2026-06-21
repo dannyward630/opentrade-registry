@@ -1,37 +1,30 @@
 # Release Process
 
-OpenTrade Registry is pre-1.0. Packages are not published yet, but release work should be reproducible from `main`.
+OpenTrade Registry is pre-1.0. Releases should be boring, reproducible, and honest about source coverage.
 
-## Release Checklist
+## Checklist
 
-1. Confirm `CHANGELOG.md` describes user-facing changes.
+1. Update `CHANGELOG.md` with user-facing changes.
 2. Run the full local gate:
 
    ```bash
    corepack pnpm verify
    ```
 
-3. Confirm package contents without publishing:
+3. Inspect package contents:
 
    ```bash
    corepack pnpm pack:check
    ```
 
 4. Confirm no generated bulk datasets are staged.
-5. Confirm source metadata does not overclaim redistribution rights.
+5. Confirm source metadata does not overstate coverage or redistribution rights.
 6. Confirm CI is green on `main`.
 
 ## Versioning
 
-Use semantic versioning once packages are published. While the project is pre-1.0, minor versions may introduce breaking API changes, but they should still be documented in the changelog.
+Use semantic versioning once packages are published. Before 1.0, minor versions may still introduce breaking API changes, but they should be called out in the changelog.
 
-## Publishing Later
+## First npm Publication
 
-Before first npm publication:
-
-- Confirm package names and ownership.
-- Confirm npm organization access.
-- Decide whether provenance signing is required.
-- Run package dry-runs and inspect included files.
-- Publish code packages only, not generated datasets.
-
+Before publishing for the first time, confirm package names, npm organization access, and provenance settings. Publish the code packages only. Do not publish generated datasets as release artifacts unless the source clearly allows it.

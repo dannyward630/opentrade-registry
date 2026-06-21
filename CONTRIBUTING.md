@@ -2,7 +2,7 @@
 
 Thanks for helping improve OpenTrade Registry.
 
-OpenTrade Registry is public-records infrastructure. Contributions should keep source attribution, caveats, and careful verification language intact.
+This project is about official public records and reproducible local tooling. Good contributions keep source attribution, caveats, and careful verification language intact.
 
 ## Development
 
@@ -17,7 +17,7 @@ corepack pnpm cleanliness:scan
 
 ## Commit Style
 
-Keep commits small and cohesive. Prefer separate commits for metadata, docs, source registry data, adapter behavior, tests, and CLI changes.
+Keep commits small and cohesive. Separate metadata, docs, source registry data, adapter behavior, tests, and CLI changes when practical.
 
 ## Adapter Guidelines
 
@@ -25,16 +25,16 @@ Keep commits small and cohesive. Prefer separate commits for metadata, docs, sou
 - Keep default tests fixture-based and offline.
 - Preserve source URL, fetched time, caveats, raw records, and fingerprints.
 - Use `redistributionStatus: "unknown"` unless source terms clearly say otherwise.
-- Avoid claims that a missing record proves a license does not exist.
+- Do not imply that a missing record proves a license does not exist.
 - Do not bypass CAPTCHAs, login walls, or technical access controls.
 - Keep fixtures small and representative.
 
 ## Source Registry Guidelines
 
-- Add official source URLs and documentation URLs when available.
-- Use conservative unknown values when terms, coverage, or rate limits are not confirmed.
+- Use official source and documentation URLs when available.
+- Mark uncertain terms, coverage, or rate limits as `unknown`.
 - Include known exclusions and caveats in plain language.
-- Do not add generated bulk datasets.
+- Keep generated source exports out of the repository.
 
 ## Adding A New State
 
@@ -49,7 +49,7 @@ Keep commits small and cohesive. Prefer separate commits for metadata, docs, sou
 9. Add CLI smoke coverage for supported operations and unsupported registry-only behavior.
 10. Run `corepack pnpm verify`.
 
-State coverage progresses through registry metadata before adapter implementation. A registry-only source is useful when it clearly identifies the official source and caveats.
+State coverage can start with registry metadata. A registry-only source is useful when it clearly identifies the official source and caveats.
 
 ## Package Publishing
 

@@ -1,8 +1,8 @@
 # Package Publishing
 
-OpenTrade Registry packages are configured for future public npm publication but are not published yet.
+The packages are prepared for future npm publication, but they are not published yet.
 
-## Dry-Run Packaging
+## Check Package Contents
 
 Run:
 
@@ -10,17 +10,17 @@ Run:
 corepack pnpm pack:check
 ```
 
-Expected behavior:
+The dry run should show:
 
-- `@opentrade/core` includes `dist/` and `README.md`.
-- `@opentrade/adapter-fl-dbpr` includes `dist/`, `README.md`, and small fixtures.
-- `@opentrade/cli` includes `dist/` and `README.md`.
-- No generated bulk datasets are included.
+- `@opentrade/core`: compiled files and README.
+- `@opentrade/adapter-fl-dbpr`: compiled files, README, and small fixtures.
+- `@opentrade/cli`: compiled files and README.
+
+Generated bulk datasets should not appear in any package.
 
 ## Publishing Guardrails
 
-- Keep generated exports out of published packages unless they are tiny test fixtures.
-- Do not publish source-derived datasets unless redistribution is clearly allowed.
-- Keep package metadata accurate: license, repository, bugs URL, homepage, engines, and keywords.
-- Run `corepack pnpm verify` before any release.
-
+- Publish code packages, not generated public data.
+- Keep source-derived datasets out unless redistribution is clearly allowed.
+- Check package metadata before release: license, repository, bugs URL, homepage, engines, and keywords.
+- Run `corepack pnpm verify` before publishing.

@@ -7,34 +7,103 @@
 ![Local first](https://img.shields.io/badge/data-local--first-0f766e)
 ![No network tests](https://img.shields.io/badge/tests-no--network--by--default-7c3aed)
 
-OpenTrade Registry is an open-source framework for discovering, importing, normalizing, validating, verifying, and exporting official contractor and skilled-trade license records from public agencies.
+OpenTrade Registry helps developers work with official contractor and skilled-trade license data from public agencies.
 
-It is standalone, local-first, source-cited, provenance-first public-records infrastructure. It is not a contractor marketplace, not a review platform, not a risk scoring system, not a hosted account system, and not connected to any external product.
+Contractor-license data is public, but it is scattered. One agency might publish a CSV file. Another might offer an Excel download. Another might only provide a lookup page. OpenTrade Registry gives those sources a common registry, a canonical record shape, and adapter contracts so each source can be handled consistently.
 
-## What It Is
+v0.1 is intentionally small. It supports Florida DBPR construction-license records from a local fixture file. It can normalize those records to JSONL or CSV and check one license number against the local file. It does not download live agency data yet.
 
-- A source registry for official public agency license data.
-- A canonical schema for contractor and skilled-trade license records.
-- Adapter contracts and local-file tooling for importing and normalizing source records.
-- A CLI for validating sources, exporting fixture data, and checking one license against a local source file.
+## What You Can Do Today
 
-## What It Is Not
+- Validate the source registry.
+- Convert the Florida DBPR sample file into canonical records.
+- Export canonical records as JSONL or CSV.
+- Check one license number against a local source file.
+- Inspect researched source metadata for Florida DBPR, California CSLB, Texas TDLR, and Arizona ROC.
 
-- Not a contractor marketplace.
-- Not a review platform.
-- Not a risk scoring system.
-- Not a hosted account system.
-- Not a substitute for checking the official agency source directly.
+## What This Project Does Not Do
 
-## Current Status
+OpenTrade Registry stops at public-records infrastructure. It does not rank contractors, sell leads, make hiring recommendations, or replace the official licensing agency.
 
-The v0.1 foundation supports Florida DBPR construction-license records from a local fixture file, normalizes them to a canonical schema, exports JSONL, and verifies one license number against that local source.
+## Quickstart
 
-It does not download live agency data yet. Network source sync is intentionally disabled in v0.1.
+Install dependencies from the repository root:
 
-## Source And Adapter Maturity
+```bash
+corepack pnpm install
+```
 
-OpenTrade Registry tracks source coverage separately from adapter support:
+List the registered public sources:
+
+```bash
+corepack pnpm cli -- sources list
+```
+
+Show the metadata for one source:
+
+```bash
+corepack pnpm cli -- sources show us.fl.dbpr.construction
+```
+
+Validate every source entry:
+
+```bash
+corepack pnpm cli -- sources validate
+```
+
+Turn the Florida DBPR sample fixture into canonical JSONL:
+
+```bash
+corepack pnpm cli -- sync us.fl.dbpr.construction \
+  --file packages/adapter-fl-dbpr/fixtures/construction-license-sample.csv \
+  --out ./out.jsonl
+```
+
+Write the same fixture as a narrow CSV export:
+
+```bash
+corepack pnpm cli -- sync us.fl.dbpr.construction \
+  --file packages/adapter-fl-dbpr/fixtures/construction-license-sample.csv \
+  --out ./out.csv \
+  --format csv
+```
+
+Check one license number against the local fixture:
+
+```bash
+corepack pnpm cli -- verify \
+  --source us.fl.dbpr.construction \
+  --file packages/adapter-fl-dbpr/fixtures/construction-license-sample.csv \
+  --license CGC012345
+```
+
+## Why Local Files First?
+
+v0.1 works from local files so tests stay reliable and users can inspect exactly what they are importing. Live agency download is planned as an explicit opt-in path later. Normal tests do not contact agency websites.
+
+## Why Keep Source Provenance?
+
+Each canonical record keeps the source URL, fetched time, caveats, raw record, and fingerprint. That context is important because every agency publishes different data. Some records may be missing, stale, or available only from another official source.
+
+Do not publish generated datasets unless the source clearly allows redistribution. When in doubt, publish the code and source metadata, not the data.
+
+## Why Not Call Someone Unlicensed?
+
+A no-match result only means the checked source did not contain a matching record at the checked time.
+
+Use this language:
+
+> No matching record was found in this source as of the checked time.
+
+Do not turn that into:
+
+> This contractor is unlicensed.
+
+## How Adapters Fit Together
+
+The source registry describes official sources, even before an adapter exists. Adapters handle source-specific parsing and map records into the canonical schema. The CLI uses implemented adapters for local sync and verification.
+
+Adapter maturity is tracked separately from source research:
 
 - Level 0: registry metadata only.
 - Level 1: fixture parses and normalizes.
@@ -42,98 +111,32 @@ OpenTrade Registry tracks source coverage separately from adapter support:
 - Level 3: opt-in network sync with freshness metadata.
 - Level 4: verification semantics reviewed against official source caveats.
 
-The current registry includes researched metadata for Florida DBPR, California CSLB, Texas TDLR, and Arizona ROC. Florida DBPR is the only local-file adapter today.
-
-## Requirements
-
-- Node.js 20+
-- pnpm
+Florida DBPR is currently the only local-file adapter. California CSLB, Texas TDLR, and Arizona ROC are registry-only entries.
 
 ## Project Layout
 
 ```text
-packages/core               Core schemas, adapter contracts, and normalization utilities
+packages/core               Schemas, adapter contracts, and normalization helpers
 packages/adapter-fl-dbpr    Florida DBPR construction-license adapter
 packages/cli                opentrade command-line interface
-registry/sources            Source registry metadata
-docs                        Architecture and data-use documentation
-examples                    Minimal usage examples
+registry/sources            Source metadata for official agency sources
+registry/us-coverage.json   State-by-state coverage progress
+docs                        Architecture, authoring, and data-use notes
+examples                    Small local-file examples
 ```
-
-See `registry/us-coverage.json` for state-by-state coverage status.
 
 ## Development
 
 ```bash
-pnpm install
-pnpm build
-pnpm test
-pnpm typecheck
-pnpm registry:validate
+corepack pnpm build
+corepack pnpm test
+corepack pnpm typecheck
+corepack pnpm registry:validate
+corepack pnpm cleanliness:scan
 ```
 
-## Quickstart
+## Roadmap
 
-List registered sources:
+The next work is to harden the shared ingestion path, add opt-in Florida DBPR live-file support, and continue building a researched source registry state by state. Broader adapter coverage will come after the registry and adapter contracts stay boring and predictable.
 
-```bash
-pnpm cli -- sources list
-```
-
-Show one source:
-
-```bash
-pnpm cli -- sources show us.fl.dbpr.construction
-```
-
-Validate source metadata:
-
-```bash
-pnpm cli -- sources validate
-```
-
-Sync the Florida DBPR sample fixture to canonical JSONL:
-
-```bash
-pnpm cli -- sync us.fl.dbpr.construction \
-  --file packages/adapter-fl-dbpr/fixtures/construction-license-sample.csv \
-  --out ./out.jsonl
-```
-
-Sync the same fixture to safe canonical CSV:
-
-```bash
-pnpm cli -- sync us.fl.dbpr.construction \
-  --file packages/adapter-fl-dbpr/fixtures/construction-license-sample.csv \
-  --out ./out.csv \
-  --format csv
-```
-
-Verify one license against the local fixture:
-
-```bash
-pnpm cli -- verify \
-  --source us.fl.dbpr.construction \
-  --file packages/adapter-fl-dbpr/fixtures/construction-license-sample.csv \
-  --license CGC012345
-```
-
-## Data-Use Warnings
-
-OpenTrade Registry stores source URLs, fetched times, caveats, raw records, and fingerprints so downstream users can understand provenance. Generated datasets should not be published unless redistribution is clearly allowed by the source.
-
-## Safety Language
-
-Use careful verification language.
-
-Correct:
-
-> No matching record was found in this source as of the checked time.
-
-Incorrect:
-
-> This contractor is unlicensed.
-
-Source coverage varies by jurisdiction and agency. Records can be incomplete, stale, omitted, or superseded by a different official source.
-
-Network source sync is intentionally disabled in v0.1. See `docs/florida-dbpr-url-sync.md` for the future opt-in design.
+See [docs/roadmap.md](docs/roadmap.md) for the current plan.

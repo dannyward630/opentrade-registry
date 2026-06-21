@@ -2,7 +2,7 @@
   "name": "@opentrade/core",
   "version": "0.1.0",
   "type": "module",
-  "description": "Core schemas, adapter contracts, and normalization utilities for OpenTrade Registry.",
+  "description": "Shared schemas, adapter contracts, and normalization helpers for OpenTrade Registry.",
   "license": "MIT",
   "homepage": "https://github.com/dannyward630/opentrade-registry#readme",
   "repository": {

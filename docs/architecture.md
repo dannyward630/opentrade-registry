@@ -1,27 +1,37 @@
 # Architecture
 
-OpenTrade Registry is organized around four small parts: source registry entries, adapters, a canonical schema, and local-first export tools.
+Official license data rarely arrives in the same shape twice. One source may be a bulk CSV. Another may be an Excel workbook. Another may only expose a lookup page. OpenTrade Registry keeps the common parts in core and leaves source-specific details inside adapters.
+
+The project has five main pieces.
 
 ## Source Registry
 
-The source registry describes official public sources before or after an adapter exists. Each entry records jurisdiction, agency, source URL, documentation URL, access characteristics, adapter status, caveats, and redistribution status.
+The source registry is a map of official agency sources. A source can be listed before an adapter exists. That lets contributors record what is known about coverage, access rules, caveats, and redistribution uncertainty without pretending the source is already supported.
+
+Each source entry includes the agency, jurisdiction, source URL, documentation links, access notes, adapter status, maturity level, and public-record caveats.
 
 ## Adapters
 
-Adapters know how to read one official source and normalize raw source rows into canonical records. A bulk adapter may stream CSV, XLSX, JSON, or API records. A lookup-only adapter may query one license at a time.
+Adapters are small packages for one official source. They read raw source records, preserve the original data, and normalize each record into the canonical schema.
 
-## Canonical Schema
+A bulk adapter might read CSV, XLSX, JSON, or an API response. A lookup-only adapter might check one license number at a time. In v0.1, only the Florida DBPR local-file adapter is implemented.
 
-The canonical record preserves source identity, source freshness, raw record data, a stable fingerprint, license status, classifications, dates, public-record address fields, and caveats.
+## Canonical Records
+
+Canonical records give downstream code a predictable shape. They include normalized fields such as license number, status, dates, classifications, and public-record contact fields.
+
+They also keep source details attached: source URL, fetched time, caveats, raw record, and fingerprint. The normalized view is useful, but the provenance is what lets someone understand where the record came from and how much confidence to place in it.
 
 ## CLI
 
-The `opentrade` CLI validates source metadata, syncs local files to JSONL, and verifies one license number against a local source stream.
+The `opentrade` CLI is the first user-facing tool. It can list and validate source metadata, sync supported local files to JSONL or CSV, and check one license number against a local source file.
+
+Registry-only sources still appear in `sources list` and `sources show`. `sync` and `verify` only work when an adapter is implemented.
 
 ## Local-First Exports
 
-v0.1 writes JSONL or safe canonical CSV and requires no database. Future packages may add SQLite and Postgres export targets.
+v0.1 writes files and does not require a database. That keeps the project easy to inspect and test. Future storage packages can add SQLite or Postgres without changing the core record model.
 
 ## Browser Automation
 
-Browser automation is optional and not part of core. Official bulk downloads and APIs are preferred. Portal automation should only live in source-specific adapter packages when it is lawful, stable, and unavoidable.
+Browser automation is not part of core. Official bulk downloads and APIs should be preferred. If a source ever requires portal automation, that code should live in a source-specific adapter, stay opt-in, and respect posted access controls.

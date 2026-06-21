@@ -1,13 +1,13 @@
 # Verify License Example
 
-This example checks one license number against the small local Florida DBPR fixture. It does not download live agency data.
+This example checks one license number against the local Florida DBPR fixture. It only says what was found in that file.
 
 ## Matched Record
 
-Verify one license number against the local Florida DBPR fixture:
+Run:
 
 ```bash
-pnpm cli -- verify \
+corepack pnpm cli -- verify \
   --source us.fl.dbpr.construction \
   --file packages/adapter-fl-dbpr/fixtures/construction-license-sample.csv \
   --license CGC012345
@@ -22,13 +22,17 @@ CGC012345 active DOE, ALEX
 
 ## No Match
 
+Run:
+
 ```bash
-pnpm cli -- verify \
+corepack pnpm cli -- verify \
   --source us.fl.dbpr.construction \
   --file packages/adapter-fl-dbpr/fixtures/construction-license-sample.csv \
   --license CGC000000
 ```
 
-If no match is found, the correct interpretation is: "No matching record was found in this source as of the checked time."
+If no match is found, the careful interpretation is:
 
-The command exits with code `4` for this case so scripts can distinguish no-match from general errors.
+> No matching record was found in this source as of the checked time.
+
+The command exits with code `4` so scripts can distinguish a no-match result from a general error.

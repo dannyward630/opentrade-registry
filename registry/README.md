@@ -1,6 +1,6 @@
 # Source Registry
 
-The source registry catalogs official public agency sources that may contain contractor or skilled-trade license records.
+The registry records official public agency sources that may contain contractor or skilled-trade license records.
 
 ## Layout
 
@@ -16,18 +16,17 @@ Examples:
 - `registry/sources/us/tx/tdlr-all-licenses.json`
 - `registry/sources/us/az/roc-contractors.json`
 
-`registry/us-coverage.json` tracks state-by-state progress toward national coverage. It is intentionally higher level than source entries and may list states before a detailed source has been researched.
+`registry/us-coverage.json` tracks state-by-state progress. It may list a state before a detailed source has been researched.
 
 ## Contribution Rules
 
 - Use official agency URLs.
 - Prefer official bulk downloads and APIs over page automation.
-- Use `redistributionStatus: "unknown"` unless redistribution rights are clearly confirmed.
+- Use `redistributionStatus: "unknown"` unless reuse rights are clear.
 - Include known exclusions and public-record caveats.
-- Do not add generated bulk datasets.
+- Keep generated source exports out of the registry.
 - Keep adapter status accurate: `planned`, `experimental`, `implemented`, or `deprecated`.
 - Keep adapter maturity accurate: `registry_only`, `fixture_adapter`, `local_file_adapter`, or `network_opt_in`.
-- Keep generated datasets out of the registry.
 
 ## Adding A State Source
 

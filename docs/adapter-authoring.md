@@ -1,20 +1,14 @@
 # Adapter Authoring
 
-An adapter implements the `TradeLicenseSourceAdapter` interface from `@opentrade/core`.
+Adapters are where source-specific work belongs. Core should stay generic; the adapter should know how one agency formats license numbers, statuses, dates, classifications, and caveats.
 
-Adapters should be small, source-specific packages. Core stays generic; source quirks belong inside adapters.
+An adapter implements `TradeLicenseSourceAdapter` from `@opentrade/core`.
 
-Required capabilities:
+## Start With Research
 
-- return source metadata
-- check local or remote availability
-- stream raw source records
-- normalize each raw record into a canonical record
+Before writing parser code, fill out the source research template. Confirm the source is official, record the lookup or bulk URLs, note access controls, and be honest about what the source does not cover.
 
-Optional capabilities:
-
-- fetch remote snapshot metadata
-- look up a single license if the source supports live lookup
+New states should usually start as `registry_only`. Move to adapter work after the source shape and caveats are understood.
 
 ## Adapter Quality Levels
 
@@ -23,8 +17,6 @@ Optional capabilities:
 - Level 2: local public file sync.
 - Level 3: opt-in network sync with freshness metadata.
 - Level 4: verification semantics reviewed against official source caveats.
-
-New states should usually start at Level 0. Move to parser work only after the official source, access rules, and caveats are documented.
 
 ## Expected Package Shape
 
@@ -43,19 +35,33 @@ packages/adapter-<jurisdiction-source>/
   tests/
 ```
 
-## Adapter Rules
+## What A Good Adapter Preserves
 
-- Keep source-specific constants, status maps, and classification maps inside the adapter package.
-- Preserve the raw source record and a stable fingerprint.
-- Preserve source URL, fetched time, source freshness if known, caveats, and redistribution status.
-- Emit warnings for unknown source values instead of failing the whole import when a canonical record can still be produced.
-- Use ISO date strings in canonical records.
-- Keep normal tests offline and fixture-based.
+Every adapter should preserve:
+
+- `sourceId`
+- source URL
+- fetched time
+- source freshness when known
+- caveats
+- raw record
+- stable fingerprint
+- raw status and normalized status
+
+Unknown source values should become warnings when the record can still be normalized safely. Do not silently drop unusual statuses or classifications.
+
+## Testing Rules
+
+Keep normal tests offline. Use small fixtures that exercise parsing, mapping, status normalization, warnings, and verification behavior. Do not commit bulk public datasets.
+
+If a future adapter supports live download, network tests should be opt-in and separate from default CI.
 
 ## Verification Language
 
-Adapters and downstream commands must avoid overclaiming. A missing match means no record was found in the checked source at the checked time. It does not prove that no license exists elsewhere.
+A missing match means no record was found in the checked source at the checked time. It does not prove that no license exists elsewhere.
 
-Adapter tests should use small fixtures and must not require network calls by default. Store raw records, fingerprints, source URL, fetched time, caveats, and source freshness when available.
+Use:
 
-Do not bypass CAPTCHAs, login walls, or technical access controls.
+> No matching record was found in this source as of the checked time.
+
+Do not bypass CAPTCHAs, login walls, or technical controls.

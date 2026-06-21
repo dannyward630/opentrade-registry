@@ -1,8 +1,6 @@
 # Basic Sync Example
 
-This example syncs the tiny Florida DBPR fixture included in this repository. It does not download live agency data.
-
-## Prerequisites
+This example turns the tiny Florida DBPR fixture in this repo into canonical records. It does not contact Florida DBPR or download live data.
 
 Run from the repository root after installing dependencies:
 
@@ -10,47 +8,36 @@ Run from the repository root after installing dependencies:
 corepack pnpm install
 ```
 
-## JSONL Export
+## Write JSONL
 
-Run a local fixture sync and write canonical JSONL:
+This command reads the local fixture and writes one canonical record per line:
 
 ```bash
-pnpm cli -- sync us.fl.dbpr.construction \
+corepack pnpm cli -- sync us.fl.dbpr.construction \
   --file packages/adapter-fl-dbpr/fixtures/construction-license-sample.csv \
   --out ./out.jsonl
 ```
 
-Each line in the output is one canonical license record with source metadata, caveats, raw record data, and fingerprint.
+The output records include normalized license fields, source metadata, caveats, the raw record, and a fingerprint.
 
-Expected summary:
+## Write CSV
 
-```text
-Wrote 5 JSONL canonical records to ./out.jsonl
-```
-
-## CSV Export
-
-Write a safe canonical CSV view:
+This command writes a smaller CSV view for quick inspection:
 
 ```bash
-pnpm cli -- sync us.fl.dbpr.construction \
+corepack pnpm cli -- sync us.fl.dbpr.construction \
   --file packages/adapter-fl-dbpr/fixtures/construction-license-sample.csv \
   --out ./out.csv \
   --format csv
 ```
 
-The CSV export intentionally includes a narrow set of canonical fields and does not include full raw source JSON.
+The CSV intentionally omits full raw source JSON. It is a convenience export, not a complete archive.
 
-## Expected Fixture-Derived Output
+## Expected Output Samples
 
-Small expected outputs are checked in under `examples/basic-sync/expected/`:
+`examples/basic-sync/expected/` contains one JSONL sample and one CSV sample generated from the tiny fixture. They are documentation fixtures, not public bulk data.
 
-- `sample-record.jsonl`: one canonical JSONL record generated from the tiny fixture.
-- `sample-record.csv`: a safe CSV header and one representative row.
-
-These files are documentation fixtures, not generated public datasets.
-
-Remove generated outputs after experimenting:
+Remove local outputs after experimenting:
 
 ```bash
 rm -f ./out.jsonl ./out.csv
