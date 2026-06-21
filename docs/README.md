@@ -11,6 +11,7 @@ These docs explain how the project models official sources, writes adapters, and
 - [Adapter Authoring](adapter-authoring.md): practical guidance for writing a source adapter.
 - [California CSLB Adapter Plan](adapters/california-cslb.md): early notes for a future California adapter.
 - [Texas TDLR Adapter Notes](adapters/texas-tdlr.md): fixture support and source caveats for Texas TDLR.
+- [Washington L&I Adapter Notes](adapters/washington-lni.md): fixture support and source caveats for Washington L&I.
 - [Legal And Data Use](legal-and-data-use.md): readable data-use guardrails.
 - [Florida DBPR URL Sync Design](florida-dbpr-url-sync.md): planned opt-in live download behavior.
 - [Roadmap](roadmap.md): modest release goals.
