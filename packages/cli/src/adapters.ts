@@ -22,7 +22,7 @@ export function requireAdapter(sourceId: string, operation: "sync" | "verify"): 
   }
 
   throw Object.assign(
-    new Error(`Source ${sourceId} is registered for metadata, but no ${operation} adapter is implemented yet.`),
+    new Error(`Source ${sourceId} is registered for metadata, but no ${operation} adapter is implemented yet. Run opentrade sources show ${sourceId} for maturity, coverage, and caveats.`),
     { exitCode: 2 },
   );
 }

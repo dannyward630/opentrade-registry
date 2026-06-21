@@ -28,6 +28,8 @@ describe("opentrade CLI", () => {
     const show = runCli(["sources", "show", "us.ca.cslb.contractors"]).stdout;
     expect(show).toContain("California CSLB Master List of Licensed Contractors");
     expect(show).toContain("maturity: registry_only");
+    expect(show).toContain("coverage:");
+    expect(show).toContain("known exclusions:");
     expect(runCli(["sources", "validate"]).stdout).toContain("Validated 9 source registry entries.");
   });
 
@@ -45,6 +47,7 @@ describe("opentrade CLI", () => {
       { allowStderr: true },
     );
     expect(sync.stderr).toContain("Source us.ca.cslb.contractors is registered for metadata, but no sync adapter is implemented yet.");
+    expect(sync.stderr).toContain("opentrade sources show us.ca.cslb.contractors");
 
     const verify = runCli(
       ["verify", "--source", "us.ca.cslb.contractors", "--file", sampleFixture, "--license", "CSLB000000"],
@@ -52,6 +55,7 @@ describe("opentrade CLI", () => {
       { allowStderr: true },
     );
     expect(verify.stderr).toContain("Source us.ca.cslb.contractors is registered for metadata, but no verify adapter is implemented yet.");
+    expect(verify.stderr).toContain("opentrade sources show us.ca.cslb.contractors");
   });
 
   it("syncs fixture data to JSONL with structured stats", () => {
