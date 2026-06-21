@@ -1,0 +1,43 @@
+{
+  "id": "us.sc.llr.contractors",
+  "name": "South Carolina LLR Contractor License Lookup",
+  "jurisdiction": {
+    "country": "US",
+    "state": "SC"
+  },
+  "agency": {
+    "name": "South Carolina Department of Labor, Licensing and Regulation",
+    "url": "https://llr.sc.gov/"
+  },
+  "sourceType": "html_lookup",
+  "sourceUrl": "https://verify.llronline.com/LicLookup/Contractors/Contractor.aspx?div=69",
+  "documentationUrl": "https://llr.sc.gov/clb/",
+  "dataDictionaryUrl": null,
+  "termsUrl": "https://llr.sc.gov/",
+  "updateFrequency": "unknown; verify against the official lookup before relying on freshness assumptions",
+  "tradeCoverage": ["contractors"],
+  "licenseTypesIncluded": ["South Carolina Contractor's Licensing Board records exposed by the public lookup"],
+  "knownExclusions": [
+    "South Carolina residential builder records use a separate LLR lookup path and are not included in this source entry.",
+    "Local permits, business registrations, and non-LLR authorizations are outside this source entry."
+  ],
+  "hasBulkDownload": "unknown",
+  "hasLiveLookup": true,
+  "requiresJavaScript": "unknown",
+  "requiresCaptcha": "unknown",
+  "requiresAccount": false,
+  "rateLimitNotes": "No adapter is implemented. Do not automate lookup pages unless access terms and technical controls are reviewed.",
+  "redistributionStatus": "unknown",
+  "publicRecordsNotes": "Official lookup source metadata only. Absence from this source is not proof that a license does not exist elsewhere.",
+  "adapterStatus": "planned",
+  "sourceDiscoveryStatus": "researched",
+  "adapterMaturity": "registry_only",
+  "coverageScope": "state_agency_partial",
+  "adapterPackage": "@opentrade/adapter-sc-llr",
+  "testFixturePath": null,
+  "officialLookupUrl": "https://verify.llronline.com/LicLookup/Contractors/Contractor.aspx?div=69",
+  "officialBulkDownloadNotes": "No official bulk download has been confirmed in this phase.",
+  "researchNotes": "Registry-only source for the Contractor's Licensing Board. Add a separate source entry if residential builders are modeled.",
+  "lastVerifiedAt": "2026-06-21T00:00:00.000Z",
+  "maintainerNotes": "South Carolina has multiple construction-related boards; keep source scope explicit."
+}

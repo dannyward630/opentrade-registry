@@ -1,0 +1,43 @@
+{
+  "id": "us.mn.dli.licenses_registrations",
+  "name": "Minnesota DLI License and Registration Data",
+  "jurisdiction": {
+    "country": "US",
+    "state": "MN"
+  },
+  "agency": {
+    "name": "Minnesota Department of Labor and Industry",
+    "url": "https://www.dli.mn.gov/"
+  },
+  "sourceType": "bulk_xlsx",
+  "sourceUrl": "https://www.dli.mn.gov/license-and-registration-lookup",
+  "documentationUrl": "https://www.dli.mn.gov/license-and-registration-lookup",
+  "dataDictionaryUrl": null,
+  "termsUrl": "https://mn.gov/portal/policies/",
+  "updateFrequency": "The official page states the export file is updated nightly; verify current source text before relying on freshness assumptions.",
+  "tradeCoverage": ["construction codes and licensing"],
+  "licenseTypesIncluded": ["Licenses, bonds, certifications, and registrations issued by the Construction Codes and Licensing Division of DLI"],
+  "knownExclusions": [
+    "The export may include many license, bond, certification, and registration types beyond contractor licenses.",
+    "Local permits, business registrations, and sources outside DLI Construction Codes and Licensing are not represented by this source entry."
+  ],
+  "hasBulkDownload": true,
+  "hasLiveLookup": true,
+  "requiresJavaScript": "unknown",
+  "requiresCaptcha": "unknown",
+  "requiresAccount": false,
+  "rateLimitNotes": "No adapter is implemented. Future work should prefer the official spreadsheet export and keep live download opt-in.",
+  "redistributionStatus": "unknown",
+  "publicRecordsNotes": "Official source metadata only. Absence from this source is not proof that a license does not exist elsewhere.",
+  "adapterStatus": "planned",
+  "sourceDiscoveryStatus": "researched",
+  "adapterMaturity": "registry_only",
+  "coverageScope": "state_agency_partial",
+  "adapterPackage": "@opentrade/adapter-mn-dli",
+  "testFixturePath": null,
+  "officialLookupUrl": "https://www.dli.mn.gov/license-and-registration-lookup",
+  "officialBulkDownloadNotes": "The official DLI page describes a downloadable spreadsheet of all licensed businesses and individuals issued by the Construction Codes and Licensing Division. Exact file URL and column metadata need follow-up research before adapter work.",
+  "researchNotes": "Strong future bulk-adapter candidate, but the dataset spans licenses, bonds, certifications, and registrations and needs filtering.",
+  "lastVerifiedAt": "2026-06-21T00:00:00.000Z",
+  "maintainerNotes": "Do not treat every DLI export row as a contractor license without type filtering."
+}

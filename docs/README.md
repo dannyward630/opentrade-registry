@@ -10,6 +10,7 @@ These docs explain how the project models official sources, writes adapters, and
 - [Source Research Template](source-research-template.md): the checklist to use before adding a new source.
 - [Adapter Authoring](adapter-authoring.md): practical guidance for writing a source adapter.
 - [California CSLB Adapter Plan](adapters/california-cslb.md): early notes for a future California adapter.
+- [Oregon CCB Adapter Notes](adapters/oregon-ccb.md): fixture support and active-source caveats for Oregon CCB.
 - [Texas TDLR Adapter Notes](adapters/texas-tdlr.md): fixture support and source caveats for Texas TDLR.
 - [Washington L&I Adapter Notes](adapters/washington-lni.md): fixture support and source caveats for Washington L&I.
 - [Legal And Data Use](legal-and-data-use.md): readable data-use guardrails.

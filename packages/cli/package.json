@@ -41,6 +41,7 @@
   },
   "dependencies": {
     "@opentrade/adapter-fl-dbpr": "workspace:*",
+    "@opentrade/adapter-or-ccb": "workspace:*",
     "@opentrade/adapter-tx-tdlr": "workspace:*",
     "@opentrade/adapter-wa-lni": "workspace:*",
     "@opentrade/core": "workspace:*",

@@ -4,6 +4,7 @@ import { join } from "node:path";
 const packages = [
   "packages/core",
   "packages/adapter-fl-dbpr",
+  "packages/adapter-or-ccb",
   "packages/adapter-tx-tdlr",
   "packages/adapter-wa-lni",
   "packages/cli",

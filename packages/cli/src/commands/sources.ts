@@ -44,10 +44,32 @@ export async function showSource(rootDir: string, sourceId: string, options: { j
   console.log(`agency: ${entry.agency.name}`);
   console.log(`type: ${entry.sourceType}`);
   console.log(`url: ${entry.sourceUrl}`);
+  if (entry.officialLookupUrl) {
+    console.log(`lookup: ${entry.officialLookupUrl}`);
+  }
   console.log(`status: ${entry.adapterStatus}`);
   console.log(`maturity: ${entry.adapterMaturity}`);
+  console.log(`coverage: ${entry.coverageScope}`);
   console.log(`discovery: ${entry.sourceDiscoveryStatus}`);
   console.log(`redistribution: ${entry.redistributionStatus}`);
+  if (entry.testFixturePath) {
+    console.log(`fixture: ${entry.testFixturePath}`);
+  }
+  if (entry.officialBulkDownloadNotes) {
+    console.log(`bulk notes: ${entry.officialBulkDownloadNotes}`);
+  }
+  if (entry.knownExclusions.length > 0) {
+    console.log("known exclusions:");
+    for (const exclusion of entry.knownExclusions) {
+      console.log(`- ${exclusion}`);
+    }
+  }
+  if (entry.publicRecordsNotes) {
+    console.log(`public records: ${entry.publicRecordsNotes}`);
+  }
+  if (entry.researchNotes) {
+    console.log(`research: ${entry.researchNotes}`);
+  }
 }
 
 async function listJsonFiles(directory: string): Promise<string[]> {

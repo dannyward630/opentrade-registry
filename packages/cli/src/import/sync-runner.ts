@@ -11,6 +11,13 @@ export type SyncResult = {
   stats: ImportStats;
   remoteSnapshot?: RemoteSnapshotMetadata;
   warnings: string[];
+  errors: SyncRecordError[];
+};
+
+export type SyncRecordError = {
+  rowNumber?: number;
+  recordFingerprint?: string;
+  message: string;
 };
 
 export async function runAdapterSync(input: {
@@ -22,6 +29,7 @@ export async function runAdapterSync(input: {
   sourceLastModifiedAt?: string | null;
   fetchedAt?: string;
   remoteSnapshot?: RemoteSnapshotMetadata;
+  strict?: boolean;
 }): Promise<SyncResult> {
   const metadata = await input.adapter.getSourceMetadata();
   const startedAt = new Date().toISOString();
@@ -34,6 +42,7 @@ export async function runAdapterSync(input: {
     errorCount: 0,
   };
   const warnings: string[] = [];
+  const errors: SyncRecordError[] = [];
   const records: CanonicalTradeLicenseRecord[] = [];
 
   for await (const rawRecord of input.adapter.streamRawRecords({
@@ -49,10 +58,16 @@ export async function runAdapterSync(input: {
       stats.normalizedRecordCount += 1;
     } catch (error) {
       stats.errorCount += 1;
-      throw Object.assign(
-        new Error(`Failed to normalize record ${rawRecord.rowNumber ?? stats.rawRecordCount}: ${error instanceof Error ? error.message : String(error)}`),
-        { exitCode: 1 },
-      );
+      const message = `Failed to normalize record ${rawRecord.rowNumber ?? stats.rawRecordCount}: ${error instanceof Error ? error.message : String(error)}`;
+      errors.push({
+        rowNumber: rawRecord.rowNumber,
+        recordFingerprint: rawRecord.fingerprint,
+        message,
+      });
+
+      if (input.strict) {
+        throw Object.assign(new Error(message), { exitCode: 1 });
+      }
     }
   }
 
@@ -69,6 +84,7 @@ export async function runAdapterSync(input: {
     stats,
     remoteSnapshot: input.remoteSnapshot,
     warnings,
+    errors,
   };
 }
 

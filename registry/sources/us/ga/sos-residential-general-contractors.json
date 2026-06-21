@@ -1,0 +1,43 @@
+{
+  "id": "us.ga.sos.residential_general_contractors",
+  "name": "Georgia Residential and General Contractors License Search",
+  "jurisdiction": {
+    "country": "US",
+    "state": "GA"
+  },
+  "agency": {
+    "name": "Georgia Secretary of State Licensing Division",
+    "url": "https://sos.ga.gov/licensing-division-georgia-secretary-states-office"
+  },
+  "sourceType": "html_lookup",
+  "sourceUrl": "https://sos.ga.gov/state-licensing-board-residential-and-commercial-general-contractors",
+  "documentationUrl": "https://sos.ga.gov/state-licensing-board-residential-and-commercial-general-contractors",
+  "dataDictionaryUrl": null,
+  "termsUrl": "https://sos.ga.gov/privacy-policy",
+  "updateFrequency": "unknown; verify against the official licensing search before relying on freshness assumptions",
+  "tradeCoverage": ["general contracting", "residential contracting"],
+  "licenseTypesIncluded": ["Georgia residential and general contractor licenses exposed by the official search"],
+  "knownExclusions": [
+    "Specialty occupations such as roofing, painting, drywall, and some repair work may not require this state license or may be outside this board's scope.",
+    "Local permits, business registrations, and other state construction-industry boards are not represented by this source entry."
+  ],
+  "hasBulkDownload": "unknown",
+  "hasLiveLookup": true,
+  "requiresJavaScript": "unknown",
+  "requiresCaptcha": "unknown",
+  "requiresAccount": false,
+  "rateLimitNotes": "No adapter is implemented. Prefer official bulk options if discovered before considering lookup automation.",
+  "redistributionStatus": "unknown",
+  "publicRecordsNotes": "Official lookup source metadata only. Absence from this source is not proof that a license does not exist elsewhere.",
+  "adapterStatus": "planned",
+  "sourceDiscoveryStatus": "researched",
+  "adapterMaturity": "registry_only",
+  "coverageScope": "state_agency_partial",
+  "adapterPackage": "@opentrade/adapter-ga-sos",
+  "testFixturePath": null,
+  "officialLookupUrl": "https://goals.sos.ga.gov/GASOSOneStop/s/licensee-search",
+  "officialBulkDownloadNotes": "No official bulk download has been confirmed in this phase.",
+  "researchNotes": "Registry-only source for Georgia residential and general contractor licensing. Future work should research Georgia construction-industry specialty boards separately.",
+  "lastVerifiedAt": "2026-06-21T00:00:00.000Z",
+  "maintainerNotes": "Keep board scope clear; do not imply all Georgia contractor or trade work is covered."
+}
