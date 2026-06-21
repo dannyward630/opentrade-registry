@@ -1,38 +1,51 @@
-import { createClient } from "@supabase/supabase-js";
+import { countSourcesFromDatabase, createDatabaseClientFromEnv, loadSourcesFromFiles, type RegistryDatabaseClient } from "./registry.js";
 import type { ApiRequest, ApiResponse } from "./types.js";
 
 export default async function handler(_request: ApiRequest, response: ApiResponse) {
-  const supabaseUrl = process.env.OPENTRADE_SUPABASE_URL;
-  const supabaseAnonKey = process.env.OPENTRADE_SUPABASE_ANON_KEY;
+  const health = await getHealthStatus();
+  response.status(health.statusCode).json(health.body);
+}
 
-  if (!supabaseUrl || !supabaseAnonKey) {
-    response.status(200).json({
-      ok: true,
-      service: "opentrade-registry",
-      database: {
-        configured: false,
-        status: "not_configured"
-      }
-    });
-    return;
+export async function getHealthStatus(options: { rootDir?: string; databaseClient?: RegistryDatabaseClient | null } = {}) {
+  const fileRegistrySourceCount = (await loadSourcesFromFiles(options.rootDir)).length;
+  const databaseClient = Object.hasOwn(options, "databaseClient") ? options.databaseClient : createDatabaseClientFromEnv();
+
+  if (!databaseClient) {
+    return {
+      statusCode: 200,
+      body: {
+        ok: true,
+        service: "opentrade-registry",
+        fileRegistrySourceCount,
+        database: {
+          configured: false,
+          status: "not_configured",
+        },
+      },
+    };
   }
 
-  const client = createClient(supabaseUrl, supabaseAnonKey, {
-    auth: {
-      persistSession: false
-    }
-  });
+  let registrySourceCount = 0;
+  let error: string | undefined;
+  try {
+    registrySourceCount = await countSourcesFromDatabase(databaseClient);
+  } catch (caught) {
+    error = caught instanceof Error ? caught.message : "Unknown database source count error";
+  }
 
-  const { count, error } = await client.from("registry_sources").select("id", { count: "exact", head: true });
-
-  response.status(error ? 503 : 200).json({
-    ok: !error,
-    service: "opentrade-registry",
-    database: {
-      configured: true,
-      status: error ? "unavailable" : "available",
-      registrySourceCount: count ?? 0,
-      error: error?.message
-    }
-  });
+  return {
+    statusCode: error ? 503 : 200,
+    body: {
+      ok: !error,
+      service: "opentrade-registry",
+      fileRegistrySourceCount,
+      database: {
+        configured: true,
+        status: error ? "unavailable" : "available",
+        registrySourceCount,
+        sourceCountMatchesFiles: registrySourceCount === fileRegistrySourceCount,
+        error,
+      },
+    },
+  };
 }

@@ -1,5 +1,6 @@
 import { describe, expect, it } from "vitest";
-import healthHandler from "../api/health.js";
+import healthHandler, { getHealthStatus } from "../api/health.js";
+import { loadSourcesForApi, loadSourcesFromDatabase, type RegistryDatabaseClient } from "../api/registry.js";
 import sourcesHandler from "../api/sources.js";
 
 describe("hosted API", () => {
@@ -19,6 +20,7 @@ describe("hosted API", () => {
     expect(response.body).toMatchObject({
       ok: true,
       service: "opentrade-registry",
+      fileRegistrySourceCount: 29,
       database: {
         configured: false,
         status: "not_configured"
@@ -31,7 +33,8 @@ describe("hosted API", () => {
     await sourcesHandler({ query: {} } as never, response as never);
 
     expect(response.statusCode).toBe(200);
-    expect(response.body.count).toBe(24);
+    expect(response.body.origin).toBe("registry_files");
+    expect(response.body.count).toBe(29);
     expect(response.body.sources.some((source: { id: string }) => source.id === "us.fl.dbpr.construction")).toBe(true);
   });
 
@@ -42,8 +45,70 @@ describe("hosted API", () => {
     expect(response.statusCode).toBe(200);
     expect(response.body).toMatchObject({
       id: "us.oh.commerce.ocilb_contractors",
+      adapterMaturity: "registry_only",
+      origin: "registry_files"
+    });
+  });
+
+  it("loads source registry entries from database rows when a database client is available", async () => {
+    const result = await loadSourcesForApi({
+      databaseClient: createFakeDatabaseClient({
+        rows: [createSourceRow("us.ct.dcp.home_improvement_contractors", "CT")],
+      }),
+    });
+
+    expect(result.origin).toBe("database");
+    expect(result.sources).toHaveLength(1);
+    expect(result.sources[0]).toMatchObject({
+      id: "us.ct.dcp.home_improvement_contractors",
+      jurisdiction: {
+        state: "CT"
+      },
       adapterMaturity: "registry_only"
     });
+  });
+
+  it("falls back to registry files when database source loading fails", async () => {
+    const result = await loadSourcesForApi({
+      databaseClient: createFakeDatabaseClient({
+        error: "database unavailable",
+      }),
+    });
+
+    expect(result.origin).toBe("registry_files");
+    expect(result.databaseError).toBe("database unavailable");
+    expect(result.sources).toHaveLength(29);
+  });
+
+  it("reports matching database and file source counts when database count succeeds", async () => {
+    const health = await getHealthStatus({
+      databaseClient: createFakeDatabaseClient({
+        count: 29,
+      }),
+    });
+
+    expect(health.statusCode).toBe(200);
+    expect(health.body).toMatchObject({
+      ok: true,
+      fileRegistrySourceCount: 29,
+      database: {
+        configured: true,
+        status: "available",
+        registrySourceCount: 29,
+        sourceCountMatchesFiles: true
+      }
+    });
+  });
+
+  it("maps database rows through the public source schema", async () => {
+    const sources = await loadSourcesFromDatabase(
+      createFakeDatabaseClient({
+        rows: [createSourceRow("us.wv.labor.contractors", "WV")],
+      }),
+    );
+
+    expect(sources[0]?.sourceType).toBe("html_lookup");
+    expect(sources[0]?.sourceDiscoveryStatus).toBe("researched");
   });
 });
 
@@ -69,4 +134,75 @@ function restoreEnv(key: string, value: string | undefined) {
   }
 
   process.env[key] = value;
+}
+
+function createFakeDatabaseClient(options: { rows?: unknown[]; count?: number; error?: string }): RegistryDatabaseClient {
+  return {
+    from() {
+      return {
+        select(_columns: string, selectOptions?: { count?: "exact"; head?: boolean }) {
+          if (selectOptions?.head) {
+            return Promise.resolve({
+              count: options.count ?? options.rows?.length ?? 0,
+              error: options.error ? { message: options.error } : null,
+            });
+          }
+
+          return {
+            order() {
+              return Promise.resolve({
+                data: options.rows ?? [],
+                error: options.error ? { message: options.error } : null,
+              });
+            },
+          };
+        },
+      };
+    },
+  };
+}
+
+function createSourceRow(id: string, state: string) {
+  return {
+    id,
+    name: `${state} Test Source`,
+    jurisdiction: {
+      country: "US",
+      state,
+    },
+    agency: {
+      name: `${state} Test Agency`,
+      url: "https://example.gov/",
+    },
+    source_type: "html_lookup",
+    source_url: "https://example.gov/source",
+    documentation_url: "https://example.gov/docs",
+    adapter_status: "planned",
+    adapter_maturity: "registry_only",
+    source_discovery_status: "researched",
+    coverage_scope: "state_agency_partial",
+    redistribution_status: "unknown",
+    metadata: {
+      dataDictionaryUrl: null,
+      termsUrl: "https://example.gov/terms",
+      updateFrequency: "unknown",
+      tradeCoverage: ["home_improvement"],
+      licenseTypesIncluded: ["test records"],
+      knownExclusions: ["test exclusions"],
+      hasBulkDownload: "unknown",
+      hasLiveLookup: true,
+      requiresJavaScript: "unknown",
+      requiresCaptcha: "unknown",
+      requiresAccount: false,
+      rateLimitNotes: "test rate limit notes",
+      publicRecordsNotes: "test public records notes",
+      adapterPackage: `@opentrade/adapter-${state.toLowerCase()}-test`,
+      testFixturePath: null,
+      officialLookupUrl: "https://example.gov/lookup",
+      officialBulkDownloadNotes: "none",
+      researchNotes: "test research notes",
+      maintainerNotes: "test maintainer notes",
+    },
+    last_verified_at: "2026-06-22T00:00:00.000Z",
+  };
 }
