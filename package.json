@@ -34,6 +34,7 @@
     "registry:validate": "vitest run tests/source-registry.test.ts",
     "cleanliness:scan": "node scripts/cleanliness-scan.mjs",
     "files:check": "node scripts/files-check.mjs",
+    "source:quality": "node scripts/source-quality-report.mjs",
     "security:audit": "corepack pnpm audit --prod=false",
     "pack:check": "corepack pnpm build && node scripts/pack-check.mjs",
     "cli": "corepack pnpm --filter @opentrade/cli cli"

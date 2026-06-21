@@ -22,7 +22,7 @@ The current build is still intentionally small. It supports Florida DBPR constru
 - Convert a tiny Washington L&I fixture into canonical records.
 - Export canonical records as JSONL or CSV.
 - Check one license number against a local source file.
-- Inspect researched source metadata for Arizona, California, Florida, Georgia, Minnesota, Nevada, North Carolina, Oregon, South Carolina, Tennessee, Texas, Utah, Virginia, and Washington.
+- Inspect researched source metadata for Alabama, Arizona, California, Florida, Georgia, Louisiana, Michigan, Minnesota, Nevada, North Carolina, Oregon, Pennsylvania, South Carolina, Tennessee, Texas, Utah, Virginia, Washington, and Wisconsin.
 
 ## What This Project Does Not Do
 
@@ -138,7 +138,7 @@ Adapter maturity is tracked separately from source research:
 - Level 3: opt-in network sync with freshness metadata.
 - Level 4: verification semantics reviewed against official source caveats.
 
-Florida DBPR is currently a local-file adapter with opt-in URL sync through the CLI. Oregon CCB, Texas TDLR, and Washington L&I are fixture-supported. Arizona ROC, California CSLB, Georgia SOS, Minnesota DLI, Nevada NSCB, North Carolina NCLBGC, South Carolina LLR, Tennessee Commerce, Utah DOPL, and Virginia DPOR are registry-only entries.
+Florida DBPR is currently a local-file adapter with opt-in URL sync through the CLI. Oregon CCB, Texas TDLR, and Washington L&I are fixture-supported. Alabama General Contractors Board, Arizona ROC, California CSLB, Georgia SOS, Louisiana LSLBC, Michigan LARA, Minnesota DLI, Nevada NSCB, North Carolina NCLBGC, Pennsylvania OAG, South Carolina LLR, Tennessee Commerce, Utah DOPL, Virginia DPOR, and Wisconsin DSPS are registry-only entries.
 
 ## Project Layout
 
@@ -167,6 +167,6 @@ corepack pnpm cleanliness:scan
 
 ## Roadmap
 
-The next work is to make URL sync more source-aware, improve Oregon, Texas, and Washington fixture coverage, and continue building a researched source registry state by state. Broader adapter coverage will come after the registry and adapter contracts stay boring and predictable.
+The next work is to make URL sync more source-aware, improve Oregon, Texas, and Washington fixture coverage, and continue building a researched source registry state by state. Broader adapter coverage will come after the registry validation, source-quality reporting, and adapter contracts stay boring and predictable.
 
 See [docs/roadmap.md](docs/roadmap.md) for the current plan.

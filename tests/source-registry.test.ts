@@ -1,5 +1,5 @@
 import { access, readFile, readdir } from "node:fs/promises";
-import { join } from "node:path";
+import { join, relative } from "node:path";
 import { describe, expect, it } from "vitest";
 import { sourceRegistryEntrySchema } from "@opentrade/core";
 import { listImplementedSourceIds } from "../packages/cli/src/adapters.js";
@@ -30,7 +30,7 @@ type UsCoverageIndex = {
 describe("source registry", () => {
   it("validates every source registry entry", async () => {
     const files = await listJsonFiles(join(process.cwd(), "registry", "sources"));
-    expect(files.length).toBeGreaterThanOrEqual(14);
+    expect(files.length).toBeGreaterThanOrEqual(19);
 
     const parsed = [];
     for (const file of files) {
@@ -38,20 +38,25 @@ describe("source registry", () => {
     }
 
     expect(parsed.map((entry) => entry.id).sort()).toEqual([
+      "us.al.genconbd.general_contractors",
       "us.az.roc.contractors",
       "us.ca.cslb.contractors",
       "us.fl.dbpr.construction",
       "us.ga.sos.residential_general_contractors",
+      "us.la.lslbc.contractors",
+      "us.mi.lara.residential_builders",
       "us.mn.dli.licenses_registrations",
       "us.nc.nclbgc.general_contractors",
       "us.nv.nscb.contractors",
       "us.or.ccb.active_licenses",
+      "us.pa.oag.home_improvement_contractors",
       "us.sc.llr.contractors",
       "us.tn.commerce.contractors",
       "us.tx.tdlr.all_licenses",
       "us.ut.dopl.contractors",
       "us.va.dpor.contractors",
       "us.wa.lni.contractors",
+      "us.wi.dsps.dwelling_trades",
     ]);
     expect(parsed.every((entry) => entry.redistributionStatus === "unknown")).toBe(true);
     expect(parsed.every((entry) => entry.sourceDiscoveryStatus === "researched")).toBe(true);
@@ -77,11 +82,22 @@ describe("source registry", () => {
     const sourceIds = parsed.map(({ entry }) => entry.id);
     const sourceUrls = parsed.map(({ entry }) => entry.sourceUrl);
     const implementedSourceIds = listImplementedSourceIds();
+    const registryRoot = join(process.cwd(), "registry", "sources");
 
     expect(new Set(sourceIds).size).toBe(sourceIds.length);
     expect(new Set(sourceUrls).size).toBe(sourceUrls.length);
 
-    for (const { entry } of parsed) {
+    for (const { file, entry } of parsed) {
+      const state = entry.jurisdiction.state.toLowerCase();
+      const relativeParts = relative(registryRoot, file).split(/[\\/]/);
+
+      expect(relativeParts[0], `${entry.id} should be under registry/sources/us`).toBe("us");
+      expect(relativeParts[1], `${entry.id} should be stored under its two-letter state directory`).toBe(state);
+      expect(entry.id.startsWith(`us.${state}.`), `${entry.id} should include its jurisdiction state`).toBe(true);
+      if (entry.adapterPackage) {
+        expect(entry.adapterPackage.startsWith(`@opentrade/adapter-${state}-`), `${entry.id} has an adapter package that does not include its state code`).toBe(true);
+      }
+
       if (entry.adapterStatus === "implemented") {
         expect(implementedSourceIds, `${entry.id} is implemented but not registered in the CLI adapter registry`).toContain(entry.id);
       }
@@ -174,19 +190,24 @@ describe("source registry", () => {
       expect(coverageStatesBySourceId.get(source.id), `${source.id} is missing from US coverage`).toBe(source.jurisdiction.state);
     }
     expect(coverage.states.find((entry) => entry.state === "FL")?.status).toBe("local_file_supported");
+    expect(coverage.states.find((entry) => entry.state === "AL")?.status).toBe("registry_entry_added");
     expect(coverage.states.find((entry) => entry.state === "GA")?.status).toBe("registry_entry_added");
+    expect(coverage.states.find((entry) => entry.state === "LA")?.status).toBe("registry_entry_added");
+    expect(coverage.states.find((entry) => entry.state === "MI")?.status).toBe("registry_entry_added");
     expect(coverage.states.find((entry) => entry.state === "MN")?.status).toBe("registry_entry_added");
     expect(coverage.states.find((entry) => entry.state === "CA")?.status).toBe("registry_entry_added");
     expect(coverage.states.find((entry) => entry.state === "AZ")?.status).toBe("registry_entry_added");
     expect(coverage.states.find((entry) => entry.state === "NC")?.status).toBe("registry_entry_added");
     expect(coverage.states.find((entry) => entry.state === "NV")?.status).toBe("registry_entry_added");
     expect(coverage.states.find((entry) => entry.state === "OR")?.status).toBe("fixture_supported");
+    expect(coverage.states.find((entry) => entry.state === "PA")?.status).toBe("registry_entry_added");
     expect(coverage.states.find((entry) => entry.state === "SC")?.status).toBe("registry_entry_added");
     expect(coverage.states.find((entry) => entry.state === "TN")?.status).toBe("registry_entry_added");
     expect(coverage.states.find((entry) => entry.state === "TX")?.status).toBe("fixture_supported");
     expect(coverage.states.find((entry) => entry.state === "UT")?.status).toBe("registry_entry_added");
     expect(coverage.states.find((entry) => entry.state === "VA")?.status).toBe("registry_entry_added");
     expect(coverage.states.find((entry) => entry.state === "WA")?.status).toBe("fixture_supported");
+    expect(coverage.states.find((entry) => entry.state === "WI")?.status).toBe("registry_entry_added");
   });
 });
 

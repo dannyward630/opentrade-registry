@@ -20,6 +20,8 @@ Examples:
 - `registry/sources/us/nv/nscb-contractors.json`
 - `registry/sources/us/nc/nclbgc-general-contractors.json`
 - `registry/sources/us/va/dpor-contractors.json`
+- `registry/sources/us/pa/oag-home-improvement-contractors.json`
+- `registry/sources/us/wi/dsps-dwelling-trades.json`
 
 `registry/us-coverage.json` tracks state-by-state progress. It may list a state before a detailed source has been researched.
 
@@ -48,4 +50,10 @@ Run:
 
 ```bash
 corepack pnpm registry:validate
+```
+
+For a quick source-quality summary, run:
+
+```bash
+corepack pnpm source:quality
 ```
