@@ -1,0 +1,11 @@
+import { describe, expect, it } from "vitest";
+import { getAdapter, listImplementedSourceIds, requireAdapter } from "../packages/cli/src/adapters.js";
+
+describe("CLI adapter registry", () => {
+  it("resolves implemented adapters and rejects registry-only sources", () => {
+    expect(listImplementedSourceIds()).toEqual(["us.fl.dbpr.construction"]);
+    expect(getAdapter("us.fl.dbpr.construction")?.sourceId).toBe("us.fl.dbpr.construction");
+    expect(getAdapter("us.ca.cslb.contractors")).toBeNull();
+    expect(() => requireAdapter("us.ca.cslb.contractors", "sync")).toThrow(/no sync adapter is implemented yet/i);
+  });
+});
