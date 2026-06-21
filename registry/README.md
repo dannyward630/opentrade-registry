@@ -22,6 +22,8 @@ Examples:
 - `registry/sources/us/va/dpor-contractors.json`
 - `registry/sources/us/pa/oag-home-improvement-contractors.json`
 - `registry/sources/us/wi/dsps-dwelling-trades.json`
+- `registry/sources/us/ar/aclb-contractors.json`
+- `registry/sources/us/oh/commerce-ocilb-contractors.json`
 
 `registry/us-coverage.json` tracks state-by-state progress. It may list a state before a detailed source has been researched.
 

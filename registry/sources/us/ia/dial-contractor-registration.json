@@ -1,0 +1,43 @@
+{
+  "id": "us.ia.dial.contractor_registration",
+  "name": "Iowa DIAL Contractor Registration Lookup",
+  "jurisdiction": {
+    "country": "US",
+    "state": "IA"
+  },
+  "agency": {
+    "name": "Iowa Department of Inspections, Appeals, and Licensing",
+    "url": "https://dial.iowa.gov/"
+  },
+  "sourceType": "html_lookup",
+  "sourceUrl": "https://dial.iowa.gov/licenses/building/contractors",
+  "documentationUrl": "https://dial.iowa.gov/licenses/building/contractors",
+  "dataDictionaryUrl": null,
+  "termsUrl": "https://www.iowa.gov/policies",
+  "updateFrequency": "unknown; verify against the official contractor registration and license lookup before relying on freshness assumptions",
+  "tradeCoverage": ["general_contracting", "residential_contracting", "commercial_contracting", "electrical", "plumbing", "mechanical", "hvac", "other"],
+  "licenseTypesIncluded": ["Iowa contractor registration records exposed by DIAL and related building, construction, and trades lookup paths"],
+  "knownExclusions": [
+    "Iowa contractor registration is not the same as every electrical, plumbing, mechanical, HVAC, or local permit credential.",
+    "Local requirements and separate DIAL trade-board records may need separate source entries or adapter filters."
+  ],
+  "hasBulkDownload": "unknown",
+  "hasLiveLookup": true,
+  "requiresJavaScript": "unknown",
+  "requiresCaptcha": "unknown",
+  "requiresAccount": false,
+  "rateLimitNotes": "No adapter is implemented. Prefer official bulk or export options if discovered before lookup automation.",
+  "redistributionStatus": "unknown",
+  "publicRecordsNotes": "Official lookup source metadata only. Absence from this source is not proof that a license, registration, or permit does not exist elsewhere.",
+  "adapterStatus": "planned",
+  "sourceDiscoveryStatus": "researched",
+  "adapterMaturity": "registry_only",
+  "coverageScope": "state_agency_partial",
+  "adapterPackage": "@opentrade/adapter-ia-dial",
+  "testFixturePath": null,
+  "officialLookupUrl": "https://dial.iowa.gov/i-need/records",
+  "officialBulkDownloadNotes": "No official bulk download has been confirmed in this phase.",
+  "researchNotes": "Registry-only source for Iowa contractor registration research. Future work should separate registration records from trade-license records where needed.",
+  "lastVerifiedAt": "2026-06-21T00:00:00.000Z",
+  "maintainerNotes": "Keep registration-versus-license wording clear in future CLI output and docs."
+}

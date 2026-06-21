@@ -12,13 +12,14 @@ describe("source quality report", () => {
     expect(result.stderr).toBe("");
 
     const report = JSON.parse(result.stdout);
-    expect(report.sourceCount).toBe(19);
+    expect(report.sourceCount).toBe(24);
     expect(report.stateCount).toBe(51);
-    expect(report.researchedStateCount).toBe(19);
-    expect(report.sourcesByMaturity.registry_only).toBe(15);
+    expect(report.researchedStateCount).toBe(24);
+    expect(report.sourcesByMaturity.registry_only).toBe(20);
     expect(report.sourcesByMaturity.fixture_adapter).toBe(3);
     expect(report.sourcesByMaturity.local_file_adapter).toBe(1);
     expect(report.lookupOnlySources.map((source: { id: string }) => source.id)).toContain("us.pa.oag.home_improvement_contractors");
+    expect(report.lookupOnlySources.map((source: { id: string }) => source.id)).toContain("us.oh.commerce.ocilb_contractors");
     expect(report.bulkCandidates.map((source: { id: string }) => source.id)).toContain("us.fl.dbpr.construction");
   });
 });

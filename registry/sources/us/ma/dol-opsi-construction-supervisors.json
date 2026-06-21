@@ -1,0 +1,43 @@
+{
+  "id": "us.ma.dol.opsi_construction_supervisors",
+  "name": "Massachusetts OPSI Construction Supervisor License Verification",
+  "jurisdiction": {
+    "country": "US",
+    "state": "MA"
+  },
+  "agency": {
+    "name": "Massachusetts Division of Occupational Licensure Office of Public Safety and Inspections",
+    "url": "https://www.mass.gov/orgs/office-of-public-safety-and-inspections"
+  },
+  "sourceType": "html_lookup",
+  "sourceUrl": "https://www.mass.gov/how-to/check-a-license-issued-by-the-office-of-public-safety-and-inspections-opsi",
+  "documentationUrl": "https://www.mass.gov/construction-supervisor-licensing",
+  "dataDictionaryUrl": null,
+  "termsUrl": "https://www.mass.gov/privacypolicy",
+  "updateFrequency": "unknown; verify against the official OPSI verification site before relying on freshness assumptions",
+  "tradeCoverage": ["general_contracting", "residential_contracting", "commercial_contracting", "other"],
+  "licenseTypesIncluded": ["Massachusetts OPSI construction supervisor licenses exposed by the official license verification site"],
+  "knownExclusions": [
+    "This source is scoped to OPSI-issued licenses and does not cover every home improvement registration, local permit, or trade license in Massachusetts.",
+    "Other Massachusetts DOL boards and registration programs may require separate source entries."
+  ],
+  "hasBulkDownload": "unknown",
+  "hasLiveLookup": true,
+  "requiresJavaScript": "unknown",
+  "requiresCaptcha": "unknown",
+  "requiresAccount": false,
+  "rateLimitNotes": "No adapter is implemented. The verification site says search results can be downloaded, but export format and redistribution terms need review.",
+  "redistributionStatus": "unknown",
+  "publicRecordsNotes": "Official lookup source metadata only. Absence from this source is not proof that a license, registration, or permit does not exist elsewhere.",
+  "adapterStatus": "planned",
+  "sourceDiscoveryStatus": "researched",
+  "adapterMaturity": "registry_only",
+  "coverageScope": "state_agency_partial",
+  "adapterPackage": "@opentrade/adapter-ma-dol",
+  "testFixturePath": null,
+  "officialLookupUrl": "https://madpl.mylicense.com/Verification/",
+  "officialBulkDownloadNotes": "The official verification site says search results can be downloaded at no cost, but terms, fields, and redistribution permission require further review.",
+  "researchNotes": "Registry-only source for Massachusetts OPSI construction supervisor license verification. Future work should research companion home improvement contractor registration sources.",
+  "lastVerifiedAt": "2026-06-21T00:00:00.000Z",
+  "maintainerNotes": "Preserve the distinction between construction supervisor licensing, home improvement registration, trade licenses, and local permits."
+}

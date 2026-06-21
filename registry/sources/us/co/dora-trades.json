@@ -1,0 +1,44 @@
+{
+  "id": "us.co.dora.trades",
+  "name": "Colorado DORA Division of Professions and Occupations Trade License Lookup",
+  "jurisdiction": {
+    "country": "US",
+    "state": "CO"
+  },
+  "agency": {
+    "name": "Colorado Department of Regulatory Agencies",
+    "url": "https://dora.colorado.gov/"
+  },
+  "sourceType": "html_lookup",
+  "sourceUrl": "https://dora.colorado.gov/check-a-license",
+  "documentationUrl": "https://dpo.colorado.gov/",
+  "dataDictionaryUrl": null,
+  "termsUrl": "https://dora.colorado.gov/general-notices",
+  "updateFrequency": "unknown; verify against the official DORA/DPO lookup before relying on freshness assumptions",
+  "tradeCoverage": ["electrical", "plumbing", "other"],
+  "licenseTypesIncluded": ["Colorado DPO electrical, plumbing, and related professional license records exposed by official lookup paths"],
+  "knownExclusions": [
+    "Colorado does not have a single statewide general contractor source represented by this entry.",
+    "Local contractor licenses, local permits, and non-DORA authorizations are outside this source entry.",
+    "Separate DPO boards and programs may require separate source entries before adapter work."
+  ],
+  "hasBulkDownload": "unknown",
+  "hasLiveLookup": true,
+  "requiresJavaScript": "unknown",
+  "requiresCaptcha": "unknown",
+  "requiresAccount": false,
+  "rateLimitNotes": "No adapter is implemented. The official DORA pages should be used for manual source research until access rules and export options are clearer.",
+  "redistributionStatus": "unknown",
+  "publicRecordsNotes": "Official lookup source metadata only. Absence from this source is not proof that a license or credential does not exist elsewhere.",
+  "adapterStatus": "planned",
+  "sourceDiscoveryStatus": "researched",
+  "adapterMaturity": "registry_only",
+  "coverageScope": "state_agency_partial",
+  "adapterPackage": "@opentrade/adapter-co-dora",
+  "testFixturePath": null,
+  "officialLookupUrl": "https://apps.colorado.gov/dora/licensing/Lookup/LicenseLookup.aspx",
+  "officialBulkDownloadNotes": "DORA references license lookup paths, but no construction-specific official bulk download has been confirmed in this phase.",
+  "researchNotes": "Registry-only source for Colorado DORA trade-license lookup. Future work should decide whether electrical, plumbing, and other DPO programs need separate entries.",
+  "lastVerifiedAt": "2026-06-21T00:00:00.000Z",
+  "maintainerNotes": "Do not describe this as statewide contractor coverage; it is DORA/DPO trade-license metadata."
+}

@@ -24,6 +24,7 @@ describe("opentrade CLI", () => {
     expect(list).toContain("us.wa.lni.contractors");
     expect(list).toContain("us.or.ccb.active_licenses");
     expect(list).toContain("us.pa.oag.home_improvement_contractors");
+    expect(list).toContain("us.oh.commerce.ocilb_contractors");
     expect(list).toContain("us.wi.dsps.dwelling_trades");
     expect(list).toContain("us.mn.dli.licenses_registrations");
     expect(list).toContain("local_file_adapter");
@@ -37,7 +38,11 @@ describe("opentrade CLI", () => {
     expect(pennsylvania).toContain("Pennsylvania Office of Attorney General Home Improvement Contractor Search");
     expect(pennsylvania).toContain("maturity: registry_only");
     expect(pennsylvania).toContain("active registrations only");
-    expect(runCli(["sources", "validate"]).stdout).toContain("Validated 19 source registry entries.");
+    const ohio = runCli(["sources", "show", "us.oh.commerce.ocilb_contractors"]).stdout;
+    expect(ohio).toContain("Ohio Construction Industry Licensing Board Contractor License Lookup");
+    expect(ohio).toContain("maturity: registry_only");
+    expect(ohio).toContain("roster");
+    expect(runCli(["sources", "validate"]).stdout).toContain("Validated 24 source registry entries.");
   });
 
   it("rejects registry-only sources for sync and verify with neutral wording", () => {
