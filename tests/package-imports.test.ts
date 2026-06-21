@@ -12,6 +12,11 @@ import {
   floridaDbprConstructionAdapter,
   normalizeDbprStatus,
 } from "@opentrade/adapter-fl-dbpr";
+import {
+  texasTdlrAllLicensesAdapter,
+  TX_TDLR_ALL_LICENSES_SOURCE_ID,
+  normalizeTexasTdlrStatus,
+} from "@opentrade/adapter-tx-tdlr";
 
 describe("public package imports", () => {
   it("imports stable public APIs from core and the Florida adapter", () => {
@@ -24,5 +29,8 @@ describe("public package imports", () => {
     expect(FL_DBPR_CONSTRUCTION_SOURCE_ID).toBe("us.fl.dbpr.construction");
     expect(floridaDbprConstructionAdapter.sourceId).toBe("us.fl.dbpr.construction");
     expect(normalizeDbprStatus({ primaryStatusCode: "S", secondaryStatusCode: "A" }).normalized).toBe("suspended");
+    expect(TX_TDLR_ALL_LICENSES_SOURCE_ID).toBe("us.tx.tdlr.all_licenses");
+    expect(texasTdlrAllLicensesAdapter.sourceId).toBe("us.tx.tdlr.all_licenses");
+    expect(normalizeTexasTdlrStatus({ expirationDate: "2099-12-31T00:00:00.000Z" }).normalized).toBe("active");
   });
 });

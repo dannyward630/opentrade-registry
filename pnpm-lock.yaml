@@ -8,6 +8,15 @@ importers:
 
   .:
     devDependencies:
+      '@opentrade/adapter-fl-dbpr':
+        specifier: workspace:*
+        version: link:packages/adapter-fl-dbpr
+      '@opentrade/adapter-tx-tdlr':
+        specifier: workspace:*
+        version: link:packages/adapter-tx-tdlr
+      '@opentrade/core':
+        specifier: workspace:*
+        version: link:packages/core
       '@types/node':
         specifier: ^20.17.14
         version: 20.19.43
@@ -28,11 +37,24 @@ importers:
         specifier: ^2.1.8
         version: 2.1.9(@types/node@20.19.43)
 
+  packages/adapter-tx-tdlr:
+    dependencies:
+      '@opentrade/core':
+        specifier: workspace:*
+        version: link:../core
+    devDependencies:
+      vitest:
+        specifier: ^2.1.8
+        version: 2.1.9(@types/node@20.19.43)
+
   packages/cli:
     dependencies:
       '@opentrade/adapter-fl-dbpr':
         specifier: workspace:*
         version: link:../adapter-fl-dbpr
+      '@opentrade/adapter-tx-tdlr':
+        specifier: workspace:*
+        version: link:../adapter-tx-tdlr
       '@opentrade/core':
         specifier: workspace:*
         version: link:../core

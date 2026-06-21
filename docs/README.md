@@ -10,6 +10,7 @@ These docs explain how the project models official sources, writes adapters, and
 - [Source Research Template](source-research-template.md): the checklist to use before adding a new source.
 - [Adapter Authoring](adapter-authoring.md): practical guidance for writing a source adapter.
 - [California CSLB Adapter Plan](adapters/california-cslb.md): early notes for a future California adapter.
+- [Texas TDLR Adapter Notes](adapters/texas-tdlr.md): fixture support and source caveats for Texas TDLR.
 - [Legal And Data Use](legal-and-data-use.md): readable data-use guardrails.
 - [Florida DBPR URL Sync Design](florida-dbpr-url-sync.md): planned opt-in live download behavior.
 - [Roadmap](roadmap.md): modest release goals.
@@ -18,4 +19,4 @@ These docs explain how the project models official sources, writes adapters, and
 
 ## Current Boundary
 
-v0.1 works from local files. It does not download live agency files during normal commands or tests, and it does not publish generated datasets.
+The project works from local files by default. URL sync requires an explicit `--allow-network` flag, and default tests do not download live agency files.

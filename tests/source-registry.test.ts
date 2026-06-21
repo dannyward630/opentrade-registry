@@ -45,7 +45,12 @@ describe("source registry", () => {
     expect(parsed.every((entry) => entry.redistributionStatus === "unknown")).toBe(true);
     expect(parsed.every((entry) => entry.sourceDiscoveryStatus === "researched")).toBe(true);
     expect(parsed.find((entry) => entry.id === "us.fl.dbpr.construction")?.adapterMaturity).toBe("local_file_adapter");
-    expect(parsed.filter((entry) => entry.id !== "us.fl.dbpr.construction").every((entry) => entry.adapterMaturity === "registry_only")).toBe(true);
+    expect(parsed.find((entry) => entry.id === "us.tx.tdlr.all_licenses")?.adapterMaturity).toBe("fixture_adapter");
+    expect(
+      parsed
+        .filter((entry) => !["us.fl.dbpr.construction", "us.tx.tdlr.all_licenses"].includes(entry.id))
+        .every((entry) => entry.adapterMaturity === "registry_only"),
+    ).toBe(true);
   });
 
   it("validates US coverage index and source references", async () => {
@@ -123,7 +128,7 @@ describe("source registry", () => {
     }
     expect(coverage.states.find((entry) => entry.state === "FL")?.status).toBe("local_file_supported");
     expect(coverage.states.find((entry) => entry.state === "CA")?.status).toBe("registry_entry_added");
-    expect(coverage.states.find((entry) => entry.state === "TX")?.status).toBe("registry_entry_added");
+    expect(coverage.states.find((entry) => entry.state === "TX")?.status).toBe("fixture_supported");
     expect(coverage.states.find((entry) => entry.state === "AZ")?.status).toBe("registry_entry_added");
   });
 });

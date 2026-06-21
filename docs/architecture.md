@@ -14,7 +14,7 @@ Each source entry includes the agency, jurisdiction, source URL, documentation l
 
 Adapters are small packages for one official source. They read raw source records, preserve the original data, and normalize each record into the canonical schema.
 
-A bulk adapter might read CSV, XLSX, JSON, or an API response. A lookup-only adapter might check one license number at a time. In v0.1, only the Florida DBPR local-file adapter is implemented.
+A bulk adapter might read CSV, XLSX, JSON, or an API response. A lookup-only adapter might check one license number at a time. Florida DBPR has local-file support, and Texas TDLR has fixture support.
 
 ## Canonical Records
 
@@ -24,7 +24,7 @@ They also keep source details attached: source URL, fetched time, caveats, raw r
 
 ## CLI
 
-The `opentrade` CLI is the first user-facing tool. It can list and validate source metadata, sync supported local files to JSONL or CSV, and check one license number against a local source file.
+The `opentrade` CLI is the first user-facing tool. It can list and validate source metadata, sync supported local files to JSONL or CSV, and check one license number against a local source file. URL sync is available only when callers pass `--allow-network`.
 
 Registry-only sources still appear in `sources list` and `sources show`. `sync` and `verify` only work when an adapter is implemented.
 

@@ -38,6 +38,9 @@
     "cli": "corepack pnpm --filter @opentrade/cli cli"
   },
   "devDependencies": {
+    "@opentrade/adapter-fl-dbpr": "workspace:*",
+    "@opentrade/adapter-tx-tdlr": "workspace:*",
+    "@opentrade/core": "workspace:*",
     "@types/node": "^20.17.14",
     "typescript": "^5.7.3",
     "vitest": "^2.1.8"

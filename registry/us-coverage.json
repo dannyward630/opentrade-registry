@@ -53,7 +53,7 @@
     { "state": "SC", "status": "not_started", "sourceIds": [], "notes": "No statewide source has been researched yet." },
     { "state": "SD", "status": "not_started", "sourceIds": [], "notes": "No statewide source has been researched yet." },
     { "state": "TN", "status": "not_started", "sourceIds": [], "notes": "No statewide source has been researched yet." },
-    { "state": "TX", "status": "registry_entry_added", "sourceIds": ["us.tx.tdlr.all_licenses"], "notes": "Texas TDLR open-data source metadata has been added; no adapter is implemented." },
+    { "state": "TX", "status": "fixture_supported", "sourceIds": ["us.tx.tdlr.all_licenses"], "notes": "Texas TDLR fixture adapter is implemented for a tiny hand-authored sample with official column names." },
     { "state": "UT", "status": "not_started", "sourceIds": [], "notes": "No statewide source has been researched yet." },
     { "state": "VT", "status": "not_started", "sourceIds": [], "notes": "No statewide source has been researched yet." },
     { "state": "VA", "status": "not_started", "sourceIds": [], "notes": "No statewide source has been researched yet." },
