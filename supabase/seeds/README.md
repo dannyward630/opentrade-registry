@@ -8,4 +8,10 @@ Regenerate it from the repository root after source registry changes:
 node scripts/generate-registry-source-seed.mjs
 ```
 
+Check whether it is current:
+
+```bash
+corepack pnpm db:seed:check
+```
+
 Apply it only to databases intended to mirror the public source registry. It does not include generated public-record datasets.

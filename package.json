@@ -27,7 +27,7 @@
   },
   "packageManager": "pnpm@9.15.4",
   "scripts": {
-    "verify": "corepack pnpm build && corepack pnpm typecheck && corepack pnpm test && corepack pnpm registry:validate && corepack pnpm cleanliness:scan && corepack pnpm files:check",
+    "verify": "corepack pnpm build && corepack pnpm typecheck && corepack pnpm test && corepack pnpm registry:validate && corepack pnpm db:seed:check && corepack pnpm cleanliness:scan && corepack pnpm files:check",
     "build": "corepack pnpm -r build",
     "test": "vitest run",
     "typecheck": "corepack pnpm -r typecheck",
@@ -36,6 +36,7 @@
     "files:check": "node scripts/files-check.mjs",
     "source:quality": "node scripts/source-quality-report.mjs",
     "db:seed:generate": "node scripts/generate-registry-source-seed.mjs",
+    "db:seed:check": "node scripts/generate-registry-source-seed.mjs --check",
     "security:audit": "corepack pnpm audit --prod=false",
     "pack:check": "corepack pnpm build && node scripts/pack-check.mjs",
     "cli": "corepack pnpm --filter @opentrade/cli cli",
