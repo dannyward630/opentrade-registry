@@ -14,6 +14,9 @@ importers:
       '@opentrade/adapter-tx-tdlr':
         specifier: workspace:*
         version: link:packages/adapter-tx-tdlr
+      '@opentrade/adapter-wa-lni':
+        specifier: workspace:*
+        version: link:packages/adapter-wa-lni
       '@opentrade/core':
         specifier: workspace:*
         version: link:packages/core
@@ -47,6 +50,12 @@ importers:
         specifier: ^2.1.8
         version: 2.1.9(@types/node@20.19.43)
 
+  packages/adapter-wa-lni:
+    dependencies:
+      '@opentrade/core':
+        specifier: workspace:*
+        version: link:../core
+
   packages/cli:
     dependencies:
       '@opentrade/adapter-fl-dbpr':
@@ -55,6 +64,9 @@ importers:
       '@opentrade/adapter-tx-tdlr':
         specifier: workspace:*
         version: link:../adapter-tx-tdlr
+      '@opentrade/adapter-wa-lni':
+        specifier: workspace:*
+        version: link:../adapter-wa-lni
       '@opentrade/core':
         specifier: workspace:*
         version: link:../core

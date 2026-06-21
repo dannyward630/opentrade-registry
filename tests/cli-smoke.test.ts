@@ -10,6 +10,7 @@ const tsxPath = join(process.cwd(), "packages", "cli", "node_modules", ".bin", "
 const sampleFixture = join(process.cwd(), "packages", "adapter-fl-dbpr", "fixtures", "construction-license-sample.csv");
 const edgeFixture = join(process.cwd(), "packages", "adapter-fl-dbpr", "fixtures", "construction-license-edge-cases.csv");
 const texasFixture = join(process.cwd(), "packages", "adapter-tx-tdlr", "fixtures", "all-licenses-sample.csv");
+const washingtonFixture = join(process.cwd(), "packages", "adapter-wa-lni", "fixtures", "contractor-license-sample.csv");
 const expectedJsonl = join(process.cwd(), "examples", "basic-sync", "expected", "sample-record.jsonl");
 const expectedCsv = join(process.cwd(), "examples", "basic-sync", "expected", "sample-record.csv");
 
@@ -19,12 +20,13 @@ describe("opentrade CLI", () => {
     expect(list).toContain("us.fl.dbpr.construction");
     expect(list).toContain("us.ca.cslb.contractors");
     expect(list).toContain("us.tx.tdlr.all_licenses");
+    expect(list).toContain("us.wa.lni.contractors");
     expect(list).toContain("local_file_adapter");
     expect(list).toContain("fixture_adapter");
     const show = runCli(["sources", "show", "us.ca.cslb.contractors"]).stdout;
     expect(show).toContain("California CSLB Master List of Licensed Contractors");
     expect(show).toContain("maturity: registry_only");
-    expect(runCli(["sources", "validate"]).stdout).toContain("Validated 4 source registry entries.");
+    expect(runCli(["sources", "validate"]).stdout).toContain("Validated 9 source registry entries.");
   });
 
   it("rejects registry-only sources for sync and verify with neutral wording", () => {
@@ -147,6 +149,48 @@ describe("opentrade CLI", () => {
     }
   });
 
+  it("syncs Washington L&I fixture data to JSONL and CSV", () => {
+    const dir = mkdtempSync(join(tmpdir(), "opentrade-washington-"));
+    try {
+      const jsonlPath = join(dir, "washington.jsonl");
+      const jsonl = runCli([
+        "sync",
+        "us.wa.lni.contractors",
+        "--file",
+        washingtonFixture,
+        "--out",
+        jsonlPath,
+        "--json",
+      ]);
+      const json = JSON.parse(jsonl.stdout);
+      expect(json.adapterMaturity).toBe("fixture_adapter");
+      expect(json.stats.normalizedRecordCount).toBe(6);
+      expect(json.stats.warningCount).toBeGreaterThan(0);
+      const lines = readFileSync(jsonlPath, "utf8").trim().split("\n");
+      expect(lines).toHaveLength(6);
+      expect(JSON.parse(lines[0]).license.tradeCategories).toEqual(["general_contracting"]);
+
+      const csvPath = join(dir, "washington.csv");
+      runCli([
+        "sync",
+        "us.wa.lni.contractors",
+        "--file",
+        washingtonFixture,
+        "--out",
+        csvPath,
+        "--format",
+        "csv",
+      ]);
+      const csv = readFileSync(csvPath, "utf8");
+      expect(csv).toContain("RAINCCB001JQ");
+      expect(csv).toContain(",active,");
+      expect(csv).not.toContain("PrimaryPrincipalName");
+      expect(csv.trim().split("\n")).toHaveLength(7);
+    } finally {
+      rmSync(dir, { recursive: true, force: true });
+    }
+  });
+
   it("requires explicit network opt-in and captures local HTTP metadata", async () => {
     const blocked = runCli(
       [
@@ -245,6 +289,35 @@ describe("opentrade CLI", () => {
     expect(ambiguous.stdout).toContain("ambiguous");
 
     const invalid = runCli(["verify", "--source", "us.tx.tdlr.all_licenses", "--file", texasFixture, "--license", "!!!"], 2);
+    expect(invalid.stdout).toContain("missing_required_input");
+  });
+
+  it("verifies Washington L&I matched, not-found, ambiguous, and invalid license cases", () => {
+    const matched = runCli([
+      "verify",
+      "--source",
+      "us.wa.lni.contractors",
+      "--file",
+      washingtonFixture,
+      "--license",
+      "RAINCCB001JQ",
+      "--json",
+    ]);
+    expect(JSON.parse(matched.stdout).result).toBe("matched");
+
+    const notFound = runCli(
+      ["verify", "--source", "us.wa.lni.contractors", "--file", washingtonFixture, "--license", "WALNI999999"],
+      4,
+    );
+    expect(notFound.stdout).toContain("not_found");
+
+    const ambiguous = runCli(
+      ["verify", "--source", "us.wa.lni.contractors", "--file", washingtonFixture, "--license", "DUPWA0005AA"],
+      5,
+    );
+    expect(ambiguous.stdout).toContain("ambiguous");
+
+    const invalid = runCli(["verify", "--source", "us.wa.lni.contractors", "--file", washingtonFixture, "--license", "!!!"], 2);
     expect(invalid.stdout).toContain("missing_required_input");
   });
 });

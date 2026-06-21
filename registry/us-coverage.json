@@ -57,7 +57,7 @@
     { "state": "UT", "status": "not_started", "sourceIds": [], "notes": "No statewide source has been researched yet." },
     { "state": "VT", "status": "not_started", "sourceIds": [], "notes": "No statewide source has been researched yet." },
     { "state": "VA", "status": "registry_entry_added", "sourceIds": ["us.va.dpor.contractors"], "notes": "Virginia DPOR lookup source metadata exists; no adapter is implemented." },
-    { "state": "WA", "status": "registry_entry_added", "sourceIds": ["us.wa.lni.contractors"], "notes": "Washington L&I open-data source metadata exists; fixture adapter work is planned." },
+    { "state": "WA", "status": "fixture_supported", "sourceIds": ["us.wa.lni.contractors"], "notes": "Washington L&I fixture adapter is implemented for a tiny hand-authored sample with official column names." },
     { "state": "WV", "status": "not_started", "sourceIds": [], "notes": "No statewide source has been researched yet." },
     { "state": "WI", "status": "not_started", "sourceIds": [], "notes": "No statewide source has been researched yet." },
     { "state": "WY", "status": "not_started", "sourceIds": [], "notes": "No statewide source has been researched yet." }
