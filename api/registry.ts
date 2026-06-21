@@ -41,17 +41,18 @@ type QueryBuilder = {
 export async function loadSourcesForApi(options: { rootDir?: string; databaseClient?: RegistryDatabaseClient | null } = {}): Promise<SourceApiResult> {
   const rootDir = options.rootDir ?? process.cwd();
   const databaseClient = options.databaseClient ?? createDatabaseClientFromEnv();
+  const fileSources = await loadSourcesFromFiles(rootDir);
 
   if (databaseClient) {
     try {
       return {
         origin: "database",
-        sources: await loadSourcesFromDatabase(databaseClient),
+        sources: await loadSourcesFromDatabase(databaseClient, fileSources),
       };
     } catch (error) {
       return {
         origin: "registry_files",
-        sources: await loadSourcesFromFiles(rootDir),
+        sources: fileSources,
         databaseError: error instanceof Error ? error.message : "Unknown database source loading error",
       };
     }
@@ -59,7 +60,7 @@ export async function loadSourcesForApi(options: { rootDir?: string; databaseCli
 
   return {
     origin: "registry_files",
-    sources: await loadSourcesFromFiles(rootDir),
+    sources: fileSources,
   };
 }
 
@@ -76,7 +77,7 @@ export async function loadSourcesFromFiles(rootDir = process.cwd()): Promise<Sou
   return sources.sort((a, b) => a.id.localeCompare(b.id));
 }
 
-export async function loadSourcesFromDatabase(client: RegistryDatabaseClient): Promise<SourceRegistryEntry[]> {
+export async function loadSourcesFromDatabase(client: RegistryDatabaseClient, fileFallbacks: SourceRegistryEntry[] = []): Promise<SourceRegistryEntry[]> {
   const query = client.from("registry_sources").select("*") as QueryBuilder;
   const { data, error } = await query.order("id", { ascending: true });
 
@@ -84,7 +85,8 @@ export async function loadSourcesFromDatabase(client: RegistryDatabaseClient): P
     throw new Error(error.message);
   }
 
-  return (data ?? []).map(mapDatabaseRowToSource);
+  const fallbackById = new Map(fileFallbacks.map((source) => [source.id, source]));
+  return (data ?? []).map((row) => mapDatabaseRowToSource(row, fallbackById.get(row.id)));
 }
 
 export async function countSourcesFromDatabase(client: RegistryDatabaseClient): Promise<number> {
@@ -116,8 +118,9 @@ export function createDatabaseClientFromEnv(): RegistryDatabaseClient | null {
   }) as RegistryDatabaseClient;
 }
 
-function mapDatabaseRowToSource(row: RegistryDatabaseRow): SourceRegistryEntry {
+function mapDatabaseRowToSource(row: RegistryDatabaseRow, fallback?: SourceRegistryEntry): SourceRegistryEntry {
   return sourceRegistryEntrySchema.parse({
+    ...(fallback ?? {}),
     ...(row.metadata ?? {}),
     id: row.id,
     name: row.name,
@@ -131,7 +134,7 @@ function mapDatabaseRowToSource(row: RegistryDatabaseRow): SourceRegistryEntry {
     sourceDiscoveryStatus: row.source_discovery_status,
     coverageScope: row.coverage_scope,
     redistributionStatus: row.redistribution_status,
-    lastVerifiedAt: row.last_verified_at,
+    lastVerifiedAt: row.last_verified_at ? new Date(row.last_verified_at).toISOString() : fallback?.lastVerifiedAt,
   });
 }
 
