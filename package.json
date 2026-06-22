@@ -55,7 +55,7 @@
     "@opentrade/adapter-wa-lni": "workspace:*",
     "@opentrade/core": "workspace:*",
     "@supabase/supabase-js": "^2.87.1",
-    "@types/node": "^20.17.14",
+    "@types/node": "^26.0.0",
     "typescript": "^5.7.3",
     "vite": "^8.0.16",
     "vitest": "^4.1.9"
