@@ -39,6 +39,7 @@ describe("opentrade CLI", () => {
     expect(list).toContain("us.wv.labor.contractors");
     expect(list).toContain("local_file_adapter");
     expect(list).toContain("fixture_adapter");
+    expect(list).toContain("level_4");
     const show = runCli(["sources", "show", "us.ca.cslb.contractors"]).stdout;
     expect(show).toContain("California CSLB Master List of Licensed Contractors");
     expect(show).toContain("maturity: registry_only");
@@ -58,6 +59,10 @@ describe("opentrade CLI", () => {
     const westVirginia = runCli(["sources", "show", "us.wv.labor.contractors"]).stdout;
     expect(westVirginia).toContain("West Virginia Division of Labor Contractor License Search");
     expect(westVirginia).toContain("maturity: registry_only");
+    const florida = runCli(["sources", "show", "us.fl.dbpr.construction"]).stdout;
+    expect(florida).toContain("quality level: 4");
+    expect(florida).toContain("verification caveats:");
+    expect(florida).toContain("No matching record means no match in this source at the checked time");
     const alaska = runCli(["sources", "show", "us.ak.commerce.construction_contractors"]).stdout;
     expect(alaska).toContain("Alaska CBPL Construction Contractor License Search");
     expect(alaska).toContain("maturity: registry_only");

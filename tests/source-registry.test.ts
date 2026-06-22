@@ -79,6 +79,12 @@ describe("source registry", () => {
     expect(parsed.find((entry) => entry.id === "us.or.ccb.active_licenses")?.adapterMaturity).toBe("fixture_adapter");
     expect(parsed.find((entry) => entry.id === "us.tx.tdlr.all_licenses")?.adapterMaturity).toBe("fixture_adapter");
     expect(parsed.find((entry) => entry.id === "us.wa.lni.contractors")?.adapterMaturity).toBe("fixture_adapter");
+    for (const implemented of parsed.filter((entry) => entry.adapterStatus === "implemented")) {
+      expect(implemented.adapterQualityLevel, `${implemented.id} should have Level 4 verification quality`).toBe(4);
+      expect(implemented.verificationReviewedAt, `${implemented.id} needs a verification review timestamp`).toMatch(/^\d{4}-\d{2}-\d{2}T/);
+      expect(implemented.verificationCaveats?.length, `${implemented.id} needs verification caveats`).toBeGreaterThanOrEqual(2);
+      expect(implemented.verificationNotes?.length, `${implemented.id} needs verification notes`).toBeGreaterThan(0);
+    }
     expect(
       parsed
         .filter((entry) => !["us.fl.dbpr.construction", "us.or.ccb.active_licenses", "us.tx.tdlr.all_licenses", "us.wa.lni.contractors"].includes(entry.id))

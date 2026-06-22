@@ -19,6 +19,9 @@ describe("source quality report", () => {
     expect(report.sourcesByMaturity.registry_only).toBe(30);
     expect(report.sourcesByMaturity.fixture_adapter).toBe(3);
     expect(report.sourcesByMaturity.local_file_adapter).toBe(1);
+    expect(report.sourcesByAdapterQualityLevel["0"]).toBe(30);
+    expect(report.sourcesByAdapterQualityLevel["4"]).toBe(4);
+    expect(report.implementedSourcesNeedingLevel4).toEqual([]);
     expect(report.lookupOnlySources.map((source: { id: string }) => source.id)).toContain("us.pa.oag.home_improvement_contractors");
     expect(report.lookupOnlySources.map((source: { id: string }) => source.id)).toContain("us.oh.commerce.ocilb_contractors");
     expect(report.lookupOnlySources.map((source: { id: string }) => source.id)).toContain("us.ct.dcp.home_improvement_contractors");
