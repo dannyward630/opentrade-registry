@@ -1,6 +1,6 @@
 {
   "name": "@opentrade/core",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "type": "module",
   "description": "Shared schemas, adapter contracts, and normalization helpers for OpenTrade Registry.",
   "license": "MIT",

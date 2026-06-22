@@ -33,7 +33,7 @@ export const FL_DBPR_SOURCE_ENTRY: SourceRegistryEntry = {
   requiresJavaScript: "unknown",
   requiresCaptcha: "unknown",
   requiresAccount: false,
-  rateLimitNotes: "Use the official bulk file responsibly. Network sync is not enabled in v0.1, and automated downloads should be opt-in.",
+  rateLimitNotes: "Use the official bulk file responsibly. CLI URL sync is opt-in and requires --allow-network.",
   redistributionStatus: "unknown",
   publicRecordsNotes: "Official public-record source for Florida DBPR construction-industry data. Absence from this source is not proof that a license does not exist elsewhere.",
   adapterStatus: "implemented",
@@ -44,7 +44,7 @@ export const FL_DBPR_SOURCE_ENTRY: SourceRegistryEntry = {
   adapterPackage: "@opentrade/adapter-fl-dbpr",
   testFixturePath: "packages/adapter-fl-dbpr/fixtures/construction-license-sample.csv",
   officialLookupUrl: "https://www.myfloridalicense.com/wl11.asp",
-  officialBulkDownloadNotes: "The v0.1 adapter reads local CSV files that match the official DBPR construction-license extract shape. Live download support is planned as opt-in network sync.",
+  officialBulkDownloadNotes: "The adapter reads local CSV files that match the official DBPR construction-license extract shape. The CLI also supports explicit opt-in URL sync with fetched-time and remote metadata capture.",
   researchNotes: "Florida has multiple state and local licensing sources. This entry covers DBPR construction-industry records only.",
   verificationReviewedAt: "2026-06-22T00:00:00.000Z",
   verificationCaveats: [

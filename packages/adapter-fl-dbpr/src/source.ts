@@ -14,12 +14,12 @@ export const floridaDbprConstructionAdapter: TradeLicenseSourceAdapter = {
     return {
       ok: true,
       checkedAt: new Date().toISOString(),
-      message: "Local-file adapter is available. Network availability is not checked in v0.1.",
+      message: "Local-file adapter is available. Live source availability is checked only when callers explicitly opt into network sync.",
     };
   },
   async *streamRawRecords(options) {
     if (!options.filePath) {
-      throw new Error("The Florida DBPR v0.1 adapter requires a local filePath.");
+      throw new Error("The Florida DBPR adapter requires a local filePath for adapter streaming.");
     }
 
     yield* streamConstructionCsvFile({

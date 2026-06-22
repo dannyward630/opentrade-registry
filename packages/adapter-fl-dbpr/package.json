@@ -1,6 +1,6 @@
 {
   "name": "@opentrade/adapter-fl-dbpr",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "type": "module",
   "description": "Florida DBPR construction-license adapter for OpenTrade Registry.",
   "license": "MIT",
