@@ -20,5 +20,6 @@ import {
 - Normalizes clearly understood license, business, owner, address, and expiration fields.
 - Preserves source URL, caveats, raw row data, and fingerprint.
 - Marks broad or unknown license types conservatively.
+- Carries Level 4 verification-quality metadata for neutral local-file verification semantics.
 
 The package does not download live Texas Open Data records in v0.2.

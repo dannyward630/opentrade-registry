@@ -8,6 +8,7 @@ Current behavior:
 - Normalizes rows into the OpenTrade canonical license schema.
 - Does not perform live downloads by itself.
 - Treats uncertain specialties and statuses conservatively.
+- Carries Level 4 verification-quality metadata for neutral local-file verification semantics.
 
 Example:
 

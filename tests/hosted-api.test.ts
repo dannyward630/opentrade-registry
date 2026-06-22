@@ -20,7 +20,7 @@ describe("hosted API", () => {
     expect(response.body).toMatchObject({
       ok: true,
       service: "opentrade-registry",
-      fileRegistrySourceCount: 29,
+      fileRegistrySourceCount: 34,
       database: {
         configured: false,
         status: "not_configured"
@@ -34,7 +34,7 @@ describe("hosted API", () => {
 
     expect(response.statusCode).toBe(200);
     expect(response.body.origin).toBe("registry_files");
-    expect(response.body.count).toBe(29);
+    expect(response.body.count).toBe(34);
     expect(response.body.sources.some((source: { id: string }) => source.id === "us.fl.dbpr.construction")).toBe(true);
   });
 
@@ -103,24 +103,24 @@ describe("hosted API", () => {
 
     expect(result.origin).toBe("registry_files");
     expect(result.databaseError).toBe("database unavailable");
-    expect(result.sources).toHaveLength(29);
+    expect(result.sources).toHaveLength(34);
   });
 
   it("reports matching database and file source counts when database count succeeds", async () => {
     const health = await getHealthStatus({
       databaseClient: createFakeDatabaseClient({
-        count: 29,
+        count: 34,
       }),
     });
 
     expect(health.statusCode).toBe(200);
     expect(health.body).toMatchObject({
       ok: true,
-      fileRegistrySourceCount: 29,
+      fileRegistrySourceCount: 34,
       database: {
         configured: true,
         status: "available",
-        registrySourceCount: 29,
+        registrySourceCount: 34,
         sourceCountMatchesFiles: true
       }
     });

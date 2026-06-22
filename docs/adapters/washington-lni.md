@@ -17,6 +17,7 @@ The source is useful because it is open-data-shaped and has stable column metada
 - Maps clearly understood fields: license number, business name, principal name, status, effective date, expiration date, address, phone, business type, specialties, UBI, and suspension date.
 - Categorizes obvious general contractor, roofing, HVAC, electrical, and plumbing specialties.
 - Preserves raw rows, source URL, fetched time, caveats, and fingerprint.
+- Carries Level 4 verification-quality metadata for local-file verification semantics.
 
 ## Caveats
 
@@ -24,10 +25,11 @@ The source is useful because it is open-data-shaped and has stable column metada
 - Specialty/category mapping is intentionally conservative.
 - Bond, insurance, workers compensation, infraction, and lawsuit fields are not normalized yet.
 - Live Data.WA download is available only through explicit CLI network opt-in, not default tests.
+- No-match verification output only means no matching record was found in the checked local source at the checked time.
 
 ## Future Work
 
 - Review the full official column set and add local-file support for downloaded Data.WA CSV exports.
 - Add more representative hand-authored fixture cases.
 - Decide whether Washington should be promoted from `fixture_adapter` to `local_file_adapter`.
-- Review verification language against official L&I lookup behavior.
+- Compare fixture-backed verification caveats against the official L&I lookup before any live-source promotion.

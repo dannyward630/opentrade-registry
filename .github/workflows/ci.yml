@@ -27,6 +27,25 @@ jobs:
       - name: Install dependencies
         run: corepack pnpm install --frozen-lockfile
 
+      - name: Build workspace packages
+        run: corepack pnpm build
+
+      - name: Registry and seed tests
+        run: |
+          corepack pnpm test:registry
+          corepack pnpm registry:validate
+          corepack pnpm db:seed:check
+          corepack pnpm source:quality --json
+
+      - name: Adapter contract tests
+        run: corepack pnpm test:adapters
+
+      - name: CLI smoke tests
+        run: corepack pnpm test:cli
+
+      - name: Hosted API and network guard tests
+        run: corepack pnpm test:api
+
       - name: Verify
         run: corepack pnpm verify
 

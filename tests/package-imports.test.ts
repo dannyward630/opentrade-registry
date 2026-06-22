@@ -3,6 +3,7 @@ import {
   buildFingerprint,
   canonicalTradeLicenseRecordSchema,
   adapterMaturitySchema,
+  adapterQualityLevelSchema,
   normalizeLicenseNumber,
   parseCsvLine,
   sourceDiscoveryStatusSchema,
@@ -37,6 +38,7 @@ describe("public package imports", () => {
     expect(canonicalTradeLicenseRecordSchema).toBeDefined();
     expect(sourceRegistryEntrySchema).toBeDefined();
     expect(adapterMaturitySchema.parse("registry_only")).toBe("registry_only");
+    expect(adapterQualityLevelSchema.parse(4)).toBe(4);
     expect(sourceDiscoveryStatusSchema.parse("researched")).toBe("researched");
     expect(FL_DBPR_CONSTRUCTION_SOURCE_ID).toBe("us.fl.dbpr.construction");
     expect(floridaDbprConstructionAdapter.sourceId).toBe("us.fl.dbpr.construction");

@@ -32,12 +32,20 @@
   "adapterStatus": "implemented",
   "sourceDiscoveryStatus": "researched",
   "adapterMaturity": "local_file_adapter",
+  "adapterQualityLevel": 4,
   "coverageScope": "state_agency_partial",
   "adapterPackage": "@opentrade/adapter-fl-dbpr",
   "testFixturePath": "packages/adapter-fl-dbpr/fixtures/construction-license-sample.csv",
   "officialLookupUrl": "https://www.myfloridalicense.com/wl11.asp",
   "officialBulkDownloadNotes": "The v0.1 adapter reads local CSV files that match the official DBPR construction-license extract shape. Live download support is planned as opt-in network sync.",
   "researchNotes": "Florida has multiple state and local licensing sources. This entry covers DBPR construction-industry records only.",
+  "verificationReviewedAt": "2026-06-22T00:00:00.000Z",
+  "verificationCaveats": [
+    "Verification is limited to the checked DBPR construction source file or opt-in URL snapshot.",
+    "No matching record means no match in this source at the checked time; it is not proof that a license or authorization does not exist elsewhere.",
+    "Status normalization is based on DBPR primary and secondary status codes preserved in the raw record."
+  ],
+  "verificationNotes": "CLI verification returns matched, not_found, ambiguous, or missing_required_input without making licensing accusations.",
   "lastVerifiedAt": "2026-06-19T00:00:00.000Z",
   "maintainerNotes": "Use source URL, fetched time, caveats, raw record, and fingerprint in downstream exports."
 }

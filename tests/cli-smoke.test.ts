@@ -27,6 +27,11 @@ describe("opentrade CLI", () => {
     expect(list).toContain("us.oh.commerce.ocilb_contractors");
     expect(list).toContain("us.wi.dsps.dwelling_trades");
     expect(list).toContain("us.mn.dli.licenses_registrations");
+    expect(list).toContain("us.ak.commerce.construction_contractors");
+    expect(list).toContain("us.de.labor.construction_contractors");
+    expect(list).toContain("us.dc.dlcp.contractors");
+    expect(list).toContain("us.id.dopl.contractors");
+    expect(list).toContain("us.ri.crlb.contractors");
     expect(list).toContain("us.ct.dcp.home_improvement_contractors");
     expect(list).toContain("us.md.dllr.home_improvement_contractors");
     expect(list).toContain("us.nj.dca.home_improvement_contractors");
@@ -34,6 +39,7 @@ describe("opentrade CLI", () => {
     expect(list).toContain("us.wv.labor.contractors");
     expect(list).toContain("local_file_adapter");
     expect(list).toContain("fixture_adapter");
+    expect(list).toContain("level_4");
     const show = runCli(["sources", "show", "us.ca.cslb.contractors"]).stdout;
     expect(show).toContain("California CSLB Master List of Licensed Contractors");
     expect(show).toContain("maturity: registry_only");
@@ -53,7 +59,17 @@ describe("opentrade CLI", () => {
     const westVirginia = runCli(["sources", "show", "us.wv.labor.contractors"]).stdout;
     expect(westVirginia).toContain("West Virginia Division of Labor Contractor License Search");
     expect(westVirginia).toContain("maturity: registry_only");
-    expect(runCli(["sources", "validate"]).stdout).toContain("Validated 29 source registry entries.");
+    const florida = runCli(["sources", "show", "us.fl.dbpr.construction"]).stdout;
+    expect(florida).toContain("quality level: 4");
+    expect(florida).toContain("verification caveats:");
+    expect(florida).toContain("No matching record means no match in this source at the checked time");
+    const alaska = runCli(["sources", "show", "us.ak.commerce.construction_contractors"]).stdout;
+    expect(alaska).toContain("Alaska CBPL Construction Contractor License Search");
+    expect(alaska).toContain("maturity: registry_only");
+    const rhodeIsland = runCli(["sources", "show", "us.ri.crlb.contractors"]).stdout;
+    expect(rhodeIsland).toContain("Rhode Island CRLB Registrant and Licensee Search");
+    expect(rhodeIsland).toContain("maturity: registry_only");
+    expect(runCli(["sources", "validate"]).stdout).toContain("Validated 34 source registry entries.");
   });
 
   it("rejects registry-only sources for sync and verify with neutral wording", () => {
@@ -86,6 +102,11 @@ describe("opentrade CLI", () => {
       "us.nj.dca.home_improvement_contractors",
       "us.nm.rld.construction_industries",
       "us.wv.labor.contractors",
+      "us.ak.commerce.construction_contractors",
+      "us.de.labor.construction_contractors",
+      "us.dc.dlcp.contractors",
+      "us.id.dopl.contractors",
+      "us.ri.crlb.contractors",
     ]) {
       const unsupportedSync = runCli(
         ["sync", sourceId, "--file", sampleFixture, "--out", join(tmpdir(), `unused-${sourceId}.jsonl`)],
@@ -101,7 +122,7 @@ describe("opentrade CLI", () => {
       );
       expect(unsupported.stderr).toContain(`Source ${sourceId} is registered for metadata, but no verify adapter is implemented yet.`);
     }
-  });
+  }, 15000);
 
   it("syncs fixture data to JSONL with structured stats", () => {
     const dir = mkdtempSync(join(tmpdir(), "opentrade-jsonl-"));

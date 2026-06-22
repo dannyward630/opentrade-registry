@@ -1,0 +1,44 @@
+{
+  "id": "us.dc.dlcp.contractors",
+  "name": "District of Columbia DLCP Business License Verification",
+  "jurisdiction": {
+    "country": "US",
+    "state": "DC"
+  },
+  "agency": {
+    "name": "District of Columbia Department of Licensing and Consumer Protection",
+    "url": "https://dlcp.dc.gov/"
+  },
+  "sourceType": "html_lookup",
+  "sourceUrl": "https://scout.dcra.dc.gov/",
+  "documentationUrl": "https://dlcp.dc.gov/service/online-resources",
+  "dataDictionaryUrl": null,
+  "termsUrl": "https://dc.gov/page/terms-and-conditions",
+  "updateFrequency": "unknown; verify against SCOUT and DLCP online resources before relying on freshness assumptions",
+  "tradeCoverage": ["general_contracting", "home_improvement", "other"],
+  "licenseTypesIncluded": ["business license records exposed by SCOUT that may include contractor-related license categories"],
+  "knownExclusions": [
+    "SCOUT spans business, property, permit, and licensing information; this source entry is not a contractor-only export.",
+    "Occupational and professional licenses, permits, local enforcement records, and business registrations may require separate source entries or filters.",
+    "Contractor category semantics must be reviewed before any adapter treats rows as construction-license records."
+  ],
+  "hasBulkDownload": "unknown",
+  "hasLiveLookup": true,
+  "requiresJavaScript": "unknown",
+  "requiresCaptcha": "unknown",
+  "requiresAccount": false,
+  "rateLimitNotes": "No adapter is implemented. Prefer official APIs or exports if discovered; do not bypass login walls, CAPTCHAs, or technical controls.",
+  "redistributionStatus": "unknown",
+  "publicRecordsNotes": "Official lookup source metadata only. Absence from this source is not proof that a license, permit, registration, or authorization does not exist elsewhere.",
+  "adapterStatus": "planned",
+  "sourceDiscoveryStatus": "researched",
+  "adapterMaturity": "registry_only",
+  "coverageScope": "state_agency_partial",
+  "adapterPackage": "@opentrade/adapter-dc-dlcp",
+  "testFixturePath": null,
+  "officialLookupUrl": "https://scout.dcra.dc.gov/",
+  "officialBulkDownloadNotes": "No official contractor-specific bulk download has been confirmed in this phase.",
+  "researchNotes": "Registry-only source for DC DLCP business license verification. Future work should decide whether contractor-related license categories need a dedicated adapter or separate source entries.",
+  "lastVerifiedAt": "2026-06-22T00:00:00.000Z",
+  "maintainerNotes": "Keep broad business-license scope explicit and avoid treating every SCOUT record as a contractor license."
+}

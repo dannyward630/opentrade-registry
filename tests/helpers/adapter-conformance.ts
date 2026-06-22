@@ -15,6 +15,9 @@ export async function expectAdapterConforms(input: AdapterConformanceCase): Prom
   expect(metadata.id).toBe(input.adapter.sourceId);
   expect(metadata).toEqual(registryEntry);
   expect(metadata.adapterStatus).toBe("implemented");
+  expect(metadata.adapterQualityLevel).toBe(4);
+  expect(metadata.verificationReviewedAt).toMatch(/^\d{4}-\d{2}-\d{2}T/);
+  expect(metadata.verificationCaveats?.length).toBeGreaterThanOrEqual(2);
   expect(metadata.testFixturePath).toBeTruthy();
 
   const availability = await input.adapter.checkAvailability();
@@ -38,5 +41,6 @@ export async function expectAdapterConforms(input: AdapterConformanceCase): Prom
   expect(canonicalTradeLicenseRecordSchema.parse(normalized)).toBeDefined();
   expect(normalized.sourceId).toBe(input.adapter.sourceId);
   expect(normalized.source.sourceUrl).toBe(metadata.sourceUrl);
+  expect(normalized.source.caveats?.length).toBeGreaterThan(0);
   expect(normalized.raw.fingerprint).toMatch(/^[a-f0-9]{64}$/);
 }

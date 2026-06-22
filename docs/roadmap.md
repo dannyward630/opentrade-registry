@@ -25,6 +25,8 @@ OpenTrade Registry is early. The next releases should stay modest: make the firs
 - Researched registry entries for Alabama General Contractors Board, Louisiana LSLBC, Michigan LARA, Pennsylvania OAG, and Wisconsin DSPS.
 - Researched registry entries for Arkansas ACLB, Colorado DORA, Iowa DIAL, Massachusetts OPSI, and Ohio OCILB.
 - Researched registry entries for Connecticut DCP, Maryland MHIC, New Jersey DCA, New Mexico RLD, and West Virginia Labor.
+- Researched registry entries for Alaska CBPL, Delaware Labor, DC DLCP, Idaho DOPL, and Rhode Island CRLB.
+- Adapter quality metadata and Level 4 verification-semantics tests for all implemented adapters.
 
 ## v0.3
 

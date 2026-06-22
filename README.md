@@ -22,7 +22,7 @@ The current build is still intentionally small. It supports Florida DBPR constru
 - Convert a tiny Washington L&I fixture into canonical records.
 - Export canonical records as JSONL or CSV.
 - Check one license number against a local source file.
-- Inspect researched source metadata for Alabama, Arkansas, Arizona, California, Colorado, Florida, Georgia, Iowa, Louisiana, Massachusetts, Michigan, Minnesota, Nevada, North Carolina, Ohio, Oregon, Pennsylvania, South Carolina, Tennessee, Texas, Utah, Virginia, Washington, and Wisconsin.
+- Inspect researched source metadata for Alaska, Alabama, Arkansas, Arizona, California, Colorado, Connecticut, Delaware, District of Columbia, Florida, Georgia, Idaho, Iowa, Louisiana, Maryland, Massachusetts, Michigan, Minnesota, Nevada, New Jersey, New Mexico, North Carolina, Ohio, Oregon, Pennsylvania, Rhode Island, South Carolina, Tennessee, Texas, Utah, Virginia, Washington, West Virginia, and Wisconsin.
 
 ## What This Project Does Not Do
 
@@ -138,7 +138,9 @@ Adapter maturity is tracked separately from source research:
 - Level 3: opt-in network sync with freshness metadata.
 - Level 4: verification semantics reviewed against official source caveats.
 
-Florida DBPR is currently a local-file adapter with opt-in URL sync through the CLI. Oregon CCB, Texas TDLR, and Washington L&I are fixture-supported. Alabama General Contractors Board, Arkansas Contractors Licensing Board, Arizona ROC, California CSLB, Colorado DORA, Connecticut DCP, Georgia SOS, Iowa DIAL, Louisiana LSLBC, Maryland MHIC, Massachusetts OPSI, Michigan LARA, Minnesota DLI, Nevada NSCB, New Jersey DCA, New Mexico RLD, North Carolina NCLBGC, Ohio OCILB, Pennsylvania OAG, South Carolina LLR, Tennessee Commerce, Utah DOPL, Virginia DPOR, West Virginia Labor, and Wisconsin DSPS are registry-only entries.
+`adapterMaturity` describes what an adapter can run today. `adapterQualityLevel` describes how much verification-language and caveat review has happened. All implemented adapters currently carry Level 4 quality metadata, which means their local verification results use neutral semantics and source-specific caveats.
+
+Florida DBPR is currently a local-file adapter with opt-in URL sync through the CLI. Oregon CCB, Texas TDLR, and Washington L&I are fixture-supported. Alaska CBPL, Alabama General Contractors Board, Arkansas Contractors Licensing Board, Arizona ROC, California CSLB, Colorado DORA, Connecticut DCP, Delaware Labor, DC DLCP, Georgia SOS, Idaho DOPL, Iowa DIAL, Louisiana LSLBC, Maryland MHIC, Massachusetts OPSI, Michigan LARA, Minnesota DLI, Nevada NSCB, New Jersey DCA, New Mexico RLD, North Carolina NCLBGC, Ohio OCILB, Pennsylvania OAG, Rhode Island CRLB, South Carolina LLR, Tennessee Commerce, Utah DOPL, Virginia DPOR, West Virginia Labor, and Wisconsin DSPS are registry-only entries.
 
 ## Project Layout
 
@@ -164,6 +166,7 @@ corepack pnpm test
 corepack pnpm typecheck
 corepack pnpm registry:validate
 corepack pnpm db:seed:check
+corepack pnpm source:quality
 corepack pnpm cleanliness:scan
 corepack pnpm web:build
 ```
@@ -172,6 +175,6 @@ Hosted deployment is optional. See [docs/deployment/vercel-supabase.md](docs/dep
 
 ## Roadmap
 
-The next work is to make URL sync more source-aware, improve Oregon, Texas, and Washington fixture coverage, and continue building a researched source registry state by state. Broader adapter coverage will come after the registry validation, source-quality reporting, and adapter contracts stay boring and predictable.
+The next work is to make URL sync more source-aware, improve Oregon, Texas, and Washington fixture coverage, and continue building a researched source registry state by state. Broader adapter coverage will come after the registry validation, source-quality reporting, Level 4 verification semantics, and adapter contracts stay boring and predictable.
 
 See [docs/roadmap.md](docs/roadmap.md) for the current plan.
