@@ -1,0 +1,44 @@
+{
+  "id": "us.id.dopl.contractors",
+  "name": "Idaho DOPL Contractor Registration Search",
+  "jurisdiction": {
+    "country": "US",
+    "state": "ID"
+  },
+  "agency": {
+    "name": "Idaho Division of Occupational and Professional Licenses",
+    "url": "https://dopl.idaho.gov/"
+  },
+  "sourceType": "html_lookup",
+  "sourceUrl": "https://dopl.idaho.gov/con/",
+  "documentationUrl": "https://dopl.idaho.gov/con/",
+  "dataDictionaryUrl": null,
+  "termsUrl": "https://dopl.idaho.gov/privacy-policy/",
+  "updateFrequency": "unknown; verify against the DOPL contractor registration search before relying on freshness assumptions",
+  "tradeCoverage": ["general_contracting", "residential_contracting", "other"],
+  "licenseTypesIncluded": ["Idaho contractor registrations exposed by DOPL online services"],
+  "knownExclusions": [
+    "Electrical, HVAC, plumbing, elevator, manufactured housing, local permits, and business registration records may require separate official sources or filters.",
+    "The contractor board page is a program page and the lookup is hosted in DOPL online services; adapter work must review the lookup controls before automation.",
+    "Formal actions and unregistered-contractor actions are separate linked resources and are not normalized by this source entry."
+  ],
+  "hasBulkDownload": "unknown",
+  "hasLiveLookup": true,
+  "requiresJavaScript": "unknown",
+  "requiresCaptcha": "unknown",
+  "requiresAccount": "unknown",
+  "rateLimitNotes": "No adapter is implemented. Do not automate online-services pages unless official terms and technical controls are reviewed.",
+  "redistributionStatus": "unknown",
+  "publicRecordsNotes": "Official lookup source metadata only. Absence from this source is not proof that a registration, trade credential, or local authorization does not exist elsewhere.",
+  "adapterStatus": "planned",
+  "sourceDiscoveryStatus": "researched",
+  "adapterMaturity": "registry_only",
+  "coverageScope": "state_agency_partial",
+  "adapterPackage": "@opentrade/adapter-id-dopl",
+  "testFixturePath": null,
+  "officialLookupUrl": "https://edopl.idaho.gov/OnlineServices/?link=PubSearch",
+  "officialBulkDownloadNotes": "No official contractor-registration bulk download has been confirmed in this phase.",
+  "researchNotes": "Registry-only source for Idaho DOPL contractor registrations. Future work should review whether separate DOPL trade boards need distinct source entries.",
+  "lastVerifiedAt": "2026-06-22T00:00:00.000Z",
+  "maintainerNotes": "Keep contractor registrations separate from other Idaho DOPL license families until filtering is explicit."
+}
