@@ -27,6 +27,9 @@ jobs:
       - name: Install dependencies
         run: corepack pnpm install --frozen-lockfile
 
+      - name: Build workspace packages
+        run: corepack pnpm build
+
       - name: Registry and seed tests
         run: |
           corepack pnpm test:registry

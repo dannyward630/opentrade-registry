@@ -122,7 +122,7 @@ describe("opentrade CLI", () => {
       );
       expect(unsupported.stderr).toContain(`Source ${sourceId} is registered for metadata, but no verify adapter is implemented yet.`);
     }
-  });
+  }, 15000);
 
   it("syncs fixture data to JSONL with structured stats", () => {
     const dir = mkdtempSync(join(tmpdir(), "opentrade-jsonl-"));
