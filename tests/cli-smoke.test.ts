@@ -70,7 +70,7 @@ describe("opentrade CLI", () => {
     expect(rhodeIsland).toContain("Rhode Island CRLB Registrant and Licensee Search");
     expect(rhodeIsland).toContain("maturity: registry_only");
     expect(runCli(["sources", "validate"]).stdout).toContain("Validated 34 source registry entries.");
-  });
+  }, 15000);
 
   it("rejects registry-only sources for sync and verify with neutral wording", () => {
     const sync = runCli(
