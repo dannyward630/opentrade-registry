@@ -17,6 +17,7 @@ The source is broad. It includes many TDLR programs, not just construction or sk
 - Maps clearly understood fields: license type, license number, business name, owner name, addresses, phone, expiration date, subtype, and continuing education flag.
 - Categorizes obvious HVAC and electrical license types.
 - Preserves raw rows, source URL, fetched time, caveats, and fingerprint.
+- Carries Level 4 verification-quality metadata for local-file verification semantics.
 
 ## Caveats
 
@@ -24,10 +25,11 @@ The source is broad. It includes many TDLR programs, not just construction or sk
 - Expiration date is the only current status signal used by the fixture adapter.
 - Missing or unknown license types are preserved and warned about rather than forced into a category.
 - Live Texas Open Data download is not source-specific yet; use local files for normal development and tests.
+- No-match verification output only means no matching record was found in the checked local source at the checked time.
 
 ## Future Work
 
 - Research license-type filters for contractor and skilled-trade coverage.
 - Add more representative hand-authored fixture cases.
 - Decide whether Texas should get a source-specific opt-in URL sync path.
-- Review verification language against official TDLR lookup behavior.
+- Compare fixture-backed verification caveats against the official TDLR lookup before any live-source promotion.

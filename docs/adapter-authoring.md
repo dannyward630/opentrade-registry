@@ -18,6 +18,8 @@ New states should usually start as `registry_only`. Move to adapter work after t
 - Level 3: opt-in network sync with freshness metadata.
 - Level 4: verification semantics reviewed against official source caveats.
 
+`adapterMaturity` tracks capability. `adapterQualityLevel` tracks review depth. An implemented adapter should not be treated as a public-ready verification path until it has Level 4 metadata in the source registry: a review timestamp, source-specific verification caveats, and neutral no-match semantics.
+
 ## Moving A Source Through The Levels
 
 Level 0 to Level 1:
@@ -39,6 +41,14 @@ Level 2 to Level 3:
 - Keep network access opt-in with `--allow-network`.
 - Capture fetched time, source URL, last-modified, ETag, and content length when available.
 - Use local or mocked HTTP tests by default; live agency tests must stay opt-in.
+
+Level 3 or lower to Level 4:
+
+- Review the source registry caveats, known exclusions, public-record notes, and official lookup language.
+- Add `adapterQualityLevel: 4`, `verificationReviewedAt`, `verificationCaveats`, and `verificationNotes`.
+- Test matched, not-found, ambiguous, and invalid-input verification states.
+- Preserve this no-match language: `No matching record was found in this source as of the checked time.`
+- Avoid wording that implies a person or business lacks a license outside the checked source and time.
 
 ## Expected Package Shape
 

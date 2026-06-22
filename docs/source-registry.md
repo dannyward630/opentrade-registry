@@ -6,7 +6,7 @@ A registry entry is not the same thing as adapter support. Some entries are rese
 
 ## What Goes In A Source Entry
 
-Each entry records the agency, jurisdiction, source URL, documentation URL, source type, update notes, known exclusions, access constraints, redistribution posture, and adapter maturity.
+Each entry records the agency, jurisdiction, source URL, documentation URL, source type, update notes, known exclusions, access constraints, redistribution posture, adapter maturity, and adapter quality metadata where adapter behavior exists.
 
 The most important fields are:
 
@@ -17,6 +17,8 @@ The most important fields are:
 - `knownExclusions`: what this source does not cover.
 - `adapterStatus`: whether adapter work is planned, implemented, experimental, or deprecated.
 - `adapterMaturity`: whether the source is metadata-only, fixture-backed, local-file backed, or opt-in network capable.
+- `adapterQualityLevel`: optional quality level for implemented adapter behavior, especially verification semantics.
+- `verificationCaveats`: caveats that should shape local verification output and docs.
 - `researchNotes`: maintainer notes about source coverage or next research steps.
 
 ## Discovery Status
@@ -33,6 +35,18 @@ The most important fields are:
 - `local_file_adapter`: local public files can sync without network access.
 - `network_opt_in`: live source access exists and requires explicit network opt-in.
 
+## Adapter Quality
+
+Adapter quality is separate from maturity. A source can be fixture-backed but still have Level 4 verification semantics if its local verification language has been reviewed against known source caveats.
+
+- Level 0: registry metadata only.
+- Level 1: fixture parses and normalizes.
+- Level 2: local public file sync.
+- Level 3: opt-in network sync with freshness metadata.
+- Level 4: verification semantics reviewed against official source caveats.
+
+Implemented adapters should include `adapterQualityLevel: 4`, `verificationReviewedAt`, `verificationCaveats`, and `verificationNotes` before they are treated as public-ready verification paths.
+
 ## Coverage Scope
 
 - `statewide`: source is intended to cover a statewide licensing authority.
@@ -44,9 +58,9 @@ The most important fields are:
 
 `registry/us-coverage.json` tracks state-by-state progress toward broader coverage. It is intentionally high level. A state can be listed there before a detailed source entry exists.
 
-Today, Florida DBPR is a local-file adapter with opt-in URL sync through the CLI. Oregon CCB, Texas TDLR, and Washington L&I are fixture-supported. Alabama General Contractors Board, Arkansas Contractors Licensing Board, Arizona ROC, California CSLB, Colorado DORA, Connecticut DCP, Georgia SOS, Iowa DIAL, Louisiana LSLBC, Maryland MHIC, Massachusetts OPSI, Michigan LARA, Minnesota DLI, Nevada NSCB, New Jersey DCA, New Mexico RLD, North Carolina NCLBGC, Ohio OCILB, Pennsylvania OAG, South Carolina LLR, Tennessee Commerce, Utah DOPL, Virginia DPOR, West Virginia Labor, and Wisconsin DSPS are researched registry-only entries.
+Today, Florida DBPR is a local-file adapter with opt-in URL sync through the CLI. Oregon CCB, Texas TDLR, and Washington L&I are fixture-supported. Alaska CBPL, Alabama General Contractors Board, Arkansas Contractors Licensing Board, Arizona ROC, California CSLB, Colorado DORA, Connecticut DCP, Delaware Labor, DC DLCP, Georgia SOS, Idaho DOPL, Iowa DIAL, Louisiana LSLBC, Maryland MHIC, Massachusetts OPSI, Michigan LARA, Minnesota DLI, Nevada NSCB, New Jersey DCA, New Mexico RLD, North Carolina NCLBGC, Ohio OCILB, Pennsylvania OAG, Rhode Island CRLB, South Carolina LLR, Tennessee Commerce, Utah DOPL, Virginia DPOR, West Virginia Labor, and Wisconsin DSPS are researched registry-only entries.
 
-Minnesota, Oregon, and Washington are open-data-shaped sources. Alabama, Arkansas, Colorado, Connecticut, Georgia, Iowa, Louisiana, Maryland, Massachusetts, Michigan, Nevada, New Jersey, New Mexico, North Carolina, Ohio, Pennsylvania, South Carolina, Tennessee, Utah, Virginia, West Virginia, and Wisconsin are lookup-oriented or still need bulk-export research in this phase, so their registry entries intentionally stop before parser or automation work.
+Alaska, Minnesota, Oregon, Texas, and Washington are open-data- or download-shaped candidates. Alabama, Arkansas, Colorado, Connecticut, Delaware, DC, Georgia, Idaho, Iowa, Louisiana, Maryland, Massachusetts, Michigan, Nevada, New Jersey, New Mexico, North Carolina, Ohio, Pennsylvania, Rhode Island, South Carolina, Tennessee, Utah, Virginia, West Virginia, and Wisconsin are lookup-oriented or still need bulk-export research in this phase, so their registry entries intentionally stop before parser or automation work.
 
 ## Contribution Notes
 

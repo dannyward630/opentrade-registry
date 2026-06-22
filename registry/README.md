@@ -29,6 +29,11 @@ Examples:
 - `registry/sources/us/nj/dca-home-improvement-contractors.json`
 - `registry/sources/us/nm/rld-construction-industries.json`
 - `registry/sources/us/wv/labor-contractors.json`
+- `registry/sources/us/ak/commerce-construction-contractors.json`
+- `registry/sources/us/de/labor-construction-contractors.json`
+- `registry/sources/us/dc/dlcp-contractors.json`
+- `registry/sources/us/id/dopl-contractors.json`
+- `registry/sources/us/ri/crlb-contractors.json`
 
 `registry/us-coverage.json` tracks state-by-state progress. It may list a state before a detailed source has been researched.
 
@@ -41,6 +46,7 @@ Examples:
 - Keep generated source exports out of the registry.
 - Keep adapter status accurate: `planned`, `experimental`, `implemented`, or `deprecated`.
 - Keep adapter maturity accurate: `registry_only`, `fixture_adapter`, `local_file_adapter`, or `network_opt_in`.
+- Keep adapter quality metadata accurate for implemented adapters. Level 4 requires reviewed verification caveats and neutral no-match language.
 
 ## Adding A State Source
 

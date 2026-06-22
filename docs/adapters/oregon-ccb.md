@@ -17,6 +17,7 @@ The source is useful because it is open-data-shaped and exposes column metadata.
 - Maps clearly understood fields: license number, license type, county, expiration date, original registration date, business name, address, phone, responsible managing individual, endorsement, bond, and insurance placeholders.
 - Categorizes obvious residential, commercial, general, and home-improvement text.
 - Preserves raw rows, source URL, fetched time, caveats, and fingerprint.
+- Carries Level 4 verification-quality metadata for local-file verification semantics.
 
 ## Caveats
 
@@ -24,10 +25,11 @@ The source is useful because it is open-data-shaped and exposes column metadata.
 - The source appears active-license scoped; do not treat no-match results as complete absence from Oregon licensing.
 - Electrical, plumbing, landscape, asbestos, and other specialized records may be regulated by separate Oregon agencies.
 - Live Oregon Open Data download is available only through explicit CLI network opt-in, not default tests.
+- No-match verification output only means no matching record was found in the checked local source at the checked time.
 
 ## Future Work
 
 - Test a downloaded official CSV shape locally without committing the download.
 - Add more representative hand-authored fixture cases.
 - Decide whether Oregon should be promoted from `fixture_adapter` to `local_file_adapter`.
-- Review verification language against official CCB lookup behavior.
+- Compare fixture-backed verification caveats against the official CCB lookup before any live-source promotion.
