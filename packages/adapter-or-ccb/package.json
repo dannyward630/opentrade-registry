@@ -1,6 +1,6 @@
 {
   "name": "@opentrade/adapter-or-ccb",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "type": "module",
   "description": "Fixture-first Oregon CCB active-license adapter for OpenTrade Registry.",
   "license": "MIT",
