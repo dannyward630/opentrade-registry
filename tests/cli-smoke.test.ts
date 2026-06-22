@@ -16,6 +16,15 @@ const expectedJsonl = join(process.cwd(), "examples", "basic-sync", "expected", 
 const expectedCsv = join(process.cwd(), "examples", "basic-sync", "expected", "sample-record.csv");
 
 describe("opentrade CLI", () => {
+  it("prints release-current help text for local-first and opt-in URL sync", () => {
+    const help = runCli(["help"]).stdout;
+    expect(help).toContain("Default commands do not contact agency sites.");
+    expect(help).toContain("Network sync requires --allow-network.");
+    expect(help).toContain("opentrade sync <sourceId> --url <sourceUrl> --allow-network --out <path>");
+    expect(help).toContain("adapter maturity");
+    expect(help).not.toContain("v0.1 does not download live agency data");
+  });
+
   it("lists, shows, and validates sources", () => {
     const list = runCli(["sources", "list"]).stdout;
     expect(list).toContain("us.fl.dbpr.construction");
