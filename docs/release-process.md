@@ -11,15 +11,21 @@ OpenTrade Registry is pre-1.0. Releases should be boring, reproducible, and hone
    corepack pnpm verify
    ```
 
-3. Inspect package contents:
+3. Inspect source quality and package contents:
 
    ```bash
+   corepack pnpm source:quality
    corepack pnpm pack:check
    ```
 
 4. Confirm no generated bulk datasets are staged.
 5. Confirm source metadata does not overstate coverage or redistribution rights.
-6. Confirm CI is green on `main`.
+6. Run the public CLI fixture examples from [release-checklist.md](release-checklist.md).
+7. Confirm CI is green on `main`.
+
+The default release gate must not require live agency network access, Supabase credentials, Vercel credentials, browser automation, hidden local files, or generated public-record datasets.
+
+See [release-checklist.md](release-checklist.md) for the practical pre-tag command list.
 
 ## Versioning
 

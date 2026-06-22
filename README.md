@@ -161,6 +161,7 @@ examples                    Small local-file examples
 ## Development
 
 ```bash
+corepack pnpm verify
 corepack pnpm build
 corepack pnpm test
 corepack pnpm typecheck
@@ -172,6 +173,8 @@ corepack pnpm web:build
 ```
 
 Hosted deployment is optional. See [docs/deployment/vercel-supabase.md](docs/deployment/vercel-supabase.md) for the Vercel/Supabase setup.
+
+Before tagging a release candidate, use the short [release checklist](docs/release-checklist.md).
 
 ## Roadmap
 

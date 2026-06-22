@@ -30,7 +30,7 @@ Registry-only sources still appear in `sources list` and `sources show`. `sync` 
 
 ## Local-First Exports
 
-v0.1 writes files and does not require a database. That keeps the project easy to inspect and test. Future storage packages can add SQLite or Postgres without changing the core record model.
+The local-first core writes files and does not require a database. That keeps the project easy to inspect and test. Future storage packages can add SQLite or Postgres without changing the core record model.
 
 ## Browser Automation
 
