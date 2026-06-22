@@ -23,7 +23,7 @@ export async function listSources(rootDir: string, options: { json?: boolean }) 
   }
 
   for (const entry of entries) {
-    console.log(`${entry.id}\t${entry.adapterStatus}\t${entry.adapterMaturity}\t${entry.name}`);
+    console.log(`${entry.id}\t${entry.adapterStatus}\t${entry.adapterMaturity}\tlevel_${entry.adapterQualityLevel ?? 0}\t${entry.name}`);
   }
 }
 
@@ -49,6 +49,7 @@ export async function showSource(rootDir: string, sourceId: string, options: { j
   }
   console.log(`status: ${entry.adapterStatus}`);
   console.log(`maturity: ${entry.adapterMaturity}`);
+  console.log(`quality level: ${entry.adapterQualityLevel ?? 0}`);
   console.log(`coverage: ${entry.coverageScope}`);
   console.log(`discovery: ${entry.sourceDiscoveryStatus}`);
   console.log(`redistribution: ${entry.redistributionStatus}`);
@@ -57,6 +58,18 @@ export async function showSource(rootDir: string, sourceId: string, options: { j
   }
   if (entry.officialBulkDownloadNotes) {
     console.log(`bulk notes: ${entry.officialBulkDownloadNotes}`);
+  }
+  if (entry.verificationReviewedAt) {
+    console.log(`verification reviewed: ${entry.verificationReviewedAt}`);
+  }
+  if (entry.verificationCaveats && entry.verificationCaveats.length > 0) {
+    console.log("verification caveats:");
+    for (const caveat of entry.verificationCaveats) {
+      console.log(`- ${caveat}`);
+    }
+  }
+  if (entry.verificationNotes) {
+    console.log(`verification notes: ${entry.verificationNotes}`);
   }
   if (entry.knownExclusions.length > 0) {
     console.log("known exclusions:");

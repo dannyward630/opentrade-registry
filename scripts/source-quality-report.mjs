@@ -16,6 +16,10 @@ const report = {
   coverageByStatus: countBy(coverage.states, (state) => state.status),
   sourcesByType: countBy(sources, (source) => source.sourceType),
   sourcesByMaturity: countBy(sources, (source) => source.adapterMaturity),
+  sourcesByAdapterQualityLevel: countBy(sources, (source) => String(source.adapterQualityLevel ?? 0)),
+  implementedSourcesNeedingLevel4: sources
+    .filter((source) => source.adapterStatus === "implemented" && source.adapterQualityLevel !== 4)
+    .map(toSourceSummary),
   bulkCandidates: sources
     .filter((source) => source.hasBulkDownload === true || source.sourceType.startsWith("bulk_") || source.sourceType === "api")
     .map(toSourceSummary),
@@ -66,6 +70,7 @@ function toSourceSummary(source) {
     state: source.jurisdiction.state,
     sourceType: source.sourceType,
     adapterMaturity: source.adapterMaturity,
+    adapterQualityLevel: source.adapterQualityLevel ?? 0,
     adapterStatus: source.adapterStatus,
     hasBulkDownload: source.hasBulkDownload,
   };
@@ -79,6 +84,8 @@ function printHumanReport(report) {
   printCounts("coverage by status", report.coverageByStatus);
   printCounts("sources by type", report.sourcesByType);
   printCounts("sources by adapter maturity", report.sourcesByMaturity);
+  printCounts("sources by adapter quality level", report.sourcesByAdapterQualityLevel);
+  printSourceList("implemented sources needing Level 4 review", report.implementedSourcesNeedingLevel4);
   printSourceList("bulk candidates", report.bulkCandidates);
   printSourceList("lookup-only sources", report.lookupOnlySources);
 }

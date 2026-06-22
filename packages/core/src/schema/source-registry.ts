@@ -5,6 +5,7 @@ const unknownableBooleanSchema = z.union([z.boolean(), z.literal("unknown")]);
 
 export const sourceDiscoveryStatusSchema = z.enum(["needs_research", "researched", "blocked", "deprecated"]);
 export const adapterMaturitySchema = z.enum(["registry_only", "fixture_adapter", "local_file_adapter", "network_opt_in"]);
+export const adapterQualityLevelSchema = z.union([z.literal(0), z.literal(1), z.literal(2), z.literal(3), z.literal(4)]);
 export const coverageScopeSchema = z.enum(["statewide", "state_agency_partial", "local_only", "unknown"]);
 
 export const sourceRegistryEntrySchema = z.object({
@@ -40,12 +41,16 @@ export const sourceRegistryEntrySchema = z.object({
   adapterStatus: z.enum(["planned", "implemented", "experimental", "deprecated"]),
   sourceDiscoveryStatus: sourceDiscoveryStatusSchema,
   adapterMaturity: adapterMaturitySchema,
+  adapterQualityLevel: adapterQualityLevelSchema.nullable().optional(),
   coverageScope: coverageScopeSchema,
   adapterPackage: z.string().min(1).nullable().optional(),
   testFixturePath: z.string().min(1).nullable().optional(),
   officialLookupUrl: z.string().url().nullable().optional(),
   officialBulkDownloadNotes: z.string().nullable().optional(),
   researchNotes: z.string().nullable().optional(),
+  verificationReviewedAt: z.string().datetime().nullable().optional(),
+  verificationCaveats: z.array(z.string().min(1)).optional(),
+  verificationNotes: z.string().nullable().optional(),
   lastVerifiedAt: z.string().datetime().nullable().optional(),
   maintainerNotes: z.string().nullable().optional(),
 });
@@ -53,4 +58,5 @@ export const sourceRegistryEntrySchema = z.object({
 export type SourceRegistryEntry = z.infer<typeof sourceRegistryEntrySchema>;
 export type SourceDiscoveryStatus = z.infer<typeof sourceDiscoveryStatusSchema>;
 export type AdapterMaturity = z.infer<typeof adapterMaturitySchema>;
+export type AdapterQualityLevel = z.infer<typeof adapterQualityLevelSchema>;
 export type CoverageScope = z.infer<typeof coverageScopeSchema>;

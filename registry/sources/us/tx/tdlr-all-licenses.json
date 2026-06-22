@@ -32,12 +32,20 @@
   "adapterStatus": "implemented",
   "sourceDiscoveryStatus": "researched",
   "adapterMaturity": "fixture_adapter",
+  "adapterQualityLevel": 4,
   "coverageScope": "state_agency_partial",
   "adapterPackage": "@opentrade/adapter-tx-tdlr",
   "testFixturePath": "packages/adapter-tx-tdlr/fixtures/all-licenses-sample.csv",
   "officialLookupUrl": "https://www.tdlr.texas.gov/verify.htm",
   "officialBulkDownloadNotes": "The Texas Open Data Portal lists downloadable formats for the TDLR All Licenses dataset. The v0.2 adapter uses a tiny hand-authored fixture with the official column shape.",
   "researchNotes": "Fixture adapter support exists. Future local-file work should narrow trade coverage carefully because this source spans many TDLR programs.",
+  "verificationReviewedAt": "2026-06-22T00:00:00.000Z",
+  "verificationCaveats": [
+    "Verification is limited to the checked local fixture-shaped file and currently does not download Texas source data.",
+    "The source spans many TDLR license programs; a match should be interpreted with license type and trade relevance preserved.",
+    "No matching record means no match in this source at the checked time and is not proof that a Texas authorization does not exist elsewhere."
+  ],
+  "verificationNotes": "Fixture verification preserves source caveats and avoids presenting TDLR all-license rows as contractor-only records.",
   "lastVerifiedAt": "2026-06-21T00:00:00.000Z",
   "maintainerNotes": "Do not treat all TDLR rows as contractor records without license-type filtering."
 }
