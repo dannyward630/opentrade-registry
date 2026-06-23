@@ -140,7 +140,7 @@ Adapter maturity is tracked separately from source research:
 
 `adapterMaturity` describes what an adapter can run today. `adapterQualityLevel` describes how much verification-language and caveat review has happened. All implemented adapters currently carry Level 4 quality metadata, which means their local verification results use neutral semantics and source-specific caveats.
 
-Florida DBPR is currently a local-file adapter with opt-in URL sync through the CLI. Oregon CCB, Texas TDLR, and Washington L&I are fixture-supported. Alaska CBPL, Alabama General Contractors Board, Arkansas Contractors Licensing Board, Arizona ROC, California CSLB, Colorado DORA, Connecticut DCP, Delaware Labor, DC DLCP, Georgia SOS, Idaho DOPL, Illinois IDFPR, Indiana PLA, Iowa DIAL, Kansas Attorney General, Kentucky DHBC, Louisiana LSLBC, Maryland MHIC, Massachusetts OPSI, Michigan LARA, Minnesota DLI, Mississippi MSBOC, Nevada NSCB, New Jersey DCA, New Mexico RLD, North Carolina NCLBGC, Ohio OCILB, Pennsylvania OAG, Rhode Island CRLB, South Carolina LLR, Tennessee Commerce, Utah DOPL, Virginia DPOR, West Virginia Labor, and Wisconsin DSPS are registry-only entries.
+The registry now includes at least one researched official source entry for all 50 states plus DC. Florida DBPR is currently a local-file adapter with opt-in URL sync through the CLI. Oregon CCB, Texas TDLR, and Washington L&I are fixture-supported. The remaining researched sources are registry-only entries until source-specific terms, fields, fixtures, and verification caveats are reviewed.
 
 ## Project Layout
 
@@ -178,6 +178,6 @@ Before tagging a release candidate, use the short [release checklist](docs/relea
 
 ## Roadmap
 
-The next work is to make URL sync more source-aware, improve Oregon, Texas, and Washington fixture coverage, and continue building a researched source registry state by state. Broader adapter coverage will come after the registry validation, source-quality reporting, Level 4 verification semantics, and adapter contracts stay boring and predictable.
+The next work is to make URL sync more source-aware, improve Oregon, Texas, and Washington fixture coverage, add U.S. territory coverage, and turn the most suitable registry-only sources into fixture adapters. Broader adapter coverage will come after the registry validation, source-quality reporting, Level 4 verification semantics, and adapter contracts stay boring and predictable.
 
 See [docs/roadmap.md](docs/roadmap.md) for the current plan.

@@ -39,8 +39,20 @@ Examples:
 - `registry/sources/us/ky/dhbc-trades.json`
 - `registry/sources/us/ms/msboc-contractors.json`
 - `registry/sources/us/ri/crlb-contractors.json`
+- `registry/sources/us/hi/dcca-contractors.json`
+- `registry/sources/us/me/pfr-professional-licenses.json`
+- `registry/sources/us/mo/pr-professional-licenses.json`
+- `registry/sources/us/mt/dli-contractor-registration.json`
+- `registry/sources/us/ne/dol-contractor-registration.json`
+- `registry/sources/us/nh/oplc-trades.json`
+- `registry/sources/us/ny/dos-licensee-search.json`
+- `registry/sources/us/nd/sos-contractors.json`
+- `registry/sources/us/ok/cib-trades.json`
+- `registry/sources/us/sd/dlr-plumbing.json`
+- `registry/sources/us/vt/sos-residential-contractors.json`
+- `registry/sources/us/wy/firemarshal-electrical.json`
 
-`registry/us-coverage.json` tracks state-by-state progress. It may list a state before a detailed source has been researched.
+`registry/us-coverage.json` tracks state-by-state progress. It now includes all 50 states plus DC with at least one researched source entry, while still distinguishing registry-only metadata from fixture, local-file, and network-capable adapters.
 
 ## Contribution Rules
 
