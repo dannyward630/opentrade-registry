@@ -1,0 +1,44 @@
+{
+  "id": "us.ms.msboc.contractors",
+  "name": "Mississippi State Board of Contractors License Search",
+  "jurisdiction": {
+    "country": "US",
+    "state": "MS"
+  },
+  "agency": {
+    "name": "Mississippi State Board of Contractors",
+    "url": "https://www.msboc.us/"
+  },
+  "sourceType": "html_lookup",
+  "sourceUrl": "https://search.msboc.us/",
+  "documentationUrl": "https://www.msboc.us/",
+  "dataDictionaryUrl": null,
+  "termsUrl": null,
+  "updateFrequency": "unknown; verify against the official MSBOC search before relying on freshness assumptions",
+  "tradeCoverage": ["commercial_contracting", "residential_contracting", "roofing", "other"],
+  "licenseTypesIncluded": ["Mississippi commercial contractor, residential contractor, remodeler, and roofer license records exposed by MSBOC search where available"],
+  "knownExclusions": [
+    "This source entry is scoped to Mississippi State Board of Contractors licensing and does not represent local permits, business registrations, or non-MSBOC authorizations.",
+    "The official search includes a disclosure that information may have changed since publication and recommends contacting the office before making decisions based on the information.",
+    "Violator lists, complaint information, and enforcement data may require separate official sources or source-specific caveats."
+  ],
+  "hasBulkDownload": "unknown",
+  "hasLiveLookup": true,
+  "requiresJavaScript": "unknown",
+  "requiresCaptcha": "unknown",
+  "requiresAccount": false,
+  "rateLimitNotes": "No adapter is implemented. Do not automate lookup pages unless access terms and technical controls are reviewed.",
+  "redistributionStatus": "unknown",
+  "publicRecordsNotes": "Official MSBOC lookup metadata only. Absence from this source is not proof that a license or authorization does not exist elsewhere.",
+  "adapterStatus": "planned",
+  "sourceDiscoveryStatus": "researched",
+  "adapterMaturity": "registry_only",
+  "coverageScope": "state_agency_partial",
+  "adapterPackage": "@opentrade/adapter-ms-msboc",
+  "testFixturePath": null,
+  "officialLookupUrl": "https://search.msboc.us/",
+  "officialBulkDownloadNotes": "No official bulk download has been confirmed in this phase.",
+  "researchNotes": "Registry-only source for Mississippi contractor license search. Future work should review classifications and any official disclosure text before implementing verification behavior.",
+  "lastVerifiedAt": "2026-06-24T00:00:00.000Z",
+  "maintainerNotes": "Keep MSBOC licensing scope separate from local permit, business, and enforcement sources."
+}
