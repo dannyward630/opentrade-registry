@@ -33,6 +33,11 @@ Examples:
 - `registry/sources/us/de/labor-construction-contractors.json`
 - `registry/sources/us/dc/dlcp-contractors.json`
 - `registry/sources/us/id/dopl-contractors.json`
+- `registry/sources/us/il/idfpr-roofing-contractors.json`
+- `registry/sources/us/in/pla-professional-licenses.json`
+- `registry/sources/us/ks/ag-roofing-registration.json`
+- `registry/sources/us/ky/dhbc-trades.json`
+- `registry/sources/us/ms/msboc-contractors.json`
 - `registry/sources/us/ri/crlb-contractors.json`
 
 `registry/us-coverage.json` tracks state-by-state progress. It may list a state before a detailed source has been researched.
