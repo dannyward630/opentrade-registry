@@ -1,0 +1,44 @@
+{
+  "id": "us.nh.oplc.trades",
+  "name": "New Hampshire OPLC License Lookup",
+  "jurisdiction": {
+    "country": "US",
+    "state": "NH"
+  },
+  "agency": {
+    "name": "New Hampshire Office of Professional Licensure and Certification",
+    "url": "https://www.oplc.nh.gov/"
+  },
+  "sourceType": "html_lookup",
+  "sourceUrl": "https://www.oplc.nh.gov/license-lookup",
+  "documentationUrl": "https://www.oplc.nh.gov/professional-licensing",
+  "dataDictionaryUrl": null,
+  "termsUrl": "https://www.nh.gov/policies/",
+  "updateFrequency": "unknown; verify against the official OPLC lookup before relying on freshness assumptions",
+  "tradeCoverage": ["electrical", "plumbing", "mechanical", "other"],
+  "licenseTypesIncluded": ["New Hampshire OPLC license records exposed by official lookup, including construction-relevant boards where available"],
+  "knownExclusions": [
+    "New Hampshire contractor work may be regulated by state boards, local authorities, or both; this entry only covers OPLC lookup scope.",
+    "The OPLC lookup spans many professions; construction-relevant records require careful filtering.",
+    "Local permits, municipal contractor licenses, business registrations, and non-OPLC authorizations are outside this source entry."
+  ],
+  "hasBulkDownload": "unknown",
+  "hasLiveLookup": true,
+  "requiresJavaScript": "unknown",
+  "requiresCaptcha": "unknown",
+  "requiresAccount": false,
+  "rateLimitNotes": "No adapter is implemented. Do not bypass browser or portal controls; prefer official export options if discovered.",
+  "redistributionStatus": "unknown",
+  "publicRecordsNotes": "Official OPLC lookup metadata only. Absence from this source is not proof that a state license, local authorization, or registration does not exist elsewhere.",
+  "adapterStatus": "planned",
+  "sourceDiscoveryStatus": "researched",
+  "adapterMaturity": "registry_only",
+  "coverageScope": "state_agency_partial",
+  "adapterPackage": "@opentrade/adapter-nh-oplc",
+  "testFixturePath": null,
+  "officialLookupUrl": "https://www.oplc.nh.gov/license-lookup",
+  "officialBulkDownloadNotes": "No official construction-specific bulk download has been confirmed in this phase.",
+  "researchNotes": "Registry-only source for New Hampshire OPLC lookup. Future work should narrow to electrical, mechanical, plumbing, and related boards before parser work.",
+  "lastVerifiedAt": "2026-06-24T00:00:00.000Z",
+  "maintainerNotes": "Keep OPLC scope separate from municipal contractor licensing and permits."
+}

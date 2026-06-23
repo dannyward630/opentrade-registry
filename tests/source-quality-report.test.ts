@@ -12,14 +12,14 @@ describe("source quality report", () => {
     expect(result.stderr).toBe("");
 
     const report = JSON.parse(result.stdout);
-    expect(report.sourceCount).toBe(39);
+    expect(report.sourceCount).toBe(51);
     expect(report.stateCount).toBe(51);
-    expect(report.researchedStateCount).toBe(39);
-    expect(report.coverageByStatus.not_started).toBe(12);
-    expect(report.sourcesByMaturity.registry_only).toBe(35);
+    expect(report.researchedStateCount).toBe(51);
+    expect(report.coverageByStatus.not_started ?? 0).toBe(0);
+    expect(report.sourcesByMaturity.registry_only).toBe(47);
     expect(report.sourcesByMaturity.fixture_adapter).toBe(3);
     expect(report.sourcesByMaturity.local_file_adapter).toBe(1);
-    expect(report.sourcesByAdapterQualityLevel["0"]).toBe(35);
+    expect(report.sourcesByAdapterQualityLevel["0"]).toBe(47);
     expect(report.sourcesByAdapterQualityLevel["4"]).toBe(4);
     expect(report.implementedSourcesNeedingLevel4).toEqual([]);
     expect(report.lookupOnlySources.map((source: { id: string }) => source.id)).toContain("us.pa.oag.home_improvement_contractors");

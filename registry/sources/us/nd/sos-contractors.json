@@ -1,0 +1,44 @@
+{
+  "id": "us.nd.sos.contractors",
+  "name": "North Dakota Secretary of State Contractor Search",
+  "jurisdiction": {
+    "country": "US",
+    "state": "ND"
+  },
+  "agency": {
+    "name": "North Dakota Secretary of State",
+    "url": "https://www.sos.nd.gov/"
+  },
+  "sourceType": "html_lookup",
+  "sourceUrl": "https://firststop.sos.nd.gov/search/contractor",
+  "documentationUrl": "https://www.sos.nd.gov/business/licensing-registration/contractors",
+  "dataDictionaryUrl": null,
+  "termsUrl": "https://www.nd.gov/content.htm?id=Privacy",
+  "updateFrequency": "unknown; verify against the official contractor search before relying on freshness assumptions",
+  "tradeCoverage": ["general_contracting", "residential_contracting", "commercial_contracting", "other"],
+  "licenseTypesIncluded": ["North Dakota contractor license records exposed by Secretary of State contractor search"],
+  "knownExclusions": [
+    "Specialty trade boards, local permits, business registration details, and non-Secretary-of-State authorizations may require separate sources.",
+    "Electrical, plumbing, HVAC, and local contractor requirements may not be fully represented by this source entry.",
+    "Complaint and enforcement information may require separate official pages or requests."
+  ],
+  "hasBulkDownload": "unknown",
+  "hasLiveLookup": true,
+  "requiresJavaScript": true,
+  "requiresCaptcha": "unknown",
+  "requiresAccount": false,
+  "rateLimitNotes": "No adapter is implemented. Do not automate portal access unless access terms and technical controls are reviewed.",
+  "redistributionStatus": "unknown",
+  "publicRecordsNotes": "Official Secretary of State contractor-search metadata only. Absence from this source is not proof that a license, registration, or local authorization does not exist elsewhere.",
+  "adapterStatus": "planned",
+  "sourceDiscoveryStatus": "researched",
+  "adapterMaturity": "registry_only",
+  "coverageScope": "state_agency_partial",
+  "adapterPackage": "@opentrade/adapter-nd-sos",
+  "testFixturePath": null,
+  "officialLookupUrl": "https://firststop.sos.nd.gov/search/contractor",
+  "officialBulkDownloadNotes": "No official bulk download has been confirmed in this phase.",
+  "researchNotes": "Registry-only source for North Dakota Secretary of State contractor search. Future work should map license classes and whether specialty trade board lookups need separate sources.",
+  "lastVerifiedAt": "2026-06-24T00:00:00.000Z",
+  "maintainerNotes": "Keep Secretary of State contractor licensing separate from specialty boards and local licensing."
+}

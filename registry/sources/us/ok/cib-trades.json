@@ -1,0 +1,44 @@
+{
+  "id": "us.ok.cib.trades",
+  "name": "Oklahoma Construction Industries Board License Searches",
+  "jurisdiction": {
+    "country": "US",
+    "state": "OK"
+  },
+  "agency": {
+    "name": "Oklahoma Construction Industries Board",
+    "url": "https://oklahoma.gov/cib.html"
+  },
+  "sourceType": "html_lookup",
+  "sourceUrl": "https://oklahoma.gov/cib/consumers/are-they-licensed.html",
+  "documentationUrl": "https://oklahoma.gov/cib.html",
+  "dataDictionaryUrl": null,
+  "termsUrl": "https://oklahoma.gov/omes/about/policies-and-disclaimers.html",
+  "updateFrequency": "unknown; verify against the official CIB lookup pages before relying on freshness assumptions",
+  "tradeCoverage": ["roofing", "electrical", "mechanical", "plumbing", "other"],
+  "licenseTypesIncluded": ["Oklahoma CIB registered roofing contractor records and building/home inspector, electrical, mechanical, and plumbing licensee records exposed by official lookup links"],
+  "knownExclusions": [
+    "General contractor licensing and local permits may be handled locally and are outside this source entry unless CIB-specific.",
+    "The CIB site links multiple searches; future adapter work may need separate source entries or per-search filters.",
+    "Search result fields, historical coverage, and bulk access have not been modeled."
+  ],
+  "hasBulkDownload": "unknown",
+  "hasLiveLookup": true,
+  "requiresJavaScript": "unknown",
+  "requiresCaptcha": "unknown",
+  "requiresAccount": false,
+  "rateLimitNotes": "No adapter is implemented. Future access should prefer stable official exports or APIs if discovered.",
+  "redistributionStatus": "unknown",
+  "publicRecordsNotes": "Official CIB lookup metadata only. Absence from this source is not proof that a license, registration, or local authorization does not exist elsewhere.",
+  "adapterStatus": "planned",
+  "sourceDiscoveryStatus": "researched",
+  "adapterMaturity": "registry_only",
+  "coverageScope": "state_agency_partial",
+  "adapterPackage": "@opentrade/adapter-ok-cib",
+  "testFixturePath": null,
+  "officialLookupUrl": "https://oklahoma.gov/cib/consumers/are-they-licensed.html",
+  "officialBulkDownloadNotes": "No official bulk download has been confirmed in this phase.",
+  "researchNotes": "Registry-only source for Oklahoma CIB lookup links. Future work should decide whether roofing and trade-license searches become separate sources.",
+  "lastVerifiedAt": "2026-06-24T00:00:00.000Z",
+  "maintainerNotes": "Keep CIB source scope separate from local Oklahoma contractor licensing."
+}

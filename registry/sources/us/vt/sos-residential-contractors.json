@@ -1,0 +1,44 @@
+{
+  "id": "us.vt.sos.residential_contractors",
+  "name": "Vermont Secretary of State Residential Contractor Registry",
+  "jurisdiction": {
+    "country": "US",
+    "state": "VT"
+  },
+  "agency": {
+    "name": "Vermont Secretary of State Office of Professional Regulation",
+    "url": "https://sos.vermont.gov/opr/"
+  },
+  "sourceType": "html_lookup",
+  "sourceUrl": "https://sos.vermont.gov/residential-contractors",
+  "documentationUrl": "https://sos.vermont.gov/residential-contractors",
+  "dataDictionaryUrl": null,
+  "termsUrl": "https://sos.vermont.gov/about-office/privacy-policy/",
+  "updateFrequency": "unknown; verify against the official OPR find-a-professional lookup before relying on freshness assumptions",
+  "tradeCoverage": ["residential_contracting", "home_improvement"],
+  "licenseTypesIncluded": ["Vermont residential contractor registration records and related OPR license records where exposed by official lookup paths"],
+  "knownExclusions": [
+    "This source entry is scoped to Vermont residential contractor registration and OPR lookup context.",
+    "Other trade licenses, local permits, business registrations, and non-OPR authorizations may require separate sources.",
+    "Some OPR lookup pages may use browser checks or other access controls; do not bypass them."
+  ],
+  "hasBulkDownload": "unknown",
+  "hasLiveLookup": true,
+  "requiresJavaScript": "unknown",
+  "requiresCaptcha": true,
+  "requiresAccount": false,
+  "rateLimitNotes": "No adapter is implemented. Do not bypass CAPTCHA or technical controls; prefer official export options if discovered.",
+  "redistributionStatus": "unknown",
+  "publicRecordsNotes": "Official OPR residential-contractor metadata only. Absence from this source is not proof that a registration, trade license, local authorization, or business registration does not exist elsewhere.",
+  "adapterStatus": "planned",
+  "sourceDiscoveryStatus": "researched",
+  "adapterMaturity": "registry_only",
+  "coverageScope": "state_agency_partial",
+  "adapterPackage": "@opentrade/adapter-vt-sos",
+  "testFixturePath": null,
+  "officialLookupUrl": "https://sos.vermont.gov/opr/find-a-professional",
+  "officialBulkDownloadNotes": "No official bulk download has been confirmed in this phase.",
+  "researchNotes": "Registry-only source for Vermont residential contractor registration. Future work should research OPR lookup access and whether residential contractor records can be exported lawfully.",
+  "lastVerifiedAt": "2026-06-24T00:00:00.000Z",
+  "maintainerNotes": "Keep CAPTCHA and access-control cautions visible; do not add portal automation by default."
+}

@@ -48,9 +48,20 @@ describe("opentrade CLI", () => {
     expect(list).toContain("us.ri.crlb.contractors");
     expect(list).toContain("us.ct.dcp.home_improvement_contractors");
     expect(list).toContain("us.md.dllr.home_improvement_contractors");
+    expect(list).toContain("us.me.pfr.professional_licenses");
+    expect(list).toContain("us.mo.pr.professional_licenses");
+    expect(list).toContain("us.mt.dli.contractor_registration");
+    expect(list).toContain("us.ne.dol.contractor_registration");
+    expect(list).toContain("us.nh.oplc.trades");
     expect(list).toContain("us.nj.dca.home_improvement_contractors");
     expect(list).toContain("us.nm.rld.construction_industries");
+    expect(list).toContain("us.nd.sos.contractors");
+    expect(list).toContain("us.ny.dos.licensee_search");
+    expect(list).toContain("us.ok.cib.trades");
+    expect(list).toContain("us.sd.dlr.plumbing");
+    expect(list).toContain("us.vt.sos.residential_contractors");
     expect(list).toContain("us.wv.labor.contractors");
+    expect(list).toContain("us.wy.firemarshal.electrical");
     expect(list).toContain("local_file_adapter");
     expect(list).toContain("fixture_adapter");
     expect(list).toContain("level_4");
@@ -89,7 +100,13 @@ describe("opentrade CLI", () => {
     const mississippi = runCli(["sources", "show", "us.ms.msboc.contractors"]).stdout;
     expect(mississippi).toContain("Mississippi State Board of Contractors License Search");
     expect(mississippi).toContain("maturity: registry_only");
-    expect(runCli(["sources", "validate"]).stdout).toContain("Validated 39 source registry entries.");
+    const hawaii = runCli(["sources", "show", "us.hi.dcca.contractors"]).stdout;
+    expect(hawaii).toContain("Hawaii DCCA PVL Contractor License Search");
+    expect(hawaii).toContain("maturity: registry_only");
+    const vermont = runCli(["sources", "show", "us.vt.sos.residential_contractors"]).stdout;
+    expect(vermont).toContain("Vermont Secretary of State Residential Contractor Registry");
+    expect(vermont).toContain("maturity: registry_only");
+    expect(runCli(["sources", "validate"]).stdout).toContain("Validated 51 source registry entries.");
   }, 15000);
 
   it("rejects registry-only sources for sync and verify with neutral wording", () => {
@@ -132,6 +149,18 @@ describe("opentrade CLI", () => {
       "us.ks.ag.roofing_registration",
       "us.ky.dhbc.trades",
       "us.ms.msboc.contractors",
+      "us.hi.dcca.contractors",
+      "us.me.pfr.professional_licenses",
+      "us.mo.pr.professional_licenses",
+      "us.mt.dli.contractor_registration",
+      "us.ne.dol.contractor_registration",
+      "us.nh.oplc.trades",
+      "us.ny.dos.licensee_search",
+      "us.nd.sos.contractors",
+      "us.ok.cib.trades",
+      "us.sd.dlr.plumbing",
+      "us.vt.sos.residential_contractors",
+      "us.wy.firemarshal.electrical",
     ]) {
       const unsupportedSync = runCli(
         ["sync", sourceId, "--file", sampleFixture, "--out", join(tmpdir(), `unused-${sourceId}.jsonl`)],
@@ -147,7 +176,7 @@ describe("opentrade CLI", () => {
       );
       expect(unsupported.stderr).toContain(`Source ${sourceId} is registered for metadata, but no verify adapter is implemented yet.`);
     }
-  }, 15000);
+  }, 45000);
 
   it("syncs fixture data to JSONL with structured stats", () => {
     const dir = mkdtempSync(join(tmpdir(), "opentrade-jsonl-"));

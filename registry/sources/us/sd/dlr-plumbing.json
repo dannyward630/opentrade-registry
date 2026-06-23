@@ -1,0 +1,44 @@
+{
+  "id": "us.sd.dlr.plumbing",
+  "name": "South Dakota DLR Plumbing Commission Licensing",
+  "jurisdiction": {
+    "country": "US",
+    "state": "SD"
+  },
+  "agency": {
+    "name": "South Dakota Department of Labor and Regulation Plumbing Commission",
+    "url": "https://dlr.sd.gov/plumbing/"
+  },
+  "sourceType": "html_lookup",
+  "sourceUrl": "https://dlr.sd.gov/plumbing/default.aspx",
+  "documentationUrl": "https://dlr.sd.gov/plumbing/licensing.aspx",
+  "dataDictionaryUrl": null,
+  "termsUrl": "https://sd.gov/cs?id=privacy_policy",
+  "updateFrequency": "unknown; verify against the official Plumbing Commission pages before relying on freshness assumptions",
+  "tradeCoverage": ["plumbing", "underground_utility", "other"],
+  "licenseTypesIncluded": ["South Dakota plumbing, sewer and water, appliance, manufactured/mobile home, irrigation, water conditioning, and related plumbing commission license categories described by official pages"],
+  "knownExclusions": [
+    "This source entry is scoped to the South Dakota Plumbing Commission and does not represent every contractor, electrical, local permit, or tax registration source in South Dakota.",
+    "The official pages describe licensing categories but no stable public lookup or bulk dataset has been modeled yet.",
+    "Electrical licensing and local contractor licensing should be separate source entries if researched."
+  ],
+  "hasBulkDownload": "unknown",
+  "hasLiveLookup": "unknown",
+  "requiresJavaScript": "unknown",
+  "requiresCaptcha": "unknown",
+  "requiresAccount": "unknown",
+  "rateLimitNotes": "No adapter is implemented. Further research is needed before any automated access path is considered.",
+  "redistributionStatus": "unknown",
+  "publicRecordsNotes": "Official licensing-page metadata only. Absence from this source is not proof that a plumbing, electrical, local contractor, or other authorization does not exist elsewhere.",
+  "adapterStatus": "planned",
+  "sourceDiscoveryStatus": "researched",
+  "adapterMaturity": "registry_only",
+  "coverageScope": "state_agency_partial",
+  "adapterPackage": "@opentrade/adapter-sd-dlr",
+  "testFixturePath": null,
+  "officialLookupUrl": "https://dlr.sd.gov/plumbing/default.aspx",
+  "officialBulkDownloadNotes": "No official bulk download or stable lookup endpoint has been confirmed in this phase.",
+  "researchNotes": "Registry-only source for South Dakota Plumbing Commission licensing pages. Future work should research whether public lookup data exists for plumbing and electrical commission records.",
+  "lastVerifiedAt": "2026-06-24T00:00:00.000Z",
+  "maintainerNotes": "This is a researched official licensing source, not an implemented verification path."
+}

@@ -1,0 +1,44 @@
+{
+  "id": "us.mt.dli.contractor_registration",
+  "name": "Montana DLI Construction Contractor Registration Search",
+  "jurisdiction": {
+    "country": "US",
+    "state": "MT"
+  },
+  "agency": {
+    "name": "Montana Department of Labor and Industry",
+    "url": "https://dli.mt.gov/"
+  },
+  "sourceType": "html_lookup",
+  "sourceUrl": "https://erd.dli.mt.gov/work-comp-regulations/montana-contractor/icec-search-old",
+  "documentationUrl": "https://erd.dli.mt.gov/work-comp-regulations/montana-contractor/construction-contractor-registration",
+  "dataDictionaryUrl": null,
+  "termsUrl": "https://mt.gov/discover/disclaimer/",
+  "updateFrequency": "unknown; verify against the official contractor registration search before relying on freshness assumptions",
+  "tradeCoverage": ["general_contracting", "residential_contracting", "commercial_contracting", "other"],
+  "licenseTypesIncluded": ["Montana Construction Contractor Registration and Independent Contractor Exemption Certificate records exposed by DLI search paths"],
+  "knownExclusions": [
+    "Construction Contractor Registration is not the same as a full trade license or endorsement for every construction activity.",
+    "Professional and occupational licenses, local permits, business registrations, and non-DLI authorizations may require separate official sources.",
+    "Workers compensation coverage and exemption details need source-specific interpretation before being normalized as compliance facts."
+  ],
+  "hasBulkDownload": "unknown",
+  "hasLiveLookup": true,
+  "requiresJavaScript": "unknown",
+  "requiresCaptcha": "unknown",
+  "requiresAccount": false,
+  "rateLimitNotes": "No adapter is implemented. Prefer stable official search or export options before any automation.",
+  "redistributionStatus": "unknown",
+  "publicRecordsNotes": "Official DLI registration-search metadata only. Absence from this source is not proof that a license, registration, exemption, or local authorization does not exist elsewhere.",
+  "adapterStatus": "planned",
+  "sourceDiscoveryStatus": "researched",
+  "adapterMaturity": "registry_only",
+  "coverageScope": "state_agency_partial",
+  "adapterPackage": "@opentrade/adapter-mt-dli",
+  "testFixturePath": null,
+  "officialLookupUrl": "https://erd.dli.mt.gov/work-comp-regulations/montana-contractor/icec-search-old",
+  "officialBulkDownloadNotes": "No official bulk download has been confirmed in this phase.",
+  "researchNotes": "Registry-only source for Montana DLI contractor registration search. Future work should distinguish contractor registration from professional licensing and workers compensation evidence.",
+  "lastVerifiedAt": "2026-06-24T00:00:00.000Z",
+  "maintainerNotes": "Keep CCR, ICEC, professional licenses, and workers compensation concepts separate until their source semantics are reviewed."
+}
