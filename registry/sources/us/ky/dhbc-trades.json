@@ -1,0 +1,44 @@
+{
+  "id": "us.ky.dhbc.trades",
+  "name": "Kentucky DHBC Trade Licensee Search",
+  "jurisdiction": {
+    "country": "US",
+    "state": "KY"
+  },
+  "agency": {
+    "name": "Kentucky Department of Housing, Buildings and Construction",
+    "url": "https://dhbc.ky.gov/"
+  },
+  "sourceType": "html_lookup",
+  "sourceUrl": "https://dhbc.ky.gov/Search/HBC_List_Licensees.aspx",
+  "documentationUrl": "https://dhbc.ky.gov/newstatic_Info.aspx?static_ID=573",
+  "dataDictionaryUrl": null,
+  "termsUrl": "https://kentucky.gov/policies/Pages/default.aspx",
+  "updateFrequency": "unknown; verify against the official DHBC search before relying on freshness assumptions",
+  "tradeCoverage": ["electrical", "hvac", "plumbing", "mechanical", "other"],
+  "licenseTypesIncluded": ["Kentucky DHBC licensee records for building inspection, electrical, HVAC, plumbing, fire, manufactured housing, and related programs exposed by the official search"],
+  "knownExclusions": [
+    "This source entry is scoped to DHBC licensee search records and does not represent every local contractor license, permit, or business registration in Kentucky.",
+    "Kentucky general contractor licensing may be local or otherwise outside DHBC trade-license scope.",
+    "The DHBC search spans many divisions and license types; adapter work must filter construction-relevant records carefully."
+  ],
+  "hasBulkDownload": "unknown",
+  "hasLiveLookup": true,
+  "requiresJavaScript": "unknown",
+  "requiresCaptcha": "unknown",
+  "requiresAccount": false,
+  "rateLimitNotes": "No adapter is implemented. Prefer official export options if discovered before considering lookup automation.",
+  "redistributionStatus": "unknown",
+  "publicRecordsNotes": "Official DHBC lookup metadata only. Absence from this source is not proof that a license or local authorization does not exist elsewhere.",
+  "adapterStatus": "planned",
+  "sourceDiscoveryStatus": "researched",
+  "adapterMaturity": "registry_only",
+  "coverageScope": "state_agency_partial",
+  "adapterPackage": "@opentrade/adapter-ky-dhbc",
+  "testFixturePath": null,
+  "officialLookupUrl": "https://dhbc.ky.gov/Search/HBC_List_Licensees.aspx",
+  "officialBulkDownloadNotes": "No official bulk download has been confirmed in this phase.",
+  "researchNotes": "Registry-only source for Kentucky DHBC trade licensee search. Future work should decide whether electrical, HVAC, plumbing, fire, and manufactured-housing records need separate source entries or filters.",
+  "lastVerifiedAt": "2026-06-24T00:00:00.000Z",
+  "maintainerNotes": "Do not flatten all DHBC license types into contractor records without source-specific type mapping."
+}

@@ -40,6 +40,11 @@ describe("opentrade CLI", () => {
     expect(list).toContain("us.de.labor.construction_contractors");
     expect(list).toContain("us.dc.dlcp.contractors");
     expect(list).toContain("us.id.dopl.contractors");
+    expect(list).toContain("us.il.idfpr.roofing_contractors");
+    expect(list).toContain("us.in.pla.professional_licenses");
+    expect(list).toContain("us.ks.ag.roofing_registration");
+    expect(list).toContain("us.ky.dhbc.trades");
+    expect(list).toContain("us.ms.msboc.contractors");
     expect(list).toContain("us.ri.crlb.contractors");
     expect(list).toContain("us.ct.dcp.home_improvement_contractors");
     expect(list).toContain("us.md.dllr.home_improvement_contractors");
@@ -78,7 +83,13 @@ describe("opentrade CLI", () => {
     const rhodeIsland = runCli(["sources", "show", "us.ri.crlb.contractors"]).stdout;
     expect(rhodeIsland).toContain("Rhode Island CRLB Registrant and Licensee Search");
     expect(rhodeIsland).toContain("maturity: registry_only");
-    expect(runCli(["sources", "validate"]).stdout).toContain("Validated 34 source registry entries.");
+    const illinois = runCli(["sources", "show", "us.il.idfpr.roofing_contractors"]).stdout;
+    expect(illinois).toContain("Illinois IDFPR Roofing Contractor License Lookup");
+    expect(illinois).toContain("maturity: registry_only");
+    const mississippi = runCli(["sources", "show", "us.ms.msboc.contractors"]).stdout;
+    expect(mississippi).toContain("Mississippi State Board of Contractors License Search");
+    expect(mississippi).toContain("maturity: registry_only");
+    expect(runCli(["sources", "validate"]).stdout).toContain("Validated 39 source registry entries.");
   }, 15000);
 
   it("rejects registry-only sources for sync and verify with neutral wording", () => {
@@ -116,6 +127,11 @@ describe("opentrade CLI", () => {
       "us.dc.dlcp.contractors",
       "us.id.dopl.contractors",
       "us.ri.crlb.contractors",
+      "us.il.idfpr.roofing_contractors",
+      "us.in.pla.professional_licenses",
+      "us.ks.ag.roofing_registration",
+      "us.ky.dhbc.trades",
+      "us.ms.msboc.contractors",
     ]) {
       const unsupportedSync = runCli(
         ["sync", sourceId, "--file", sampleFixture, "--out", join(tmpdir(), `unused-${sourceId}.jsonl`)],

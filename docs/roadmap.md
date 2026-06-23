@@ -26,6 +26,7 @@ OpenTrade Registry is early. The next releases should stay modest: make the firs
 - Researched registry entries for Arkansas ACLB, Colorado DORA, Iowa DIAL, Massachusetts OPSI, and Ohio OCILB.
 - Researched registry entries for Connecticut DCP, Maryland MHIC, New Jersey DCA, New Mexico RLD, and West Virginia Labor.
 - Researched registry entries for Alaska CBPL, Delaware Labor, DC DLCP, Idaho DOPL, and Rhode Island CRLB.
+- Researched registry entries for Illinois IDFPR, Indiana PLA, Kansas Attorney General, Kentucky DHBC, and Mississippi MSBOC.
 - Adapter quality metadata and Level 4 verification-semantics tests for all implemented adapters.
 
 ## v0.3
@@ -38,7 +39,7 @@ OpenTrade Registry is early. The next releases should stay modest: make the firs
 
 ## v0.4
 
-- More than 30 state source registry entries.
+- More than 35 state source registry entries.
 - More fixture-supported adapters.
 - Clear reporting for registry-only and adapter-supported sources.
 - State expansion workflow documented well enough for new contributors to add research-first entries.
