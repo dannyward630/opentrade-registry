@@ -1,0 +1,44 @@
+{
+  "id": "us.ny.dos.licensee_search",
+  "name": "New York Department of State Licensee Search",
+  "jurisdiction": {
+    "country": "US",
+    "state": "NY"
+  },
+  "agency": {
+    "name": "New York Department of State Division of Licensing Services",
+    "url": "https://dos.ny.gov/"
+  },
+  "sourceType": "html_lookup",
+  "sourceUrl": "https://dos.ny.gov/licensee-search",
+  "documentationUrl": "https://dos.ny.gov/licensee-search",
+  "dataDictionaryUrl": null,
+  "termsUrl": "https://www.ny.gov/privacy-policy",
+  "updateFrequency": "unknown; the official page notes searches are limited to active licenses only",
+  "tradeCoverage": ["home_improvement", "other"],
+  "licenseTypesIncluded": ["New York Department of State active license records exposed by licensee search, including construction-adjacent license types such as home inspection where available"],
+  "knownExclusions": [
+    "New York contractor and home-improvement licensing is often local; this source entry does not represent every city or county contractor license.",
+    "The DOS search is limited to active licenses and is not a complete historical license source.",
+    "Skilled trades, NYC Department of Buildings licenses, local home-improvement licenses, and county consumer-affairs records require separate source entries."
+  ],
+  "hasBulkDownload": "unknown",
+  "hasLiveLookup": true,
+  "requiresJavaScript": "unknown",
+  "requiresCaptcha": "unknown",
+  "requiresAccount": false,
+  "rateLimitNotes": "No adapter is implemented. Prefer official export options if discovered before lookup automation.",
+  "redistributionStatus": "unknown",
+  "publicRecordsNotes": "Official DOS active-license lookup metadata only. Absence from this source is not proof that a license, local authorization, or inactive/historical credential does not exist elsewhere.",
+  "adapterStatus": "planned",
+  "sourceDiscoveryStatus": "researched",
+  "adapterMaturity": "registry_only",
+  "coverageScope": "state_agency_partial",
+  "adapterPackage": "@opentrade/adapter-ny-dos",
+  "testFixturePath": null,
+  "officialLookupUrl": "https://dos.ny.gov/licensee-search",
+  "officialBulkDownloadNotes": "No official construction-specific bulk download has been confirmed in this phase.",
+  "researchNotes": "Registry-only source for New York DOS licensee search. Future work should add separate entries for NYC DOB and major local contractor licensing sources if the project begins local-source coverage.",
+  "lastVerifiedAt": "2026-06-24T00:00:00.000Z",
+  "maintainerNotes": "Keep active-only and local-licensing limitations prominent."
+}

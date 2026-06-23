@@ -1,0 +1,44 @@
+{
+  "id": "us.mo.pr.professional_licenses",
+  "name": "Missouri Division of Professional Registration License Search",
+  "jurisdiction": {
+    "country": "US",
+    "state": "MO"
+  },
+  "agency": {
+    "name": "Missouri Division of Professional Registration",
+    "url": "https://pr.mo.gov/"
+  },
+  "sourceType": "html_lookup",
+  "sourceUrl": "https://mopro.mo.gov/license/s/license-search",
+  "documentationUrl": "https://pr.mo.gov/",
+  "dataDictionaryUrl": null,
+  "termsUrl": "https://www.mo.gov/privacy-policy/",
+  "updateFrequency": "unknown; verify against the official MOPRO search before relying on freshness assumptions",
+  "tradeCoverage": ["electrical", "plumbing", "mechanical", "other"],
+  "licenseTypesIncluded": ["Missouri professional license records exposed by MOPRO license search, including construction-relevant state-licensed trades where available"],
+  "knownExclusions": [
+    "Missouri general contractor licensing is often local and is not represented as statewide coverage by this source entry.",
+    "The MOPRO search spans many professions and license types; construction-relevant records require careful filtering.",
+    "Local permits, municipal contractor licenses, business registrations, and non-Division authorizations are outside this source entry."
+  ],
+  "hasBulkDownload": "unknown",
+  "hasLiveLookup": true,
+  "requiresJavaScript": true,
+  "requiresCaptcha": "unknown",
+  "requiresAccount": false,
+  "rateLimitNotes": "No adapter is implemented. Do not automate portal access unless access terms and technical controls are reviewed.",
+  "redistributionStatus": "unknown",
+  "publicRecordsNotes": "Official Missouri professional-license lookup metadata only. Absence from this source is not proof that a local contractor license or authorization does not exist elsewhere.",
+  "adapterStatus": "planned",
+  "sourceDiscoveryStatus": "researched",
+  "adapterMaturity": "registry_only",
+  "coverageScope": "state_agency_partial",
+  "adapterPackage": "@opentrade/adapter-mo-pr",
+  "testFixturePath": null,
+  "officialLookupUrl": "https://mopro.mo.gov/license/s/license-search",
+  "officialBulkDownloadNotes": "No official construction-specific bulk download has been confirmed in this phase.",
+  "researchNotes": "Registry-only source for Missouri professional license search. Future work should identify relevant boards and whether statewide construction trades should be split into separate source entries.",
+  "lastVerifiedAt": "2026-06-24T00:00:00.000Z",
+  "maintainerNotes": "Keep local Missouri contractor licensing outside this state-agency source unless separate local entries are researched."
+}
