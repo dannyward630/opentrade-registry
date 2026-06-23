@@ -12,14 +12,14 @@ describe("source quality report", () => {
     expect(result.stderr).toBe("");
 
     const report = JSON.parse(result.stdout);
-    expect(report.sourceCount).toBe(34);
+    expect(report.sourceCount).toBe(39);
     expect(report.stateCount).toBe(51);
-    expect(report.researchedStateCount).toBe(34);
-    expect(report.coverageByStatus.not_started).toBe(17);
-    expect(report.sourcesByMaturity.registry_only).toBe(30);
+    expect(report.researchedStateCount).toBe(39);
+    expect(report.coverageByStatus.not_started).toBe(12);
+    expect(report.sourcesByMaturity.registry_only).toBe(35);
     expect(report.sourcesByMaturity.fixture_adapter).toBe(3);
     expect(report.sourcesByMaturity.local_file_adapter).toBe(1);
-    expect(report.sourcesByAdapterQualityLevel["0"]).toBe(30);
+    expect(report.sourcesByAdapterQualityLevel["0"]).toBe(35);
     expect(report.sourcesByAdapterQualityLevel["4"]).toBe(4);
     expect(report.implementedSourcesNeedingLevel4).toEqual([]);
     expect(report.lookupOnlySources.map((source: { id: string }) => source.id)).toContain("us.pa.oag.home_improvement_contractors");
@@ -31,6 +31,11 @@ describe("source quality report", () => {
     expect(report.lookupOnlySources.map((source: { id: string }) => source.id)).toContain("us.dc.dlcp.contractors");
     expect(report.lookupOnlySources.map((source: { id: string }) => source.id)).toContain("us.id.dopl.contractors");
     expect(report.lookupOnlySources.map((source: { id: string }) => source.id)).toContain("us.ri.crlb.contractors");
+    expect(report.lookupOnlySources.map((source: { id: string }) => source.id)).toContain("us.il.idfpr.roofing_contractors");
+    expect(report.lookupOnlySources.map((source: { id: string }) => source.id)).toContain("us.in.pla.professional_licenses");
+    expect(report.lookupOnlySources.map((source: { id: string }) => source.id)).toContain("us.ks.ag.roofing_registration");
+    expect(report.lookupOnlySources.map((source: { id: string }) => source.id)).toContain("us.ky.dhbc.trades");
+    expect(report.lookupOnlySources.map((source: { id: string }) => source.id)).toContain("us.ms.msboc.contractors");
     expect(report.bulkCandidates.map((source: { id: string }) => source.id)).toContain("us.fl.dbpr.construction");
   });
 
