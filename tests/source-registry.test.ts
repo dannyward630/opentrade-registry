@@ -30,7 +30,7 @@ type UsCoverageIndex = {
 describe("source registry", () => {
   it("validates every source registry entry", async () => {
     const files = await listJsonFiles(join(process.cwd(), "registry", "sources"));
-    expect(files.length).toBeGreaterThanOrEqual(39);
+    expect(files.length).toBeGreaterThanOrEqual(51);
 
     const parsed = [];
     for (const file of files) {
@@ -49,6 +49,7 @@ describe("source registry", () => {
       "us.de.labor.construction_contractors",
       "us.fl.dbpr.construction",
       "us.ga.sos.residential_general_contractors",
+      "us.hi.dcca.contractors",
       "us.ia.dial.contractor_registration",
       "us.id.dopl.contractors",
       "us.il.idfpr.roofing_contractors",
@@ -58,25 +59,36 @@ describe("source registry", () => {
       "us.la.lslbc.contractors",
       "us.ma.dol.opsi_construction_supervisors",
       "us.md.dllr.home_improvement_contractors",
+      "us.me.pfr.professional_licenses",
       "us.mi.lara.residential_builders",
       "us.mn.dli.licenses_registrations",
+      "us.mo.pr.professional_licenses",
       "us.ms.msboc.contractors",
+      "us.mt.dli.contractor_registration",
       "us.nc.nclbgc.general_contractors",
+      "us.nd.sos.contractors",
+      "us.ne.dol.contractor_registration",
+      "us.nh.oplc.trades",
       "us.nj.dca.home_improvement_contractors",
       "us.nm.rld.construction_industries",
       "us.nv.nscb.contractors",
+      "us.ny.dos.licensee_search",
       "us.oh.commerce.ocilb_contractors",
+      "us.ok.cib.trades",
       "us.or.ccb.active_licenses",
       "us.pa.oag.home_improvement_contractors",
       "us.ri.crlb.contractors",
       "us.sc.llr.contractors",
+      "us.sd.dlr.plumbing",
       "us.tn.commerce.contractors",
       "us.tx.tdlr.all_licenses",
       "us.ut.dopl.contractors",
       "us.va.dpor.contractors",
+      "us.vt.sos.residential_contractors",
       "us.wa.lni.contractors",
       "us.wi.dsps.dwelling_trades",
       "us.wv.labor.contractors",
+      "us.wy.firemarshal.electrical",
     ]);
     expect(parsed.every((entry) => entry.redistributionStatus === "unknown")).toBe(true);
     expect(parsed.every((entry) => entry.sourceDiscoveryStatus === "researched")).toBe(true);
@@ -216,6 +228,18 @@ describe("source registry", () => {
       expect(coverageStatesBySourceId.get(source.id), `${source.id} is missing from US coverage`).toBe(source.jurisdiction.state);
     }
     expect(coverage.states.find((entry) => entry.state === "FL")?.status).toBe("local_file_supported");
+    expect(coverage.states.find((entry) => entry.state === "HI")?.status).toBe("registry_entry_added");
+    expect(coverage.states.find((entry) => entry.state === "ME")?.status).toBe("registry_entry_added");
+    expect(coverage.states.find((entry) => entry.state === "MO")?.status).toBe("registry_entry_added");
+    expect(coverage.states.find((entry) => entry.state === "MT")?.status).toBe("registry_entry_added");
+    expect(coverage.states.find((entry) => entry.state === "NE")?.status).toBe("registry_entry_added");
+    expect(coverage.states.find((entry) => entry.state === "NH")?.status).toBe("registry_entry_added");
+    expect(coverage.states.find((entry) => entry.state === "NY")?.status).toBe("registry_entry_added");
+    expect(coverage.states.find((entry) => entry.state === "ND")?.status).toBe("registry_entry_added");
+    expect(coverage.states.find((entry) => entry.state === "OK")?.status).toBe("registry_entry_added");
+    expect(coverage.states.find((entry) => entry.state === "SD")?.status).toBe("registry_entry_added");
+    expect(coverage.states.find((entry) => entry.state === "VT")?.status).toBe("registry_entry_added");
+    expect(coverage.states.find((entry) => entry.state === "WY")?.status).toBe("registry_entry_added");
     expect(coverage.states.find((entry) => entry.state === "AK")?.status).toBe("registry_entry_added");
     expect(coverage.states.find((entry) => entry.state === "AL")?.status).toBe("registry_entry_added");
     expect(coverage.states.find((entry) => entry.state === "AR")?.status).toBe("registry_entry_added");
