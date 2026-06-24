@@ -56,11 +56,11 @@ Implemented adapters should include `adapterQualityLevel: 4`, `verificationRevie
 
 ## Coverage Index
 
-`registry/us-coverage.json` tracks state-by-state progress toward broader coverage. It is intentionally high level. A state can be listed there before a detailed source entry exists, although the current index now has at least one researched source entry for every state plus DC.
+`registry/us-coverage.json` tracks state-by-state progress toward broader coverage. `registry/us-territory-coverage.json` tracks the same maturity statuses for major U.S. territories. Both indexes are intentionally high level. A jurisdiction can be listed there before a detailed source entry exists, although the current indexes now have at least one researched source entry for every state plus DC and for American Samoa, Guam, Northern Mariana Islands, Puerto Rico, and the U.S. Virgin Islands.
 
-Today, Florida DBPR is a local-file adapter with opt-in URL sync through the CLI. Oregon CCB, Texas TDLR, and Washington L&I are fixture-supported. Every other state/DC source entry is registry-only until source-specific terms, fields, fixtures, and verification caveats are reviewed.
+Today, Florida DBPR is a local-file adapter with opt-in URL sync through the CLI. Oregon CCB, Texas TDLR, and Washington L&I are fixture-supported. Every other state/DC and territory source entry is registry-only until source-specific terms, fields, fixtures, and verification caveats are reviewed.
 
-Alaska, Illinois, Indiana, Minnesota, Oregon, Texas, and Washington are open-data-, download-, API-, or bulk-lookup-shaped candidates that still need source-specific terms and field review before deeper adapter work. Most other registry-only entries are lookup-oriented or still need bulk-export research, so their registry entries intentionally stop before parser or automation work.
+Alaska, Illinois, Indiana, Minnesota, Oregon, Texas, and Washington are open-data-, download-, API-, or bulk-lookup-shaped candidates that still need source-specific terms and field review before deeper adapter work. Guam, Puerto Rico, and the U.S. Virgin Islands have promising lookup-shaped territory sources. American Samoa and CNMI need more research because the current entries are broader business or construction-adjacent professional licensing metadata, not confirmed contractor-specific lookups. Most other registry-only entries are lookup-oriented or still need bulk-export research, so their registry entries intentionally stop before parser or automation work.
 
 ## Contribution Notes
 

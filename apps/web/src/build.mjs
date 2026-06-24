@@ -5,16 +5,19 @@ const rootDir = join(import.meta.dirname, "..", "..", "..");
 const distDir = join(import.meta.dirname, "..", "dist");
 const registryDir = join(rootDir, "registry", "sources");
 const coveragePath = join(rootDir, "registry", "us-coverage.json");
+const territoryCoveragePath = join(rootDir, "registry", "us-territory-coverage.json");
 
 await mkdir(distDir, { recursive: true });
 
 const sources = await loadSources();
 const coverage = JSON.parse(await readFile(coveragePath, "utf8"));
-const stats = summarize(sources, coverage.states ?? []);
+const territoryCoverage = JSON.parse(await readFile(territoryCoveragePath, "utf8"));
+const stats = summarize(sources, coverage.states ?? [], territoryCoverage.territories ?? []);
 
 await writeFile(join(distDir, "index.html"), renderHtml(stats, sources), "utf8");
 await writeFile(join(distDir, "sources.json"), `${JSON.stringify(sources, null, 2)}\n`, "utf8");
 await writeFile(join(distDir, "coverage.json"), `${JSON.stringify(coverage, null, 2)}\n`, "utf8");
+await writeFile(join(distDir, "territory-coverage.json"), `${JSON.stringify(territoryCoverage, null, 2)}\n`, "utf8");
 
 console.log(`Built OpenTrade web status page with ${sources.length} sources.`);
 
@@ -42,16 +45,19 @@ async function listJsonFiles(directory) {
   return files;
 }
 
-function summarize(sources, states) {
+function summarize(sources, states, territories) {
   const byMaturity = countBy(sources, "adapterMaturity");
   const byType = countBy(sources, "sourceType");
   const researchedStates = states.filter((state) => state.sourceIds.length > 0).length;
+  const researchedTerritories = territories.filter((territory) => territory.sourceIds.length > 0).length;
   const adapterReadySources = sources.filter((source) => source.adapterMaturity !== "registry_only").length;
 
   return {
     sourceCount: sources.length,
     stateCount: states.length,
     researchedStates,
+    territoryCount: territories.length,
+    researchedTerritories,
     adapterReadySources,
     byMaturity,
     byType,
@@ -171,12 +177,14 @@ function renderHtml(stats, sources) {
         <a href="/api/sources">Sources API</a>
         <a href="/sources.json">Static source snapshot</a>
         <a href="/coverage.json">Static coverage snapshot</a>
+        <a href="/territory-coverage.json">Static territory coverage snapshot</a>
       </div>
       <section class="stats" aria-label="Registry summary">
         <div class="stat"><strong>${stats.sourceCount}</strong> researched sources</div>
         <div class="stat"><strong>${stats.researchedStates}</strong> states with entries</div>
+        <div class="stat"><strong>${stats.researchedTerritories}</strong> territories with entries</div>
         <div class="stat"><strong>${stats.adapterReadySources}</strong> adapter-backed sources</div>
-        <div class="stat"><strong>${stats.stateCount}</strong> coverage rows</div>
+        <div class="stat"><strong>${stats.stateCount + stats.territoryCount}</strong> coverage rows</div>
       </section>
       <h2>Sources</h2>
       <table>

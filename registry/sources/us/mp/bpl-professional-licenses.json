@@ -1,0 +1,44 @@
+{
+  "id": "us.mp.bpl.professional_licenses",
+  "name": "CNMI Board of Professional Licensing Construction-Adjacent Licenses",
+  "jurisdiction": {
+    "country": "US",
+    "state": "MP"
+  },
+  "agency": {
+    "name": "Commonwealth of the Northern Mariana Islands Board of Professional Licensing",
+    "url": "https://www.cnmilicensing.gov.mp/"
+  },
+  "sourceType": "html_lookup",
+  "sourceUrl": "https://www.cnmilicensing.gov.mp/board-of-professional-licensing/",
+  "documentationUrl": "https://www.cnmilicensing.gov.mp/board-of-professional-licensing/",
+  "dataDictionaryUrl": null,
+  "termsUrl": null,
+  "updateFrequency": "unknown; verify against CNMI Board of Professional Licensing records before relying on freshness assumptions",
+  "tradeCoverage": ["other", "unknown"],
+  "licenseTypesIncluded": ["architecture", "engineering", "land surveying", "landscape architecture", "real property appraisal"],
+  "knownExclusions": [
+    "This source is construction-adjacent professional licensing metadata, not a confirmed contractor-specific registry.",
+    "CNMI business licenses, construction permits, contractor-specific requirements, and local enforcement records may require separate official sources.",
+    "The public lookup/export path and field structure have not been confirmed."
+  ],
+  "hasBulkDownload": "unknown",
+  "hasLiveLookup": "unknown",
+  "requiresJavaScript": "unknown",
+  "requiresCaptcha": "unknown",
+  "requiresAccount": "unknown",
+  "rateLimitNotes": "No adapter is implemented. Do not automate any account, payment, or portal-only workflow without explicit opt-in and legal review.",
+  "redistributionStatus": "unknown",
+  "publicRecordsNotes": "Official CNMI BPL metadata only. Absence from this source is not proof that a contractor license, business license, permit, or professional authorization does not exist elsewhere.",
+  "adapterStatus": "planned",
+  "sourceDiscoveryStatus": "researched",
+  "adapterMaturity": "registry_only",
+  "coverageScope": "state_agency_partial",
+  "adapterPackage": "@opentrade/adapter-mp-bpl",
+  "testFixturePath": null,
+  "officialLookupUrl": "https://www.cnmilicensing.gov.mp/",
+  "officialBulkDownloadNotes": "No official bulk download has been confirmed in this phase.",
+  "researchNotes": "Registry-only source for CNMI construction-adjacent professional licensing. Future work should research whether a contractor-specific board, business-license source, or public lookup exists.",
+  "lastVerifiedAt": "2026-06-24T00:00:00.000Z",
+  "maintainerNotes": "Keep contractor-specific claims out of this entry until an official CNMI contractor source is verified."
+}
