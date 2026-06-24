@@ -16,6 +16,13 @@ describe("web status build", () => {
 
     const distDir = join(process.cwd(), "apps", "web", "dist");
     const sources = JSON.parse(await readFile(join(distDir, "sources.json"), "utf8")) as Array<{ id: string }>;
+    const readiness = JSON.parse(await readFile(join(distDir, "readiness.json"), "utf8")) as {
+      sourceCount: number;
+      implementedAdapterSources: Array<{ id: string }>;
+      unimplementedBulkAdapterCandidates: Array<{ id: string }>;
+      registryOnlySourceCount: number;
+      note: string;
+    };
     const territoryCoverage = JSON.parse(await readFile(join(distDir, "territory-coverage.json"), "utf8")) as {
       territories: Array<{ territory: string; sourceIds: string[] }>;
     };
@@ -23,11 +30,30 @@ describe("web status build", () => {
 
     expect(sources).toHaveLength(56);
     expect(sources.map((source) => source.id)).toContain("us.pr.daco.contractors");
+    expect(readiness.sourceCount).toBe(56);
+    expect(readiness.registryOnlySourceCount).toBe(52);
+    expect(readiness.implementedAdapterSources.map((source) => source.id)).toEqual([
+      "us.fl.dbpr.construction",
+      "us.or.ccb.active_licenses",
+      "us.tx.tdlr.all_licenses",
+      "us.wa.lni.contractors",
+    ]);
+    expect(readiness.unimplementedBulkAdapterCandidates.map((source) => source.id)).toEqual([
+      "us.ak.commerce.construction_contractors",
+      "us.ca.cslb.contractors",
+      "us.il.idfpr.roofing_contractors",
+      "us.in.pla.professional_licenses",
+      "us.mn.dli.licenses_registrations",
+    ]);
+    expect(readiness.note).toContain("planning signal only");
     expect(territoryCoverage.territories.map((entry) => entry.territory)).toEqual(["AS", "GU", "MP", "PR", "VI"]);
     expect(territoryCoverage.territories.find((entry) => entry.territory === "AS")?.sourceIds).toEqual([
       "us.as.doc.business_licenses",
     ]);
     expect(html).toContain("<strong>5</strong> territories with entries");
+    expect(html).toContain("<strong>5</strong> adapter candidates");
+    expect(html).toContain("Readiness API");
+    expect(html).toContain("Static readiness snapshot");
     expect(html).toContain("<strong>56</strong> coverage rows");
     expect(html).toContain("Static territory coverage snapshot");
   });

@@ -1,6 +1,12 @@
 import { describe, expect, it } from "vitest";
 import healthHandler, { getHealthStatus } from "../api/health.js";
-import { loadSourcesForApi, loadSourcesFromDatabase, type RegistryDatabaseClient } from "../api/registry.js";
+import readinessHandler from "../api/readiness.js";
+import {
+  loadSourceReadinessForApi,
+  loadSourcesForApi,
+  loadSourcesFromDatabase,
+  type RegistryDatabaseClient,
+} from "../api/registry.js";
 import sourcesHandler from "../api/sources.js";
 
 describe("hosted API", () => {
@@ -38,6 +44,32 @@ describe("hosted API", () => {
     expect(response.body.sources.some((source: { id: string }) => source.id === "us.fl.dbpr.construction")).toBe(true);
   });
 
+  it("returns source readiness from local metadata", async () => {
+    const response = createMockResponse();
+    await readinessHandler({ query: {} } as never, response as never);
+
+    expect(response.statusCode).toBe(200);
+    expect(response.body).toMatchObject({
+      origin: "registry_files",
+      sourceCount: 56,
+      registryOnlySourceCount: 52,
+      note: expect.stringContaining("planning signal only"),
+    });
+    expect(response.body.implementedAdapterSources.map((source: { id: string }) => source.id)).toEqual([
+      "us.fl.dbpr.construction",
+      "us.or.ccb.active_licenses",
+      "us.tx.tdlr.all_licenses",
+      "us.wa.lni.contractors",
+    ]);
+    expect(response.body.unimplementedBulkAdapterCandidates.map((source: { id: string }) => source.id)).toEqual([
+      "us.ak.commerce.construction_contractors",
+      "us.ca.cslb.contractors",
+      "us.il.idfpr.roofing_contractors",
+      "us.in.pla.professional_licenses",
+      "us.mn.dli.licenses_registrations",
+    ]);
+  });
+
   it("returns a single source registry entry by id", async () => {
     const response = createMockResponse();
     await sourcesHandler({ query: { id: "us.oh.commerce.ocilb_contractors" } } as never, response as never);
@@ -66,6 +98,36 @@ describe("hosted API", () => {
       },
       adapterMaturity: "registry_only"
     });
+  });
+
+  it("returns source readiness from database rows when a database client is available", async () => {
+    const result = await loadSourceReadinessForApi({
+      databaseClient: createFakeDatabaseClient({
+        rows: [
+          {
+            ...createSourceRow("us.fl.dbpr.construction", "FL"),
+            source_type: "bulk_csv",
+            adapter_status: "implemented",
+            adapter_maturity: "local_file_adapter",
+            coverage_scope: "state_agency_partial",
+          },
+          {
+            ...createSourceRow("us.ca.cslb.contractors", "CA"),
+            source_type: "bulk_xlsx",
+            metadata: {
+              ...createSourceRow("us.ca.cslb.contractors", "CA").metadata,
+              hasBulkDownload: true,
+            },
+          },
+        ],
+      }),
+    });
+
+    expect(result.origin).toBe("database");
+    expect(result.sourceCount).toBe(2);
+    expect(result.implementedAdapterSources.map((source) => source.id)).toEqual(["us.fl.dbpr.construction"]);
+    expect(result.unimplementedBulkAdapterCandidates.map((source) => source.id)).toEqual(["us.ca.cslb.contractors"]);
+    expect(result.registryOnlySourceCount).toBe(1);
   });
 
   it("fills legacy partial database metadata from registry files before validation", async () => {
@@ -104,6 +166,19 @@ describe("hosted API", () => {
     expect(result.origin).toBe("registry_files");
     expect(result.databaseError).toBe("database unavailable");
     expect(result.sources).toHaveLength(56);
+  });
+
+  it("returns file-backed readiness when database source loading fails", async () => {
+    const result = await loadSourceReadinessForApi({
+      databaseClient: createFakeDatabaseClient({
+        error: "database unavailable",
+      }),
+    });
+
+    expect(result.origin).toBe("registry_files");
+    expect(result.databaseError).toBe("database unavailable");
+    expect(result.sourceCount).toBe(56);
+    expect(result.unimplementedBulkAdapterCandidates).toHaveLength(5);
   });
 
   it("reports matching database and file source counts when database count succeeds", async () => {

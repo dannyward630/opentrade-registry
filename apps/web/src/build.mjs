@@ -12,10 +12,12 @@ await mkdir(distDir, { recursive: true });
 const sources = await loadSources();
 const coverage = JSON.parse(await readFile(coveragePath, "utf8"));
 const territoryCoverage = JSON.parse(await readFile(territoryCoveragePath, "utf8"));
+const readiness = buildReadiness(sources);
 const stats = summarize(sources, coverage.states ?? [], territoryCoverage.territories ?? []);
 
 await writeFile(join(distDir, "index.html"), renderHtml(stats, sources), "utf8");
 await writeFile(join(distDir, "sources.json"), `${JSON.stringify(sources, null, 2)}\n`, "utf8");
+await writeFile(join(distDir, "readiness.json"), `${JSON.stringify(readiness, null, 2)}\n`, "utf8");
 await writeFile(join(distDir, "coverage.json"), `${JSON.stringify(coverage, null, 2)}\n`, "utf8");
 await writeFile(join(distDir, "territory-coverage.json"), `${JSON.stringify(territoryCoverage, null, 2)}\n`, "utf8");
 
@@ -51,6 +53,9 @@ function summarize(sources, states, territories) {
   const researchedStates = states.filter((state) => state.sourceIds.length > 0).length;
   const researchedTerritories = territories.filter((territory) => territory.sourceIds.length > 0).length;
   const adapterReadySources = sources.filter((source) => source.adapterMaturity !== "registry_only").length;
+  const unimplementedBulkAdapterCandidates = sources.filter(
+    (source) => source.adapterStatus !== "implemented" && isBulkShapedCandidate(source),
+  ).length;
 
   return {
     sourceCount: sources.length,
@@ -59,9 +64,46 @@ function summarize(sources, states, territories) {
     territoryCount: territories.length,
     researchedTerritories,
     adapterReadySources,
+    unimplementedBulkAdapterCandidates,
     byMaturity,
     byType,
     updatedAt: new Date().toISOString()
+  };
+}
+
+function buildReadiness(sources) {
+  const implementedAdapterSources = sources.filter((source) => source.adapterStatus === "implemented");
+  const unimplementedBulkAdapterCandidates = sources.filter(
+    (source) => source.adapterStatus !== "implemented" && isBulkShapedCandidate(source),
+  );
+  const registryOnlySources = sources.filter((source) => source.adapterMaturity === "registry_only");
+
+  return {
+    origin: "registry_files",
+    sourceCount: sources.length,
+    implementedAdapterSources: implementedAdapterSources.map(toReadinessSummary),
+    unimplementedBulkAdapterCandidates: unimplementedBulkAdapterCandidates.map(toReadinessSummary),
+    registryOnlySourceCount: registryOnlySources.length,
+    note:
+      "Candidate status is a planning signal only. Review source terms, fixture safety, field shape, filters, and verification caveats before implementation.",
+  };
+}
+
+function isBulkShapedCandidate(source) {
+  return source.hasBulkDownload === true || source.sourceType.startsWith("bulk_") || source.sourceType === "api";
+}
+
+function toReadinessSummary(source) {
+  return {
+    id: source.id,
+    name: source.name,
+    state: source.jurisdiction.state,
+    sourceType: source.sourceType,
+    adapterStatus: source.adapterStatus,
+    adapterMaturity: source.adapterMaturity,
+    adapterQualityLevel: source.adapterQualityLevel ?? 0,
+    coverageScope: source.coverageScope,
+    hasBulkDownload: source.hasBulkDownload,
   };
 }
 
@@ -175,7 +217,9 @@ function renderHtml(stats, sources) {
       <div class="links">
         <a href="/api/health">API health</a>
         <a href="/api/sources">Sources API</a>
+        <a href="/api/readiness">Readiness API</a>
         <a href="/sources.json">Static source snapshot</a>
+        <a href="/readiness.json">Static readiness snapshot</a>
         <a href="/coverage.json">Static coverage snapshot</a>
         <a href="/territory-coverage.json">Static territory coverage snapshot</a>
       </div>
@@ -184,6 +228,7 @@ function renderHtml(stats, sources) {
         <div class="stat"><strong>${stats.researchedStates}</strong> states with entries</div>
         <div class="stat"><strong>${stats.researchedTerritories}</strong> territories with entries</div>
         <div class="stat"><strong>${stats.adapterReadySources}</strong> adapter-backed sources</div>
+        <div class="stat"><strong>${stats.unimplementedBulkAdapterCandidates}</strong> adapter candidates</div>
         <div class="stat"><strong>${stats.stateCount + stats.territoryCount}</strong> coverage rows</div>
       </section>
       <h2>Sources</h2>
