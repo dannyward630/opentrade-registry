@@ -27,10 +27,22 @@ type UsCoverageIndex = {
   }[];
 };
 
+type UsTerritoryCoverageIndex = {
+  country: "US";
+  coverageStatuses: CoverageStatus[];
+  territories: {
+    territory: string;
+    name: string;
+    status: CoverageStatus;
+    sourceIds: string[];
+    notes: string;
+  }[];
+};
+
 describe("source registry", () => {
   it("validates every source registry entry", async () => {
     const files = await listJsonFiles(join(process.cwd(), "registry", "sources"));
-    expect(files.length).toBeGreaterThanOrEqual(51);
+    expect(files.length).toBeGreaterThanOrEqual(56);
 
     const parsed = [];
     for (const file of files) {
@@ -41,6 +53,7 @@ describe("source registry", () => {
       "us.ak.commerce.construction_contractors",
       "us.al.genconbd.general_contractors",
       "us.ar.aclb.contractors",
+      "us.as.doc.business_licenses",
       "us.az.roc.contractors",
       "us.ca.cslb.contractors",
       "us.co.dora.trades",
@@ -49,6 +62,7 @@ describe("source registry", () => {
       "us.de.labor.construction_contractors",
       "us.fl.dbpr.construction",
       "us.ga.sos.residential_general_contractors",
+      "us.gu.clb.contractors",
       "us.hi.dcca.contractors",
       "us.ia.dial.contractor_registration",
       "us.id.dopl.contractors",
@@ -63,6 +77,7 @@ describe("source registry", () => {
       "us.mi.lara.residential_builders",
       "us.mn.dli.licenses_registrations",
       "us.mo.pr.professional_licenses",
+      "us.mp.bpl.professional_licenses",
       "us.ms.msboc.contractors",
       "us.mt.dli.contractor_registration",
       "us.nc.nclbgc.general_contractors",
@@ -77,6 +92,7 @@ describe("source registry", () => {
       "us.ok.cib.trades",
       "us.or.ccb.active_licenses",
       "us.pa.oag.home_improvement_contractors",
+      "us.pr.daco.contractors",
       "us.ri.crlb.contractors",
       "us.sc.llr.contractors",
       "us.sd.dlr.plumbing",
@@ -84,6 +100,7 @@ describe("source registry", () => {
       "us.tx.tdlr.all_licenses",
       "us.ut.dopl.contractors",
       "us.va.dpor.contractors",
+      "us.vi.dlca.contractors_trades",
       "us.vt.sos.residential_contractors",
       "us.wa.lni.contractors",
       "us.wi.dsps.dwelling_trades",
@@ -149,6 +166,9 @@ describe("source registry", () => {
 
   it("validates US coverage index and source references", async () => {
     const coverage = JSON.parse(await readFile(join(process.cwd(), "registry", "us-coverage.json"), "utf8")) as UsCoverageIndex;
+    const territoryCoverage = JSON.parse(
+      await readFile(join(process.cwd(), "registry", "us-territory-coverage.json"), "utf8"),
+    ) as UsTerritoryCoverageIndex;
     const sourceFiles = await listJsonFiles(join(process.cwd(), "registry", "sources"));
     const sources = await Promise.all(
       sourceFiles.map(async (file) => sourceRegistryEntrySchema.parse(JSON.parse(await readFile(file, "utf8")))),
@@ -157,6 +177,9 @@ describe("source registry", () => {
     const sourcesById = new Map(sources.map((entry) => [entry.id, entry]));
     const coverageStatesBySourceId = new Map(
       coverage.states.flatMap((state) => state.sourceIds.map((sourceId) => [sourceId, state.state] as const)),
+    );
+    const coverageTerritoriesBySourceId = new Map(
+      territoryCoverage.territories.flatMap((territory) => territory.sourceIds.map((sourceId) => [sourceId, territory.territory] as const)),
     );
     const expectedStates = [
       "AL",
@@ -211,11 +234,16 @@ describe("source registry", () => {
       "WI",
       "WY",
     ];
+    const expectedTerritories = ["AS", "GU", "MP", "PR", "VI"];
 
     expect(coverage.country).toBe("US");
     expect(coverage.states.map((entry) => entry.state)).toEqual(expectedStates);
     expect(new Set(coverage.states.map((entry) => entry.state)).size).toBe(51);
     expect(coverage.coverageStatuses).toEqual(coverageStatuses);
+    expect(territoryCoverage.country).toBe("US");
+    expect(territoryCoverage.territories.map((entry) => entry.territory)).toEqual(expectedTerritories);
+    expect(new Set(territoryCoverage.territories.map((entry) => entry.territory)).size).toBe(5);
+    expect(territoryCoverage.coverageStatuses).toEqual(coverageStatuses);
     for (const state of coverage.states) {
       expect(coverageStatuses).toContain(state.status);
       expect(state.notes.length).toBeGreaterThan(0);
@@ -224,8 +252,18 @@ describe("source registry", () => {
         expect(sourcesById.get(sourceId)?.jurisdiction.state, `${sourceId} has mismatched coverage state`).toBe(state.state);
       }
     }
+    for (const territory of territoryCoverage.territories) {
+      expect(coverageStatuses).toContain(territory.status);
+      expect(territory.name.length).toBeGreaterThan(0);
+      expect(territory.notes.length).toBeGreaterThan(0);
+      for (const sourceId of territory.sourceIds) {
+        expect(sourceIds.has(sourceId), `${territory.territory} references unknown source ${sourceId}`).toBe(true);
+        expect(sourcesById.get(sourceId)?.jurisdiction.state, `${sourceId} has mismatched territory coverage`).toBe(territory.territory);
+      }
+    }
     for (const source of sources) {
-      expect(coverageStatesBySourceId.get(source.id), `${source.id} is missing from US coverage`).toBe(source.jurisdiction.state);
+      const coverageCode = coverageStatesBySourceId.get(source.id) ?? coverageTerritoriesBySourceId.get(source.id);
+      expect(coverageCode, `${source.id} is missing from US coverage`).toBe(source.jurisdiction.state);
     }
     expect(coverage.states.find((entry) => entry.state === "FL")?.status).toBe("local_file_supported");
     expect(coverage.states.find((entry) => entry.state === "HI")?.status).toBe("registry_entry_added");
@@ -278,6 +316,9 @@ describe("source registry", () => {
     expect(coverage.states.find((entry) => entry.state === "WA")?.status).toBe("fixture_supported");
     expect(coverage.states.find((entry) => entry.state === "WI")?.status).toBe("registry_entry_added");
     expect(coverage.states.find((entry) => entry.state === "WV")?.status).toBe("registry_entry_added");
+    for (const territory of expectedTerritories) {
+      expect(territoryCoverage.territories.find((entry) => entry.territory === territory)?.status).toBe("registry_entry_added");
+    }
   });
 });
 

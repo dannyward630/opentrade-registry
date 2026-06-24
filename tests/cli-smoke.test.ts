@@ -28,8 +28,13 @@ describe("opentrade CLI", () => {
   it("lists, shows, and validates sources", () => {
     const list = runCli(["sources", "list"]).stdout;
     expect(list).toContain("us.fl.dbpr.construction");
+    expect(list).toContain("us.as.doc.business_licenses");
     expect(list).toContain("us.ca.cslb.contractors");
+    expect(list).toContain("us.gu.clb.contractors");
+    expect(list).toContain("us.mp.bpl.professional_licenses");
+    expect(list).toContain("us.pr.daco.contractors");
     expect(list).toContain("us.tx.tdlr.all_licenses");
+    expect(list).toContain("us.vi.dlca.contractors_trades");
     expect(list).toContain("us.wa.lni.contractors");
     expect(list).toContain("us.or.ccb.active_licenses");
     expect(list).toContain("us.pa.oag.home_improvement_contractors");
@@ -106,7 +111,13 @@ describe("opentrade CLI", () => {
     const vermont = runCli(["sources", "show", "us.vt.sos.residential_contractors"]).stdout;
     expect(vermont).toContain("Vermont Secretary of State Residential Contractor Registry");
     expect(vermont).toContain("maturity: registry_only");
-    expect(runCli(["sources", "validate"]).stdout).toContain("Validated 51 source registry entries.");
+    const guam = runCli(["sources", "show", "us.gu.clb.contractors"]).stdout;
+    expect(guam).toContain("Guam Contractors Licensing Board Contractors Listing");
+    expect(guam).toContain("maturity: registry_only");
+    const puertoRico = runCli(["sources", "show", "us.pr.daco.contractors"]).stdout;
+    expect(puertoRico).toContain("Puerto Rico DACO Registered Contractors List");
+    expect(puertoRico).toContain("maturity: registry_only");
+    expect(runCli(["sources", "validate"]).stdout).toContain("Validated 56 source registry entries.");
   }, 15000);
 
   it("rejects registry-only sources for sync and verify with neutral wording", () => {
@@ -161,6 +172,11 @@ describe("opentrade CLI", () => {
       "us.sd.dlr.plumbing",
       "us.vt.sos.residential_contractors",
       "us.wy.firemarshal.electrical",
+      "us.as.doc.business_licenses",
+      "us.gu.clb.contractors",
+      "us.mp.bpl.professional_licenses",
+      "us.pr.daco.contractors",
+      "us.vi.dlca.contractors_trades",
     ]) {
       const unsupportedSync = runCli(
         ["sync", sourceId, "--file", sampleFixture, "--out", join(tmpdir(), `unused-${sourceId}.jsonl`)],

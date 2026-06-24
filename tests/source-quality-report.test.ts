@@ -12,14 +12,17 @@ describe("source quality report", () => {
     expect(result.stderr).toBe("");
 
     const report = JSON.parse(result.stdout);
-    expect(report.sourceCount).toBe(51);
+    expect(report.sourceCount).toBe(56);
     expect(report.stateCount).toBe(51);
     expect(report.researchedStateCount).toBe(51);
+    expect(report.territoryCount).toBe(5);
+    expect(report.researchedTerritoryCount).toBe(5);
     expect(report.coverageByStatus.not_started ?? 0).toBe(0);
-    expect(report.sourcesByMaturity.registry_only).toBe(47);
+    expect(report.territoryCoverageByStatus.registry_entry_added).toBe(5);
+    expect(report.sourcesByMaturity.registry_only).toBe(52);
     expect(report.sourcesByMaturity.fixture_adapter).toBe(3);
     expect(report.sourcesByMaturity.local_file_adapter).toBe(1);
-    expect(report.sourcesByAdapterQualityLevel["0"]).toBe(47);
+    expect(report.sourcesByAdapterQualityLevel["0"]).toBe(52);
     expect(report.sourcesByAdapterQualityLevel["4"]).toBe(4);
     expect(report.implementedSourcesNeedingLevel4).toEqual([]);
     expect(report.lookupOnlySources.map((source: { id: string }) => source.id)).toContain("us.pa.oag.home_improvement_contractors");
@@ -36,6 +39,9 @@ describe("source quality report", () => {
     expect(report.lookupOnlySources.map((source: { id: string }) => source.id)).toContain("us.ks.ag.roofing_registration");
     expect(report.lookupOnlySources.map((source: { id: string }) => source.id)).toContain("us.ky.dhbc.trades");
     expect(report.lookupOnlySources.map((source: { id: string }) => source.id)).toContain("us.ms.msboc.contractors");
+    expect(report.lookupOnlySources.map((source: { id: string }) => source.id)).toContain("us.gu.clb.contractors");
+    expect(report.lookupOnlySources.map((source: { id: string }) => source.id)).toContain("us.pr.daco.contractors");
+    expect(report.lookupOnlySources.map((source: { id: string }) => source.id)).toContain("us.vi.dlca.contractors_trades");
     expect(report.bulkCandidates.map((source: { id: string }) => source.id)).toContain("us.fl.dbpr.construction");
   });
 

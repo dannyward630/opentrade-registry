@@ -4,16 +4,21 @@ import { join } from "node:path";
 const root = process.cwd();
 const sourcesRoot = join(root, "registry", "sources");
 const coveragePath = join(root, "registry", "us-coverage.json");
+const territoryCoveragePath = join(root, "registry", "us-territory-coverage.json");
 const options = new Set(process.argv.slice(2));
 
 const sources = await loadSources(sourcesRoot);
 const coverage = JSON.parse(await readFile(coveragePath, "utf8"));
+const territoryCoverage = JSON.parse(await readFile(territoryCoveragePath, "utf8"));
 
 const report = {
   sourceCount: sources.length,
   stateCount: coverage.states.length,
   researchedStateCount: coverage.states.filter((state) => state.sourceIds.length > 0).length,
+  territoryCount: territoryCoverage.territories.length,
+  researchedTerritoryCount: territoryCoverage.territories.filter((territory) => territory.sourceIds.length > 0).length,
   coverageByStatus: countBy(coverage.states, (state) => state.status),
+  territoryCoverageByStatus: countBy(territoryCoverage.territories, (territory) => territory.status),
   sourcesByType: countBy(sources, (source) => source.sourceType),
   sourcesByMaturity: countBy(sources, (source) => source.adapterMaturity),
   sourcesByAdapterQualityLevel: countBy(sources, (source) => String(source.adapterQualityLevel ?? 0)),
@@ -81,7 +86,10 @@ function printHumanReport(report) {
   console.log(`sources: ${report.sourceCount}`);
   console.log(`states tracked: ${report.stateCount}`);
   console.log(`states with researched source entries: ${report.researchedStateCount}`);
+  console.log(`territories tracked: ${report.territoryCount}`);
+  console.log(`territories with researched source entries: ${report.researchedTerritoryCount}`);
   printCounts("coverage by status", report.coverageByStatus);
+  printCounts("territory coverage by status", report.territoryCoverageByStatus);
   printCounts("sources by type", report.sourcesByType);
   printCounts("sources by adapter maturity", report.sourcesByMaturity);
   printCounts("sources by adapter quality level", report.sourcesByAdapterQualityLevel);
