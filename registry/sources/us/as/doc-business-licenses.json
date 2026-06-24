@@ -1,0 +1,44 @@
+{
+  "id": "us.as.doc.business_licenses",
+  "name": "American Samoa Department of Commerce Business Licensing",
+  "jurisdiction": {
+    "country": "US",
+    "state": "AS"
+  },
+  "agency": {
+    "name": "American Samoa Department of Commerce",
+    "url": "https://www.doc.as.gov/"
+  },
+  "sourceType": "manual_public_records_file",
+  "sourceUrl": "https://www.doc.as.gov/applyforbusinesslicense",
+  "documentationUrl": "https://www.doc.as.gov/applyforbusinesslicense",
+  "dataDictionaryUrl": null,
+  "termsUrl": null,
+  "updateFrequency": "unknown; verify with the American Samoa Department of Commerce before relying on freshness assumptions",
+  "tradeCoverage": ["general_contracting", "commercial_contracting", "other", "unknown"],
+  "licenseTypesIncluded": ["American Samoa business licenses that may include construction or contractor activity categories"],
+  "knownExclusions": [
+    "This is not confirmed as a contractor-specific public lookup source.",
+    "License categories, public search availability, and construction-specific fields require follow-up research.",
+    "Professional board, permit, tax, and enforcement records may require separate official sources."
+  ],
+  "hasBulkDownload": "unknown",
+  "hasLiveLookup": false,
+  "requiresJavaScript": "unknown",
+  "requiresCaptcha": "unknown",
+  "requiresAccount": "unknown",
+  "rateLimitNotes": "No adapter is implemented. Future work should confirm whether a public lookup, report, or public-records request path exists before automating access.",
+  "redistributionStatus": "unknown",
+  "publicRecordsNotes": "Official business-licensing source metadata only. Absence from this source is not proof that a contractor license, business license, permit, or authorization does not exist elsewhere.",
+  "adapterStatus": "planned",
+  "sourceDiscoveryStatus": "researched",
+  "adapterMaturity": "registry_only",
+  "coverageScope": "state_agency_partial",
+  "adapterPackage": "@opentrade/adapter-as-doc",
+  "testFixturePath": null,
+  "officialLookupUrl": null,
+  "officialBulkDownloadNotes": "No official bulk download has been confirmed in this phase.",
+  "researchNotes": "Registry-only source for American Samoa business licensing. Future work should determine whether construction businesses have a public-records export or a contractor-specific licensing board source.",
+  "lastVerifiedAt": "2026-06-24T00:00:00.000Z",
+  "maintainerNotes": "Keep this entry framed as territory business-licensing metadata, not as a verified contractor-license lookup."
+}

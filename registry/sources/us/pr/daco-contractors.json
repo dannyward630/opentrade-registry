@@ -1,0 +1,44 @@
+{
+  "id": "us.pr.daco.contractors",
+  "name": "Puerto Rico DACO Registered Contractors List",
+  "jurisdiction": {
+    "country": "US",
+    "state": "PR"
+  },
+  "agency": {
+    "name": "Departamento de Asuntos del Consumidor de Puerto Rico",
+    "url": "https://www.daco.pr.gov/"
+  },
+  "sourceType": "html_lookup",
+  "sourceUrl": "https://www.daco.pr.gov/consumidores/listado-contratistas-registrados/",
+  "documentationUrl": "https://www.daco.pr.gov/consumidores/listado-contratistas-registrados/",
+  "dataDictionaryUrl": null,
+  "termsUrl": null,
+  "updateFrequency": "unknown; verify against DACO's registered contractors list before relying on freshness assumptions",
+  "tradeCoverage": ["general_contracting", "residential_contracting", "roofing", "home_improvement", "handyman", "other", "unknown"],
+  "licenseTypesIncluded": ["Puerto Rico DACO registered contractor records exposed by the official registered contractors list"],
+  "knownExclusions": [
+    "The DACO page describes residential construction, home repair, alterations, installations, masonry, carpentry, roof treatments, and analogous repair work; exact category fields require adapter research.",
+    "Professional licenses, municipal permits, business registrations, complaints, fines, and non-DACO authorizations may require separate official sources.",
+    "PDF reports or linked exports must not be redistributed unless terms clearly allow it."
+  ],
+  "hasBulkDownload": "unknown",
+  "hasLiveLookup": true,
+  "requiresJavaScript": "unknown",
+  "requiresCaptcha": "unknown",
+  "requiresAccount": false,
+  "rateLimitNotes": "No adapter is implemented. Future work should verify whether any linked reports are official, current, stable, and redistribution-safe before local-file support.",
+  "redistributionStatus": "unknown",
+  "publicRecordsNotes": "Official DACO contractor-list metadata only. Absence from this source is not proof that a registration, license, business authorization, permit, or professional credential does not exist elsewhere.",
+  "adapterStatus": "planned",
+  "sourceDiscoveryStatus": "researched",
+  "adapterMaturity": "registry_only",
+  "coverageScope": "state_agency_partial",
+  "adapterPackage": "@opentrade/adapter-pr-daco",
+  "testFixturePath": null,
+  "officialLookupUrl": "https://www.daco.pr.gov/consumidores/listado-contratistas-registrados/",
+  "officialBulkDownloadNotes": "DACO may publish contractor-list reports, but no stable bulk format or redistribution permission has been confirmed in this phase.",
+  "researchNotes": "Registry-only source for Puerto Rico DACO registered contractors. Future work should research current report links, field names, encoding, and Spanish-language category normalization.",
+  "lastVerifiedAt": "2026-06-24T00:00:00.000Z",
+  "maintainerNotes": "Preserve Spanish source wording and residential/home-improvement scope in future verification caveats."
+}
