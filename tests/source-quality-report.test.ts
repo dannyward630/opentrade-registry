@@ -25,6 +25,20 @@ describe("source quality report", () => {
     expect(report.sourcesByAdapterQualityLevel["0"]).toBe(52);
     expect(report.sourcesByAdapterQualityLevel["4"]).toBe(4);
     expect(report.implementedSourcesNeedingLevel4).toEqual([]);
+    expect(report.territorySources.map((source: { id: string }) => source.id)).toEqual([
+      "us.as.doc.business_licenses",
+      "us.gu.clb.contractors",
+      "us.mp.bpl.professional_licenses",
+      "us.pr.daco.contractors",
+      "us.vi.dlca.contractors_trades",
+    ]);
+    expect(report.manualPublicRecordsSources).toEqual([
+      expect.objectContaining({
+        id: "us.as.doc.business_licenses",
+        sourceType: "manual_public_records_file",
+        adapterMaturity: "registry_only",
+      }),
+    ]);
     expect(report.lookupOnlySources.map((source: { id: string }) => source.id)).toContain("us.pa.oag.home_improvement_contractors");
     expect(report.lookupOnlySources.map((source: { id: string }) => source.id)).toContain("us.oh.commerce.ocilb_contractors");
     expect(report.lookupOnlySources.map((source: { id: string }) => source.id)).toContain("us.ct.dcp.home_improvement_contractors");
@@ -43,6 +57,20 @@ describe("source quality report", () => {
     expect(report.lookupOnlySources.map((source: { id: string }) => source.id)).toContain("us.pr.daco.contractors");
     expect(report.lookupOnlySources.map((source: { id: string }) => source.id)).toContain("us.vi.dlca.contractors_trades");
     expect(report.bulkCandidates.map((source: { id: string }) => source.id)).toContain("us.fl.dbpr.construction");
+  });
+
+  it("prints territory and manual-source caution sections in human output", () => {
+    const result = spawnSync(process.execPath, ["scripts/source-quality-report.mjs"], {
+      cwd: process.cwd(),
+      encoding: "utf8",
+    });
+
+    expect(result.status).toBe(0);
+    expect(result.stderr).toBe("");
+    expect(result.stdout).toContain("territory sources:");
+    expect(result.stdout).toContain("- us.pr.daco.contractors (html_lookup, registry_only)");
+    expect(result.stdout).toContain("manual public-records-file sources:");
+    expect(result.stdout).toContain("- us.as.doc.business_licenses (manual_public_records_file, registry_only)");
   });
 
   it("keeps the database source seed synchronized with the file registry", () => {

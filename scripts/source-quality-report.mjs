@@ -25,6 +25,12 @@ const report = {
   implementedSourcesNeedingLevel4: sources
     .filter((source) => source.adapterStatus === "implemented" && source.adapterQualityLevel !== 4)
     .map(toSourceSummary),
+  territorySources: sources
+    .filter((source) => isTerritoryCode(source.jurisdiction.state))
+    .map(toSourceSummary),
+  manualPublicRecordsSources: sources
+    .filter((source) => source.sourceType === "manual_public_records_file")
+    .map(toSourceSummary),
   bulkCandidates: sources
     .filter((source) => source.hasBulkDownload === true || source.sourceType.startsWith("bulk_") || source.sourceType === "api")
     .map(toSourceSummary),
@@ -94,8 +100,14 @@ function printHumanReport(report) {
   printCounts("sources by adapter maturity", report.sourcesByMaturity);
   printCounts("sources by adapter quality level", report.sourcesByAdapterQualityLevel);
   printSourceList("implemented sources needing Level 4 review", report.implementedSourcesNeedingLevel4);
+  printSourceList("territory sources", report.territorySources);
+  printSourceList("manual public-records-file sources", report.manualPublicRecordsSources);
   printSourceList("bulk candidates", report.bulkCandidates);
   printSourceList("lookup-only sources", report.lookupOnlySources);
+}
+
+function isTerritoryCode(value) {
+  return ["AS", "GU", "MP", "PR", "VI"].includes(value);
 }
 
 function printCounts(title, counts) {
