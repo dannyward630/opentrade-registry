@@ -33,7 +33,9 @@ OpenTrade Registry is early. The next releases should stay modest: make the firs
 
 ## v0.3
 
-- California CSLB fixture adapter or deeper Oregon/Texas/Washington open-data support.
+- Use the adapter candidate priorities guide to choose the next fixture adapter from California CSLB, Minnesota DLI, Alaska CBPL, Illinois IDFPR, or Indiana PLA.
+- Promote only candidates with reviewed source terms, fixture-safe field shapes, source-specific filters, and neutral verification caveats.
+- Deeper Oregon/Texas/Washington open-data support where it improves existing adapter reliability.
 - Adapter quality badges.
 - Shared import pipeline hardening, including row-level sync error reporting.
 - More source registry and adapter metadata consistency checks.
