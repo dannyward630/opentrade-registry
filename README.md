@@ -22,7 +22,7 @@ The current build is still intentionally small. It supports Florida DBPR constru
 - Convert a tiny Washington L&I fixture into canonical records.
 - Export canonical records as JSONL or CSV.
 - Check one license number against a local source file.
-- Inspect researched source metadata for Alaska, Alabama, Arkansas, Arizona, California, Colorado, Connecticut, Delaware, District of Columbia, Florida, Georgia, Idaho, Illinois, Indiana, Iowa, Kansas, Kentucky, Louisiana, Maryland, Massachusetts, Michigan, Minnesota, Mississippi, Nevada, New Jersey, New Mexico, North Carolina, Ohio, Oregon, Pennsylvania, Rhode Island, South Carolina, Tennessee, Texas, Utah, Virginia, Washington, West Virginia, and Wisconsin.
+- Inspect researched source metadata for all 50 states plus DC and five major U.S. territories.
 
 ## What This Project Does Not Do
 
@@ -140,7 +140,7 @@ Adapter maturity is tracked separately from source research:
 
 `adapterMaturity` describes what an adapter can run today. `adapterQualityLevel` describes how much verification-language and caveat review has happened. All implemented adapters currently carry Level 4 quality metadata, which means their local verification results use neutral semantics and source-specific caveats.
 
-The registry now includes at least one researched official source entry for all 50 states plus DC. Florida DBPR is currently a local-file adapter with opt-in URL sync through the CLI. Oregon CCB, Texas TDLR, and Washington L&I are fixture-supported. The remaining researched sources are registry-only entries until source-specific terms, fields, fixtures, and verification caveats are reviewed.
+The registry now includes at least one researched official source entry for all 50 states plus DC and the five major U.S. territories: American Samoa, Guam, Northern Mariana Islands, Puerto Rico, and the U.S. Virgin Islands. Florida DBPR is currently a local-file adapter with opt-in URL sync through the CLI. Oregon CCB, Texas TDLR, and Washington L&I are fixture-supported. The remaining researched sources are registry-only entries until source-specific terms, fields, fixtures, and verification caveats are reviewed.
 
 ## Project Layout
 
@@ -154,6 +154,8 @@ packages/cli                opentrade command-line interface
 apps/web                    Optional hosted status page and source API
 registry/sources            Source metadata for official agency sources
 registry/us-coverage.json   State-by-state coverage progress
+registry/us-territory-coverage.json
+                            Territory coverage progress
 docs                        Architecture, authoring, and data-use notes
 examples                    Small local-file examples
 ```
@@ -178,6 +180,6 @@ Before tagging a release candidate, use the short [release checklist](docs/relea
 
 ## Roadmap
 
-The next work is to make URL sync more source-aware, improve Oregon, Texas, and Washington fixture coverage, add U.S. territory coverage, and turn the most suitable registry-only sources into fixture adapters. Broader adapter coverage will come after the registry validation, source-quality reporting, Level 4 verification semantics, and adapter contracts stay boring and predictable.
+The next work is to make URL sync more source-aware, improve Oregon, Texas, and Washington fixture coverage, harden territory source research, and turn the most suitable registry-only sources into fixture adapters. Broader adapter coverage will come after the registry validation, source-quality reporting, Level 4 verification semantics, and adapter contracts stay boring and predictable.
 
 See [docs/roadmap.md](docs/roadmap.md) for the current plan.

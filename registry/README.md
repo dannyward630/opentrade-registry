@@ -5,8 +5,9 @@ The registry records official public agency sources that may contain contractor 
 ## Layout
 
 ```text
-registry/sources/us/<state>/<source>.json
+registry/sources/us/<jurisdiction>/<source>.json
 registry/us-coverage.json
+registry/us-territory-coverage.json
 ```
 
 Examples:
@@ -51,8 +52,11 @@ Examples:
 - `registry/sources/us/sd/dlr-plumbing.json`
 - `registry/sources/us/vt/sos-residential-contractors.json`
 - `registry/sources/us/wy/firemarshal-electrical.json`
+- `registry/sources/us/pr/daco-contractors.json`
+- `registry/sources/us/gu/clb-contractors.json`
+- `registry/sources/us/vi/dlca-contractors-trades.json`
 
-`registry/us-coverage.json` tracks state-by-state progress. It now includes all 50 states plus DC with at least one researched source entry, while still distinguishing registry-only metadata from fixture, local-file, and network-capable adapters.
+`registry/us-coverage.json` tracks state-by-state progress. It now includes all 50 states plus DC with at least one researched source entry. `registry/us-territory-coverage.json` tracks American Samoa, Guam, Northern Mariana Islands, Puerto Rico, and the U.S. Virgin Islands. Both indexes distinguish registry-only metadata from fixture, local-file, and network-capable adapters.
 
 ## Contribution Rules
 
@@ -65,12 +69,12 @@ Examples:
 - Keep adapter maturity accurate: `registry_only`, `fixture_adapter`, `local_file_adapter`, or `network_opt_in`.
 - Keep adapter quality metadata accurate for implemented adapters. Level 4 requires reviewed verification caveats and neutral no-match language.
 
-## Adding A State Source
+## Adding A State Or Territory Source
 
 1. Confirm the official agency and source URL.
 2. Fill out the source research template in `docs/source-research-template.md`.
-3. Add or update the source JSON under `registry/sources/us/<state>/`.
-4. Update `registry/us-coverage.json`.
+3. Add or update the source JSON under `registry/sources/us/<jurisdiction>/`.
+4. Update `registry/us-coverage.json` for states/DC or `registry/us-territory-coverage.json` for territories.
 5. Add a tiny hand-authored fixture only when adapter work begins.
 6. Keep normal tests offline.
 
