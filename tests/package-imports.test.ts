@@ -1,6 +1,7 @@
 import { describe, expect, it } from "vitest";
 import {
   buildFingerprint,
+  buildSourceReadiness,
   canonicalTradeLicenseRecordSchema,
   adapterMaturitySchema,
   adapterQualityLevelSchema,
@@ -40,6 +41,13 @@ describe("public package imports", () => {
     expect(adapterMaturitySchema.parse("registry_only")).toBe("registry_only");
     expect(adapterQualityLevelSchema.parse(4)).toBe(4);
     expect(sourceDiscoveryStatusSchema.parse("researched")).toBe("researched");
+    expect(buildSourceReadiness([])).toEqual({
+      sourceCount: 0,
+      implementedAdapterSources: [],
+      unimplementedBulkAdapterCandidates: [],
+      registryOnlySourceCount: 0,
+      note: expect.stringContaining("planning signal only"),
+    });
     expect(FL_DBPR_CONSTRUCTION_SOURCE_ID).toBe("us.fl.dbpr.construction");
     expect(floridaDbprConstructionAdapter.sourceId).toBe("us.fl.dbpr.construction");
     expect(normalizeDbprStatus({ primaryStatusCode: "S", secondaryStatusCode: "A" }).normalized).toBe("suspended");

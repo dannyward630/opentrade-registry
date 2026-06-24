@@ -1,6 +1,6 @@
 import { readFile, readdir } from "node:fs/promises";
 import { join } from "node:path";
-import { sourceRegistryEntrySchema, type SourceRegistryEntry } from "@opentrade/core";
+import { buildSourceReadiness, sourceRegistryEntrySchema, type SourceRegistryEntry } from "@opentrade/core";
 
 export async function loadSourceRegistry(rootDir: string): Promise<SourceRegistryEntry[]> {
   const sourceRoot = join(rootDir, "registry", "sources");
@@ -29,19 +29,7 @@ export async function listSources(rootDir: string, options: { json?: boolean }) 
 
 export async function showSourceReadiness(rootDir: string, options: { json?: boolean }) {
   const entries = await loadSourceRegistry(rootDir);
-  const implementedAdapterSources = entries.filter((entry) => entry.adapterStatus === "implemented");
-  const unimplementedBulkAdapterCandidates = entries.filter(
-    (entry) => entry.adapterStatus !== "implemented" && isBulkShapedCandidate(entry),
-  );
-  const registryOnlySources = entries.filter((entry) => entry.adapterMaturity === "registry_only");
-  const payload = {
-    sourceCount: entries.length,
-    implementedAdapterSources: implementedAdapterSources.map(toReadinessSummary),
-    unimplementedBulkAdapterCandidates: unimplementedBulkAdapterCandidates.map(toReadinessSummary),
-    registryOnlySourceCount: registryOnlySources.length,
-    note:
-      "Candidate status is a planning signal only. Review source terms, fixture safety, field shape, filters, and verification caveats before implementation.",
-  };
+  const payload = buildSourceReadiness(entries);
 
   if (options.json) {
     console.log(JSON.stringify(payload, null, 2));
@@ -118,24 +106,6 @@ export async function showSource(rootDir: string, sourceId: string, options: { j
   if (entry.researchNotes) {
     console.log(`research: ${entry.researchNotes}`);
   }
-}
-
-function isBulkShapedCandidate(entry: SourceRegistryEntry): boolean {
-  return entry.hasBulkDownload === true || entry.sourceType.startsWith("bulk_") || entry.sourceType === "api";
-}
-
-function toReadinessSummary(entry: SourceRegistryEntry) {
-  return {
-    id: entry.id,
-    name: entry.name,
-    state: entry.jurisdiction.state,
-    sourceType: entry.sourceType,
-    adapterStatus: entry.adapterStatus,
-    adapterMaturity: entry.adapterMaturity,
-    adapterQualityLevel: entry.adapterQualityLevel ?? 0,
-    coverageScope: entry.coverageScope,
-    hasBulkDownload: entry.hasBulkDownload,
-  };
 }
 
 async function listJsonFiles(directory: string): Promise<string[]> {

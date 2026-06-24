@@ -1,7 +1,7 @@
 import { readFile, readdir } from "node:fs/promises";
 import { join } from "node:path";
 import { createClient } from "@supabase/supabase-js";
-import { sourceRegistryEntrySchema, type SourceRegistryEntry } from "@opentrade/core";
+import { buildSourceReadiness, sourceRegistryEntrySchema, type SourceReadiness, type SourceRegistryEntry } from "@opentrade/core";
 
 export type SourceApiOrigin = "database" | "registry_files";
 
@@ -11,25 +11,8 @@ export type SourceApiResult = {
   databaseError?: string;
 };
 
-export type SourceReadinessSummary = {
-  id: string;
-  name: string;
-  state: string;
-  sourceType: SourceRegistryEntry["sourceType"];
-  adapterStatus: SourceRegistryEntry["adapterStatus"];
-  adapterMaturity: SourceRegistryEntry["adapterMaturity"];
-  adapterQualityLevel: number;
-  coverageScope: SourceRegistryEntry["coverageScope"];
-  hasBulkDownload: SourceRegistryEntry["hasBulkDownload"];
-};
-
-export type SourceReadiness = {
+export type SourceReadinessApiResult = SourceReadiness & {
   origin: SourceApiOrigin;
-  sourceCount: number;
-  implementedAdapterSources: SourceReadinessSummary[];
-  unimplementedBulkAdapterCandidates: SourceReadinessSummary[];
-  registryOnlySourceCount: number;
-  note: string;
   databaseError?: string;
 };
 
@@ -88,31 +71,12 @@ export async function loadSourcesForApi(options: { rootDir?: string; databaseCli
 
 export async function loadSourceReadinessForApi(
   options: { rootDir?: string; databaseClient?: RegistryDatabaseClient | null } = {},
-): Promise<SourceReadiness> {
+): Promise<SourceReadinessApiResult> {
   const result = await loadSourcesForApi(options);
-  return buildSourceReadiness(result.sources, result.origin, result.databaseError);
-}
-
-export function buildSourceReadiness(
-  sources: SourceRegistryEntry[],
-  origin: SourceApiOrigin = "registry_files",
-  databaseError?: string,
-): SourceReadiness {
-  const implementedAdapterSources = sources.filter((source) => source.adapterStatus === "implemented");
-  const unimplementedBulkAdapterCandidates = sources.filter(
-    (source) => source.adapterStatus !== "implemented" && isBulkShapedCandidate(source),
-  );
-  const registryOnlySources = sources.filter((source) => source.adapterMaturity === "registry_only");
-
   return {
-    origin,
-    sourceCount: sources.length,
-    implementedAdapterSources: implementedAdapterSources.map(toReadinessSummary),
-    unimplementedBulkAdapterCandidates: unimplementedBulkAdapterCandidates.map(toReadinessSummary),
-    registryOnlySourceCount: registryOnlySources.length,
-    note:
-      "Candidate status is a planning signal only. Review source terms, fixture safety, field shape, filters, and verification caveats before implementation.",
-    databaseError,
+    origin: result.origin,
+    ...buildSourceReadiness(result.sources),
+    databaseError: result.databaseError,
   };
 }
 
@@ -188,24 +152,6 @@ function mapDatabaseRowToSource(row: RegistryDatabaseRow, fallback?: SourceRegis
     redistributionStatus: row.redistribution_status,
     lastVerifiedAt: row.last_verified_at ? new Date(row.last_verified_at).toISOString() : fallback?.lastVerifiedAt,
   });
-}
-
-function isBulkShapedCandidate(source: SourceRegistryEntry): boolean {
-  return source.hasBulkDownload === true || source.sourceType.startsWith("bulk_") || source.sourceType === "api";
-}
-
-function toReadinessSummary(source: SourceRegistryEntry): SourceReadinessSummary {
-  return {
-    id: source.id,
-    name: source.name,
-    state: source.jurisdiction.state,
-    sourceType: source.sourceType,
-    adapterStatus: source.adapterStatus,
-    adapterMaturity: source.adapterMaturity,
-    adapterQualityLevel: source.adapterQualityLevel ?? 0,
-    coverageScope: source.coverageScope,
-    hasBulkDownload: source.hasBulkDownload,
-  };
 }
 
 async function listJsonFiles(directory: string): Promise<string[]> {
