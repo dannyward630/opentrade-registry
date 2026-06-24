@@ -615,6 +615,44 @@ describe("opentrade CLI", () => {
     const invalid = runCli(["verify", "--source", "us.wa.lni.contractors", "--file", washingtonFixture, "--license", "!!!"], 2);
     expect(invalid.stdout).toContain("missing_required_input");
   });
+
+  it("continues local verification when unrelated rows fail normalization", () => {
+    const dir = mkdtempSync(join(tmpdir(), "opentrade-verify-row-errors-"));
+    try {
+      const fixturePath = join(dir, "washington-with-bad-row.csv");
+      const fixture = readFileSync(washingtonFixture, "utf8");
+      const badRow =
+        'MISSING LICENSE,,CC,Construction Contractor,999 ERROR RD,,SEATTLE,WA,98101,2065550199,01/01/2020,12/31/2099,LLC,Limited Liability Company,GEN,General Contractor,,,604009999,"ERROR, CASEY",A,ACTIVE,';
+      writeFileSync(fixturePath, `${fixture.trim()}\n${badRow}\n`, "utf8");
+
+      const matched = runCli([
+        "verify",
+        "--source",
+        "us.wa.lni.contractors",
+        "--file",
+        fixturePath,
+        "--license",
+        "RAINCCB001JQ",
+        "--json",
+      ]);
+      const json = JSON.parse(matched.stdout);
+      expect(json.result).toBe("matched_with_warnings");
+      expect(json.matchedRecord.license.licenseNumber).toBe("RAINCCB001JQ");
+      expect(json.warnings).toContainEqual(
+        expect.objectContaining({
+          code: "record_normalization_failed",
+          rowNumber: 7,
+        }),
+      );
+
+      const human = runCli(["verify", "--source", "us.wa.lni.contractors", "--file", fixturePath, "--license", "RAINCCB001JQ"]).stdout;
+      expect(human).toContain("matched_with_warnings");
+      expect(human).toContain("warnings:");
+      expect(human).toContain("record_normalization_failed");
+    } finally {
+      rmSync(dir, { recursive: true, force: true });
+    }
+  });
 });
 
 async function startFixtureServer(body: string): Promise<{ url: string; close(): Promise<void> }> {

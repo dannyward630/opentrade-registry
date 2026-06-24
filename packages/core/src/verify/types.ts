@@ -3,6 +3,8 @@ import type { CanonicalTradeLicenseRecord } from "../schema/index.js";
 export type VerificationWarning = {
   code: string;
   message: string;
+  rowNumber?: number;
+  recordFingerprint?: string;
 };
 
 export type VerificationReason = {
@@ -36,4 +38,3 @@ export type TradeLicenseVerificationResult = {
   reasons: VerificationReason[];
   checkedAt: string;
 };
-
