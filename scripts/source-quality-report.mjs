@@ -31,8 +31,18 @@ const report = {
   manualPublicRecordsSources: sources
     .filter((source) => source.sourceType === "manual_public_records_file")
     .map(toSourceSummary),
+  implementedAdapterSources: sources
+    .filter((source) => source.adapterStatus === "implemented")
+    .map(toSourceSummary),
   bulkCandidates: sources
     .filter((source) => source.hasBulkDownload === true || source.sourceType.startsWith("bulk_") || source.sourceType === "api")
+    .map(toSourceSummary),
+  unimplementedBulkAdapterCandidates: sources
+    .filter(
+      (source) =>
+        source.adapterStatus !== "implemented" &&
+        (source.hasBulkDownload === true || source.sourceType.startsWith("bulk_") || source.sourceType === "api"),
+    )
     .map(toSourceSummary),
   lookupOnlySources: sources
     .filter((source) => source.sourceType === "html_lookup" || source.sourceType === "playwright_portal")
@@ -100,9 +110,11 @@ function printHumanReport(report) {
   printCounts("sources by adapter maturity", report.sourcesByMaturity);
   printCounts("sources by adapter quality level", report.sourcesByAdapterQualityLevel);
   printSourceList("implemented sources needing Level 4 review", report.implementedSourcesNeedingLevel4);
+  printSourceList("implemented adapter sources", report.implementedAdapterSources);
   printSourceList("territory sources", report.territorySources);
   printSourceList("manual public-records-file sources", report.manualPublicRecordsSources);
   printSourceList("bulk candidates", report.bulkCandidates);
+  printSourceList("unimplemented bulk adapter candidates", report.unimplementedBulkAdapterCandidates);
   printSourceList("lookup-only sources", report.lookupOnlySources);
 }
 
