@@ -1,6 +1,11 @@
 import { isAbsolute, resolve } from "node:path";
 import { FL_DBPR_CONSTRUCTION_SOURCE_ID } from "@opentrade/adapter-fl-dbpr";
-import { normalizeLicenseNumber, type CanonicalTradeLicenseRecord, type TradeLicenseVerificationResult } from "@opentrade/core";
+import {
+  normalizeLicenseNumber,
+  type CanonicalTradeLicenseRecord,
+  type TradeLicenseVerificationResult,
+  type VerificationWarning,
+} from "@opentrade/core";
 import { requireAdapter } from "../adapters.js";
 
 export async function verifyLicense(input: { rootDir: string; sourceId?: string; file?: string; license?: string; json?: boolean }) {
@@ -28,8 +33,32 @@ export async function verifyLicense(input: { rootDir: string; sourceId?: string;
   }
 
   const candidates: CanonicalTradeLicenseRecord[] = [];
+  const warnings: VerificationWarning[] = [];
+  let skippedRecordCount = 0;
   for await (const rawRecord of adapter.streamRawRecords({ filePath: resolveFromRoot(input.rootDir, input.file) })) {
-    const record = await adapter.normalize(rawRecord);
+    for (const warning of rawRecord.warnings ?? []) {
+      warnings.push({
+        code: warning.code,
+        message: warning.message,
+        rowNumber: rawRecord.rowNumber,
+        recordFingerprint: warning.recordFingerprint ?? rawRecord.fingerprint,
+      });
+    }
+
+    let record: CanonicalTradeLicenseRecord;
+    try {
+      record = await adapter.normalize(rawRecord);
+    } catch (error) {
+      skippedRecordCount += 1;
+      warnings.push({
+        code: "record_normalization_failed",
+        message: `Skipped record ${rawRecord.rowNumber ?? "unknown"} during verification: ${error instanceof Error ? error.message : String(error)}`,
+        rowNumber: rawRecord.rowNumber,
+        recordFingerprint: rawRecord.fingerprint,
+      });
+      continue;
+    }
+
     const normalizedCandidates = new Set([
       normalizeLicenseNumber(record.license.licenseNumber),
       record.license.licenseNumberNormalized,
@@ -45,8 +74,16 @@ export async function verifyLicense(input: { rootDir: string; sourceId?: string;
     sourceId,
     jurisdiction,
     license: input.license,
-    result: candidates.length === 0 ? "not_found" : candidates.length === 1 ? "matched" : "ambiguous",
+    result:
+      candidates.length === 0
+        ? "not_found"
+        : candidates.length === 1 && skippedRecordCount > 0
+          ? "matched_with_warnings"
+          : candidates.length === 1
+            ? "matched"
+            : "ambiguous",
     records: candidates,
+    warnings,
   });
 
   printVerificationResult(result, input.json);
@@ -66,6 +103,7 @@ function buildVerificationResult(input: {
   license?: string;
   result: TradeLicenseVerificationResult["result"];
   records: CanonicalTradeLicenseRecord[];
+  warnings?: VerificationWarning[];
   reasons?: TradeLicenseVerificationResult["reasons"];
 }): TradeLicenseVerificationResult {
   return {
@@ -77,7 +115,7 @@ function buildVerificationResult(input: {
     result: input.result,
     matchedRecord: input.records.length === 1 ? input.records[0] : undefined,
     candidateRecords: input.records.length > 1 ? input.records : undefined,
-    warnings: [],
+    warnings: input.warnings ?? [],
     reasons:
       input.reasons ??
       (input.records.length === 0
@@ -106,6 +144,12 @@ function printVerificationResult(result: TradeLicenseVerificationResult, json: b
   }
 
   console.log(`${result.result}: ${message}`);
+  if (result.warnings.length > 0) {
+    console.log("warnings:");
+    for (const warning of result.warnings) {
+      console.log(`- ${warning.code}: ${warning.message}`);
+    }
+  }
   for (const record of records) {
     console.log(`${record.license.licenseNumber}\t${record.status.normalized}\t${record.identity.licenseeName ?? ""}`);
   }
