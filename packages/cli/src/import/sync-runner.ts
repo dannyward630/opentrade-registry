@@ -1,5 +1,11 @@
 import { isAbsolute, resolve } from "node:path";
-import type { CanonicalTradeLicenseRecord, ImportStats, RemoteSnapshotMetadata, TradeLicenseSourceAdapter } from "@opentrade/core";
+import {
+  canonicalTradeLicenseRecordSchema,
+  type CanonicalTradeLicenseRecord,
+  type ImportStats,
+  type RemoteSnapshotMetadata,
+  type TradeLicenseSourceAdapter,
+} from "@opentrade/core";
 import type { SyncFormat } from "./export.js";
 import { writeCanonicalRecords } from "./export.js";
 
@@ -54,7 +60,8 @@ export async function runAdapterSync(input: {
     stats.warningCount += rawRecord.warnings?.length ?? 0;
     warnings.push(...(rawRecord.warnings?.map((warning) => warning.message) ?? []));
     try {
-      records.push(await input.adapter.normalize(rawRecord));
+      const record = await input.adapter.normalize(rawRecord);
+      records.push(canonicalTradeLicenseRecordSchema.parse(record));
       stats.normalizedRecordCount += 1;
     } catch (error) {
       stats.errorCount += 1;
