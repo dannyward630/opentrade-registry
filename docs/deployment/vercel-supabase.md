@@ -8,6 +8,7 @@ The hosted layer currently provides:
 - `GET /api/health` for deployment and optional database health.
 - `GET /api/sources` for source registry metadata.
 - `GET /api/sources?id=<sourceId>` for one source registry entry.
+- `GET /api/readiness` for implemented-adapter and adapter-candidate metadata.
 
 It does not provide live verification across every state, a hosted import worker, browser automation, account features, or generated public-record dataset publishing.
 
@@ -24,11 +25,14 @@ Expected project settings:
 
 The repository also includes root API functions under `api/`. Vercel packages `registry/**/*.json` with those functions so the source API can load source metadata at runtime.
 
-`/api/sources` is database-first when Supabase environment variables are configured. If the database is not configured or the database read fails, the endpoint falls back to the checked-in registry files. Responses include:
+`/api/sources` and `/api/readiness` are database-first when Supabase environment variables are configured. If the database is not configured or the database read fails, the endpoints fall back to the checked-in registry files. Responses include:
 
 - `origin: "database"` when rows were read from Supabase.
 - `origin: "registry_files"` when rows were read from the checked-in registry.
-- `count` and `sources`, preserving the existing response shape.
+- `count` and `sources` for `/api/sources`, preserving the existing response shape.
+- `implementedAdapterSources` and `unimplementedBulkAdapterCandidates` for `/api/readiness`.
+
+Readiness candidate status is a planning signal only. It is not evidence that a source can already be imported, redistributed, or verified end to end.
 
 `/api/health` reports the checked-in file source count and, when Supabase is configured, the database source count. The `sourceCountMatchesFiles` field should be `true` after the seed SQL has been applied.
 
