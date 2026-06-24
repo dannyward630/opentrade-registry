@@ -20,6 +20,7 @@ describe("opentrade CLI", () => {
     const help = runCli(["help"]).stdout;
     expect(help).toContain("Default commands do not contact agency sites.");
     expect(help).toContain("Network sync requires --allow-network.");
+    expect(help).toContain("opentrade sources readiness [--json]");
     expect(help).toContain("opentrade sync <sourceId> --url <sourceUrl> --allow-network --out <path>");
     expect(help).toContain("adapter maturity");
     expect(help).not.toContain("v0.1 does not download live agency data");
@@ -118,6 +119,41 @@ describe("opentrade CLI", () => {
     expect(puertoRico).toContain("Puerto Rico DACO Registered Contractors List");
     expect(puertoRico).toContain("maturity: registry_only");
     expect(runCli(["sources", "validate"]).stdout).toContain("Validated 56 source registry entries.");
+  }, 15000);
+
+  it("summarizes source readiness for implemented adapters and candidate adapters", () => {
+    const readiness = runCli(["sources", "readiness"]).stdout;
+    expect(readiness).toContain("OpenTrade source readiness");
+    expect(readiness).toContain("sources: 56");
+    expect(readiness).toContain("implemented adapter sources: 4");
+    expect(readiness).toContain("- us.fl.dbpr.construction (bulk_csv, local_file_adapter, level_4)");
+    expect(readiness).toContain("- us.or.ccb.active_licenses (bulk_csv, fixture_adapter, level_4)");
+    expect(readiness).toContain("- us.tx.tdlr.all_licenses (bulk_csv, fixture_adapter, level_4)");
+    expect(readiness).toContain("- us.wa.lni.contractors (bulk_csv, fixture_adapter, level_4)");
+    expect(readiness).toContain("unimplemented bulk-shaped candidates: 5");
+    expect(readiness).toContain("- us.ak.commerce.construction_contractors (html_lookup, state_agency_partial)");
+    expect(readiness).toContain("- us.ca.cslb.contractors (bulk_xlsx, statewide)");
+    expect(readiness).toContain("- us.il.idfpr.roofing_contractors (html_lookup, state_agency_partial)");
+    expect(readiness).toContain("- us.in.pla.professional_licenses (html_lookup, state_agency_partial)");
+    expect(readiness).toContain("- us.mn.dli.licenses_registrations (bulk_xlsx, state_agency_partial)");
+    expect(readiness).toContain("Candidate status is a planning signal only.");
+
+    const json = JSON.parse(runCli(["sources", "readiness", "--json"]).stdout);
+    expect(json.sourceCount).toBe(56);
+    expect(json.implementedAdapterSources.map((source: { id: string }) => source.id)).toEqual([
+      "us.fl.dbpr.construction",
+      "us.or.ccb.active_licenses",
+      "us.tx.tdlr.all_licenses",
+      "us.wa.lni.contractors",
+    ]);
+    expect(json.unimplementedBulkAdapterCandidates.map((source: { id: string }) => source.id)).toEqual([
+      "us.ak.commerce.construction_contractors",
+      "us.ca.cslb.contractors",
+      "us.il.idfpr.roofing_contractors",
+      "us.in.pla.professional_licenses",
+      "us.mn.dli.licenses_registrations",
+    ]);
+    expect(json.registryOnlySourceCount).toBe(52);
   }, 15000);
 
   it("rejects registry-only sources for sync and verify with neutral wording", () => {

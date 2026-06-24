@@ -42,6 +42,12 @@ List the registered public sources:
 corepack pnpm cli -- sources list
 ```
 
+Summarize implemented adapters and future adapter candidates:
+
+```bash
+corepack pnpm cli -- sources readiness
+```
+
 Show the metadata for one source:
 
 ```bash

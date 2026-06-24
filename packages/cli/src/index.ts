@@ -2,7 +2,7 @@
 import { existsSync } from "node:fs";
 import { dirname, join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
-import { listSources, showSource } from "./commands/sources.js";
+import { listSources, showSource, showSourceReadiness } from "./commands/sources.js";
 import { syncSource } from "./commands/sync.js";
 import { validateSources } from "./commands/validate.js";
 import { verifyLicense } from "./commands/verify.js";
@@ -35,6 +35,11 @@ async function main() {
 
     if (subcommand === "show" && maybeId) {
       await showSource(rootDir, maybeId, { json });
+      return;
+    }
+
+    if (subcommand === "readiness") {
+      await showSourceReadiness(rootDir, { json });
       return;
     }
 
@@ -129,6 +134,7 @@ Default commands do not contact agency sites. Network sync requires --allow-netw
 Commands:
   opentrade sources list [--json]
   opentrade sources show <sourceId> [--json]
+  opentrade sources readiness [--json]
   opentrade sources validate [--json]
   opentrade sync <sourceId> --file <path> --out <path> [--format jsonl|csv] [--json] [--strict]
   opentrade sync <sourceId> --url <sourceUrl> --allow-network --out <path> [--format jsonl|csv] [--json] [--strict]
