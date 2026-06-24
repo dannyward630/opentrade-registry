@@ -9,6 +9,7 @@ These docs explain how the project models official sources, writes adapters, and
 - [Source Registry](source-registry.md): how official sources are described before and after adapter support exists.
 - [Source Research Template](source-research-template.md): the checklist to use before adding a new source.
 - [Adapter Authoring](adapter-authoring.md): practical guidance for writing a source adapter.
+- [Adapter Candidate Priorities](adapters/candidate-priorities.md): current registry-derived queue for future fixture adapters.
 - [California CSLB Adapter Plan](adapters/california-cslb.md): early notes for a future California adapter.
 - [Oregon CCB Adapter Notes](adapters/oregon-ccb.md): fixture support and active-source caveats for Oregon CCB.
 - [Texas TDLR Adapter Notes](adapters/texas-tdlr.md): fixture support and source caveats for Texas TDLR.
