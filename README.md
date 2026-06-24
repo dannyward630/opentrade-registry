@@ -174,13 +174,14 @@ corepack pnpm build
 corepack pnpm test
 corepack pnpm typecheck
 corepack pnpm registry:validate
+corepack pnpm coverage:health
 corepack pnpm db:seed:check
 corepack pnpm source:quality
 corepack pnpm cleanliness:scan
 corepack pnpm web:build
 ```
 
-`source:quality` separates implemented adapter sources from unimplemented bulk-shaped candidates. Use that report and the [adapter candidate priorities](docs/adapters/candidate-priorities.md) guide when choosing the next adapter, but treat candidate status as a research signal only: source terms, fixture safety, field shape, and verification caveats still need source-specific review before implementation.
+`coverage:health` verifies that all state, DC, and major territory coverage rows are present and cross-linked to registry sources. `source:quality` separates implemented adapter sources from unimplemented bulk-shaped candidates. Use that report and the [adapter candidate priorities](docs/adapters/candidate-priorities.md) guide when choosing the next adapter, but treat candidate status as a research signal only: source terms, fixture safety, field shape, and verification caveats still need source-specific review before implementation.
 
 Hosted deployment is optional. See [docs/deployment/vercel-supabase.md](docs/deployment/vercel-supabase.md) for the Vercel/Supabase setup.
 
