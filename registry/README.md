@@ -93,6 +93,8 @@ For a quick source-quality summary, run:
 corepack pnpm source:quality
 ```
 
+The quality report lists implemented adapter sources separately from unimplemented bulk-shaped candidates. Use those candidate IDs to prioritize adapter research, not as evidence that a source can already be imported, redistributed, or verified end to end.
+
 Regenerate the optional hosted seed after changing registry entries:
 
 ```bash
