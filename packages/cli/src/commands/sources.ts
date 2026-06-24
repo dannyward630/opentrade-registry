@@ -27,6 +27,41 @@ export async function listSources(rootDir: string, options: { json?: boolean }) 
   }
 }
 
+export async function showSourceReadiness(rootDir: string, options: { json?: boolean }) {
+  const entries = await loadSourceRegistry(rootDir);
+  const implementedAdapterSources = entries.filter((entry) => entry.adapterStatus === "implemented");
+  const unimplementedBulkAdapterCandidates = entries.filter(
+    (entry) => entry.adapterStatus !== "implemented" && isBulkShapedCandidate(entry),
+  );
+  const registryOnlySources = entries.filter((entry) => entry.adapterMaturity === "registry_only");
+  const payload = {
+    sourceCount: entries.length,
+    implementedAdapterSources: implementedAdapterSources.map(toReadinessSummary),
+    unimplementedBulkAdapterCandidates: unimplementedBulkAdapterCandidates.map(toReadinessSummary),
+    registryOnlySourceCount: registryOnlySources.length,
+    note:
+      "Candidate status is a planning signal only. Review source terms, fixture safety, field shape, filters, and verification caveats before implementation.",
+  };
+
+  if (options.json) {
+    console.log(JSON.stringify(payload, null, 2));
+    return;
+  }
+
+  console.log("OpenTrade source readiness");
+  console.log(`sources: ${payload.sourceCount}`);
+  console.log(`implemented adapter sources: ${payload.implementedAdapterSources.length}`);
+  for (const source of payload.implementedAdapterSources) {
+    console.log(`- ${source.id} (${source.sourceType}, ${source.adapterMaturity}, level_${source.adapterQualityLevel})`);
+  }
+  console.log(`unimplemented bulk-shaped candidates: ${payload.unimplementedBulkAdapterCandidates.length}`);
+  for (const source of payload.unimplementedBulkAdapterCandidates) {
+    console.log(`- ${source.id} (${source.sourceType}, ${source.coverageScope})`);
+  }
+  console.log(`registry-only sources: ${payload.registryOnlySourceCount}`);
+  console.log(payload.note);
+}
+
 export async function showSource(rootDir: string, sourceId: string, options: { json?: boolean }) {
   const entries = await loadSourceRegistry(rootDir);
   const entry = entries.find((candidate) => candidate.id === sourceId);
@@ -83,6 +118,24 @@ export async function showSource(rootDir: string, sourceId: string, options: { j
   if (entry.researchNotes) {
     console.log(`research: ${entry.researchNotes}`);
   }
+}
+
+function isBulkShapedCandidate(entry: SourceRegistryEntry): boolean {
+  return entry.hasBulkDownload === true || entry.sourceType.startsWith("bulk_") || entry.sourceType === "api";
+}
+
+function toReadinessSummary(entry: SourceRegistryEntry) {
+  return {
+    id: entry.id,
+    name: entry.name,
+    state: entry.jurisdiction.state,
+    sourceType: entry.sourceType,
+    adapterStatus: entry.adapterStatus,
+    adapterMaturity: entry.adapterMaturity,
+    adapterQualityLevel: entry.adapterQualityLevel ?? 0,
+    coverageScope: entry.coverageScope,
+    hasBulkDownload: entry.hasBulkDownload,
+  };
 }
 
 async function listJsonFiles(directory: string): Promise<string[]> {
