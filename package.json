@@ -27,7 +27,7 @@
   },
   "packageManager": "pnpm@9.15.4",
   "scripts": {
-    "verify": "corepack pnpm build && corepack pnpm typecheck && corepack pnpm api:typecheck && corepack pnpm test && corepack pnpm registry:validate && corepack pnpm db:seed:check && corepack pnpm cleanliness:scan && corepack pnpm files:check",
+    "verify": "corepack pnpm build && corepack pnpm typecheck && corepack pnpm api:typecheck && corepack pnpm test && corepack pnpm registry:validate && corepack pnpm coverage:health && corepack pnpm db:seed:check && corepack pnpm cleanliness:scan && corepack pnpm files:check",
     "build": "corepack pnpm -r build",
     "test": "vitest run",
     "test:registry": "vitest run tests/source-registry.test.ts tests/source-quality-report.test.ts",
@@ -37,6 +37,7 @@
     "typecheck": "corepack pnpm -r typecheck",
     "api:typecheck": "tsc -p tsconfig.api.json --noEmit",
     "registry:validate": "vitest run tests/source-registry.test.ts",
+    "coverage:health": "node scripts/coverage-health.mjs",
     "cleanliness:scan": "node scripts/cleanliness-scan.mjs",
     "files:check": "node scripts/files-check.mjs",
     "source:quality": "node scripts/source-quality-report.mjs",

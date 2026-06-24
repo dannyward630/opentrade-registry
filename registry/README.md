@@ -84,8 +84,11 @@ Run:
 
 ```bash
 corepack pnpm registry:validate
+corepack pnpm coverage:health
 corepack pnpm db:seed:check
 ```
+
+`coverage:health` verifies that every state, DC, and tracked major territory coverage row has at least one source ID and that every source is referenced by the correct coverage index.
 
 For a quick source-quality summary, run:
 
