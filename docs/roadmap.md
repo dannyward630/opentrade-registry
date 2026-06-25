@@ -1,6 +1,6 @@
 # Roadmap
 
-OpenTrade Registry is early, but the registry foundation is now broad: all states plus DC and five major U.S. territories have researched source entries, and four adapters are implemented at Level 4 verification quality. The next releases should stay modest: promote the best candidates carefully, harden existing adapters, and avoid rushing into fragile live access.
+OpenTrade Registry is early, but the registry foundation is now broad: all states plus DC and five major U.S. territories have researched source entries, and five adapters are implemented at Level 4 verification quality. The next releases should stay modest: promote the best candidates carefully, harden existing adapters, and avoid rushing into fragile live access.
 
 ## v0.1
 
@@ -33,7 +33,7 @@ OpenTrade Registry is early, but the registry foundation is now broad: all state
 
 ## v0.3
 
-- Use the adapter candidate priorities guide to choose the next fixture adapter from California CSLB, Minnesota DLI, Alaska CBPL, Illinois IDFPR, or Indiana PLA.
+- Use the adapter candidate priorities guide to choose the next fixture adapter from California CSLB, Alaska CBPL, Illinois IDFPR, or Indiana PLA.
 - Promote only candidates with reviewed source terms, fixture-safe field shapes, source-specific filters, and neutral verification caveats.
 - Keep hosted `/api/sources` filters aligned with CLI source filters.
 - Add regression tests whenever a source moves from registry-only to fixture-supported.

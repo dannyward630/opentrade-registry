@@ -11,7 +11,7 @@ OpenTrade Registry helps developers work with official contractor and skilled-tr
 
 Contractor-license data is public, but it is scattered. One agency might publish a CSV file. Another might offer an Excel download. Another might only provide a lookup page. OpenTrade Registry gives those sources a common registry, a canonical record shape, and adapter contracts so each source can be handled consistently.
 
-The current build is still intentionally local-first. It includes `56` researched source registry entries covering all 50 states plus DC and five major U.S. territories. Four sources have implemented adapters: Florida DBPR has local-file support plus opt-in URL sync and verification, while Oregon CCB, Texas TDLR, and Washington L&I are fixture-supported. Normal tests do not download live agency data.
+The current build is still intentionally local-first. It includes `56` researched source registry entries covering all 50 states plus DC and five major U.S. territories. Five sources have implemented adapters: Florida DBPR has local-file support plus opt-in URL sync and verification, while Minnesota DLI, Oregon CCB, Texas TDLR, and Washington L&I are fixture-supported. Normal tests do not download live agency data.
 
 For the detailed snapshot, see [Current Project State](docs/current-state.md).
 
@@ -19,6 +19,7 @@ For the detailed snapshot, see [Current Project State](docs/current-state.md).
 
 - Validate the source registry.
 - Convert the Florida DBPR sample file into canonical records.
+- Convert a tiny Minnesota DLI fixture into canonical records.
 - Convert a tiny Oregon CCB fixture into canonical records.
 - Convert a tiny Texas TDLR fixture into canonical records.
 - Convert a tiny Washington L&I fixture into canonical records.
@@ -67,9 +68,9 @@ The current source-quality summary is:
 sources: 56
 states plus DC researched: 51/51
 territories researched: 5/5
-implemented adapters: 4
-registry-only sources: 52
-unimplemented bulk-shaped candidates: 5
+implemented adapters: 5
+registry-only sources: 51
+unimplemented bulk-shaped candidates: 4
 ```
 
 Summarize state, DC, and major territory coverage:
@@ -134,6 +135,14 @@ corepack pnpm cli -- sync us.tx.tdlr.all_licenses \
   --out ./texas.jsonl
 ```
 
+Try the Minnesota DLI fixture adapter:
+
+```bash
+corepack pnpm cli -- sync us.mn.dli.licenses_registrations \
+  --file packages/adapter-mn-dli/fixtures/licenses-registrations-sample.csv \
+  --out ./minnesota.jsonl
+```
+
 Try the Oregon CCB fixture adapter:
 
 ```bash
@@ -186,13 +195,14 @@ Adapter maturity is tracked separately from source research:
 
 `adapterMaturity` describes what an adapter can run today. `adapterQualityLevel` describes how much verification-language and caveat review has happened. All implemented adapters currently carry Level 4 quality metadata, which means their local verification results use neutral semantics and source-specific caveats.
 
-The registry now includes at least one researched official source entry for all 50 states plus DC and the five major U.S. territories: American Samoa, Guam, Northern Mariana Islands, Puerto Rico, and the U.S. Virgin Islands. Florida DBPR is currently a local-file adapter with opt-in URL sync and verification through the CLI. Oregon CCB, Texas TDLR, and Washington L&I are fixture-supported. The remaining researched sources are registry-only entries until source-specific terms, fields, fixtures, and verification caveats are reviewed.
+The registry now includes at least one researched official source entry for all 50 states plus DC and the five major U.S. territories: American Samoa, Guam, Northern Mariana Islands, Puerto Rico, and the U.S. Virgin Islands. Florida DBPR is currently a local-file adapter with opt-in URL sync and verification through the CLI. Minnesota DLI, Oregon CCB, Texas TDLR, and Washington L&I are fixture-supported. The remaining researched sources are registry-only entries until source-specific terms, fields, fixtures, and verification caveats are reviewed.
 
 ## Project Layout
 
 ```text
 packages/core               Schemas, adapter contracts, and normalization helpers
 packages/adapter-fl-dbpr    Florida DBPR construction-license adapter
+packages/adapter-mn-dli     Minnesota DLI fixture adapter
 packages/adapter-or-ccb     Oregon CCB fixture adapter
 packages/adapter-tx-tdlr    Texas TDLR fixture adapter
 packages/adapter-wa-lni     Washington L&I fixture adapter
@@ -234,6 +244,6 @@ Before tagging a release candidate, use the short [release checklist](docs/relea
 
 ## Roadmap
 
-The next work is to promote the best bulk-shaped registry-only candidates into fixture adapters, make opt-in URL workflows more source-aware, improve Oregon, Texas, and Washington fixture coverage, and deepen territory source research. Broader adapter coverage should come after registry validation, source-quality reporting, Level 4 verification semantics, and adapter contracts stay boring and predictable.
+The next work is to promote the best remaining bulk-shaped registry-only candidates into fixture adapters, make opt-in URL workflows more source-aware, improve Minnesota, Oregon, Texas, and Washington fixture coverage, and deepen territory source research. Broader adapter coverage should come after registry validation, source-quality reporting, Level 4 verification semantics, and adapter contracts stay boring and predictable.
 
 See [docs/roadmap.md](docs/roadmap.md) for the current plan.

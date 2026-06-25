@@ -12,6 +12,11 @@ const implementedVerificationCases = [
     missingLicense: "CGC000000",
   },
   {
+    sourceId: "us.mn.dli.licenses_registrations",
+    fixturePath: "packages/adapter-mn-dli/fixtures/licenses-registrations-sample.csv",
+    missingLicense: "MNDLI999999",
+  },
+  {
     sourceId: "us.or.ccb.active_licenses",
     fixturePath: "packages/adapter-or-ccb/fixtures/active-licenses-sample.csv",
     missingLicense: "ORCCB999",

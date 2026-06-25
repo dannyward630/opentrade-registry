@@ -19,11 +19,11 @@ describe("source quality report", () => {
     expect(report.researchedTerritoryCount).toBe(5);
     expect(report.coverageByStatus.not_started ?? 0).toBe(0);
     expect(report.territoryCoverageByStatus.registry_entry_added).toBe(5);
-    expect(report.sourcesByMaturity.registry_only).toBe(52);
-    expect(report.sourcesByMaturity.fixture_adapter).toBe(3);
+    expect(report.sourcesByMaturity.registry_only).toBe(51);
+    expect(report.sourcesByMaturity.fixture_adapter).toBe(4);
     expect(report.sourcesByMaturity.local_file_adapter).toBe(1);
-    expect(report.sourcesByAdapterQualityLevel["0"]).toBe(52);
-    expect(report.sourcesByAdapterQualityLevel["4"]).toBe(4);
+    expect(report.sourcesByAdapterQualityLevel["0"]).toBe(51);
+    expect(report.sourcesByAdapterQualityLevel["4"]).toBe(5);
     expect(report.metadataCompleteness.requiredFields).toEqual([
       "documentationUrl",
       "updateFrequency",
@@ -54,6 +54,7 @@ describe("source quality report", () => {
     expect(report.implementedSourcesNeedingLevel4).toEqual([]);
     expect(report.implementedAdapterSources.map((source: { id: string }) => source.id)).toEqual([
       "us.fl.dbpr.construction",
+      "us.mn.dli.licenses_registrations",
       "us.or.ccb.active_licenses",
       "us.tx.tdlr.all_licenses",
       "us.wa.lni.contractors",
@@ -95,7 +96,6 @@ describe("source quality report", () => {
       "us.ca.cslb.contractors",
       "us.il.idfpr.roofing_contractors",
       "us.in.pla.professional_licenses",
-      "us.mn.dli.licenses_registrations",
     ]);
   });
 
@@ -108,6 +108,7 @@ describe("source quality report", () => {
     expect(result.status).toBe(0);
     expect(result.stderr).toBe("");
     expect(result.stdout).toContain("implemented adapter sources:");
+    expect(result.stdout).toContain("- us.mn.dli.licenses_registrations (bulk_xlsx, fixture_adapter)");
     expect(result.stdout).toContain("- us.tx.tdlr.all_licenses (bulk_csv, fixture_adapter)");
     expect(result.stdout).toContain("territory sources:");
     expect(result.stdout).toContain("- us.pr.daco.contractors (html_lookup, registry_only)");

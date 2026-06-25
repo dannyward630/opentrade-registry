@@ -9,10 +9,9 @@ Default implementation rule: start fixture-first from tiny hand-authored records
 | Priority | Source ID | Why It Is Plausible | Main Review Before Code |
 | --- | --- | --- | --- |
 | 1 | `us.ca.cslb.contractors` | Statewide CSLB data portal describes downloadable master-list data for licensed contractors. | Confirm master-list columns, companion-file boundaries, terms, redistribution posture, and whether XLSX parsing should be introduced or converted through a fixture-safe path. |
-| 2 | `us.mn.dli.licenses_registrations` | Official Minnesota DLI page describes a downloadable spreadsheet for Construction Codes and Licensing Division records. | Confirm file URL, columns, license-type filters, and how to avoid treating bonds, certifications, or registrations as contractor licenses without type review. |
-| 3 | `us.ak.commerce.construction_contractors` | Alaska CBPL search metadata indicates construction contractor records and download-shaped access may exist. | Confirm exact download format, contractor endorsement modeling, and separation from business-license and corporation records. |
-| 4 | `us.il.idfpr.roofing_contractors` | Illinois IDFPR documents lookup and bulk lookup paths, scoped here to roofing contractor licensing. | Confirm roofing-specific export availability, columns, update freshness text, and whether other Illinois trade sources need separate entries. |
-| 5 | `us.in.pla.professional_licenses` | Indiana PLA references professional license verification, downloads, and API-shaped access. | Narrow construction-relevant credential types and confirm local-license exclusions, access requirements, and download/API terms. |
+| 2 | `us.ak.commerce.construction_contractors` | Alaska CBPL search metadata indicates construction contractor records and download-shaped access may exist. | Confirm exact download format, contractor endorsement modeling, and separation from business-license and corporation records. |
+| 3 | `us.il.idfpr.roofing_contractors` | Illinois IDFPR documents lookup and bulk lookup paths, scoped here to roofing contractor licensing. | Confirm roofing-specific export availability, columns, update freshness text, and whether other Illinois trade sources need separate entries. |
+| 4 | `us.in.pla.professional_licenses` | Indiana PLA references professional license verification, downloads, and API-shaped access. | Narrow construction-relevant credential types and confirm local-license exclusions, access requirements, and download/API terms. |
 
 ## Required Evidence To Promote A Candidate
 
@@ -25,6 +24,8 @@ A registry-only candidate can become a fixture adapter only after maintainers ca
 - neutral verification wording for matched, not-found, ambiguous, and invalid-input outcomes;
 - tests that run without live agency network access;
 - updated registry metadata, coverage status, package docs, and source-quality expectations.
+
+Minnesota DLI has moved out of this queue as a fixture adapter. It still needs live XLSX research before any local-file or opt-in-network promotion.
 
 ## Candidate Caveats
 

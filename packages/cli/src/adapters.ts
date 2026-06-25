@@ -1,4 +1,5 @@
 import { floridaDbprConstructionAdapter, FL_DBPR_CONSTRUCTION_SOURCE_ID } from "@opentrade/adapter-fl-dbpr";
+import { minnesotaDliLicensesRegistrationsAdapter, MN_DLI_LICENSES_REGISTRATIONS_SOURCE_ID } from "@opentrade/adapter-mn-dli";
 import { oregonCcbActiveLicensesAdapter, OR_CCB_ACTIVE_LICENSES_SOURCE_ID } from "@opentrade/adapter-or-ccb";
 import { texasTdlrAllLicensesAdapter, TX_TDLR_ALL_LICENSES_SOURCE_ID } from "@opentrade/adapter-tx-tdlr";
 import { washingtonLniContractorsAdapter, WA_LNI_CONTRACTORS_SOURCE_ID } from "@opentrade/adapter-wa-lni";
@@ -6,6 +7,7 @@ import type { TradeLicenseSourceAdapter } from "@opentrade/core";
 
 const adapters = new Map<string, TradeLicenseSourceAdapter>([
   [FL_DBPR_CONSTRUCTION_SOURCE_ID, floridaDbprConstructionAdapter],
+  [MN_DLI_LICENSES_REGISTRATIONS_SOURCE_ID, minnesotaDliLicensesRegistrationsAdapter],
   [OR_CCB_ACTIVE_LICENSES_SOURCE_ID, oregonCcbActiveLicensesAdapter],
   [TX_TDLR_ALL_LICENSES_SOURCE_ID, texasTdlrAllLicensesAdapter],
   [WA_LNI_CONTRACTORS_SOURCE_ID, washingtonLniContractorsAdapter],

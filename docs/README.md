@@ -12,6 +12,7 @@ These docs explain how the project models official sources, writes adapters, and
 - [Adapter Authoring](adapter-authoring.md): practical guidance for writing a source adapter.
 - [Adapter Candidate Priorities](adapters/candidate-priorities.md): current registry-derived queue for future fixture adapters.
 - [California CSLB Adapter Plan](adapters/california-cslb.md): early notes for a future California adapter.
+- [Minnesota DLI Adapter Notes](adapters/minnesota-dli.md): fixture support and source caveats for Minnesota DLI.
 - [Oregon CCB Adapter Notes](adapters/oregon-ccb.md): fixture support and active-source caveats for Oregon CCB.
 - [Texas TDLR Adapter Notes](adapters/texas-tdlr.md): fixture support and source caveats for Texas TDLR.
 - [Washington L&I Adapter Notes](adapters/washington-lni.md): fixture support and source caveats for Washington L&I.
