@@ -23,6 +23,9 @@ importers:
       '@opentrade/core':
         specifier: workspace:*
         version: link:packages/core
+      '@opentrade/storage-sqlite':
+        specifier: workspace:*
+        version: link:packages/storage-sqlite
       '@supabase/supabase-js':
         specifier: ^2.87.1
         version: 2.108.2
@@ -114,6 +117,12 @@ importers:
       zod:
         specifier: ^4.4.3
         version: 4.4.3
+
+  packages/storage-sqlite:
+    dependencies:
+      '@opentrade/core':
+        specifier: workspace:*
+        version: link:../core
 
 packages:
 

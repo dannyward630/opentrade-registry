@@ -7,6 +7,7 @@ const packages = [
   "packages/adapter-or-ccb",
   "packages/adapter-tx-tdlr",
   "packages/adapter-wa-lni",
+  "packages/storage-sqlite",
   "packages/cli",
 ];
 

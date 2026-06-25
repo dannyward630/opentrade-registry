@@ -1,0 +1,47 @@
+{
+  "name": "@opentrade/storage-sqlite",
+  "version": "0.2.0",
+  "type": "module",
+  "description": "Driverless SQLite schema and row helpers for storing OpenTrade Registry canonical records.",
+  "license": "MIT",
+  "homepage": "https://github.com/dannyward630/opentrade-registry#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dannyward630/opentrade-registry.git",
+    "directory": "packages/storage-sqlite"
+  },
+  "bugs": {
+    "url": "https://github.com/dannyward630/opentrade-registry/issues"
+  },
+  "keywords": [
+    "opentrade",
+    "sqlite",
+    "contractor-licenses",
+    "public-records",
+    "license-verification",
+    "typescript"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
+  },
+  "dependencies": {
+    "@opentrade/core": "workspace:*"
+  }
+}
