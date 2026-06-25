@@ -31,6 +31,11 @@ import {
   washingtonLniContractorsAdapter,
   WA_LNI_CONTRACTORS_SOURCE_ID,
 } from "@opentrade/adapter-wa-lni";
+import {
+  buildInsertLicenseRecordSql,
+  SQLITE_LICENSE_RECORD_TABLE,
+  SQLITE_SCHEMA_VERSION,
+} from "@opentrade/storage-sqlite";
 
 describe("public package imports", () => {
   it("imports stable public APIs from core and the Florida adapter", () => {
@@ -75,5 +80,7 @@ describe("public package imports", () => {
         expirationDate: "2099-12-31T00:00:00.000Z",
       } as Parameters<typeof normalizeWashingtonLniStatus>[0]).normalized,
     ).toBe("suspended");
+    expect(SQLITE_SCHEMA_VERSION).toBe(1);
+    expect(buildInsertLicenseRecordSql()).toContain(`insert into ${SQLITE_LICENSE_RECORD_TABLE}`);
   });
 });

@@ -54,6 +54,12 @@ The optional hosted layer provides:
 
 The hosted layer does not provide a hosted verification API, background importer, account system, browser automation, or generated public-record dataset publishing.
 
+## Optional Storage Capability
+
+`@opentrade/storage-sqlite` provides a driverless SQLite schema and row helpers for canonical records. It is intended for applications that want a local cache while keeping OpenTrade usable without hosted services, credentials, or database setup.
+
+The package does not include a SQLite driver, migration runner, importer, or generated dataset. Applications choose their own SQLite runtime and remain responsible for source terms, retention choices, redaction, and redistribution limits.
+
 ## Default Safety Invariants
 
 - Normal tests do not contact agency websites.

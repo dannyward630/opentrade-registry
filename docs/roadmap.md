@@ -41,7 +41,7 @@ OpenTrade Registry is early, but the registry foundation is now broad: all state
 - Adapter quality badges.
 - Shared import pipeline hardening, including row-level sync error reporting.
 - More source registry and adapter metadata consistency checks.
-- Possible SQLite cache research.
+- SQLite storage helper follow-up: migration versioning, example app integration, and retention/redaction guidance.
 
 ## v0.4
 
@@ -60,7 +60,7 @@ OpenTrade Registry is early, but the registry foundation is now broad: all state
 
 ## Later
 
-- SQLite or Postgres export packages.
+- Postgres export package and richer SQLite migration helpers.
 - More state and local sources.
 - Optional portal adapters where lawful and technically stable.
 - Complaint and discipline data where the source terms, format, and caveats are understood.
