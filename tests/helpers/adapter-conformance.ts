@@ -6,6 +6,7 @@ import { expect } from "vitest";
 export type AdapterConformanceCase = {
   adapter: TradeLicenseSourceAdapter;
   registryPath: string;
+  expectedFixtureRecordCount: number;
 };
 
 export async function expectAdapterConforms(input: AdapterConformanceCase): Promise<void> {
@@ -28,19 +29,33 @@ export async function expectAdapterConforms(input: AdapterConformanceCase): Prom
   for await (const rawRecord of input.adapter.streamRawRecords({
     filePath: join(process.cwd(), metadata.testFixturePath!),
     fetchedAt: "2026-06-21T00:00:00.000Z",
-    limit: 1,
   })) {
     rawRecords.push(rawRecord);
   }
 
-  expect(rawRecords).toHaveLength(1);
-  expect(rawRecords[0].sourceId).toBe(input.adapter.sourceId);
-  expect(rawRecords[0].fingerprint).toMatch(/^[a-f0-9]{64}$/);
+  expect(rawRecords).toHaveLength(input.expectedFixtureRecordCount);
+  const rawFingerprints = new Set<string>();
 
-  const normalized = await input.adapter.normalize(rawRecords[0]);
-  expect(canonicalTradeLicenseRecordSchema.parse(normalized)).toBeDefined();
-  expect(normalized.sourceId).toBe(input.adapter.sourceId);
-  expect(normalized.source.sourceUrl).toBe(metadata.sourceUrl);
-  expect(normalized.source.caveats?.length).toBeGreaterThan(0);
-  expect(normalized.raw.fingerprint).toMatch(/^[a-f0-9]{64}$/);
+  for (const rawRecord of rawRecords) {
+    expect(rawRecord.sourceId).toBe(input.adapter.sourceId);
+    expect(rawRecord.fetchedAt).toBe("2026-06-21T00:00:00.000Z");
+    expect(rawRecord.fingerprint).toMatch(/^[a-f0-9]{64}$/);
+    rawFingerprints.add(rawRecord.fingerprint);
+
+    const normalized = canonicalTradeLicenseRecordSchema.parse(await input.adapter.normalize(rawRecord));
+    expect(normalized.sourceId).toBe(input.adapter.sourceId);
+    expect(normalized.jurisdiction.country).toBe(metadata.jurisdiction.country);
+    expect(normalized.jurisdiction.state).toBe(metadata.jurisdiction.state);
+    expect(normalized.agency).toEqual(metadata.agency);
+    expect(normalized.source.sourceUrl).toBe(metadata.sourceUrl);
+    expect(normalized.source.sourceType).toBe(metadata.sourceType);
+    expect(normalized.source.fetchedAt).toBe(rawRecord.fetchedAt);
+    expect(normalized.source.sourceLastModifiedAt ?? null).toBe(rawRecord.sourceLastModifiedAt ?? null);
+    expect(normalized.source.redistributionStatus).toBe(metadata.redistributionStatus);
+    expect(normalized.source.caveats?.length).toBeGreaterThan(0);
+    expect(normalized.raw.record).toBeDefined();
+    expect(normalized.raw.fingerprint).toBe(rawRecord.fingerprint);
+  }
+
+  expect(rawFingerprints.size).toBe(rawRecords.length);
 }
