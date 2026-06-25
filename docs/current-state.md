@@ -12,6 +12,7 @@ As of the current repository state:
 - `52` sources are registry-only metadata entries.
 - `4` sources have implemented adapters.
 - `5` unimplemented sources are currently bulk-shaped adapter candidates according to `corepack pnpm source:quality`.
+- All current source entries include the required metadata fields checked by `source:quality`: documentation, update frequency, known exclusions, rate-limit notes, public-record notes, bulk-download notes, research notes, and maintainer notes.
 
 Registry coverage is not the same as end-to-end verification support. A registry-only source has source metadata and caveats, but it cannot be synced or checked with `opentrade verify` until an adapter exists.
 

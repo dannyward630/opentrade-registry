@@ -10,6 +10,19 @@ const options = new Set(process.argv.slice(2));
 const sources = await loadSources(sourcesRoot);
 const coverage = JSON.parse(await readFile(coveragePath, "utf8"));
 const territoryCoverage = JSON.parse(await readFile(territoryCoveragePath, "utf8"));
+const REQUIRED_METADATA_FIELDS = [
+  "documentationUrl",
+  "updateFrequency",
+  "knownExclusions",
+  "rateLimitNotes",
+  "publicRecordsNotes",
+  "officialBulkDownloadNotes",
+  "researchNotes",
+  "maintainerNotes",
+];
+const missingRequiredMetadataByField = Object.fromEntries(
+  REQUIRED_METADATA_FIELDS.map((field) => [field, sources.filter((source) => isEmptyMetadataValue(source[field])).map(toSourceSummary)]),
+);
 
 const report = {
   sourceCount: sources.length,
@@ -22,6 +35,22 @@ const report = {
   sourcesByType: countBy(sources, (source) => source.sourceType),
   sourcesByMaturity: countBy(sources, (source) => source.adapterMaturity),
   sourcesByAdapterQualityLevel: countBy(sources, (source) => String(source.adapterQualityLevel ?? 0)),
+  metadataCompleteness: {
+    requiredFields: REQUIRED_METADATA_FIELDS,
+    missingRequiredMetadataByField,
+    missingRequiredMetadataSources: [
+      ...new Map(
+        Object.values(missingRequiredMetadataByField)
+          .flat()
+          .map((source) => [source.id, source]),
+      ).values(),
+    ].sort((a, b) => a.id.localeCompare(b.id)),
+    termsUrlMissingSources: sources.filter((source) => isEmptyMetadataValue(source.termsUrl)).map(toSourceSummary),
+    officialLookupUrlMissingSources: sources.filter((source) => isEmptyMetadataValue(source.officialLookupUrl)).map(toSourceSummary),
+    implementedVerificationCaveatsMissingSources: sources
+      .filter((source) => source.adapterStatus === "implemented" && isEmptyMetadataValue(source.verificationCaveats))
+      .map(toSourceSummary),
+  },
   implementedSourcesNeedingLevel4: sources
     .filter((source) => source.adapterStatus === "implemented" && source.adapterQualityLevel !== 4)
     .map(toSourceSummary),
@@ -101,6 +130,10 @@ function isUnimplementedBulkAdapterCandidate(source) {
   return ["planned", "experimental"].includes(source.adapterStatus) && !["blocked", "deprecated"].includes(source.adapterMaturity) && isBulkShapedCandidate(source);
 }
 
+function isEmptyMetadataValue(value) {
+  return value === undefined || value === null || value === "" || (Array.isArray(value) && value.length === 0);
+}
+
 function printHumanReport(report) {
   console.log("OpenTrade Registry source quality report");
   console.log(`sources: ${report.sourceCount}`);
@@ -113,6 +146,7 @@ function printHumanReport(report) {
   printCounts("sources by type", report.sourcesByType);
   printCounts("sources by adapter maturity", report.sourcesByMaturity);
   printCounts("sources by adapter quality level", report.sourcesByAdapterQualityLevel);
+  printMetadataCompleteness(report.metadataCompleteness);
   printSourceList("implemented sources needing Level 4 review", report.implementedSourcesNeedingLevel4);
   printSourceList("implemented adapter sources", report.implementedAdapterSources);
   printSourceList("territory sources", report.territorySources);
@@ -120,6 +154,15 @@ function printHumanReport(report) {
   printSourceList("bulk candidates", report.bulkCandidates);
   printSourceList("unimplemented bulk adapter candidates", report.unimplementedBulkAdapterCandidates);
   printSourceList("lookup-only sources", report.lookupOnlySources);
+}
+
+function printMetadataCompleteness(metadataCompleteness) {
+  console.log("\nmetadata completeness:");
+  console.log(`- required fields checked: ${metadataCompleteness.requiredFields.join(", ")}`);
+  printSourceList("sources missing required metadata", metadataCompleteness.missingRequiredMetadataSources);
+  printSourceList("sources missing terms URL", metadataCompleteness.termsUrlMissingSources);
+  printSourceList("sources missing official lookup URL", metadataCompleteness.officialLookupUrlMissingSources);
+  printSourceList("implemented sources missing verification caveats", metadataCompleteness.implementedVerificationCaveatsMissingSources);
 }
 
 function isTerritoryCode(value) {
