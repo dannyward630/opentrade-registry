@@ -17,6 +17,7 @@ describe("source readiness helpers", () => {
     expect(readiness.sourceCount).toBe(56);
     expect(readiness.implementedAdapterSources.map((source) => source.id)).toEqual([
       "us.fl.dbpr.construction",
+      "us.mn.dli.licenses_registrations",
       "us.or.ccb.active_licenses",
       "us.tx.tdlr.all_licenses",
       "us.wa.lni.contractors",
@@ -26,9 +27,8 @@ describe("source readiness helpers", () => {
       "us.ca.cslb.contractors",
       "us.il.idfpr.roofing_contractors",
       "us.in.pla.professional_licenses",
-      "us.mn.dli.licenses_registrations",
     ]);
-    expect(readiness.registryOnlySourceCount).toBe(52);
+    expect(readiness.registryOnlySourceCount).toBe(51);
     expect(readiness.note).toContain("planning signal only");
   });
 
