@@ -2,7 +2,7 @@
 import { existsSync } from "node:fs";
 import { dirname, join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
-import { listSources, showSource, showSourceReadiness } from "./commands/sources.js";
+import { listSources, showSource, showSourceCoverage, showSourceReadiness } from "./commands/sources.js";
 import { syncSource } from "./commands/sync.js";
 import { validateSources } from "./commands/validate.js";
 import { verifyLicense } from "./commands/verify.js";
@@ -40,6 +40,11 @@ async function main() {
 
     if (subcommand === "readiness") {
       await showSourceReadiness(rootDir, { json });
+      return;
+    }
+
+    if (subcommand === "coverage") {
+      await showSourceCoverage(rootDir, { json });
       return;
     }
 
@@ -135,6 +140,7 @@ Commands:
   opentrade sources list [--json]
   opentrade sources show <sourceId> [--json]
   opentrade sources readiness [--json]
+  opentrade sources coverage [--json]
   opentrade sources validate [--json]
   opentrade sync <sourceId> --file <path> --out <path> [--format jsonl|csv] [--json] [--strict]
   opentrade sync <sourceId> --url <sourceUrl> --allow-network --out <path> [--format jsonl|csv] [--json] [--strict]

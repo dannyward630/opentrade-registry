@@ -8,6 +8,7 @@ The CLI is the simplest way to use OpenTrade Registry from this repository. It l
 opentrade sources list
 opentrade sources show us.tx.tdlr.all_licenses
 opentrade sources readiness
+opentrade sources coverage
 opentrade sources validate
 opentrade sync us.fl.dbpr.construction --file ./fixture.csv --out ./records.jsonl
 opentrade sync us.fl.dbpr.construction --url <official-csv-url> --allow-network --out ./records.jsonl
@@ -20,7 +21,7 @@ opentrade verify --source us.fl.dbpr.construction --file ./fixture.csv --license
 
 Use `--json` when you need structured output. Use `--strict` for sync commands that should fail on the first row-level normalization error.
 
-`sources list` and `sources show` include registry-only sources. `sources readiness` summarizes implemented adapters and unimplemented bulk-shaped candidates from local registry metadata. Candidate status is only a planning signal; review source terms, fixture safety, field shape, filters, and verification caveats before implementation. `sync` and `verify` only run for sources with implemented adapters. URL sync requires `--allow-network`.
+`sources list` and `sources show` include registry-only sources. `sources readiness` summarizes implemented adapters and unimplemented bulk-shaped candidates from local registry metadata. `sources coverage` summarizes state, DC, and major territory coverage index status. Candidate and coverage status are planning signals only; review source terms, fixture safety, field shape, filters, and verification caveats before implementation. `sync` and `verify` only run for sources with implemented adapters. URL sync requires `--allow-network`.
 
 ## Exit Codes
 
