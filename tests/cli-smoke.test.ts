@@ -22,6 +22,8 @@ describe("opentrade CLI", () => {
     expect(help).toContain("Network sync requires --allow-network.");
     expect(help).toContain("opentrade sources readiness [--json]");
     expect(help).toContain("opentrade sources coverage [--json]");
+    expect(help).toContain("opentrade sources list [--state CA]");
+    expect(help).toContain("opentrade sources list [--implemented | --registry-only | --bulk-candidates] [--json]");
     expect(help).toContain("opentrade sync <sourceId> --url <sourceUrl> --allow-network --out <path>");
     expect(help).toContain("adapter maturity");
     expect(help).not.toContain("v0.1 does not download live agency data");
@@ -120,6 +122,49 @@ describe("opentrade CLI", () => {
     expect(puertoRico).toContain("Puerto Rico DACO Registered Contractors List");
     expect(puertoRico).toContain("maturity: registry_only");
     expect(runCli(["sources", "validate"]).stdout).toContain("Validated 56 source registry entries.");
+  }, 15000);
+
+  it("filters source listings for discovery workflows", () => {
+    const california = runCli(["sources", "list", "--state", "CA"]).stdout;
+    expect(california).toContain("us.ca.cslb.contractors");
+    expect(california).not.toContain("us.fl.dbpr.construction");
+
+    const implemented = runCli(["sources", "list", "--implemented"]).stdout;
+    expect(implemented).toContain("us.fl.dbpr.construction");
+    expect(implemented).toContain("us.or.ccb.active_licenses");
+    expect(implemented).toContain("us.tx.tdlr.all_licenses");
+    expect(implemented).toContain("us.wa.lni.contractors");
+    expect(implemented).not.toContain("us.ca.cslb.contractors");
+
+    const registryOnlyJson = JSON.parse(runCli(["sources", "list", "--registry-only", "--json"]).stdout);
+    expect(registryOnlyJson).toHaveLength(52);
+    expect(registryOnlyJson.every((source: { adapterMaturity: string }) => source.adapterMaturity === "registry_only")).toBe(true);
+
+    const bulkCandidatesJson = JSON.parse(runCli(["sources", "list", "--bulk-candidates", "--json"]).stdout);
+    expect(bulkCandidatesJson.map((source: { id: string }) => source.id)).toEqual([
+      "us.ak.commerce.construction_contractors",
+      "us.ca.cslb.contractors",
+      "us.il.idfpr.roofing_contractors",
+      "us.in.pla.professional_licenses",
+      "us.mn.dli.licenses_registrations",
+    ]);
+
+    const level4Json = JSON.parse(runCli(["sources", "list", "--quality-level", "4", "--json"]).stdout);
+    expect(level4Json.map((source: { id: string }) => source.id)).toEqual([
+      "us.fl.dbpr.construction",
+      "us.or.ccb.active_licenses",
+      "us.tx.tdlr.all_licenses",
+      "us.wa.lni.contractors",
+    ]);
+
+    const noMatch = runCli(["sources", "list", "--state", "ZZ"]).stdout;
+    expect(noMatch).toContain("No source registry entries matched the requested filters.");
+
+    const invalidQuality = runCli(["sources", "list", "--quality-level", "not-a-number"], 2, { allowStderr: true });
+    expect(invalidQuality.stderr).toContain("Invalid numeric value for --quality-level");
+
+    const invalidMaturity = runCli(["sources", "list", "--maturity", "fixture"], 2, { allowStderr: true });
+    expect(invalidMaturity.stderr).toContain("Invalid value for --maturity");
   }, 15000);
 
   it("summarizes source readiness for implemented adapters and candidate adapters", () => {
