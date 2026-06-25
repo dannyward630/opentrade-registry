@@ -20,6 +20,12 @@ New states should usually start as `registry_only`. Move to adapter work after t
 
 `adapterMaturity` tracks capability. `adapterQualityLevel` tracks review depth. An implemented adapter should not be treated as a public-ready verification path until it has Level 4 metadata in the source registry: a review timestamp, source-specific verification caveats, and neutral no-match semantics.
 
+Adapter maturity can also represent lifecycle outcomes beyond active support:
+
+- `production_ready`: stable adapter behavior, source-shape review, documented limits, Level 4 verification semantics, and operational guidance are all current.
+- `blocked`: adapter work should not proceed until a legal, access, source-shape, or technical blocker changes.
+- `deprecated`: the adapter or source should no longer be used.
+
 ## Moving A Source Through The Levels
 
 Level 0 to Level 1:
@@ -49,6 +55,20 @@ Level 3 or lower to Level 4:
 - Test matched, not-found, ambiguous, and invalid-input verification states.
 - Preserve this no-match language: `No matching record was found in this source as of the checked time.`
 - Avoid wording that implies a person or business lacks a license outside the checked source and time.
+
+Level 4 to `production_ready`:
+
+- Confirm the adapter handles real current source files or opt-in source access without relying only on tiny fixtures.
+- Confirm source terms, redistribution posture, update cadence, and known exclusions are documented.
+- Keep conformance tests, CLI smoke tests, and source-specific parser/mapping tests green.
+- Document operational limits, expected warnings, and what users should do when source fields change.
+- Keep generated datasets out of the repository.
+
+Any level to `blocked` or `deprecated`:
+
+- Record the reason in `researchNotes`, `maintainerNotes`, or source-specific docs.
+- Keep the source registry entry if it helps users avoid a dead end.
+- Do not let blocked or deprecated sources appear as implemented adapter candidates.
 
 ## Expected Package Shape
 
