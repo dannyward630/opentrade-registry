@@ -42,7 +42,7 @@ Remove `out.jsonl` and `out.csv` after manual checks. The file guard should reje
 - Confirm `corepack pnpm source:quality` matches the README and source-registry docs.
 - Confirm registry-only sources are not described as implemented adapters.
 - Confirm fixture adapters are described as tiny fixture support, not full-source coverage.
-- Confirm Florida URL sync remains opt-in with `--url` and `--allow-network`.
+- Confirm Florida URL sync and URL verification remain opt-in with `--url` and `--allow-network`.
 - Confirm no generated public-record datasets are committed or attached to a release.
 - Keep no-match wording neutral: “No matching record was found in this source as of the checked time.”
 

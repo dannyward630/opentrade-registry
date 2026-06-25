@@ -24,6 +24,7 @@ export const floridaDbprConstructionAdapter: TradeLicenseSourceAdapter = {
 
     yield* streamConstructionCsvFile({
       filePath: options.filePath,
+      sourceUrl: options.sourceUrl,
       fetchedAt: options.fetchedAt,
       sourceLastModifiedAt: options.sourceLastModifiedAt,
       limit: options.limit,
@@ -55,7 +56,7 @@ export function normalizeFloridaDbprConstructionRecord(raw: RawSourceRecord): Ca
     },
     agency: FL_DBPR_SOURCE_ENTRY.agency,
     source: {
-      sourceUrl: FL_DBPR_CONSTRUCTION_SOURCE_URL,
+      sourceUrl: raw.sourceUrl ?? FL_DBPR_CONSTRUCTION_SOURCE_URL,
       sourceType: "bulk_csv",
       fetchedAt: raw.fetchedAt,
       sourceLastModifiedAt: raw.sourceLastModifiedAt ?? undefined,

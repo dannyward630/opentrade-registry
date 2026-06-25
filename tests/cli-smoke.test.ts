@@ -19,12 +19,13 @@ describe("opentrade CLI", () => {
   it("prints release-current help text for local-first and opt-in URL sync", () => {
     const help = runCli(["help"]).stdout;
     expect(help).toContain("Default commands do not contact agency sites.");
-    expect(help).toContain("Network sync requires --allow-network.");
+    expect(help).toContain("Network sync and verification require --allow-network.");
     expect(help).toContain("opentrade sources readiness [--json]");
     expect(help).toContain("opentrade sources coverage [--json]");
     expect(help).toContain("opentrade sources list [--state CA]");
     expect(help).toContain("opentrade sources list [--implemented | --registry-only | --bulk-candidates] [--json]");
     expect(help).toContain("opentrade sync <sourceId> --url <sourceUrl> --allow-network --out <path>");
+    expect(help).toContain("opentrade verify --source <sourceId> --url <sourceUrl> --allow-network --license <licenseNumber>");
     expect(help).toContain("adapter maturity");
     expect(help).not.toContain("v0.1 does not download live agency data");
   });
@@ -570,8 +571,49 @@ describe("opentrade CLI", () => {
       expect(json.remoteSnapshot.lastModifiedAt).toBe("2026-01-01T00:00:00.000Z");
       expect(json.remoteSnapshot.etag).toBe("\"fixture\"");
       expect(readFileSync(outPath, "utf8").trim().split("\n")).toHaveLength(5);
+      expect(JSON.parse(readFileSync(outPath, "utf8").trim().split("\n")[0]).source.sourceUrl).toBe(server.url);
     } finally {
       rmSync(dir, { recursive: true, force: true });
+      await server.close();
+    }
+  });
+
+  it("verifies from an explicit URL only when network access is opted in", async () => {
+    const blocked = runCli(
+      [
+        "verify",
+        "--source",
+        "us.fl.dbpr.construction",
+        "--url",
+        "https://example.test/source.csv",
+        "--license",
+        "CGC012345",
+      ],
+      3,
+      { allowStderr: true },
+    );
+    expect(blocked.stderr).toContain("Network verification requires --allow-network.");
+
+    const fixture = readFileSync(sampleFixture, "utf8");
+    const server = await startFixtureServer(fixture);
+    try {
+      const matched = await runCliAsync([
+        "verify",
+        "--source",
+        "us.fl.dbpr.construction",
+        "--url",
+        server.url,
+        "--allow-network",
+        "--license",
+        "CGC012345",
+        "--json",
+      ]);
+      const json = JSON.parse(matched.stdout);
+      expect(json.result).toBe("matched");
+      expect(json.matchedRecord.license.licenseNumber).toBe("CGC012345");
+      expect(json.matchedRecord.source.sourceUrl).toBe(server.url);
+      expect(json.matchedRecord.source.sourceLastModifiedAt).toBe("2026-01-01T00:00:00.000Z");
+    } finally {
       await server.close();
     }
   });

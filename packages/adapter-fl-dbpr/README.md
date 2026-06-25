@@ -2,7 +2,7 @@
 
 This package reads Florida DBPR construction-license CSV records from local files and maps them into the OpenTrade canonical schema.
 
-It is the first implemented adapter. It reads local files, and the CLI can now fetch the official bulk CSV when users explicitly pass `--allow-network`.
+It is the first implemented adapter. It reads local files, and the CLI can now fetch the official bulk CSV for sync or verification when users explicitly pass `--allow-network`.
 
 ## Public Imports
 

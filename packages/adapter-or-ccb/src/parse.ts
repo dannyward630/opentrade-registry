@@ -15,6 +15,7 @@ export function parseOregonCcbCsvRow(line: string, header: string[] = [...OR_CCB
 
 export async function* streamOregonCcbCsvFile(input: {
   filePath: string;
+  sourceUrl?: string;
   fetchedAt?: string;
   sourceLastModifiedAt?: string | null;
   limit?: number;
@@ -44,6 +45,7 @@ export async function* streamOregonCcbCsvFile(input: {
       const record = parseOregonCcbCsvRow(trimmedLine, header);
       yield {
         sourceId: OR_CCB_ACTIVE_LICENSES_SOURCE_ID,
+        sourceUrl: input.sourceUrl,
         record,
         rowNumber,
         fetchedAt,

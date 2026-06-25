@@ -15,6 +15,7 @@ export function parseConstructionCsvRow(line: string): DbprConstructionRow {
 
 export async function* streamConstructionCsvFile(input: {
   filePath: string;
+  sourceUrl?: string;
   fetchedAt?: string;
   sourceLastModifiedAt?: string | null;
   limit?: number;
@@ -37,6 +38,7 @@ export async function* streamConstructionCsvFile(input: {
       const record = parseConstructionCsvRow(trimmedLine);
       yield {
         sourceId: FL_DBPR_CONSTRUCTION_SOURCE_ID,
+        sourceUrl: input.sourceUrl,
         record,
         rowNumber,
         fetchedAt,

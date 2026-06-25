@@ -15,6 +15,7 @@ export function parseWashingtonLniCsvRow(line: string, header: string[] = [...WA
 
 export async function* streamWashingtonLniCsvFile(input: {
   filePath: string;
+  sourceUrl?: string;
   fetchedAt?: string;
   sourceLastModifiedAt?: string | null;
   limit?: number;
@@ -44,6 +45,7 @@ export async function* streamWashingtonLniCsvFile(input: {
       const record = parseWashingtonLniCsvRow(trimmedLine, header);
       yield {
         sourceId: WA_LNI_CONTRACTORS_SOURCE_ID,
+        sourceUrl: input.sourceUrl,
         record,
         rowNumber,
         fetchedAt,

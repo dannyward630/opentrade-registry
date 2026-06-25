@@ -88,6 +88,9 @@ async function main() {
       rootDir,
       sourceId: stringFlag(parsed, "source"),
       file: stringFlag(parsed, "file"),
+      url: stringFlag(parsed, "url"),
+      allowNetwork: parsed.flags["allow-network"] === true,
+      sourceLastModifiedAt: stringFlag(parsed, "source-last-modified"),
       license: stringFlag(parsed, "license"),
       json,
     });
@@ -173,8 +176,8 @@ function findProjectRoot(): string {
 function printHelp() {
   console.log(`OpenTrade Registry CLI
 
-Work with registered public sources, supported local files, and explicit opt-in URL sync.
-Default commands do not contact agency sites. Network sync requires --allow-network.
+Work with registered public sources, supported local files, and explicit opt-in URL sync or verification.
+Default commands do not contact agency sites. Network sync and verification require --allow-network.
 
 Commands:
   opentrade sources list [--json]
@@ -187,8 +190,9 @@ Commands:
   opentrade sync <sourceId> --file <path> --out <path> [--format jsonl|csv] [--json] [--strict]
   opentrade sync <sourceId> --url <sourceUrl> --allow-network --out <path> [--format jsonl|csv] [--json] [--strict]
   opentrade verify --source <sourceId> --file <path> --license <licenseNumber> [--json]
+  opentrade verify --source <sourceId> --url <sourceUrl> --allow-network --license <licenseNumber> [--json]
 
-Use "sources show" before syncing a source to review coverage, caveats, adapter maturity, and data-use notes.
+Use "sources show" before syncing or verifying a source to review coverage, caveats, adapter maturity, and data-use notes.
 `);
 }
 

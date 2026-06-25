@@ -24,6 +24,7 @@ export const washingtonLniContractorsAdapter: TradeLicenseSourceAdapter = {
 
     yield* streamWashingtonLniCsvFile({
       filePath: options.filePath,
+      sourceUrl: options.sourceUrl,
       fetchedAt: options.fetchedAt,
       sourceLastModifiedAt: options.sourceLastModifiedAt,
       limit: options.limit,
@@ -49,7 +50,7 @@ export function normalizeWashingtonLniRecord(raw: RawSourceRecord): CanonicalTra
     },
     agency: WA_LNI_SOURCE_ENTRY.agency,
     source: {
-      sourceUrl: WA_LNI_CONTRACTORS_SOURCE_URL,
+      sourceUrl: raw.sourceUrl ?? WA_LNI_CONTRACTORS_SOURCE_URL,
       sourceType: "bulk_csv",
       fetchedAt: raw.fetchedAt,
       sourceLastModifiedAt: raw.sourceLastModifiedAt ?? undefined,
