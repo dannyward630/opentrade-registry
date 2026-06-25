@@ -16,7 +16,7 @@ These docs explain how the project models official sources, writes adapters, and
 - [Washington L&I Adapter Notes](adapters/washington-lni.md): fixture support and source caveats for Washington L&I.
 - [Legal And Data Use](legal-and-data-use.md): readable data-use guardrails.
 - [Hosted Deployment](deployment/vercel-supabase.md): Vercel hosting and optional database setup.
-- [Florida DBPR URL Sync](florida-dbpr-url-sync.md): explicit opt-in URL sync behavior and operational guardrails.
+- [Florida DBPR URL Sync](florida-dbpr-url-sync.md): explicit opt-in URL sync and verification behavior plus operational guardrails.
 - [Release Checklist](release-checklist.md): practical pre-tag verification steps.
 - [Roadmap](roadmap.md): modest release goals.
 - [Release Process](release-process.md): release checklist.
@@ -24,4 +24,4 @@ These docs explain how the project models official sources, writes adapters, and
 
 ## Current Boundary
 
-The project works from local files by default. URL sync requires an explicit `--allow-network` flag, and default tests do not download live agency files.
+The project works from local files by default. URL sync and URL verification require an explicit `--allow-network` flag, and default tests do not download live agency files.

@@ -27,6 +27,7 @@ export type StreamRecordsOptions = {
 
 export type RawSourceRecord = {
   sourceId: string;
+  sourceUrl?: string;
   record: unknown;
   rowNumber?: number;
   fetchedAt: string;

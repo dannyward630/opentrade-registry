@@ -24,7 +24,7 @@ They also keep source details attached: source URL, fetched time, caveats, raw r
 
 ## CLI
 
-The `opentrade` CLI is the first user-facing tool. It can list and validate source metadata, sync supported local files to JSONL or CSV, and check one license number against a local source file. URL sync is available only when callers pass `--allow-network`.
+The `opentrade` CLI is the first user-facing tool. It can list and validate source metadata, sync supported local files to JSONL or CSV, and check one license number against a local source file. URL sync and URL verification are available only when callers pass `--allow-network`.
 
 Registry-only sources still appear in `sources list` and `sources show`. `sync` and `verify` only work when an adapter is implemented.
 

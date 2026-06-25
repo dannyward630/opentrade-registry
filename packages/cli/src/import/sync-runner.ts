@@ -34,6 +34,7 @@ export async function runAdapterSync(input: {
   format: SyncFormat;
   sourceLastModifiedAt?: string | null;
   fetchedAt?: string;
+  sourceUrl?: string;
   remoteSnapshot?: RemoteSnapshotMetadata;
   strict?: boolean;
 }): Promise<SyncResult> {
@@ -53,6 +54,7 @@ export async function runAdapterSync(input: {
 
   for await (const rawRecord of input.adapter.streamRawRecords({
     filePath: resolveFromRoot(input.rootDir, input.filePath),
+    sourceUrl: input.sourceUrl,
     sourceLastModifiedAt: input.sourceLastModifiedAt,
     fetchedAt: input.fetchedAt,
   })) {

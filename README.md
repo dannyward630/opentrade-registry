@@ -11,7 +11,7 @@ OpenTrade Registry helps developers work with official contractor and skilled-tr
 
 Contractor-license data is public, but it is scattered. One agency might publish a CSV file. Another might offer an Excel download. Another might only provide a lookup page. OpenTrade Registry gives those sources a common registry, a canonical record shape, and adapter contracts so each source can be handled consistently.
 
-The current build is still intentionally small. It supports Florida DBPR construction-license records from local files, can opt into URL-based sync when `--allow-network` is provided, and includes fixture adapters for Oregon CCB, Texas TDLR, and Washington L&I. Normal tests do not download live agency data.
+The current build is still intentionally small. It supports Florida DBPR construction-license records from local files, can opt into URL-based sync and verification when `--allow-network` is provided, and includes fixture adapters for Oregon CCB, Texas TDLR, and Washington L&I. Normal tests do not download live agency data.
 
 ## What You Can Do Today
 
@@ -101,6 +101,16 @@ corepack pnpm cli -- verify \
   --license CGC012345
 ```
 
+Check one license number against an explicit source URL snapshot:
+
+```bash
+corepack pnpm cli -- verify \
+  --source us.fl.dbpr.construction \
+  --url https://www2.myfloridalicense.com/sto/file_download/extracts/CONSTRUCTIONLICENSE_1.csv \
+  --allow-network \
+  --license CGC012345
+```
+
 Try the Texas TDLR fixture adapter:
 
 ```bash
@@ -127,7 +137,7 @@ corepack pnpm cli -- sync us.wa.lni.contractors \
 
 ## Why Local Files First?
 
-OpenTrade Registry starts from local files so tests stay reliable and users can inspect exactly what they are importing. URL sync is explicit: callers must pass both `--url` and `--allow-network`. Normal tests do not contact agency websites.
+OpenTrade Registry starts from local files so tests stay reliable and users can inspect exactly what they are importing. URL sync and URL verification are explicit: callers must pass both `--url` and `--allow-network`. Normal tests do not contact agency websites.
 
 ## Why Keep Source Provenance?
 
@@ -161,7 +171,7 @@ Adapter maturity is tracked separately from source research:
 
 `adapterMaturity` describes what an adapter can run today. `adapterQualityLevel` describes how much verification-language and caveat review has happened. All implemented adapters currently carry Level 4 quality metadata, which means their local verification results use neutral semantics and source-specific caveats.
 
-The registry now includes at least one researched official source entry for all 50 states plus DC and the five major U.S. territories: American Samoa, Guam, Northern Mariana Islands, Puerto Rico, and the U.S. Virgin Islands. Florida DBPR is currently a local-file adapter with opt-in URL sync through the CLI. Oregon CCB, Texas TDLR, and Washington L&I are fixture-supported. The remaining researched sources are registry-only entries until source-specific terms, fields, fixtures, and verification caveats are reviewed.
+The registry now includes at least one researched official source entry for all 50 states plus DC and the five major U.S. territories: American Samoa, Guam, Northern Mariana Islands, Puerto Rico, and the U.S. Virgin Islands. Florida DBPR is currently a local-file adapter with opt-in URL sync and verification through the CLI. Oregon CCB, Texas TDLR, and Washington L&I are fixture-supported. The remaining researched sources are registry-only entries until source-specific terms, fields, fixtures, and verification caveats are reviewed.
 
 ## Project Layout
 
@@ -204,6 +214,6 @@ Before tagging a release candidate, use the short [release checklist](docs/relea
 
 ## Roadmap
 
-The next work is to make URL sync more source-aware, improve Oregon, Texas, and Washington fixture coverage, harden territory source research, and turn the most suitable registry-only sources into fixture adapters. Broader adapter coverage will come after the registry validation, source-quality reporting, Level 4 verification semantics, and adapter contracts stay boring and predictable.
+The next work is to make opt-in URL workflows more source-aware, improve Oregon, Texas, and Washington fixture coverage, harden territory source research, and turn the most suitable registry-only sources into fixture adapters. Broader adapter coverage will come after the registry validation, source-quality reporting, Level 4 verification semantics, and adapter contracts stay boring and predictable.
 
 See [docs/roadmap.md](docs/roadmap.md) for the current plan.

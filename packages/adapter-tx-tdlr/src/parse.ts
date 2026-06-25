@@ -15,6 +15,7 @@ export function parseTexasTdlrCsvRow(line: string, header: string[] = [...TDLR_C
 
 export async function* streamTexasTdlrCsvFile(input: {
   filePath: string;
+  sourceUrl?: string;
   fetchedAt?: string;
   sourceLastModifiedAt?: string | null;
   limit?: number;
@@ -44,6 +45,7 @@ export async function* streamTexasTdlrCsvFile(input: {
       const record = parseTexasTdlrCsvRow(trimmedLine, header);
       yield {
         sourceId: TX_TDLR_ALL_LICENSES_SOURCE_ID,
+        sourceUrl: input.sourceUrl,
         record,
         rowNumber,
         fetchedAt,

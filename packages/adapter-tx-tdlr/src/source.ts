@@ -24,6 +24,7 @@ export const texasTdlrAllLicensesAdapter: TradeLicenseSourceAdapter = {
 
     yield* streamTexasTdlrCsvFile({
       filePath: options.filePath,
+      sourceUrl: options.sourceUrl,
       fetchedAt: options.fetchedAt,
       sourceLastModifiedAt: options.sourceLastModifiedAt,
       limit: options.limit,
@@ -47,7 +48,7 @@ export function normalizeTexasTdlrRecord(raw: RawSourceRecord): CanonicalTradeLi
     },
     agency: TX_TDLR_SOURCE_ENTRY.agency,
     source: {
-      sourceUrl: TX_TDLR_ALL_LICENSES_SOURCE_URL,
+      sourceUrl: raw.sourceUrl ?? TX_TDLR_ALL_LICENSES_SOURCE_URL,
       sourceType: "bulk_csv",
       fetchedAt: raw.fetchedAt,
       sourceLastModifiedAt: raw.sourceLastModifiedAt ?? undefined,

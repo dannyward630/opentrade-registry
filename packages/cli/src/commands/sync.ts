@@ -45,6 +45,7 @@ export async function syncSource(input: {
       format,
       sourceLastModifiedAt: input.sourceLastModifiedAt ?? downloaded?.metadata.lastModifiedAt,
       fetchedAt: downloaded?.metadata.fetchedAt,
+      sourceUrl: downloaded?.metadata.sourceUrl,
       remoteSnapshot: downloaded?.metadata,
       strict: input.strict,
     });

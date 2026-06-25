@@ -7,14 +7,32 @@ import {
   type VerificationWarning,
 } from "@opentrade/core";
 import { requireAdapter } from "../adapters.js";
+import { downloadSourceToTempFile } from "../import/network.js";
 
-export async function verifyLicense(input: { rootDir: string; sourceId?: string; file?: string; license?: string; json?: boolean }) {
+export async function verifyLicense(input: {
+  rootDir: string;
+  sourceId?: string;
+  file?: string;
+  url?: string;
+  allowNetwork?: boolean;
+  sourceLastModifiedAt?: string;
+  license?: string;
+  json?: boolean;
+}) {
   const sourceId = input.sourceId ?? FL_DBPR_CONSTRUCTION_SOURCE_ID;
   const adapter = requireAdapter(sourceId, "verify");
   const metadata = await adapter.getSourceMetadata();
   const jurisdiction = `${metadata.jurisdiction.country}-${metadata.jurisdiction.state}`;
 
-  if (!input.file) {
+  if (input.url && !input.allowNetwork) {
+    throw Object.assign(new Error("Network verification requires --allow-network. Use --file for local verification."), { exitCode: 3 });
+  }
+
+  if (input.allowNetwork && !input.url) {
+    throw Object.assign(new Error("Missing --url for network verification."), { exitCode: 2 });
+  }
+
+  if (!input.file && !input.url) {
     throw Object.assign(new Error("Missing --file for local-file verification."), { exitCode: 2 });
   }
 
@@ -32,10 +50,49 @@ export async function verifyLicense(input: { rootDir: string; sourceId?: string;
     throw Object.assign(new Error("Missing or invalid --license value."), { exitCode: 2, alreadyReported: true });
   }
 
+  const downloaded = input.url ? await downloadSourceToTempFile(input.url) : null;
+
+  try {
+    await runVerification({
+      rootDir: input.rootDir,
+      filePath: downloaded?.filePath ?? input.file!,
+      sourceLastModifiedAt: input.sourceLastModifiedAt ?? downloaded?.metadata.lastModifiedAt,
+      fetchedAt: downloaded?.metadata.fetchedAt,
+      sourceUrl: downloaded?.metadata.sourceUrl,
+      adapter,
+      sourceId,
+      jurisdiction,
+      license: input.license,
+      normalizedQuery,
+      json: input.json,
+    });
+  } finally {
+    await downloaded?.cleanup();
+  }
+}
+
+async function runVerification(input: {
+  rootDir: string;
+  filePath: string;
+  sourceLastModifiedAt?: string | null;
+  fetchedAt?: string;
+  sourceUrl?: string;
+  adapter: ReturnType<typeof requireAdapter>;
+  sourceId: string;
+  jurisdiction: string;
+  license?: string;
+  normalizedQuery: string;
+  json?: boolean;
+}) {
   const candidates: CanonicalTradeLicenseRecord[] = [];
   const warnings: VerificationWarning[] = [];
   let skippedRecordCount = 0;
-  for await (const rawRecord of adapter.streamRawRecords({ filePath: resolveFromRoot(input.rootDir, input.file) })) {
+  for await (const rawRecord of input.adapter.streamRawRecords({
+    filePath: resolveFromRoot(input.rootDir, input.filePath),
+    sourceLastModifiedAt: input.sourceLastModifiedAt,
+    fetchedAt: input.fetchedAt,
+    sourceUrl: input.sourceUrl,
+  })) {
     for (const warning of rawRecord.warnings ?? []) {
       warnings.push({
         code: warning.code,
@@ -47,7 +104,7 @@ export async function verifyLicense(input: { rootDir: string; sourceId?: string;
 
     let record: CanonicalTradeLicenseRecord;
     try {
-      record = await adapter.normalize(rawRecord);
+      record = await input.adapter.normalize(rawRecord);
     } catch (error) {
       skippedRecordCount += 1;
       warnings.push({
@@ -65,14 +122,14 @@ export async function verifyLicense(input: { rootDir: string; sourceId?: string;
       ...(record.license.alternateLicenseNumbers ?? []).map((value: string) => normalizeLicenseNumber(value)),
     ]);
 
-    if (normalizedCandidates.has(normalizedQuery)) {
+    if (normalizedCandidates.has(input.normalizedQuery)) {
       candidates.push(record);
     }
   }
 
   const result = buildVerificationResult({
-    sourceId,
-    jurisdiction,
+    sourceId: input.sourceId,
+    jurisdiction: input.jurisdiction,
     license: input.license,
     result:
       candidates.length === 0

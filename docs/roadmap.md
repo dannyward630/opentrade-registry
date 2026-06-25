@@ -16,7 +16,7 @@ OpenTrade Registry is early. The next releases should stay modest: make the firs
 - More researched state source entries.
 - Better Florida DBPR local-file handling.
 - Clearer import statistics and warnings.
-- Explicit opt-in URL sync with remote freshness metadata.
+- Explicit opt-in URL sync and verification with remote freshness metadata.
 - Texas TDLR fixture adapter.
 - Washington L&I fixture adapter.
 - Oregon CCB fixture adapter.

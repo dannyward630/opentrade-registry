@@ -24,6 +24,7 @@ export const oregonCcbActiveLicensesAdapter: TradeLicenseSourceAdapter = {
 
     yield* streamOregonCcbCsvFile({
       filePath: options.filePath,
+      sourceUrl: options.sourceUrl,
       fetchedAt: options.fetchedAt,
       sourceLastModifiedAt: options.sourceLastModifiedAt,
       limit: options.limit,
@@ -46,7 +47,7 @@ export function normalizeOregonCcbRecord(raw: RawSourceRecord): CanonicalTradeLi
     },
     agency: OR_CCB_SOURCE_ENTRY.agency,
     source: {
-      sourceUrl: OR_CCB_ACTIVE_LICENSES_SOURCE_URL,
+      sourceUrl: raw.sourceUrl ?? OR_CCB_ACTIVE_LICENSES_SOURCE_URL,
       sourceType: "bulk_csv",
       fetchedAt: raw.fetchedAt,
       sourceLastModifiedAt: raw.sourceLastModifiedAt ?? undefined,
