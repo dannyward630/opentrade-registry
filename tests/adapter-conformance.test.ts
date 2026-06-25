@@ -9,18 +9,22 @@ const adapterCases: AdapterConformanceCase[] = [
   {
     adapter: floridaDbprConstructionAdapter,
     registryPath: "registry/sources/us/fl/dbpr-construction.json",
+    expectedFixtureRecordCount: 5,
   },
   {
     adapter: oregonCcbActiveLicensesAdapter,
     registryPath: "registry/sources/us/or/ccb-active-licenses.json",
+    expectedFixtureRecordCount: 5,
   },
   {
     adapter: texasTdlrAllLicensesAdapter,
     registryPath: "registry/sources/us/tx/tdlr-all-licenses.json",
+    expectedFixtureRecordCount: 5,
   },
   {
     adapter: washingtonLniContractorsAdapter,
     registryPath: "registry/sources/us/wa/lni-contractors.json",
+    expectedFixtureRecordCount: 6,
   },
 ];
 
