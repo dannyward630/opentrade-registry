@@ -5,6 +5,7 @@ import {
   canonicalTradeLicenseRecordSchema,
   adapterMaturitySchema,
   adapterQualityLevelSchema,
+  isUnimplementedBulkAdapterCandidate,
   normalizeLicenseNumber,
   parseCsvLine,
   sourceDiscoveryStatusSchema,
@@ -39,6 +40,9 @@ describe("public package imports", () => {
     expect(canonicalTradeLicenseRecordSchema).toBeDefined();
     expect(sourceRegistryEntrySchema).toBeDefined();
     expect(adapterMaturitySchema.parse("registry_only")).toBe("registry_only");
+    expect(adapterMaturitySchema.parse("production_ready")).toBe("production_ready");
+    expect(adapterMaturitySchema.parse("blocked")).toBe("blocked");
+    expect(adapterMaturitySchema.parse("deprecated")).toBe("deprecated");
     expect(adapterQualityLevelSchema.parse(4)).toBe(4);
     expect(sourceDiscoveryStatusSchema.parse("researched")).toBe("researched");
     expect(buildSourceReadiness([])).toEqual({
@@ -48,6 +52,7 @@ describe("public package imports", () => {
       registryOnlySourceCount: 0,
       note: expect.stringContaining("planning signal only"),
     });
+    expect(typeof isUnimplementedBulkAdapterCandidate).toBe("function");
     expect(FL_DBPR_CONSTRUCTION_SOURCE_ID).toBe("us.fl.dbpr.construction");
     expect(floridaDbprConstructionAdapter.sourceId).toBe("us.fl.dbpr.construction");
     expect(normalizeDbprStatus({ primaryStatusCode: "S", secondaryStatusCode: "A" }).normalized).toBe("suspended");

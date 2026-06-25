@@ -7,7 +7,10 @@
     "adapter_planned",
     "fixture_supported",
     "local_file_supported",
-    "network_opt_in_supported"
+    "network_opt_in_supported",
+    "production_ready_supported",
+    "blocked",
+    "deprecated"
   ],
   "territories": [
     { "territory": "AS", "name": "American Samoa", "status": "registry_entry_added", "sourceIds": ["us.as.doc.business_licenses"], "notes": "American Samoa Department of Commerce business licensing source metadata exists; no contractor-specific adapter is implemented." },

@@ -61,6 +61,9 @@ const COVERAGE_STATUS_BY_MATURITY = {
   fixture_adapter: "fixture_supported",
   local_file_adapter: "local_file_supported",
   network_opt_in: "network_opt_in_supported",
+  production_ready: "production_ready_supported",
+  blocked: "blocked",
+  deprecated: "deprecated",
 };
 const COVERAGE_STATUS_RANK = {
   not_started: 0,
@@ -70,8 +73,11 @@ const COVERAGE_STATUS_RANK = {
   fixture_supported: 4,
   local_file_supported: 5,
   network_opt_in_supported: 6,
+  production_ready_supported: 7,
+  blocked: 8,
+  deprecated: 9,
 };
-const RUNTIME_MATURITIES = new Set(["fixture_adapter", "local_file_adapter", "network_opt_in"]);
+const RUNTIME_MATURITIES = new Set(["fixture_adapter", "local_file_adapter", "network_opt_in", "production_ready"]);
 const options = new Set(process.argv.slice(2));
 const root = process.cwd();
 const registryRoot = join(root, "registry", "sources");

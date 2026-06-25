@@ -1,7 +1,13 @@
 import { readFile, readdir } from "node:fs/promises";
 import { join } from "node:path";
 import { describe, expect, it } from "vitest";
-import { buildSourceReadiness, isBulkShapedCandidate, sourceRegistryEntrySchema, type SourceRegistryEntry } from "@opentrade/core";
+import {
+  buildSourceReadiness,
+  isBulkShapedCandidate,
+  isUnimplementedBulkAdapterCandidate,
+  sourceRegistryEntrySchema,
+  type SourceRegistryEntry,
+} from "@opentrade/core";
 
 describe("source readiness helpers", () => {
   it("summarizes implemented sources and unimplemented bulk-shaped candidates", async () => {
@@ -32,6 +38,20 @@ describe("source readiness helpers", () => {
 
     expect(isBulkShapedCandidate(requiredSource(byId, "us.ca.cslb.contractors"))).toBe(true);
     expect(isBulkShapedCandidate(requiredSource(byId, "us.nv.nscb.contractors"))).toBe(false);
+  });
+
+  it("excludes blocked and deprecated sources from unimplemented bulk adapter candidates", async () => {
+    const sources = await loadRegistrySources();
+    const california = requiredSource(new Map(sources.map((source) => [source.id, source])), "us.ca.cslb.contractors");
+    const blocked = { ...california, id: "test.blocked.bulk", adapterStatus: "blocked" as const, adapterMaturity: "blocked" as const };
+    const deprecated = { ...california, id: "test.deprecated.bulk", adapterStatus: "deprecated" as const, adapterMaturity: "deprecated" as const };
+
+    expect(isUnimplementedBulkAdapterCandidate(california)).toBe(true);
+    expect(isUnimplementedBulkAdapterCandidate(blocked)).toBe(false);
+    expect(isUnimplementedBulkAdapterCandidate(deprecated)).toBe(false);
+
+    const readiness = buildSourceReadiness([california, blocked, deprecated]);
+    expect(readiness.unimplementedBulkAdapterCandidates.map((source) => source.id)).toEqual(["us.ca.cslb.contractors"]);
   });
 });
 

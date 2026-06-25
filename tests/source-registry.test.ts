@@ -12,6 +12,9 @@ const coverageStatuses = [
   "fixture_supported",
   "local_file_supported",
   "network_opt_in_supported",
+  "production_ready_supported",
+  "blocked",
+  "deprecated",
 ] as const;
 
 type CoverageStatus = (typeof coverageStatuses)[number];
@@ -157,7 +160,12 @@ describe("source registry", () => {
         expect(implementedSourceIds, `${entry.id} is implemented but not registered in the CLI adapter registry`).toContain(entry.id);
       }
 
-      if (entry.adapterMaturity === "fixture_adapter" || entry.adapterMaturity === "local_file_adapter" || entry.adapterMaturity === "network_opt_in") {
+      if (
+        entry.adapterMaturity === "fixture_adapter" ||
+        entry.adapterMaturity === "local_file_adapter" ||
+        entry.adapterMaturity === "network_opt_in" ||
+        entry.adapterMaturity === "production_ready"
+      ) {
         expect(entry.testFixturePath, `${entry.id} needs a testFixturePath for maturity ${entry.adapterMaturity}`).toBeTruthy();
         await expect(access(join(process.cwd(), entry.testFixturePath!))).resolves.toBeUndefined();
       }

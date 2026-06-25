@@ -4,7 +4,15 @@ import { sourceRedistributionStatusSchema, sourceTypeSchema } from "./canonical-
 const unknownableBooleanSchema = z.union([z.boolean(), z.literal("unknown")]);
 
 export const sourceDiscoveryStatusSchema = z.enum(["needs_research", "researched", "blocked", "deprecated"]);
-export const adapterMaturitySchema = z.enum(["registry_only", "fixture_adapter", "local_file_adapter", "network_opt_in"]);
+export const adapterMaturitySchema = z.enum([
+  "registry_only",
+  "fixture_adapter",
+  "local_file_adapter",
+  "network_opt_in",
+  "production_ready",
+  "blocked",
+  "deprecated",
+]);
 export const adapterQualityLevelSchema = z.union([z.literal(0), z.literal(1), z.literal(2), z.literal(3), z.literal(4)]);
 export const coverageScopeSchema = z.enum(["statewide", "state_agency_partial", "local_only", "unknown"]);
 
@@ -38,7 +46,7 @@ export const sourceRegistryEntrySchema = z.object({
   rateLimitNotes: z.string().nullable().optional(),
   redistributionStatus: sourceRedistributionStatusSchema,
   publicRecordsNotes: z.string().nullable().optional(),
-  adapterStatus: z.enum(["planned", "implemented", "experimental", "deprecated"]),
+  adapterStatus: z.enum(["planned", "implemented", "experimental", "blocked", "deprecated"]),
   sourceDiscoveryStatus: sourceDiscoveryStatusSchema,
   adapterMaturity: adapterMaturitySchema,
   adapterQualityLevel: adapterQualityLevelSchema.nullable().optional(),
