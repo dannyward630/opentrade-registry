@@ -88,7 +88,7 @@ corepack pnpm coverage:health
 corepack pnpm db:seed:check
 ```
 
-`coverage:health` verifies that every state, DC, and tracked major territory coverage row has at least one source ID and that every source is referenced by the correct coverage index.
+`coverage:health` verifies that every state, DC, and tracked major territory coverage row has at least one source ID and that every source is referenced by the correct coverage index. It also checks jurisdiction/path consistency, adapter package naming, fixture paths for runtime-capable sources, Level 4 metadata for implemented adapters, and alignment between coverage status and adapter maturity.
 
 For a quick source-quality summary, run:
 
