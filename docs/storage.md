@@ -73,3 +73,5 @@ insert.run(...buildInsertLicenseRecordValues(row));
 ```
 
 This example uses `better-sqlite3` only as an application choice. It is not a dependency of OpenTrade Registry.
+
+For a driverless runnable example that uses the checked-in fixture-derived JSONL sample, see [examples/sqlite-cache](../examples/sqlite-cache/README.md).
