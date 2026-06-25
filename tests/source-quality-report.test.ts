@@ -24,6 +24,33 @@ describe("source quality report", () => {
     expect(report.sourcesByMaturity.local_file_adapter).toBe(1);
     expect(report.sourcesByAdapterQualityLevel["0"]).toBe(52);
     expect(report.sourcesByAdapterQualityLevel["4"]).toBe(4);
+    expect(report.metadataCompleteness.requiredFields).toEqual([
+      "documentationUrl",
+      "updateFrequency",
+      "knownExclusions",
+      "rateLimitNotes",
+      "publicRecordsNotes",
+      "officialBulkDownloadNotes",
+      "researchNotes",
+      "maintainerNotes",
+    ]);
+    expect(report.metadataCompleteness.missingRequiredMetadataSources).toEqual([]);
+    for (const field of report.metadataCompleteness.requiredFields) {
+      expect(report.metadataCompleteness.missingRequiredMetadataByField[field], `${field} should be complete`).toEqual([]);
+    }
+    expect(report.metadataCompleteness.termsUrlMissingSources.map((source: { id: string }) => source.id)).toEqual([
+      "us.as.doc.business_licenses",
+      "us.de.labor.construction_contractors",
+      "us.gu.clb.contractors",
+      "us.mp.bpl.professional_licenses",
+      "us.ms.msboc.contractors",
+      "us.pr.daco.contractors",
+      "us.vi.dlca.contractors_trades",
+    ]);
+    expect(report.metadataCompleteness.officialLookupUrlMissingSources.map((source: { id: string }) => source.id)).toEqual([
+      "us.as.doc.business_licenses",
+    ]);
+    expect(report.metadataCompleteness.implementedVerificationCaveatsMissingSources).toEqual([]);
     expect(report.implementedSourcesNeedingLevel4).toEqual([]);
     expect(report.implementedAdapterSources.map((source: { id: string }) => source.id)).toEqual([
       "us.fl.dbpr.construction",
@@ -86,6 +113,10 @@ describe("source quality report", () => {
     expect(result.stdout).toContain("- us.pr.daco.contractors (html_lookup, registry_only)");
     expect(result.stdout).toContain("manual public-records-file sources:");
     expect(result.stdout).toContain("- us.as.doc.business_licenses (manual_public_records_file, registry_only)");
+    expect(result.stdout).toContain("metadata completeness:");
+    expect(result.stdout).toContain("sources missing required metadata:");
+    expect(result.stdout).toContain("- none");
+    expect(result.stdout).toContain("sources missing terms URL:");
     expect(result.stdout).toContain("unimplemented bulk adapter candidates:");
     expect(result.stdout).toContain("- us.ca.cslb.contractors (bulk_xlsx, registry_only)");
   });

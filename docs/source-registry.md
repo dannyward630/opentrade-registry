@@ -70,3 +70,16 @@ Today, Florida DBPR is a local-file adapter with opt-in URL sync and verificatio
 ## Contribution Notes
 
 Use official agency URLs. Prefer bulk downloads and APIs over fragile page automation. Do not publish generated datasets unless the source clearly allows redistribution. When in doubt, keep the registry entry conservative and mark uncertain fields as `unknown`.
+
+Every researched source entry should include enough metadata for users to understand source limits without reading adapter code. The source-quality report treats these fields as required for current registry entries:
+
+- `documentationUrl`
+- `updateFrequency`
+- `knownExclusions`
+- `rateLimitNotes`
+- `publicRecordsNotes`
+- `officialBulkDownloadNotes`
+- `researchNotes`
+- `maintainerNotes`
+
+`termsUrl` and `officialLookupUrl` are tracked separately because some official sources do not expose a clean standalone URL for those concepts. Missing values should remain visible in `corepack pnpm source:quality` so maintainers can improve entries as better official links are found.
