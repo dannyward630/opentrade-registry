@@ -26,6 +26,7 @@ For the detailed snapshot, see [Current Project State](docs/current-state.md).
 - Check one license number against a local source file.
 - Inspect researched source metadata for all 50 states plus DC and five major U.S. territories.
 - Filter source metadata from the CLI or optional hosted `/api/sources` endpoint.
+- Use driverless SQLite schema and row helpers when an application wants a local cache.
 
 ## What This Project Does Not Do
 
@@ -196,6 +197,7 @@ packages/adapter-or-ccb     Oregon CCB fixture adapter
 packages/adapter-tx-tdlr    Texas TDLR fixture adapter
 packages/adapter-wa-lni     Washington L&I fixture adapter
 packages/cli                opentrade command-line interface
+packages/storage-sqlite     Optional SQLite schema and row helpers
 apps/web                    Optional hosted status page and source API
 registry/sources            Source metadata for official agency sources
 registry/us-coverage.json   State-by-state coverage progress
@@ -223,6 +225,8 @@ corepack pnpm web:build
 `coverage:health` verifies that all state, DC, and major territory coverage rows are present and cross-linked to registry sources. `source:quality` separates implemented adapter sources from unimplemented bulk-shaped candidates. Use that report and the [adapter candidate priorities](docs/adapters/candidate-priorities.md) guide when choosing the next adapter, but treat candidate status as a research signal only: source terms, fixture safety, field shape, and verification caveats still need source-specific review before implementation.
 
 Hosted deployment is optional. The hosted layer provides a static status page plus source metadata, readiness, and health endpoints. `/api/sources` supports the same source filters as the CLI and can read from Supabase first with registry-file fallback. See [docs/deployment/vercel-supabase.md](docs/deployment/vercel-supabase.md) for the Vercel/Supabase setup.
+
+Local storage is optional too. `@opentrade/storage-sqlite` provides a driverless SQLite schema and canonical-record row helpers for applications that want a local cache without adopting Supabase, Postgres, hosted jobs, or live network access. See [docs/storage.md](docs/storage.md).
 
 Before tagging a release candidate, use the short [release checklist](docs/release-checklist.md).
 

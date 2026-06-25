@@ -17,6 +17,7 @@ These docs explain how the project models official sources, writes adapters, and
 - [Washington L&I Adapter Notes](adapters/washington-lni.md): fixture support and source caveats for Washington L&I.
 - [Legal And Data Use](legal-and-data-use.md): readable data-use guardrails.
 - [Hosted Deployment](deployment/vercel-supabase.md): Vercel hosting and optional database setup.
+- [Storage](storage.md): optional SQLite storage helpers and local-cache boundaries.
 - [Florida DBPR URL Sync](florida-dbpr-url-sync.md): explicit opt-in URL sync and verification behavior plus operational guardrails.
 - [Release Checklist](release-checklist.md): practical pre-tag verification steps.
 - [Roadmap](roadmap.md): modest release goals.

@@ -2,7 +2,7 @@
 
 Official license data rarely arrives in the same shape twice. One source may be a bulk CSV. Another may be an Excel workbook. Another may only expose a lookup page. OpenTrade Registry keeps the common parts in core and leaves source-specific details inside adapters.
 
-The project has six main pieces.
+The project has seven main pieces.
 
 ## Source Registry
 
@@ -40,7 +40,11 @@ Hosted source endpoints are database-first when Supabase environment variables a
 
 ## Local-First Exports
 
-The local-first core writes files and does not require a database. That keeps the project easy to inspect and test. Future storage packages can add SQLite or Postgres without changing the core record model.
+The local-first core writes files and does not require a database. That keeps the project easy to inspect and test.
+
+`@opentrade/storage-sqlite` adds an optional local-cache path without changing that default. It exports a SQLite schema string plus helpers that turn canonical records into flat SQLite rows. It does not bundle a SQLite driver, run imports, publish generated datasets, or require credentials.
+
+Future storage packages can add Postgres-specific helpers without changing the core record model.
 
 ## Browser Automation
 
