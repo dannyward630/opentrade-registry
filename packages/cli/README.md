@@ -6,6 +6,10 @@ The CLI is the simplest way to use OpenTrade Registry from this repository. It l
 
 ```bash
 opentrade sources list
+opentrade sources list --state CA
+opentrade sources list --implemented
+opentrade sources list --bulk-candidates --json
+opentrade sources list --maturity registry_only --source-type bulk_xlsx
 opentrade sources show us.tx.tdlr.all_licenses
 opentrade sources readiness
 opentrade sources coverage
@@ -21,7 +25,7 @@ opentrade verify --source us.fl.dbpr.construction --file ./fixture.csv --license
 
 Use `--json` when you need structured output. Use `--strict` for sync commands that should fail on the first row-level normalization error.
 
-`sources list` and `sources show` include registry-only sources. `sources readiness` summarizes implemented adapters and unimplemented bulk-shaped candidates from local registry metadata. `sources coverage` summarizes state, DC, and major territory coverage index status. Candidate and coverage status are planning signals only; review source terms, fixture safety, field shape, filters, and verification caveats before implementation. `sync` and `verify` only run for sources with implemented adapters. URL sync requires `--allow-network`.
+`sources list` and `sources show` include registry-only sources. `sources list` can filter by `--state`, `--maturity`, `--status`, `--source-type`, `--quality-level`, `--implemented`, `--registry-only`, and `--bulk-candidates`. `sources readiness` summarizes implemented adapters and unimplemented bulk-shaped candidates from local registry metadata. `sources coverage` summarizes state, DC, and major territory coverage index status. Candidate and coverage status are planning signals only; review source terms, fixture safety, field shape, filters, and verification caveats before implementation. `sync` and `verify` only run for sources with implemented adapters. URL sync requires `--allow-network`.
 
 ## Exit Codes
 

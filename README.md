@@ -42,6 +42,15 @@ List the registered public sources:
 corepack pnpm cli -- sources list
 ```
 
+Filter the registry while researching supported sources or future adapters:
+
+```bash
+corepack pnpm cli -- sources list --state CA
+corepack pnpm cli -- sources list --implemented
+corepack pnpm cli -- sources list --bulk-candidates --json
+corepack pnpm cli -- sources list --maturity registry_only --source-type bulk_xlsx
+```
+
 Summarize implemented adapters and future adapter candidates:
 
 ```bash

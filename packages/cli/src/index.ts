@@ -2,13 +2,16 @@
 import { existsSync } from "node:fs";
 import { dirname, join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
-import { listSources, showSource, showSourceCoverage, showSourceReadiness } from "./commands/sources.js";
+import { listSources, showSource, showSourceCoverage, showSourceReadiness, type SourceListOptions } from "./commands/sources.js";
 import { syncSource } from "./commands/sync.js";
 import { validateSources } from "./commands/validate.js";
 import { verifyLicense } from "./commands/verify.js";
 
 const EXIT_GENERAL_ERROR = 1;
 const EXIT_INVALID_INPUT = 2;
+const SOURCE_TYPES = ["bulk_csv", "bulk_xlsx", "bulk_json", "api", "html_lookup", "playwright_portal", "manual_public_records_file"] as const;
+const ADAPTER_MATURITIES = ["registry_only", "fixture_adapter", "local_file_adapter", "network_opt_in"] as const;
+const ADAPTER_STATUSES = ["planned", "implemented", "experimental", "deprecated"] as const;
 
 type ParsedArgs = {
   positional: string[];
@@ -29,7 +32,17 @@ async function main() {
 
   if (command === "sources") {
     if (subcommand === "list") {
-      await listSources(rootDir, { json });
+      await listSources(rootDir, {
+        json,
+        state: stringFlag(parsed, "state"),
+        maturity: enumFlag(parsed, "maturity", ADAPTER_MATURITIES),
+        status: enumFlag(parsed, "status", ADAPTER_STATUSES),
+        sourceType: enumFlag(parsed, "source-type", SOURCE_TYPES),
+        qualityLevel: numberFlag(parsed, "quality-level"),
+        implemented: parsed.flags.implemented === true,
+        registryOnly: parsed.flags["registry-only"] === true,
+        bulkCandidates: parsed.flags["bulk-candidates"] === true,
+      } satisfies SourceListOptions);
       return;
     }
 
@@ -118,6 +131,33 @@ function stringFlag(parsed: ParsedArgs, key: string): string | undefined {
   return typeof value === "string" ? value : undefined;
 }
 
+function numberFlag(parsed: ParsedArgs, key: string): number | undefined {
+  const value = stringFlag(parsed, key);
+  if (value === undefined) {
+    return undefined;
+  }
+
+  const parsedValue = Number(value);
+  if (Number.isNaN(parsedValue)) {
+    throw Object.assign(new Error(`Invalid numeric value for --${key}: ${value}`), { exitCode: EXIT_INVALID_INPUT });
+  }
+
+  return parsedValue;
+}
+
+function enumFlag<const T extends readonly string[]>(parsed: ParsedArgs, key: string, allowed: T): T[number] | undefined {
+  const value = stringFlag(parsed, key);
+  if (value === undefined) {
+    return undefined;
+  }
+
+  if (!allowed.includes(value)) {
+    throw Object.assign(new Error(`Invalid value for --${key}: ${value}. Expected one of: ${allowed.join(", ")}`), { exitCode: EXIT_INVALID_INPUT });
+  }
+
+  return value;
+}
+
 function findProjectRoot(): string {
   let current = resolve(dirname(fileURLToPath(import.meta.url)));
   for (let depth = 0; depth < 8; depth += 1) {
@@ -138,6 +178,8 @@ Default commands do not contact agency sites. Network sync requires --allow-netw
 
 Commands:
   opentrade sources list [--json]
+  opentrade sources list [--state CA] [--maturity registry_only] [--status implemented] [--source-type bulk_csv] [--quality-level 4]
+  opentrade sources list [--implemented | --registry-only | --bulk-candidates] [--json]
   opentrade sources show <sourceId> [--json]
   opentrade sources readiness [--json]
   opentrade sources coverage [--json]
