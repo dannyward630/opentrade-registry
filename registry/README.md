@@ -56,7 +56,7 @@ Examples:
 - `registry/sources/us/gu/clb-contractors.json`
 - `registry/sources/us/vi/dlca-contractors-trades.json`
 
-`registry/us-coverage.json` tracks state-by-state progress. It now includes all 50 states plus DC with at least one researched source entry. `registry/us-territory-coverage.json` tracks American Samoa, Guam, Northern Mariana Islands, Puerto Rico, and the U.S. Virgin Islands. Both indexes distinguish registry-only metadata from fixture, local-file, and network-capable adapters.
+`registry/us-coverage.json` tracks state-by-state progress. It now includes all 50 states plus DC with at least one researched source entry. `registry/us-territory-coverage.json` tracks American Samoa, Guam, Northern Mariana Islands, Puerto Rico, and the U.S. Virgin Islands. Both indexes distinguish registry-only metadata from fixture, local-file, network-capable, production-ready, blocked, and deprecated adapter states.
 
 ## Contribution Rules
 
@@ -65,8 +65,8 @@ Examples:
 - Use `redistributionStatus: "unknown"` unless reuse rights are clear.
 - Include known exclusions and public-record caveats.
 - Keep generated source exports out of the registry.
-- Keep adapter status accurate: `planned`, `experimental`, `implemented`, or `deprecated`.
-- Keep adapter maturity accurate: `registry_only`, `fixture_adapter`, `local_file_adapter`, or `network_opt_in`.
+- Keep adapter status accurate: `planned`, `experimental`, `implemented`, `blocked`, or `deprecated`.
+- Keep adapter maturity accurate: `registry_only`, `fixture_adapter`, `local_file_adapter`, `network_opt_in`, `production_ready`, `blocked`, or `deprecated`.
 - Keep adapter quality metadata accurate for implemented adapters. Level 4 requires reviewed verification caveats and neutral no-match language.
 
 ## Adding A State Or Territory Source

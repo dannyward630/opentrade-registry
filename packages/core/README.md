@@ -11,6 +11,7 @@ import {
   buildFingerprint,
   filterSources,
   buildSourceReadiness,
+  isUnimplementedBulkAdapterCandidate,
   normalizeLicenseNumber,
   parseCsvLine,
   type AdapterMaturity,
@@ -31,6 +32,7 @@ import {
 - Generic CSV line parsing for simple source fixtures.
 - Shared source filtering for CLI and hosted API registry views.
 - Source readiness summaries for CLI/API reporting.
+- Candidate helpers that exclude blocked or deprecated sources from future-adapter queues.
 - Neutral verification result types.
 
 This package does not read agency websites, write to a database, or know about any one state source.

@@ -37,8 +37,8 @@ Readiness candidate status is a planning signal only. It is not evidence that a 
 `/api/sources` supports the same registry filters as the CLI source listing command:
 
 - `state=CA`
-- `maturity=registry_only`
-- `status=implemented`
+- `maturity=registry_only`, `maturity=production_ready`, or another supported adapter maturity
+- `status=implemented`, `status=blocked`, or another supported adapter status
 - `sourceType=bulk_csv` or `source_type=bulk_csv`
 - `qualityLevel=4` or `quality_level=4`
 - `implemented=true`

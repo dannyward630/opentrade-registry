@@ -35,14 +35,10 @@ const report = {
     .filter((source) => source.adapterStatus === "implemented")
     .map(toSourceSummary),
   bulkCandidates: sources
-    .filter((source) => source.hasBulkDownload === true || source.sourceType.startsWith("bulk_") || source.sourceType === "api")
+    .filter(isBulkShapedCandidate)
     .map(toSourceSummary),
   unimplementedBulkAdapterCandidates: sources
-    .filter(
-      (source) =>
-        source.adapterStatus !== "implemented" &&
-        (source.hasBulkDownload === true || source.sourceType.startsWith("bulk_") || source.sourceType === "api"),
-    )
+    .filter(isUnimplementedBulkAdapterCandidate)
     .map(toSourceSummary),
   lookupOnlySources: sources
     .filter((source) => source.sourceType === "html_lookup" || source.sourceType === "playwright_portal")
@@ -95,6 +91,14 @@ function toSourceSummary(source) {
     adapterStatus: source.adapterStatus,
     hasBulkDownload: source.hasBulkDownload,
   };
+}
+
+function isBulkShapedCandidate(source) {
+  return source.hasBulkDownload === true || source.sourceType.startsWith("bulk_") || source.sourceType === "api";
+}
+
+function isUnimplementedBulkAdapterCandidate(source) {
+  return ["planned", "experimental"].includes(source.adapterStatus) && !["blocked", "deprecated"].includes(source.adapterMaturity) && isBulkShapedCandidate(source);
 }
 
 function printHumanReport(report) {

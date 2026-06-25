@@ -25,9 +25,7 @@ export type SourceReadiness = {
 
 export function buildSourceReadiness(sources: SourceRegistryEntry[]): SourceReadiness {
   const implementedAdapterSources = sources.filter((source) => source.adapterStatus === "implemented");
-  const unimplementedBulkAdapterCandidates = sources.filter(
-    (source) => source.adapterStatus !== "implemented" && isBulkShapedCandidate(source),
-  );
+  const unimplementedBulkAdapterCandidates = sources.filter(isUnimplementedBulkAdapterCandidate);
   const registryOnlySources = sources.filter((source) => source.adapterMaturity === "registry_only");
 
   return {
@@ -41,6 +39,10 @@ export function buildSourceReadiness(sources: SourceRegistryEntry[]): SourceRead
 
 export function isBulkShapedCandidate(source: SourceRegistryEntry): boolean {
   return source.hasBulkDownload === true || source.sourceType.startsWith("bulk_") || source.sourceType === "api";
+}
+
+export function isUnimplementedBulkAdapterCandidate(source: SourceRegistryEntry): boolean {
+  return ["planned", "experimental"].includes(source.adapterStatus) && !["blocked", "deprecated"].includes(source.adapterMaturity) && isBulkShapedCandidate(source);
 }
 
 export function toSourceReadinessSummary(source: SourceRegistryEntry): SourceReadinessSummary {

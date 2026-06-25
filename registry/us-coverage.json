@@ -7,7 +7,10 @@
     "adapter_planned",
     "fixture_supported",
     "local_file_supported",
-    "network_opt_in_supported"
+    "network_opt_in_supported",
+    "production_ready_supported",
+    "blocked",
+    "deprecated"
   ],
   "states": [
     { "state": "AL", "status": "registry_entry_added", "sourceIds": ["us.al.genconbd.general_contractors"], "notes": "Alabama general contractors board license roster source metadata exists; no adapter is implemented." },

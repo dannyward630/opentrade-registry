@@ -15,8 +15,8 @@ The most important fields are:
 - `officialLookupUrl`: official page for checking an individual record, when known.
 - `redistributionStatus`: `unknown` unless reuse rights are clear.
 - `knownExclusions`: what this source does not cover.
-- `adapterStatus`: whether adapter work is planned, implemented, experimental, or deprecated.
-- `adapterMaturity`: whether the source is metadata-only, fixture-backed, local-file backed, or opt-in network capable.
+- `adapterStatus`: whether adapter work is planned, implemented, experimental, blocked, or deprecated.
+- `adapterMaturity`: whether the source is metadata-only, fixture-backed, local-file backed, opt-in network capable, production-ready, blocked, or deprecated.
 - `adapterQualityLevel`: optional quality level for implemented adapter behavior, especially verification semantics.
 - `verificationCaveats`: caveats that should shape local verification output and docs.
 - `researchNotes`: maintainer notes about source coverage or next research steps.
@@ -34,6 +34,11 @@ The most important fields are:
 - `fixture_adapter`: a tiny fixture can parse and normalize offline.
 - `local_file_adapter`: local public files can sync without network access.
 - `network_opt_in`: live source access exists and requires explicit network opt-in.
+- `production_ready`: the adapter is stable enough for production use, with source-specific caveats, conformance tests, and operational guidance kept current.
+- `blocked`: adapter work is blocked by legal, access, data-shape, or technical constraints.
+- `deprecated`: adapter support should no longer be used because the source was replaced, retired, or found unsuitable.
+
+Do not use `production_ready` merely because tests pass. It should mean the adapter has real-world source-shape review, clear operational limits, reviewed verification semantics, and maintained documentation.
 
 ## Adapter Quality
 

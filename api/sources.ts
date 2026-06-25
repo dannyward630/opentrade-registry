@@ -53,8 +53,8 @@ export function filterSourcesForApi(
 }
 
 const SOURCE_TYPES = ["bulk_csv", "bulk_xlsx", "bulk_json", "api", "html_lookup", "playwright_portal", "manual_public_records_file"] as const;
-const ADAPTER_MATURITIES = ["registry_only", "fixture_adapter", "local_file_adapter", "network_opt_in"] as const;
-const ADAPTER_STATUSES = ["planned", "implemented", "experimental", "deprecated"] as const;
+const ADAPTER_MATURITIES = ["registry_only", "fixture_adapter", "local_file_adapter", "network_opt_in", "production_ready", "blocked", "deprecated"] as const;
+const ADAPTER_STATUSES = ["planned", "implemented", "experimental", "blocked", "deprecated"] as const;
 
 function parseSourceFilters(query: ApiRequest["query"]): SourceFilterOptions {
   return {

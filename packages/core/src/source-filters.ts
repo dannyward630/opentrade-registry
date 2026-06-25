@@ -1,5 +1,5 @@
 import type { SourceRegistryEntry } from "./schema/source-registry.js";
-import { isBulkShapedCandidate } from "./source-readiness.js";
+import { isUnimplementedBulkAdapterCandidate } from "./source-readiness.js";
 
 export type SourceFilterOptions = {
   state?: string;
@@ -42,7 +42,7 @@ export function filterSources(entries: SourceRegistryEntry[], options: SourceFil
       return false;
     }
 
-    if (options.bulkCandidates && (entry.adapterStatus === "implemented" || !isBulkShapedCandidate(entry))) {
+    if (options.bulkCandidates && !isUnimplementedBulkAdapterCandidate(entry)) {
       return false;
     }
 
