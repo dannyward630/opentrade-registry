@@ -207,6 +207,8 @@ docs                        Architecture, authoring, and data-use notes
 examples                    Small local-file examples
 ```
 
+The examples include basic sync, local verification, and a driverless SQLite cache flow.
+
 ## Development
 
 ```bash
