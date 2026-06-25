@@ -25,6 +25,13 @@ describe("coverage health report", () => {
     expect(report.coverageSourceIdsMissingRegistry).toEqual([]);
     expect(report.sourcesMissingCoverage).toEqual([]);
     expect(report.mismatchedCoverageSources).toEqual([]);
+    expect(report.sourcePathMismatches).toEqual([]);
+    expect(report.adapterPackageMismatches).toEqual([]);
+    expect(report.runtimeSourcesWithoutFixtures).toEqual([]);
+    expect(report.missingFixturePaths).toEqual([]);
+    expect(report.implementedSourcesMissingLevel4).toEqual([]);
+    expect(report.implementedSourcesMissingVerificationReview).toEqual([]);
+    expect(report.coverageStatusMismatches).toEqual([]);
     expect(report.failures).toEqual([]);
   });
 
@@ -40,6 +47,6 @@ describe("coverage health report", () => {
     expect(result.stdout).toContain("status: ok");
     expect(result.stdout).toContain("state coverage: 51/51 researched rows");
     expect(result.stdout).toContain("territory coverage: 5/5 researched rows");
-    expect(result.stdout).toContain("coverage indexes are complete and cross-linked");
+    expect(result.stdout).toContain("coverage indexes are complete, cross-linked, and maturity-aligned");
   });
 });

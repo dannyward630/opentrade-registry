@@ -1,5 +1,5 @@
-import { readFile, readdir } from "node:fs/promises";
-import { join } from "node:path";
+import { access, readFile, readdir } from "node:fs/promises";
+import { join, relative } from "node:path";
 
 const REQUIRED_STATE_CODES = [
   "AL",
@@ -56,13 +56,31 @@ const REQUIRED_STATE_CODES = [
 ];
 
 const REQUIRED_TERRITORY_CODES = ["AS", "GU", "MP", "PR", "VI"];
+const COVERAGE_STATUS_BY_MATURITY = {
+  registry_only: "registry_entry_added",
+  fixture_adapter: "fixture_supported",
+  local_file_adapter: "local_file_supported",
+  network_opt_in: "network_opt_in_supported",
+};
+const COVERAGE_STATUS_RANK = {
+  not_started: 0,
+  source_identified: 1,
+  registry_entry_added: 2,
+  adapter_planned: 3,
+  fixture_supported: 4,
+  local_file_supported: 5,
+  network_opt_in_supported: 6,
+};
+const RUNTIME_MATURITIES = new Set(["fixture_adapter", "local_file_adapter", "network_opt_in"]);
 const options = new Set(process.argv.slice(2));
 const root = process.cwd();
+const registryRoot = join(root, "registry", "sources");
 
-const sources = await loadSources(join(root, "registry", "sources"));
+const sourceFiles = await loadSources(registryRoot);
+const sources = sourceFiles.map(({ entry }) => entry);
 const coverage = JSON.parse(await readFile(join(root, "registry", "us-coverage.json"), "utf8"));
 const territoryCoverage = JSON.parse(await readFile(join(root, "registry", "us-territory-coverage.json"), "utf8"));
-const report = buildCoverageHealthReport(sources, coverage.states, territoryCoverage.territories);
+const report = await buildCoverageHealthReport(sourceFiles, coverage.states, territoryCoverage.territories);
 
 if (options.has("--json")) {
   console.log(JSON.stringify(report, null, 2));
@@ -74,7 +92,8 @@ if (!report.ok) {
   process.exitCode = 6;
 }
 
-function buildCoverageHealthReport(sources, states, territories) {
+async function buildCoverageHealthReport(sourceFiles, states, territories) {
+  const sources = sourceFiles.map(({ entry }) => entry);
   const sourceIds = new Set(sources.map((source) => source.id));
   const sourcesById = new Map(sources.map((source) => [source.id, source]));
   const stateCodes = states.map((entry) => entry.state);
@@ -112,6 +131,68 @@ function buildCoverageHealthReport(sources, states, territories) {
       sourceJurisdiction: sourcesById.get(entry.sourceId)?.jurisdiction?.state,
     }))
     .sort((a, b) => a.sourceId.localeCompare(b.sourceId));
+  const sourcePathMismatches = sourceFiles
+    .filter(({ file, entry }) => {
+      const state = entry.jurisdiction?.state?.toLowerCase();
+      const relativeParts = relative(registryRoot, file).split(/[\\/]/);
+      return relativeParts[0] !== "us" || relativeParts[1] !== state || !entry.id.startsWith(`us.${state}.`);
+    })
+    .map(({ file, entry }) => ({ sourceId: entry.id, file: relative(root, file) }))
+    .sort((a, b) => a.sourceId.localeCompare(b.sourceId));
+  const adapterPackageMismatches = sources
+    .filter((source) => {
+      const state = source.jurisdiction?.state?.toLowerCase();
+      return source.adapterPackage && !source.adapterPackage.startsWith(`@opentrade/adapter-${state}-`);
+    })
+    .map((source) => ({ sourceId: source.id, adapterPackage: source.adapterPackage }))
+    .sort((a, b) => a.sourceId.localeCompare(b.sourceId));
+  const runtimeSourcesWithoutFixtures = sources
+    .filter((source) => RUNTIME_MATURITIES.has(source.adapterMaturity) && !source.testFixturePath)
+    .map((source) => source.id)
+    .sort();
+  const missingFixturePaths = (
+    await Promise.all(
+      sources
+        .filter((source) => RUNTIME_MATURITIES.has(source.adapterMaturity) && source.testFixturePath)
+        .map(async (source) => {
+          try {
+            await access(join(root, source.testFixturePath));
+            return null;
+          } catch {
+            return { sourceId: source.id, testFixturePath: source.testFixturePath };
+          }
+        }),
+    )
+  )
+    .filter(Boolean)
+    .sort((a, b) => a.sourceId.localeCompare(b.sourceId));
+  const implementedSourcesMissingLevel4 = sources
+    .filter((source) => source.adapterStatus === "implemented" && source.adapterQualityLevel !== 4)
+    .map((source) => source.id)
+    .sort();
+  const implementedSourcesMissingVerificationReview = sources
+    .filter(
+      (source) =>
+        source.adapterStatus === "implemented" &&
+        (!source.verificationReviewedAt || !source.verificationCaveats?.length || !source.verificationNotes),
+    )
+    .map((source) => source.id)
+    .sort();
+  const coverageStatusMismatches = [...states.map((entry) => ({ ...entry, kind: "state" })), ...territories.map((entry) => ({ ...entry, kind: "territory" }))]
+    .filter((entry) => entry.sourceIds.length > 0)
+    .map((entry) => {
+      const expectedStatus = expectedCoverageStatus(entry.sourceIds.map((sourceId) => sourcesById.get(sourceId)).filter(Boolean));
+      return expectedStatus && entry.status !== expectedStatus
+        ? {
+            code: entry.state ?? entry.territory,
+            kind: entry.kind,
+            status: entry.status,
+            expectedStatus,
+          }
+        : null;
+    })
+    .filter(Boolean)
+    .sort((a, b) => a.code.localeCompare(b.code));
 
   const failures = [
     ...missingStateCodes.map((code) => `Missing state coverage row: ${code}`),
@@ -126,6 +207,15 @@ function buildCoverageHealthReport(sources, states, territories) {
     ...sourcesMissingCoverage.map((sourceId) => `Source is missing from coverage index: ${sourceId}`),
     ...mismatchedCoverageSources.map(
       (entry) => `Coverage/source jurisdiction mismatch: ${entry.sourceId} coverage=${entry.coverageCode} source=${entry.sourceJurisdiction}`,
+    ),
+    ...sourcePathMismatches.map((entry) => `Source path/id jurisdiction mismatch: ${entry.sourceId} file=${entry.file}`),
+    ...adapterPackageMismatches.map((entry) => `Adapter package does not include source state code: ${entry.sourceId} package=${entry.adapterPackage}`),
+    ...runtimeSourcesWithoutFixtures.map((sourceId) => `Runtime-capable source has no test fixture path: ${sourceId}`),
+    ...missingFixturePaths.map((entry) => `Runtime-capable source fixture path is missing: ${entry.sourceId} path=${entry.testFixturePath}`),
+    ...implementedSourcesMissingLevel4.map((sourceId) => `Implemented source is missing Level 4 quality metadata: ${sourceId}`),
+    ...implementedSourcesMissingVerificationReview.map((sourceId) => `Implemented source is missing verification review metadata: ${sourceId}`),
+    ...coverageStatusMismatches.map(
+      (entry) => `Coverage status mismatch: ${entry.code} status=${entry.status} expected=${entry.expectedStatus}`,
     ),
   ];
 
@@ -149,14 +239,21 @@ function buildCoverageHealthReport(sources, states, territories) {
     coverageSourceIdsMissingRegistry,
     sourcesMissingCoverage,
     mismatchedCoverageSources,
+    sourcePathMismatches,
+    adapterPackageMismatches,
+    runtimeSourcesWithoutFixtures,
+    missingFixturePaths,
+    implementedSourcesMissingLevel4,
+    implementedSourcesMissingVerificationReview,
+    coverageStatusMismatches,
     failures,
   };
 }
 
 async function loadSources(directory) {
   const files = await listJsonFiles(directory);
-  const entries = await Promise.all(files.map(async (file) => JSON.parse(await readFile(file, "utf8"))));
-  return entries.sort((a, b) => a.id.localeCompare(b.id));
+  const entries = await Promise.all(files.map(async (file) => ({ file, entry: JSON.parse(await readFile(file, "utf8")) })));
+  return entries.sort((a, b) => a.entry.id.localeCompare(b.entry.id));
 }
 
 async function listJsonFiles(directory) {
@@ -189,6 +286,23 @@ function duplicateValues(values) {
   return [...duplicates].sort();
 }
 
+function expectedCoverageStatus(sources) {
+  let expectedStatus = null;
+
+  for (const source of sources) {
+    const status = COVERAGE_STATUS_BY_MATURITY[source.adapterMaturity];
+    if (!status) {
+      continue;
+    }
+
+    if (!expectedStatus || COVERAGE_STATUS_RANK[status] > COVERAGE_STATUS_RANK[expectedStatus]) {
+      expectedStatus = status;
+    }
+  }
+
+  return expectedStatus;
+}
+
 function printHumanReport(report) {
   console.log("OpenTrade Registry coverage health");
   console.log(`status: ${report.ok ? "ok" : "failed"}`);
@@ -197,7 +311,7 @@ function printHumanReport(report) {
   console.log(`territory coverage: ${report.researchedTerritoryCount}/${report.requiredTerritoryCount} researched rows`);
 
   if (report.failures.length === 0) {
-    console.log("coverage indexes are complete and cross-linked");
+    console.log("coverage indexes are complete, cross-linked, and maturity-aligned");
     return;
   }
 
