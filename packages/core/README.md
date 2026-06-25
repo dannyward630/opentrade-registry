@@ -9,10 +9,12 @@ import {
   canonicalTradeLicenseRecordSchema,
   sourceRegistryEntrySchema,
   buildFingerprint,
+  filterSources,
   buildSourceReadiness,
   normalizeLicenseNumber,
   parseCsvLine,
   type AdapterMaturity,
+  type SourceFilterOptions,
   type SourceDiscoveryStatus,
   type TradeLicenseSourceAdapter,
   type CanonicalTradeLicenseRecord,
@@ -27,6 +29,7 @@ import {
 - Adapter interface and shared result types.
 - Generic fingerprint, license-number, and text normalization helpers.
 - Generic CSV line parsing for simple source fixtures.
+- Shared source filtering for CLI and hosted API registry views.
 - Source readiness summaries for CLI/API reporting.
 - Neutral verification result types.
 
