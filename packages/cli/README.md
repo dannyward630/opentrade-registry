@@ -1,6 +1,8 @@
 # @opentrade/cli
 
-The CLI is the simplest way to use OpenTrade Registry from this repository. It lists source metadata, validates the registry, syncs supported local files, and checks one license number against a local file or explicit opt-in URL snapshot.
+The CLI is the simplest way to use OpenTrade Registry from this repository. It lists and filters source metadata, validates the registry, syncs supported local files, and checks one license number against a local file or explicit opt-in URL snapshot.
+
+Current registry state: `56` source entries are checked in, all states plus DC and five major U.S. territories have researched entries, and four sources have implemented adapters. Florida DBPR supports local files plus explicit URL snapshots. Oregon CCB, Texas TDLR, and Washington L&I are fixture-supported.
 
 ## Commands
 

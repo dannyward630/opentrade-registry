@@ -2,6 +2,8 @@
 
 This example turns the tiny Florida DBPR fixture in this repo into canonical records. It does not contact Florida DBPR or download live data.
 
+The same `sync` command shape also works with the Oregon CCB, Texas TDLR, and Washington L&I fixture adapters. Florida is used here because it is the local-file adapter with the most complete sample set.
+
 Run from the repository root after installing dependencies:
 
 ```bash

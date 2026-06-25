@@ -5,6 +5,7 @@ These docs explain how the project models official sources, writes adapters, and
 ## Start Here
 
 - [Architecture](architecture.md): how the registry, adapters, canonical records, and CLI fit together.
+- [Current Project State](current-state.md): current source counts, implemented adapters, hosted behavior, and safety invariants.
 - [Canonical Schema](canonical-schema.md): what a normalized record keeps and why raw records stay attached.
 - [Source Registry](source-registry.md): how official sources are described before and after adapter support exists.
 - [Source Research Template](source-research-template.md): the checklist to use before adding a new source.
@@ -24,4 +25,4 @@ These docs explain how the project models official sources, writes adapters, and
 
 ## Current Boundary
 
-The project works from local files by default. URL sync and URL verification require an explicit `--allow-network` flag, and default tests do not download live agency files.
+The project works from local files by default. URL sync and URL verification require an explicit `--allow-network` flag, and default tests do not download live agency files. The current registry covers all states plus DC and five major U.S. territories, but only implemented adapters can sync or verify records.

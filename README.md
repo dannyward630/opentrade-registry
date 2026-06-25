@@ -11,7 +11,9 @@ OpenTrade Registry helps developers work with official contractor and skilled-tr
 
 Contractor-license data is public, but it is scattered. One agency might publish a CSV file. Another might offer an Excel download. Another might only provide a lookup page. OpenTrade Registry gives those sources a common registry, a canonical record shape, and adapter contracts so each source can be handled consistently.
 
-The current build is still intentionally small. It supports Florida DBPR construction-license records from local files, can opt into URL-based sync and verification when `--allow-network` is provided, and includes fixture adapters for Oregon CCB, Texas TDLR, and Washington L&I. Normal tests do not download live agency data.
+The current build is still intentionally local-first. It includes `56` researched source registry entries covering all 50 states plus DC and five major U.S. territories. Four sources have implemented adapters: Florida DBPR has local-file support plus opt-in URL sync and verification, while Oregon CCB, Texas TDLR, and Washington L&I are fixture-supported. Normal tests do not download live agency data.
+
+For the detailed snapshot, see [Current Project State](docs/current-state.md).
 
 ## What You Can Do Today
 
@@ -23,6 +25,7 @@ The current build is still intentionally small. It supports Florida DBPR constru
 - Export canonical records as JSONL or CSV.
 - Check one license number against a local source file.
 - Inspect researched source metadata for all 50 states plus DC and five major U.S. territories.
+- Filter source metadata from the CLI or optional hosted `/api/sources` endpoint.
 
 ## What This Project Does Not Do
 
@@ -55,6 +58,17 @@ Summarize implemented adapters and future adapter candidates:
 
 ```bash
 corepack pnpm cli -- sources readiness
+```
+
+The current source-quality summary is:
+
+```text
+sources: 56
+states plus DC researched: 51/51
+territories researched: 5/5
+implemented adapters: 4
+registry-only sources: 52
+unimplemented bulk-shaped candidates: 5
 ```
 
 Summarize state, DC, and major territory coverage:
@@ -208,12 +222,12 @@ corepack pnpm web:build
 
 `coverage:health` verifies that all state, DC, and major territory coverage rows are present and cross-linked to registry sources. `source:quality` separates implemented adapter sources from unimplemented bulk-shaped candidates. Use that report and the [adapter candidate priorities](docs/adapters/candidate-priorities.md) guide when choosing the next adapter, but treat candidate status as a research signal only: source terms, fixture safety, field shape, and verification caveats still need source-specific review before implementation.
 
-Hosted deployment is optional. See [docs/deployment/vercel-supabase.md](docs/deployment/vercel-supabase.md) for the Vercel/Supabase setup.
+Hosted deployment is optional. The hosted layer provides a static status page plus source metadata, readiness, and health endpoints. `/api/sources` supports the same source filters as the CLI and can read from Supabase first with registry-file fallback. See [docs/deployment/vercel-supabase.md](docs/deployment/vercel-supabase.md) for the Vercel/Supabase setup.
 
 Before tagging a release candidate, use the short [release checklist](docs/release-checklist.md).
 
 ## Roadmap
 
-The next work is to make opt-in URL workflows more source-aware, improve Oregon, Texas, and Washington fixture coverage, harden territory source research, and turn the most suitable registry-only sources into fixture adapters. Broader adapter coverage will come after the registry validation, source-quality reporting, Level 4 verification semantics, and adapter contracts stay boring and predictable.
+The next work is to promote the best bulk-shaped registry-only candidates into fixture adapters, make opt-in URL workflows more source-aware, improve Oregon, Texas, and Washington fixture coverage, and deepen territory source research. Broader adapter coverage should come after registry validation, source-quality reporting, Level 4 verification semantics, and adapter contracts stay boring and predictable.
 
 See [docs/roadmap.md](docs/roadmap.md) for the current plan.
