@@ -21,6 +21,7 @@ describe("opentrade CLI", () => {
     expect(help).toContain("Default commands do not contact agency sites.");
     expect(help).toContain("Network sync requires --allow-network.");
     expect(help).toContain("opentrade sources readiness [--json]");
+    expect(help).toContain("opentrade sources coverage [--json]");
     expect(help).toContain("opentrade sync <sourceId> --url <sourceUrl> --allow-network --out <path>");
     expect(help).toContain("adapter maturity");
     expect(help).not.toContain("v0.1 does not download live agency data");
@@ -154,6 +155,37 @@ describe("opentrade CLI", () => {
       "us.mn.dli.licenses_registrations",
     ]);
     expect(json.registryOnlySourceCount).toBe(52);
+  }, 15000);
+
+  it("summarizes state and territory source coverage", () => {
+    const coverage = runCli(["sources", "coverage"]).stdout;
+    expect(coverage).toContain("OpenTrade source coverage");
+    expect(coverage).toContain("states and DC: 51/51 researched");
+    expect(coverage).toContain("major territories: 5/5 researched");
+    expect(coverage).toContain("- fixture_supported: 3");
+    expect(coverage).toContain("- local_file_supported: 1");
+    expect(coverage).toContain("- registry_entry_added: 47");
+    expect(coverage).toContain("- FL: local_file_supported (us.fl.dbpr.construction)");
+    expect(coverage).toContain("- OR: fixture_supported (us.or.ccb.active_licenses)");
+    expect(coverage).toContain("- TX: fixture_supported (us.tx.tdlr.all_licenses)");
+    expect(coverage).toContain("- WA: fixture_supported (us.wa.lni.contractors)");
+    expect(coverage).toContain("not proof of complete statewide licensing coverage");
+
+    const json = JSON.parse(runCli(["sources", "coverage", "--json"]).stdout);
+    expect(json.stateCount).toBe(51);
+    expect(json.researchedStateCount).toBe(51);
+    expect(json.territoryCount).toBe(5);
+    expect(json.researchedTerritoryCount).toBe(5);
+    expect(json.stateCoverageByStatus).toEqual({
+      fixture_supported: 3,
+      local_file_supported: 1,
+      registry_entry_added: 47,
+    });
+    expect(json.territoryCoverageByStatus).toEqual({
+      registry_entry_added: 5,
+    });
+    expect(json.states.find((row: { state: string }) => row.state === "FL").sourceIds).toEqual(["us.fl.dbpr.construction"]);
+    expect(json.territories.map((row: { territory: string }) => row.territory)).toEqual(["AS", "GU", "MP", "PR", "VI"]);
   }, 15000);
 
   it("rejects registry-only sources for sync and verify with neutral wording", () => {

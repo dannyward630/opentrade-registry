@@ -48,6 +48,12 @@ Summarize implemented adapters and future adapter candidates:
 corepack pnpm cli -- sources readiness
 ```
 
+Summarize state, DC, and major territory coverage:
+
+```bash
+corepack pnpm cli -- sources coverage
+```
+
 Show the metadata for one source:
 
 ```bash

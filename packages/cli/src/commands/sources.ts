@@ -2,6 +2,35 @@ import { readFile, readdir } from "node:fs/promises";
 import { join } from "node:path";
 import { buildSourceReadiness, sourceRegistryEntrySchema, type SourceRegistryEntry } from "@opentrade/core";
 
+type CoverageStatus =
+  | "not_started"
+  | "source_identified"
+  | "registry_entry_added"
+  | "adapter_planned"
+  | "fixture_supported"
+  | "local_file_supported"
+  | "network_opt_in_supported";
+
+type CoverageRow = {
+  state?: string;
+  territory?: string;
+  name?: string;
+  status: CoverageStatus;
+  sourceIds: string[];
+  notes: string;
+};
+
+type CoverageSummary = {
+  stateCount: number;
+  researchedStateCount: number;
+  territoryCount: number;
+  researchedTerritoryCount: number;
+  stateCoverageByStatus: Record<string, number>;
+  territoryCoverageByStatus: Record<string, number>;
+  states: CoverageRow[];
+  territories: CoverageRow[];
+};
+
 export async function loadSourceRegistry(rootDir: string): Promise<SourceRegistryEntry[]> {
   const sourceRoot = join(rootDir, "registry", "sources");
   const files = await listJsonFiles(sourceRoot);
@@ -25,6 +54,26 @@ export async function listSources(rootDir: string, options: { json?: boolean }) 
   for (const entry of entries) {
     console.log(`${entry.id}\t${entry.adapterStatus}\t${entry.adapterMaturity}\tlevel_${entry.adapterQualityLevel ?? 0}\t${entry.name}`);
   }
+}
+
+export async function showSourceCoverage(rootDir: string, options: { json?: boolean }) {
+  const summary = await loadCoverageSummary(rootDir);
+
+  if (options.json) {
+    console.log(JSON.stringify(summary, null, 2));
+    return;
+  }
+
+  console.log("OpenTrade source coverage");
+  console.log(`states and DC: ${summary.researchedStateCount}/${summary.stateCount} researched`);
+  console.log(`major territories: ${summary.researchedTerritoryCount}/${summary.territoryCount} researched`);
+  printCounts("state coverage by status", summary.stateCoverageByStatus);
+  printCounts("territory coverage by status", summary.territoryCoverageByStatus);
+  console.log("implemented or fixture-supported state rows:");
+  for (const row of summary.states.filter((entry) => entry.status === "local_file_supported" || entry.status === "fixture_supported")) {
+    console.log(`- ${row.state}: ${row.status} (${row.sourceIds.join(", ")})`);
+  }
+  console.log("Coverage rows are source-discovery metadata, not proof of complete statewide licensing coverage.");
 }
 
 export async function showSourceReadiness(rootDir: string, options: { json?: boolean }) {
@@ -105,6 +154,39 @@ export async function showSource(rootDir: string, sourceId: string, options: { j
   }
   if (entry.researchNotes) {
     console.log(`research: ${entry.researchNotes}`);
+  }
+}
+
+async function loadCoverageSummary(rootDir: string): Promise<CoverageSummary> {
+  const stateCoverage = JSON.parse(await readFile(join(rootDir, "registry", "us-coverage.json"), "utf8")) as { states: CoverageRow[] };
+  const territoryCoverage = JSON.parse(await readFile(join(rootDir, "registry", "us-territory-coverage.json"), "utf8")) as {
+    territories: CoverageRow[];
+  };
+
+  return {
+    stateCount: stateCoverage.states.length,
+    researchedStateCount: stateCoverage.states.filter((state) => state.sourceIds.length > 0).length,
+    territoryCount: territoryCoverage.territories.length,
+    researchedTerritoryCount: territoryCoverage.territories.filter((territory) => territory.sourceIds.length > 0).length,
+    stateCoverageByStatus: countBy(stateCoverage.states, (state) => state.status),
+    territoryCoverageByStatus: countBy(territoryCoverage.territories, (territory) => territory.status),
+    states: stateCoverage.states,
+    territories: territoryCoverage.territories,
+  };
+}
+
+function countBy<T>(values: T[], getKey: (value: T) => string): Record<string, number> {
+  return values.reduce<Record<string, number>>((counts, value) => {
+    const key = getKey(value);
+    counts[key] = (counts[key] ?? 0) + 1;
+    return counts;
+  }, {});
+}
+
+function printCounts(title: string, counts: Record<string, number>) {
+  console.log(`${title}:`);
+  for (const [key, value] of Object.entries(counts).sort(([a], [b]) => a.localeCompare(b))) {
+    console.log(`- ${key}: ${value}`);
   }
 }
 
