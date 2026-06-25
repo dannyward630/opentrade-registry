@@ -7,7 +7,7 @@ import {
   loadSourcesFromDatabase,
   type RegistryDatabaseClient,
 } from "../api/registry.js";
-import sourcesHandler from "../api/sources.js";
+import sourcesHandler, { filterSourcesForApi } from "../api/sources.js";
 
 describe("hosted API", () => {
   it("reports healthy when database environment variables are not configured", async () => {
@@ -42,6 +42,51 @@ describe("hosted API", () => {
     expect(response.body.origin).toBe("registry_files");
     expect(response.body.count).toBe(56);
     expect(response.body.sources.some((source: { id: string }) => source.id === "us.fl.dbpr.construction")).toBe(true);
+  });
+
+  it("filters source registry entries from local metadata", async () => {
+    const implemented = createMockResponse();
+    await sourcesHandler({ query: { implemented: "true" } } as never, implemented as never);
+
+    expect(implemented.statusCode).toBe(200);
+    expect(implemented.body.count).toBe(4);
+    expect(implemented.body.filters.implemented).toBe(true);
+    expect(implemented.body.sources.map((source: { id: string }) => source.id)).toEqual([
+      "us.fl.dbpr.construction",
+      "us.or.ccb.active_licenses",
+      "us.tx.tdlr.all_licenses",
+      "us.wa.lni.contractors",
+    ]);
+
+    const california = createMockResponse();
+    await sourcesHandler({ query: { state: "ca", maturity: "registry_only" } } as never, california as never);
+    expect(california.statusCode).toBe(200);
+    expect(california.body.count).toBe(1);
+    expect(california.body.filters.state).toBe("CA");
+    expect(california.body.sources[0].id).toBe("us.ca.cslb.contractors");
+
+    const bulkCandidates = createMockResponse();
+    await sourcesHandler({ query: { bulkCandidates: "true" } } as never, bulkCandidates as never);
+    expect(bulkCandidates.statusCode).toBe(200);
+    expect(bulkCandidates.body.count).toBe(5);
+    expect(bulkCandidates.body.sources.map((source: { id: string }) => source.id)).toEqual([
+      "us.ak.commerce.construction_contractors",
+      "us.ca.cslb.contractors",
+      "us.il.idfpr.roofing_contractors",
+      "us.in.pla.professional_licenses",
+      "us.mn.dli.licenses_registrations",
+    ]);
+  });
+
+  it("rejects invalid source filters", async () => {
+    const response = createMockResponse();
+    await sourcesHandler({ query: { maturity: "fixture" } } as never, response as never);
+
+    expect(response.statusCode).toBe(400);
+    expect(response.body).toMatchObject({
+      error: "invalid_filter",
+      message: expect.stringContaining("Invalid maturity filter"),
+    });
   });
 
   it("returns source readiness from local metadata", async () => {
@@ -98,6 +143,29 @@ describe("hosted API", () => {
       },
       adapterMaturity: "registry_only"
     });
+  });
+
+  it("filters database-backed source registry entries", async () => {
+    const result = await loadSourcesForApi({
+      databaseClient: createFakeDatabaseClient({
+        rows: [
+          {
+            ...createSourceRow("us.fl.dbpr.construction", "FL"),
+            source_type: "bulk_csv",
+            adapter_status: "implemented",
+            adapter_maturity: "local_file_adapter",
+          },
+          createSourceRow("us.ct.dcp.home_improvement_contractors", "CT"),
+        ],
+      }),
+    });
+
+    expect(result.origin).toBe("database");
+    expect(result.sources).toHaveLength(2);
+
+    const filtered = filterSourcesForApi(result.sources, { status: "implemented" });
+    expect(filtered.filters.status).toBe("implemented");
+    expect(filtered.sources.map((source) => source.id)).toEqual(["us.fl.dbpr.construction"]);
   });
 
   it("returns source readiness from database rows when a database client is available", async () => {

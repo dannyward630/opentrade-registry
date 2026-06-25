@@ -34,6 +34,19 @@ The repository also includes root API functions under `api/`. Vercel packages `r
 
 Readiness candidate status is a planning signal only. It is not evidence that a source can already be imported, redistributed, or verified end to end.
 
+`/api/sources` supports the same registry filters as the CLI source listing command:
+
+- `state=CA`
+- `maturity=registry_only`
+- `status=implemented`
+- `sourceType=bulk_csv` or `source_type=bulk_csv`
+- `qualityLevel=4` or `quality_level=4`
+- `implemented=true`
+- `registryOnly=true` or `registry_only=true`
+- `bulkCandidates=true` or `bulk_candidates=true`
+
+Filters apply to database-backed responses and file-registry fallback responses. The response includes a `filters` object so callers can see which filters were accepted. Invalid enum filters return `400` with `error: "invalid_filter"`.
+
 `/api/health` reports the checked-in file source count and, when Supabase is configured, the database source count. The `sourceCountMatchesFiles` field should be `true` after the seed SQL has been applied.
 
 ## Supabase

@@ -1,6 +1,12 @@
 import { readFile, readdir } from "node:fs/promises";
 import { join } from "node:path";
-import { buildSourceReadiness, isBulkShapedCandidate, sourceRegistryEntrySchema, type SourceRegistryEntry } from "@opentrade/core";
+import {
+  buildSourceReadiness,
+  filterSources,
+  sourceRegistryEntrySchema,
+  type SourceFilterOptions,
+  type SourceRegistryEntry,
+} from "@opentrade/core";
 
 type CoverageStatus =
   | "not_started"
@@ -31,16 +37,8 @@ type CoverageSummary = {
   territories: CoverageRow[];
 };
 
-export type SourceListOptions = {
+export type SourceListOptions = SourceFilterOptions & {
   json?: boolean;
-  state?: string;
-  maturity?: SourceRegistryEntry["adapterMaturity"];
-  status?: SourceRegistryEntry["adapterStatus"];
-  sourceType?: SourceRegistryEntry["sourceType"];
-  qualityLevel?: number;
-  implemented?: boolean;
-  registryOnly?: boolean;
-  bulkCandidates?: boolean;
 };
 
 export async function loadSourceRegistry(rootDir: string): Promise<SourceRegistryEntry[]> {
@@ -71,44 +69,6 @@ export async function listSources(rootDir: string, options: SourceListOptions) {
   for (const entry of entries) {
     console.log(`${entry.id}\t${entry.adapterStatus}\t${entry.adapterMaturity}\tlevel_${entry.adapterQualityLevel ?? 0}\t${entry.name}`);
   }
-}
-
-export function filterSources(entries: SourceRegistryEntry[], options: SourceListOptions): SourceRegistryEntry[] {
-  return entries.filter((entry) => {
-    if (options.state && entry.jurisdiction.state.toUpperCase() !== options.state.toUpperCase()) {
-      return false;
-    }
-
-    if (options.maturity && entry.adapterMaturity !== options.maturity) {
-      return false;
-    }
-
-    if (options.status && entry.adapterStatus !== options.status) {
-      return false;
-    }
-
-    if (options.sourceType && entry.sourceType !== options.sourceType) {
-      return false;
-    }
-
-    if (typeof options.qualityLevel === "number" && (entry.adapterQualityLevel ?? 0) !== options.qualityLevel) {
-      return false;
-    }
-
-    if (options.implemented && entry.adapterStatus !== "implemented") {
-      return false;
-    }
-
-    if (options.registryOnly && entry.adapterMaturity !== "registry_only") {
-      return false;
-    }
-
-    if (options.bulkCandidates && (entry.adapterStatus === "implemented" || !isBulkShapedCandidate(entry))) {
-      return false;
-    }
-
-    return true;
-  });
 }
 
 export async function showSourceCoverage(rootDir: string, options: { json?: boolean }) {
