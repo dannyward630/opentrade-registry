@@ -14,7 +14,7 @@
   ],
   "states": [
     { "state": "AL", "status": "registry_entry_added", "sourceIds": ["us.al.genconbd.general_contractors"], "notes": "Alabama general contractors board license roster source metadata exists; no adapter is implemented." },
-    { "state": "AK", "status": "registry_entry_added", "sourceIds": ["us.ak.commerce.construction_contractors"], "notes": "Alaska CBPL construction contractor lookup and download source metadata exists; no adapter is implemented." },
+    { "state": "AK", "status": "fixture_supported", "sourceIds": ["us.ak.commerce.construction_contractors"], "notes": "Alaska CBPL fixture adapter is implemented for a tiny hand-authored construction-contractor-shaped sample. Live protected lookup and download access are not implemented." },
     { "state": "AZ", "status": "registry_entry_added", "sourceIds": ["us.az.roc.contractors"], "notes": "Arizona ROC source metadata has been added; no adapter is implemented." },
     { "state": "AR", "status": "registry_entry_added", "sourceIds": ["us.ar.aclb.contractors"], "notes": "Arkansas Contractors Licensing Board lookup source metadata exists; no adapter is implemented." },
     { "state": "CA", "status": "fixture_supported", "sourceIds": ["us.ca.cslb.contractors"], "notes": "California CSLB fixture adapter is implemented for a tiny hand-authored sample. Live master-list and companion-file parsing are not implemented." },

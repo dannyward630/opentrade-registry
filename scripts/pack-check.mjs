@@ -3,6 +3,7 @@ import { join } from "node:path";
 
 const packages = [
   "packages/core",
+  "packages/adapter-ak-commerce",
   "packages/adapter-ca-cslb",
   "packages/adapter-fl-dbpr",
   "packages/adapter-in-pla",

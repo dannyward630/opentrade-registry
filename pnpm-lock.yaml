@@ -8,6 +8,9 @@ importers:
 
   .:
     devDependencies:
+      '@opentrade/adapter-ak-commerce':
+        specifier: workspace:*
+        version: link:packages/adapter-ak-commerce
       '@opentrade/adapter-ca-cslb':
         specifier: workspace:*
         version: link:packages/adapter-ca-cslb
@@ -141,6 +144,9 @@ importers:
 
   packages/cli:
     dependencies:
+      '@opentrade/adapter-ak-commerce':
+        specifier: workspace:*
+        version: link:../adapter-ak-commerce
       '@opentrade/adapter-ca-cslb':
         specifier: workspace:*
         version: link:../adapter-ca-cslb

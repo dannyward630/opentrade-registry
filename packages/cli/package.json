@@ -40,6 +40,7 @@
     "cli": "tsx src/index.ts"
   },
   "dependencies": {
+    "@opentrade/adapter-ak-commerce": "workspace:*",
     "@opentrade/adapter-ca-cslb": "workspace:*",
     "@opentrade/adapter-fl-dbpr": "workspace:*",
     "@opentrade/adapter-in-pla": "workspace:*",
