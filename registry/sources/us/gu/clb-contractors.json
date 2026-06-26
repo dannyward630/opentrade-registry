@@ -13,7 +13,7 @@
   "sourceUrl": "https://clb.guam.gov/contractors-listing/",
   "documentationUrl": "https://clb.guam.gov/",
   "dataDictionaryUrl": null,
-  "termsUrl": null,
+  "termsUrl": "https://governor.guam.gov/privacy-policy/",
   "updateFrequency": "unknown; verify against the Guam Contractors Licensing Board listing before relying on freshness assumptions",
   "tradeCoverage": ["general_contracting", "residential_contracting", "commercial_contracting", "electrical", "plumbing", "mechanical", "other", "unknown"],
   "licenseTypesIncluded": ["Guam contractor license records exposed by the official Contractors Listing page"],
