@@ -65,7 +65,14 @@ Implemented adapters should include `adapterQualityLevel: 4`, `verificationRevie
 
 Today, Florida DBPR is a local-file adapter with opt-in URL sync and verification through the CLI. Alaska CBPL, California CSLB, Illinois IDFPR, Indiana PLA, Minnesota DLI, Oregon CCB, Texas TDLR, and Washington L&I are fixture-supported. Every other state/DC and territory source entry is registry-only until source-specific terms, fields, fixtures, and verification caveats are reviewed.
 
-`corepack pnpm source:quality` currently reports `56` total source entries, `47` registry-only sources, `9` implemented adapter sources, and `0` unimplemented bulk-shaped candidates. That does not mean adapter expansion is finished; it means the current registry queue has no remaining source that already looks bulk/download-shaped and unimplemented. Future adapter work should begin with fresh source research or deeper review of existing lookup-only and territory entries. Guam, Puerto Rico, and the U.S. Virgin Islands have promising lookup-shaped territory sources. American Samoa and CNMI need more research because the current entries are broader business or construction-adjacent professional licensing metadata, not confirmed contractor-specific lookups. Most other registry-only entries are lookup-oriented or still need bulk-export research, so their registry entries intentionally stop before parser or automation work.
+`corepack pnpm source:quality` currently reports `56` total source entries, `47` registry-only sources, `9` implemented adapter sources, and `0` unimplemented bulk-shaped candidates. That does not mean adapter expansion is finished; it means the current registry queue has no remaining source that already looks bulk/download-shaped and unimplemented.
+
+The source-quality report also surfaces two follow-up queues for adapter planning:
+
+- `download/export research candidates`: registry-only sources whose metadata contains affirmative clues about downloads, rosters, posting lists, reports, or current lists, but where source terms, fields, redistribution posture, and fixture safety still need review.
+- `lookup automation constraint sources`: registry-only lookup sources marked with JavaScript, CAPTCHA, or account constraints. These are caution flags, not implementation instructions. Do not bypass technical controls.
+
+Future adapter work should begin with fresh source research or deeper review of these queues and other lookup-only entries. Guam, Puerto Rico, and the U.S. Virgin Islands have promising lookup-shaped territory sources. American Samoa and CNMI need more research because the current entries are broader business or construction-adjacent professional licensing metadata, not confirmed contractor-specific lookups. Most other registry-only entries are lookup-oriented or still need bulk-export research, so their registry entries intentionally stop before parser or automation work.
 
 ## Contribution Notes
 
