@@ -174,6 +174,14 @@ describe("source registry", () => {
         expect(entry.adapterPackage.startsWith(`@opentrade/adapter-${state}-`), `${entry.id} has an adapter package that does not include its state code`).toBe(true);
       }
 
+      if (!entry.termsUrl) {
+        expect(entry.termsReviewNotes, `${entry.id} has no termsUrl and needs termsReviewNotes`).toBeTruthy();
+      }
+
+      if (!entry.officialLookupUrl) {
+        expect(entry.officialLookupReviewNotes, `${entry.id} has no officialLookupUrl and needs officialLookupReviewNotes`).toBeTruthy();
+      }
+
       if (entry.adapterStatus === "implemented") {
         expect(implementedSourceIds, `${entry.id} is implemented but not registered in the CLI adapter registry`).toContain(entry.id);
       }
