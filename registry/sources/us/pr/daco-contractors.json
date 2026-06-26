@@ -13,7 +13,7 @@
   "sourceUrl": "https://www.daco.pr.gov/consumidores/listado-contratistas-registrados/",
   "documentationUrl": "https://www.daco.pr.gov/consumidores/listado-contratistas-registrados/",
   "dataDictionaryUrl": null,
-  "termsUrl": null,
+  "termsUrl": "https://www.daco.pr.gov/wp-content/uploads/2018/11/8568.pdf",
   "updateFrequency": "unknown; verify against DACO's registered contractors list before relying on freshness assumptions",
   "tradeCoverage": ["general_contracting", "residential_contracting", "roofing", "home_improvement", "handyman", "other", "unknown"],
   "licenseTypesIncluded": ["Puerto Rico DACO registered contractor records exposed by the official registered contractors list"],

@@ -40,11 +40,8 @@ describe("source quality report", () => {
     }
     expect(report.metadataCompleteness.termsUrlMissingSources.map((source: { id: string }) => source.id)).toEqual([
       "us.as.doc.business_licenses",
-      "us.de.labor.construction_contractors",
-      "us.gu.clb.contractors",
       "us.mp.bpl.professional_licenses",
       "us.ms.msboc.contractors",
-      "us.pr.daco.contractors",
       "us.vi.dlca.contractors_trades",
     ]);
     expect(report.metadataCompleteness.officialLookupUrlMissingSources.map((source: { id: string }) => source.id)).toEqual([

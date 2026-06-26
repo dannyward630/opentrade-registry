@@ -13,7 +13,7 @@
   "sourceUrl": "https://contractorregistry.delaware.gov/",
   "documentationUrl": "https://contractorregistry.delaware.gov/",
   "dataDictionaryUrl": null,
-  "termsUrl": null,
+  "termsUrl": "https://onestop.delaware.gov/Help_Terms",
   "updateFrequency": "unknown; verify against the public lookup before relying on freshness assumptions",
   "tradeCoverage": ["general_contracting", "home_improvement", "other"],
   "licenseTypesIncluded": ["construction contractor registrations exposed by the Delaware public lookup"],
