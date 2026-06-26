@@ -12,6 +12,11 @@ import {
   sourceRegistryEntrySchema,
 } from "@opentrade/core";
 import {
+  californiaCslbContractorsAdapter,
+  CA_CSLB_CONTRACTORS_SOURCE_ID,
+  normalizeCaliforniaCslbStatus,
+} from "@opentrade/adapter-ca-cslb";
+import {
   FL_DBPR_CONSTRUCTION_SOURCE_ID,
   floridaDbprConstructionAdapter,
   normalizeDbprStatus,
@@ -63,6 +68,9 @@ describe("public package imports", () => {
       note: expect.stringContaining("planning signal only"),
     });
     expect(typeof isUnimplementedBulkAdapterCandidate).toBe("function");
+    expect(CA_CSLB_CONTRACTORS_SOURCE_ID).toBe("us.ca.cslb.contractors");
+    expect(californiaCslbContractorsAdapter.sourceId).toBe("us.ca.cslb.contractors");
+    expect(normalizeCaliforniaCslbStatus({ status: "Suspended", expirationDate: "2099-12-31T00:00:00.000Z" }).normalized).toBe("suspended");
     expect(FL_DBPR_CONSTRUCTION_SOURCE_ID).toBe("us.fl.dbpr.construction");
     expect(floridaDbprConstructionAdapter.sourceId).toBe("us.fl.dbpr.construction");
     expect(normalizeDbprStatus({ primaryStatusCode: "S", secondaryStatusCode: "A" }).normalized).toBe("suspended");

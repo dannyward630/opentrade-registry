@@ -113,6 +113,7 @@ describe("source registry", () => {
     expect(parsed.every((entry) => entry.redistributionStatus === "unknown")).toBe(true);
     expect(parsed.every((entry) => entry.sourceDiscoveryStatus === "researched")).toBe(true);
     expect(parsed.find((entry) => entry.id === "us.fl.dbpr.construction")?.adapterMaturity).toBe("local_file_adapter");
+    expect(parsed.find((entry) => entry.id === "us.ca.cslb.contractors")?.adapterMaturity).toBe("fixture_adapter");
     expect(parsed.find((entry) => entry.id === "us.mn.dli.licenses_registrations")?.adapterMaturity).toBe("fixture_adapter");
     expect(parsed.find((entry) => entry.id === "us.or.ccb.active_licenses")?.adapterMaturity).toBe("fixture_adapter");
     expect(parsed.find((entry) => entry.id === "us.tx.tdlr.all_licenses")?.adapterMaturity).toBe("fixture_adapter");
@@ -129,6 +130,7 @@ describe("source registry", () => {
           (entry) =>
             ![
               "us.fl.dbpr.construction",
+              "us.ca.cslb.contractors",
               "us.mn.dli.licenses_registrations",
               "us.or.ccb.active_licenses",
               "us.tx.tdlr.all_licenses",
@@ -316,7 +318,7 @@ describe("source registry", () => {
     expect(coverage.states.find((entry) => entry.state === "MI")?.status).toBe("registry_entry_added");
     expect(coverage.states.find((entry) => entry.state === "MN")?.status).toBe("fixture_supported");
     expect(coverage.states.find((entry) => entry.state === "MS")?.status).toBe("registry_entry_added");
-    expect(coverage.states.find((entry) => entry.state === "CA")?.status).toBe("registry_entry_added");
+    expect(coverage.states.find((entry) => entry.state === "CA")?.status).toBe("fixture_supported");
     expect(coverage.states.find((entry) => entry.state === "AZ")?.status).toBe("registry_entry_added");
     expect(coverage.states.find((entry) => entry.state === "NC")?.status).toBe("registry_entry_added");
     expect(coverage.states.find((entry) => entry.state === "NJ")?.status).toBe("registry_entry_added");

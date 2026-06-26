@@ -68,9 +68,9 @@ The current source-quality summary is:
 sources: 56
 states plus DC researched: 51/51
 territories researched: 5/5
-implemented adapters: 5
-registry-only sources: 51
-unimplemented bulk-shaped candidates: 4
+implemented adapters: 6
+registry-only sources: 50
+unimplemented bulk-shaped candidates: 3
 ```
 
 Summarize state, DC, and major territory coverage:

@@ -18,26 +18,34 @@
   "tradeCoverage": ["construction"],
   "licenseTypesIncluded": ["contractor licenses"],
   "knownExclusions": [
-    "Exact source coverage, file contents, and exclusions must be confirmed against official CSLB documentation before adapter implementation.",
-    "This source entry does not yet model companion files such as personnel, bond, or workers' compensation data."
+    "Exact source coverage, file contents, and exclusions must be confirmed against official CSLB documentation before local-file or network implementation.",
+    "This adapter does not model companion files such as personnel, bond, or workers' compensation data."
   ],
   "hasBulkDownload": true,
   "hasLiveLookup": true,
   "requiresJavaScript": "unknown",
   "requiresCaptcha": "unknown",
   "requiresAccount": "unknown",
-  "rateLimitNotes": "No adapter is implemented yet. Any future download support should be opt-in and should respect official data portal guidance.",
+  "rateLimitNotes": "Fixture adapter only. Any future download support should be opt-in and should respect official data portal guidance.",
   "redistributionStatus": "unknown",
-  "publicRecordsNotes": "Official public-record source metadata only. Generated dataset redistribution is not assumed to be allowed.",
-  "adapterStatus": "planned",
+  "publicRecordsNotes": "Fixture adapter only. Generated dataset redistribution is not assumed to be allowed.",
+  "adapterStatus": "implemented",
   "sourceDiscoveryStatus": "researched",
-  "adapterMaturity": "registry_only",
+  "adapterMaturity": "fixture_adapter",
   "coverageScope": "statewide",
   "adapterPackage": "@opentrade/adapter-ca-cslb",
-  "testFixturePath": null,
+  "testFixturePath": "packages/adapter-ca-cslb/fixtures/contractors-master-sample.csv",
   "officialLookupUrl": "https://www.cslb.ca.gov/onlineservices/checklicenseII/checklicense.aspx",
-  "officialBulkDownloadNotes": "CSLB describes downloadable master-list data and companion files on its public data portal. No adapter or fixture is implemented yet.",
-  "researchNotes": "Treat this as registry metadata only until the master-list file shape, companion files, and redistribution posture are reviewed in detail.",
-  "lastVerifiedAt": "2026-06-19T00:00:00.000Z",
-  "maintainerNotes": "Only a source-registry entry exists today; no California adapter logic is implemented."
+  "officialBulkDownloadNotes": "CSLB describes downloadable master-list data and companion files on its public data portal. This adapter currently uses only a tiny fixture and does not download or parse the live files.",
+  "researchNotes": "Fixture support exists for license-master-like rows. Future work should review the current live file shape, companion files, and redistribution posture in detail.",
+  "lastVerifiedAt": "2026-06-26T00:00:00.000Z",
+  "maintainerNotes": "Keep the fixture adapter scoped to license-master concepts; do not infer companion-file compliance facts.",
+  "adapterQualityLevel": 4,
+  "verificationReviewedAt": "2026-06-26T00:00:00.000Z",
+  "verificationCaveats": [
+    "California CSLB fixture support is based on a tiny hand-authored sample, not the live CSLB master list.",
+    "CSLB companion files and instant license lookup may contain source details that are not represented by this fixture.",
+    "No matching record means no match in this source at the checked time, not proof that a license does not exist elsewhere."
+  ],
+  "verificationNotes": "Fixture verification supports matched, not-found, ambiguous duplicate, and invalid-input outcomes through the shared CLI verifier. Rows are normalized conservatively and preserve CSLB source caveats."
 }
