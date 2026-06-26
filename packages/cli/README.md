@@ -2,7 +2,7 @@
 
 The CLI is the simplest way to use OpenTrade Registry from this repository. It lists and filters source metadata, validates the registry, syncs supported local files, and checks one license number against a local file or explicit opt-in URL snapshot.
 
-Current registry state: `56` source entries are checked in, all states plus DC and five major U.S. territories have researched entries, and five sources have implemented adapters. Florida DBPR supports local files plus explicit URL snapshots. Minnesota DLI, Oregon CCB, Texas TDLR, and Washington L&I are fixture-supported.
+Current registry state: `56` source entries are checked in, all states plus DC and five major U.S. territories have researched entries, and six sources have implemented adapters. Florida DBPR supports local files plus explicit URL snapshots. California CSLB, Minnesota DLI, Oregon CCB, Texas TDLR, and Washington L&I are fixture-supported.
 
 ## Commands
 
@@ -16,6 +16,7 @@ opentrade sources show us.tx.tdlr.all_licenses
 opentrade sources readiness
 opentrade sources coverage
 opentrade sources validate
+opentrade sync us.ca.cslb.contractors --file ./cslb-fixture.csv --out ./records.jsonl
 opentrade sync us.fl.dbpr.construction --file ./fixture.csv --out ./records.jsonl
 opentrade sync us.fl.dbpr.construction --url <official-csv-url> --allow-network --out ./records.jsonl
 opentrade sync us.mn.dli.licenses_registrations --file ./minnesota-fixture.csv --out ./records.jsonl

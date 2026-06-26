@@ -11,13 +11,14 @@ OpenTrade Registry helps developers work with official contractor and skilled-tr
 
 Contractor-license data is public, but it is scattered. One agency might publish a CSV file. Another might offer an Excel download. Another might only provide a lookup page. OpenTrade Registry gives those sources a common registry, a canonical record shape, and adapter contracts so each source can be handled consistently.
 
-The current build is still intentionally local-first. It includes `56` researched source registry entries covering all 50 states plus DC and five major U.S. territories. Five sources have implemented adapters: Florida DBPR has local-file support plus opt-in URL sync and verification, while Minnesota DLI, Oregon CCB, Texas TDLR, and Washington L&I are fixture-supported. Normal tests do not download live agency data.
+The current build is still intentionally local-first. It includes `56` researched source registry entries covering all 50 states plus DC and five major U.S. territories. Six sources have implemented adapters: Florida DBPR has local-file support plus opt-in URL sync and verification, while California CSLB, Minnesota DLI, Oregon CCB, Texas TDLR, and Washington L&I are fixture-supported. Normal tests do not download live agency data.
 
 For the detailed snapshot, see [Current Project State](docs/current-state.md).
 
 ## What You Can Do Today
 
 - Validate the source registry.
+- Convert a tiny California CSLB fixture into canonical records.
 - Convert the Florida DBPR sample file into canonical records.
 - Convert a tiny Minnesota DLI fixture into canonical records.
 - Convert a tiny Oregon CCB fixture into canonical records.
