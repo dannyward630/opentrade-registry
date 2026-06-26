@@ -12,6 +12,7 @@ opentrade sources list --state CA
 opentrade sources list --implemented
 opentrade sources list --bulk-candidates --json
 opentrade sources list --maturity registry_only --source-type bulk_xlsx
+opentrade sources list --research-outcome adapter_candidate
 opentrade sources show us.tx.tdlr.all_licenses
 opentrade sources readiness
 opentrade sources coverage
@@ -33,7 +34,7 @@ opentrade verify --source us.fl.dbpr.construction --url <official-csv-url> --all
 
 Use `--json` when you need structured output. Use `--strict` for sync commands that should fail on the first row-level normalization error.
 
-`sources list` and `sources show` include registry-only sources. `sources list` can filter by `--state`, `--maturity`, `--status`, `--source-type`, `--quality-level`, `--implemented`, `--registry-only`, and `--bulk-candidates`. `sources readiness` summarizes implemented adapters and unimplemented bulk-shaped candidates from local registry metadata. `sources coverage` summarizes state, DC, and major territory coverage index status. Candidate and coverage status are planning signals only; review source terms, fixture safety, field shape, filters, and verification caveats before implementation. `sync` and `verify` only run for sources with implemented adapters. URL sync and URL verification require `--allow-network`.
+`sources list` and `sources show` include registry-only sources. `sources list` can filter by `--state`, `--maturity`, `--status`, `--source-type`, `--quality-level`, `--research-outcome`, `--implemented`, `--registry-only`, and `--bulk-candidates`. `sources readiness` summarizes implemented adapters, unimplemented bulk-shaped candidates, download/export research candidates, lookup automation constraint sources, and research-outcome counts from local registry metadata. Candidate and coverage status are planning signals only; review source terms, fixture safety, field shape, filters, access controls, and verification caveats before implementation. `sync` and `verify` only run for sources with implemented adapters. URL sync and URL verification require `--allow-network`.
 
 ## Exit Codes
 

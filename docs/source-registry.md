@@ -72,6 +72,8 @@ The source-quality report also surfaces two follow-up queues for adapter plannin
 - `download/export research candidates`: registry-only sources whose metadata contains affirmative clues about downloads, rosters, posting lists, reports, or current lists, but where source terms, fields, redistribution posture, and fixture safety still need review.
 - `lookup automation constraint sources`: registry-only lookup sources marked with JavaScript, CAPTCHA, or account constraints. These are caution flags, not implementation instructions. Do not bypass technical controls.
 
+Each source also receives a computed `sourceResearchOutcome` and `nextAction` in reports and API responses. Outcomes are planning labels, not final legal findings: `implemented_adapter`, `adapter_candidate`, `needs_manual_research`, `blocked_by_terms`, `blocked_by_access_controls`, `blocked_by_no_stable_source`, and `not_contractor_specific`.
+
 Future adapter work should begin with fresh source research or deeper review of these queues and other lookup-only entries. Guam, Puerto Rico, and the U.S. Virgin Islands have promising lookup-shaped territory sources. American Samoa and CNMI need more research because the current entries are broader business or construction-adjacent professional licensing metadata, not confirmed contractor-specific lookups. Most other registry-only entries are lookup-oriented or still need bulk-export research, so their registry entries intentionally stop before parser or automation work.
 
 ## Contribution Notes
