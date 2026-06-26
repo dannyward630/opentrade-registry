@@ -5,6 +5,7 @@ import {
   loadSourceReadinessForApi,
   loadSourcesForApi,
   loadSourcesFromDatabase,
+  loadSourcesFromFiles,
   type RegistryDatabaseClient,
 } from "../api/registry.js";
 import sourcesHandler, { filterSourcesForApi } from "../api/sources.js";
@@ -253,9 +254,10 @@ describe("hosted API", () => {
   });
 
   it("reports matching database and file source counts when database count succeeds", async () => {
+    const fileSources = await loadSourcesFromFiles();
     const health = await getHealthStatus({
       databaseClient: createFakeDatabaseClient({
-        count: 56,
+        rows: fileSources.map(createDatabaseRowFromSource),
       }),
     });
 
@@ -267,8 +269,42 @@ describe("hosted API", () => {
         configured: true,
         status: "available",
         registrySourceCount: 56,
-        sourceCountMatchesFiles: true
+        sourceCountMatchesFiles: true,
+        sourceMetadataMatchesFiles: true,
+        sourceMetadataMismatchCount: 0,
       }
+    });
+  });
+
+  it("reports unhealthy when database source metadata drifts from registry files", async () => {
+    const fileSources = await loadSourcesFromFiles();
+    const rows = fileSources.map(createDatabaseRowFromSource);
+    const california = rows.find((row) => row.id === "us.ca.cslb.contractors");
+    expect(california).toBeDefined();
+    california!.adapter_status = "planned";
+    california!.adapter_maturity = "registry_only";
+
+    const health = await getHealthStatus({
+      databaseClient: createFakeDatabaseClient({ rows }),
+    });
+
+    expect(health.statusCode).toBe(503);
+    expect(health.body).toMatchObject({
+      ok: false,
+      database: {
+        configured: true,
+        status: "available",
+        registrySourceCount: 56,
+        sourceCountMatchesFiles: true,
+        sourceMetadataMatchesFiles: false,
+        sourceMetadataMismatchCount: 1,
+        sourceMetadataMismatches: [
+          {
+            id: "us.ca.cslb.contractors",
+            reason: "content_mismatch",
+          },
+        ],
+      },
     });
   });
 
@@ -376,5 +412,43 @@ function createSourceRow(id: string, state: string) {
       maintainerNotes: "test maintainer notes",
     },
     last_verified_at: "2026-06-22T00:00:00.000Z",
+  };
+}
+
+function createDatabaseRowFromSource(source: Awaited<ReturnType<typeof loadSourcesFromFiles>>[number]) {
+  const metadata = { ...source } as Record<string, unknown>;
+  for (const key of [
+    "id",
+    "name",
+    "jurisdiction",
+    "agency",
+    "sourceType",
+    "sourceUrl",
+    "documentationUrl",
+    "adapterStatus",
+    "adapterMaturity",
+    "sourceDiscoveryStatus",
+    "coverageScope",
+    "redistributionStatus",
+    "lastVerifiedAt",
+  ]) {
+    delete metadata[key];
+  }
+
+  return {
+    id: source.id,
+    name: source.name,
+    jurisdiction: source.jurisdiction,
+    agency: source.agency,
+    source_type: source.sourceType,
+    source_url: source.sourceUrl,
+    documentation_url: source.documentationUrl,
+    adapter_status: source.adapterStatus,
+    adapter_maturity: source.adapterMaturity,
+    source_discovery_status: source.sourceDiscoveryStatus,
+    coverage_scope: source.coverageScope,
+    redistribution_status: source.redistributionStatus,
+    metadata,
+    last_verified_at: source.lastVerifiedAt ?? null,
   };
 }

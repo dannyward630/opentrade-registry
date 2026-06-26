@@ -1,4 +1,4 @@
-import { countSourcesFromDatabase, createDatabaseClientFromEnv, loadSourcesFromFiles, type RegistryDatabaseClient } from "./registry.js";
+import { compareSourceMirrors, createDatabaseClientFromEnv, loadSourcesFromDatabase, loadSourcesFromFiles, type RegistryDatabaseClient, type SourceMirrorMismatch } from "./registry.js";
 import type { ApiRequest, ApiResponse } from "./types.js";
 
 export default async function handler(_request: ApiRequest, response: ApiResponse) {
@@ -7,7 +7,8 @@ export default async function handler(_request: ApiRequest, response: ApiRespons
 }
 
 export async function getHealthStatus(options: { rootDir?: string; databaseClient?: RegistryDatabaseClient | null } = {}) {
-  const fileRegistrySourceCount = (await loadSourcesFromFiles(options.rootDir)).length;
+  const fileSources = await loadSourcesFromFiles(options.rootDir);
+  const fileRegistrySourceCount = fileSources.length;
   const databaseClient = Object.prototype.hasOwnProperty.call(options, "databaseClient")
     ? options.databaseClient
     : createDatabaseClientFromEnv();
@@ -29,23 +30,37 @@ export async function getHealthStatus(options: { rootDir?: string; databaseClien
 
   let registrySourceCount = 0;
   let error: string | undefined;
+  let sourceMetadataMatchesFiles = false;
+  let sourceMetadataMismatchCount = 0;
+  let sourceMetadataMismatches: SourceMirrorMismatch[] = [];
   try {
-    registrySourceCount = await countSourcesFromDatabase(databaseClient);
+    const databaseSources = await loadSourcesFromDatabase(databaseClient, fileSources);
+    registrySourceCount = databaseSources.length;
+    const comparison = compareSourceMirrors(fileSources, databaseSources);
+    sourceMetadataMatchesFiles = comparison.sourceMetadataMatchesFiles;
+    sourceMetadataMismatchCount = comparison.sourceMetadataMismatchCount;
+    sourceMetadataMismatches = comparison.sourceMetadataMismatches;
   } catch (caught) {
-    error = caught instanceof Error ? caught.message : "Unknown database source count error";
+    error = caught instanceof Error ? caught.message : "Unknown database source loading error";
   }
 
+  const sourceCountMatchesFiles = registrySourceCount === fileRegistrySourceCount;
+  const ok = !error && sourceCountMatchesFiles && sourceMetadataMatchesFiles;
+
   return {
-    statusCode: error ? 503 : 200,
+    statusCode: ok ? 200 : 503,
     body: {
-      ok: !error,
+      ok,
       service: "opentrade-registry",
       fileRegistrySourceCount,
       database: {
         configured: true,
         status: error ? "unavailable" : "available",
         registrySourceCount,
-        sourceCountMatchesFiles: registrySourceCount === fileRegistrySourceCount,
+        sourceCountMatchesFiles,
+        sourceMetadataMatchesFiles,
+        sourceMetadataMismatchCount,
+        sourceMetadataMismatches,
         error,
       },
     },
