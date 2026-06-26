@@ -1,0 +1,59 @@
+import type { SourceRegistryEntry } from "@opentrade/core";
+
+export const IN_PLA_PROFESSIONAL_LICENSES_SOURCE_ID = "us.in.pla.professional_licenses";
+export const IN_PLA_PROFESSIONAL_LICENSES_SOURCE_URL = "https://mylicense.in.gov/everification/";
+
+export const IN_PLA_SOURCE_ENTRY: SourceRegistryEntry = {
+  id: IN_PLA_PROFESSIONAL_LICENSES_SOURCE_ID,
+  name: "Indiana PLA MyLicense Professional License Verification",
+  jurisdiction: {
+    country: "US",
+    state: "IN",
+  },
+  agency: {
+    name: "Indiana Professional Licensing Agency",
+    url: "https://www.in.gov/pla/",
+  },
+  sourceType: "html_lookup",
+  sourceUrl: IN_PLA_PROFESSIONAL_LICENSES_SOURCE_URL,
+  documentationUrl: "https://www.in.gov/pla/license/",
+  dataDictionaryUrl: null,
+  termsUrl: "https://www.in.gov/core/privacy.html",
+  updateFrequency: "The PLA services page describes free search and verify as continuously updated in real time; verify current source text before relying on freshness assumptions.",
+  tradeCoverage: ["plumbing", "home_improvement", "electrical", "other"],
+  licenseTypesIncluded: [
+    "Indiana PLA professional license records exposed by MyLicense verification, including construction-relevant license types where available",
+  ],
+  knownExclusions: [
+    "Indiana general contractor licensing is often local; this source entry does not represent every city or county contractor registration.",
+    "The MyLicense portal spans many professions, boards, and credential types; construction-relevant records require careful filtering.",
+    "Paid printable verification, data downloads, and API offerings have separate access and terms questions that are not modeled as adapter support.",
+  ],
+  hasBulkDownload: true,
+  hasLiveLookup: true,
+  requiresJavaScript: "unknown",
+  requiresCaptcha: "unknown",
+  requiresAccount: false,
+  rateLimitNotes: "Fixture adapter only. Future work should review PLA download/API terms before considering automated access.",
+  redistributionStatus: "unknown",
+  publicRecordsNotes: "Official lookup metadata only. Absence from this source is not proof that a state license, local contractor registration, or authorization does not exist elsewhere.",
+  adapterStatus: "implemented",
+  sourceDiscoveryStatus: "researched",
+  adapterMaturity: "fixture_adapter",
+  adapterQualityLevel: 4,
+  coverageScope: "state_agency_partial",
+  adapterPackage: "@opentrade/adapter-in-pla",
+  testFixturePath: "packages/adapter-in-pla/fixtures/professional-licenses-sample.csv",
+  officialLookupUrl: "https://mylicense.in.gov/everification/",
+  officialBulkDownloadNotes: "The PLA services page references license data downloads and a verification API. The fixture adapter does not access live PLA services or paid downloads.",
+  researchNotes: "Fixture support exists for a tiny hand-authored license-download-shaped CSV. Future adapter work should narrow construction-relevant credential types and review download/API terms.",
+  verificationReviewedAt: "2026-06-26T00:00:00.000Z",
+  verificationCaveats: [
+    "Indiana PLA fixture support is based on a tiny hand-authored sample, not a live MyLicense export.",
+    "The source spans many PLA professions and does not represent local general-contractor licensing.",
+    "No matching record means no match in this source at the checked time, not proof that a state license, local registration, or authorization does not exist elsewhere.",
+  ],
+  verificationNotes: "Fixture verification supports matched, not-found, ambiguous duplicate, and invalid-input outcomes while preserving PLA source scope caveats.",
+  lastVerifiedAt: "2026-06-26T00:00:00.000Z",
+  maintainerNotes: "Do not imply statewide Indiana general-contractor coverage; local licensing remains outside this source entry.",
+};

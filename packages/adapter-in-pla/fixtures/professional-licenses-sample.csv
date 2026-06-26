@@ -1,0 +1,7 @@
+License Number,License Type,License Status,Name,DBA Name,Address Line 1,Address Line 2,City,State,Zip,County,Phone,Issue Date,Expiration Date,Board
+PC12300001,Plumbing Contractor,Active,Hoosier Pipe Works LLC,,100 Market St,,Indianapolis,IN,46204,Marion,3175550100,01/15/2020,12/31/2099,Plumbing Commission
+PC12300001,Plumbing Contractor,Active,Hoosier Pipe Works LLC Branch,,200 Main St,,Indianapolis,IN,46204,Marion,3175550199,01/15/2020,12/31/2099,Plumbing Commission
+HIC45600002,"Home Improvement Contractor, Registration",Expired,Indy Remodel Co,Indy Remodel,300 Oak Ave,Suite 4,Fort Wayne,IN,46802,Allen,2605550100,03/10/2018,06/30/2020,Home Improvement
+MHP78900003,Manufactured Home Installer,Suspended,River Valley Homes LLC,,400 River Rd,,Evansville,IN,47708,Vanderburgh,8125550100,07/01/2021,12/31/2099,Manufactured Home Installer
+EL00000004,Electrical Contractor,Active,Sample Spark Services LLC,,500 Light Ln,,South Bend,IN,46601,St. Joseph,5745550100,05/05/2022,,Electrical
+COS0000005,Cosmetology License,Active,Salon Example LLC,,600 Style St,,Bloomington,IN,47401,Monroe,8125550101,02/02/2022,12/31/2099,Cosmetology
