@@ -28,6 +28,7 @@ describe("opentrade CLI", () => {
     expect(help).toContain("opentrade sources readiness [--json]");
     expect(help).toContain("opentrade sources coverage [--json]");
     expect(help).toContain("opentrade sources list [--state CA]");
+    expect(help).toContain("--research-outcome adapter_candidate");
     expect(help).toContain("opentrade sources list [--implemented | --registry-only | --bulk-candidates] [--json]");
     expect(help).toContain("opentrade sync <sourceId> --url <sourceUrl> --allow-network --out <path>");
     expect(help).toContain("opentrade verify --source <sourceId> --url <sourceUrl> --allow-network --license <licenseNumber>");
@@ -93,6 +94,8 @@ describe("opentrade CLI", () => {
     const ohio = runCli(["sources", "show", "us.oh.commerce.ocilb_contractors"]).stdout;
     expect(ohio).toContain("Ohio Construction Industry Licensing Board Contractor License Lookup");
     expect(ohio).toContain("maturity: registry_only");
+    expect(ohio).toContain("research outcome: adapter_candidate");
+    expect(ohio).toContain("next action:");
     expect(ohio).toContain("roster");
     const connecticut = runCli(["sources", "show", "us.ct.dcp.home_improvement_contractors"]).stdout;
     expect(connecticut).toContain("Connecticut DCP eLicense Home Improvement Contractor Lookup");
@@ -156,6 +159,18 @@ describe("opentrade CLI", () => {
     const bulkCandidatesJson = JSON.parse(runCli(["sources", "list", "--bulk-candidates", "--json"]).stdout);
     expect(bulkCandidatesJson.map((source: { id: string }) => source.id)).toEqual([]);
 
+    const adapterCandidatesJson = JSON.parse(runCli(["sources", "list", "--research-outcome", "adapter_candidate", "--json"]).stdout);
+    expect(adapterCandidatesJson.map((source: { id: string }) => source.id)).toEqual([
+      "us.az.roc.contractors",
+      "us.ct.dcp.home_improvement_contractors",
+      "us.ma.dol.opsi_construction_supervisors",
+      "us.oh.commerce.ocilb_contractors",
+      "us.pa.oag.home_improvement_contractors",
+      "us.pr.daco.contractors",
+      "us.ri.crlb.contractors",
+      "us.wv.labor.contractors",
+    ]);
+
     const level4Json = JSON.parse(runCli(["sources", "list", "--quality-level", "4", "--json"]).stdout);
     expect(level4Json.map((source: { id: string }) => source.id)).toEqual([
       "us.ak.commerce.construction_contractors",
@@ -194,6 +209,10 @@ describe("opentrade CLI", () => {
     expect(readiness).toContain("- us.tx.tdlr.all_licenses (bulk_csv, fixture_adapter, level_4)");
     expect(readiness).toContain("- us.wa.lni.contractors (bulk_csv, fixture_adapter, level_4)");
     expect(readiness).toContain("unimplemented bulk-shaped candidates: 0");
+    expect(readiness).toContain("research outcomes:");
+    expect(readiness).toContain("- adapter_candidate: 8");
+    expect(readiness).toContain("download/export research candidates: 8");
+    expect(readiness).toContain("lookup automation constraint sources: 9");
     expect(readiness).toContain("Candidate status is a planning signal only.");
 
     const json = JSON.parse(runCli(["sources", "readiness", "--json"]).stdout);
@@ -210,6 +229,9 @@ describe("opentrade CLI", () => {
       "us.wa.lni.contractors",
     ]);
     expect(json.unimplementedBulkAdapterCandidates.map((source: { id: string }) => source.id)).toEqual([]);
+    expect(json.downloadResearchCandidates.map((source: { id: string }) => source.id)).toContain("us.pa.oag.home_improvement_contractors");
+    expect(json.lookupAutomationConstraintSources.map((source: { id: string }) => source.id)).toContain("us.vt.sos.residential_contractors");
+    expect(json.sourcesByResearchOutcome.adapter_candidate).toBe(8);
     expect(json.registryOnlySourceCount).toBe(47);
   }, 15000);
 

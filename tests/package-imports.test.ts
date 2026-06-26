@@ -5,6 +5,7 @@ import {
   canonicalTradeLicenseRecordSchema,
   adapterMaturitySchema,
   adapterQualityLevelSchema,
+  getSourceResearchOutcome,
   isUnimplementedBulkAdapterCandidate,
   normalizeLicenseNumber,
   parseCsvLine,
@@ -79,10 +80,22 @@ describe("public package imports", () => {
       sourceCount: 0,
       implementedAdapterSources: [],
       unimplementedBulkAdapterCandidates: [],
+      downloadResearchCandidates: [],
+      lookupAutomationConstraintSources: [],
+      sourcesByResearchOutcome: {
+        adapter_candidate: 0,
+        blocked_by_access_controls: 0,
+        blocked_by_no_stable_source: 0,
+        blocked_by_terms: 0,
+        implemented_adapter: 0,
+        needs_manual_research: 0,
+        not_contractor_specific: 0,
+      },
       registryOnlySourceCount: 0,
       note: expect.stringContaining("planning signal only"),
     });
     expect(typeof isUnimplementedBulkAdapterCandidate).toBe("function");
+    expect(typeof getSourceResearchOutcome).toBe("function");
     expect(AK_COMMERCE_CONSTRUCTION_CONTRACTORS_SOURCE_ID).toBe("us.ak.commerce.construction_contractors");
     expect(alaskaCommerceConstructionContractorsAdapter.sourceId).toBe("us.ak.commerce.construction_contractors");
     expect(

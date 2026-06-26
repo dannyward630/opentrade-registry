@@ -41,6 +41,7 @@
     "cleanliness:scan": "node scripts/cleanliness-scan.mjs",
     "files:check": "node scripts/files-check.mjs",
     "source:quality": "node scripts/source-quality-report.mjs",
+    "source:matrix": "node scripts/source-quality-report.mjs --markdown",
     "db:seed:generate": "node scripts/generate-registry-source-seed.mjs",
     "db:seed:check": "node scripts/generate-registry-source-seed.mjs --check",
     "security:audit": "corepack pnpm audit --prod=false",

@@ -2,6 +2,7 @@
 import { existsSync } from "node:fs";
 import { dirname, join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
+import { SOURCE_RESEARCH_OUTCOMES } from "@opentrade/core";
 import { listSources, showSource, showSourceCoverage, showSourceReadiness, type SourceListOptions } from "./commands/sources.js";
 import { syncSource } from "./commands/sync.js";
 import { validateSources } from "./commands/validate.js";
@@ -39,6 +40,7 @@ async function main() {
         status: enumFlag(parsed, "status", ADAPTER_STATUSES),
         sourceType: enumFlag(parsed, "source-type", SOURCE_TYPES),
         qualityLevel: numberFlag(parsed, "quality-level"),
+        researchOutcome: enumFlag(parsed, "research-outcome", SOURCE_RESEARCH_OUTCOMES),
         implemented: parsed.flags.implemented === true,
         registryOnly: parsed.flags["registry-only"] === true,
         bulkCandidates: parsed.flags["bulk-candidates"] === true,
@@ -181,7 +183,7 @@ Default commands do not contact agency sites. Network sync and verification requ
 
 Commands:
   opentrade sources list [--json]
-  opentrade sources list [--state CA] [--maturity registry_only] [--status implemented] [--source-type bulk_csv] [--quality-level 4]
+  opentrade sources list [--state CA] [--maturity registry_only] [--status implemented] [--source-type bulk_csv] [--quality-level 4] [--research-outcome adapter_candidate]
   opentrade sources list [--implemented | --registry-only | --bulk-candidates] [--json]
   opentrade sources show <sourceId> [--json]
   opentrade sources readiness [--json]

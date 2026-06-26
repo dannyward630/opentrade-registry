@@ -3,7 +3,11 @@ import { join } from "node:path";
 import { describe, expect, it } from "vitest";
 import {
   buildSourceReadiness,
+  getSourceResearchNextAction,
+  getSourceResearchOutcome,
+  hasLookupAutomationConstraint,
   isBulkShapedCandidate,
+  isDownloadResearchCandidate,
   isUnimplementedBulkAdapterCandidate,
   sourceRegistryEntrySchema,
   type SourceRegistryEntry,
@@ -27,6 +31,36 @@ describe("source readiness helpers", () => {
       "us.wa.lni.contractors",
     ]);
     expect(readiness.unimplementedBulkAdapterCandidates.map((source) => source.id)).toEqual([]);
+    expect(readiness.downloadResearchCandidates.map((source) => source.id)).toEqual([
+      "us.az.roc.contractors",
+      "us.ct.dcp.home_improvement_contractors",
+      "us.ma.dol.opsi_construction_supervisors",
+      "us.oh.commerce.ocilb_contractors",
+      "us.pa.oag.home_improvement_contractors",
+      "us.pr.daco.contractors",
+      "us.ri.crlb.contractors",
+      "us.wv.labor.contractors",
+    ]);
+    expect(readiness.lookupAutomationConstraintSources.map((source) => source.id)).toEqual([
+      "us.ks.ag.roofing_registration",
+      "us.mi.lara.residential_builders",
+      "us.mo.pr.professional_licenses",
+      "us.nd.sos.contractors",
+      "us.oh.commerce.ocilb_contractors",
+      "us.pa.oag.home_improvement_contractors",
+      "us.vi.dlca.contractors_trades",
+      "us.vt.sos.residential_contractors",
+      "us.wi.dsps.dwelling_trades",
+    ]);
+    expect(readiness.sourcesByResearchOutcome).toEqual({
+      adapter_candidate: 8,
+      blocked_by_access_controls: 1,
+      blocked_by_no_stable_source: 1,
+      blocked_by_terms: 2,
+      implemented_adapter: 9,
+      needs_manual_research: 27,
+      not_contractor_specific: 8,
+    });
     expect(readiness.registryOnlySourceCount).toBe(47);
     expect(readiness.note).toContain("planning signal only");
   });
@@ -37,6 +71,24 @@ describe("source readiness helpers", () => {
 
     expect(isBulkShapedCandidate(requiredSource(byId, "us.ca.cslb.contractors"))).toBe(true);
     expect(isBulkShapedCandidate(requiredSource(byId, "us.nv.nscb.contractors"))).toBe(false);
+    expect(isDownloadResearchCandidate(requiredSource(byId, "us.pa.oag.home_improvement_contractors"))).toBe(true);
+    expect(isDownloadResearchCandidate(requiredSource(byId, "us.nv.nscb.contractors"))).toBe(false);
+    expect(hasLookupAutomationConstraint(requiredSource(byId, "us.vt.sos.residential_contractors"))).toBe(true);
+    expect(hasLookupAutomationConstraint(requiredSource(byId, "us.tx.tdlr.all_licenses"))).toBe(false);
+  });
+
+  it("assigns conservative research outcomes and next actions", async () => {
+    const sources = await loadRegistrySources();
+    const byId = new Map(sources.map((source) => [source.id, source]));
+
+    expect(getSourceResearchOutcome(requiredSource(byId, "us.fl.dbpr.construction"))).toBe("implemented_adapter");
+    expect(getSourceResearchOutcome(requiredSource(byId, "us.pa.oag.home_improvement_contractors"))).toBe("adapter_candidate");
+    expect(getSourceResearchOutcome(requiredSource(byId, "us.vt.sos.residential_contractors"))).toBe("blocked_by_access_controls");
+    expect(getSourceResearchOutcome(requiredSource(byId, "us.as.doc.business_licenses"))).toBe("blocked_by_no_stable_source");
+    expect(getSourceResearchOutcome(requiredSource(byId, "us.ms.msboc.contractors"))).toBe("blocked_by_terms");
+    expect(getSourceResearchOutcome(requiredSource(byId, "us.mp.bpl.professional_licenses"))).toBe("not_contractor_specific");
+    expect(getSourceResearchOutcome(requiredSource(byId, "us.al.genconbd.general_contractors"))).toBe("needs_manual_research");
+    expect(getSourceResearchNextAction(requiredSource(byId, "us.pa.oag.home_improvement_contractors"))).toContain("Review official terms");
   });
 
   it("excludes blocked and deprecated sources from unimplemented bulk adapter candidates", async () => {

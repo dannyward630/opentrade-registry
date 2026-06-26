@@ -20,12 +20,22 @@ const REQUIRED_METADATA_FIELDS = [
   "researchNotes",
   "maintainerNotes",
 ];
+const SOURCE_RESEARCH_OUTCOMES = [
+  "implemented_adapter",
+  "adapter_candidate",
+  "needs_manual_research",
+  "blocked_by_terms",
+  "blocked_by_access_controls",
+  "blocked_by_no_stable_source",
+  "not_contractor_specific",
+];
 const missingRequiredMetadataByField = Object.fromEntries(
   REQUIRED_METADATA_FIELDS.map((field) => [field, sources.filter((source) => isEmptyMetadataValue(source[field])).map(toSourceSummary)]),
 );
 
 const report = {
   sourceCount: sources.length,
+  allSources: sources.map(toSourceSummary),
   stateCount: coverage.states.length,
   researchedStateCount: coverage.states.filter((state) => state.sourceIds.length > 0).length,
   territoryCount: territoryCoverage.territories.length,
@@ -35,6 +45,7 @@ const report = {
   sourcesByType: countBy(sources, (source) => source.sourceType),
   sourcesByMaturity: countBy(sources, (source) => source.adapterMaturity),
   sourcesByAdapterQualityLevel: countBy(sources, (source) => String(source.adapterQualityLevel ?? 0)),
+  sourcesByResearchOutcome: countBy(sources, getSourceResearchOutcome),
   metadataCompleteness: {
     requiredFields: REQUIRED_METADATA_FIELDS,
     missingRequiredMetadataByField,
@@ -49,6 +60,12 @@ const report = {
     officialLookupUrlMissingSources: sources.filter((source) => isEmptyMetadataValue(source.officialLookupUrl)).map(toSourceSummary),
     implementedVerificationCaveatsMissingSources: sources
       .filter((source) => source.adapterStatus === "implemented" && isEmptyMetadataValue(source.verificationCaveats))
+      .map(toSourceSummary),
+    sourcesMissingResearchOutcome: sources
+      .filter((source) => !SOURCE_RESEARCH_OUTCOMES.includes(getSourceResearchOutcome(source)))
+      .map(toSourceSummary),
+    sourcesMissingNextAction: sources
+      .filter((source) => isEmptyMetadataValue(getSourceResearchNextAction(source)))
       .map(toSourceSummary),
   },
   implementedSourcesNeedingLevel4: sources
@@ -82,6 +99,8 @@ const report = {
 
 if (options.has("--json")) {
   console.log(JSON.stringify(report, null, 2));
+} else if (options.has("--markdown")) {
+  printMarkdownReport(report);
 } else {
   printHumanReport(report);
 }
@@ -125,6 +144,8 @@ function toSourceSummary(source) {
     adapterQualityLevel: source.adapterQualityLevel ?? 0,
     adapterStatus: source.adapterStatus,
     hasBulkDownload: source.hasBulkDownload,
+    sourceResearchOutcome: getSourceResearchOutcome(source),
+    nextAction: getSourceResearchNextAction(source),
   };
 }
 
@@ -158,6 +179,65 @@ function hasLookupAutomationConstraint(source) {
   );
 }
 
+function getSourceResearchOutcome(source) {
+  if (source.adapterStatus === "implemented") {
+    return "implemented_adapter";
+  }
+
+  if (isDownloadResearchCandidate(source) || isUnimplementedBulkAdapterCandidate(source)) {
+    return "adapter_candidate";
+  }
+
+  if (source.requiresCaptcha === true || source.requiresAccount === true) {
+    return "blocked_by_access_controls";
+  }
+
+  if (!source.officialLookupUrl || source.hasLiveLookup === false) {
+    return "blocked_by_no_stable_source";
+  }
+
+  if (isBroadNonContractorSpecificSource(source)) {
+    return "not_contractor_specific";
+  }
+
+  if (!source.termsUrl) {
+    return "blocked_by_terms";
+  }
+
+  return "needs_manual_research";
+}
+
+function getSourceResearchNextAction(source) {
+  switch (getSourceResearchOutcome(source)) {
+    case "implemented_adapter":
+      return "Maintain adapter tests, caveats, and optional live-source research before maturity promotion.";
+    case "adapter_candidate":
+      return "Review official terms, field shape, fixture safety, filters, and verification caveats before adapter work.";
+    case "blocked_by_access_controls":
+      return "Do not automate protected lookup paths; prefer official exports or document the access blocker.";
+    case "blocked_by_no_stable_source":
+      return "Find a stable official lookup, file, API, or document why adapter work is blocked.";
+    case "blocked_by_terms":
+      return "Locate official terms or document why redistribution/automation remains blocked.";
+    case "not_contractor_specific":
+      return "Narrow the source to contractor or skilled-trade records before adapter work.";
+    case "needs_manual_research":
+      return "Perform source-specific terms, field-shape, fixture, and caveat research.";
+  }
+}
+
+function isBroadNonContractorSpecificSource(source) {
+  const text = [source.id, source.name, source.researchNotes, source.maintainerNotes, ...(source.knownExclusions ?? [])].join(" ").toLowerCase();
+  return (
+    text.includes("business license") ||
+    text.includes("many license") ||
+    text.includes("many profession") ||
+    text.includes("professional license") ||
+    text.includes("construction-adjacent") ||
+    text.includes("not isolate every construction")
+  );
+}
+
 function isEmptyMetadataValue(value) {
   return value === undefined || value === null || value === "" || (Array.isArray(value) && value.length === 0);
 }
@@ -174,6 +254,7 @@ function printHumanReport(report) {
   printCounts("sources by type", report.sourcesByType);
   printCounts("sources by adapter maturity", report.sourcesByMaturity);
   printCounts("sources by adapter quality level", report.sourcesByAdapterQualityLevel);
+  printCounts("sources by research outcome", report.sourcesByResearchOutcome);
   printMetadataCompleteness(report.metadataCompleteness);
   printSourceList("implemented sources needing Level 4 review", report.implementedSourcesNeedingLevel4);
   printSourceList("implemented adapter sources", report.implementedAdapterSources);
@@ -193,6 +274,8 @@ function printMetadataCompleteness(metadataCompleteness) {
   printSourceList("sources missing terms URL", metadataCompleteness.termsUrlMissingSources);
   printSourceList("sources missing official lookup URL", metadataCompleteness.officialLookupUrlMissingSources);
   printSourceList("implemented sources missing verification caveats", metadataCompleteness.implementedVerificationCaveatsMissingSources);
+  printSourceList("sources missing research outcome", metadataCompleteness.sourcesMissingResearchOutcome);
+  printSourceList("sources missing next action", metadataCompleteness.sourcesMissingNextAction);
 }
 
 function isTerritoryCode(value) {
@@ -216,4 +299,22 @@ function printSourceList(title, sources) {
   for (const source of sources) {
     console.log(`- ${source.id} (${source.sourceType}, ${source.adapterMaturity})`);
   }
+}
+
+function printMarkdownReport(report) {
+  console.log("# OpenTrade Registry Source Status Matrix");
+  console.log("");
+  console.log("Generated from `corepack pnpm source:quality -- --markdown`.");
+  console.log("");
+  console.log("| Source ID | Jurisdiction | Maturity | Quality | Research outcome | Next action |");
+  console.log("| --- | --- | --- | --- | --- | --- |");
+  for (const source of report.allSources) {
+    console.log(
+      `| \`${source.id}\` | ${escapeMarkdown(source.state)} | \`${source.adapterMaturity}\` | ${source.adapterQualityLevel} | \`${source.sourceResearchOutcome}\` | ${escapeMarkdown(source.nextAction)} |`,
+    );
+  }
+}
+
+function escapeMarkdown(value) {
+  return String(value).replaceAll("|", "\\|").replaceAll("\n", " ");
 }
