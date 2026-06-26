@@ -69,6 +69,12 @@ const report = {
   unimplementedBulkAdapterCandidates: sources
     .filter(isUnimplementedBulkAdapterCandidate)
     .map(toSourceSummary),
+  downloadResearchCandidates: sources
+    .filter(isDownloadResearchCandidate)
+    .map(toSourceSummary),
+  lookupAutomationConstraintSources: sources
+    .filter(hasLookupAutomationConstraint)
+    .map(toSourceSummary),
   lookupOnlySources: sources
     .filter((source) => source.sourceType === "html_lookup" || source.sourceType === "playwright_portal")
     .map(toSourceSummary),
@@ -130,6 +136,28 @@ function isUnimplementedBulkAdapterCandidate(source) {
   return ["planned", "experimental"].includes(source.adapterStatus) && !["blocked", "deprecated"].includes(source.adapterMaturity) && isBulkShapedCandidate(source);
 }
 
+function isDownloadResearchCandidate(source) {
+  if (!["planned", "experimental"].includes(source.adapterStatus) || source.adapterMaturity !== "registry_only") {
+    return false;
+  }
+
+  const notes = [source.officialBulkDownloadNotes, source.researchNotes, source.maintainerNotes]
+    .filter((value) => typeof value === "string")
+    .join(" ");
+
+  return /\b(publishes posting-list|links? to .*roster|says .*download\w*|downloaded at no cost|downloaded as|roster generation|download pages|may publish .*reports?|links current lists)\b/i.test(
+    notes,
+  );
+}
+
+function hasLookupAutomationConstraint(source) {
+  return (
+    ["planned", "experimental"].includes(source.adapterStatus) &&
+    (source.sourceType === "html_lookup" || source.sourceType === "playwright_portal") &&
+    (source.requiresJavaScript === true || source.requiresCaptcha === true || source.requiresAccount === true)
+  );
+}
+
 function isEmptyMetadataValue(value) {
   return value === undefined || value === null || value === "" || (Array.isArray(value) && value.length === 0);
 }
@@ -153,6 +181,8 @@ function printHumanReport(report) {
   printSourceList("manual public-records-file sources", report.manualPublicRecordsSources);
   printSourceList("bulk candidates", report.bulkCandidates);
   printSourceList("unimplemented bulk adapter candidates", report.unimplementedBulkAdapterCandidates);
+  printSourceList("download/export research candidates", report.downloadResearchCandidates);
+  printSourceList("lookup automation constraint sources", report.lookupAutomationConstraintSources);
   printSourceList("lookup-only sources", report.lookupOnlySources);
 }
 
