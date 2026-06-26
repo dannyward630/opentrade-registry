@@ -114,6 +114,7 @@ describe("source registry", () => {
     expect(parsed.every((entry) => entry.sourceDiscoveryStatus === "researched")).toBe(true);
     expect(parsed.find((entry) => entry.id === "us.fl.dbpr.construction")?.adapterMaturity).toBe("local_file_adapter");
     expect(parsed.find((entry) => entry.id === "us.ca.cslb.contractors")?.adapterMaturity).toBe("fixture_adapter");
+    expect(parsed.find((entry) => entry.id === "us.in.pla.professional_licenses")?.adapterMaturity).toBe("fixture_adapter");
     expect(parsed.find((entry) => entry.id === "us.mn.dli.licenses_registrations")?.adapterMaturity).toBe("fixture_adapter");
     expect(parsed.find((entry) => entry.id === "us.or.ccb.active_licenses")?.adapterMaturity).toBe("fixture_adapter");
     expect(parsed.find((entry) => entry.id === "us.tx.tdlr.all_licenses")?.adapterMaturity).toBe("fixture_adapter");
@@ -131,6 +132,7 @@ describe("source registry", () => {
             ![
               "us.fl.dbpr.construction",
               "us.ca.cslb.contractors",
+              "us.in.pla.professional_licenses",
               "us.mn.dli.licenses_registrations",
               "us.or.ccb.active_licenses",
               "us.tx.tdlr.all_licenses",
@@ -308,7 +310,7 @@ describe("source registry", () => {
     expect(coverage.states.find((entry) => entry.state === "GA")?.status).toBe("registry_entry_added");
     expect(coverage.states.find((entry) => entry.state === "ID")?.status).toBe("registry_entry_added");
     expect(coverage.states.find((entry) => entry.state === "IL")?.status).toBe("registry_entry_added");
-    expect(coverage.states.find((entry) => entry.state === "IN")?.status).toBe("registry_entry_added");
+    expect(coverage.states.find((entry) => entry.state === "IN")?.status).toBe("fixture_supported");
     expect(coverage.states.find((entry) => entry.state === "IA")?.status).toBe("registry_entry_added");
     expect(coverage.states.find((entry) => entry.state === "KS")?.status).toBe("registry_entry_added");
     expect(coverage.states.find((entry) => entry.state === "KY")?.status).toBe("registry_entry_added");

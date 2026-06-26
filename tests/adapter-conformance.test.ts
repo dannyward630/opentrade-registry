@@ -1,5 +1,6 @@
 import { californiaCslbContractorsAdapter } from "@opentrade/adapter-ca-cslb";
 import { floridaDbprConstructionAdapter } from "@opentrade/adapter-fl-dbpr";
+import { indianaPlaProfessionalLicensesAdapter } from "@opentrade/adapter-in-pla";
 import { minnesotaDliLicensesRegistrationsAdapter } from "@opentrade/adapter-mn-dli";
 import { oregonCcbActiveLicensesAdapter } from "@opentrade/adapter-or-ccb";
 import { texasTdlrAllLicensesAdapter } from "@opentrade/adapter-tx-tdlr";
@@ -17,6 +18,11 @@ const adapterCases: AdapterConformanceCase[] = [
     adapter: floridaDbprConstructionAdapter,
     registryPath: "registry/sources/us/fl/dbpr-construction.json",
     expectedFixtureRecordCount: 5,
+  },
+  {
+    adapter: indianaPlaProfessionalLicensesAdapter,
+    registryPath: "registry/sources/us/in/pla-professional-licenses.json",
+    expectedFixtureRecordCount: 6,
   },
   {
     adapter: minnesotaDliLicensesRegistrationsAdapter,

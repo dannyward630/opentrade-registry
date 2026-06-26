@@ -19,11 +19,11 @@ describe("source quality report", () => {
     expect(report.researchedTerritoryCount).toBe(5);
     expect(report.coverageByStatus.not_started ?? 0).toBe(0);
     expect(report.territoryCoverageByStatus.registry_entry_added).toBe(5);
-    expect(report.sourcesByMaturity.registry_only).toBe(50);
-    expect(report.sourcesByMaturity.fixture_adapter).toBe(5);
+    expect(report.sourcesByMaturity.registry_only).toBe(49);
+    expect(report.sourcesByMaturity.fixture_adapter).toBe(6);
     expect(report.sourcesByMaturity.local_file_adapter).toBe(1);
-    expect(report.sourcesByAdapterQualityLevel["0"]).toBe(50);
-    expect(report.sourcesByAdapterQualityLevel["4"]).toBe(6);
+    expect(report.sourcesByAdapterQualityLevel["0"]).toBe(49);
+    expect(report.sourcesByAdapterQualityLevel["4"]).toBe(7);
     expect(report.metadataCompleteness.requiredFields).toEqual([
       "documentationUrl",
       "updateFrequency",
@@ -55,6 +55,7 @@ describe("source quality report", () => {
     expect(report.implementedAdapterSources.map((source: { id: string }) => source.id)).toEqual([
       "us.ca.cslb.contractors",
       "us.fl.dbpr.construction",
+      "us.in.pla.professional_licenses",
       "us.mn.dli.licenses_registrations",
       "us.or.ccb.active_licenses",
       "us.tx.tdlr.all_licenses",
@@ -95,7 +96,6 @@ describe("source quality report", () => {
     expect(report.unimplementedBulkAdapterCandidates.map((source: { id: string }) => source.id)).toEqual([
       "us.ak.commerce.construction_contractors",
       "us.il.idfpr.roofing_contractors",
-      "us.in.pla.professional_licenses",
     ]);
   });
 
