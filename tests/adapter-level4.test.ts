@@ -7,6 +7,11 @@ const tsxPath = join(process.cwd(), "packages", "cli", "node_modules", ".bin", "
 
 const implementedVerificationCases = [
   {
+    sourceId: "us.ak.commerce.construction_contractors",
+    fixturePath: "packages/adapter-ak-commerce/fixtures/construction-contractors-sample.csv",
+    missingLicense: "AKCOMM999999",
+  },
+  {
     sourceId: "us.ca.cslb.contractors",
     fixturePath: "packages/adapter-ca-cslb/fixtures/contractors-master-sample.csv",
     missingLicense: "9999999",

@@ -31,8 +31,9 @@ describe("web status build", () => {
     expect(sources).toHaveLength(56);
     expect(sources.map((source) => source.id)).toContain("us.pr.daco.contractors");
     expect(readiness.sourceCount).toBe(56);
-    expect(readiness.registryOnlySourceCount).toBe(49);
+    expect(readiness.registryOnlySourceCount).toBe(48);
     expect(readiness.implementedAdapterSources.map((source) => source.id)).toEqual([
+      "us.ak.commerce.construction_contractors",
       "us.ca.cslb.contractors",
       "us.fl.dbpr.construction",
       "us.in.pla.professional_licenses",
@@ -41,17 +42,14 @@ describe("web status build", () => {
       "us.tx.tdlr.all_licenses",
       "us.wa.lni.contractors",
     ]);
-    expect(readiness.unimplementedBulkAdapterCandidates.map((source) => source.id)).toEqual([
-      "us.ak.commerce.construction_contractors",
-      "us.il.idfpr.roofing_contractors",
-    ]);
+    expect(readiness.unimplementedBulkAdapterCandidates.map((source) => source.id)).toEqual(["us.il.idfpr.roofing_contractors"]);
     expect(readiness.note).toContain("planning signal only");
     expect(territoryCoverage.territories.map((entry) => entry.territory)).toEqual(["AS", "GU", "MP", "PR", "VI"]);
     expect(territoryCoverage.territories.find((entry) => entry.territory === "AS")?.sourceIds).toEqual([
       "us.as.doc.business_licenses",
     ]);
     expect(html).toContain("<strong>5</strong> territories with entries");
-    expect(html).toContain("<strong>2</strong> adapter candidates");
+    expect(html).toContain("<strong>1</strong> adapter candidates");
     expect(html).toContain("Readiness API");
     expect(html).toContain("Static readiness snapshot");
     expect(html).toContain("<strong>56</strong> coverage rows");
