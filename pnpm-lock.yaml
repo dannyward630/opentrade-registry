@@ -67,6 +67,16 @@ importers:
         specifier: ^6.0.3
         version: 6.0.3
 
+  packages/adapter-ak-commerce:
+    dependencies:
+      '@opentrade/core':
+        specifier: workspace:*
+        version: link:../core
+    devDependencies:
+      vitest:
+        specifier: ^4.1.9
+        version: 4.1.9(@edge-runtime/vm@3.2.0)(@types/node@20.19.43)(vite@8.0.16(@types/node@20.19.43)(esbuild@0.28.1)(tsx@4.22.4))
+
   packages/adapter-ca-cslb:
     dependencies:
       '@opentrade/core':
