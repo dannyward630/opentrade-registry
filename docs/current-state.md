@@ -12,6 +12,8 @@ As of the current repository state:
 - `47` sources are registry-only metadata entries.
 - `9` sources have implemented adapters.
 - `0` unimplemented sources are currently bulk-shaped adapter candidates according to `corepack pnpm source:quality`.
+- `8` registry-only sources have download/export clues that need deeper research before any fixture or local-file work: Arizona ROC, Connecticut DCP, Massachusetts OPSI, Ohio OCILB, Pennsylvania OAG, Puerto Rico DACO, Rhode Island CRLB, and West Virginia Labor.
+- `9` registry-only lookup sources currently show JavaScript or CAPTCHA constraints that should be treated as automation caution flags: Kansas, Michigan, Missouri, North Dakota, Ohio, Pennsylvania, U.S. Virgin Islands, Vermont, and Wisconsin.
 - All current source entries include the required metadata fields checked by `source:quality`: documentation, update frequency, known exclusions, rate-limit notes, public-record notes, bulk-download notes, research notes, and maintainer notes.
 
 Registry coverage is not the same as end-to-end verification support. A registry-only source has source metadata and caveats, but it cannot be synced or checked with `opentrade verify` until an adapter exists.
@@ -38,7 +40,7 @@ The CLI can:
 
 - list, filter, show, and validate registry source metadata;
 - summarize state/DC/territory coverage;
-- summarize implemented adapters and bulk-shaped future candidates;
+- summarize implemented adapters, bulk-shaped future candidates, download/export research candidates, and lookup automation constraints;
 - sync implemented local-file or fixture adapters to JSONL or a narrow CSV view;
 - check one license number against supported local files;
 - use Florida's official DBPR CSV URL for sync or verification only when `--allow-network` is provided.

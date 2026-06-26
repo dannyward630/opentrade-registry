@@ -8,6 +8,13 @@ Default implementation rule: start fixture-first from tiny hand-authored records
 
 `corepack pnpm source:quality` currently reports no unimplemented bulk-shaped adapter candidates. That is a healthy queue state, not a completion claim. The next adapter candidate should come from fresh source research, territory follow-up, or a deeper review of an existing lookup-only entry that discovers a lawful, stable, fixture-safe field shape.
 
+The same report separates two additional planning queues:
+
+- `download/export research candidates`: registry-only sources with affirmative metadata clues about downloads, rosters, posting lists, reports, or current lists. These are the best next places to look for fixture-safe source shapes, but they are not implementation approval.
+- `lookup automation constraint sources`: registry-only sources with JavaScript, CAPTCHA, or account constraints. Treat these as legal and technical caution flags. Prefer official exports or manual fixture research; do not bypass technical controls.
+
+Current download/export research candidates are Arizona ROC, Connecticut DCP, Massachusetts OPSI, Ohio OCILB, Pennsylvania OAG, Puerto Rico DACO, Rhode Island CRLB, and West Virginia Labor. Current lookup automation constraint sources are Kansas AG, Michigan LARA, Missouri Professional Registration, North Dakota SOS, Ohio OCILB, Pennsylvania OAG, U.S. Virgin Islands DLCA, Vermont SOS, and Wisconsin DSPS.
+
 ## Required Evidence To Promote A Candidate
 
 A registry-only candidate can become a fixture adapter only after maintainers can point to:

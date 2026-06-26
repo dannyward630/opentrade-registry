@@ -93,6 +93,27 @@ describe("source quality report", () => {
     expect(report.lookupOnlySources.map((source: { id: string }) => source.id)).toContain("us.vi.dlca.contractors_trades");
     expect(report.bulkCandidates.map((source: { id: string }) => source.id)).toContain("us.fl.dbpr.construction");
     expect(report.unimplementedBulkAdapterCandidates.map((source: { id: string }) => source.id)).toEqual([]);
+    expect(report.downloadResearchCandidates.map((source: { id: string }) => source.id)).toEqual([
+      "us.az.roc.contractors",
+      "us.ct.dcp.home_improvement_contractors",
+      "us.ma.dol.opsi_construction_supervisors",
+      "us.oh.commerce.ocilb_contractors",
+      "us.pa.oag.home_improvement_contractors",
+      "us.pr.daco.contractors",
+      "us.ri.crlb.contractors",
+      "us.wv.labor.contractors",
+    ]);
+    expect(report.lookupAutomationConstraintSources.map((source: { id: string }) => source.id)).toEqual([
+      "us.ks.ag.roofing_registration",
+      "us.mi.lara.residential_builders",
+      "us.mo.pr.professional_licenses",
+      "us.nd.sos.contractors",
+      "us.oh.commerce.ocilb_contractors",
+      "us.pa.oag.home_improvement_contractors",
+      "us.vi.dlca.contractors_trades",
+      "us.vt.sos.residential_contractors",
+      "us.wi.dsps.dwelling_trades",
+    ]);
   });
 
   it("prints territory and manual-source caution sections in human output", () => {
@@ -118,6 +139,10 @@ describe("source quality report", () => {
     expect(result.stdout).toContain("- none");
     expect(result.stdout).toContain("sources missing terms URL:");
     expect(result.stdout).toContain("unimplemented bulk adapter candidates:");
+    expect(result.stdout).toContain("download/export research candidates:");
+    expect(result.stdout).toContain("- us.ma.dol.opsi_construction_supervisors (html_lookup, registry_only)");
+    expect(result.stdout).toContain("lookup automation constraint sources:");
+    expect(result.stdout).toContain("- us.vt.sos.residential_contractors (html_lookup, registry_only)");
     expect(result.stdout).not.toContain("- us.ca.cslb.contractors (bulk_xlsx, registry_only)");
   });
 
