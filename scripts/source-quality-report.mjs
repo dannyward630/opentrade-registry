@@ -57,7 +57,13 @@ const report = {
       ).values(),
     ].sort((a, b) => a.id.localeCompare(b.id)),
     termsUrlMissingSources: sources.filter((source) => isEmptyMetadataValue(source.termsUrl)).map(toSourceSummary),
+    termsUrlUnreviewedSources: sources
+      .filter((source) => isEmptyMetadataValue(source.termsUrl) && isEmptyMetadataValue(source.termsReviewNotes))
+      .map(toSourceSummary),
     officialLookupUrlMissingSources: sources.filter((source) => isEmptyMetadataValue(source.officialLookupUrl)).map(toSourceSummary),
+    officialLookupUrlUnreviewedSources: sources
+      .filter((source) => isEmptyMetadataValue(source.officialLookupUrl) && isEmptyMetadataValue(source.officialLookupReviewNotes))
+      .map(toSourceSummary),
     implementedVerificationCaveatsMissingSources: sources
       .filter((source) => source.adapterStatus === "implemented" && isEmptyMetadataValue(source.verificationCaveats))
       .map(toSourceSummary),
@@ -272,7 +278,9 @@ function printMetadataCompleteness(metadataCompleteness) {
   console.log(`- required fields checked: ${metadataCompleteness.requiredFields.join(", ")}`);
   printSourceList("sources missing required metadata", metadataCompleteness.missingRequiredMetadataSources);
   printSourceList("sources missing terms URL", metadataCompleteness.termsUrlMissingSources);
+  printSourceList("sources with undocumented missing terms URL", metadataCompleteness.termsUrlUnreviewedSources);
   printSourceList("sources missing official lookup URL", metadataCompleteness.officialLookupUrlMissingSources);
+  printSourceList("sources with undocumented missing official lookup URL", metadataCompleteness.officialLookupUrlUnreviewedSources);
   printSourceList("implemented sources missing verification caveats", metadataCompleteness.implementedVerificationCaveatsMissingSources);
   printSourceList("sources missing research outcome", metadataCompleteness.sourcesMissingResearchOutcome);
   printSourceList("sources missing next action", metadataCompleteness.sourcesMissingNextAction);

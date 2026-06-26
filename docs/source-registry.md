@@ -74,6 +74,8 @@ The source-quality report also surfaces two follow-up queues for adapter plannin
 
 Each source also receives a computed `sourceResearchOutcome` and `nextAction` in reports and API responses. Outcomes are planning labels, not final legal findings: `implemented_adapter`, `adapter_candidate`, `needs_manual_research`, `blocked_by_terms`, `blocked_by_access_controls`, `blocked_by_no_stable_source`, and `not_contractor_specific`.
 
+When an agency does not publish a dedicated terms page or stable public lookup, the URL remains `null`. The registry must then provide `termsReviewNotes` or `officialLookupReviewNotes` describing what was checked and why the source remains blocked or incomplete. Public accessibility alone is not evidence of redistribution or automation permission.
+
 Future adapter work should begin with fresh source research or deeper review of these queues and other lookup-only entries. Guam, Puerto Rico, and the U.S. Virgin Islands have promising lookup-shaped territory sources. American Samoa and CNMI need more research because the current entries are broader business or construction-adjacent professional licensing metadata, not confirmed contractor-specific lookups. Most other registry-only entries are lookup-oriented or still need bulk-export research, so their registry entries intentionally stop before parser or automation work.
 
 ## Contribution Notes

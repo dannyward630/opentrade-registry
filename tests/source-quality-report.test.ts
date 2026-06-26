@@ -53,9 +53,11 @@ describe("source quality report", () => {
       "us.ms.msboc.contractors",
       "us.vi.dlca.contractors_trades",
     ]);
+    expect(report.metadataCompleteness.termsUrlUnreviewedSources).toEqual([]);
     expect(report.metadataCompleteness.officialLookupUrlMissingSources.map((source: { id: string }) => source.id)).toEqual([
       "us.as.doc.business_licenses",
     ]);
+    expect(report.metadataCompleteness.officialLookupUrlUnreviewedSources).toEqual([]);
     expect(report.metadataCompleteness.implementedVerificationCaveatsMissingSources).toEqual([]);
     expect(report.metadataCompleteness.sourcesMissingResearchOutcome).toEqual([]);
     expect(report.metadataCompleteness.sourcesMissingNextAction).toEqual([]);
@@ -153,6 +155,8 @@ describe("source quality report", () => {
     expect(result.stdout).toContain("sources missing research outcome:");
     expect(result.stdout).toContain("sources missing next action:");
     expect(result.stdout).toContain("sources missing terms URL:");
+    expect(result.stdout).toContain("sources with undocumented missing terms URL:");
+    expect(result.stdout).toContain("sources with undocumented missing official lookup URL:");
     expect(result.stdout).toContain("unimplemented bulk adapter candidates:");
     expect(result.stdout).toContain("download/export research candidates:");
     expect(result.stdout).toContain("- us.ma.dol.opsi_construction_supervisors (html_lookup, registry_only)");
