@@ -50,6 +50,7 @@
     "web:dev": "corepack pnpm --filter @opentrade/web dev"
   },
   "devDependencies": {
+    "@opentrade/adapter-ak-commerce": "workspace:*",
     "@opentrade/adapter-ca-cslb": "workspace:*",
     "@opentrade/adapter-fl-dbpr": "workspace:*",
     "@opentrade/adapter-in-pla": "workspace:*",

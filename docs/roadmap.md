@@ -20,6 +20,7 @@ OpenTrade Registry is early, but the registry foundation is now broad: all state
 - Texas TDLR fixture adapter.
 - Washington L&I fixture adapter.
 - Oregon CCB fixture adapter.
+- Alaska CBPL fixture adapter.
 - Researched registry entries for Oregon CCB, Nevada NSCB, North Carolina NCLBGC, and Virginia DPOR.
 - Researched registry entries for Georgia SOS, Minnesota DLI, South Carolina LLR, Tennessee Commerce, and Utah DOPL.
 - Researched registry entries for Alabama General Contractors Board, Louisiana LSLBC, Michigan LARA, Pennsylvania OAG, and Wisconsin DSPS.
@@ -33,11 +34,11 @@ OpenTrade Registry is early, but the registry foundation is now broad: all state
 
 ## v0.3
 
-- Use the adapter candidate priorities guide to choose the next fixture adapter from Alaska CBPL or Illinois IDFPR.
+- Use the adapter candidate priorities guide to evaluate Illinois IDFPR as the next fixture-adapter candidate.
 - Promote only candidates with reviewed source terms, fixture-safe field shapes, source-specific filters, and neutral verification caveats.
 - Keep hosted `/api/sources` filters aligned with CLI source filters.
 - Add regression tests whenever a source moves from registry-only to fixture-supported.
-- Deeper Indiana/Oregon/Texas/Washington open-data and download-shaped support where it improves existing adapter reliability.
+- Deeper Alaska/Indiana/Oregon/Texas/Washington open-data and download-shaped support where it improves existing adapter reliability.
 - Adapter quality badges.
 - Shared import pipeline hardening, including row-level sync error reporting.
 - More source registry and adapter metadata consistency checks.

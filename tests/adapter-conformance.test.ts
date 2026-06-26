@@ -1,3 +1,4 @@
+import { alaskaCommerceConstructionContractorsAdapter } from "@opentrade/adapter-ak-commerce";
 import { californiaCslbContractorsAdapter } from "@opentrade/adapter-ca-cslb";
 import { floridaDbprConstructionAdapter } from "@opentrade/adapter-fl-dbpr";
 import { indianaPlaProfessionalLicensesAdapter } from "@opentrade/adapter-in-pla";
@@ -9,6 +10,11 @@ import { describe, it } from "vitest";
 import { expectAdapterConforms, type AdapterConformanceCase } from "./helpers/adapter-conformance.js";
 
 const adapterCases: AdapterConformanceCase[] = [
+  {
+    adapter: alaskaCommerceConstructionContractorsAdapter,
+    registryPath: "registry/sources/us/ak/commerce-construction-contractors.json",
+    expectedFixtureRecordCount: 6,
+  },
   {
     adapter: californiaCslbContractorsAdapter,
     registryPath: "registry/sources/us/ca/cslb-contractors.json",

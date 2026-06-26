@@ -12,6 +12,11 @@ import {
   sourceRegistryEntrySchema,
 } from "@opentrade/core";
 import {
+  alaskaCommerceConstructionContractorsAdapter,
+  AK_COMMERCE_CONSTRUCTION_CONTRACTORS_SOURCE_ID,
+  normalizeAlaskaCommerceStatus,
+} from "@opentrade/adapter-ak-commerce";
+import {
   californiaCslbContractorsAdapter,
   CA_CSLB_CONTRACTORS_SOURCE_ID,
   normalizeCaliforniaCslbStatus,
@@ -73,6 +78,14 @@ describe("public package imports", () => {
       note: expect.stringContaining("planning signal only"),
     });
     expect(typeof isUnimplementedBulkAdapterCandidate).toBe("function");
+    expect(AK_COMMERCE_CONSTRUCTION_CONTRACTORS_SOURCE_ID).toBe("us.ak.commerce.construction_contractors");
+    expect(alaskaCommerceConstructionContractorsAdapter.sourceId).toBe("us.ak.commerce.construction_contractors");
+    expect(
+      normalizeAlaskaCommerceStatus({
+        status: "Suspended",
+        expirationDate: "2099-12-31T00:00:00.000Z",
+      } as Parameters<typeof normalizeAlaskaCommerceStatus>[0]).normalized,
+    ).toBe("suspended");
     expect(CA_CSLB_CONTRACTORS_SOURCE_ID).toBe("us.ca.cslb.contractors");
     expect(californiaCslbContractorsAdapter.sourceId).toBe("us.ca.cslb.contractors");
     expect(normalizeCaliforniaCslbStatus({ status: "Suspended", expirationDate: "2099-12-31T00:00:00.000Z" }).normalized).toBe("suspended");

@@ -16,6 +16,7 @@ describe("source readiness helpers", () => {
 
     expect(readiness.sourceCount).toBe(56);
     expect(readiness.implementedAdapterSources.map((source) => source.id)).toEqual([
+      "us.ak.commerce.construction_contractors",
       "us.ca.cslb.contractors",
       "us.fl.dbpr.construction",
       "us.in.pla.professional_licenses",
@@ -24,11 +25,8 @@ describe("source readiness helpers", () => {
       "us.tx.tdlr.all_licenses",
       "us.wa.lni.contractors",
     ]);
-    expect(readiness.unimplementedBulkAdapterCandidates.map((source) => source.id)).toEqual([
-      "us.ak.commerce.construction_contractors",
-      "us.il.idfpr.roofing_contractors",
-    ]);
-    expect(readiness.registryOnlySourceCount).toBe(49);
+    expect(readiness.unimplementedBulkAdapterCandidates.map((source) => source.id)).toEqual(["us.il.idfpr.roofing_contractors"]);
+    expect(readiness.registryOnlySourceCount).toBe(48);
     expect(readiness.note).toContain("planning signal only");
   });
 
@@ -42,16 +40,16 @@ describe("source readiness helpers", () => {
 
   it("excludes blocked and deprecated sources from unimplemented bulk adapter candidates", async () => {
     const sources = await loadRegistrySources();
-    const alaska = requiredSource(new Map(sources.map((source) => [source.id, source])), "us.ak.commerce.construction_contractors");
-    const blocked = { ...alaska, id: "test.blocked.bulk", adapterStatus: "blocked" as const, adapterMaturity: "blocked" as const };
-    const deprecated = { ...alaska, id: "test.deprecated.bulk", adapterStatus: "deprecated" as const, adapterMaturity: "deprecated" as const };
+    const illinois = requiredSource(new Map(sources.map((source) => [source.id, source])), "us.il.idfpr.roofing_contractors");
+    const blocked = { ...illinois, id: "test.blocked.bulk", adapterStatus: "blocked" as const, adapterMaturity: "blocked" as const };
+    const deprecated = { ...illinois, id: "test.deprecated.bulk", adapterStatus: "deprecated" as const, adapterMaturity: "deprecated" as const };
 
-    expect(isUnimplementedBulkAdapterCandidate(alaska)).toBe(true);
+    expect(isUnimplementedBulkAdapterCandidate(illinois)).toBe(true);
     expect(isUnimplementedBulkAdapterCandidate(blocked)).toBe(false);
     expect(isUnimplementedBulkAdapterCandidate(deprecated)).toBe(false);
 
-    const readiness = buildSourceReadiness([alaska, blocked, deprecated]);
-    expect(readiness.unimplementedBulkAdapterCandidates.map((source) => source.id)).toEqual(["us.ak.commerce.construction_contractors"]);
+    const readiness = buildSourceReadiness([illinois, blocked, deprecated]);
+    expect(readiness.unimplementedBulkAdapterCandidates.map((source) => source.id)).toEqual(["us.il.idfpr.roofing_contractors"]);
   });
 });
 
