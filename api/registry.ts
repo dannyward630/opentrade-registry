@@ -16,6 +16,17 @@ export type SourceReadinessApiResult = SourceReadiness & {
   databaseError?: string;
 };
 
+export type SourceMirrorMismatch = {
+  id: string;
+  reason: "missing_in_database" | "extra_in_database" | "content_mismatch";
+};
+
+export type SourceMirrorComparison = {
+  sourceMetadataMatchesFiles: boolean;
+  sourceMetadataMismatchCount: number;
+  sourceMetadataMismatches: SourceMirrorMismatch[];
+};
+
 type RegistryDatabaseRow = {
   id: string;
   name: string;
@@ -105,6 +116,38 @@ export async function loadSourcesFromDatabase(client: RegistryDatabaseClient, fi
   return (data ?? []).map((row) => mapDatabaseRowToSource(row, fallbackById.get(row.id)));
 }
 
+export function compareSourceMirrors(fileSources: SourceRegistryEntry[], databaseSources: SourceRegistryEntry[]): SourceMirrorComparison {
+  const fileById = new Map(fileSources.map((source) => [source.id, source]));
+  const databaseById = new Map(databaseSources.map((source) => [source.id, source]));
+  const mismatches: SourceMirrorMismatch[] = [];
+
+  for (const source of fileSources) {
+    const databaseSource = databaseById.get(source.id);
+    if (!databaseSource) {
+      mismatches.push({ id: source.id, reason: "missing_in_database" });
+      continue;
+    }
+
+    if (stableStringify(databaseSource) !== stableStringify(source)) {
+      mismatches.push({ id: source.id, reason: "content_mismatch" });
+    }
+  }
+
+  for (const source of databaseSources) {
+    if (!fileById.has(source.id)) {
+      mismatches.push({ id: source.id, reason: "extra_in_database" });
+    }
+  }
+
+  mismatches.sort((a, b) => a.id.localeCompare(b.id) || a.reason.localeCompare(b.reason));
+
+  return {
+    sourceMetadataMatchesFiles: mismatches.length === 0,
+    sourceMetadataMismatchCount: mismatches.length,
+    sourceMetadataMismatches: mismatches.slice(0, 10),
+  };
+}
+
 export async function countSourcesFromDatabase(client: RegistryDatabaseClient): Promise<number> {
   const query = client.from("registry_sources").select("id", { count: "exact", head: true }) as Promise<{
     count: number | null;
@@ -152,6 +195,26 @@ function mapDatabaseRowToSource(row: RegistryDatabaseRow, fallback?: SourceRegis
     redistributionStatus: row.redistribution_status,
     lastVerifiedAt: row.last_verified_at ? new Date(row.last_verified_at).toISOString() : fallback?.lastVerifiedAt,
   });
+}
+
+function stableStringify(value: unknown): string {
+  return JSON.stringify(sortJson(value));
+}
+
+function sortJson(value: unknown): unknown {
+  if (Array.isArray(value)) {
+    return value.map(sortJson);
+  }
+
+  if (value && typeof value === "object") {
+    const sorted: Record<string, unknown> = {};
+    for (const key of Object.keys(value).sort()) {
+      sorted[key] = sortJson((value as Record<string, unknown>)[key]);
+    }
+    return sorted;
+  }
+
+  return value;
 }
 
 async function listJsonFiles(directory: string): Promise<string[]> {
