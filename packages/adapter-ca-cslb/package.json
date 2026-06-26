@@ -1,0 +1,52 @@
+{
+  "name": "@opentrade/adapter-ca-cslb",
+  "version": "0.2.0",
+  "type": "module",
+  "description": "California CSLB fixture adapter for OpenTrade Registry.",
+  "license": "MIT",
+  "homepage": "https://github.com/dannyward630/opentrade-registry#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dannyward630/opentrade-registry.git",
+    "directory": "packages/adapter-ca-cslb"
+  },
+  "bugs": {
+    "url": "https://github.com/dannyward630/opentrade-registry/issues"
+  },
+  "keywords": [
+    "opentrade",
+    "california-cslb",
+    "contractor-licenses",
+    "public-records",
+    "license-verification",
+    "typescript"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "fixtures"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "cd ../.. && corepack pnpm exec vitest run packages/adapter-ca-cslb/tests/parse.test.ts packages/adapter-ca-cslb/tests/map.test.ts"
+  },
+  "dependencies": {
+    "@opentrade/core": "workspace:*"
+  },
+  "devDependencies": {
+    "vitest": "^4.1.9"
+  }
+}

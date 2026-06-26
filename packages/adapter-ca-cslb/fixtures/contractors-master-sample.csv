@@ -1,0 +1,7 @@
+License Number,Business Name,DBA Name,License Type,Classifications,Status,Issue Date,Expiration Date,Address,City,State,Zip,County,Phone,Personnel Name,Personnel Title
+1234567,Golden State Builders LLC,,Contractor,A-General Engineering; B-General Building,Active,01/15/2019,12/31/2099,100 Market St,San Francisco,CA,94105,San Francisco,4155550100,Jordan Lee,Qualifier
+2345678,"Pacific Roof ""Plus""",Pacific Roof Plus,Contractor,C39-Roofing,Expired,03/20/2018,06/30/2020,200 Ocean Ave,Los Angeles,CA,90001,Los Angeles,2135550100,Casey Nguyen,RMO
+3456789,Central Valley Mechanical,,Contractor,C20-HVAC; C36-Plumbing,Suspended,07/01/2021,12/31/2099,300 Farm Rd,Fresno,CA,93721,Fresno,5595550100,Riley Patel,Officer
+4567890,Sierra Solar Works,,Contractor,C46-Solar,Active,05/10/2022,,400 Pine Rd,Sacramento,CA,95814,Sacramento,9165550100,Alex Morgan,Owner
+1234567,Golden State Builders LLC Branch,,Contractor,B-General Building,Active,01/15/2019,12/31/2099,500 Mission St,San Francisco,CA,94105,San Francisco,4155550199,Jordan Lee,Qualifier
+5678901,Unknown Specialty Co,,Contractor,Z99-Unmapped,Mystery,09/09/2020,12/31/2099,600 Desert Way,San Diego,CA,92101,San Diego,6195550100,Sam Rivera,Owner
