@@ -115,6 +115,7 @@ describe("source registry", () => {
     expect(parsed.find((entry) => entry.id === "us.ak.commerce.construction_contractors")?.adapterMaturity).toBe("fixture_adapter");
     expect(parsed.find((entry) => entry.id === "us.fl.dbpr.construction")?.adapterMaturity).toBe("local_file_adapter");
     expect(parsed.find((entry) => entry.id === "us.ca.cslb.contractors")?.adapterMaturity).toBe("fixture_adapter");
+    expect(parsed.find((entry) => entry.id === "us.il.idfpr.roofing_contractors")?.adapterMaturity).toBe("fixture_adapter");
     expect(parsed.find((entry) => entry.id === "us.in.pla.professional_licenses")?.adapterMaturity).toBe("fixture_adapter");
     expect(parsed.find((entry) => entry.id === "us.mn.dli.licenses_registrations")?.adapterMaturity).toBe("fixture_adapter");
     expect(parsed.find((entry) => entry.id === "us.or.ccb.active_licenses")?.adapterMaturity).toBe("fixture_adapter");
@@ -134,6 +135,7 @@ describe("source registry", () => {
               "us.ak.commerce.construction_contractors",
               "us.fl.dbpr.construction",
               "us.ca.cslb.contractors",
+              "us.il.idfpr.roofing_contractors",
               "us.in.pla.professional_licenses",
               "us.mn.dli.licenses_registrations",
               "us.or.ccb.active_licenses",
@@ -311,7 +313,7 @@ describe("source registry", () => {
     expect(coverage.states.find((entry) => entry.state === "DE")?.status).toBe("registry_entry_added");
     expect(coverage.states.find((entry) => entry.state === "GA")?.status).toBe("registry_entry_added");
     expect(coverage.states.find((entry) => entry.state === "ID")?.status).toBe("registry_entry_added");
-    expect(coverage.states.find((entry) => entry.state === "IL")?.status).toBe("registry_entry_added");
+    expect(coverage.states.find((entry) => entry.state === "IL")?.status).toBe("fixture_supported");
     expect(coverage.states.find((entry) => entry.state === "IN")?.status).toBe("fixture_supported");
     expect(coverage.states.find((entry) => entry.state === "IA")?.status).toBe("registry_entry_added");
     expect(coverage.states.find((entry) => entry.state === "KS")?.status).toBe("registry_entry_added");

@@ -22,6 +22,11 @@ const implementedVerificationCases = [
     missingLicense: "CGC000000",
   },
   {
+    sourceId: "us.il.idfpr.roofing_contractors",
+    fixturePath: "packages/adapter-il-idfpr/fixtures/roofing-contractors-sample.csv",
+    missingLicense: "ILROOF999999",
+  },
+  {
     sourceId: "us.in.pla.professional_licenses",
     fixturePath: "packages/adapter-in-pla/fixtures/professional-licenses-sample.csv",
     missingLicense: "INPLA999999",

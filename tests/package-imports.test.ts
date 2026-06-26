@@ -27,6 +27,11 @@ import {
   normalizeDbprStatus,
 } from "@opentrade/adapter-fl-dbpr";
 import {
+  illinoisIdfprRoofingContractorsAdapter,
+  IL_IDFPR_ROOFING_CONTRACTORS_SOURCE_ID,
+  normalizeIllinoisIdfprStatus,
+} from "@opentrade/adapter-il-idfpr";
+import {
   indianaPlaProfessionalLicensesAdapter,
   IN_PLA_PROFESSIONAL_LICENSES_SOURCE_ID,
   normalizeIndianaPlaStatus,
@@ -92,6 +97,9 @@ describe("public package imports", () => {
     expect(FL_DBPR_CONSTRUCTION_SOURCE_ID).toBe("us.fl.dbpr.construction");
     expect(floridaDbprConstructionAdapter.sourceId).toBe("us.fl.dbpr.construction");
     expect(normalizeDbprStatus({ primaryStatusCode: "S", secondaryStatusCode: "A" }).normalized).toBe("suspended");
+    expect(IL_IDFPR_ROOFING_CONTRACTORS_SOURCE_ID).toBe("us.il.idfpr.roofing_contractors");
+    expect(illinoisIdfprRoofingContractorsAdapter.sourceId).toBe("us.il.idfpr.roofing_contractors");
+    expect(normalizeIllinoisIdfprStatus({ status: "Suspended", expirationDate: "2099-12-31T00:00:00.000Z" } as Parameters<typeof normalizeIllinoisIdfprStatus>[0]).normalized).toBe("suspended");
     expect(IN_PLA_PROFESSIONAL_LICENSES_SOURCE_ID).toBe("us.in.pla.professional_licenses");
     expect(indianaPlaProfessionalLicensesAdapter.sourceId).toBe("us.in.pla.professional_licenses");
     expect(normalizeIndianaPlaStatus({ status: "Suspended", expirationDate: "2099-12-31T00:00:00.000Z" }).normalized).toBe("suspended");
