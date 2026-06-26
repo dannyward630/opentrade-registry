@@ -17,7 +17,7 @@
     { "state": "AK", "status": "registry_entry_added", "sourceIds": ["us.ak.commerce.construction_contractors"], "notes": "Alaska CBPL construction contractor lookup and download source metadata exists; no adapter is implemented." },
     { "state": "AZ", "status": "registry_entry_added", "sourceIds": ["us.az.roc.contractors"], "notes": "Arizona ROC source metadata has been added; no adapter is implemented." },
     { "state": "AR", "status": "registry_entry_added", "sourceIds": ["us.ar.aclb.contractors"], "notes": "Arkansas Contractors Licensing Board lookup source metadata exists; no adapter is implemented." },
-    { "state": "CA", "status": "registry_entry_added", "sourceIds": ["us.ca.cslb.contractors"], "notes": "California CSLB source metadata exists; no adapter is implemented." },
+    { "state": "CA", "status": "fixture_supported", "sourceIds": ["us.ca.cslb.contractors"], "notes": "California CSLB fixture adapter is implemented for a tiny hand-authored sample. Live master-list and companion-file parsing are not implemented." },
     { "state": "CO", "status": "registry_entry_added", "sourceIds": ["us.co.dora.trades"], "notes": "Colorado DORA/DPO trade-license lookup source metadata exists; no adapter is implemented." },
     { "state": "CT", "status": "registry_entry_added", "sourceIds": ["us.ct.dcp.home_improvement_contractors"], "notes": "Connecticut DCP/eLicense home improvement contractor lookup source metadata exists; no adapter is implemented." },
     { "state": "DE", "status": "registry_entry_added", "sourceIds": ["us.de.labor.construction_contractors"], "notes": "Delaware registered construction contractor public lookup source metadata exists; no adapter is implemented." },

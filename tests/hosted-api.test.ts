@@ -49,9 +49,10 @@ describe("hosted API", () => {
     await sourcesHandler({ query: { implemented: "true" } } as never, implemented as never);
 
     expect(implemented.statusCode).toBe(200);
-    expect(implemented.body.count).toBe(5);
+    expect(implemented.body.count).toBe(6);
     expect(implemented.body.filters.implemented).toBe(true);
     expect(implemented.body.sources.map((source: { id: string }) => source.id)).toEqual([
+      "us.ca.cslb.contractors",
       "us.fl.dbpr.construction",
       "us.mn.dli.licenses_registrations",
       "us.or.ccb.active_licenses",
@@ -60,7 +61,7 @@ describe("hosted API", () => {
     ]);
 
     const california = createMockResponse();
-    await sourcesHandler({ query: { state: "ca", maturity: "registry_only" } } as never, california as never);
+    await sourcesHandler({ query: { state: "ca", maturity: "fixture_adapter" } } as never, california as never);
     expect(california.statusCode).toBe(200);
     expect(california.body.count).toBe(1);
     expect(california.body.filters.state).toBe("CA");
@@ -69,10 +70,9 @@ describe("hosted API", () => {
     const bulkCandidates = createMockResponse();
     await sourcesHandler({ query: { bulkCandidates: "true" } } as never, bulkCandidates as never);
     expect(bulkCandidates.statusCode).toBe(200);
-    expect(bulkCandidates.body.count).toBe(4);
+    expect(bulkCandidates.body.count).toBe(3);
     expect(bulkCandidates.body.sources.map((source: { id: string }) => source.id)).toEqual([
       "us.ak.commerce.construction_contractors",
-      "us.ca.cslb.contractors",
       "us.il.idfpr.roofing_contractors",
       "us.in.pla.professional_licenses",
     ]);
@@ -97,10 +97,11 @@ describe("hosted API", () => {
     expect(response.body).toMatchObject({
       origin: "registry_files",
       sourceCount: 56,
-      registryOnlySourceCount: 51,
+      registryOnlySourceCount: 50,
       note: expect.stringContaining("planning signal only"),
     });
     expect(response.body.implementedAdapterSources.map((source: { id: string }) => source.id)).toEqual([
+      "us.ca.cslb.contractors",
       "us.fl.dbpr.construction",
       "us.mn.dli.licenses_registrations",
       "us.or.ccb.active_licenses",
@@ -109,7 +110,6 @@ describe("hosted API", () => {
     ]);
     expect(response.body.unimplementedBulkAdapterCandidates.map((source: { id: string }) => source.id)).toEqual([
       "us.ak.commerce.construction_contractors",
-      "us.ca.cslb.contractors",
       "us.il.idfpr.roofing_contractors",
       "us.in.pla.professional_licenses",
     ]);
@@ -182,9 +182,12 @@ describe("hosted API", () => {
           {
             ...createSourceRow("us.ca.cslb.contractors", "CA"),
             source_type: "bulk_xlsx",
+            adapter_status: "implemented",
+            adapter_maturity: "fixture_adapter",
             metadata: {
               ...createSourceRow("us.ca.cslb.contractors", "CA").metadata,
               hasBulkDownload: true,
+              adapterQualityLevel: 4,
             },
           },
         ],
@@ -193,9 +196,9 @@ describe("hosted API", () => {
 
     expect(result.origin).toBe("database");
     expect(result.sourceCount).toBe(2);
-    expect(result.implementedAdapterSources.map((source) => source.id)).toEqual(["us.fl.dbpr.construction"]);
-    expect(result.unimplementedBulkAdapterCandidates.map((source) => source.id)).toEqual(["us.ca.cslb.contractors"]);
-    expect(result.registryOnlySourceCount).toBe(1);
+    expect(result.implementedAdapterSources.map((source) => source.id)).toEqual(["us.fl.dbpr.construction", "us.ca.cslb.contractors"]);
+    expect(result.unimplementedBulkAdapterCandidates.map((source) => source.id)).toEqual([]);
+    expect(result.registryOnlySourceCount).toBe(0);
   });
 
   it("fills legacy partial database metadata from registry files before validation", async () => {
@@ -246,7 +249,7 @@ describe("hosted API", () => {
     expect(result.origin).toBe("registry_files");
     expect(result.databaseError).toBe("database unavailable");
     expect(result.sourceCount).toBe(56);
-    expect(result.unimplementedBulkAdapterCandidates).toHaveLength(4);
+    expect(result.unimplementedBulkAdapterCandidates).toHaveLength(3);
   });
 
   it("reports matching database and file source counts when database count succeeds", async () => {
