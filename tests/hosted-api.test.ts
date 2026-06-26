@@ -50,11 +50,12 @@ describe("hosted API", () => {
     await sourcesHandler({ query: { implemented: "true" } } as never, implemented as never);
 
     expect(implemented.statusCode).toBe(200);
-    expect(implemented.body.count).toBe(6);
+    expect(implemented.body.count).toBe(7);
     expect(implemented.body.filters.implemented).toBe(true);
     expect(implemented.body.sources.map((source: { id: string }) => source.id)).toEqual([
       "us.ca.cslb.contractors",
       "us.fl.dbpr.construction",
+      "us.in.pla.professional_licenses",
       "us.mn.dli.licenses_registrations",
       "us.or.ccb.active_licenses",
       "us.tx.tdlr.all_licenses",
@@ -71,11 +72,10 @@ describe("hosted API", () => {
     const bulkCandidates = createMockResponse();
     await sourcesHandler({ query: { bulkCandidates: "true" } } as never, bulkCandidates as never);
     expect(bulkCandidates.statusCode).toBe(200);
-    expect(bulkCandidates.body.count).toBe(3);
+    expect(bulkCandidates.body.count).toBe(2);
     expect(bulkCandidates.body.sources.map((source: { id: string }) => source.id)).toEqual([
       "us.ak.commerce.construction_contractors",
       "us.il.idfpr.roofing_contractors",
-      "us.in.pla.professional_licenses",
     ]);
   });
 
@@ -98,12 +98,13 @@ describe("hosted API", () => {
     expect(response.body).toMatchObject({
       origin: "registry_files",
       sourceCount: 56,
-      registryOnlySourceCount: 50,
+      registryOnlySourceCount: 49,
       note: expect.stringContaining("planning signal only"),
     });
     expect(response.body.implementedAdapterSources.map((source: { id: string }) => source.id)).toEqual([
       "us.ca.cslb.contractors",
       "us.fl.dbpr.construction",
+      "us.in.pla.professional_licenses",
       "us.mn.dli.licenses_registrations",
       "us.or.ccb.active_licenses",
       "us.tx.tdlr.all_licenses",
@@ -112,7 +113,6 @@ describe("hosted API", () => {
     expect(response.body.unimplementedBulkAdapterCandidates.map((source: { id: string }) => source.id)).toEqual([
       "us.ak.commerce.construction_contractors",
       "us.il.idfpr.roofing_contractors",
-      "us.in.pla.professional_licenses",
     ]);
   });
 
@@ -250,7 +250,7 @@ describe("hosted API", () => {
     expect(result.origin).toBe("registry_files");
     expect(result.databaseError).toBe("database unavailable");
     expect(result.sourceCount).toBe(56);
-    expect(result.unimplementedBulkAdapterCandidates).toHaveLength(3);
+    expect(result.unimplementedBulkAdapterCandidates).toHaveLength(2);
   });
 
   it("reports matching database and file source counts when database count succeeds", async () => {

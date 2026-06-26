@@ -22,6 +22,11 @@ import {
   normalizeDbprStatus,
 } from "@opentrade/adapter-fl-dbpr";
 import {
+  indianaPlaProfessionalLicensesAdapter,
+  IN_PLA_PROFESSIONAL_LICENSES_SOURCE_ID,
+  normalizeIndianaPlaStatus,
+} from "@opentrade/adapter-in-pla";
+import {
   minnesotaDliLicensesRegistrationsAdapter,
   MN_DLI_LICENSES_REGISTRATIONS_SOURCE_ID,
   normalizeMinnesotaDliStatus,
@@ -74,6 +79,9 @@ describe("public package imports", () => {
     expect(FL_DBPR_CONSTRUCTION_SOURCE_ID).toBe("us.fl.dbpr.construction");
     expect(floridaDbprConstructionAdapter.sourceId).toBe("us.fl.dbpr.construction");
     expect(normalizeDbprStatus({ primaryStatusCode: "S", secondaryStatusCode: "A" }).normalized).toBe("suspended");
+    expect(IN_PLA_PROFESSIONAL_LICENSES_SOURCE_ID).toBe("us.in.pla.professional_licenses");
+    expect(indianaPlaProfessionalLicensesAdapter.sourceId).toBe("us.in.pla.professional_licenses");
+    expect(normalizeIndianaPlaStatus({ status: "Suspended", expirationDate: "2099-12-31T00:00:00.000Z" }).normalized).toBe("suspended");
     expect(MN_DLI_LICENSES_REGISTRATIONS_SOURCE_ID).toBe("us.mn.dli.licenses_registrations");
     expect(minnesotaDliLicensesRegistrationsAdapter.sourceId).toBe("us.mn.dli.licenses_registrations");
     expect(normalizeMinnesotaDliStatus({ status: "Issued", expirationDate: "2099-12-31T00:00:00.000Z" }).normalized).toBe("active");

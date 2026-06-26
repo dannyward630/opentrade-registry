@@ -17,6 +17,11 @@ const implementedVerificationCases = [
     missingLicense: "CGC000000",
   },
   {
+    sourceId: "us.in.pla.professional_licenses",
+    fixturePath: "packages/adapter-in-pla/fixtures/professional-licenses-sample.csv",
+    missingLicense: "INPLA999999",
+  },
+  {
     sourceId: "us.mn.dli.licenses_registrations",
     fixturePath: "packages/adapter-mn-dli/fixtures/licenses-registrations-sample.csv",
     missingLicense: "MNDLI999999",

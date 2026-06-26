@@ -5,6 +5,7 @@ const packages = [
   "packages/core",
   "packages/adapter-ca-cslb",
   "packages/adapter-fl-dbpr",
+  "packages/adapter-in-pla",
   "packages/adapter-mn-dli",
   "packages/adapter-or-ccb",
   "packages/adapter-tx-tdlr",

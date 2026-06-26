@@ -6,6 +6,7 @@ describe("CLI adapter registry", () => {
     expect(listImplementedSourceIds()).toEqual([
       "us.ca.cslb.contractors",
       "us.fl.dbpr.construction",
+      "us.in.pla.professional_licenses",
       "us.mn.dli.licenses_registrations",
       "us.or.ccb.active_licenses",
       "us.tx.tdlr.all_licenses",
@@ -13,6 +14,7 @@ describe("CLI adapter registry", () => {
     ]);
     expect(getAdapter("us.ca.cslb.contractors")?.sourceId).toBe("us.ca.cslb.contractors");
     expect(getAdapter("us.fl.dbpr.construction")?.sourceId).toBe("us.fl.dbpr.construction");
+    expect(getAdapter("us.in.pla.professional_licenses")?.sourceId).toBe("us.in.pla.professional_licenses");
     expect(getAdapter("us.mn.dli.licenses_registrations")?.sourceId).toBe("us.mn.dli.licenses_registrations");
     expect(getAdapter("us.or.ccb.active_licenses")?.sourceId).toBe("us.or.ccb.active_licenses");
     expect(getAdapter("us.tx.tdlr.all_licenses")?.sourceId).toBe("us.tx.tdlr.all_licenses");

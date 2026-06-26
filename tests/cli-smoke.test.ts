@@ -10,6 +10,7 @@ const tsxPath = join(process.cwd(), "packages", "cli", "node_modules", ".bin", "
 const sampleFixture = join(process.cwd(), "packages", "adapter-fl-dbpr", "fixtures", "construction-license-sample.csv");
 const edgeFixture = join(process.cwd(), "packages", "adapter-fl-dbpr", "fixtures", "construction-license-edge-cases.csv");
 const californiaFixture = join(process.cwd(), "packages", "adapter-ca-cslb", "fixtures", "contractors-master-sample.csv");
+const indianaFixture = join(process.cwd(), "packages", "adapter-in-pla", "fixtures", "professional-licenses-sample.csv");
 const oregonFixture = join(process.cwd(), "packages", "adapter-or-ccb", "fixtures", "active-licenses-sample.csv");
 const texasFixture = join(process.cwd(), "packages", "adapter-tx-tdlr", "fixtures", "all-licenses-sample.csv");
 const washingtonFixture = join(process.cwd(), "packages", "adapter-wa-lni", "fixtures", "contractor-license-sample.csv");
@@ -136,26 +137,27 @@ describe("opentrade CLI", () => {
     const implemented = runCli(["sources", "list", "--implemented"]).stdout;
     expect(implemented).toContain("us.ca.cslb.contractors");
     expect(implemented).toContain("us.fl.dbpr.construction");
+    expect(implemented).toContain("us.in.pla.professional_licenses");
     expect(implemented).toContain("us.mn.dli.licenses_registrations");
     expect(implemented).toContain("us.or.ccb.active_licenses");
     expect(implemented).toContain("us.tx.tdlr.all_licenses");
     expect(implemented).toContain("us.wa.lni.contractors");
 
     const registryOnlyJson = JSON.parse(runCli(["sources", "list", "--registry-only", "--json"]).stdout);
-    expect(registryOnlyJson).toHaveLength(50);
+    expect(registryOnlyJson).toHaveLength(49);
     expect(registryOnlyJson.every((source: { adapterMaturity: string }) => source.adapterMaturity === "registry_only")).toBe(true);
 
     const bulkCandidatesJson = JSON.parse(runCli(["sources", "list", "--bulk-candidates", "--json"]).stdout);
     expect(bulkCandidatesJson.map((source: { id: string }) => source.id)).toEqual([
       "us.ak.commerce.construction_contractors",
       "us.il.idfpr.roofing_contractors",
-      "us.in.pla.professional_licenses",
     ]);
 
     const level4Json = JSON.parse(runCli(["sources", "list", "--quality-level", "4", "--json"]).stdout);
     expect(level4Json.map((source: { id: string }) => source.id)).toEqual([
       "us.ca.cslb.contractors",
       "us.fl.dbpr.construction",
+      "us.in.pla.professional_licenses",
       "us.mn.dli.licenses_registrations",
       "us.or.ccb.active_licenses",
       "us.tx.tdlr.all_licenses",
@@ -176,17 +178,17 @@ describe("opentrade CLI", () => {
     const readiness = runCli(["sources", "readiness"]).stdout;
     expect(readiness).toContain("OpenTrade source readiness");
     expect(readiness).toContain("sources: 56");
-    expect(readiness).toContain("implemented adapter sources: 6");
+    expect(readiness).toContain("implemented adapter sources: 7");
     expect(readiness).toContain("- us.ca.cslb.contractors (bulk_xlsx, fixture_adapter, level_4)");
     expect(readiness).toContain("- us.fl.dbpr.construction (bulk_csv, local_file_adapter, level_4)");
+    expect(readiness).toContain("- us.in.pla.professional_licenses (html_lookup, fixture_adapter, level_4)");
     expect(readiness).toContain("- us.mn.dli.licenses_registrations (bulk_xlsx, fixture_adapter, level_4)");
     expect(readiness).toContain("- us.or.ccb.active_licenses (bulk_csv, fixture_adapter, level_4)");
     expect(readiness).toContain("- us.tx.tdlr.all_licenses (bulk_csv, fixture_adapter, level_4)");
     expect(readiness).toContain("- us.wa.lni.contractors (bulk_csv, fixture_adapter, level_4)");
-    expect(readiness).toContain("unimplemented bulk-shaped candidates: 3");
+    expect(readiness).toContain("unimplemented bulk-shaped candidates: 2");
     expect(readiness).toContain("- us.ak.commerce.construction_contractors (html_lookup, state_agency_partial)");
     expect(readiness).toContain("- us.il.idfpr.roofing_contractors (html_lookup, state_agency_partial)");
-    expect(readiness).toContain("- us.in.pla.professional_licenses (html_lookup, state_agency_partial)");
     expect(readiness).toContain("Candidate status is a planning signal only.");
 
     const json = JSON.parse(runCli(["sources", "readiness", "--json"]).stdout);
@@ -194,6 +196,7 @@ describe("opentrade CLI", () => {
     expect(json.implementedAdapterSources.map((source: { id: string }) => source.id)).toEqual([
       "us.ca.cslb.contractors",
       "us.fl.dbpr.construction",
+      "us.in.pla.professional_licenses",
       "us.mn.dli.licenses_registrations",
       "us.or.ccb.active_licenses",
       "us.tx.tdlr.all_licenses",
@@ -202,9 +205,8 @@ describe("opentrade CLI", () => {
     expect(json.unimplementedBulkAdapterCandidates.map((source: { id: string }) => source.id)).toEqual([
       "us.ak.commerce.construction_contractors",
       "us.il.idfpr.roofing_contractors",
-      "us.in.pla.professional_licenses",
     ]);
-    expect(json.registryOnlySourceCount).toBe(50);
+    expect(json.registryOnlySourceCount).toBe(49);
   }, 15000);
 
   it("summarizes state and territory source coverage", () => {
@@ -212,11 +214,12 @@ describe("opentrade CLI", () => {
     expect(coverage).toContain("OpenTrade source coverage");
     expect(coverage).toContain("states and DC: 51/51 researched");
     expect(coverage).toContain("major territories: 5/5 researched");
-    expect(coverage).toContain("- fixture_supported: 5");
+    expect(coverage).toContain("- fixture_supported: 6");
     expect(coverage).toContain("- local_file_supported: 1");
-    expect(coverage).toContain("- registry_entry_added: 45");
+    expect(coverage).toContain("- registry_entry_added: 44");
     expect(coverage).toContain("- CA: fixture_supported (us.ca.cslb.contractors)");
     expect(coverage).toContain("- FL: local_file_supported (us.fl.dbpr.construction)");
+    expect(coverage).toContain("- IN: fixture_supported (us.in.pla.professional_licenses)");
     expect(coverage).toContain("- MN: fixture_supported (us.mn.dli.licenses_registrations)");
     expect(coverage).toContain("- OR: fixture_supported (us.or.ccb.active_licenses)");
     expect(coverage).toContain("- TX: fixture_supported (us.tx.tdlr.all_licenses)");
@@ -229,9 +232,9 @@ describe("opentrade CLI", () => {
     expect(json.territoryCount).toBe(5);
     expect(json.researchedTerritoryCount).toBe(5);
     expect(json.stateCoverageByStatus).toEqual({
-      fixture_supported: 5,
+      fixture_supported: 6,
       local_file_supported: 1,
-      registry_entry_added: 45,
+      registry_entry_added: 44,
     });
     expect(json.territoryCoverageByStatus).toEqual({
       registry_entry_added: 5,
@@ -278,7 +281,6 @@ describe("opentrade CLI", () => {
       "us.id.dopl.contractors",
       "us.ri.crlb.contractors",
       "us.il.idfpr.roofing_contractors",
-      "us.in.pla.professional_licenses",
       "us.ks.ag.roofing_registration",
       "us.ky.dhbc.trades",
       "us.ms.msboc.contractors",
@@ -409,6 +411,48 @@ describe("opentrade CLI", () => {
       expect(csv).toContain("1234567");
       expect(csv).toContain(",active,");
       expect(csv).not.toContain("Personnel Title");
+      expect(csv.trim().split("\n")).toHaveLength(7);
+    } finally {
+      rmSync(dir, { recursive: true, force: true });
+    }
+  });
+
+  it("syncs Indiana PLA fixture data to JSONL and CSV", () => {
+    const dir = mkdtempSync(join(tmpdir(), "opentrade-indiana-"));
+    try {
+      const jsonlPath = join(dir, "indiana.jsonl");
+      const jsonl = runCli([
+        "sync",
+        "us.in.pla.professional_licenses",
+        "--file",
+        indianaFixture,
+        "--out",
+        jsonlPath,
+        "--json",
+      ]);
+      const json = JSON.parse(jsonl.stdout);
+      expect(json.adapterMaturity).toBe("fixture_adapter");
+      expect(json.stats.normalizedRecordCount).toBe(6);
+      expect(json.stats.warningCount).toBeGreaterThan(0);
+      const lines = readFileSync(jsonlPath, "utf8").trim().split("\n");
+      expect(lines).toHaveLength(6);
+      expect(JSON.parse(lines[0]).license.tradeCategories).toEqual(["plumbing"]);
+
+      const csvPath = join(dir, "indiana.csv");
+      runCli([
+        "sync",
+        "us.in.pla.professional_licenses",
+        "--file",
+        indianaFixture,
+        "--out",
+        csvPath,
+        "--format",
+        "csv",
+      ]);
+      const csv = readFileSync(csvPath, "utf8");
+      expect(csv).toContain("PC12300001");
+      expect(csv).toContain(",active,");
+      expect(csv).not.toContain("Board");
       expect(csv.trim().split("\n")).toHaveLength(7);
     } finally {
       rmSync(dir, { recursive: true, force: true });
@@ -766,6 +810,35 @@ describe("opentrade CLI", () => {
     expect(ambiguous.stdout).toContain("ambiguous");
 
     const invalid = runCli(["verify", "--source", "us.tx.tdlr.all_licenses", "--file", texasFixture, "--license", "!!!"], 2);
+    expect(invalid.stdout).toContain("missing_required_input");
+  });
+
+  it("verifies Indiana PLA matched, not-found, ambiguous, and invalid license cases", () => {
+    const matched = runCli([
+      "verify",
+      "--source",
+      "us.in.pla.professional_licenses",
+      "--file",
+      indianaFixture,
+      "--license",
+      "HIC45600002",
+      "--json",
+    ]);
+    expect(JSON.parse(matched.stdout).result).toBe("matched");
+
+    const notFound = runCli(
+      ["verify", "--source", "us.in.pla.professional_licenses", "--file", indianaFixture, "--license", "INPLA999999"],
+      4,
+    );
+    expect(notFound.stdout).toContain("not_found");
+
+    const ambiguous = runCli(
+      ["verify", "--source", "us.in.pla.professional_licenses", "--file", indianaFixture, "--license", "PC12300001"],
+      5,
+    );
+    expect(ambiguous.stdout).toContain("ambiguous");
+
+    const invalid = runCli(["verify", "--source", "us.in.pla.professional_licenses", "--file", indianaFixture, "--license", "!!!"], 2);
     expect(invalid.stdout).toContain("missing_required_input");
   });
 

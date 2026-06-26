@@ -33,11 +33,11 @@ OpenTrade Registry is early, but the registry foundation is now broad: all state
 
 ## v0.3
 
-- Use the adapter candidate priorities guide to choose the next fixture adapter from Alaska CBPL, Illinois IDFPR, or Indiana PLA.
+- Use the adapter candidate priorities guide to choose the next fixture adapter from Alaska CBPL or Illinois IDFPR.
 - Promote only candidates with reviewed source terms, fixture-safe field shapes, source-specific filters, and neutral verification caveats.
 - Keep hosted `/api/sources` filters aligned with CLI source filters.
 - Add regression tests whenever a source moves from registry-only to fixture-supported.
-- Deeper Oregon/Texas/Washington open-data support where it improves existing adapter reliability.
+- Deeper Indiana/Oregon/Texas/Washington open-data and download-shaped support where it improves existing adapter reliability.
 - Adapter quality badges.
 - Shared import pipeline hardening, including row-level sync error reporting.
 - More source registry and adapter metadata consistency checks.

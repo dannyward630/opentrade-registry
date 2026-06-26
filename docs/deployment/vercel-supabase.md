@@ -47,7 +47,7 @@ Readiness candidate status is a planning signal only. It is not evidence that a 
 
 Filters apply to database-backed responses and file-registry fallback responses. The response includes a `filters` object so callers can see which filters were accepted. Invalid enum filters return `400` with `error: "invalid_filter"`.
 
-`/api/health` reports the checked-in file source count and, when Supabase is configured, the database source count. The `sourceCountMatchesFiles` field should be `true` after the seed SQL has been applied.
+`/api/health` reports the checked-in file source count and, when Supabase is configured, the database source count plus row-level registry metadata parity. Both `sourceCountMatchesFiles` and `sourceMetadataMatchesFiles` should be `true` after the seed SQL has been applied. If metadata drifts, the health response includes `sourceMetadataMismatchCount` and a short `sourceMetadataMismatches` sample.
 
 ## Supabase
 
