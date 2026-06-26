@@ -6,6 +6,7 @@ const packages = [
   "packages/adapter-ak-commerce",
   "packages/adapter-ca-cslb",
   "packages/adapter-fl-dbpr",
+  "packages/adapter-il-idfpr",
   "packages/adapter-in-pla",
   "packages/adapter-mn-dli",
   "packages/adapter-or-ccb",

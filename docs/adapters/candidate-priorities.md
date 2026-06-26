@@ -6,9 +6,7 @@ Default implementation rule: start fixture-first from tiny hand-authored records
 
 ## Current Queue
 
-| Priority | Source ID | Why It Is Plausible | Main Review Before Code |
-| --- | --- | --- | --- |
-| 1 | `us.il.idfpr.roofing_contractors` | Illinois IDFPR documents lookup and bulk lookup paths, scoped here to roofing contractor licensing. | Confirm roofing-specific export availability, columns, update freshness text, and whether other Illinois trade sources need separate entries. |
+`corepack pnpm source:quality` currently reports no unimplemented bulk-shaped adapter candidates. That is a healthy queue state, not a completion claim. The next adapter candidate should come from fresh source research, territory follow-up, or a deeper review of an existing lookup-only entry that discovers a lawful, stable, fixture-safe field shape.
 
 ## Required Evidence To Promote A Candidate
 
@@ -22,7 +20,7 @@ A registry-only candidate can become a fixture adapter only after maintainers ca
 - tests that run without live agency network access;
 - updated registry metadata, coverage status, package docs, and source-quality expectations.
 
-Alaska CBPL, California CSLB, Indiana PLA, and Minnesota DLI have moved out of this queue as fixture adapters. They still need live file-shape, download/API, protected-endpoint, or companion-source research before any local-file or opt-in-network promotion.
+Alaska CBPL, California CSLB, Illinois IDFPR, Indiana PLA, Minnesota DLI, Oregon CCB, Texas TDLR, and Washington L&I have moved out of this queue as fixture adapters. They still need live file-shape, download/API, protected-endpoint, or companion-source research before any local-file or opt-in-network promotion.
 
 ## Candidate Caveats
 

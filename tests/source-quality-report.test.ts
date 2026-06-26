@@ -19,11 +19,11 @@ describe("source quality report", () => {
     expect(report.researchedTerritoryCount).toBe(5);
     expect(report.coverageByStatus.not_started ?? 0).toBe(0);
     expect(report.territoryCoverageByStatus.registry_entry_added).toBe(5);
-    expect(report.sourcesByMaturity.registry_only).toBe(48);
-    expect(report.sourcesByMaturity.fixture_adapter).toBe(7);
+    expect(report.sourcesByMaturity.registry_only).toBe(47);
+    expect(report.sourcesByMaturity.fixture_adapter).toBe(8);
     expect(report.sourcesByMaturity.local_file_adapter).toBe(1);
-    expect(report.sourcesByAdapterQualityLevel["0"]).toBe(48);
-    expect(report.sourcesByAdapterQualityLevel["4"]).toBe(8);
+    expect(report.sourcesByAdapterQualityLevel["0"]).toBe(47);
+    expect(report.sourcesByAdapterQualityLevel["4"]).toBe(9);
     expect(report.metadataCompleteness.requiredFields).toEqual([
       "documentationUrl",
       "updateFrequency",
@@ -56,6 +56,7 @@ describe("source quality report", () => {
       "us.ak.commerce.construction_contractors",
       "us.ca.cslb.contractors",
       "us.fl.dbpr.construction",
+      "us.il.idfpr.roofing_contractors",
       "us.in.pla.professional_licenses",
       "us.mn.dli.licenses_registrations",
       "us.or.ccb.active_licenses",
@@ -94,7 +95,7 @@ describe("source quality report", () => {
     expect(report.lookupOnlySources.map((source: { id: string }) => source.id)).toContain("us.pr.daco.contractors");
     expect(report.lookupOnlySources.map((source: { id: string }) => source.id)).toContain("us.vi.dlca.contractors_trades");
     expect(report.bulkCandidates.map((source: { id: string }) => source.id)).toContain("us.fl.dbpr.construction");
-    expect(report.unimplementedBulkAdapterCandidates.map((source: { id: string }) => source.id)).toEqual(["us.il.idfpr.roofing_contractors"]);
+    expect(report.unimplementedBulkAdapterCandidates.map((source: { id: string }) => source.id)).toEqual([]);
   });
 
   it("prints territory and manual-source caution sections in human output", () => {
@@ -108,6 +109,7 @@ describe("source quality report", () => {
     expect(result.stdout).toContain("implemented adapter sources:");
     expect(result.stdout).toContain("- us.ak.commerce.construction_contractors (html_lookup, fixture_adapter)");
     expect(result.stdout).toContain("- us.ca.cslb.contractors (bulk_xlsx, fixture_adapter)");
+    expect(result.stdout).toContain("- us.il.idfpr.roofing_contractors (html_lookup, fixture_adapter)");
     expect(result.stdout).toContain("- us.mn.dli.licenses_registrations (bulk_xlsx, fixture_adapter)");
     expect(result.stdout).toContain("- us.tx.tdlr.all_licenses (bulk_csv, fixture_adapter)");
     expect(result.stdout).toContain("territory sources:");

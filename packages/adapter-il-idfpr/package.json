@@ -1,21 +1,22 @@
 {
-  "name": "@opentrade/cli",
+  "name": "@opentrade/adapter-il-idfpr",
   "version": "0.2.0",
   "type": "module",
-  "description": "Command-line interface for OpenTrade Registry.",
+  "description": "Illinois IDFPR roofing contractor fixture adapter for OpenTrade Registry.",
   "license": "MIT",
   "homepage": "https://github.com/dannyward630/opentrade-registry#readme",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/dannyward630/opentrade-registry.git",
-    "directory": "packages/cli"
+    "directory": "packages/adapter-il-idfpr"
   },
   "bugs": {
     "url": "https://github.com/dannyward630/opentrade-registry/issues"
   },
   "keywords": [
     "opentrade",
-    "cli",
+    "illinois-idfpr",
+    "roofing",
     "contractor-licenses",
     "public-records",
     "license-verification",
@@ -26,33 +27,27 @@
   },
   "files": [
     "dist",
-    "README.md"
+    "README.md",
+    "fixtures"
   ],
   "publishConfig": {
     "access": "public"
   },
-  "bin": {
-    "opentrade": "./dist/index.js"
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
   },
   "scripts": {
     "build": "tsc -p tsconfig.json",
     "typecheck": "tsc -p tsconfig.json --noEmit",
-    "cli": "tsx src/index.ts"
+    "test": "vitest run"
   },
   "dependencies": {
-    "@opentrade/adapter-ak-commerce": "workspace:*",
-    "@opentrade/adapter-ca-cslb": "workspace:*",
-    "@opentrade/adapter-fl-dbpr": "workspace:*",
-    "@opentrade/adapter-il-idfpr": "workspace:*",
-    "@opentrade/adapter-in-pla": "workspace:*",
-    "@opentrade/adapter-mn-dli": "workspace:*",
-    "@opentrade/adapter-or-ccb": "workspace:*",
-    "@opentrade/adapter-tx-tdlr": "workspace:*",
-    "@opentrade/adapter-wa-lni": "workspace:*",
-    "@opentrade/core": "workspace:*",
-    "zod": "^4.4.3"
+    "@opentrade/core": "workspace:*"
   },
   "devDependencies": {
-    "tsx": "^4.19.2"
+    "vitest": "^4.1.9"
   }
 }

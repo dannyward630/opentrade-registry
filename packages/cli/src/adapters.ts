@@ -1,6 +1,7 @@
 import { alaskaCommerceConstructionContractorsAdapter, AK_COMMERCE_CONSTRUCTION_CONTRACTORS_SOURCE_ID } from "@opentrade/adapter-ak-commerce";
 import { californiaCslbContractorsAdapter, CA_CSLB_CONTRACTORS_SOURCE_ID } from "@opentrade/adapter-ca-cslb";
 import { floridaDbprConstructionAdapter, FL_DBPR_CONSTRUCTION_SOURCE_ID } from "@opentrade/adapter-fl-dbpr";
+import { illinoisIdfprRoofingContractorsAdapter, IL_IDFPR_ROOFING_CONTRACTORS_SOURCE_ID } from "@opentrade/adapter-il-idfpr";
 import { indianaPlaProfessionalLicensesAdapter, IN_PLA_PROFESSIONAL_LICENSES_SOURCE_ID } from "@opentrade/adapter-in-pla";
 import { minnesotaDliLicensesRegistrationsAdapter, MN_DLI_LICENSES_REGISTRATIONS_SOURCE_ID } from "@opentrade/adapter-mn-dli";
 import { oregonCcbActiveLicensesAdapter, OR_CCB_ACTIVE_LICENSES_SOURCE_ID } from "@opentrade/adapter-or-ccb";
@@ -12,6 +13,7 @@ const adapters = new Map<string, TradeLicenseSourceAdapter>([
   [AK_COMMERCE_CONSTRUCTION_CONTRACTORS_SOURCE_ID, alaskaCommerceConstructionContractorsAdapter],
   [CA_CSLB_CONTRACTORS_SOURCE_ID, californiaCslbContractorsAdapter],
   [FL_DBPR_CONSTRUCTION_SOURCE_ID, floridaDbprConstructionAdapter],
+  [IL_IDFPR_ROOFING_CONTRACTORS_SOURCE_ID, illinoisIdfprRoofingContractorsAdapter],
   [IN_PLA_PROFESSIONAL_LICENSES_SOURCE_ID, indianaPlaProfessionalLicensesAdapter],
   [MN_DLI_LICENSES_REGISTRATIONS_SOURCE_ID, minnesotaDliLicensesRegistrationsAdapter],
   [OR_CCB_ACTIVE_LICENSES_SOURCE_ID, oregonCcbActiveLicensesAdapter],

@@ -9,9 +9,9 @@ As of the current repository state:
 - `56` source registry entries are checked in.
 - All `50` states plus DC have at least one researched official source entry.
 - Five major U.S. territories have researched entries: American Samoa, Guam, Northern Mariana Islands, Puerto Rico, and the U.S. Virgin Islands.
-- `48` sources are registry-only metadata entries.
-- `8` sources have implemented adapters.
-- `1` unimplemented source is currently a bulk-shaped adapter candidate according to `corepack pnpm source:quality`.
+- `47` sources are registry-only metadata entries.
+- `9` sources have implemented adapters.
+- `0` unimplemented sources are currently bulk-shaped adapter candidates according to `corepack pnpm source:quality`.
 - All current source entries include the required metadata fields checked by `source:quality`: documentation, update frequency, known exclusions, rate-limit notes, public-record notes, bulk-download notes, research notes, and maintainer notes.
 
 Registry coverage is not the same as end-to-end verification support. A registry-only source has source metadata and caveats, but it cannot be synced or checked with `opentrade verify` until an adapter exists.
@@ -23,6 +23,7 @@ Registry coverage is not the same as end-to-end verification support. A registry
 | `us.ak.commerce.construction_contractors` | Alaska | `fixture_adapter` | Local fixture only by default | Level 4 |
 | `us.ca.cslb.contractors` | California | `fixture_adapter` | Local fixture only by default | Level 4 |
 | `us.fl.dbpr.construction` | Florida | `local_file_adapter` | CLI can use the official CSV URL only with `--allow-network` | Level 4 |
+| `us.il.idfpr.roofing_contractors` | Illinois | `fixture_adapter` | Local fixture only by default | Level 4 |
 | `us.in.pla.professional_licenses` | Indiana | `fixture_adapter` | Local fixture only by default | Level 4 |
 | `us.mn.dli.licenses_registrations` | Minnesota | `fixture_adapter` | Local fixture only by default | Level 4 |
 | `us.or.ccb.active_licenses` | Oregon | `fixture_adapter` | Local fixture only by default | Level 4 |

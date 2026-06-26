@@ -1,0 +1,57 @@
+import type { SourceRegistryEntry } from "@opentrade/core";
+
+export const IL_IDFPR_ROOFING_CONTRACTORS_SOURCE_ID = "us.il.idfpr.roofing_contractors";
+export const IL_IDFPR_ROOFING_CONTRACTORS_SOURCE_URL = "https://idfpr.illinois.gov/checklicense.html";
+
+export const IL_IDFPR_SOURCE_ENTRY: SourceRegistryEntry = {
+  id: IL_IDFPR_ROOFING_CONTRACTORS_SOURCE_ID,
+  name: "Illinois IDFPR Roofing Contractor License Lookup",
+  jurisdiction: {
+    country: "US",
+    state: "IL",
+  },
+  agency: {
+    name: "Illinois Department of Financial and Professional Regulation",
+    url: "https://idfpr.illinois.gov/",
+  },
+  sourceType: "html_lookup",
+  sourceUrl: IL_IDFPR_ROOFING_CONTRACTORS_SOURCE_URL,
+  documentationUrl: "https://idfpr.illinois.gov/profs/roof.html",
+  dataDictionaryUrl: null,
+  termsUrl: "https://www.illinois.gov/about/policies.html",
+  updateFrequency: "IDFPR describes the license lookup as primary-source verification and notes daily single-license lookup and weekly bulk lookup updates unless otherwise noted; verify current page text before relying on freshness assumptions.",
+  tradeCoverage: ["roofing"],
+  licenseTypesIncluded: ["Illinois roofing contractor license records exposed by IDFPR lookup paths"],
+  knownExclusions: [
+    "This source entry is scoped to IDFPR roofing contractor licenses and does not represent every Illinois construction, trade, local permit, or business registration source.",
+    "The fixture adapter does not access the live IDFPR lookup or bulk lookup endpoints.",
+    "Discipline, enforcement, complaints, local authorizations, and non-IDFPR records may require separate official sources.",
+  ],
+  hasBulkDownload: true,
+  hasLiveLookup: true,
+  requiresJavaScript: "unknown",
+  requiresCaptcha: "unknown",
+  requiresAccount: false,
+  rateLimitNotes: "Fixture adapter only. Do not automate the live lookup or bulk lookup path unless source terms, controls, and fields are reviewed.",
+  redistributionStatus: "unknown",
+  publicRecordsNotes: "Official lookup metadata only. Absence from this source is not proof that a license, local authorization, or other credential does not exist elsewhere.",
+  adapterStatus: "implemented",
+  sourceDiscoveryStatus: "researched",
+  adapterMaturity: "fixture_adapter",
+  adapterQualityLevel: 4,
+  coverageScope: "state_agency_partial",
+  adapterPackage: "@opentrade/adapter-il-idfpr",
+  testFixturePath: "packages/adapter-il-idfpr/fixtures/roofing-contractors-sample.csv",
+  officialLookupUrl: "https://online-dfpr.micropact.com/Lookup/LicenseLookup.aspx",
+  officialBulkDownloadNotes: "IDFPR documents bulk license lookup update timing, but this v0.2 adapter uses only a tiny hand-authored fixture and does not access live bulk lookup.",
+  researchNotes: "Fixture support exists for a tiny hand-authored IDFPR roofing-contractor-shaped CSV. Future work should verify current live lookup and bulk lookup field shapes before any local-file or opt-in-network promotion.",
+  verificationReviewedAt: "2026-06-26T00:00:00.000Z",
+  verificationCaveats: [
+    "Illinois IDFPR fixture support is based on a tiny hand-authored sample, not a live IDFPR export or lookup response.",
+    "This adapter is scoped to IDFPR roofing contractor records and does not represent every Illinois construction, trade, local permit, or business registration source.",
+    "No matching record means no match in this source at the checked time, not proof that a license, local authorization, or other credential does not exist elsewhere.",
+  ],
+  verificationNotes: "Fixture verification supports matched, not-found, ambiguous duplicate, and invalid-input outcomes while preserving Illinois IDFPR roofing source caveats.",
+  lastVerifiedAt: "2026-06-26T00:00:00.000Z",
+  maintainerNotes: "Keep IDFPR roofing scope explicit. Do not automate lookup or bulk lookup paths until access controls, terms, and field shape have been reviewed.",
+};

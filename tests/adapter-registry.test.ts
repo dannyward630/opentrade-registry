@@ -7,6 +7,7 @@ describe("CLI adapter registry", () => {
       "us.ak.commerce.construction_contractors",
       "us.ca.cslb.contractors",
       "us.fl.dbpr.construction",
+      "us.il.idfpr.roofing_contractors",
       "us.in.pla.professional_licenses",
       "us.mn.dli.licenses_registrations",
       "us.or.ccb.active_licenses",
@@ -16,12 +17,13 @@ describe("CLI adapter registry", () => {
     expect(getAdapter("us.ak.commerce.construction_contractors")?.sourceId).toBe("us.ak.commerce.construction_contractors");
     expect(getAdapter("us.ca.cslb.contractors")?.sourceId).toBe("us.ca.cslb.contractors");
     expect(getAdapter("us.fl.dbpr.construction")?.sourceId).toBe("us.fl.dbpr.construction");
+    expect(getAdapter("us.il.idfpr.roofing_contractors")?.sourceId).toBe("us.il.idfpr.roofing_contractors");
     expect(getAdapter("us.in.pla.professional_licenses")?.sourceId).toBe("us.in.pla.professional_licenses");
     expect(getAdapter("us.mn.dli.licenses_registrations")?.sourceId).toBe("us.mn.dli.licenses_registrations");
     expect(getAdapter("us.or.ccb.active_licenses")?.sourceId).toBe("us.or.ccb.active_licenses");
     expect(getAdapter("us.tx.tdlr.all_licenses")?.sourceId).toBe("us.tx.tdlr.all_licenses");
     expect(getAdapter("us.wa.lni.contractors")?.sourceId).toBe("us.wa.lni.contractors");
-    expect(getAdapter("us.il.idfpr.roofing_contractors")).toBeNull();
-    expect(() => requireAdapter("us.il.idfpr.roofing_contractors", "sync")).toThrow(/no sync adapter is implemented yet/i);
+    expect(getAdapter("us.pa.oag.home_improvement_contractors")).toBeNull();
+    expect(() => requireAdapter("us.pa.oag.home_improvement_contractors", "sync")).toThrow(/no sync adapter is implemented yet/i);
   });
 });
