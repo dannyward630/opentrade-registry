@@ -1,5 +1,6 @@
 import { californiaCslbContractorsAdapter, CA_CSLB_CONTRACTORS_SOURCE_ID } from "@opentrade/adapter-ca-cslb";
 import { floridaDbprConstructionAdapter, FL_DBPR_CONSTRUCTION_SOURCE_ID } from "@opentrade/adapter-fl-dbpr";
+import { indianaPlaProfessionalLicensesAdapter, IN_PLA_PROFESSIONAL_LICENSES_SOURCE_ID } from "@opentrade/adapter-in-pla";
 import { minnesotaDliLicensesRegistrationsAdapter, MN_DLI_LICENSES_REGISTRATIONS_SOURCE_ID } from "@opentrade/adapter-mn-dli";
 import { oregonCcbActiveLicensesAdapter, OR_CCB_ACTIVE_LICENSES_SOURCE_ID } from "@opentrade/adapter-or-ccb";
 import { texasTdlrAllLicensesAdapter, TX_TDLR_ALL_LICENSES_SOURCE_ID } from "@opentrade/adapter-tx-tdlr";
@@ -9,6 +10,7 @@ import type { TradeLicenseSourceAdapter } from "@opentrade/core";
 const adapters = new Map<string, TradeLicenseSourceAdapter>([
   [CA_CSLB_CONTRACTORS_SOURCE_ID, californiaCslbContractorsAdapter],
   [FL_DBPR_CONSTRUCTION_SOURCE_ID, floridaDbprConstructionAdapter],
+  [IN_PLA_PROFESSIONAL_LICENSES_SOURCE_ID, indianaPlaProfessionalLicensesAdapter],
   [MN_DLI_LICENSES_REGISTRATIONS_SOURCE_ID, minnesotaDliLicensesRegistrationsAdapter],
   [OR_CCB_ACTIVE_LICENSES_SOURCE_ID, oregonCcbActiveLicensesAdapter],
   [TX_TDLR_ALL_LICENSES_SOURCE_ID, texasTdlrAllLicensesAdapter],

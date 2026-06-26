@@ -14,6 +14,9 @@ importers:
       '@opentrade/adapter-fl-dbpr':
         specifier: workspace:*
         version: link:packages/adapter-fl-dbpr
+      '@opentrade/adapter-in-pla':
+        specifier: workspace:*
+        version: link:packages/adapter-in-pla
       '@opentrade/adapter-mn-dli':
         specifier: workspace:*
         version: link:packages/adapter-mn-dli
@@ -84,6 +87,16 @@ importers:
         specifier: ^4.1.9
         version: 4.1.9(@edge-runtime/vm@3.2.0)(@types/node@20.19.43)(vite@8.0.16(@types/node@20.19.43)(esbuild@0.28.1)(tsx@4.22.4))
 
+  packages/adapter-in-pla:
+    dependencies:
+      '@opentrade/core':
+        specifier: workspace:*
+        version: link:../core
+    devDependencies:
+      vitest:
+        specifier: ^4.1.9
+        version: 4.1.9(@edge-runtime/vm@3.2.0)(@types/node@20.19.43)(vite@8.0.16(@types/node@20.19.43)(esbuild@0.28.1)(tsx@4.22.4))
+
   packages/adapter-mn-dli:
     dependencies:
       '@opentrade/core':
@@ -124,6 +137,9 @@ importers:
       '@opentrade/adapter-fl-dbpr':
         specifier: workspace:*
         version: link:../adapter-fl-dbpr
+      '@opentrade/adapter-in-pla':
+        specifier: workspace:*
+        version: link:../adapter-in-pla
       '@opentrade/adapter-mn-dli':
         specifier: workspace:*
         version: link:../adapter-mn-dli
