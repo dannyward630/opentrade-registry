@@ -3,6 +3,8 @@ import { join } from "node:path";
 import {
   buildSourceReadiness,
   filterSources,
+  getSourceResearchNextAction,
+  getSourceResearchOutcome,
   sourceRegistryEntrySchema,
   type SourceFilterOptions,
   type SourceRegistryEntry,
@@ -67,7 +69,9 @@ export async function listSources(rootDir: string, options: SourceListOptions) {
   }
 
   for (const entry of entries) {
-    console.log(`${entry.id}\t${entry.adapterStatus}\t${entry.adapterMaturity}\tlevel_${entry.adapterQualityLevel ?? 0}\t${entry.name}`);
+    console.log(
+      `${entry.id}\t${entry.adapterStatus}\t${entry.adapterMaturity}\tlevel_${entry.adapterQualityLevel ?? 0}\t${getSourceResearchOutcome(entry)}\t${entry.name}`,
+    );
   }
 }
 
@@ -110,6 +114,18 @@ export async function showSourceReadiness(rootDir: string, options: { json?: boo
   for (const source of payload.unimplementedBulkAdapterCandidates) {
     console.log(`- ${source.id} (${source.sourceType}, ${source.coverageScope})`);
   }
+  console.log("research outcomes:");
+  for (const [outcome, count] of Object.entries(payload.sourcesByResearchOutcome).sort(([a], [b]) => a.localeCompare(b))) {
+    console.log(`- ${outcome}: ${count}`);
+  }
+  console.log(`download/export research candidates: ${payload.downloadResearchCandidates.length}`);
+  for (const source of payload.downloadResearchCandidates) {
+    console.log(`- ${source.id} (${source.sourceType}, ${source.coverageScope})`);
+  }
+  console.log(`lookup automation constraint sources: ${payload.lookupAutomationConstraintSources.length}`);
+  for (const source of payload.lookupAutomationConstraintSources) {
+    console.log(`- ${source.id} (${source.sourceType}, ${source.coverageScope})`);
+  }
   console.log(`registry-only sources: ${payload.registryOnlySourceCount}`);
   console.log(payload.note);
 }
@@ -139,6 +155,8 @@ export async function showSource(rootDir: string, sourceId: string, options: { j
   console.log(`quality level: ${entry.adapterQualityLevel ?? 0}`);
   console.log(`coverage: ${entry.coverageScope}`);
   console.log(`discovery: ${entry.sourceDiscoveryStatus}`);
+  console.log(`research outcome: ${getSourceResearchOutcome(entry)}`);
+  console.log(`next action: ${getSourceResearchNextAction(entry)}`);
   console.log(`redistribution: ${entry.redistributionStatus}`);
   if (entry.testFixturePath) {
     console.log(`fixture: ${entry.testFixturePath}`);

@@ -24,6 +24,15 @@ describe("source quality report", () => {
     expect(report.sourcesByMaturity.local_file_adapter).toBe(1);
     expect(report.sourcesByAdapterQualityLevel["0"]).toBe(47);
     expect(report.sourcesByAdapterQualityLevel["4"]).toBe(9);
+    expect(report.sourcesByResearchOutcome).toEqual({
+      adapter_candidate: 8,
+      blocked_by_access_controls: 1,
+      blocked_by_no_stable_source: 1,
+      blocked_by_terms: 2,
+      implemented_adapter: 9,
+      needs_manual_research: 27,
+      not_contractor_specific: 8,
+    });
     expect(report.metadataCompleteness.requiredFields).toEqual([
       "documentationUrl",
       "updateFrequency",
@@ -44,10 +53,14 @@ describe("source quality report", () => {
       "us.ms.msboc.contractors",
       "us.vi.dlca.contractors_trades",
     ]);
+    expect(report.metadataCompleteness.termsUrlUnreviewedSources).toEqual([]);
     expect(report.metadataCompleteness.officialLookupUrlMissingSources.map((source: { id: string }) => source.id)).toEqual([
       "us.as.doc.business_licenses",
     ]);
+    expect(report.metadataCompleteness.officialLookupUrlUnreviewedSources).toEqual([]);
     expect(report.metadataCompleteness.implementedVerificationCaveatsMissingSources).toEqual([]);
+    expect(report.metadataCompleteness.sourcesMissingResearchOutcome).toEqual([]);
+    expect(report.metadataCompleteness.sourcesMissingNextAction).toEqual([]);
     expect(report.implementedSourcesNeedingLevel4).toEqual([]);
     expect(report.implementedAdapterSources.map((source: { id: string }) => source.id)).toEqual([
       "us.ak.commerce.construction_contractors",
@@ -134,10 +147,16 @@ describe("source quality report", () => {
     expect(result.stdout).toContain("- us.pr.daco.contractors (html_lookup, registry_only)");
     expect(result.stdout).toContain("manual public-records-file sources:");
     expect(result.stdout).toContain("- us.as.doc.business_licenses (manual_public_records_file, registry_only)");
+    expect(result.stdout).toContain("sources by research outcome:");
+    expect(result.stdout).toContain("- adapter_candidate: 8");
     expect(result.stdout).toContain("metadata completeness:");
     expect(result.stdout).toContain("sources missing required metadata:");
     expect(result.stdout).toContain("- none");
+    expect(result.stdout).toContain("sources missing research outcome:");
+    expect(result.stdout).toContain("sources missing next action:");
     expect(result.stdout).toContain("sources missing terms URL:");
+    expect(result.stdout).toContain("sources with undocumented missing terms URL:");
+    expect(result.stdout).toContain("sources with undocumented missing official lookup URL:");
     expect(result.stdout).toContain("unimplemented bulk adapter candidates:");
     expect(result.stdout).toContain("download/export research candidates:");
     expect(result.stdout).toContain("- us.ma.dol.opsi_construction_supervisors (html_lookup, registry_only)");

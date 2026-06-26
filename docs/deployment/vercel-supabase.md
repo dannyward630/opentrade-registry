@@ -29,8 +29,8 @@ The repository also includes root API functions under `api/`. Vercel packages `r
 
 - `origin: "database"` when rows were read from Supabase.
 - `origin: "registry_files"` when rows were read from the checked-in registry.
-- `count` and `sources` for `/api/sources`, preserving the existing response shape.
-- `implementedAdapterSources` and `unimplementedBulkAdapterCandidates` for `/api/readiness`.
+- `count` and `sources` for `/api/sources`, with computed `sourceResearchOutcome` and `nextAction` fields on each source.
+- `implementedAdapterSources`, `unimplementedBulkAdapterCandidates`, download/export research candidates, lookup automation constraint sources, and research-outcome counts for `/api/readiness`.
 
 Readiness candidate status is a planning signal only. It is not evidence that a source can already be imported, redistributed, or verified end to end.
 
@@ -41,6 +41,7 @@ Readiness candidate status is a planning signal only. It is not evidence that a 
 - `status=implemented`, `status=blocked`, or another supported adapter status
 - `sourceType=bulk_csv` or `source_type=bulk_csv`
 - `qualityLevel=4` or `quality_level=4`
+- `researchOutcome=adapter_candidate` or `research_outcome=adapter_candidate`
 - `implemented=true`
 - `registryOnly=true` or `registry_only=true`
 - `bulkCandidates=true` or `bulk_candidates=true`

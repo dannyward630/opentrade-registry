@@ -14,6 +14,7 @@
   "documentationUrl": "https://www.msboc.us/",
   "dataDictionaryUrl": null,
   "termsUrl": null,
+  "termsReviewNotes": "No dedicated MSBOC access, reuse, or website terms page was found in the official board site or contractor-search navigation during the 2026-06-27 review. The search disclosure and agency guidance still govern interpretation; redistribution and automation status remain unknown.",
   "updateFrequency": "unknown; verify against the official MSBOC search before relying on freshness assumptions",
   "tradeCoverage": ["commercial_contracting", "residential_contracting", "roofing", "other"],
   "licenseTypesIncluded": ["Mississippi commercial contractor, residential contractor, remodeler, and roofer license records exposed by MSBOC search where available"],
@@ -39,6 +40,6 @@
   "officialLookupUrl": "https://search.msboc.us/",
   "officialBulkDownloadNotes": "No official bulk download has been confirmed in this phase.",
   "researchNotes": "Registry-only source for Mississippi contractor license search. Future work should review classifications and any official disclosure text before implementing verification behavior.",
-  "lastVerifiedAt": "2026-06-24T00:00:00.000Z",
+  "lastVerifiedAt": "2026-06-27T00:00:00.000Z",
   "maintainerNotes": "Keep MSBOC licensing scope separate from local permit, business, and enforcement sources."
 }

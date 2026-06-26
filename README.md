@@ -77,6 +77,7 @@ registry-only sources: 47
 unimplemented bulk-shaped candidates: 0
 download/export research candidates: 8
 lookup automation constraint sources: 9
+research outcomes: implemented_adapter 9, adapter_candidate 8, needs_manual_research 27, blocked_by_access_controls 1, blocked_by_no_stable_source 1, blocked_by_terms 2, not_contractor_specific 8
 ```
 
 Summarize state, DC, and major territory coverage:
@@ -269,7 +270,7 @@ corepack pnpm cleanliness:scan
 corepack pnpm web:build
 ```
 
-`coverage:health` verifies that all state, DC, and major territory coverage rows are present and cross-linked to registry sources. `source:quality` separates implemented adapter sources, unimplemented bulk-shaped candidates, download/export research candidates, and lookup sources with automation constraints. Use that report and the [adapter candidate priorities](docs/adapters/candidate-priorities.md) guide when choosing the next adapter, but treat candidate status as a research signal only: source terms, fixture safety, field shape, access controls, and verification caveats still need source-specific review before implementation.
+`coverage:health` verifies that all state, DC, and major territory coverage rows are present and cross-linked to registry sources. `source:quality` separates implemented adapter sources, unimplemented bulk-shaped candidates, download/export research candidates, lookup sources with automation constraints, and computed research outcomes with next actions. Use that report and the [adapter candidate priorities](docs/adapters/candidate-priorities.md) guide when choosing the next adapter, but treat candidate status as a research signal only: source terms, fixture safety, field shape, access controls, and verification caveats still need source-specific review before implementation.
 
 Hosted deployment is optional. The hosted layer provides a static status page plus source metadata, readiness, and health endpoints. `/api/sources` supports the same source filters as the CLI and can read from Supabase first with registry-file fallback. See [docs/deployment/vercel-supabase.md](docs/deployment/vercel-supabase.md) for the Vercel/Supabase setup.
 

@@ -76,6 +76,15 @@ describe("hosted API", () => {
     expect(bulkCandidates.statusCode).toBe(200);
     expect(bulkCandidates.body.count).toBe(0);
     expect(bulkCandidates.body.sources.map((source: { id: string }) => source.id)).toEqual([]);
+
+    const adapterCandidates = createMockResponse();
+    await sourcesHandler({ query: { researchOutcome: "adapter_candidate" } } as never, adapterCandidates as never);
+    expect(adapterCandidates.statusCode).toBe(200);
+    expect(adapterCandidates.body.count).toBe(8);
+    expect(adapterCandidates.body.filters.researchOutcome).toBe("adapter_candidate");
+    expect(adapterCandidates.body.sources.map((source: { id: string }) => source.id)).toContain("us.pa.oag.home_improvement_contractors");
+    expect(adapterCandidates.body.sources[0]).toHaveProperty("sourceResearchOutcome");
+    expect(adapterCandidates.body.sources[0]).toHaveProperty("nextAction");
   });
 
   it("rejects invalid source filters", async () => {
@@ -112,6 +121,9 @@ describe("hosted API", () => {
       "us.wa.lni.contractors",
     ]);
     expect(response.body.unimplementedBulkAdapterCandidates.map((source: { id: string }) => source.id)).toEqual([]);
+    expect(response.body.downloadResearchCandidates.map((source: { id: string }) => source.id)).toContain("us.pa.oag.home_improvement_contractors");
+    expect(response.body.lookupAutomationConstraintSources.map((source: { id: string }) => source.id)).toContain("us.vt.sos.residential_contractors");
+    expect(response.body.sourcesByResearchOutcome.adapter_candidate).toBe(8);
   });
 
   it("returns a single source registry entry by id", async () => {
@@ -122,6 +134,8 @@ describe("hosted API", () => {
     expect(response.body).toMatchObject({
       id: "us.oh.commerce.ocilb_contractors",
       adapterMaturity: "registry_only",
+      sourceResearchOutcome: "adapter_candidate",
+      nextAction: expect.stringContaining("Review official terms"),
       origin: "registry_files"
     });
   });
@@ -198,6 +212,7 @@ describe("hosted API", () => {
     expect(result.implementedAdapterSources.map((source) => source.id)).toEqual(["us.fl.dbpr.construction", "us.ca.cslb.contractors"]);
     expect(result.unimplementedBulkAdapterCandidates.map((source) => source.id)).toEqual([]);
     expect(result.registryOnlySourceCount).toBe(0);
+    expect(result.sourcesByResearchOutcome.implemented_adapter).toBe(2);
   });
 
   it("fills legacy partial database metadata from registry files before validation", async () => {

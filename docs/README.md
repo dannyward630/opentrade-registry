@@ -8,6 +8,7 @@ These docs explain how the project models official sources, writes adapters, and
 - [Current Project State](current-state.md): current source counts, implemented adapters, hosted behavior, and safety invariants.
 - [Canonical Schema](canonical-schema.md): what a normalized record keeps and why raw records stay attached.
 - [Source Registry](source-registry.md): how official sources are described before and after adapter support exists.
+- [Source Status Matrix](source-status-matrix.md): generated status table with maturity, quality level, research outcome, and next action for every source.
 - [Source Research Template](source-research-template.md): the checklist to use before adding a new source.
 - [Adapter Authoring](adapter-authoring.md): practical guidance for writing a source adapter.
 - [Adapter Candidate Priorities](adapters/candidate-priorities.md): current registry-derived queue for future fixture adapters.

@@ -1,6 +1,13 @@
 import { loadSourcesForApi } from "./registry.js";
 import type { ApiRequest, ApiResponse } from "./types.js";
-import { filterSources, type SourceFilterOptions, type SourceRegistryEntry } from "@opentrade/core";
+import {
+  filterSources,
+  getSourceResearchNextAction,
+  getSourceResearchOutcome,
+  SOURCE_RESEARCH_OUTCOMES,
+  type SourceFilterOptions,
+  type SourceRegistryEntry,
+} from "@opentrade/core";
 
 export default async function handler(request: ApiRequest, response: ApiResponse) {
   const result = await loadSourcesForApi();
@@ -17,7 +24,7 @@ export default async function handler(request: ApiRequest, response: ApiResponse
       return;
     }
 
-    response.status(200).json({ ...source, origin: result.origin });
+    response.status(200).json({ ...serializeSource(source), origin: result.origin });
     return;
   }
 
@@ -35,7 +42,7 @@ export default async function handler(request: ApiRequest, response: ApiResponse
   response.status(200).json({
     origin: result.origin,
     count: filtered.sources.length,
-    sources: filtered.sources,
+    sources: filtered.sources.map(serializeSource),
     filters: filtered.filters,
     databaseError: result.databaseError,
   });
@@ -55,7 +62,6 @@ export function filterSourcesForApi(
 const SOURCE_TYPES = ["bulk_csv", "bulk_xlsx", "bulk_json", "api", "html_lookup", "playwright_portal", "manual_public_records_file"] as const;
 const ADAPTER_MATURITIES = ["registry_only", "fixture_adapter", "local_file_adapter", "network_opt_in", "production_ready", "blocked", "deprecated"] as const;
 const ADAPTER_STATUSES = ["planned", "implemented", "experimental", "blocked", "deprecated"] as const;
-
 function parseSourceFilters(query: ApiRequest["query"]): SourceFilterOptions {
   return {
     state: stringQuery(query.state)?.toUpperCase(),
@@ -63,9 +69,18 @@ function parseSourceFilters(query: ApiRequest["query"]): SourceFilterOptions {
     status: enumQuery(query.status, "status", ADAPTER_STATUSES),
     sourceType: enumQuery(query.sourceType ?? query.source_type, "sourceType", SOURCE_TYPES),
     qualityLevel: numberQuery(query.qualityLevel ?? query.quality_level, "qualityLevel"),
+    researchOutcome: enumQuery(query.researchOutcome ?? query.research_outcome, "researchOutcome", SOURCE_RESEARCH_OUTCOMES),
     implemented: booleanQuery(query.implemented),
     registryOnly: booleanQuery(query.registryOnly ?? query.registry_only),
     bulkCandidates: booleanQuery(query.bulkCandidates ?? query.bulk_candidates),
+  };
+}
+
+function serializeSource(source: SourceRegistryEntry) {
+  return {
+    ...source,
+    sourceResearchOutcome: getSourceResearchOutcome(source),
+    nextAction: getSourceResearchNextAction(source),
   };
 }
 

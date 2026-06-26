@@ -1,5 +1,5 @@
 import type { SourceRegistryEntry } from "./schema/source-registry.js";
-import { isUnimplementedBulkAdapterCandidate } from "./source-readiness.js";
+import { getSourceResearchOutcome, isUnimplementedBulkAdapterCandidate, type SourceResearchOutcome } from "./source-readiness.js";
 
 export type SourceFilterOptions = {
   state?: string;
@@ -7,6 +7,7 @@ export type SourceFilterOptions = {
   status?: SourceRegistryEntry["adapterStatus"];
   sourceType?: SourceRegistryEntry["sourceType"];
   qualityLevel?: number;
+  researchOutcome?: SourceResearchOutcome;
   implemented?: boolean;
   registryOnly?: boolean;
   bulkCandidates?: boolean;
@@ -31,6 +32,10 @@ export function filterSources(entries: SourceRegistryEntry[], options: SourceFil
     }
 
     if (typeof options.qualityLevel === "number" && (entry.adapterQualityLevel ?? 0) !== options.qualityLevel) {
+      return false;
+    }
+
+    if (options.researchOutcome && getSourceResearchOutcome(entry) !== options.researchOutcome) {
       return false;
     }
 

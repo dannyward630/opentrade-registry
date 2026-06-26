@@ -14,6 +14,7 @@
   "documentationUrl": "https://www.cnmilicensing.gov.mp/board-of-professional-licensing/",
   "dataDictionaryUrl": null,
   "termsUrl": null,
+  "termsReviewNotes": "No dedicated access, reuse, or website terms page was found in the official CNMI Board of Professional Licensing page or its public navigation during the 2026-06-27 review. Keep redistribution and automation status unknown.",
   "updateFrequency": "unknown; verify against CNMI Board of Professional Licensing records before relying on freshness assumptions",
   "tradeCoverage": ["other", "unknown"],
   "licenseTypesIncluded": ["architecture", "engineering", "land surveying", "landscape architecture", "real property appraisal"],
@@ -39,6 +40,6 @@
   "officialLookupUrl": "https://www.cnmilicensing.gov.mp/",
   "officialBulkDownloadNotes": "No official bulk download has been confirmed in this phase.",
   "researchNotes": "Registry-only source for CNMI construction-adjacent professional licensing. Future work should research whether a contractor-specific board, business-license source, or public lookup exists.",
-  "lastVerifiedAt": "2026-06-24T00:00:00.000Z",
+  "lastVerifiedAt": "2026-06-27T00:00:00.000Z",
   "maintainerNotes": "Keep contractor-specific claims out of this entry until an official CNMI contractor source is verified."
 }
