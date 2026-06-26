@@ -10,7 +10,6 @@ Default implementation rule: start fixture-first from tiny hand-authored records
 | --- | --- | --- | --- |
 | 1 | `us.ak.commerce.construction_contractors` | Alaska CBPL search metadata indicates construction contractor records and download-shaped access may exist. | Confirm exact download format, contractor endorsement modeling, and separation from business-license and corporation records. |
 | 2 | `us.il.idfpr.roofing_contractors` | Illinois IDFPR documents lookup and bulk lookup paths, scoped here to roofing contractor licensing. | Confirm roofing-specific export availability, columns, update freshness text, and whether other Illinois trade sources need separate entries. |
-| 3 | `us.in.pla.professional_licenses` | Indiana PLA references professional license verification, downloads, and API-shaped access. | Narrow construction-relevant credential types and confirm local-license exclusions, access requirements, and download/API terms. |
 
 ## Required Evidence To Promote A Candidate
 
@@ -24,7 +23,7 @@ A registry-only candidate can become a fixture adapter only after maintainers ca
 - tests that run without live agency network access;
 - updated registry metadata, coverage status, package docs, and source-quality expectations.
 
-California CSLB and Minnesota DLI have moved out of this queue as fixture adapters. They still need live file-shape research before any local-file or opt-in-network promotion.
+California CSLB, Indiana PLA, and Minnesota DLI have moved out of this queue as fixture adapters. They still need live file-shape, download/API, or companion-source research before any local-file or opt-in-network promotion.
 
 ## Candidate Caveats
 

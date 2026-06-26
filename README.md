@@ -11,7 +11,7 @@ OpenTrade Registry helps developers work with official contractor and skilled-tr
 
 Contractor-license data is public, but it is scattered. One agency might publish a CSV file. Another might offer an Excel download. Another might only provide a lookup page. OpenTrade Registry gives those sources a common registry, a canonical record shape, and adapter contracts so each source can be handled consistently.
 
-The current build is still intentionally local-first. It includes `56` researched source registry entries covering all 50 states plus DC and five major U.S. territories. Six sources have implemented adapters: Florida DBPR has local-file support plus opt-in URL sync and verification, while California CSLB, Minnesota DLI, Oregon CCB, Texas TDLR, and Washington L&I are fixture-supported. Normal tests do not download live agency data.
+The current build is still intentionally local-first. It includes `56` researched source registry entries covering all 50 states plus DC and five major U.S. territories. Seven sources have implemented adapters: Florida DBPR has local-file support plus opt-in URL sync and verification, while California CSLB, Indiana PLA, Minnesota DLI, Oregon CCB, Texas TDLR, and Washington L&I are fixture-supported. Normal tests do not download live agency data.
 
 For the detailed snapshot, see [Current Project State](docs/current-state.md).
 
@@ -20,6 +20,7 @@ For the detailed snapshot, see [Current Project State](docs/current-state.md).
 - Validate the source registry.
 - Convert a tiny California CSLB fixture into canonical records.
 - Convert the Florida DBPR sample file into canonical records.
+- Convert a tiny Indiana PLA fixture into canonical records.
 - Convert a tiny Minnesota DLI fixture into canonical records.
 - Convert a tiny Oregon CCB fixture into canonical records.
 - Convert a tiny Texas TDLR fixture into canonical records.
@@ -69,9 +70,9 @@ The current source-quality summary is:
 sources: 56
 states plus DC researched: 51/51
 territories researched: 5/5
-implemented adapters: 6
-registry-only sources: 50
-unimplemented bulk-shaped candidates: 3
+implemented adapters: 7
+registry-only sources: 49
+unimplemented bulk-shaped candidates: 2
 ```
 
 Summarize state, DC, and major territory coverage:
@@ -134,6 +135,14 @@ Try the Texas TDLR fixture adapter:
 corepack pnpm cli -- sync us.tx.tdlr.all_licenses \
   --file packages/adapter-tx-tdlr/fixtures/all-licenses-sample.csv \
   --out ./texas.jsonl
+```
+
+Try the Indiana PLA fixture adapter:
+
+```bash
+corepack pnpm cli -- sync us.in.pla.professional_licenses \
+  --file packages/adapter-in-pla/fixtures/professional-licenses-sample.csv \
+  --out ./indiana.jsonl
 ```
 
 Try the Minnesota DLI fixture adapter:
@@ -202,7 +211,9 @@ The registry now includes at least one researched official source entry for all 
 
 ```text
 packages/core               Schemas, adapter contracts, and normalization helpers
+packages/adapter-ca-cslb    California CSLB fixture adapter
 packages/adapter-fl-dbpr    Florida DBPR construction-license adapter
+packages/adapter-in-pla     Indiana PLA fixture adapter
 packages/adapter-mn-dli     Minnesota DLI fixture adapter
 packages/adapter-or-ccb     Oregon CCB fixture adapter
 packages/adapter-tx-tdlr    Texas TDLR fixture adapter
@@ -245,6 +256,6 @@ Before tagging a release candidate, use the short [release checklist](docs/relea
 
 ## Roadmap
 
-The next work is to promote the best remaining bulk-shaped registry-only candidates into fixture adapters, make opt-in URL workflows more source-aware, improve Minnesota, Oregon, Texas, and Washington fixture coverage, and deepen territory source research. Broader adapter coverage should come after registry validation, source-quality reporting, Level 4 verification semantics, and adapter contracts stay boring and predictable.
+The next work is to promote the best remaining bulk-shaped registry-only candidates into fixture adapters, make opt-in URL workflows more source-aware, improve Indiana, Minnesota, Oregon, Texas, and Washington fixture coverage, and deepen territory source research. Broader adapter coverage should come after registry validation, source-quality reporting, Level 4 verification semantics, and adapter contracts stay boring and predictable.
 
 See [docs/roadmap.md](docs/roadmap.md) for the current plan.
