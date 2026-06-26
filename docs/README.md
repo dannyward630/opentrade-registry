@@ -13,6 +13,7 @@ These docs explain how the project models official sources, writes adapters, and
 - [Adapter Candidate Priorities](adapters/candidate-priorities.md): current registry-derived queue for future fixture adapters.
 - [Alaska CBPL Adapter Notes](adapters/alaska-commerce.md): fixture support and protected-download caveats for Alaska CBPL.
 - [California CSLB Adapter](adapters/california-cslb.md): fixture-supported CSLB license-master adapter notes and caveats.
+- [Illinois IDFPR Adapter Notes](adapters/illinois-idfpr.md): fixture support and roofing-contractor source caveats for Illinois IDFPR.
 - [Indiana PLA Adapter Notes](adapters/indiana-pla.md): fixture support and source caveats for Indiana PLA.
 - [Minnesota DLI Adapter Notes](adapters/minnesota-dli.md): fixture support and source caveats for Minnesota DLI.
 - [Oregon CCB Adapter Notes](adapters/oregon-ccb.md): fixture support and active-source caveats for Oregon CCB.
@@ -30,3 +31,5 @@ These docs explain how the project models official sources, writes adapters, and
 ## Current Boundary
 
 The project works from local files by default. URL sync and URL verification require an explicit `--allow-network` flag, and default tests do not download live agency files. The current registry covers all states plus DC and five major U.S. territories, but only implemented adapters can sync or verify records.
+
+Implemented adapter notes include Alaska CBPL, California CSLB, Florida DBPR, Illinois IDFPR, Indiana PLA, Minnesota DLI, Oregon CCB, Texas TDLR, and Washington L&I.
