@@ -1,36 +1,46 @@
 # Release Process
 
-OpenTrade Registry is pre-1.0. Releases should be boring, reproducible, and honest about source coverage.
+## Responsibilities
 
-## Checklist
+The release maintainer verifies source truth, package contents, security state, hosted parity, changelog, signatures, npm provenance, and GitHub release artifacts. A second reviewer should approve contract or source-semantic changes when available.
 
-1. Update `CHANGELOG.md` with user-facing changes.
-2. Run the full local gate:
+## Prepare
+
+1. Update package versions and `CHANGELOG.md`.
+2. Regenerate source artifacts:
+
+   ```bash
+   corepack pnpm db:seed:generate
+   corepack pnpm source:matrix
+   ```
+
+3. Run:
 
    ```bash
    corepack pnpm verify
-   ```
-
-3. Inspect source quality and package contents:
-
-   ```bash
-   corepack pnpm source:quality
    corepack pnpm pack:check
+   corepack pnpm security:audit
+   corepack pnpm audit --prod
    ```
 
-4. Confirm no generated bulk datasets are staged.
-5. Confirm source metadata does not overstate coverage or redistribution rights.
-6. Run the public CLI fixture examples from [release-checklist.md](release-checklist.md).
-7. Confirm CI is green on `main`.
+4. Confirm GitHub CI, CodeQL, dependency, and secret-scanning state.
+5. Merge through a reviewed PR with no generated public-record datasets.
 
-The default release gate must not require live agency network access, Supabase credentials, Vercel credentials, browser automation, hidden local files, or generated public-record datasets.
+## Publish
 
-See [release-checklist.md](release-checklist.md) for the practical pre-tag command list.
+1. Create a signed annotated tag: `git tag -s v1.0.0 -m "OpenTrade Registry v1.0.0"`.
+2. Push the tag from clean `main`.
+3. The release workflow rebuilds, verifies, packs, and publishes public packages with npm provenance and `access=public`.
+4. Create the GitHub release from the signed tag and changelog.
+5. Attach checksums for code/package artifacts only. Do not attach generated agency datasets.
+6. Install the published CLI and packages in a clean directory and execute imports plus `opentrade help`.
 
-## Versioning
+If npm organization access, package ownership, signing, or provenance fails, stop the release and fix the external prerequisite. Do not publish partial versions under inconsistent numbers.
 
-Use semantic versioning once packages are published. Before 1.0, minor versions may still introduce breaking API changes, but they should be called out in the changelog.
+## Hosted Metadata
 
-## First npm Publication
+After merge, apply the deterministic seed to the optional Supabase mirror, deploy Vercel, and verify production `/api/health` reports file/database count and metadata parity. Hosted parity is release evidence, not a dependency of local packages.
 
-Before publishing for the first time, confirm package names, npm organization access, and provenance settings. Publish the code packages only. Do not publish generated datasets as release artifacts unless the source clearly allows it.
+## Rollback
+
+Do not move or recreate a published tag. Publish a patch release. Deprecate a broken npm version when appropriate, document impact, and follow [incident response](incident-response.md) for security or data-integrity failures.

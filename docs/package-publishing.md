@@ -1,29 +1,26 @@
 # Package Publishing
 
-The packages are prepared for future npm publication, but they are not published yet.
+OpenTrade v1 contains 14 public packages: core, registry orchestration, SQLite storage, CLI, and ten adapters.
 
-## Check Package Contents
+`corepack pnpm pack:check` discovers every public workspace package, creates pnpm-rewritten tarballs in a temporary directory, rejects workspace protocols and development-only files, installs all tarballs into a clean project, imports every library, and runs packed CLI help.
 
-Run:
+## Provenance
+
+Each public package declares public access and provenance. The tag-triggered GitHub workflow uses Node 24, npm registry authentication, and OIDC `id-token: write` permission.
+
+Never publish from an unverified dirty checkout. Never include generated agency records, local SQLite files, credentials, or live source downloads.
+
+## Package Order
+
+Publish all packages at one version. Workspace dependencies are rewritten during pnpm packing/publishing. A failed partial publication must be resolved before tagging another release.
+
+## Acceptance
+
+After publication:
 
 ```bash
-corepack pnpm pack:check
+npm install @opentrade/core @opentrade/registry @opentrade/storage-sqlite @opentrade/cli
+npx opentrade help
 ```
 
-The dry run should show:
-
-- `@opentrade/core`: compiled files and README.
-- `@opentrade/adapter-fl-dbpr`: compiled files, README, and small fixtures.
-- `@opentrade/adapter-or-ccb`: compiled files, README, and small fixtures.
-- `@opentrade/adapter-tx-tdlr`: compiled files, README, and small fixtures.
-- `@opentrade/adapter-wa-lni`: compiled files, README, and small fixtures.
-- `@opentrade/cli`: compiled files and README.
-
-Generated bulk datasets should not appear in any package.
-
-## Publishing Guardrails
-
-- Publish code packages, not generated public data.
-- Keep source-derived datasets out unless redistribution is clearly allowed.
-- Check package metadata before release: license, repository, bugs URL, homepage, engines, and keywords.
-- Run `corepack pnpm verify` before publishing.
+Confirm package provenance on npm and compare published tarball integrity with workflow output.
