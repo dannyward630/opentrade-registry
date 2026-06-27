@@ -24,6 +24,9 @@ describe("hosted API", () => {
     restoreEnv("OPENTRADE_SUPABASE_ANON_KEY", originalAnonKey);
 
     expect(response.statusCode).toBe(200);
+    expect(response.body.apiVersion).toBe("1.0");
+    expect(response.headers["Cache-Control"]).toBe("no-store");
+    expect(response.headers["X-Content-Type-Options"]).toBe("nosniff");
     expect(response.body).toMatchObject({
       ok: true,
       service: "opentrade-registry",
@@ -40,6 +43,9 @@ describe("hosted API", () => {
     await sourcesHandler({ query: {} } as never, response as never);
 
     expect(response.statusCode).toBe(200);
+    expect(response.body.apiVersion).toBe("1.0");
+    expect(response.headers["Access-Control-Allow-Origin"]).toBe("*");
+    expect(response.headers["Cache-Control"]).toContain("stale-while-revalidate");
     expect(response.body.origin).toBe("registry_files");
     expect(response.body.count).toBe(56);
     expect(response.body.sources.some((source: { id: string }) => source.id === "us.fl.dbpr.construction")).toBe(true);
@@ -254,7 +260,7 @@ describe("hosted API", () => {
     });
 
     expect(result.origin).toBe("registry_files");
-    expect(result.databaseError).toBe("database unavailable");
+    expect(result.databaseError).toBe("database_unavailable");
     expect(result.sources).toHaveLength(56);
   });
 
@@ -266,7 +272,7 @@ describe("hosted API", () => {
     });
 
     expect(result.origin).toBe("registry_files");
-    expect(result.databaseError).toBe("database unavailable");
+    expect(result.databaseError).toBe("database_unavailable");
     expect(result.sourceCount).toBe(56);
     expect(result.unimplementedBulkAdapterCandidates).toHaveLength(0);
   });
@@ -342,12 +348,17 @@ function createMockResponse() {
   return {
     statusCode: 200,
     body: undefined as unknown,
+    headers: {} as Record<string, string>,
     status(code: number) {
       this.statusCode = code;
       return this;
     },
     json(body: unknown) {
       this.body = body;
+      return this;
+    },
+    setHeader(name: string, value: string) {
+      this.headers[name] = value;
       return this;
     }
   };

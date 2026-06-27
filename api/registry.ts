@@ -69,7 +69,7 @@ export async function loadSourcesForApi(options: { rootDir?: string; databaseCli
       return {
         origin: "registry_files",
         sources: fileSources,
-        databaseError: error instanceof Error ? error.message : "Unknown database source loading error",
+        databaseError: "database_unavailable",
       };
     }
   }
