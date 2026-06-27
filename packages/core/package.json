@@ -43,6 +43,10 @@
   },
   "dependencies": {
     "exceljs": "^4.4.0",
+    "yauzl": "^3.4.0",
     "zod": "^4.4.3"
+  },
+  "devDependencies": {
+    "@types/yauzl": "^3.4.0"
   }
 }

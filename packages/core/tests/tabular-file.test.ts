@@ -29,4 +29,23 @@ describe("tabular file reader", () => {
       await rm(directory, { recursive: true, force: true });
     }
   });
+
+  it("rejects compressed files and archive entry counts beyond configured limits", async () => {
+    const directory = await mkdtemp(join(tmpdir(), "opentrade-xlsx-limits-"));
+    const filePath = join(directory, "limits.xlsx");
+    try {
+      const workbook = new ExcelJS.Workbook();
+      workbook.addWorksheet("Licenses").addRow(["License Number"]);
+      await workbook.xlsx.writeFile(filePath);
+
+      await expect(async () => {
+        for await (const _row of streamTabularFileRows(filePath, { maxCompressedBytes: 10 })) void _row;
+      }).rejects.toThrow(/compressed byte limit/i);
+      await expect(async () => {
+        for await (const _row of streamTabularFileRows(filePath, { maxEntries: 1 })) void _row;
+      }).rejects.toThrow(/entry limit/i);
+    } finally {
+      await rm(directory, { recursive: true, force: true });
+    }
+  });
 });
