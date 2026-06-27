@@ -1,104 +1,74 @@
 # OpenTrade Registry
 
 [![CI](https://github.com/dannyward630/opentrade-registry/actions/workflows/ci.yml/badge.svg)](https://github.com/dannyward630/opentrade-registry/actions/workflows/ci.yml)
+[![CodeQL](https://github.com/dannyward630/opentrade-registry/actions/workflows/codeql.yml/badge.svg)](https://github.com/dannyward630/opentrade-registry/actions/workflows/codeql.yml)
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
-![Node 20+](https://img.shields.io/badge/node-%3E%3D20-43853d)
+![Node 20, 22, 24](https://img.shields.io/badge/node-20%20%7C%2022%20%7C%2024-43853d)
 ![TypeScript](https://img.shields.io/badge/types-TypeScript-3178c6)
 ![Local first](https://img.shields.io/badge/data-local--first-0f766e)
-![No network tests](https://img.shields.io/badge/tests-no--network--by--default-7c3aed)
+![Offline tests](https://img.shields.io/badge/tests-offline%20by%20default-7c3aed)
 
-OpenTrade Registry helps developers work with official contractor and skilled-trade license data from public agencies.
+OpenTrade Registry is an open-source framework for discovering, importing, normalizing, validating, verifying, caching, and exporting official contractor and skilled-trade license records.
 
-Contractor-license data is public, but it is scattered. One agency might publish a CSV file. Another might offer an Excel download. Another might only provide a lookup page. OpenTrade Registry gives those sources a common registry, a canonical record shape, and adapter contracts so each source can be handled consistently.
+It is local-first, provenance-first, source-cited public-records infrastructure. It is not a marketplace, recommendation service, scoring system, or substitute for an official licensing agency.
 
-The current build is still intentionally local-first. It includes `56` researched source registry entries covering all 50 states plus DC and five major U.S. territories. Nine sources have implemented adapters: Florida DBPR has local-file support plus opt-in URL sync and verification, while Alaska CBPL, California CSLB, Illinois IDFPR, Indiana PLA, Minnesota DLI, Oregon CCB, Texas TDLR, and Washington L&I are fixture-supported. Normal tests do not download live agency data.
+## v1 Status
 
-For the detailed snapshot, see [Current Project State](docs/current-state.md).
+OpenTrade Registry v1 tracks `56` official sources covering all 50 states, DC, and five major U.S. territories. Every source has a terminal, evidence-backed outcome:
 
-## What You Can Do Today
+- `10` implemented adapters, all reviewed at adapter quality Level 4;
+- `5` local-file adapters;
+- `5` explicit network opt-in adapters;
+- `46` blocked sources with documented legal, technical, access-control, scope, or source-stability evidence;
+- `0` provisional research outcomes;
+- `0` default tests that contact agency systems.
 
-- Validate the source registry.
-- Convert a tiny Alaska CBPL fixture into canonical records.
-- Convert a tiny California CSLB fixture into canonical records.
-- Convert the Florida DBPR sample file into canonical records.
-- Convert a tiny Illinois IDFPR roofing fixture into canonical records.
-- Convert a tiny Indiana PLA fixture into canonical records.
-- Convert a tiny Minnesota DLI fixture into canonical records.
-- Convert a tiny Oregon CCB fixture into canonical records.
-- Convert a tiny Texas TDLR fixture into canonical records.
-- Convert a tiny Washington L&I fixture into canonical records.
-- Export canonical records as JSONL or CSV.
-- Check one license number against a local source file.
-- Inspect researched source metadata for all 50 states plus DC and five major U.S. territories.
-- Filter source metadata from the CLI or optional hosted `/api/sources` endpoint.
-- Use driverless SQLite schema and row helpers when an application wants a local cache.
+The [generated source-status matrix](docs/source-status-matrix.md) is the authoritative public summary. Source JSON remains the authoritative machine-readable record.
 
-## What This Project Does Not Do
+| Source | Capability | Input |
+| --- | --- | --- |
+| Alaska CBPL | `local_file_adapter` | CSV |
+| Arizona ROC | `network_opt_in` | dated posting-list CSV |
+| California CSLB | `local_file_adapter` | CSV or XLSX |
+| Florida DBPR | `network_opt_in` | CSV |
+| Illinois IDFPR roofing | `local_file_adapter` | CSV |
+| Indiana PLA | `local_file_adapter` | CSV |
+| Minnesota DLI | `local_file_adapter` | CSV or XLSX |
+| Oregon CCB | `network_opt_in` | CSV |
+| Texas TDLR | `network_opt_in` | CSV |
+| Washington L&I | `network_opt_in` | CSV |
 
-OpenTrade Registry stops at public-records infrastructure. It does not rank contractors, sell leads, make hiring recommendations, or replace the official licensing agency.
+`network_opt_in` means the adapter can consume an explicitly supplied official URL with `--allow-network`. It does not mean background crawling or unrestricted portal automation.
+
+## Safety Language
+
+A no-match result means only:
+
+> No matching record was found in this source as of the checked time.
+
+It must not be rewritten as a claim that a person or business is unlicensed. Coverage, publication timing, filters, historical omissions, local licensing, and agency corrections can all affect results.
+
+Do not publish generated datasets unless redistribution is clearly allowed. Keep source URL, fetched time, raw record, fingerprint, and caveats with every result. See [Legal and Data Use](docs/legal-and-data-use.md).
 
 ## Quickstart
 
-Install dependencies from the repository root:
+Requirements: Node.js 20, 22, or 24 and Corepack.
 
 ```bash
 corepack pnpm install
+corepack pnpm build
 ```
 
-List the registered public sources:
+List sources and inspect readiness:
 
 ```bash
 corepack pnpm cli -- sources list
-```
-
-Filter the registry while researching supported sources or future adapters:
-
-```bash
-corepack pnpm cli -- sources list --state CA
-corepack pnpm cli -- sources list --implemented
-corepack pnpm cli -- sources list --bulk-candidates --json
-corepack pnpm cli -- sources list --maturity registry_only --source-type bulk_xlsx
-```
-
-Summarize implemented adapters and future adapter candidates:
-
-```bash
 corepack pnpm cli -- sources readiness
-```
-
-The current source-quality summary is:
-
-```text
-sources: 56
-states plus DC researched: 51/51
-territories researched: 5/5
-implemented adapters: 9
-registry-only sources: 47
-unimplemented bulk-shaped candidates: 0
-download/export research candidates: 8
-lookup automation constraint sources: 9
-research outcomes: implemented_adapter 9, adapter_candidate 8, needs_manual_research 27, blocked_by_access_controls 1, blocked_by_no_stable_source 1, blocked_by_terms 2, not_contractor_specific 8
-```
-
-Summarize state, DC, and major territory coverage:
-
-```bash
 corepack pnpm cli -- sources coverage
-```
-
-Show the metadata for one source:
-
-```bash
 corepack pnpm cli -- sources show us.fl.dbpr.construction
 ```
 
-Validate every source entry:
-
-```bash
-corepack pnpm cli -- sources validate
-```
-
-Turn the Florida DBPR sample fixture into canonical JSONL:
+Sync a fixture to canonical JSONL:
 
 ```bash
 corepack pnpm cli -- sync us.fl.dbpr.construction \
@@ -106,7 +76,7 @@ corepack pnpm cli -- sync us.fl.dbpr.construction \
   --out ./out.jsonl
 ```
 
-Write the same fixture as a narrow CSV export:
+Export the safe canonical CSV view:
 
 ```bash
 corepack pnpm cli -- sync us.fl.dbpr.construction \
@@ -115,171 +85,108 @@ corepack pnpm cli -- sync us.fl.dbpr.construction \
   --format csv
 ```
 
-Check one license number against the local fixture:
+Sync into a versioned local SQLite cache:
+
+```bash
+corepack pnpm cli -- sync us.fl.dbpr.construction \
+  --file packages/adapter-fl-dbpr/fixtures/construction-license-sample.csv \
+  --cache ./opentrade.sqlite
+```
+
+Verify from a file or cache:
 
 ```bash
 corepack pnpm cli -- verify \
   --source us.fl.dbpr.construction \
   --file packages/adapter-fl-dbpr/fixtures/construction-license-sample.csv \
   --license CGC012345
-```
 
-Check one license number against an explicit source URL snapshot:
-
-```bash
 corepack pnpm cli -- verify \
   --source us.fl.dbpr.construction \
-  --url https://www2.myfloridalicense.com/sto/file_download/extracts/CONSTRUCTIONLICENSE_1.csv \
-  --allow-network \
+  --cache ./opentrade.sqlite \
   --license CGC012345
 ```
 
-Try the Alaska CBPL fixture adapter:
+Use an official URL only with explicit network consent:
 
 ```bash
-corepack pnpm cli -- sync us.ak.commerce.construction_contractors \
-  --file packages/adapter-ak-commerce/fixtures/construction-contractors-sample.csv \
-  --out ./alaska.jsonl
+corepack pnpm cli -- sync us.fl.dbpr.construction \
+  --url https://www2.myfloridalicense.com/sto/file_download/extracts/CONSTRUCTIONLICENSE_1.csv \
+  --allow-network \
+  --out ./florida.jsonl
 ```
 
-Try the Texas TDLR fixture adapter:
+Network downloads enforce HTTPS, declared official hosts, redirect limits, timeouts, byte limits, cancellation, and SHA-256 snapshot metadata. Live agency access is never required by the default test suite.
 
-```bash
-corepack pnpm cli -- sync us.tx.tdlr.all_licenses \
-  --file packages/adapter-tx-tdlr/fixtures/all-licenses-sample.csv \
-  --out ./texas.jsonl
+## Programmatic API
+
+```ts
+import { floridaDbprConstructionAdapter } from "@opentrade/adapter-fl-dbpr";
+import { OpenTradeRegistry } from "@opentrade/registry";
+import { OpenTradeSqliteCache } from "@opentrade/storage-sqlite";
+
+const cache = await OpenTradeSqliteCache.open({ filePath: "opentrade.sqlite" });
+const registry = new OpenTradeRegistry([floridaDbprConstructionAdapter]);
+
+await registry.sync({
+  sourceId: "us.fl.dbpr.construction",
+  input: { mode: "file", filePath: "licenses.csv" },
+  cache,
+});
+
+const result = await registry.verify({
+  sourceId: "us.fl.dbpr.construction",
+  licenseNumber: "CGC012345",
+  input: { mode: "cache" },
+  cache,
+});
+
+await cache.close();
 ```
 
-Try the Indiana PLA fixture adapter:
+Public v1 contracts expose explicit schema and API version identifiers. See [Compatibility Policy](docs/compatibility-policy.md) and [API Reference](docs/api-reference.md).
 
-```bash
-corepack pnpm cli -- sync us.in.pla.professional_licenses \
-  --file packages/adapter-in-pla/fixtures/professional-licenses-sample.csv \
-  --out ./indiana.jsonl
-```
+## Architecture
 
-Try the Illinois IDFPR roofing fixture adapter:
+- `@opentrade/core`: canonical schemas, source schema, adapter contracts, normalization, CSV/XLSX helpers, and compatibility identifiers.
+- `@opentrade/registry`: programmatic file/cache/network orchestration and hardened downloads.
+- `@opentrade/storage-sqlite`: versioned local SQLite cache, migrations, indexed verification, retention, and redaction.
+- `@opentrade/cli`: `opentrade` source, sync, export, cache, and verification commands.
+- `@opentrade/adapter-*`: source-specific parsers and canonical mappers.
+- `registry/sources`: evidence-backed official-source metadata.
+- `apps/web` and `api`: optional metadata-only status hosting with file fallback and Supabase mirror parity.
 
-```bash
-corepack pnpm cli -- sync us.il.idfpr.roofing_contractors \
-  --file packages/adapter-il-idfpr/fixtures/roofing-contractors-sample.csv \
-  --out ./illinois.jsonl
-```
+The local packages do not require Vercel, Supabase, Postgres, or any hosted service. The hosted layer does not store imported license records.
 
-Try the Minnesota DLI fixture adapter:
+## Adapter Quality
 
-```bash
-corepack pnpm cli -- sync us.mn.dli.licenses_registrations \
-  --file packages/adapter-mn-dli/fixtures/licenses-registrations-sample.csv \
-  --out ./minnesota.jsonl
-```
-
-Try the Oregon CCB fixture adapter:
-
-```bash
-corepack pnpm cli -- sync us.or.ccb.active_licenses \
-  --file packages/adapter-or-ccb/fixtures/active-licenses-sample.csv \
-  --out ./oregon.jsonl
-```
-
-Try the Washington L&I fixture adapter:
-
-```bash
-corepack pnpm cli -- sync us.wa.lni.contractors \
-  --file packages/adapter-wa-lni/fixtures/contractor-license-sample.csv \
-  --out ./washington.jsonl
-```
-
-## Why Local Files First?
-
-OpenTrade Registry starts from local files so tests stay reliable and users can inspect exactly what they are importing. URL sync and URL verification are explicit: callers must pass both `--url` and `--allow-network`. Normal tests do not contact agency websites.
-
-## Why Keep Source Provenance?
-
-Each canonical record keeps the source URL, fetched time, caveats, raw record, and fingerprint. That context is important because every agency publishes different data. Some records may be missing, stale, or available only from another official source.
-
-Do not publish generated datasets unless the source clearly allows redistribution. When in doubt, publish the code and source metadata, not the data.
-
-## Why Not Call Someone Unlicensed?
-
-A no-match result only means the checked source did not contain a matching record at the checked time.
-
-Use this language:
-
-> No matching record was found in this source as of the checked time.
-
-Do not turn that into:
-
-> This contractor is unlicensed.
-
-## How Adapters Fit Together
-
-The source registry describes official sources, even before an adapter exists. Adapters handle source-specific parsing and map records into the canonical schema. The CLI uses implemented adapters for local sync and verification.
-
-Adapter maturity is tracked separately from source research:
+Capability and review quality are separate:
 
 - Level 0: registry metadata only.
-- Level 1: fixture parses and normalizes.
-- Level 2: local public file sync.
-- Level 3: opt-in network sync with freshness metadata.
-- Level 4: verification semantics reviewed against official source caveats.
+- Level 1: a tiny fixture parses and normalizes.
+- Level 2: local official-file ingestion.
+- Level 3: explicit network ingestion with freshness and provenance metadata.
+- Level 4: verification semantics and source caveats reviewed.
 
-`adapterMaturity` describes what an adapter can run today. `adapterQualityLevel` describes how much verification-language and caveat review has happened. All implemented adapters currently carry Level 4 quality metadata, which means their local verification results use neutral semantics and source-specific caveats.
-
-The registry now includes at least one researched official source entry for all 50 states plus DC and the five major U.S. territories: American Samoa, Guam, Northern Mariana Islands, Puerto Rico, and the U.S. Virgin Islands. Florida DBPR is currently a local-file adapter with opt-in URL sync and verification through the CLI. Alaska CBPL, California CSLB, Illinois IDFPR, Indiana PLA, Minnesota DLI, Oregon CCB, Texas TDLR, and Washington L&I are fixture-supported. The remaining researched sources are registry-only entries until source-specific terms, fields, fixtures, and verification caveats are reviewed.
-
-## Project Layout
-
-```text
-packages/core               Schemas, adapter contracts, and normalization helpers
-packages/adapter-ak-commerce
-                            Alaska CBPL fixture adapter
-packages/adapter-ca-cslb    California CSLB fixture adapter
-packages/adapter-fl-dbpr    Florida DBPR construction-license adapter
-packages/adapter-il-idfpr   Illinois IDFPR roofing fixture adapter
-packages/adapter-in-pla     Indiana PLA fixture adapter
-packages/adapter-mn-dli     Minnesota DLI fixture adapter
-packages/adapter-or-ccb     Oregon CCB fixture adapter
-packages/adapter-tx-tdlr    Texas TDLR fixture adapter
-packages/adapter-wa-lni     Washington L&I fixture adapter
-packages/cli                opentrade command-line interface
-packages/storage-sqlite     Optional SQLite schema and row helpers
-apps/web                    Optional hosted status page and source API
-registry/sources            Source metadata for official agency sources
-registry/us-coverage.json   State-by-state coverage progress
-registry/us-territory-coverage.json
-                            Territory coverage progress
-docs                        Architecture, authoring, and data-use notes
-examples                    Small local-file examples
-```
-
-The examples include basic sync, local verification, and a driverless SQLite cache flow.
+Every implemented v1 adapter is Level 4. A blocked source is also a completed research outcome when access controls, unclear terms, unstable structure, or lack of a contractor-specific source make automation indefensible.
 
 ## Development
 
 ```bash
 corepack pnpm verify
-corepack pnpm build
-corepack pnpm test
-corepack pnpm typecheck
-corepack pnpm registry:validate
+corepack pnpm pack:check
+corepack pnpm security:audit
+corepack pnpm source:quality
 corepack pnpm coverage:health
 corepack pnpm db:seed:check
-corepack pnpm source:quality
-corepack pnpm cleanliness:scan
-corepack pnpm web:build
 ```
 
-`coverage:health` verifies that all state, DC, and major territory coverage rows are present and cross-linked to registry sources. `source:quality` separates implemented adapter sources, unimplemented bulk-shaped candidates, download/export research candidates, lookup sources with automation constraints, and computed research outcomes with next actions. Use that report and the [adapter candidate priorities](docs/adapters/candidate-priorities.md) guide when choosing the next adapter, but treat candidate status as a research signal only: source terms, fixture safety, field shape, access controls, and verification caveats still need source-specific review before implementation.
+`verify` runs build, type checks, 179 offline tests, registry validation, coverage consistency, deterministic seed and status-matrix checks, public cleanliness, and generated-file guards. `pack:check` packs all 14 public packages and installs them into a clean temporary project before executing package imports and the CLI.
 
-Hosted deployment is optional. The hosted layer provides a static status page plus source metadata, readiness, and health endpoints. `/api/sources` supports the same source filters as the CLI and can read from Supabase first with registry-file fallback. See [docs/deployment/vercel-supabase.md](docs/deployment/vercel-supabase.md) for the Vercel/Supabase setup.
+CI runs Node 20, 22, and 24 on Linux, macOS, and Windows. GitHub dependency review and CodeQL run separately.
 
-Local storage is optional too. `@opentrade/storage-sqlite` provides a driverless SQLite schema and canonical-record row helpers for applications that want a local cache without adopting Supabase, Postgres, hosted jobs, or live network access. See [docs/storage.md](docs/storage.md).
+## Documentation
 
-Before tagging a release candidate, use the short [release checklist](docs/release-checklist.md).
+Start with the [documentation index](docs/README.md), [current state](docs/current-state.md), [architecture](docs/architecture.md), [adapter authoring guide](docs/adapter-authoring.md), and [release process](docs/release-process.md).
 
-## Roadmap
-
-The next work is to research new bulk/export-shaped candidates, make opt-in URL workflows more source-aware, improve Alaska, California, Illinois, Indiana, Minnesota, Oregon, Texas, and Washington fixture coverage, and deepen territory source research. Broader adapter coverage should come after registry validation, source-quality reporting, Level 4 verification semantics, and adapter contracts stay boring and predictable.
-
-See [docs/roadmap.md](docs/roadmap.md) for the current plan.
+Contributions are welcome. Read [CONTRIBUTING.md](CONTRIBUTING.md), [SECURITY.md](SECURITY.md), and the [source research template](docs/source-research-template.md) before proposing a new source or adapter.
