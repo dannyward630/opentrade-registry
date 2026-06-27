@@ -1,7 +1,5 @@
-import { createReadStream } from "node:fs";
-import { createInterface } from "node:readline";
 import { extname } from "node:path";
-import { buildFingerprint, parseCsvLine, streamTabularFileRows, type RawSourceRecord } from "@opentrade/core";
+import { buildFingerprint, parseCsvLine, streamTabularFileRows, streamTextFileLines, type RawSourceRecord } from "@opentrade/core";
 import { MN_DLI_LICENSES_REGISTRATIONS_SOURCE_ID } from "./constants.js";
 import { mapMinnesotaDliFields, MN_DLI_COLUMNS, type MinnesotaDliRow } from "./map.js";
 import { buildMinnesotaDliWarnings } from "./normalize.js";
@@ -21,16 +19,11 @@ export async function* streamMinnesotaDliCsvFile(input: {
   sourceLastModifiedAt?: string | null;
   limit?: number;
 }): AsyncIterable<RawSourceRecord> {
-  const lineReader = createInterface({
-    input: createReadStream(input.filePath, "utf8"),
-    crlfDelay: Infinity,
-  });
   const fetchedAt = input.fetchedAt ?? new Date().toISOString();
   let rowNumber = 0;
   let header: string[] | null = null;
 
-  try {
-    for await (const line of lineReader) {
+  for await (const line of streamTextFileLines(input.filePath)) {
       const trimmedLine = line.trim();
       if (!trimmedLine) {
         continue;
@@ -58,9 +51,6 @@ export async function* streamMinnesotaDliCsvFile(input: {
       if (input.limit && rowNumber >= input.limit) {
         break;
       }
-    }
-  } finally {
-    lineReader.close();
   }
 }
 

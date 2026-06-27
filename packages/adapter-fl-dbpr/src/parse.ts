@@ -1,6 +1,4 @@
-import { createReadStream } from "node:fs";
-import { createInterface } from "node:readline";
-import { buildFingerprint, parseCsvLine, type RawSourceRecord } from "@opentrade/core";
+import { buildFingerprint, parseCsvLine, streamTextFileLines, type RawSourceRecord } from "@opentrade/core";
 import { FL_DBPR_CONSTRUCTION_SOURCE_ID } from "./constants.js";
 import { mapConstructionCsvFields, type DbprConstructionRow } from "./map.js";
 import { buildDbprRecordWarnings } from "./normalize.js";
@@ -20,15 +18,10 @@ export async function* streamConstructionCsvFile(input: {
   sourceLastModifiedAt?: string | null;
   limit?: number;
 }): AsyncIterable<RawSourceRecord> {
-  const lineReader = createInterface({
-    input: createReadStream(input.filePath, "utf8"),
-    crlfDelay: Infinity,
-  });
   const fetchedAt = input.fetchedAt ?? new Date().toISOString();
   let rowNumber = 0;
 
-  try {
-    for await (const line of lineReader) {
+  for await (const line of streamTextFileLines(input.filePath)) {
       const trimmedLine = line.trim();
       if (!trimmedLine) {
         continue;
@@ -50,8 +43,5 @@ export async function* streamConstructionCsvFile(input: {
       if (input.limit && rowNumber >= input.limit) {
         break;
       }
-    }
-  } finally {
-    lineReader.close();
   }
 }
