@@ -32,7 +32,7 @@
     }
   },
   "scripts": {
-    "verify": "corepack pnpm build && corepack pnpm typecheck && corepack pnpm api:typecheck && corepack pnpm test && corepack pnpm registry:validate && corepack pnpm coverage:health && corepack pnpm db:seed:check && corepack pnpm cleanliness:scan && corepack pnpm files:check",
+    "verify": "corepack pnpm build && corepack pnpm typecheck && corepack pnpm api:typecheck && corepack pnpm test && corepack pnpm registry:validate && corepack pnpm coverage:health && corepack pnpm db:seed:check && corepack pnpm source:matrix:check && corepack pnpm cleanliness:scan && corepack pnpm files:check",
     "build": "corepack pnpm -r build",
     "test": "vitest run",
     "test:registry": "vitest run tests/source-registry.test.ts tests/source-quality-report.test.ts",
@@ -46,7 +46,8 @@
     "cleanliness:scan": "node scripts/cleanliness-scan.mjs",
     "files:check": "node scripts/files-check.mjs",
     "source:quality": "node scripts/source-quality-report.mjs",
-    "source:matrix": "node scripts/source-quality-report.mjs --markdown",
+    "source:matrix": "node scripts/source-quality-report.mjs --write-markdown",
+    "source:matrix:check": "node scripts/source-quality-report.mjs --check-markdown",
     "db:seed:generate": "node scripts/generate-registry-source-seed.mjs",
     "db:seed:check": "node scripts/generate-registry-source-seed.mjs --check",
     "security:audit": "corepack pnpm audit --prod=false",
