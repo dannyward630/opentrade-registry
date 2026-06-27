@@ -1,9 +1,11 @@
 import { spawnSync } from "node:child_process";
+import { createRequire } from "node:module";
 import { join } from "node:path";
 import { describe, expect, it } from "vitest";
 
 const cliPath = join(process.cwd(), "packages", "cli", "src", "index.ts");
-const tsxPath = join(process.cwd(), "packages", "cli", "node_modules", ".bin", "tsx");
+const require = createRequire(import.meta.url);
+const tsxPath = require.resolve("tsx/cli");
 
 const implementedVerificationCases = [
   {
@@ -89,7 +91,7 @@ describe("adapter Level 4 verification semantics", () => {
 });
 
 function runCli(args: string[], expectedStatus = 0) {
-  const result = spawnSync(tsxPath, [cliPath, "--", ...args], {
+  const result = spawnSync(process.execPath, [tsxPath, cliPath, "--", ...args], {
     cwd: process.cwd(),
     encoding: "utf8",
   });
