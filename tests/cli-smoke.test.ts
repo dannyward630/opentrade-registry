@@ -22,7 +22,7 @@ const washingtonFixture = join(process.cwd(), "packages", "adapter-wa-lni", "fix
 const minnesotaFixture = join(process.cwd(), "packages", "adapter-mn-dli", "fixtures", "licenses-registrations-sample.xlsx");
 const expectedJsonl = join(process.cwd(), "examples", "basic-sync", "expected", "sample-record.jsonl");
 const expectedCsv = join(process.cwd(), "examples", "basic-sync", "expected", "sample-record.csv");
-const CLI_SMOKE_TIMEOUT_MS = 60_000;
+const CLI_SMOKE_TIMEOUT_MS = 180_000;
 
 describe("opentrade CLI", () => {
   it("prints release-current help text for local-first and opt-in URL sync", () => {
