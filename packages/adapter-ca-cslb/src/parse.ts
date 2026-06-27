@@ -1,6 +1,7 @@
 import { createReadStream } from "node:fs";
 import { createInterface } from "node:readline";
-import { buildFingerprint, parseCsvLine, type RawSourceRecord } from "@opentrade/core";
+import { extname } from "node:path";
+import { buildFingerprint, parseCsvLine, streamTabularFileRows, type RawSourceRecord } from "@opentrade/core";
 import { CA_CSLB_CONTRACTORS_SOURCE_ID } from "./constants.js";
 import { CA_CSLB_COLUMNS, mapCaliforniaCslbFields, type CaliforniaCslbRow } from "./map.js";
 import { buildCaliforniaCslbWarnings } from "./normalize.js";
@@ -63,6 +64,48 @@ export async function* streamCaliforniaCslbCsvFile(input: {
   }
 }
 
+export async function* streamCaliforniaCslbFile(input: {
+  filePath: string;
+  sourceUrl?: string;
+  fetchedAt?: string;
+  sourceLastModifiedAt?: string | null;
+  limit?: number;
+}): AsyncIterable<RawSourceRecord> {
+  if (extname(input.filePath).toLowerCase() !== ".xlsx") {
+    yield* streamCaliforniaCslbCsvFile(input);
+    return;
+  }
+
+  const fetchedAt = input.fetchedAt ?? new Date().toISOString();
+  let header: string[] | null = null;
+  let rowNumber = 0;
+  for await (const fields of streamTabularFileRows(input.filePath)) {
+    if (!header) {
+      header = fields;
+      validateHeader(header);
+      continue;
+    }
+    if (fields.every((value) => value.trim() === "")) {
+      continue;
+    }
+    rowNumber += 1;
+    const record = mapCaliforniaCslbFields(fields, header);
+    yield {
+      sourceId: CA_CSLB_CONTRACTORS_SOURCE_ID,
+      sourceUrl: input.sourceUrl,
+      record,
+      rowNumber,
+      fetchedAt,
+      sourceLastModifiedAt: input.sourceLastModifiedAt ?? null,
+      fingerprint: buildFingerprint(record.raw),
+      warnings: buildCaliforniaCslbWarnings(record),
+    };
+    if (input.limit && rowNumber >= input.limit) {
+      break;
+    }
+  }
+}
+
 function validateHeader(header: string[]): void {
   for (const column of CA_CSLB_COLUMNS) {
     if (!header.includes(column)) {
@@ -70,4 +113,3 @@ function validateHeader(header: string[]): void {
     }
   }
 }
-

@@ -5,6 +5,5 @@ export {
 } from "./constants.js";
 export { CA_CSLB_COLUMNS, mapCaliforniaCslbFields, parseCaliforniaCslbDate, type CaliforniaCslbColumn, type CaliforniaCslbRow } from "./map.js";
 export { buildCaliforniaCslbWarnings, mapCaliforniaCslbTradeCategories, normalizeCaliforniaCslbStatus } from "./normalize.js";
-export { parseCaliforniaCslbCsvLine, parseCaliforniaCslbCsvRow, streamCaliforniaCslbCsvFile } from "./parse.js";
+export { parseCaliforniaCslbCsvLine, parseCaliforniaCslbCsvRow, streamCaliforniaCslbCsvFile, streamCaliforniaCslbFile } from "./parse.js";
 export { californiaCslbContractorsAdapter, normalizeCaliforniaCslbRecord } from "./source.js";
-

@@ -39,7 +39,7 @@ export const CA_CSLB_SOURCE_ENTRY: SourceRegistryEntry = {
   adapterMaturity: "local_file_adapter",
   coverageScope: "statewide",
   adapterPackage: "@opentrade/adapter-ca-cslb",
-  testFixturePath: "packages/adapter-ca-cslb/fixtures/contractors-master-sample.csv",
+  testFixturePath: "packages/adapter-ca-cslb/fixtures/contractors-master-sample.xlsx",
   officialLookupUrl: "https://www.cslb.ca.gov/onlineservices/checklicenseII/checklicense.aspx",
   officialBulkDownloadNotes: "CSLB describes downloadable master-list data and companion files on its public data portal. This adapter currently uses only a tiny fixture and does not download or parse the live files.",
   researchNotes: "Fixture support exists for license-master-like rows. Future work should review the current live file shape, companion files, and redistribution posture in detail.",
@@ -65,4 +65,3 @@ export const CA_CSLB_SOURCE_ENTRY: SourceRegistryEntry = {
   ],
   verificationNotes: "Fixture verification supports matched, not-found, ambiguous duplicate, and invalid-input outcomes through the shared CLI verifier. Rows are normalized conservatively and preserve CSLB source caveats.",
 };
-

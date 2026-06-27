@@ -39,7 +39,7 @@ export const MN_DLI_SOURCE_ENTRY: SourceRegistryEntry = {
   adapterMaturity: "local_file_adapter",
   coverageScope: "state_agency_partial",
   adapterPackage: "@opentrade/adapter-mn-dli",
-  testFixturePath: "packages/adapter-mn-dli/fixtures/licenses-registrations-sample.csv",
+  testFixturePath: "packages/adapter-mn-dli/fixtures/licenses-registrations-sample.xlsx",
   officialLookupUrl: MN_DLI_LICENSES_REGISTRATIONS_SOURCE_URL,
   officialBulkDownloadNotes:
     "The official DLI page describes a downloadable spreadsheet of all licensed businesses and individuals issued by the Construction Codes and Licensing Division. This adapter currently uses only a tiny fixture and does not download or parse the live XLSX export.",

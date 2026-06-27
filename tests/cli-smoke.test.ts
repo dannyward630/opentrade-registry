@@ -10,13 +10,13 @@ const tsxPath = join(process.cwd(), "packages", "cli", "node_modules", ".bin", "
 const sampleFixture = join(process.cwd(), "packages", "adapter-fl-dbpr", "fixtures", "construction-license-sample.csv");
 const edgeFixture = join(process.cwd(), "packages", "adapter-fl-dbpr", "fixtures", "construction-license-edge-cases.csv");
 const alaskaFixture = join(process.cwd(), "packages", "adapter-ak-commerce", "fixtures", "construction-contractors-sample.csv");
-const californiaFixture = join(process.cwd(), "packages", "adapter-ca-cslb", "fixtures", "contractors-master-sample.csv");
+const californiaFixture = join(process.cwd(), "packages", "adapter-ca-cslb", "fixtures", "contractors-master-sample.xlsx");
 const illinoisFixture = join(process.cwd(), "packages", "adapter-il-idfpr", "fixtures", "roofing-contractors-sample.csv");
 const indianaFixture = join(process.cwd(), "packages", "adapter-in-pla", "fixtures", "professional-licenses-sample.csv");
 const oregonFixture = join(process.cwd(), "packages", "adapter-or-ccb", "fixtures", "active-licenses-sample.csv");
 const texasFixture = join(process.cwd(), "packages", "adapter-tx-tdlr", "fixtures", "all-licenses-sample.csv");
 const washingtonFixture = join(process.cwd(), "packages", "adapter-wa-lni", "fixtures", "contractor-license-sample.csv");
-const minnesotaFixture = join(process.cwd(), "packages", "adapter-mn-dli", "fixtures", "licenses-registrations-sample.csv");
+const minnesotaFixture = join(process.cwd(), "packages", "adapter-mn-dli", "fixtures", "licenses-registrations-sample.xlsx");
 const expectedJsonl = join(process.cwd(), "examples", "basic-sync", "expected", "sample-record.jsonl");
 const expectedCsv = join(process.cwd(), "examples", "basic-sync", "expected", "sample-record.csv");
 
