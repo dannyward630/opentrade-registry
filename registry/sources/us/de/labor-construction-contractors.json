@@ -28,10 +28,10 @@
     "Individual professional licenses are handled through separate Delaware professional licensing systems.",
     "Contractors absent from the registry may be under review, removed, suspended, revoked, or outside the registry scope."
   ],
-  "hasBulkDownload": "unknown",
+  "hasBulkDownload": false,
   "hasLiveLookup": true,
-  "requiresJavaScript": "unknown",
-  "requiresCaptcha": "unknown",
+  "requiresJavaScript": false,
+  "requiresCaptcha": false,
   "requiresAccount": false,
   "rateLimitNotes": "No adapter is implemented. Do not automate lookup traffic unless official terms and technical controls are reviewed.",
   "redistributionStatus": "unknown",
@@ -43,8 +43,8 @@
   "adapterPackage": null,
   "testFixturePath": null,
   "officialLookupUrl": "https://contractorregistry.delaware.gov/",
-  "officialBulkDownloadNotes": "No official bulk download has been confirmed in this phase.",
-  "researchNotes": "Registry-only source for Delaware registered construction contractors. Future adapter research should preserve the public lookup disclaimer in verification output.",
+  "officialBulkDownloadNotes": "The official page supports searches, including an all-contractors search, but no stable file or API export was exposed during the 2026-06-27 review.",
+  "researchNotes": "The source is contractor-specific. Its disclaimer says absent records may be under review, removed, suspended, revoked, or outside current registry status, so lookup results cannot be reduced to a binary licensing claim.",
   "lastVerifiedAt": "2026-06-27T00:00:00.000Z",
   "maintainerNotes": "Keep Delaware contractor registry scope separate from DELPROS professional-license records and Division of Revenue business licenses.",
   "schemaVersion": "1.0",
@@ -54,14 +54,14 @@
     {
       "url": "https://contractorregistry.delaware.gov/",
       "checkedAt": "2026-06-27T00:00:00.000Z",
-      "note": "Official public source, access shape, and current automation constraints reviewed."
+      "note": "Official search supports name, ZIP, certification number, NAICS, and all-contractors queries; no stable file or API contract was documented."
     }
   ],
   "sourceResearchOutcome": "blocked",
   "adapterQualityLevel": 0,
   "blocker": {
-    "code": "not_contractor_specific",
-    "summary": "The official source is too broad or not sufficiently contractor-specific for reliable canonical verification.",
+    "code": "technical_instability",
+    "summary": "The contractor-specific search has no documented stable file or API interface, and its absence semantics require live agency confirmation.",
     "evidenceUrls": [
       "https://contractorregistry.delaware.gov/",
       "https://onestop.delaware.gov/Help_Terms"
