@@ -13,7 +13,7 @@ describe("network source download helper", () => {
     });
 
     try {
-      const downloaded = await downloadSourceToTempFile(server.url, { timeoutMs: 1_000, maxBytes: 1024 });
+      const downloaded = await downloadSourceToTempFile(server.url, { timeoutMs: 1_000, maxBytes: 1024, allowedHosts: ["127.0.0.1"] });
       expect(existsSync(downloaded.filePath)).toBe(true);
       expect(downloaded.metadata.sourceUrl).toBe(server.url);
       expect(downloaded.metadata.lastModifiedAt).toBe("2026-01-01T00:00:00.000Z");
@@ -36,7 +36,7 @@ describe("network source download helper", () => {
     }, "/licenses.xlsx");
 
     try {
-      const downloaded = await downloadSourceToTempFile(server.url, { timeoutMs: 1_000, maxBytes: 1024 });
+      const downloaded = await downloadSourceToTempFile(server.url, { timeoutMs: 1_000, maxBytes: 1024, allowedHosts: ["127.0.0.1"] });
       expect(downloaded.filePath.endsWith(".xlsx")).toBe(true);
       expect(readFileSync(downloaded.filePath)).toEqual(bytes);
       await downloaded.cleanup();
@@ -68,7 +68,7 @@ describe("network source download helper", () => {
     });
 
     try {
-      await expect(downloadSourceToTempFile(server.url, { timeoutMs: 1_000, maxBytes: 10 })).rejects.toThrow(/exceeds 10 bytes/i);
+      await expect(downloadSourceToTempFile(server.url, { timeoutMs: 1_000, maxBytes: 10, allowedHosts: ["127.0.0.1"] })).rejects.toThrow(/exceeds 10 bytes/i);
     } finally {
       await server.close();
     }
@@ -82,7 +82,7 @@ describe("network source download helper", () => {
     });
 
     try {
-      await expect(downloadSourceToTempFile(server.url, { timeoutMs: 10, maxBytes: 1024 })).rejects.toThrow(/timed out/i);
+      await expect(downloadSourceToTempFile(server.url, { timeoutMs: 10, maxBytes: 1024, allowedHosts: ["127.0.0.1"] })).rejects.toThrow(/timed out/i);
     } finally {
       await server.close();
     }
@@ -95,7 +95,7 @@ describe("network source download helper", () => {
     const controller = new AbortController();
     setTimeout(() => controller.abort(new Error("cancelled by test")), 10);
     try {
-      await expect(downloadSourceToTempFile(server.url, { timeoutMs: 1_000, maxBytes: 1024, signal: controller.signal })).rejects.toThrow(/cancelled by test|aborted/i);
+      await expect(downloadSourceToTempFile(server.url, { timeoutMs: 1_000, maxBytes: 1024, signal: controller.signal, allowedHosts: ["127.0.0.1"] })).rejects.toThrow(/cancelled by test|aborted/i);
     } finally {
       await server.close();
     }

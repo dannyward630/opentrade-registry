@@ -1,6 +1,6 @@
 import { requireAdapter } from "../adapters.js";
 import { parseSyncFormat } from "../import/export.js";
-import { downloadSourceToTempFile } from "../import/network.js";
+import { buildAllowedSourceHosts, downloadSourceToTempFile } from "../import/network.js";
 import { runAdapterSync } from "../import/sync-runner.js";
 
 export async function syncSource(input: {
@@ -59,19 +59,4 @@ export async function syncSource(input: {
   } finally {
     await downloaded?.cleanup();
   }
-}
-
-function buildAllowedSourceHosts(metadata: Awaited<ReturnType<ReturnType<typeof requireAdapter>["getSourceMetadata"]>>, requestedUrl: string): string[] {
-  const requestedHost = new URL(requestedUrl).hostname.toLowerCase();
-  if (["127.0.0.1", "::1", "localhost"].includes(requestedHost)) {
-    return [requestedHost];
-  }
-
-  const declaredUrls = [metadata.sourceUrl, metadata.officialLookupUrl, metadata.documentationUrl, metadata.agency.url]
-    .filter((value): value is string => Boolean(value));
-  const allowedHosts = [...new Set(declaredUrls.map((value) => new URL(value).hostname.toLowerCase()))];
-  if (!allowedHosts.includes(requestedHost)) {
-    throw Object.assign(new Error(`Source unavailable: host ${requestedHost} is not declared for ${metadata.id}.`), { exitCode: 3 });
-  }
-  return allowedHosts;
 }

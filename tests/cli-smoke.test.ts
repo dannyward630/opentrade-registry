@@ -881,6 +881,22 @@ describe("opentrade CLI", () => {
     );
     expect(blocked.stderr).toContain("Network verification requires --allow-network.");
 
+    const undeclaredHost = runCli(
+      [
+        "verify",
+        "--source",
+        "us.fl.dbpr.construction",
+        "--url",
+        "https://example.test/source.csv",
+        "--allow-network",
+        "--license",
+        "CGC012345",
+      ],
+      3,
+      { allowStderr: true },
+    );
+    expect(undeclaredHost.stderr).toContain("host example.test is not declared");
+
     const fixture = readFileSync(sampleFixture, "utf8");
     const server = await startFixtureServer(fixture);
     try {

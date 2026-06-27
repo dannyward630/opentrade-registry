@@ -7,7 +7,7 @@ import {
   type VerificationWarning,
 } from "@opentrade/core";
 import { requireAdapter } from "../adapters.js";
-import { downloadSourceToTempFile } from "../import/network.js";
+import { buildAllowedSourceHosts, downloadSourceToTempFile } from "../import/network.js";
 import { OpenTradeSqliteCache } from "@opentrade/storage-sqlite";
 
 export async function verifyLicense(input: {
@@ -66,7 +66,9 @@ export async function verifyLicense(input: {
     throw Object.assign(new Error("Missing verification input. Use --file, --url, or --cache."), { exitCode: 2 });
   }
 
-  const downloaded = input.url ? await downloadSourceToTempFile(input.url) : null;
+  const downloaded = input.url
+    ? await downloadSourceToTempFile(input.url, { allowedHosts: buildAllowedSourceHosts(metadata, input.url) })
+    : null;
 
   try {
     await runVerification({

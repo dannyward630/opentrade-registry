@@ -1,14 +1,30 @@
 import { downloadOfficialSource, type DownloadOptions, type DownloadedSource } from "@opentrade/registry";
+import type { SourceRegistryEntry } from "@opentrade/core";
 
 export type DownloadedSourceFile = DownloadedSource;
-export type DownloadSourceOptions = Omit<DownloadOptions, "allowedHosts"> & { allowedHosts?: string[] };
+export type DownloadSourceOptions = Omit<DownloadOptions, "allowedHosts"> & { allowedHosts: string[] };
 
-export async function downloadSourceToTempFile(sourceUrl: string, options: DownloadSourceOptions = {}): Promise<DownloadedSourceFile> {
-  const allowedHosts = options.allowedHosts ?? [new URL(sourceUrl).hostname];
+export async function downloadSourceToTempFile(sourceUrl: string, options: DownloadSourceOptions): Promise<DownloadedSourceFile> {
   try {
-    return await downloadOfficialSource(sourceUrl, { ...options, allowedHosts });
+    return await downloadOfficialSource(sourceUrl, options);
   } catch (error) {
     if (error instanceof Error) Object.assign(error, { exitCode: 3 });
     throw error;
   }
+}
+
+export function buildAllowedSourceHosts(
+  metadata: Pick<SourceRegistryEntry, "id" | "sourceUrl" | "officialLookupUrl" | "documentationUrl" | "agency">,
+  requestedUrl: string,
+): string[] {
+  const requestedHost = new URL(requestedUrl).hostname.toLowerCase();
+  if (["127.0.0.1", "::1", "localhost"].includes(requestedHost)) return [requestedHost];
+
+  const declaredUrls = [metadata.sourceUrl, metadata.officialLookupUrl, metadata.documentationUrl, metadata.agency.url]
+    .filter((value): value is string => Boolean(value));
+  const allowedHosts = [...new Set(declaredUrls.map((value) => new URL(value).hostname.toLowerCase()))];
+  if (!allowedHosts.includes(requestedHost)) {
+    throw Object.assign(new Error(`Source unavailable: host ${requestedHost} is not declared for ${metadata.id}.`), { exitCode: 3 });
+  }
+  return allowedHosts;
 }
