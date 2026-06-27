@@ -1,77 +1,52 @@
-# Storage
+# Local SQLite Storage
 
-OpenTrade Registry is local-first and does not require storage. The CLI can sync supported sources to JSONL or a narrow CSV export, and the core packages can be used without credentials, hosted services, or database drivers.
+`@opentrade/storage-sqlite` is the optional local cache for canonical records. It runs on Node 20, 22, and 24 without a native compilation step.
 
-Some applications still need a durable local cache. `@opentrade/storage-sqlite` is the first optional storage package for that use case.
+## Capabilities
 
-## SQLite Package
+- create or reopen a SQLite file;
+- apply versioned migrations;
+- import canonical records transactionally;
+- upsert by source and fingerprint;
+- index source, normalized license number, status, fetched time, and fingerprint;
+- reconstruct and validate canonical records;
+- verify one normalized license number;
+- prune records by retention deadline;
+- redact phone, email, website, address lines, or personnel;
+- atomically persist the database file.
 
-`@opentrade/storage-sqlite` exports:
-
-- `SQLITE_SCHEMA_SQL`
-- `SQLITE_SCHEMA_VERSION`
-- `SQLITE_LICENSE_RECORD_COLUMNS`
-- `toSqliteLicenseRecordRow`
-- `buildInsertLicenseRecordSql`
-- `buildInsertLicenseRecordValues`
-
-The package is intentionally driverless. It does not depend on `better-sqlite3`, `sqlite`, Bun SQLite, `node:sqlite`, or any other runtime. Applications choose the driver that fits their environment.
-
-## Stored Record Shape
-
-The SQLite row keeps lookup-friendly fields alongside JSON copies of the canonical record sections:
-
-- source ID
-- import run ID
-- license number
-- normalized license number
-- normalized status
-- fetched time
-- source URL
-- source record URL
-- fingerprint
-- raw record JSON
-- canonical jurisdiction, agency, source, license, identity, status, dates, contact, and compliance JSON
-
-The helper preserves provenance-bearing fields. It does not remove source caveats, raw records, or fingerprints.
-
-## Boundaries
-
-The storage package does not:
-
-- perform live agency downloads;
-- run background import jobs;
-- publish generated datasets;
-- replace source terms or public-record caveats;
-- include retention, redaction, or access-control policy;
-- provide hosted verification APIs.
-
-Applications should still keep the neutral no-match language:
-
-> No matching record was found in this source as of the checked time.
+The low-level schema and row helpers remain exported for applications that use another SQLite driver.
 
 ## Example
 
 ```ts
-import Database from "better-sqlite3";
-import {
-  SQLITE_SCHEMA_SQL,
-  buildInsertLicenseRecordSql,
-  buildInsertLicenseRecordValues,
-  toSqliteLicenseRecordRow,
-} from "@opentrade/storage-sqlite";
+import { OpenTradeSqliteCache } from "@opentrade/storage-sqlite";
 
-const db = new Database("opentrade.sqlite");
-db.exec(SQLITE_SCHEMA_SQL);
-
-const insert = db.prepare(buildInsertLicenseRecordSql());
-const row = toSqliteLicenseRecordRow(canonicalRecord, {
-  importRunId: "import-2026-06-26",
+const cache = await OpenTradeSqliteCache.open({ filePath: "opentrade.sqlite" });
+cache.importRecords(records, {
+  importRunId: "import-2026-06-27",
+  retainedUntil: "2026-12-27T00:00:00.000Z",
 });
 
-insert.run(...buildInsertLicenseRecordValues(row));
+const result = cache.verify("us.fl.dbpr.construction", "US-FL", "CGC012345");
+cache.redact("us.fl.dbpr.construction", "CGC012345", {
+  removeAddressLines: true,
+  removePhone: true,
+});
+
+await cache.close();
 ```
 
-This example uses `better-sqlite3` only as an application choice. It is not a dependency of OpenTrade Registry.
+The CLI exposes the same path through `sync --cache` and `verify --cache`.
 
-For a driverless runnable example that uses the checked-in fixture-derived JSONL sample, see [examples/sqlite-cache](../examples/sqlite-cache/README.md).
+## Migrations
+
+The schema version is stored in `opentrade_schema_version`. Opening a cache applies supported forward migrations in a transaction. A cache newer than the installed package is rejected. Migration tests cover opening a v1 cache with the v2 runtime.
+
+Back up important cache files before package upgrades. SQLite files are local derived artifacts and should not be committed.
+
+## Privacy And Retention
+
+Public records can still contain sensitive personal data. Choose retention deadlines, minimize fields, and use redaction when home addresses or personal contact details are unnecessary. Redaction does not alter source fingerprint or provenance.
+
+The package does not decide whether retaining or redistributing a record is lawful. That remains a source-specific operational decision.

@@ -1,51 +1,64 @@
 # Architecture
 
-Official license data rarely arrives in the same shape twice. One source may be a bulk CSV. Another may be an Excel workbook. Another may only expose a lookup page. OpenTrade Registry keeps the common parts in core and leaves source-specific details inside adapters.
+OpenTrade Registry separates source evidence, source-specific parsing, canonical records, orchestration, persistence, and optional hosting. Core use remains local-first and does not depend on the hosted layer.
 
-The project has seven main pieces.
+## Data Flow
+
+```text
+official source metadata -> source registry
+local file / explicit URL -> adapter raw stream -> canonical validation
+canonical records         -> JSONL / safe CSV / SQLite cache
+license query             -> file / cache / explicit URL -> neutral verification result
+```
 
 ## Source Registry
 
-The source registry is a map of official agency sources. A source can be listed before an adapter exists. That lets contributors record what is known about coverage, access rules, caveats, and redistribution uncertainty without pretending the source is already supported.
+`registry/sources` is the evidence layer. Every source records jurisdiction, agency, access mode, source and lookup URLs, terms posture, coverage limits, update notes, redistribution uncertainty, review dates, evidence URLs, terminal capability, and blocker evidence where applicable.
 
-Each source entry includes the agency, jurisdiction, source URL, documentation links, access notes, adapter status, maturity level, and public-record caveats.
+`registry/us-coverage.json` and `registry/us-territory-coverage.json` map jurisdiction coverage to those sources. Validation rejects missing references, state/path mismatches, duplicate IDs, inconsistent maturity, and missing fixtures for implemented local capabilities.
 
-The current registry contains `56` source entries: all 50 states plus DC and five major U.S. territories have at least one researched official source entry. Most entries are intentionally registry-only until source terms, field shape, fixtures, and verification caveats have been reviewed.
+## Core
+
+`@opentrade/core` owns:
+
+- canonical record and source schemas;
+- adapter and verification contracts;
+- contract version identifiers and compatibility readers;
+- normalized text/license/fingerprint helpers;
+- strict CSV parsing;
+- bounded XLSX reading;
+- shared source filtering and readiness summaries.
+
+Core has no database or network requirement.
 
 ## Adapters
 
-Adapters are small packages for one official source. They read raw source records, preserve the original data, and normalize each record into the canonical schema.
+Each adapter is responsible for one source ID. It streams source-specific raw records, emits source-specific warnings, and maps each row into the canonical schema while preserving raw data and fingerprint.
 
-A bulk adapter might read CSV, XLSX, JSON, or an API response. A lookup-only adapter might check one license number at a time. Florida DBPR has local-file support plus opt-in URL sync through the CLI, and Minnesota DLI, Oregon CCB, Texas TDLR, and Washington L&I have fixture support.
+Adapters do not own CLI output, SQLite persistence, or global network policy. A network-capable source still consumes a local temporary snapshot prepared by the orchestration downloader.
 
-## Canonical Records
+All implemented v1 adapters satisfy the shared conformance suite and Level 4 verification-semantics suite.
 
-Canonical records give downstream code a predictable shape. They include normalized fields such as license number, status, dates, classifications, and public-record contact fields.
+## Orchestration
 
-They also keep source details attached: source URL, fetched time, caveats, raw record, and fingerprint. The normalized view is useful, but the provenance is what lets someone understand where the record came from and how much confidence to place in it.
+`@opentrade/registry` owns reusable `sync()` and `verify()` workflows. Callers inject adapters; the package handles local files, SQLite cache verification, explicit network snapshots, stats, warnings, normalization isolation, cancellation, and structured unsupported/blocked results.
+
+The hardened downloader validates protocol and declared hosts, follows a bounded redirect chain, limits time and bytes, writes a temporary file, and records URL, fetched time, ETag, Last-Modified, content type, content length, and SHA-256 when available.
 
 ## CLI
 
-The `opentrade` CLI is the first user-facing tool. It can list and validate source metadata, sync supported local files to JSONL or CSV, and check one license number against a local source file. URL sync and URL verification are available only when callers pass `--allow-network`.
+`@opentrade/cli` is a thin command surface over registry metadata, adapters, exports, and storage. It owns human/JSON formatting and stable exit codes. It supports local JSONL/CSV exports and cache workflows without requiring network access.
 
-Registry-only sources still appear in `sources list` and `sources show`. `sync` and `verify` only work when an adapter is implemented.
+## SQLite
 
-The CLI source listing filters are backed by shared core logic, so CLI and hosted API source filters stay aligned.
+`@opentrade/storage-sqlite` uses a Node-compatible WASM SQLite runtime. It applies versioned migrations, imports records transactionally, persists files atomically, maintains lookup indexes, reconstructs canonical records, and exposes retention/redaction helpers.
 
-## Hosted Status/API Layer
+SQLite is optional and local. No cache is sent to the hosted service.
 
-The optional hosted layer builds a static status page from the checked-in registry and exposes small API endpoints for source metadata, readiness, and health checks. `/api/sources` can filter source metadata by state, maturity, adapter status, source type, quality level, implemented sources, registry-only sources, and bulk candidates.
+## Hosted Metadata
 
-Hosted source endpoints are database-first when Supabase environment variables are configured and fall back to registry files when the database is absent or unavailable. The hosted layer does not run imports, perform live verification, publish generated datasets, or replace the local CLI.
-
-## Local-First Exports
-
-The local-first core writes files and does not require a database. That keeps the project easy to inspect and test.
-
-`@opentrade/storage-sqlite` adds an optional local-cache path without changing that default. It exports a SQLite schema string plus helpers that turn canonical records into flat SQLite rows. It does not bundle a SQLite driver, run imports, publish generated datasets, or require credentials.
-
-Future storage packages can add Postgres-specific helpers without changing the core record model.
+`apps/web` and `api` expose only project/source metadata. Registry files are primary; Supabase is an optional mirror. Health compares file and database counts plus full normalized metadata. The hosted layer never performs agency imports or hosts generated license datasets.
 
 ## Browser Automation
 
-Browser automation is not part of core. Official bulk downloads and APIs should be preferred. If a source ever requires portal automation, that code should live in a source-specific adapter, stay opt-in, and respect posted access controls.
+Browser automation is not a core capability and no v1 adapter automates CAPTCHA, login, paywall, or protected portal flows. Bulk files and documented APIs are preferred. A future portal adapter must be source-specific, explicitly enabled, legally reviewed, bounded, and independently testable offline.
