@@ -37,12 +37,13 @@ export async function* streamTabularFileRows(filePath: string, limits: TabularFi
     throw new Error("XLSX file does not contain a worksheet.");
   }
   if (worksheet.rowCount > effectiveLimits.maxRows) throw new Error(`XLSX worksheet exceeds the ${effectiveLimits.maxRows} row limit.`);
+  if (worksheet.columnCount > effectiveLimits.maxColumns) throw new Error(`XLSX worksheet exceeds the ${effectiveLimits.maxColumns} column limit.`);
 
   for (let rowNumber = 1; rowNumber <= worksheet.rowCount; rowNumber += 1) {
     const row = worksheet.getRow(rowNumber);
     if (row.cellCount > effectiveLimits.maxColumns) throw new Error(`XLSX row ${rowNumber} exceeds the ${effectiveLimits.maxColumns} column limit.`);
     const values: string[] = [];
-    for (let column = 1; column <= row.cellCount; column += 1) {
+    for (let column = 1; column <= worksheet.columnCount; column += 1) {
       values.push(cellValueToString(row.getCell(column).value));
     }
     yield values;
@@ -89,7 +90,7 @@ function cellValueToString(value: ExcelJS.CellValue): string {
     return "";
   }
   if (value instanceof Date) {
-    return value.toISOString();
+    return value.toISOString().slice(0, 10);
   }
   if (typeof value !== "object") {
     return String(value);

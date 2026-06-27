@@ -1,5 +1,5 @@
 import { canonicalTradeLicenseRecordSchema, type CanonicalTradeLicenseRecord } from "../schema/canonical-license.js";
-import { sourceRegistryEntrySchema, type SourceRegistryEntry } from "../schema/source-registry.js";
+import { sourceRegistryEntrySchema, sourceRegistryEntryV1Schema, type SourceRegistryEntry } from "../schema/source-registry.js";
 
 export const OPENTRADE_API_VERSION = "1.0" as const;
 export const OPENTRADE_CANONICAL_SCHEMA_VERSION = "1.0" as const;
@@ -24,8 +24,10 @@ export function parseCanonicalTradeLicenseRecord(value: unknown): VersionedCanon
 }
 
 export function parseSourceRegistryEntry(value: unknown): SourceRegistryCompatibilityResult {
-  const entry = sourceRegistryEntrySchema.parse(value);
   const schemaVersion = getSchemaVersion(value);
+  const entry = schemaVersion === OPENTRADE_SOURCE_REGISTRY_SCHEMA_VERSION
+    ? sourceRegistryEntryV1Schema.parse(value)
+    : sourceRegistryEntrySchema.parse(value);
   return {
     schemaVersion,
     needsV1CompletionReview: schemaVersion !== OPENTRADE_SOURCE_REGISTRY_SCHEMA_VERSION,

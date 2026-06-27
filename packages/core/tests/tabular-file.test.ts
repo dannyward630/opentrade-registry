@@ -14,6 +14,7 @@ describe("tabular file reader", () => {
       const sheet = workbook.addWorksheet("Licenses");
       sheet.addRow(["License Number", "Business Name", "Expires"]);
       sheet.addRow(["CSL-001", "Example Builders", new Date("2027-01-31T00:00:00.000Z")]);
+      sheet.addRow(["CSL-002", "Trailing Blank"]);
       await workbook.xlsx.writeFile(filePath);
 
       const rows = [];
@@ -23,7 +24,8 @@ describe("tabular file reader", () => {
 
       expect(rows).toEqual([
         ["License Number", "Business Name", "Expires"],
-        ["CSL-001", "Example Builders", "2027-01-31T00:00:00.000Z"],
+        ["CSL-001", "Example Builders", "2027-01-31"],
+        ["CSL-002", "Trailing Blank", ""],
       ]);
     } finally {
       await rm(directory, { recursive: true, force: true });

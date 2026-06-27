@@ -109,6 +109,31 @@ describe("v1 public contracts", () => {
     expect(result.success).toBe(true);
   });
 
+  it("rejects a declared v1 source entry that only satisfies the compatibility schema", () => {
+    expect(() => parseSourceRegistryEntry({
+      schemaVersion: "1.0",
+      id: "us.fl.example.contractors",
+      name: "Incomplete V1 Source",
+      jurisdiction: { country: "US", state: "FL" },
+      agency: { name: "Example Agency" },
+      sourceType: "bulk_csv",
+      sourceUrl: "https://example.gov/licenses.csv",
+      tradeCoverage: [],
+      licenseTypesIncluded: [],
+      knownExclusions: [],
+      hasBulkDownload: true,
+      hasLiveLookup: false,
+      requiresJavaScript: false,
+      requiresCaptcha: false,
+      requiresAccount: false,
+      redistributionStatus: "unknown",
+      adapterStatus: "planned",
+      sourceDiscoveryStatus: "researched",
+      adapterMaturity: "registry_only",
+      coverageScope: "state_agency_partial",
+    })).toThrow();
+  });
+
   it("rejects a blocked v1 source without structured blocker evidence", () => {
     const result = sourceRegistryEntryV1Schema.safeParse({
       schemaVersion: "1.0",
