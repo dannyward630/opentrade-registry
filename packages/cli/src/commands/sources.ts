@@ -17,7 +17,10 @@ type CoverageStatus =
   | "adapter_planned"
   | "fixture_supported"
   | "local_file_supported"
-  | "network_opt_in_supported";
+  | "network_opt_in_supported"
+  | "production_ready_supported"
+  | "blocked"
+  | "deprecated";
 
 type CoverageRow = {
   state?: string;
@@ -88,8 +91,8 @@ export async function showSourceCoverage(rootDir: string, options: { json?: bool
   console.log(`major territories: ${summary.researchedTerritoryCount}/${summary.territoryCount} researched`);
   printCounts("state coverage by status", summary.stateCoverageByStatus);
   printCounts("territory coverage by status", summary.territoryCoverageByStatus);
-  console.log("implemented or fixture-supported state rows:");
-  for (const row of summary.states.filter((entry) => entry.status === "local_file_supported" || entry.status === "fixture_supported")) {
+  console.log("implemented state rows:");
+  for (const row of summary.states.filter((entry) => ["local_file_supported", "network_opt_in_supported", "production_ready_supported"].includes(entry.status))) {
     console.log(`- ${row.state}: ${row.status} (${row.sourceIds.join(", ")})`);
   }
   console.log("Coverage rows are source-discovery metadata, not proof of complete statewide licensing coverage.");
@@ -106,6 +109,8 @@ export async function showSourceReadiness(rootDir: string, options: { json?: boo
 
   console.log("OpenTrade source readiness");
   console.log(`sources: ${payload.sourceCount}`);
+  console.log(`terminal source decisions: ${payload.terminalSourceCount}`);
+  console.log(`blocked sources: ${payload.blockedSourceCount}`);
   console.log(`implemented adapter sources: ${payload.implementedAdapterSources.length}`);
   for (const source of payload.implementedAdapterSources) {
     console.log(`- ${source.id} (${source.sourceType}, ${source.adapterMaturity}, level_${source.adapterQualityLevel})`);
