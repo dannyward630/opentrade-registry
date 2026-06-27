@@ -1,6 +1,6 @@
 {
   "name": "@opentrade/adapter-il-idfpr",
-  "version": "0.2.0",
+  "version": "1.0.0",
   "type": "module",
   "description": "Illinois IDFPR roofing contractor fixture adapter for OpenTrade Registry.",
   "license": "MIT",
@@ -31,7 +31,8 @@
     "fixtures"
   ],
   "publishConfig": {
-    "access": "public"
+    "access": "public",
+    "provenance": true
   },
   "exports": {
     ".": {

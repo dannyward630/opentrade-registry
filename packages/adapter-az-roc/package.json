@@ -16,7 +16,7 @@
   "keywords": ["opentrade", "arizona", "contractor-licenses", "public-records", "typescript"],
   "engines": { "node": ">=20" },
   "files": ["dist", "README.md", "fixtures"],
-  "publishConfig": { "access": "public" },
+  "publishConfig": { "access": "public", "provenance": true },
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",

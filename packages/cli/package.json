@@ -1,6 +1,6 @@
 {
   "name": "@opentrade/cli",
-  "version": "0.2.0",
+  "version": "1.0.0",
   "type": "module",
   "description": "Command-line interface for OpenTrade Registry.",
   "license": "MIT",
@@ -29,7 +29,8 @@
     "README.md"
   ],
   "publishConfig": {
-    "access": "public"
+    "access": "public",
+    "provenance": true
   },
   "bin": {
     "opentrade": "./dist/index.js"
