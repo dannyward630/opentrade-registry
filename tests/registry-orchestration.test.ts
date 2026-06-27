@@ -50,4 +50,18 @@ describe("OpenTrade registry orchestration", () => {
       server.close();
     }
   });
+
+  it("stops a sync when its abort signal is cancelled", async () => {
+    const controller = new AbortController();
+    const registry = new OpenTradeRegistry([floridaDbprConstructionAdapter]);
+    const result = await registry.sync({
+      sourceId: floridaDbprConstructionAdapter.sourceId,
+      input: { mode: "file", filePath: fixture },
+      signal: controller.signal,
+      onRecord() { controller.abort(new Error("cancelled by caller")); },
+    });
+    expect(result.status).toBe("failed");
+    expect(result.stats.normalizedRecordCount).toBe(1);
+    expect(result.errors.at(-1)?.message).toContain("cancelled by caller");
+  });
 });
