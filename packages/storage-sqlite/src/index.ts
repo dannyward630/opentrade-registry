@@ -177,6 +177,7 @@ export class OpenTradeSqliteCache {
   readonly filePath: string | null;
   readonly database: Database;
   #dirty = false;
+  #importTransactionCount: number | null = null;
 
   private constructor(database: Database, filePath: string | null) {
     this.database = database;
@@ -211,6 +212,8 @@ export class OpenTradeSqliteCache {
       const current = Number(this.database.exec("select version from opentrade_schema_version limit 1")[0]?.values[0]?.[0] ?? 0);
       if (current === 0) {
         this.database.run(SQLITE_SCHEMA_SQL);
+        addColumnIfMissing(this.database, SQLITE_LICENSE_RECORD_TABLE, "retained_until", "text");
+        addColumnIfMissing(this.database, SQLITE_LICENSE_RECORD_TABLE, "redacted_at", "text");
         this.database.run("delete from opentrade_schema_version");
         this.database.run("insert into opentrade_schema_version(version) values (?)", [SQLITE_SCHEMA_VERSION]);
       } else if (current === 1) {
@@ -229,23 +232,43 @@ export class OpenTradeSqliteCache {
   }
 
   importRecords(records: Iterable<CanonicalTradeLicenseRecord>, options: SqliteImportOptions = {}): number {
-    const sql = buildInsertLicenseRecordSql();
-    let count = 0;
-    this.database.run("begin immediate");
+    this.beginImport();
     try {
-      for (const input of records) {
-        const record = canonicalTradeLicenseRecordSchema.parse(input);
-        const row = toSqliteLicenseRecordRow(record, { importRunId: options.importRunId, retainedUntil: options.retainedUntil });
-        this.database.run(sql, buildInsertLicenseRecordValues(row));
-        count += 1;
-      }
-      this.database.run("commit");
-      this.#dirty = this.#dirty || count > 0;
-      return count;
+      for (const record of records) this.importRecord(record, options);
+      return this.commitImport();
     } catch (error) {
-      this.database.run("rollback");
+      this.rollbackImport();
       throw error;
     }
+  }
+
+  beginImport(): void {
+    if (this.#importTransactionCount !== null) throw new Error("A SQLite cache import transaction is already active.");
+    this.database.run("begin immediate");
+    this.#importTransactionCount = 0;
+  }
+
+  importRecord(input: CanonicalTradeLicenseRecord, options: SqliteImportOptions = {}): void {
+    if (this.#importTransactionCount === null) throw new Error("Begin a SQLite cache import transaction before importing records.");
+    const record = canonicalTradeLicenseRecordSchema.parse(input);
+    const row = toSqliteLicenseRecordRow(record, { importRunId: options.importRunId, retainedUntil: options.retainedUntil });
+    this.database.run(buildInsertLicenseRecordSql(), buildInsertLicenseRecordValues(row));
+    this.#importTransactionCount += 1;
+  }
+
+  commitImport(): number {
+    if (this.#importTransactionCount === null) throw new Error("No SQLite cache import transaction is active.");
+    const count = this.#importTransactionCount;
+    this.database.run("commit");
+    this.#importTransactionCount = null;
+    this.#dirty = this.#dirty || count > 0;
+    return count;
+  }
+
+  rollbackImport(): void {
+    if (this.#importTransactionCount === null) return;
+    this.database.run("rollback");
+    this.#importTransactionCount = null;
   }
 
   findByLicenseNumber(sourceId: string, licenseNumber: string): CanonicalTradeLicenseRecord[] {
@@ -283,7 +306,8 @@ export class OpenTradeSqliteCache {
     try {
       for (const record of records) {
         const redacted = redactCanonicalRecord(record, options);
-        const row = toSqliteLicenseRecordRow(redacted, { importRunId: record.source.importRunId, redactedAt });
+        const retainedUntil = this.getRetainedUntil(record.sourceId, record.raw.fingerprint);
+        const row = toSqliteLicenseRecordRow(redacted, { importRunId: record.source.importRunId, retainedUntil, redactedAt });
         this.database.run(buildInsertLicenseRecordSql(), buildInsertLicenseRecordValues(row));
       }
       this.database.run("commit");
@@ -303,6 +327,7 @@ export class OpenTradeSqliteCache {
   }
 
   async save(): Promise<void> {
+    if (this.#importTransactionCount !== null) throw new Error("Cannot save a SQLite cache while an import transaction is active.");
     if (!this.filePath || !this.#dirty) return;
     const temporaryPath = `${this.filePath}.tmp-${process.pid}-${Date.now()}`;
     try {
@@ -318,6 +343,14 @@ export class OpenTradeSqliteCache {
     await this.save();
     this.database.close();
   }
+
+  private getRetainedUntil(sourceId: string, fingerprint: string): string | null {
+    const statement = this.database.prepare(`select retained_until from ${SQLITE_LICENSE_RECORD_TABLE} where source_id = ? and fingerprint = ? limit 1`);
+    statement.bind([sourceId, fingerprint]);
+    const retainedUntil = statement.step() ? statement.getAsObject().retained_until : null;
+    statement.free();
+    return retainedUntil == null ? null : String(retainedUntil);
+  }
 }
 
 export function redactCanonicalRecord(record: CanonicalTradeLicenseRecord, options: RedactionOptions = {}): CanonicalTradeLicenseRecord {
@@ -330,6 +363,7 @@ export function redactCanonicalRecord(record: CanonicalTradeLicenseRecord, optio
     clone.contact.addresses = clone.contact.addresses?.map((address) => ({ ...address, line1: null, line2: null, raw: undefined }));
   }
   if (settings.removePersonnel) clone.identity.personnel = [];
+  if (Object.values(settings).some(Boolean)) clone.raw.record = { redacted: true };
   return canonicalTradeLicenseRecordSchema.parse(clone);
 }
 

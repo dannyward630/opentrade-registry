@@ -47,13 +47,15 @@ describe("OpenTrade SQLite cache", () => {
     cache.importRecords([record("OLD", "fingerprint-old")], { retainedUntil: "2020-01-01T00:00:00.000Z" });
     expect(cache.pruneExpiredRetention("2021-01-01T00:00:00.000Z")).toBe(1);
 
-    cache.importRecords([record("PRIVATE", "fingerprint-private")]);
+    cache.importRecords([record("PRIVATE", "fingerprint-private")], { retainedUntil: "2030-01-01T00:00:00.000Z" });
     expect(cache.redact("test.source", "PRIVATE", { removePersonnel: true })).toBe(1);
     const redacted = cache.findByLicenseNumber("test.source", "PRIVATE")[0];
     expect(redacted.contact.phone).toBeNull();
     expect(redacted.contact.addresses?.[0]?.line1).toBeNull();
     expect(redacted.identity.personnel).toEqual([]);
+    expect(redacted.raw.record).toEqual({ redacted: true });
     expect(redacted.raw.fingerprint).toBe("fingerprint-private");
+    expect(cache.pruneExpiredRetention("2031-01-01T00:00:00.000Z")).toBe(1);
     await cache.close();
   });
 
