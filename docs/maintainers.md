@@ -23,3 +23,7 @@
 - review shared parser, network, storage, and release surfaces after a finding.
 
 Repository ownership is recorded in `.github/CODEOWNERS`. Ownership is review responsibility, not permission to weaken source evidence or data-use safeguards.
+
+## Documentation Mirror
+
+`/docs` is canonical. Regenerate the GitHub Wiki mirror with `corepack pnpm wiki:generate`, then publish the contents of `wiki-export/` to the wiki repository. Never make wiki-only content changes.

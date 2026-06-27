@@ -55,6 +55,7 @@
     "pack:check": "corepack pnpm build && node scripts/pack-check.mjs",
     "release:check-version": "node scripts/check-release-version.mjs",
     "release:pack": "corepack pnpm build && node scripts/pack-release.mjs",
+    "wiki:generate": "node scripts/generate-wiki.mjs",
     "cli": "corepack pnpm --filter @opentrade/cli cli",
     "web:build": "corepack pnpm --filter @opentrade/web build",
     "web:dev": "corepack pnpm --filter @opentrade/web dev"
