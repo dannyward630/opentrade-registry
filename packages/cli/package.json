@@ -51,6 +51,7 @@
     "@opentrade/adapter-tx-tdlr": "workspace:*",
     "@opentrade/adapter-wa-lni": "workspace:*",
     "@opentrade/core": "workspace:*",
+    "@opentrade/registry": "workspace:*",
     "zod": "^4.4.3"
   },
   "devDependencies": {

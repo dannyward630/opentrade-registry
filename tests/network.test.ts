@@ -55,7 +55,7 @@ describe("network source download helper", () => {
     try {
       await expect(
         downloadSourceToTempFile(server.url, { timeoutMs: 1_000, maxBytes: 1024, allowedHosts: ["127.0.0.1"] }),
-      ).rejects.toThrow(/redirect host/i);
+      ).rejects.toThrow(/host .* not allowed/i);
     } finally {
       await server.close();
     }
@@ -68,7 +68,7 @@ describe("network source download helper", () => {
     });
 
     try {
-      await expect(downloadSourceToTempFile(server.url, { timeoutMs: 1_000, maxBytes: 10 })).rejects.toThrow(/download limit/i);
+      await expect(downloadSourceToTempFile(server.url, { timeoutMs: 1_000, maxBytes: 10 })).rejects.toThrow(/exceeds 10 bytes/i);
     } finally {
       await server.close();
     }
@@ -83,6 +83,19 @@ describe("network source download helper", () => {
 
     try {
       await expect(downloadSourceToTempFile(server.url, { timeoutMs: 10, maxBytes: 1024 })).rejects.toThrow(/timed out/i);
+    } finally {
+      await server.close();
+    }
+  });
+
+  it("cancels an in-progress download", async () => {
+    const server = await startServer((_request, response) => {
+      setTimeout(() => response.end("late"), 250);
+    });
+    const controller = new AbortController();
+    setTimeout(() => controller.abort(new Error("cancelled by test")), 10);
+    try {
+      await expect(downloadSourceToTempFile(server.url, { timeoutMs: 1_000, maxBytes: 1024, signal: controller.signal })).rejects.toThrow(/cancelled by test|aborted/i);
     } finally {
       await server.close();
     }
