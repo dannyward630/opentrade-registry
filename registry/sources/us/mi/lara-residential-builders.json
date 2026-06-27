@@ -15,7 +15,11 @@
   "dataDictionaryUrl": null,
   "termsUrl": "https://www.michigan.gov/som/footer/policies",
   "updateFrequency": "unknown; verify against the official LARA/Accela lookup before relying on freshness assumptions",
-  "tradeCoverage": ["residential contracting", "home_improvement", "other"],
+  "tradeCoverage": [
+    "residential contracting",
+    "home_improvement",
+    "other"
+  ],
   "licenseTypesIncluded": [
     "Residential Builder Company",
     "Residential Builder Individual",
@@ -34,15 +38,35 @@
   "rateLimitNotes": "No adapter is implemented. Do not bypass portal controls; prefer official export options if discovered.",
   "redistributionStatus": "unknown",
   "publicRecordsNotes": "Official lookup source metadata only. Absence from this source is not proof that a license does not exist elsewhere.",
-  "adapterStatus": "planned",
-  "sourceDiscoveryStatus": "researched",
-  "adapterMaturity": "registry_only",
+  "adapterStatus": "blocked",
+  "sourceDiscoveryStatus": "blocked",
+  "adapterMaturity": "blocked",
   "coverageScope": "state_agency_partial",
-  "adapterPackage": "@opentrade/adapter-mi-lara",
+  "adapterPackage": null,
   "testFixturePath": null,
   "officialLookupUrl": "https://aca-prod.accela.com/LARA/GeneralProperty/PropertyLookUp.aspx?TabName=APO&isLicensee=Y",
   "officialBulkDownloadNotes": "No official bulk download has been confirmed in this phase.",
   "researchNotes": "Registry-only source for Michigan residential builder and maintenance-and-alteration license lookup through LARA Accela.",
-  "lastVerifiedAt": "2026-06-21T00:00:00.000Z",
-  "maintainerNotes": "Keep the source scope tied to visible LARA license types and avoid implying all Michigan contractor or trade credentials are covered."
+  "lastVerifiedAt": "2026-06-27T00:00:00.000Z",
+  "maintainerNotes": "Keep the source scope tied to visible LARA license types and avoid implying all Michigan contractor or trade credentials are covered.",
+  "schemaVersion": "1.0",
+  "researchReviewedAt": "2026-06-27T00:00:00.000Z",
+  "nextReviewAt": "2026-12-27T00:00:00.000Z",
+  "researchEvidence": [
+    {
+      "url": "https://aca-prod.accela.com/LARA/GeneralProperty/PropertyLookUp.aspx?TabName=APO&isLicensee=Y",
+      "checkedAt": "2026-06-27T00:00:00.000Z",
+      "note": "Official public source, access shape, and current automation constraints reviewed."
+    }
+  ],
+  "sourceResearchOutcome": "blocked",
+  "adapterQualityLevel": 0,
+  "blocker": {
+    "code": "access_controls",
+    "summary": "The official path requires or may require protected interactive access; OpenTrade Registry will not bypass technical controls.",
+    "evidenceUrls": [
+      "https://aca-prod.accela.com/LARA/GeneralProperty/PropertyLookUp.aspx?TabName=APO&isLicensee=Y",
+      "https://www.michigan.gov/som/footer/policies"
+    ]
+  }
 }

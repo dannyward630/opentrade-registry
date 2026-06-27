@@ -15,8 +15,15 @@
   "dataDictionaryUrl": null,
   "termsUrl": "https://www.commerce.alaska.gov/web/cbpl/LicenseVerification",
   "updateFrequency": "unknown; verify against the Alaska professional license search and download information before relying on freshness assumptions",
-  "tradeCoverage": ["general_contracting", "residential_contracting", "roofing", "other"],
-  "licenseTypesIncluded": ["construction contractor professional license records exposed by Alaska CBPL search and download paths"],
+  "tradeCoverage": [
+    "general_contracting",
+    "residential_contracting",
+    "roofing",
+    "other"
+  ],
+  "licenseTypesIncluded": [
+    "construction contractor professional license records exposed by Alaska CBPL search and download paths"
+  ],
   "knownExclusions": [
     "The Alaska professional licensing search spans many programs; this source entry is scoped to construction contractor records and related contractor endorsements only.",
     "Business licenses, corporations, local permits, and non-CBPL authorizations are outside this source entry.",
@@ -33,7 +40,7 @@
   "publicRecordsNotes": "Official lookup and download metadata only. Absence from this source is not proof that a license, endorsement, registration, or local authorization does not exist elsewhere.",
   "adapterStatus": "implemented",
   "sourceDiscoveryStatus": "researched",
-  "adapterMaturity": "fixture_adapter",
+  "adapterMaturity": "local_file_adapter",
   "adapterQualityLevel": 4,
   "coverageScope": "state_agency_partial",
   "adapterPackage": "@opentrade/adapter-ak-commerce",
@@ -48,6 +55,17 @@
     "No matching record means no match in this source at the checked time, not proof that a license, endorsement, registration, or local authorization does not exist elsewhere."
   ],
   "verificationNotes": "Fixture verification supports matched, not-found, ambiguous duplicate, and invalid-input outcomes while preserving Alaska CBPL source caveats.",
-  "lastVerifiedAt": "2026-06-26T00:00:00.000Z",
-  "maintainerNotes": "Keep contractor program scope separate from Alaska business-license and corporation records. Do not automate protected endpoints."
+  "lastVerifiedAt": "2026-06-27T00:00:00.000Z",
+  "maintainerNotes": "Keep contractor program scope separate from Alaska business-license and corporation records. Do not automate protected endpoints.",
+  "schemaVersion": "1.0",
+  "researchReviewedAt": "2026-06-27T00:00:00.000Z",
+  "nextReviewAt": "2026-12-27T00:00:00.000Z",
+  "researchEvidence": [
+    {
+      "url": "https://www.commerce.alaska.gov/cbp/main/Search/Professional",
+      "checkedAt": "2026-06-27T00:00:00.000Z",
+      "note": "Official source documentation and supported local-file shape reviewed."
+    }
+  ],
+  "sourceResearchOutcome": "local_file_adapter"
 }

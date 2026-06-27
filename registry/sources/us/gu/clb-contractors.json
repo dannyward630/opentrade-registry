@@ -15,8 +15,19 @@
   "dataDictionaryUrl": null,
   "termsUrl": "https://governor.guam.gov/privacy-policy/",
   "updateFrequency": "unknown; verify against the Guam Contractors Licensing Board listing before relying on freshness assumptions",
-  "tradeCoverage": ["general_contracting", "residential_contracting", "commercial_contracting", "electrical", "plumbing", "mechanical", "other", "unknown"],
-  "licenseTypesIncluded": ["Guam contractor license records exposed by the official Contractors Listing page"],
+  "tradeCoverage": [
+    "general_contracting",
+    "residential_contracting",
+    "commercial_contracting",
+    "electrical",
+    "plumbing",
+    "mechanical",
+    "other",
+    "unknown"
+  ],
+  "licenseTypesIncluded": [
+    "Guam contractor license records exposed by the official Contractors Listing page"
+  ],
   "knownExclusions": [
     "Source fields, update cadence, inactive-license coverage, and classification semantics require follow-up review before adapter work.",
     "Business licenses, permits, enforcement records, and other professional licenses may require separate official sources.",
@@ -30,15 +41,35 @@
   "rateLimitNotes": "No adapter is implemented. Future access should prefer stable official export paths if confirmed.",
   "redistributionStatus": "unknown",
   "publicRecordsNotes": "Official Guam CLB listing metadata only. Absence from this source is not proof that a license, business authorization, permit, or local record does not exist elsewhere.",
-  "adapterStatus": "planned",
-  "sourceDiscoveryStatus": "researched",
-  "adapterMaturity": "registry_only",
+  "adapterStatus": "blocked",
+  "sourceDiscoveryStatus": "blocked",
+  "adapterMaturity": "blocked",
   "coverageScope": "state_agency_partial",
-  "adapterPackage": "@opentrade/adapter-gu-clb",
+  "adapterPackage": null,
   "testFixturePath": null,
   "officialLookupUrl": "https://clb.guam.gov/contractors-listing/",
   "officialBulkDownloadNotes": "No official bulk download has been confirmed in this phase.",
   "researchNotes": "Registry-only source for the Guam Contractors Licensing Board public contractors listing. Future work should research page structure, fixture-safe fields, and classification mapping.",
-  "lastVerifiedAt": "2026-06-24T00:00:00.000Z",
-  "maintainerNotes": "Do not use older mirrored contractor lists or unofficial copies as source data."
+  "lastVerifiedAt": "2026-06-27T00:00:00.000Z",
+  "maintainerNotes": "Do not use older mirrored contractor lists or unofficial copies as source data.",
+  "schemaVersion": "1.0",
+  "researchReviewedAt": "2026-06-27T00:00:00.000Z",
+  "nextReviewAt": "2026-12-27T00:00:00.000Z",
+  "researchEvidence": [
+    {
+      "url": "https://clb.guam.gov/contractors-listing/",
+      "checkedAt": "2026-06-27T00:00:00.000Z",
+      "note": "Official public source, access shape, and current automation constraints reviewed."
+    }
+  ],
+  "sourceResearchOutcome": "blocked",
+  "adapterQualityLevel": 0,
+  "blocker": {
+    "code": "not_contractor_specific",
+    "summary": "The official source is too broad or not sufficiently contractor-specific for reliable canonical verification.",
+    "evidenceUrls": [
+      "https://clb.guam.gov/contractors-listing/",
+      "https://governor.guam.gov/privacy-policy/"
+    ]
+  }
 }

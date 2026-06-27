@@ -15,8 +15,15 @@
   "dataDictionaryUrl": null,
   "termsUrl": "https://www.nebraska.gov/policies/",
   "updateFrequency": "unknown; verify against the official contractor registration search before relying on freshness assumptions",
-  "tradeCoverage": ["general_contracting", "residential_contracting", "commercial_contracting", "other"],
-  "licenseTypesIncluded": ["Nebraska contractor registration records exposed by Department of Labor contractor registration search"],
+  "tradeCoverage": [
+    "general_contracting",
+    "residential_contracting",
+    "commercial_contracting",
+    "other"
+  ],
+  "licenseTypesIncluded": [
+    "Nebraska contractor registration records exposed by Department of Labor contractor registration search"
+  ],
   "knownExclusions": [
     "Nebraska contractor registration does not ensure quality of work or protect against fraud according to the official search page.",
     "This entry does not represent every trade license, local permit, business registration, or authorization in Nebraska.",
@@ -30,15 +37,35 @@
   "rateLimitNotes": "No adapter is implemented. Prefer official export options if discovered before considering lookup automation.",
   "redistributionStatus": "unknown",
   "publicRecordsNotes": "Official contractor-registration metadata only. Absence from this source is not proof that a license, registration, or local authorization does not exist elsewhere.",
-  "adapterStatus": "planned",
-  "sourceDiscoveryStatus": "researched",
-  "adapterMaturity": "registry_only",
+  "adapterStatus": "blocked",
+  "sourceDiscoveryStatus": "blocked",
+  "adapterMaturity": "blocked",
   "coverageScope": "state_agency_partial",
-  "adapterPackage": "@opentrade/adapter-ne-dol",
+  "adapterPackage": null,
   "testFixturePath": null,
   "officialLookupUrl": "https://dol.nebraska.gov/conreg/Search",
   "officialBulkDownloadNotes": "No official bulk download has been confirmed in this phase.",
   "researchNotes": "Registry-only source for Nebraska contractor registration. Future work should preserve the official caution that registration is not a quality or fraud-protection signal.",
-  "lastVerifiedAt": "2026-06-24T00:00:00.000Z",
-  "maintainerNotes": "Avoid turning Nebraska registration into a recommendation or quality assertion."
+  "lastVerifiedAt": "2026-06-27T00:00:00.000Z",
+  "maintainerNotes": "Avoid turning Nebraska registration into a recommendation or quality assertion.",
+  "schemaVersion": "1.0",
+  "researchReviewedAt": "2026-06-27T00:00:00.000Z",
+  "nextReviewAt": "2026-12-27T00:00:00.000Z",
+  "researchEvidence": [
+    {
+      "url": "https://dol.nebraska.gov/conreg/Search",
+      "checkedAt": "2026-06-27T00:00:00.000Z",
+      "note": "Official public source, access shape, and current automation constraints reviewed."
+    }
+  ],
+  "sourceResearchOutcome": "blocked",
+  "adapterQualityLevel": 0,
+  "blocker": {
+    "code": "technical_instability",
+    "summary": "No stable, documented machine-readable official interface is currently suitable for an offline-tested adapter.",
+    "evidenceUrls": [
+      "https://dol.nebraska.gov/conreg/Search",
+      "https://www.nebraska.gov/policies/"
+    ]
+  }
 }

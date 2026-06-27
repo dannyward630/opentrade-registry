@@ -1,5 +1,6 @@
 import type { SourceRegistryEntry } from "./schema/source-registry.js";
-import { getSourceResearchOutcome, isUnimplementedBulkAdapterCandidate, type SourceResearchPlanningOutcome } from "./source-readiness.js";
+import type { SourceResearchOutcome } from "./schema/source-registry.js";
+import { getSourceResearchOutcome, isUnimplementedBulkAdapterCandidate } from "./source-readiness.js";
 
 export type SourceFilterOptions = {
   state?: string;
@@ -7,7 +8,7 @@ export type SourceFilterOptions = {
   status?: SourceRegistryEntry["adapterStatus"];
   sourceType?: SourceRegistryEntry["sourceType"];
   qualityLevel?: number;
-  researchOutcome?: SourceResearchPlanningOutcome;
+  researchOutcome?: SourceResearchOutcome;
   implemented?: boolean;
   registryOnly?: boolean;
   bulkCandidates?: boolean;

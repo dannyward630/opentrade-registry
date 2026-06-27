@@ -15,8 +15,16 @@
   "dataDictionaryUrl": null,
   "termsUrl": "https://www.ri.gov/policies/",
   "updateFrequency": "unknown; verify against the CRLB search before relying on freshness assumptions",
-  "tradeCoverage": ["general_contracting", "commercial_contracting", "roofing", "underground_utility", "other"],
-  "licenseTypesIncluded": ["contractor registrations and related CRLB license categories exposed by the public search"],
+  "tradeCoverage": [
+    "general_contracting",
+    "commercial_contracting",
+    "roofing",
+    "underground_utility",
+    "other"
+  ],
+  "licenseTypesIncluded": [
+    "contractor registrations and related CRLB license categories exposed by the public search"
+  ],
   "knownExclusions": [
     "CRLB covers contractor registration and several state building office license categories; this source entry does not represent every Rhode Island trade, permit, or business authorization.",
     "Lookup, roster generation, and enforcement-action paths may have different coverage and terms that require separate review.",
@@ -30,15 +38,35 @@
   "rateLimitNotes": "No adapter is implemented. Prefer official roster/export mechanisms if confirmed before lookup automation.",
   "redistributionStatus": "unknown",
   "publicRecordsNotes": "Official lookup source metadata only. Absence from this source is not proof that a registration, license, or authorization does not exist elsewhere.",
-  "adapterStatus": "planned",
-  "sourceDiscoveryStatus": "researched",
-  "adapterMaturity": "registry_only",
+  "adapterStatus": "blocked",
+  "sourceDiscoveryStatus": "blocked",
+  "adapterMaturity": "blocked",
   "coverageScope": "state_agency_partial",
-  "adapterPackage": "@opentrade/adapter-ri-crlb",
+  "adapterPackage": null,
   "testFixturePath": null,
   "officialLookupUrl": "https://crb.ecms.ri.gov/consumer/search-registrantlicensee",
   "officialBulkDownloadNotes": "The Rhode Island lookup documentation references lookup paths and some roster generation elsewhere, but no CRLB redistribution-safe bulk path is confirmed in this phase.",
   "researchNotes": "Registry-only source for Rhode Island contractor registration and related CRLB license lookup.",
-  "lastVerifiedAt": "2026-06-22T00:00:00.000Z",
-  "maintainerNotes": "Keep CRLB registration, licensing, and enforcement-action boundaries explicit in future adapter work."
+  "lastVerifiedAt": "2026-06-27T00:00:00.000Z",
+  "maintainerNotes": "Keep CRLB registration, licensing, and enforcement-action boundaries explicit in future adapter work.",
+  "schemaVersion": "1.0",
+  "researchReviewedAt": "2026-06-27T00:00:00.000Z",
+  "nextReviewAt": "2026-12-27T00:00:00.000Z",
+  "researchEvidence": [
+    {
+      "url": "https://crb.ecms.ri.gov/consumer/search-registrantlicensee",
+      "checkedAt": "2026-06-27T00:00:00.000Z",
+      "note": "Official public source, access shape, and current automation constraints reviewed."
+    }
+  ],
+  "sourceResearchOutcome": "blocked",
+  "adapterQualityLevel": 0,
+  "blocker": {
+    "code": "technical_instability",
+    "summary": "No stable, documented machine-readable official interface is currently suitable for an offline-tested adapter.",
+    "evidenceUrls": [
+      "https://crb.ecms.ri.gov/consumer/search-registrantlicensee",
+      "https://www.ri.gov/policies/"
+    ]
+  }
 }

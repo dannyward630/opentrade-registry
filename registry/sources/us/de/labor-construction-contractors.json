@@ -15,8 +15,14 @@
   "dataDictionaryUrl": null,
   "termsUrl": "https://onestop.delaware.gov/Help_Terms",
   "updateFrequency": "unknown; verify against the public lookup before relying on freshness assumptions",
-  "tradeCoverage": ["general_contracting", "home_improvement", "other"],
-  "licenseTypesIncluded": ["construction contractor registrations exposed by the Delaware public lookup"],
+  "tradeCoverage": [
+    "general_contracting",
+    "home_improvement",
+    "other"
+  ],
+  "licenseTypesIncluded": [
+    "construction contractor registrations exposed by the Delaware public lookup"
+  ],
   "knownExclusions": [
     "The public lookup is a construction contractor registry and does not represent every Delaware professional, trade, municipal, or business license.",
     "Individual professional licenses are handled through separate Delaware professional licensing systems.",
@@ -30,15 +36,35 @@
   "rateLimitNotes": "No adapter is implemented. Do not automate lookup traffic unless official terms and technical controls are reviewed.",
   "redistributionStatus": "unknown",
   "publicRecordsNotes": "Official lookup source metadata only. Absence from this source is not proof that a license, registration, or authorization does not exist elsewhere.",
-  "adapterStatus": "planned",
-  "sourceDiscoveryStatus": "researched",
-  "adapterMaturity": "registry_only",
+  "adapterStatus": "blocked",
+  "sourceDiscoveryStatus": "blocked",
+  "adapterMaturity": "blocked",
   "coverageScope": "state_agency_partial",
-  "adapterPackage": "@opentrade/adapter-de-labor",
+  "adapterPackage": null,
   "testFixturePath": null,
   "officialLookupUrl": "https://contractorregistry.delaware.gov/",
   "officialBulkDownloadNotes": "No official bulk download has been confirmed in this phase.",
   "researchNotes": "Registry-only source for Delaware registered construction contractors. Future adapter research should preserve the public lookup disclaimer in verification output.",
-  "lastVerifiedAt": "2026-06-22T00:00:00.000Z",
-  "maintainerNotes": "Keep Delaware contractor registry scope separate from DELPROS professional-license records and Division of Revenue business licenses."
+  "lastVerifiedAt": "2026-06-27T00:00:00.000Z",
+  "maintainerNotes": "Keep Delaware contractor registry scope separate from DELPROS professional-license records and Division of Revenue business licenses.",
+  "schemaVersion": "1.0",
+  "researchReviewedAt": "2026-06-27T00:00:00.000Z",
+  "nextReviewAt": "2026-12-27T00:00:00.000Z",
+  "researchEvidence": [
+    {
+      "url": "https://contractorregistry.delaware.gov/",
+      "checkedAt": "2026-06-27T00:00:00.000Z",
+      "note": "Official public source, access shape, and current automation constraints reviewed."
+    }
+  ],
+  "sourceResearchOutcome": "blocked",
+  "adapterQualityLevel": 0,
+  "blocker": {
+    "code": "not_contractor_specific",
+    "summary": "The official source is too broad or not sufficiently contractor-specific for reliable canonical verification.",
+    "evidenceUrls": [
+      "https://contractorregistry.delaware.gov/",
+      "https://onestop.delaware.gov/Help_Terms"
+    ]
+  }
 }

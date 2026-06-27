@@ -37,7 +37,7 @@ export const IL_IDFPR_SOURCE_ENTRY: SourceRegistryEntry = {
   publicRecordsNotes: "Official lookup metadata only. Absence from this source is not proof that a license, local authorization, or other credential does not exist elsewhere.",
   adapterStatus: "implemented",
   sourceDiscoveryStatus: "researched",
-  adapterMaturity: "fixture_adapter",
+  adapterMaturity: "local_file_adapter",
   adapterQualityLevel: 4,
   coverageScope: "state_agency_partial",
   adapterPackage: "@opentrade/adapter-il-idfpr",
@@ -52,6 +52,17 @@ export const IL_IDFPR_SOURCE_ENTRY: SourceRegistryEntry = {
     "No matching record means no match in this source at the checked time, not proof that a license, local authorization, or other credential does not exist elsewhere.",
   ],
   verificationNotes: "Fixture verification supports matched, not-found, ambiguous duplicate, and invalid-input outcomes while preserving Illinois IDFPR roofing source caveats.",
-  lastVerifiedAt: "2026-06-26T00:00:00.000Z",
+  lastVerifiedAt: "2026-06-27T00:00:00.000Z",
+  schemaVersion: "1.0",
+  sourceResearchOutcome: "local_file_adapter",
+  researchReviewedAt: "2026-06-27T00:00:00.000Z",
+  nextReviewAt: "2026-12-27T00:00:00.000Z",
+  researchEvidence: [
+    {
+      "url": "https://online-dfpr.micropact.com/Lookup/LicenseLookup.aspx",
+      "checkedAt": "2026-06-27T00:00:00.000Z",
+      "note": "Official source documentation and supported local-file shape reviewed."
+    }
+  ],
   maintainerNotes: "Keep IDFPR roofing scope explicit. Do not automate lookup or bulk lookup paths until access controls, terms, and field shape have been reviewed.",
 };

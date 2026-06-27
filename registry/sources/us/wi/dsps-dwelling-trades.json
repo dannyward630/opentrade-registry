@@ -15,8 +15,17 @@
   "dataDictionaryUrl": null,
   "termsUrl": "https://wisconsin.gov/Pages/policies.aspx",
   "updateFrequency": "unknown; verify against the official LicensE lookup before relying on freshness assumptions",
-  "tradeCoverage": ["residential_contracting", "home_improvement", "electrical", "hvac", "plumbing", "other"],
-  "licenseTypesIncluded": ["Wisconsin DSPS business, trades, manufactured homes, and related credentials exposed by LicensE lookup"],
+  "tradeCoverage": [
+    "residential_contracting",
+    "home_improvement",
+    "electrical",
+    "hvac",
+    "plumbing",
+    "other"
+  ],
+  "licenseTypesIncluded": [
+    "Wisconsin DSPS business, trades, manufactured homes, and related credentials exposed by LicensE lookup"
+  ],
   "knownExclusions": [
     "This source entry is broad DSPS lookup metadata and does not yet isolate every construction-relevant credential type.",
     "Local permits, municipal registrations, and non-DSPS authorizations are outside this source entry."
@@ -29,15 +38,35 @@
   "rateLimitNotes": "No adapter is implemented. Do not bypass portal controls; prefer official bulk options if discovered.",
   "redistributionStatus": "unknown",
   "publicRecordsNotes": "Official lookup source metadata only. Absence from this source is not proof that a license or credential does not exist elsewhere.",
-  "adapterStatus": "planned",
-  "sourceDiscoveryStatus": "researched",
-  "adapterMaturity": "registry_only",
+  "adapterStatus": "blocked",
+  "sourceDiscoveryStatus": "blocked",
+  "adapterMaturity": "blocked",
   "coverageScope": "state_agency_partial",
-  "adapterPackage": "@opentrade/adapter-wi-dsps",
+  "adapterPackage": null,
   "testFixturePath": null,
   "officialLookupUrl": "https://license.wi.gov/s/license-lookup",
   "officialBulkDownloadNotes": "No official bulk download has been confirmed in this phase.",
   "researchNotes": "Registry-only source for Wisconsin DSPS LicensE credential lookup. Future work should narrow relevant credential types before fixture or adapter work.",
-  "lastVerifiedAt": "2026-06-21T00:00:00.000Z",
-  "maintainerNotes": "Keep broad DSPS lookup scope visible until construction-specific credential filtering is researched."
+  "lastVerifiedAt": "2026-06-27T00:00:00.000Z",
+  "maintainerNotes": "Keep broad DSPS lookup scope visible until construction-specific credential filtering is researched.",
+  "schemaVersion": "1.0",
+  "researchReviewedAt": "2026-06-27T00:00:00.000Z",
+  "nextReviewAt": "2026-12-27T00:00:00.000Z",
+  "researchEvidence": [
+    {
+      "url": "https://license.wi.gov/s/license-lookup",
+      "checkedAt": "2026-06-27T00:00:00.000Z",
+      "note": "Official public source, access shape, and current automation constraints reviewed."
+    }
+  ],
+  "sourceResearchOutcome": "blocked",
+  "adapterQualityLevel": 0,
+  "blocker": {
+    "code": "access_controls",
+    "summary": "The official path requires or may require protected interactive access; OpenTrade Registry will not bypass technical controls.",
+    "evidenceUrls": [
+      "https://license.wi.gov/s/license-lookup",
+      "https://wisconsin.gov/Pages/policies.aspx"
+    ]
+  }
 }

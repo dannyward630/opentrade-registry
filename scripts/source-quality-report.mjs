@@ -21,13 +21,11 @@ const REQUIRED_METADATA_FIELDS = [
   "maintainerNotes",
 ];
 const SOURCE_RESEARCH_OUTCOMES = [
-  "implemented_adapter",
-  "adapter_candidate",
-  "needs_manual_research",
-  "blocked_by_terms",
-  "blocked_by_access_controls",
-  "blocked_by_no_stable_source",
-  "not_contractor_specific",
+  "production_ready",
+  "network_opt_in",
+  "local_file_adapter",
+  "blocked",
+  "deprecated",
 ];
 const missingRequiredMetadataByField = Object.fromEntries(
   REQUIRED_METADATA_FIELDS.map((field) => [field, sources.filter((source) => isEmptyMetadataValue(source[field])).map(toSourceSummary)]),
@@ -35,6 +33,8 @@ const missingRequiredMetadataByField = Object.fromEntries(
 
 const report = {
   sourceCount: sources.length,
+  terminalSourceCount: sources.filter((source) => SOURCE_RESEARCH_OUTCOMES.includes(source.sourceResearchOutcome)).length,
+  blockedSourceCount: sources.filter((source) => source.sourceResearchOutcome === "blocked").length,
   allSources: sources.map(toSourceSummary),
   stateCount: coverage.states.length,
   researchedStateCount: coverage.states.filter((state) => state.sourceIds.length > 0).length,
@@ -45,7 +45,9 @@ const report = {
   sourcesByType: countBy(sources, (source) => source.sourceType),
   sourcesByMaturity: countBy(sources, (source) => source.adapterMaturity),
   sourcesByAdapterQualityLevel: countBy(sources, (source) => String(source.adapterQualityLevel ?? 0)),
-  sourcesByResearchOutcome: countBy(sources, getSourceResearchOutcome),
+  sourcesByResearchOutcome: Object.fromEntries(
+    SOURCE_RESEARCH_OUTCOMES.map((outcome) => [outcome, sources.filter((source) => getSourceResearchOutcome(source) === outcome).length]),
+  ),
   metadataCompleteness: {
     requiredFields: REQUIRED_METADATA_FIELDS,
     missingRequiredMetadataByField,
@@ -160,88 +162,35 @@ function isBulkShapedCandidate(source) {
 }
 
 function isUnimplementedBulkAdapterCandidate(source) {
-  return ["planned", "experimental"].includes(source.adapterStatus) && !["blocked", "deprecated"].includes(source.adapterMaturity) && isBulkShapedCandidate(source);
+  return false;
 }
 
 function isDownloadResearchCandidate(source) {
-  if (!["planned", "experimental"].includes(source.adapterStatus) || source.adapterMaturity !== "registry_only") {
-    return false;
-  }
-
-  const notes = [source.officialBulkDownloadNotes, source.researchNotes, source.maintainerNotes]
-    .filter((value) => typeof value === "string")
-    .join(" ");
-
-  return /\b(publishes posting-list|links? to .*roster|says .*download\w*|downloaded at no cost|downloaded as|roster generation|download pages|may publish .*reports?|links current lists)\b/i.test(
-    notes,
-  );
+  return false;
 }
 
 function hasLookupAutomationConstraint(source) {
-  return (
-    ["planned", "experimental"].includes(source.adapterStatus) &&
-    (source.sourceType === "html_lookup" || source.sourceType === "playwright_portal") &&
-    (source.requiresJavaScript === true || source.requiresCaptcha === true || source.requiresAccount === true)
-  );
+  return source.sourceResearchOutcome === "blocked" && source.blocker?.code === "access_controls";
 }
 
 function getSourceResearchOutcome(source) {
-  if (source.adapterStatus === "implemented") {
-    return "implemented_adapter";
-  }
-
-  if (isDownloadResearchCandidate(source) || isUnimplementedBulkAdapterCandidate(source)) {
-    return "adapter_candidate";
-  }
-
-  if (source.requiresCaptcha === true || source.requiresAccount === true) {
-    return "blocked_by_access_controls";
-  }
-
-  if (!source.officialLookupUrl || source.hasLiveLookup === false) {
-    return "blocked_by_no_stable_source";
-  }
-
-  if (isBroadNonContractorSpecificSource(source)) {
-    return "not_contractor_specific";
-  }
-
-  if (!source.termsUrl) {
-    return "blocked_by_terms";
-  }
-
-  return "needs_manual_research";
+  return source.sourceResearchOutcome ?? "missing";
 }
 
 function getSourceResearchNextAction(source) {
   switch (getSourceResearchOutcome(source)) {
-    case "implemented_adapter":
-      return "Maintain adapter tests, caveats, and optional live-source research before maturity promotion.";
-    case "adapter_candidate":
-      return "Review official terms, field shape, fixture safety, filters, and verification caveats before adapter work.";
-    case "blocked_by_access_controls":
-      return "Do not automate protected lookup paths; prefer official exports or document the access blocker.";
-    case "blocked_by_no_stable_source":
-      return "Find a stable official lookup, file, API, or document why adapter work is blocked.";
-    case "blocked_by_terms":
-      return "Locate official terms or document why redistribution/automation remains blocked.";
-    case "not_contractor_specific":
-      return "Narrow the source to contractor or skilled-trade records before adapter work.";
-    case "needs_manual_research":
-      return "Perform source-specific terms, field-shape, fixture, and caveat research.";
+    case "production_ready":
+      return "Maintain the production adapter, source canary, caveats, and scheduled evidence review.";
+    case "network_opt_in":
+      return "Maintain explicit network consent, remote provenance, offline tests, and scheduled evidence review.";
+    case "local_file_adapter":
+      return "Maintain official local-file compatibility, fixtures, caveats, and scheduled evidence review.";
+    case "blocked":
+    case "deprecated":
+      return source.blocker?.summary ?? "Review the documented source decision on schedule.";
+    default:
+      return "";
   }
-}
-
-function isBroadNonContractorSpecificSource(source) {
-  const text = [source.id, source.name, source.researchNotes, source.maintainerNotes, ...(source.knownExclusions ?? [])].join(" ").toLowerCase();
-  return (
-    text.includes("business license") ||
-    text.includes("many license") ||
-    text.includes("many profession") ||
-    text.includes("professional license") ||
-    text.includes("construction-adjacent") ||
-    text.includes("not isolate every construction")
-  );
 }
 
 function isEmptyMetadataValue(value) {

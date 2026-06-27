@@ -15,8 +15,13 @@
   "dataDictionaryUrl": null,
   "termsUrl": "https://www.dpor.virginia.gov/LicenseLookup",
   "updateFrequency": "unknown; verify against the official lookup and disclaimer before relying on freshness assumptions",
-  "tradeCoverage": ["contractors", "tradesmen"],
-  "licenseTypesIncluded": ["DPOR contractor and trades records exposed by the public lookup"],
+  "tradeCoverage": [
+    "contractors",
+    "tradesmen"
+  ],
+  "licenseTypesIncluded": [
+    "DPOR contractor and trades records exposed by the public lookup"
+  ],
   "knownExclusions": [
     "The lookup is not modeled as a confirmed bulk public dataset.",
     "DPOR scope does not represent every local permit, business registration, or non-DPOR construction authorization in Virginia."
@@ -29,15 +34,34 @@
   "rateLimitNotes": "No adapter is implemented. Any future automated access must account for the official lookup disclaimer and technical controls.",
   "redistributionStatus": "unknown",
   "publicRecordsNotes": "Official lookup source metadata only. The DPOR lookup includes its own legal disclaimer; absence from this source is not proof that a license does not exist elsewhere.",
-  "adapterStatus": "planned",
-  "sourceDiscoveryStatus": "researched",
-  "adapterMaturity": "registry_only",
+  "adapterStatus": "blocked",
+  "sourceDiscoveryStatus": "blocked",
+  "adapterMaturity": "blocked",
   "coverageScope": "state_agency_partial",
-  "adapterPackage": "@opentrade/adapter-va-dpor",
+  "adapterPackage": null,
   "testFixturePath": null,
   "officialLookupUrl": "https://www.dpor.virginia.gov/LicenseLookup",
   "officialBulkDownloadNotes": "No official bulk download has been confirmed in this phase.",
   "researchNotes": "Registry-only source for now because the official path is lookup-oriented and has source-specific legal/disclaimer language.",
-  "lastVerifiedAt": "2026-06-21T00:00:00.000Z",
-  "maintainerNotes": "Future adapter work should preserve DPOR disclaimer wording and avoid treating lookup data as a complete public-records export."
+  "lastVerifiedAt": "2026-06-27T00:00:00.000Z",
+  "maintainerNotes": "Future adapter work should preserve DPOR disclaimer wording and avoid treating lookup data as a complete public-records export.",
+  "schemaVersion": "1.0",
+  "researchReviewedAt": "2026-06-27T00:00:00.000Z",
+  "nextReviewAt": "2026-12-27T00:00:00.000Z",
+  "researchEvidence": [
+    {
+      "url": "https://www.dpor.virginia.gov/LicenseLookup",
+      "checkedAt": "2026-06-27T00:00:00.000Z",
+      "note": "Official public source, access shape, and current automation constraints reviewed."
+    }
+  ],
+  "sourceResearchOutcome": "blocked",
+  "adapterQualityLevel": 0,
+  "blocker": {
+    "code": "technical_instability",
+    "summary": "No stable, documented machine-readable official interface is currently suitable for an offline-tested adapter.",
+    "evidenceUrls": [
+      "https://www.dpor.virginia.gov/LicenseLookup"
+    ]
+  }
 }

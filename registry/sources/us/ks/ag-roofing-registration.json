@@ -15,8 +15,12 @@
   "dataDictionaryUrl": null,
   "termsUrl": "https://www.ag.ks.gov/terms-of-use",
   "updateFrequency": "unknown; verify against the official directory before relying on freshness assumptions",
-  "tradeCoverage": ["roofing"],
-  "licenseTypesIncluded": ["Kansas roofing registration records exposed by the Attorney General roofing registration directory"],
+  "tradeCoverage": [
+    "roofing"
+  ],
+  "licenseTypesIncluded": [
+    "Kansas roofing registration records exposed by the Attorney General roofing registration directory"
+  ],
   "knownExclusions": [
     "Kansas does not have a single statewide general contractor source represented by this entry.",
     "The directory is scoped to roofing registration and exempt registrants under Kansas roofing-registration law.",
@@ -30,15 +34,35 @@
   "rateLimitNotes": "No adapter is implemented. Do not automate the lookup unless access controls, terms, and technical behavior are reviewed.",
   "redistributionStatus": "unknown",
   "publicRecordsNotes": "Official roofing registration metadata only. Registration status is not an endorsement, and absence from this source is not proof that a local authorization or non-roofing credential does not exist elsewhere.",
-  "adapterStatus": "planned",
-  "sourceDiscoveryStatus": "researched",
-  "adapterMaturity": "registry_only",
+  "adapterStatus": "blocked",
+  "sourceDiscoveryStatus": "blocked",
+  "adapterMaturity": "blocked",
   "coverageScope": "state_agency_partial",
-  "adapterPackage": "@opentrade/adapter-ks-ag",
+  "adapterPackage": null,
   "testFixturePath": null,
   "officialLookupUrl": "https://www.ag.ks.gov/divisions/public-protection/resources/roofing-registration-directory",
   "officialBulkDownloadNotes": "No official bulk download has been confirmed in this phase.",
   "researchNotes": "Registry-only source for Kansas roofing registration. Future work should model the Attorney General's status descriptions conservatively.",
-  "lastVerifiedAt": "2026-06-24T00:00:00.000Z",
-  "maintainerNotes": "Keep the distinction between registration, exemption, and broader contractor licensing visible in docs and adapter work."
+  "lastVerifiedAt": "2026-06-27T00:00:00.000Z",
+  "maintainerNotes": "Keep the distinction between registration, exemption, and broader contractor licensing visible in docs and adapter work.",
+  "schemaVersion": "1.0",
+  "researchReviewedAt": "2026-06-27T00:00:00.000Z",
+  "nextReviewAt": "2026-12-27T00:00:00.000Z",
+  "researchEvidence": [
+    {
+      "url": "https://www.ag.ks.gov/divisions/public-protection/resources/roofing-registration-directory",
+      "checkedAt": "2026-06-27T00:00:00.000Z",
+      "note": "Official public source, access shape, and current automation constraints reviewed."
+    }
+  ],
+  "sourceResearchOutcome": "blocked",
+  "adapterQualityLevel": 0,
+  "blocker": {
+    "code": "access_controls",
+    "summary": "The official path requires or may require protected interactive access; OpenTrade Registry will not bypass technical controls.",
+    "evidenceUrls": [
+      "https://www.ag.ks.gov/divisions/public-protection/resources/roofing-registration-directory",
+      "https://www.ag.ks.gov/terms-of-use"
+    ]
+  }
 }

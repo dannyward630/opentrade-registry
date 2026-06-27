@@ -15,8 +15,14 @@
   "dataDictionaryUrl": null,
   "termsUrl": "https://dora.colorado.gov/general-notices",
   "updateFrequency": "unknown; verify against the official DORA/DPO lookup before relying on freshness assumptions",
-  "tradeCoverage": ["electrical", "plumbing", "other"],
-  "licenseTypesIncluded": ["Colorado DPO electrical, plumbing, and related professional license records exposed by official lookup paths"],
+  "tradeCoverage": [
+    "electrical",
+    "plumbing",
+    "other"
+  ],
+  "licenseTypesIncluded": [
+    "Colorado DPO electrical, plumbing, and related professional license records exposed by official lookup paths"
+  ],
   "knownExclusions": [
     "Colorado does not have a single statewide general contractor source represented by this entry.",
     "Local contractor licenses, local permits, and non-DORA authorizations are outside this source entry.",
@@ -30,15 +36,35 @@
   "rateLimitNotes": "No adapter is implemented. The official DORA pages should be used for manual source research until access rules and export options are clearer.",
   "redistributionStatus": "unknown",
   "publicRecordsNotes": "Official lookup source metadata only. Absence from this source is not proof that a license or credential does not exist elsewhere.",
-  "adapterStatus": "planned",
-  "sourceDiscoveryStatus": "researched",
-  "adapterMaturity": "registry_only",
+  "adapterStatus": "blocked",
+  "sourceDiscoveryStatus": "blocked",
+  "adapterMaturity": "blocked",
   "coverageScope": "state_agency_partial",
-  "adapterPackage": "@opentrade/adapter-co-dora",
+  "adapterPackage": null,
   "testFixturePath": null,
   "officialLookupUrl": "https://apps.colorado.gov/dora/licensing/Lookup/LicenseLookup.aspx",
   "officialBulkDownloadNotes": "DORA references license lookup paths, but no construction-specific official bulk download has been confirmed in this phase.",
   "researchNotes": "Registry-only source for Colorado DORA trade-license lookup. Future work should decide whether electrical, plumbing, and other DPO programs need separate entries.",
-  "lastVerifiedAt": "2026-06-21T00:00:00.000Z",
-  "maintainerNotes": "Do not describe this as statewide contractor coverage; it is DORA/DPO trade-license metadata."
+  "lastVerifiedAt": "2026-06-27T00:00:00.000Z",
+  "maintainerNotes": "Do not describe this as statewide contractor coverage; it is DORA/DPO trade-license metadata.",
+  "schemaVersion": "1.0",
+  "researchReviewedAt": "2026-06-27T00:00:00.000Z",
+  "nextReviewAt": "2026-12-27T00:00:00.000Z",
+  "researchEvidence": [
+    {
+      "url": "https://apps.colorado.gov/dora/licensing/Lookup/LicenseLookup.aspx",
+      "checkedAt": "2026-06-27T00:00:00.000Z",
+      "note": "Official public source, access shape, and current automation constraints reviewed."
+    }
+  ],
+  "sourceResearchOutcome": "blocked",
+  "adapterQualityLevel": 0,
+  "blocker": {
+    "code": "technical_instability",
+    "summary": "No stable, documented machine-readable official interface is currently suitable for an offline-tested adapter.",
+    "evidenceUrls": [
+      "https://apps.colorado.gov/dora/licensing/Lookup/LicenseLookup.aspx",
+      "https://dora.colorado.gov/general-notices"
+    ]
+  }
 }

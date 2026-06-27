@@ -16,8 +16,15 @@
   "termsUrl": null,
   "termsReviewNotes": "No dedicated access, reuse, or website terms page was found in the official Department of Commerce business-license page or its public navigation during the 2026-06-27 review. Keep redistribution and automation status unknown and request agency guidance before reuse.",
   "updateFrequency": "unknown; verify with the American Samoa Department of Commerce before relying on freshness assumptions",
-  "tradeCoverage": ["general_contracting", "commercial_contracting", "other", "unknown"],
-  "licenseTypesIncluded": ["American Samoa business licenses that may include construction or contractor activity categories"],
+  "tradeCoverage": [
+    "general_contracting",
+    "commercial_contracting",
+    "other",
+    "unknown"
+  ],
+  "licenseTypesIncluded": [
+    "American Samoa business licenses that may include construction or contractor activity categories"
+  ],
   "knownExclusions": [
     "This is not confirmed as a contractor-specific public lookup source.",
     "License categories, public search availability, and construction-specific fields require follow-up research.",
@@ -31,16 +38,35 @@
   "rateLimitNotes": "No adapter is implemented. Future work should confirm whether a public lookup, report, or public-records request path exists before automating access.",
   "redistributionStatus": "unknown",
   "publicRecordsNotes": "Official business-licensing source metadata only. Absence from this source is not proof that a contractor license, business license, permit, or authorization does not exist elsewhere.",
-  "adapterStatus": "planned",
-  "sourceDiscoveryStatus": "researched",
-  "adapterMaturity": "registry_only",
+  "adapterStatus": "blocked",
+  "sourceDiscoveryStatus": "blocked",
+  "adapterMaturity": "blocked",
   "coverageScope": "state_agency_partial",
-  "adapterPackage": "@opentrade/adapter-as-doc",
+  "adapterPackage": null,
   "testFixturePath": null,
   "officialLookupUrl": null,
   "officialLookupReviewNotes": "The official business-license page describes application requirements but did not expose a stable public contractor-specific license lookup during the 2026-06-27 review.",
   "officialBulkDownloadNotes": "No official bulk download has been confirmed in this phase.",
   "researchNotes": "Registry-only source for American Samoa business licensing. Future work should determine whether construction businesses have a public-records export or a contractor-specific licensing board source.",
   "lastVerifiedAt": "2026-06-27T00:00:00.000Z",
-  "maintainerNotes": "Keep this entry framed as territory business-licensing metadata, not as a verified contractor-license lookup."
+  "maintainerNotes": "Keep this entry framed as territory business-licensing metadata, not as a verified contractor-license lookup.",
+  "schemaVersion": "1.0",
+  "researchReviewedAt": "2026-06-27T00:00:00.000Z",
+  "nextReviewAt": "2026-12-27T00:00:00.000Z",
+  "researchEvidence": [
+    {
+      "url": "https://www.doc.as.gov/applyforbusinesslicense",
+      "checkedAt": "2026-06-27T00:00:00.000Z",
+      "note": "Official public source, access shape, and current automation constraints reviewed."
+    }
+  ],
+  "sourceResearchOutcome": "blocked",
+  "adapterQualityLevel": 0,
+  "blocker": {
+    "code": "no_stable_source",
+    "summary": "No stable contractor-specific official file, API, or lookup interface suitable for an adapter was confirmed.",
+    "evidenceUrls": [
+      "https://www.doc.as.gov/applyforbusinesslicense"
+    ]
+  }
 }

@@ -15,8 +15,15 @@
   "dataDictionaryUrl": null,
   "termsUrl": "https://portal.arkansas.gov/policies/",
   "updateFrequency": "unknown; verify against the official contractor search before relying on freshness assumptions",
-  "tradeCoverage": ["general_contracting", "residential_contracting", "commercial_contracting", "other"],
-  "licenseTypesIncluded": ["Arkansas contractor license and registration records exposed by the official board search"],
+  "tradeCoverage": [
+    "general_contracting",
+    "residential_contracting",
+    "commercial_contracting",
+    "other"
+  ],
+  "licenseTypesIncluded": [
+    "Arkansas contractor license and registration records exposed by the official board search"
+  ],
   "knownExclusions": [
     "This source is scoped to the Arkansas Contractors Licensing Board and does not represent every local permit, business registration, or trade credential in Arkansas.",
     "Source-specific license classifications and inactive or historical coverage need further review before adapter work."
@@ -29,15 +36,35 @@
   "rateLimitNotes": "No adapter is implemented. Prefer official bulk options if discovered before considering lookup automation.",
   "redistributionStatus": "unknown",
   "publicRecordsNotes": "Official lookup source metadata only. Absence from this source is not proof that a license or registration does not exist elsewhere.",
-  "adapterStatus": "planned",
-  "sourceDiscoveryStatus": "researched",
-  "adapterMaturity": "registry_only",
+  "adapterStatus": "blocked",
+  "sourceDiscoveryStatus": "blocked",
+  "adapterMaturity": "blocked",
   "coverageScope": "state_agency_partial",
-  "adapterPackage": "@opentrade/adapter-ar-aclb",
+  "adapterPackage": null,
   "testFixturePath": null,
   "officialLookupUrl": "https://labor.arkansas.gov/licensing/arkansas-contractors-licensing-board/find-a-licensed-contractor/",
   "officialBulkDownloadNotes": "No official bulk download has been confirmed in this phase.",
   "researchNotes": "Registry-only source for Arkansas contractor licensing lookup. Future work should research search result fields, license classes, and whether any official export is available.",
-  "lastVerifiedAt": "2026-06-21T00:00:00.000Z",
-  "maintainerNotes": "Keep board scope explicit and do not imply all Arkansas skilled-trade or local contractor authorizations are covered."
+  "lastVerifiedAt": "2026-06-27T00:00:00.000Z",
+  "maintainerNotes": "Keep board scope explicit and do not imply all Arkansas skilled-trade or local contractor authorizations are covered.",
+  "schemaVersion": "1.0",
+  "researchReviewedAt": "2026-06-27T00:00:00.000Z",
+  "nextReviewAt": "2026-12-27T00:00:00.000Z",
+  "researchEvidence": [
+    {
+      "url": "https://labor.arkansas.gov/licensing/arkansas-contractors-licensing-board/find-a-licensed-contractor/",
+      "checkedAt": "2026-06-27T00:00:00.000Z",
+      "note": "Official public source, access shape, and current automation constraints reviewed."
+    }
+  ],
+  "sourceResearchOutcome": "blocked",
+  "adapterQualityLevel": 0,
+  "blocker": {
+    "code": "technical_instability",
+    "summary": "No stable, documented machine-readable official interface is currently suitable for an offline-tested adapter.",
+    "evidenceUrls": [
+      "https://labor.arkansas.gov/licensing/arkansas-contractors-licensing-board/find-a-licensed-contractor/",
+      "https://portal.arkansas.gov/policies/"
+    ]
+  }
 }

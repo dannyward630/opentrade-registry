@@ -1,4 +1,6 @@
 import { describe, expect, it } from "vitest";
+import { readFile, readdir } from "node:fs/promises";
+import { join } from "node:path";
 import {
   OPENTRADE_API_VERSION,
   OPENTRADE_CANONICAL_SCHEMA_VERSION,
@@ -143,4 +145,29 @@ describe("v1 public contracts", () => {
 
     expect(result.success).toBe(false);
   });
+
+  it("requires every tracked source to have a terminal v1 completion decision", async () => {
+    const files = await listJsonFiles(join(process.cwd(), "registry", "sources"));
+    const entries = await Promise.all(
+      files.map(async (file) => sourceRegistryEntryV1Schema.parse(JSON.parse(await readFile(file, "utf8")))),
+    );
+
+    expect(entries).toHaveLength(56);
+    expect(entries.every((entry) => ["production_ready", "network_opt_in", "local_file_adapter", "blocked", "deprecated"].includes(entry.sourceResearchOutcome))).toBe(true);
+    expect(entries.some((entry) => entry.adapterMaturity === "fixture_adapter" || entry.adapterMaturity === "registry_only")).toBe(false);
+  });
 });
+
+async function listJsonFiles(directory: string): Promise<string[]> {
+  const entries = await readdir(directory, { withFileTypes: true });
+  const files: string[] = [];
+  for (const entry of entries) {
+    const path = join(directory, entry.name);
+    if (entry.isDirectory()) {
+      files.push(...(await listJsonFiles(path)));
+    } else if (entry.isFile() && entry.name.endsWith(".json")) {
+      files.push(path);
+    }
+  }
+  return files.sort();
+}

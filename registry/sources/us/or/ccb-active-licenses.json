@@ -15,8 +15,12 @@
   "dataDictionaryUrl": "https://data.oregon.gov/api/views/g77e-6bhs/columns.json",
   "termsUrl": "https://data.oregon.gov/stories/s/9w6a-76m7",
   "updateFrequency": "unknown; verify current Oregon Open Data portal metadata before relying on freshness assumptions",
-  "tradeCoverage": ["construction"],
-  "licenseTypesIncluded": ["active Oregon CCB licenses"],
+  "tradeCoverage": [
+    "construction"
+  ],
+  "licenseTypesIncluded": [
+    "active Oregon CCB licenses"
+  ],
   "knownExclusions": [
     "The source name indicates active licenses; inactive, expired, suspended, historical, local, or other agency records may be excluded.",
     "Electrical, plumbing, landscape, asbestos, and other specialized records can be regulated by separate Oregon agencies."
@@ -31,7 +35,7 @@
   "publicRecordsNotes": "Official open-data source metadata. Absence from this active-license source is not proof that a license does not exist elsewhere.",
   "adapterStatus": "implemented",
   "sourceDiscoveryStatus": "researched",
-  "adapterMaturity": "fixture_adapter",
+  "adapterMaturity": "network_opt_in",
   "adapterQualityLevel": 4,
   "coverageScope": "state_agency_partial",
   "adapterPackage": "@opentrade/adapter-or-ccb",
@@ -46,6 +50,17 @@
     "Status normalization uses expiration and source fields preserved in the raw record and should not be treated as a full official standing report."
   ],
   "verificationNotes": "Fixture verification uses neutral result states and keeps active-source caveats visible in normalized records.",
-  "lastVerifiedAt": "2026-06-21T00:00:00.000Z",
-  "maintainerNotes": "Do not present this source as complete statewide contractor licensing coverage."
+  "lastVerifiedAt": "2026-06-27T00:00:00.000Z",
+  "maintainerNotes": "Do not present this source as complete statewide contractor licensing coverage.",
+  "schemaVersion": "1.0",
+  "researchReviewedAt": "2026-06-27T00:00:00.000Z",
+  "nextReviewAt": "2026-12-27T00:00:00.000Z",
+  "researchEvidence": [
+    {
+      "url": "https://search.ccb.state.or.us/search/",
+      "checkedAt": "2026-06-27T00:00:00.000Z",
+      "note": "Official bulk source and opt-in network path reviewed."
+    }
+  ],
+  "sourceResearchOutcome": "network_opt_in"
 }

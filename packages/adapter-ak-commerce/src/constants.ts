@@ -38,7 +38,7 @@ export const AK_COMMERCE_SOURCE_ENTRY: SourceRegistryEntry = {
   publicRecordsNotes: "Official lookup and download metadata only. Absence from this source is not proof that a license, endorsement, registration, or local authorization does not exist elsewhere.",
   adapterStatus: "implemented",
   sourceDiscoveryStatus: "researched",
-  adapterMaturity: "fixture_adapter",
+  adapterMaturity: "local_file_adapter",
   adapterQualityLevel: 4,
   coverageScope: "state_agency_partial",
   adapterPackage: "@opentrade/adapter-ak-commerce",
@@ -53,6 +53,17 @@ export const AK_COMMERCE_SOURCE_ENTRY: SourceRegistryEntry = {
     "No matching record means no match in this source at the checked time, not proof that a license, endorsement, registration, or local authorization does not exist elsewhere.",
   ],
   verificationNotes: "Fixture verification supports matched, not-found, ambiguous duplicate, and invalid-input outcomes while preserving Alaska CBPL source caveats.",
-  lastVerifiedAt: "2026-06-26T00:00:00.000Z",
+  lastVerifiedAt: "2026-06-27T00:00:00.000Z",
+  schemaVersion: "1.0",
+  sourceResearchOutcome: "local_file_adapter",
+  researchReviewedAt: "2026-06-27T00:00:00.000Z",
+  nextReviewAt: "2026-12-27T00:00:00.000Z",
+  researchEvidence: [
+    {
+      "url": "https://www.commerce.alaska.gov/cbp/main/Search/Professional",
+      "checkedAt": "2026-06-27T00:00:00.000Z",
+      "note": "Official source documentation and supported local-file shape reviewed."
+    }
+  ],
   maintainerNotes: "Keep contractor program scope separate from Alaska business-license and corporation records. Do not automate protected endpoints.",
 };

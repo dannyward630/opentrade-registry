@@ -78,21 +78,22 @@ describe("public package imports", () => {
     expect(sourceDiscoveryStatusSchema.parse("researched")).toBe("researched");
     expect(buildSourceReadiness([])).toEqual({
       sourceCount: 0,
+      terminalSourceCount: 0,
+      blockedSourceCount: 0,
       implementedAdapterSources: [],
+      blockedSources: [],
       unimplementedBulkAdapterCandidates: [],
       downloadResearchCandidates: [],
       lookupAutomationConstraintSources: [],
       sourcesByResearchOutcome: {
-        adapter_candidate: 0,
-        blocked_by_access_controls: 0,
-        blocked_by_no_stable_source: 0,
-        blocked_by_terms: 0,
-        implemented_adapter: 0,
-        needs_manual_research: 0,
-        not_contractor_specific: 0,
+        blocked: 0,
+        deprecated: 0,
+        local_file_adapter: 0,
+        network_opt_in: 0,
+        production_ready: 0,
       },
       registryOnlySourceCount: 0,
-      note: expect.stringContaining("planning signal only"),
+      note: expect.stringContaining("terminal"),
     });
     expect(typeof isUnimplementedBulkAdapterCandidate).toBe("function");
     expect(typeof getSourceResearchOutcome).toBe("function");

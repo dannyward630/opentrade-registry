@@ -13,10 +13,50 @@
     "deprecated"
   ],
   "territories": [
-    { "territory": "AS", "name": "American Samoa", "status": "registry_entry_added", "sourceIds": ["us.as.doc.business_licenses"], "notes": "American Samoa Department of Commerce business licensing source metadata exists; no contractor-specific adapter is implemented." },
-    { "territory": "GU", "name": "Guam", "status": "registry_entry_added", "sourceIds": ["us.gu.clb.contractors"], "notes": "Guam Contractors Licensing Board contractors listing source metadata exists; no adapter is implemented." },
-    { "territory": "MP", "name": "Northern Mariana Islands", "status": "registry_entry_added", "sourceIds": ["us.mp.bpl.professional_licenses"], "notes": "CNMI construction-adjacent professional licensing source metadata exists; contractor-specific source research is still needed." },
-    { "territory": "PR", "name": "Puerto Rico", "status": "registry_entry_added", "sourceIds": ["us.pr.daco.contractors"], "notes": "Puerto Rico DACO registered contractors list source metadata exists; no adapter is implemented." },
-    { "territory": "VI", "name": "U.S. Virgin Islands", "status": "registry_entry_added", "sourceIds": ["us.vi.dlca.contractors_trades"], "notes": "U.S. Virgin Islands DLCA construction contractors and trades license search source metadata exists; no adapter is implemented." }
+    {
+      "territory": "AS",
+      "name": "American Samoa",
+      "status": "blocked",
+      "sourceIds": [
+        "us.as.doc.business_licenses"
+      ],
+      "notes": "Official source metadata is retained, but automated ingestion is blocked by documented legal, access, scope, or technical constraints."
+    },
+    {
+      "territory": "GU",
+      "name": "Guam",
+      "status": "blocked",
+      "sourceIds": [
+        "us.gu.clb.contractors"
+      ],
+      "notes": "Official source metadata is retained, but automated ingestion is blocked by documented legal, access, scope, or technical constraints."
+    },
+    {
+      "territory": "MP",
+      "name": "Northern Mariana Islands",
+      "status": "blocked",
+      "sourceIds": [
+        "us.mp.bpl.professional_licenses"
+      ],
+      "notes": "Official source metadata is retained, but automated ingestion is blocked by documented legal, access, scope, or technical constraints."
+    },
+    {
+      "territory": "PR",
+      "name": "Puerto Rico",
+      "status": "blocked",
+      "sourceIds": [
+        "us.pr.daco.contractors"
+      ],
+      "notes": "Official source metadata is retained, but automated ingestion is blocked by documented legal, access, scope, or technical constraints."
+    },
+    {
+      "territory": "VI",
+      "name": "U.S. Virgin Islands",
+      "status": "blocked",
+      "sourceIds": [
+        "us.vi.dlca.contractors_trades"
+      ],
+      "notes": "Official source metadata is retained, but automated ingestion is blocked by documented legal, access, scope, or technical constraints."
+    }
   ]
 }

@@ -15,8 +15,13 @@
   "dataDictionaryUrl": null,
   "termsUrl": "https://sos.ga.gov/privacy-policy",
   "updateFrequency": "unknown; verify against the official licensing search before relying on freshness assumptions",
-  "tradeCoverage": ["general contracting", "residential contracting"],
-  "licenseTypesIncluded": ["Georgia residential and general contractor licenses exposed by the official search"],
+  "tradeCoverage": [
+    "general contracting",
+    "residential contracting"
+  ],
+  "licenseTypesIncluded": [
+    "Georgia residential and general contractor licenses exposed by the official search"
+  ],
   "knownExclusions": [
     "Specialty occupations such as roofing, painting, drywall, and some repair work may not require this state license or may be outside this board's scope.",
     "Local permits, business registrations, and other state construction-industry boards are not represented by this source entry."
@@ -29,15 +34,35 @@
   "rateLimitNotes": "No adapter is implemented. Prefer official bulk options if discovered before considering lookup automation.",
   "redistributionStatus": "unknown",
   "publicRecordsNotes": "Official lookup source metadata only. Absence from this source is not proof that a license does not exist elsewhere.",
-  "adapterStatus": "planned",
-  "sourceDiscoveryStatus": "researched",
-  "adapterMaturity": "registry_only",
+  "adapterStatus": "blocked",
+  "sourceDiscoveryStatus": "blocked",
+  "adapterMaturity": "blocked",
   "coverageScope": "state_agency_partial",
-  "adapterPackage": "@opentrade/adapter-ga-sos",
+  "adapterPackage": null,
   "testFixturePath": null,
   "officialLookupUrl": "https://goals.sos.ga.gov/GASOSOneStop/s/licensee-search",
   "officialBulkDownloadNotes": "No official bulk download has been confirmed in this phase.",
   "researchNotes": "Registry-only source for Georgia residential and general contractor licensing. Future work should research Georgia construction-industry specialty boards separately.",
-  "lastVerifiedAt": "2026-06-21T00:00:00.000Z",
-  "maintainerNotes": "Keep board scope clear; do not imply all Georgia contractor or trade work is covered."
+  "lastVerifiedAt": "2026-06-27T00:00:00.000Z",
+  "maintainerNotes": "Keep board scope clear; do not imply all Georgia contractor or trade work is covered.",
+  "schemaVersion": "1.0",
+  "researchReviewedAt": "2026-06-27T00:00:00.000Z",
+  "nextReviewAt": "2026-12-27T00:00:00.000Z",
+  "researchEvidence": [
+    {
+      "url": "https://goals.sos.ga.gov/GASOSOneStop/s/licensee-search",
+      "checkedAt": "2026-06-27T00:00:00.000Z",
+      "note": "Official public source, access shape, and current automation constraints reviewed."
+    }
+  ],
+  "sourceResearchOutcome": "blocked",
+  "adapterQualityLevel": 0,
+  "blocker": {
+    "code": "technical_instability",
+    "summary": "No stable, documented machine-readable official interface is currently suitable for an offline-tested adapter.",
+    "evidenceUrls": [
+      "https://goals.sos.ga.gov/GASOSOneStop/s/licensee-search",
+      "https://sos.ga.gov/privacy-policy"
+    ]
+  }
 }

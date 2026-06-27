@@ -31,7 +31,9 @@ describe("web status build", () => {
     expect(sources).toHaveLength(56);
     expect(sources.map((source) => source.id)).toContain("us.pr.daco.contractors");
     expect(readiness.sourceCount).toBe(56);
-    expect(readiness.registryOnlySourceCount).toBe(47);
+    expect(readiness.registryOnlySourceCount).toBe(0);
+    expect(readiness.terminalSourceCount).toBe(56);
+    expect(readiness.blockedSourceCount).toBe(47);
     expect(readiness.implementedAdapterSources.map((source) => source.id)).toEqual([
       "us.ak.commerce.construction_contractors",
       "us.ca.cslb.contractors",
@@ -44,7 +46,7 @@ describe("web status build", () => {
       "us.wa.lni.contractors",
     ]);
     expect(readiness.unimplementedBulkAdapterCandidates.map((source) => source.id)).toEqual([]);
-    expect(readiness.note).toContain("planning signal only");
+    expect(readiness.note).toContain("terminal implementation or blocker outcome");
     expect(territoryCoverage.territories.map((entry) => entry.territory)).toEqual(["AS", "GU", "MP", "PR", "VI"]);
     expect(territoryCoverage.territories.find((entry) => entry.territory === "AS")?.sourceIds).toEqual([
       "us.as.doc.business_licenses",

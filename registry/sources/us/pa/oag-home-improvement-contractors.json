@@ -15,8 +15,18 @@
   "dataDictionaryUrl": null,
   "termsUrl": "https://www.attorneygeneral.gov/privacy-policy/",
   "updateFrequency": "unknown; verify against the official home improvement contractor search before relying on freshness assumptions",
-  "tradeCoverage": ["home_improvement", "roofing", "hvac", "plumbing", "electrical", "handyman", "other"],
-  "licenseTypesIncluded": ["Pennsylvania home improvement contractor registrations exposed by the official OAG search"],
+  "tradeCoverage": [
+    "home_improvement",
+    "roofing",
+    "hvac",
+    "plumbing",
+    "electrical",
+    "handyman",
+    "other"
+  ],
+  "licenseTypesIncluded": [
+    "Pennsylvania home improvement contractor registrations exposed by the official OAG search"
+  ],
   "knownExclusions": [
     "The official search states that search results display active registrations only.",
     "Registration under HICPA is not an endorsement, recommendation, or approval by the Pennsylvania Office of Attorney General.",
@@ -30,15 +40,35 @@
   "rateLimitNotes": "No adapter is implemented. The official search mentions downloadable XLSX search results, but redistribution permission is not confirmed.",
   "redistributionStatus": "unknown",
   "publicRecordsNotes": "Official lookup source metadata only. The source states that reuse of displayed content requires permission from the Press Office; absence from this source is not proof that a license or registration does not exist elsewhere.",
-  "adapterStatus": "planned",
-  "sourceDiscoveryStatus": "researched",
-  "adapterMaturity": "registry_only",
+  "adapterStatus": "blocked",
+  "sourceDiscoveryStatus": "blocked",
+  "adapterMaturity": "blocked",
   "coverageScope": "state_agency_partial",
-  "adapterPackage": "@opentrade/adapter-pa-oag",
+  "adapterPackage": null,
   "testFixturePath": null,
   "officialLookupUrl": "https://hicsearch.attorneygeneral.gov/",
   "officialBulkDownloadNotes": "The official search page says results can be downloaded as XLSX, but terms and redistribution permission require further review before adapter implementation.",
   "researchNotes": "Registry-only source for Pennsylvania home improvement contractor registration. Future work should research fixture-safe column names and the official download behavior without committing public bulk rows.",
-  "lastVerifiedAt": "2026-06-21T00:00:00.000Z",
-  "maintainerNotes": "Preserve active-registration-only and non-endorsement caveats in any future verification output."
+  "lastVerifiedAt": "2026-06-27T00:00:00.000Z",
+  "maintainerNotes": "Preserve active-registration-only and non-endorsement caveats in any future verification output.",
+  "schemaVersion": "1.0",
+  "researchReviewedAt": "2026-06-27T00:00:00.000Z",
+  "nextReviewAt": "2026-12-27T00:00:00.000Z",
+  "researchEvidence": [
+    {
+      "url": "https://hicsearch.attorneygeneral.gov/",
+      "checkedAt": "2026-06-27T00:00:00.000Z",
+      "note": "Official public source, access shape, and current automation constraints reviewed."
+    }
+  ],
+  "sourceResearchOutcome": "blocked",
+  "adapterQualityLevel": 0,
+  "blocker": {
+    "code": "access_controls",
+    "summary": "The official path requires or may require protected interactive access; OpenTrade Registry will not bypass technical controls.",
+    "evidenceUrls": [
+      "https://hicsearch.attorneygeneral.gov/",
+      "https://www.attorneygeneral.gov/privacy-policy/"
+    ]
+  }
 }

@@ -36,14 +36,25 @@ export const CA_CSLB_SOURCE_ENTRY: SourceRegistryEntry = {
   publicRecordsNotes: "Fixture adapter only. Generated dataset redistribution is not assumed to be allowed.",
   adapterStatus: "implemented",
   sourceDiscoveryStatus: "researched",
-  adapterMaturity: "fixture_adapter",
+  adapterMaturity: "local_file_adapter",
   coverageScope: "statewide",
   adapterPackage: "@opentrade/adapter-ca-cslb",
   testFixturePath: "packages/adapter-ca-cslb/fixtures/contractors-master-sample.csv",
   officialLookupUrl: "https://www.cslb.ca.gov/onlineservices/checklicenseII/checklicense.aspx",
   officialBulkDownloadNotes: "CSLB describes downloadable master-list data and companion files on its public data portal. This adapter currently uses only a tiny fixture and does not download or parse the live files.",
   researchNotes: "Fixture support exists for license-master-like rows. Future work should review the current live file shape, companion files, and redistribution posture in detail.",
-  lastVerifiedAt: "2026-06-26T00:00:00.000Z",
+  lastVerifiedAt: "2026-06-27T00:00:00.000Z",
+  schemaVersion: "1.0",
+  sourceResearchOutcome: "local_file_adapter",
+  researchReviewedAt: "2026-06-27T00:00:00.000Z",
+  nextReviewAt: "2026-12-27T00:00:00.000Z",
+  researchEvidence: [
+    {
+      "url": "https://www.cslb.ca.gov/onlineservices/checklicenseII/checklicense.aspx",
+      "checkedAt": "2026-06-27T00:00:00.000Z",
+      "note": "Official source documentation and supported local-file shape reviewed."
+    }
+  ],
   maintainerNotes: "Keep the fixture adapter scoped to license-master concepts; do not infer companion-file compliance facts.",
   adapterQualityLevel: 4,
   verificationReviewedAt: "2026-06-26T00:00:00.000Z",

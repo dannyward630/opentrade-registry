@@ -16,8 +16,17 @@
   "termsUrl": null,
   "termsReviewNotes": "No dedicated access, reuse, or website terms page was found in the official CNMI Board of Professional Licensing page or its public navigation during the 2026-06-27 review. Keep redistribution and automation status unknown.",
   "updateFrequency": "unknown; verify against CNMI Board of Professional Licensing records before relying on freshness assumptions",
-  "tradeCoverage": ["other", "unknown"],
-  "licenseTypesIncluded": ["architecture", "engineering", "land surveying", "landscape architecture", "real property appraisal"],
+  "tradeCoverage": [
+    "other",
+    "unknown"
+  ],
+  "licenseTypesIncluded": [
+    "architecture",
+    "engineering",
+    "land surveying",
+    "landscape architecture",
+    "real property appraisal"
+  ],
   "knownExclusions": [
     "This source is construction-adjacent professional licensing metadata, not a confirmed contractor-specific registry.",
     "CNMI business licenses, construction permits, contractor-specific requirements, and local enforcement records may require separate official sources.",
@@ -31,15 +40,34 @@
   "rateLimitNotes": "No adapter is implemented. Do not automate any account, payment, or portal-only workflow without explicit opt-in and legal review.",
   "redistributionStatus": "unknown",
   "publicRecordsNotes": "Official CNMI BPL metadata only. Absence from this source is not proof that a contractor license, business license, permit, or professional authorization does not exist elsewhere.",
-  "adapterStatus": "planned",
-  "sourceDiscoveryStatus": "researched",
-  "adapterMaturity": "registry_only",
+  "adapterStatus": "blocked",
+  "sourceDiscoveryStatus": "blocked",
+  "adapterMaturity": "blocked",
   "coverageScope": "state_agency_partial",
-  "adapterPackage": "@opentrade/adapter-mp-bpl",
+  "adapterPackage": null,
   "testFixturePath": null,
   "officialLookupUrl": "https://www.cnmilicensing.gov.mp/",
   "officialBulkDownloadNotes": "No official bulk download has been confirmed in this phase.",
   "researchNotes": "Registry-only source for CNMI construction-adjacent professional licensing. Future work should research whether a contractor-specific board, business-license source, or public lookup exists.",
   "lastVerifiedAt": "2026-06-27T00:00:00.000Z",
-  "maintainerNotes": "Keep contractor-specific claims out of this entry until an official CNMI contractor source is verified."
+  "maintainerNotes": "Keep contractor-specific claims out of this entry until an official CNMI contractor source is verified.",
+  "schemaVersion": "1.0",
+  "researchReviewedAt": "2026-06-27T00:00:00.000Z",
+  "nextReviewAt": "2026-12-27T00:00:00.000Z",
+  "researchEvidence": [
+    {
+      "url": "https://www.cnmilicensing.gov.mp/",
+      "checkedAt": "2026-06-27T00:00:00.000Z",
+      "note": "Official public source, access shape, and current automation constraints reviewed."
+    }
+  ],
+  "sourceResearchOutcome": "blocked",
+  "adapterQualityLevel": 0,
+  "blocker": {
+    "code": "not_contractor_specific",
+    "summary": "The official source is too broad or not sufficiently contractor-specific for reliable canonical verification.",
+    "evidenceUrls": [
+      "https://www.cnmilicensing.gov.mp/"
+    ]
+  }
 }

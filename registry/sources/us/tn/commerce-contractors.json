@@ -15,8 +15,15 @@
   "dataDictionaryUrl": null,
   "termsUrl": "https://www.tn.gov/web-policies.html",
   "updateFrequency": "unknown; verify against the official license verification system before relying on freshness assumptions",
-  "tradeCoverage": ["contractors", "home improvement", "limited licensed electricians", "limited licensed plumbers"],
-  "licenseTypesIncluded": ["Contractor and related board license records exposed through Tennessee's official verification links"],
+  "tradeCoverage": [
+    "contractors",
+    "home improvement",
+    "limited licensed electricians",
+    "limited licensed plumbers"
+  ],
+  "licenseTypesIncluded": [
+    "Contractor and related board license records exposed through Tennessee's official verification links"
+  ],
   "knownExclusions": [
     "Tennessee licensing thresholds and county-specific home-improvement coverage require source-specific review before normalization.",
     "Local permits, business registrations, and non-board authorizations are outside this source entry."
@@ -29,15 +36,35 @@
   "rateLimitNotes": "No adapter is implemented. Prefer documented export options if discovered before considering lookup automation.",
   "redistributionStatus": "unknown",
   "publicRecordsNotes": "Official board and lookup metadata only. Absence from this source is not proof that a license does not exist elsewhere.",
-  "adapterStatus": "planned",
-  "sourceDiscoveryStatus": "researched",
-  "adapterMaturity": "registry_only",
+  "adapterStatus": "blocked",
+  "sourceDiscoveryStatus": "blocked",
+  "adapterMaturity": "blocked",
   "coverageScope": "state_agency_partial",
-  "adapterPackage": "@opentrade/adapter-tn-commerce",
+  "adapterPackage": null,
   "testFixturePath": null,
   "officialLookupUrl": "https://verify.tn.gov/",
   "officialBulkDownloadNotes": "No official bulk download has been confirmed in this phase.",
   "researchNotes": "Registry-only source for Tennessee contractor board verification. Future work should model license thresholds and county-specific home-improvement caveats.",
-  "lastVerifiedAt": "2026-06-21T00:00:00.000Z",
-  "maintainerNotes": "Do not flatten Tennessee license types without reviewing board scope and thresholds."
+  "lastVerifiedAt": "2026-06-27T00:00:00.000Z",
+  "maintainerNotes": "Do not flatten Tennessee license types without reviewing board scope and thresholds.",
+  "schemaVersion": "1.0",
+  "researchReviewedAt": "2026-06-27T00:00:00.000Z",
+  "nextReviewAt": "2026-12-27T00:00:00.000Z",
+  "researchEvidence": [
+    {
+      "url": "https://verify.tn.gov/",
+      "checkedAt": "2026-06-27T00:00:00.000Z",
+      "note": "Official public source, access shape, and current automation constraints reviewed."
+    }
+  ],
+  "sourceResearchOutcome": "blocked",
+  "adapterQualityLevel": 0,
+  "blocker": {
+    "code": "technical_instability",
+    "summary": "No stable, documented machine-readable official interface is currently suitable for an offline-tested adapter.",
+    "evidenceUrls": [
+      "https://verify.tn.gov/",
+      "https://www.tn.gov/web-policies.html"
+    ]
+  }
 }

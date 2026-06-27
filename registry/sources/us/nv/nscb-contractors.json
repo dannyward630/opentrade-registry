@@ -15,8 +15,12 @@
   "dataDictionaryUrl": null,
   "termsUrl": "https://www.nvcontractorsboard.com/",
   "updateFrequency": "unknown; verify against the official license search before relying on freshness assumptions",
-  "tradeCoverage": ["construction"],
-  "licenseTypesIncluded": ["Nevada contractor licenses"],
+  "tradeCoverage": [
+    "construction"
+  ],
+  "licenseTypesIncluded": [
+    "Nevada contractor licenses"
+  ],
   "knownExclusions": [
     "This registry entry is for an official lookup path, not a confirmed bulk download.",
     "Local permits, business registrations, and other state or local authorizations may be outside NSCB scope."
@@ -29,15 +33,35 @@
   "rateLimitNotes": "No adapter is implemented. Do not automate lookup pages unless access terms and technical controls are reviewed.",
   "redistributionStatus": "unknown",
   "publicRecordsNotes": "Official lookup source metadata only. Absence from this source is not proof that a license does not exist elsewhere.",
-  "adapterStatus": "planned",
-  "sourceDiscoveryStatus": "researched",
-  "adapterMaturity": "registry_only",
+  "adapterStatus": "blocked",
+  "sourceDiscoveryStatus": "blocked",
+  "adapterMaturity": "blocked",
   "coverageScope": "statewide",
-  "adapterPackage": "@opentrade/adapter-nv-nscb",
+  "adapterPackage": null,
   "testFixturePath": null,
   "officialLookupUrl": "https://app.nvcontractorsboard.com/Clients/NVSCB/Public/ContractorLicenseSearch/ContractorLicenseSearch.aspx",
   "officialBulkDownloadNotes": "No official bulk download has been confirmed in this phase.",
   "researchNotes": "Registry-only source for now because the official path is lookup-oriented.",
-  "lastVerifiedAt": "2026-06-21T00:00:00.000Z",
-  "maintainerNotes": "Future work should first look for a documented public export before considering portal automation."
+  "lastVerifiedAt": "2026-06-27T00:00:00.000Z",
+  "maintainerNotes": "Future work should first look for a documented public export before considering portal automation.",
+  "schemaVersion": "1.0",
+  "researchReviewedAt": "2026-06-27T00:00:00.000Z",
+  "nextReviewAt": "2026-12-27T00:00:00.000Z",
+  "researchEvidence": [
+    {
+      "url": "https://app.nvcontractorsboard.com/Clients/NVSCB/Public/ContractorLicenseSearch/ContractorLicenseSearch.aspx",
+      "checkedAt": "2026-06-27T00:00:00.000Z",
+      "note": "Official public source, access shape, and current automation constraints reviewed."
+    }
+  ],
+  "sourceResearchOutcome": "blocked",
+  "adapterQualityLevel": 0,
+  "blocker": {
+    "code": "technical_instability",
+    "summary": "No stable, documented machine-readable official interface is currently suitable for an offline-tested adapter.",
+    "evidenceUrls": [
+      "https://app.nvcontractorsboard.com/Clients/NVSCB/Public/ContractorLicenseSearch/ContractorLicenseSearch.aspx",
+      "https://www.nvcontractorsboard.com/"
+    ]
+  }
 }
