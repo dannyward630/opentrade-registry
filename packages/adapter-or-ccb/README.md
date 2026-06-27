@@ -1,6 +1,6 @@
 # @opentrade/adapter-or-ccb
 
-Fixture-first adapter for Oregon Construction Contractors Board active-license data.
+Network-opt-in adapter for Oregon Construction Contractors Board active-license data.
 
 Current behavior:
 

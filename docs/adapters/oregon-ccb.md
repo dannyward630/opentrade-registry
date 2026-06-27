@@ -1,6 +1,6 @@
 # Oregon CCB Adapter Notes
 
-Oregon CCB support starts with a fixture adapter for the official Oregon Open Data active-license dataset shape.
+Oregon CCB is a network-opt-in adapter for the official Oregon Open Data active-license dataset shape.
 
 The source is useful because it is open-data-shaped and exposes column metadata. It is also narrower than it may look: the source is named for active licenses, so inactive, expired, suspended, historical, local, or other agency records may be excluded.
 
@@ -10,7 +10,7 @@ The source is useful because it is open-data-shaped and exposes column metadata.
 - Column metadata: `https://data.oregon.gov/api/views/g77e-6bhs/columns.json`
 - License lookup: `https://search.ccb.state.or.us/search/`
 
-## Current Support
+## Current Support (`network_opt_in`)
 
 - Reads a local CSV file with the official Oregon Open Data column names.
 - Includes a tiny hand-authored fixture under `packages/adapter-or-ccb/fixtures/`.
@@ -31,5 +31,5 @@ The source is useful because it is open-data-shaped and exposes column metadata.
 
 - Test a downloaded official CSV shape locally without committing the download.
 - Add more representative hand-authored fixture cases.
-- Decide whether Oregon should be promoted from `fixture_adapter` to `local_file_adapter`.
-- Compare fixture-backed verification caveats against the official CCB lookup before any live-source promotion.
+- Revalidate official CSV columns and active-only caveats on schedule.
+- Compare verification caveats against the official CCB lookup during scheduled review.

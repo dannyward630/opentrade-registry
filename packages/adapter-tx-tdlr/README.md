@@ -1,6 +1,6 @@
 # @opentrade/adapter-tx-tdlr
 
-This package starts Texas TDLR support with a tiny fixture adapter for the official TDLR All Licenses dataset shape.
+This package supports local files and explicit network snapshots for the official Texas TDLR All Licenses dataset shape.
 
 The TDLR source spans many license types. This adapter keeps trade categorization conservative and does not treat every row as a contractor license.
 
@@ -22,4 +22,4 @@ import {
 - Marks broad or unknown license types conservatively.
 - Carries Level 4 verification-quality metadata for neutral local-file verification semantics.
 
-The package does not download live Texas Open Data records in v0.2.
+Network access is owned by the orchestration/CLI layer and requires an explicit official URL plus `--allow-network`. Default tests remain fixture-only and offline.

@@ -1,6 +1,6 @@
 # @opentrade/adapter-wa-lni
 
-Fixture-first adapter for Washington State Department of Labor & Industries contractor license data.
+Network-opt-in adapter for Washington State Department of Labor & Industries contractor license data.
 
 Current behavior:
 

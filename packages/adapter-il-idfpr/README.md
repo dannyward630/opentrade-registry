@@ -1,6 +1,6 @@
 # @opentrade/adapter-il-idfpr
 
-Fixture adapter for Illinois IDFPR roofing contractor license records.
+Local-file adapter for Illinois IDFPR roofing contractor license records.
 
 This package is intentionally local-first. It parses a tiny hand-authored CSV fixture shaped around IDFPR roofing-contractor lookup concepts and maps rows into OpenTrade canonical records. It does not access the live IDFPR lookup or bulk lookup service.
 
@@ -22,7 +22,7 @@ corepack pnpm cli -- sync us.il.idfpr.roofing_contractors \
 
 - Source ID: `us.il.idfpr.roofing_contractors`
 - Agency: Illinois Department of Financial and Professional Regulation
-- Current maturity: `fixture_adapter`
+- Current maturity: `local_file_adapter`
 - Current quality: Level 4 verification semantics
 - Network behavior: no live lookup, no bulk download, no browser automation
 

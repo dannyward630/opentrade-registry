@@ -2,9 +2,9 @@
 
 Source ID: `us.mn.dli.licenses_registrations`
 
-Current maturity: `fixture_adapter`
+Current maturity: `local_file_adapter`
 
-The Minnesota Department of Labor and Industry source describes a downloadable spreadsheet for licenses, bonds, certifications, and registrations issued by the Construction Codes and Licensing Division. The official page states the export is updated nightly. OpenTrade currently uses only a tiny hand-authored CSV fixture that mirrors documented source concepts; it does not download or parse the live XLSX export.
+The Minnesota Department of Labor and Industry source describes a downloadable spreadsheet for licenses, bonds, certifications, and registrations issued by the Construction Codes and Licensing Division. The adapter accepts local CSV and XLSX snapshots; tests use tiny hand-authored fixtures and do not download the live export.
 
 ## Current Fixture Support
 

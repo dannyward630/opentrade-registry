@@ -1,6 +1,6 @@
 # @opentrade/adapter-in-pla
 
-Fixture adapter for Indiana Professional Licensing Agency MyLicense / license-download-shaped records.
+Local-file adapter for Indiana Professional Licensing Agency MyLicense / license-download-shaped records.
 
 This package is intentionally conservative:
 
@@ -13,4 +13,4 @@ This package is intentionally conservative:
 import { indianaPlaProfessionalLicensesAdapter } from "@opentrade/adapter-in-pla";
 ```
 
-Current support is fixture-only. Treat no-match results as limited to the checked local file and checked time.
+Current maturity is `local_file_adapter`. Treat no-match results as limited to the checked local file and checked time.

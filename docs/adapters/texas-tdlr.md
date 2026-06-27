@@ -1,6 +1,6 @@
 # Texas TDLR Adapter Notes
 
-Texas TDLR support starts with a fixture adapter for the official TDLR All Licenses dataset shape.
+Texas TDLR is a network-opt-in adapter for the official TDLR All Licenses dataset shape.
 
 The source is broad. It includes many TDLR programs, not just construction or skilled-trade licenses. The adapter should stay conservative until license-type filtering is reviewed in more detail.
 
@@ -10,7 +10,7 @@ The source is broad. It includes many TDLR programs, not just construction or sk
 - Column metadata: `https://data.texas.gov/api/views/7358-krk7/columns.json`
 - License lookup: `https://www.tdlr.texas.gov/verify.htm`
 
-## Current Support
+## Current Support (`network_opt_in`)
 
 - Reads a local CSV file with the official column names.
 - Includes a tiny hand-authored fixture under `packages/adapter-tx-tdlr/fixtures/`.
@@ -22,14 +22,14 @@ The source is broad. It includes many TDLR programs, not just construction or sk
 ## Caveats
 
 - Do not treat all TDLR rows as contractor records.
-- Expiration date is the only current status signal used by the fixture adapter.
+- Expiration date is the only current status signal used by the adapter.
 - Missing or unknown license types are preserved and warned about rather than forced into a category.
-- Live Texas Open Data download is not source-specific yet; use local files for normal development and tests.
+- Live Texas Open Data use requires an exact official URL and explicit network consent; normal development and tests use local fixtures.
 - No-match verification output only means no matching record was found in the checked local source at the checked time.
 
 ## Future Work
 
 - Research license-type filters for contractor and skilled-trade coverage.
 - Add more representative hand-authored fixture cases.
-- Decide whether Texas should get a source-specific opt-in URL sync path.
-- Compare fixture-backed verification caveats against the official TDLR lookup before any live-source promotion.
+- Revalidate the official export and license-type filters on schedule.
+- Compare verification caveats against the official TDLR lookup during scheduled review.

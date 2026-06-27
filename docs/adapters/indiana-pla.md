@@ -1,12 +1,12 @@
 # Indiana PLA Adapter
 
-Indiana PLA is currently fixture-supported. Do not add live MyLicense lookup, verification API, or paid-download behavior without a separate opt-in design and source-specific review.
+Indiana PLA supports local CSV snapshots. Do not add live MyLicense lookup, verification API, or paid-download behavior without a separate opt-in design and source-specific review.
 
 ## Source
 
 - Source ID: `us.in.pla.professional_licenses`
 - Adapter package: `@opentrade/adapter-in-pla`
-- Current maturity: `fixture_adapter`
+- Current maturity: `local_file_adapter`
 - Current quality level: Level 4
 - Fixture: `packages/adapter-in-pla/fixtures/professional-licenses-sample.csv`
 
