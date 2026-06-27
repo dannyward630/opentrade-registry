@@ -16,7 +16,7 @@ The repository currently satisfies the code-side v1 target. Release publication 
 
 ## v1.x Maintenance
 
-- run scheduled source-evidence reviews before `nextReviewAt`;
+- run scheduled source-evidence audits before `nextReviewAt`;
 - update adapters when official columns or status semantics change;
 - promote blocked sources only after terms, access, and stable source shape are defensible;
 - add separate source entries when materially different boards require distinct coverage semantics;

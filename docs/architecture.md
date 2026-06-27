@@ -47,7 +47,7 @@ The hardened downloader validates protocol and declared hosts, follows a bounded
 
 ## CLI
 
-`@opentrade/cli` is a thin command surface over registry metadata, adapters, exports, and storage. It owns human/JSON formatting and stable exit codes. It supports local JSONL/CSV exports and cache workflows without requiring network access.
+`@opentrade/cli` is a thin command surface over registry metadata, adapters, exports, and storage. It owns human/JSON rendering and stable exit codes. It supports local JSONL/CSV exports and cache workflows without requiring network access.
 
 ## SQLite
 
