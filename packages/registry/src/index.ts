@@ -1,5 +1,6 @@
 import { resolve } from "node:path";
 import {
+  canonicalTradeLicenseRecordSchema,
   normalizeLicenseNumber,
   type AdapterError,
   type AdapterWarning,
@@ -69,30 +70,45 @@ export class OpenTradeRegistry {
     const errors: AdapterError[] = [];
     const records: CanonicalTradeLicenseRecord[] = [];
     let cleanupDownload: (() => Promise<void>) | undefined;
+    let cacheTransactionActive = false;
     try {
       const streamOptions = await resolveStreamInput(metadata, options.input, options.signal, (value) => { cleanupDownload = value.cleanup; });
+      if (options.cache) {
+        options.cache.beginImport();
+        cacheTransactionActive = true;
+      }
       for await (const raw of adapter.streamRawRecords({ ...streamOptions, signal: options.signal })) {
         options.signal?.throwIfAborted();
         stats.rawRecordCount += 1;
         warnings.push(...(raw.warnings ?? []));
+        let record: CanonicalTradeLicenseRecord;
         try {
-          const record = await adapter.normalize(raw);
-          stats.normalizedRecordCount += 1;
-          if (options.collectRecords) records.push(record);
-          options.cache?.importRecords([record], { importRunId: options.importRunId, retainedUntil: options.retainedUntil });
-          await options.onRecord?.(record);
+          record = canonicalTradeLicenseRecordSchema.parse(await adapter.normalize(raw));
         } catch (error) {
-          const item = { code: "record_normalization_failed", message: `Failed to normalize record ${raw.rowNumber ?? "unknown"}: ${errorMessage(error)}`, cause: error, recordFingerprint: raw.fingerprint };
+          const item = { code: "record_normalization_failed", message: `Failed to normalize record ${raw.rowNumber ?? "unknown"}: ${errorMessage(error)}`, cause: error, rowNumber: raw.rowNumber, recordFingerprint: raw.fingerprint };
           errors.push(item);
           if (options.strict) throw error;
+          continue;
         }
+        stats.normalizedRecordCount += 1;
+        if (options.collectRecords) records.push(record);
+        options.cache?.importRecord(record, { importRunId: options.importRunId, retainedUntil: options.retainedUntil });
+        await options.onRecord?.(record);
       }
       stats.warningCount = warnings.length;
       stats.errorCount = errors.length;
       stats.finishedAt = new Date().toISOString();
+      if (options.cache) {
+        options.cache.commitImport();
+        cacheTransactionActive = false;
+      }
       await options.cache?.save();
       return { status: "completed", sourceId: options.sourceId, adapterMaturity: metadata.adapterMaturity, stats, warnings, errors, records: options.collectRecords ? records : undefined };
     } catch (error) {
+      if (cacheTransactionActive) {
+        options.cache?.rollbackImport();
+        cacheTransactionActive = false;
+      }
       stats.warningCount = warnings.length;
       stats.errorCount = errors.length + 1;
       stats.finishedAt = new Date().toISOString();

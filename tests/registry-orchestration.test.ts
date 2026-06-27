@@ -53,15 +53,41 @@ describe("OpenTrade registry orchestration", () => {
 
   it("stops a sync when its abort signal is cancelled", async () => {
     const controller = new AbortController();
+    const cache = await OpenTradeSqliteCache.open();
     const registry = new OpenTradeRegistry([floridaDbprConstructionAdapter]);
     const result = await registry.sync({
       sourceId: floridaDbprConstructionAdapter.sourceId,
       input: { mode: "file", filePath: fixture },
+      cache,
       signal: controller.signal,
       onRecord() { controller.abort(new Error("cancelled by caller")); },
     });
     expect(result.status).toBe("failed");
     expect(result.stats.normalizedRecordCount).toBe(1);
     expect(result.errors.at(-1)?.message).toContain("cancelled by caller");
+    expect(cache.findByLicenseNumber(floridaDbprConstructionAdapter.sourceId, "CGC012345")).toEqual([]);
+    await cache.close();
+  });
+
+  it("rolls back cache writes when strict normalization fails after valid rows", async () => {
+    const cache = await OpenTradeSqliteCache.open();
+    const failingAdapter = {
+      ...floridaDbprConstructionAdapter,
+      async normalize(raw: Parameters<typeof floridaDbprConstructionAdapter.normalize>[0]) {
+        if (raw.rowNumber === 2) throw new Error("fixture normalization failure");
+        return floridaDbprConstructionAdapter.normalize(raw);
+      },
+    };
+    const registry = new OpenTradeRegistry([failingAdapter]);
+    const result = await registry.sync({
+      sourceId: floridaDbprConstructionAdapter.sourceId,
+      input: { mode: "file", filePath: fixture },
+      cache,
+      strict: true,
+    });
+    expect(result.status).toBe("failed");
+    expect(result.errors[0].message).toContain("fixture normalization failure");
+    expect(cache.findByLicenseNumber(floridaDbprConstructionAdapter.sourceId, "CGC012345")).toEqual([]);
+    await cache.close();
   });
 });

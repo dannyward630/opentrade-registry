@@ -9,6 +9,7 @@ import {
   type TradeLicenseSourceAdapter,
 } from "@opentrade/core";
 import { runAdapterSync } from "../packages/cli/src/import/sync-runner.js";
+import { OpenTradeSqliteCache } from "@opentrade/storage-sqlite";
 
 describe("sync runner canonical validation", () => {
   it("skips invalid canonical records and exports valid records", async () => {
@@ -57,6 +58,28 @@ describe("sync runner canonical validation", () => {
         exitCode: 1,
         message: expect.stringContaining("Failed to normalize record 2"),
       });
+    } finally {
+      await rm(rootDir, { recursive: true, force: true });
+    }
+  });
+
+  it("streams cache-only syncs without requiring an output record collection", async () => {
+    const rootDir = await mkdtemp(join(tmpdir(), "opentrade-sync-runner-cache-"));
+    const cachePath = join(rootDir, "records.sqlite");
+    try {
+      const result = await runAdapterSync({
+        adapter: fixtureAdapter(),
+        rootDir,
+        filePath: "unused.csv",
+        cachePath,
+        format: "jsonl",
+      });
+      expect(result.outputPath).toBeUndefined();
+      expect(result.stats.normalizedRecordCount).toBe(1);
+
+      const cache = await OpenTradeSqliteCache.open({ filePath: cachePath, create: false });
+      expect(cache.findByLicenseNumber("us.test.fixture", "TEST123")).toHaveLength(1);
+      await cache.close();
     } finally {
       await rm(rootDir, { recursive: true, force: true });
     }
