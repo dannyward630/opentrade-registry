@@ -7,22 +7,20 @@ export async function* streamTabularFileRows(filePath: string): AsyncIterable<st
     throw new Error(`Unsupported tabular file extension: ${extension || "(none)"}.`);
   }
 
-  const workbook = new ExcelJS.stream.xlsx.WorkbookReader(filePath, {
-    hyperlinks: "cache",
-    sharedStrings: "cache",
-    styles: "cache",
-    worksheets: "emit",
-  });
+  const workbook = new ExcelJS.Workbook();
+  await workbook.xlsx.readFile(filePath);
+  const worksheet = workbook.worksheets[0];
+  if (!worksheet) {
+    throw new Error("XLSX file does not contain a worksheet.");
+  }
 
-  for await (const worksheet of workbook) {
-    for await (const row of worksheet) {
-      const values: string[] = [];
-      for (let column = 1; column <= row.cellCount; column += 1) {
-        values.push(cellValueToString(row.getCell(column).value));
-      }
-      yield values;
+  for (let rowNumber = 1; rowNumber <= worksheet.rowCount; rowNumber += 1) {
+    const row = worksheet.getRow(rowNumber);
+    const values: string[] = [];
+    for (let column = 1; column <= row.cellCount; column += 1) {
+      values.push(cellValueToString(row.getCell(column).value));
     }
-    return;
+    yield values;
   }
 }
 
