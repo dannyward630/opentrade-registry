@@ -75,6 +75,7 @@ async function main() {
       sourceId: subcommand,
       file: stringFlag(parsed, "file"),
       out: stringFlag(parsed, "out"),
+      cache: stringFlag(parsed, "cache"),
       format: stringFlag(parsed, "format"),
       url: stringFlag(parsed, "url"),
       allowNetwork: parsed.flags["allow-network"] === true,
@@ -90,6 +91,7 @@ async function main() {
       rootDir,
       sourceId: stringFlag(parsed, "source"),
       file: stringFlag(parsed, "file"),
+      cache: stringFlag(parsed, "cache"),
       url: stringFlag(parsed, "url"),
       allowNetwork: parsed.flags["allow-network"] === true,
       sourceLastModifiedAt: stringFlag(parsed, "source-last-modified"),
@@ -189,9 +191,10 @@ Commands:
   opentrade sources readiness [--json]
   opentrade sources coverage [--json]
   opentrade sources validate [--json]
-  opentrade sync <sourceId> --file <path> --out <path> [--format jsonl|csv] [--json] [--strict]
+  opentrade sync <sourceId> --file <path> [--out <path>] [--cache <path>] [--format jsonl|csv] [--json] [--strict]
   opentrade sync <sourceId> --url <sourceUrl> --allow-network --out <path> [--format jsonl|csv] [--json] [--strict]
   opentrade verify --source <sourceId> --file <path> --license <licenseNumber> [--json]
+  opentrade verify --source <sourceId> --cache <path> --license <licenseNumber> [--json]
   opentrade verify --source <sourceId> --url <sourceUrl> --allow-network --license <licenseNumber> [--json]
 
 Use "sources show" before syncing or verifying a source to review coverage, caveats, adapter maturity, and data-use notes.

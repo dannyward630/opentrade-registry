@@ -395,6 +395,25 @@ describe("opentrade CLI", () => {
     }
   });
 
+  it("syncs to and verifies from a SQLite cache", () => {
+    const dir = mkdtempSync(join(tmpdir(), "opentrade-cli-cache-"));
+    try {
+      const cachePath = join(dir, "licenses.sqlite");
+      const sync = runCli(["sync", "us.fl.dbpr.construction", "--file", sampleFixture, "--cache", cachePath, "--json"]);
+      const syncJson = JSON.parse(sync.stdout);
+      expect(syncJson.cachePath).toBe(cachePath);
+      expect(syncJson.outputPath).toBeUndefined();
+      expect(syncJson.stats.normalizedRecordCount).toBe(5);
+
+      const matched = runCli(["verify", "--source", "us.fl.dbpr.construction", "--cache", cachePath, "--license", "CGC012345", "--json"]);
+      expect(JSON.parse(matched.stdout).result).toBe("matched");
+      const notFound = runCli(["verify", "--source", "us.fl.dbpr.construction", "--cache", cachePath, "--license", "CGC999999"], 4);
+      expect(notFound.stdout).toContain("not_found");
+    } finally {
+      rmSync(dir, { recursive: true, force: true });
+    }
+  });
+
   it("syncs Alaska CBPL fixture data to JSONL and CSV", () => {
     const dir = mkdtempSync(join(tmpdir(), "opentrade-alaska-"));
     try {

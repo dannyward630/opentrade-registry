@@ -8,11 +8,13 @@ import {
 } from "@opentrade/core";
 import type { SyncFormat } from "./export.js";
 import { writeCanonicalRecords } from "./export.js";
+import { OpenTradeSqliteCache } from "@opentrade/storage-sqlite";
 
 export type SyncResult = {
   sourceId: string;
   adapterMaturity?: string;
-  outputPath: string;
+  outputPath?: string;
+  cachePath?: string;
   format: SyncFormat;
   stats: ImportStats;
   remoteSnapshot?: RemoteSnapshotMetadata;
@@ -30,7 +32,8 @@ export async function runAdapterSync(input: {
   adapter: TradeLicenseSourceAdapter;
   rootDir: string;
   filePath: string;
-  outPath: string;
+  outPath?: string;
+  cachePath?: string;
   format: SyncFormat;
   sourceLastModifiedAt?: string | null;
   fetchedAt?: string;
@@ -82,13 +85,23 @@ export async function runAdapterSync(input: {
 
   stats.finishedAt = new Date().toISOString();
 
-  const outputPath = resolveFromRoot(input.rootDir, input.outPath);
-  await writeCanonicalRecords({ outputPath, format: input.format, records });
+  const outputPath = input.outPath ? resolveFromRoot(input.rootDir, input.outPath) : undefined;
+  if (outputPath) await writeCanonicalRecords({ outputPath, format: input.format, records });
+  const cachePath = input.cachePath ? resolveFromRoot(input.rootDir, input.cachePath) : undefined;
+  if (cachePath) {
+    const cache = await OpenTradeSqliteCache.open({ filePath: cachePath });
+    try {
+      cache.importRecords(records, { importRunId: input.remoteSnapshot?.sha256 ?? undefined });
+    } finally {
+      await cache.close();
+    }
+  }
 
   return {
     sourceId: input.adapter.sourceId,
     adapterMaturity: metadata.adapterMaturity,
     outputPath,
+    cachePath,
     format: input.format,
     stats,
     remoteSnapshot: input.remoteSnapshot,

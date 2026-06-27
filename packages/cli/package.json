@@ -52,6 +52,7 @@
     "@opentrade/adapter-wa-lni": "workspace:*",
     "@opentrade/core": "workspace:*",
     "@opentrade/registry": "workspace:*",
+    "@opentrade/storage-sqlite": "workspace:*",
     "zod": "^4.4.3"
   },
   "devDependencies": {

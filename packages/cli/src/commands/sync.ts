@@ -8,6 +8,7 @@ export async function syncSource(input: {
   sourceId: string;
   file?: string;
   out?: string;
+  cache?: string;
   format?: string;
   url?: string;
   allowNetwork?: boolean;
@@ -29,8 +30,8 @@ export async function syncSource(input: {
     throw Object.assign(new Error("Missing --file for local-file sync."), { exitCode: 2 });
   }
 
-  if (!input.out) {
-    throw Object.assign(new Error("Missing --out for sync output."), { exitCode: 2 });
+  if (!input.out && !input.cache) {
+    throw Object.assign(new Error("Sync requires at least one destination: --out or --cache."), { exitCode: 2 });
   }
 
   const format = parseSyncFormat(input.format);
@@ -45,6 +46,7 @@ export async function syncSource(input: {
       rootDir: input.rootDir,
       filePath: downloaded?.filePath ?? input.file!,
       outPath: input.out,
+      cachePath: input.cache,
       format,
       sourceLastModifiedAt: input.sourceLastModifiedAt ?? downloaded?.metadata.lastModifiedAt,
       fetchedAt: downloaded?.metadata.fetchedAt,
@@ -52,7 +54,8 @@ export async function syncSource(input: {
       remoteSnapshot: downloaded?.metadata,
       strict: input.strict,
     });
-    console.log(input.json ? JSON.stringify(result, null, 2) : `Wrote ${result.stats.normalizedRecordCount} ${format.toUpperCase()} canonical records to ${result.outputPath}.`);
+    const destinations = [result.outputPath, result.cachePath].filter(Boolean).join(" and ");
+    console.log(input.json ? JSON.stringify(result, null, 2) : `Wrote ${result.stats.normalizedRecordCount} canonical records to ${destinations}.`);
   } finally {
     await downloaded?.cleanup();
   }
