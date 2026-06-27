@@ -4,15 +4,15 @@ Source ID: `us.il.idfpr.roofing_contractors`
 
 Package: `@opentrade/adapter-il-idfpr`
 
-Current maturity: `fixture_adapter`
+Current maturity: `local_file_adapter`
 
 Quality level: 4
 
 ## Current Scope
 
-The Illinois adapter reads a tiny hand-authored CSV fixture shaped around Illinois Department of Financial and Professional Regulation roofing-contractor lookup concepts.
+The Illinois adapter reads local CSV files shaped around Illinois Department of Financial and Professional Regulation roofing-contractor lookup concepts. Tests use a tiny hand-authored fixture.
 
-It does not access the live IDFPR license lookup or bulk lookup service. Future work must verify the current official field shape, access controls, terms, and update metadata before any local-file or opt-in-network promotion.
+It does not access the live IDFPR lookup or bulk lookup service. Revalidate field shape, access controls, terms, and update metadata before considering explicit network support.
 
 ## Fixture Behavior
 

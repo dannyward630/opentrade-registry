@@ -2,7 +2,7 @@ import { readdir } from "node:fs/promises";
 import { join, relative } from "node:path";
 
 const root = process.cwd();
-const ignoredDirectories = new Set([".git", "node_modules"]);
+const ignoredDirectories = new Set([".git", "node_modules", "release-artifacts", "wiki-export"]);
 const forbiddenFileNames = new Set(["out.jsonl", "out.csv"]);
 const forbiddenExtensions = [".sqlite", ".db"];
 const findings = [];
@@ -37,4 +37,3 @@ async function scanDirectory(directory) {
     }
   }
 }
-

@@ -15,8 +15,15 @@
   "dataDictionaryUrl": null,
   "termsUrl": "https://lslbc.gov/terms-of-use/",
   "updateFrequency": "unknown; the official search cautions that displayed information may not reflect recent changes",
-  "tradeCoverage": ["general contracting", "residential contracting", "commercial contracting", "other"],
-  "licenseTypesIncluded": ["Louisiana contractor licenses and registrations exposed by the official contractor search"],
+  "tradeCoverage": [
+    "general contracting",
+    "residential contracting",
+    "commercial contracting",
+    "other"
+  ],
+  "licenseTypesIncluded": [
+    "Louisiana contractor licenses and registrations exposed by the official contractor search"
+  ],
   "knownExclusions": [
     "The official search states that only currently licensed or registered contractors appear in search results.",
     "Local permits, business registrations, and sources outside LSLBC scope are not represented by this source entry."
@@ -29,15 +36,35 @@
   "rateLimitNotes": "No adapter is implemented. Any future access should respect lookup controls and the official disclaimer.",
   "redistributionStatus": "unknown",
   "publicRecordsNotes": "Official lookup source metadata only. The official source cautions that completeness and accuracy are not guaranteed; absence from this source is not proof that a license does not exist elsewhere.",
-  "adapterStatus": "planned",
-  "sourceDiscoveryStatus": "researched",
-  "adapterMaturity": "registry_only",
+  "adapterStatus": "blocked",
+  "sourceDiscoveryStatus": "blocked",
+  "adapterMaturity": "blocked",
   "coverageScope": "state_agency_partial",
-  "adapterPackage": "@opentrade/adapter-la-lslbc",
+  "adapterPackage": null,
   "testFixturePath": null,
   "officialLookupUrl": "https://arlspublic.lslbc.louisiana.gov/Public/DetailedSearch/ByNumber",
   "officialBulkDownloadNotes": "No official bulk download has been confirmed in this phase.",
   "researchNotes": "Registry-only source for Louisiana contractor verification. Future work should model search-result limitations and license-type coverage before adding fixtures.",
-  "lastVerifiedAt": "2026-06-21T00:00:00.000Z",
-  "maintainerNotes": "Preserve the official caveat that lookup results may not reflect recent changes or updates."
+  "lastVerifiedAt": "2026-06-27T00:00:00.000Z",
+  "maintainerNotes": "Preserve the official caveat that lookup results may not reflect recent changes or updates.",
+  "schemaVersion": "1.0",
+  "researchReviewedAt": "2026-06-27T00:00:00.000Z",
+  "nextReviewAt": "2026-12-27T00:00:00.000Z",
+  "researchEvidence": [
+    {
+      "url": "https://arlspublic.lslbc.louisiana.gov/Public/DetailedSearch/ByNumber",
+      "checkedAt": "2026-06-27T00:00:00.000Z",
+      "note": "Official public source, access shape, and current automation constraints reviewed."
+    }
+  ],
+  "sourceResearchOutcome": "blocked",
+  "adapterQualityLevel": 0,
+  "blocker": {
+    "code": "technical_instability",
+    "summary": "No stable, documented machine-readable official interface is currently suitable for an offline-tested adapter.",
+    "evidenceUrls": [
+      "https://arlspublic.lslbc.louisiana.gov/Public/DetailedSearch/ByNumber",
+      "https://lslbc.gov/terms-of-use/"
+    ]
+  }
 }

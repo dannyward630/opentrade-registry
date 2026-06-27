@@ -15,8 +15,15 @@
   "dataDictionaryUrl": null,
   "termsUrl": "https://www.wv.gov/Pages/policies.aspx",
   "updateFrequency": "unknown; verify against the official Division of Labor database search before relying on freshness assumptions",
-  "tradeCoverage": ["general_contracting", "hvac", "plumbing", "other"],
-  "licenseTypesIncluded": ["West Virginia contractor license records exposed by the Division of Labor database search"],
+  "tradeCoverage": [
+    "general_contracting",
+    "hvac",
+    "plumbing",
+    "other"
+  ],
+  "licenseTypesIncluded": [
+    "West Virginia contractor license records exposed by the Division of Labor database search"
+  ],
   "knownExclusions": [
     "The Division of Labor database search links multiple lists, including contractors, HVAC technicians, plumbers, and manufactured housing licensees; this source entry is primarily scoped to contractor license search.",
     "Local permits, business registrations, and non-Division-of-Labor authorizations are outside this source entry.",
@@ -30,15 +37,35 @@
   "rateLimitNotes": "No adapter is implemented. Prefer official downloadable lists if confirmed before lookup automation.",
   "redistributionStatus": "unknown",
   "publicRecordsNotes": "Official lookup source metadata only. Absence from this source is not proof that a license, certification, or registration does not exist elsewhere.",
-  "adapterStatus": "planned",
-  "sourceDiscoveryStatus": "researched",
-  "adapterMaturity": "registry_only",
+  "adapterStatus": "blocked",
+  "sourceDiscoveryStatus": "blocked",
+  "adapterMaturity": "blocked",
   "coverageScope": "state_agency_partial",
-  "adapterPackage": "@opentrade/adapter-wv-labor",
+  "adapterPackage": null,
   "testFixturePath": null,
   "officialLookupUrl": "https://wvclboard.wv.gov/",
   "officialBulkDownloadNotes": "The Division of Labor database search links current lists and lookup paths, but no redistribution-safe bulk path is confirmed in this phase.",
   "researchNotes": "Registry-only source for West Virginia contractor license search. Future work should decide whether HVAC and plumbing lists become separate sources.",
-  "lastVerifiedAt": "2026-06-22T00:00:00.000Z",
-  "maintainerNotes": "Keep contractor, HVAC, and plumbing source boundaries explicit in future adapter work."
+  "lastVerifiedAt": "2026-06-27T00:00:00.000Z",
+  "maintainerNotes": "Keep contractor, HVAC, and plumbing source boundaries explicit in future adapter work.",
+  "schemaVersion": "1.0",
+  "researchReviewedAt": "2026-06-27T00:00:00.000Z",
+  "nextReviewAt": "2026-12-27T00:00:00.000Z",
+  "researchEvidence": [
+    {
+      "url": "https://wvclboard.wv.gov/",
+      "checkedAt": "2026-06-27T00:00:00.000Z",
+      "note": "Official public source, access shape, and current automation constraints reviewed."
+    }
+  ],
+  "sourceResearchOutcome": "blocked",
+  "adapterQualityLevel": 0,
+  "blocker": {
+    "code": "technical_instability",
+    "summary": "No stable, documented machine-readable official interface is currently suitable for an offline-tested adapter.",
+    "evidenceUrls": [
+      "https://wvclboard.wv.gov/",
+      "https://www.wv.gov/Pages/policies.aspx"
+    ]
+  }
 }

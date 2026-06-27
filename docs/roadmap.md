@@ -1,68 +1,34 @@
 # Roadmap
 
-OpenTrade Registry is early, but the registry foundation is now broad: all states plus DC and five major U.S. territories have researched source entries, and nine adapters are implemented at Level 4 verification quality. The next releases should stay modest: promote the best candidates carefully, harden existing adapters, and avoid rushing into fragile live access.
-
-## v0.1
-
-- Core canonical schema.
-- Source registry validation.
-- Florida DBPR fixture adapter.
-- JSONL and CSV export from a local file.
-- Local-file license check.
-
-## v0.2
-
-- Registry coverage model.
-- More researched state source entries.
-- Better Florida DBPR local-file handling.
-- Clearer import statistics and warnings.
-- Explicit opt-in URL sync and verification with remote freshness metadata.
-- Texas TDLR fixture adapter.
-- Washington L&I fixture adapter.
-- Oregon CCB fixture adapter.
-- Alaska CBPL fixture adapter.
-- Illinois IDFPR roofing fixture adapter.
-- Researched registry entries for Oregon CCB, Nevada NSCB, North Carolina NCLBGC, and Virginia DPOR.
-- Researched registry entries for Georgia SOS, Minnesota DLI, South Carolina LLR, Tennessee Commerce, and Utah DOPL.
-- Researched registry entries for Alabama General Contractors Board, Louisiana LSLBC, Michigan LARA, Pennsylvania OAG, and Wisconsin DSPS.
-- Researched registry entries for Arkansas ACLB, Colorado DORA, Iowa DIAL, Massachusetts OPSI, and Ohio OCILB.
-- Researched registry entries for Connecticut DCP, Maryland MHIC, New Jersey DCA, New Mexico RLD, and West Virginia Labor.
-- Researched registry entries for Alaska CBPL, Delaware Labor, DC DLCP, Idaho DOPL, and Rhode Island CRLB.
-- Researched registry entries for Illinois IDFPR, Indiana PLA, Kansas Attorney General, Kentucky DHBC, and Mississippi MSBOC.
-- Researched registry entries for Hawaii DCCA, Maine PFR, Missouri Professional Registration, Montana DLI, Nebraska DOL, New Hampshire OPLC, New York DOS, North Dakota SOS, Oklahoma CIB, South Dakota DLR, Vermont SOS, and Wyoming State Fire Marshal.
-- Researched registry entries for American Samoa DOC, Guam CLB, CNMI BPL, Puerto Rico DACO, and U.S. Virgin Islands DLCA.
-- Adapter quality metadata and Level 4 verification-semantics tests for all implemented adapters.
-
-## v0.3
-
-- Use the adapter candidate priorities guide and source-quality report to identify the next candidate; the current bulk-shaped queue is empty after Illinois.
-- Promote only candidates with reviewed source terms, fixture-safe field shapes, source-specific filters, and neutral verification caveats.
-- Keep hosted `/api/sources` filters aligned with CLI source filters.
-- Add regression tests whenever a source moves from registry-only to fixture-supported.
-- Deeper Alaska/California/Illinois/Indiana/Minnesota/Oregon/Texas/Washington open-data and download-shaped support where it improves existing adapter reliability.
-- Adapter quality badges.
-- Shared import pipeline hardening, including row-level sync error reporting.
-- More source registry and adapter metadata consistency checks.
-- SQLite storage helper follow-up: migration versioning, example app integration, and retention/redaction guidance.
-
-## v0.4
-
-- Deeper U.S. territory source research, especially contractor-specific paths for American Samoa and CNMI.
-- More fixture-supported adapters.
-- Clear reporting for registry-only and adapter-supported sources.
-- State expansion workflow documented well enough for new contributors to add research-first entries.
-
 ## v1.0
 
-- All-state source registry coverage maintained with at least one researched official source entry for every state plus DC.
-- Major U.S. territory source registry coverage maintained with conservative caveats.
-- Stable adapter API.
-- Stable canonical schema with a documented compatibility policy.
-- No-network-by-default behavior preserved.
+The v1 completion target is:
 
-## Later
+- terminal source outcomes for all tracked states, DC, and major territories;
+- stable canonical, adapter, verification, CLI, and JSON contracts;
+- all implemented adapters at Level 4;
+- local-file, explicit-network, and SQLite verification;
+- hardened CSV/XLSX/network ingestion;
+- deterministic source matrix and hosted metadata seed;
+- cross-platform CI, CodeQL, dependency review, clean package installation, and signed release artifacts.
 
-- Postgres export package and richer SQLite migration helpers.
-- More state and local sources.
-- Optional portal adapters where lawful and technically stable.
-- Complaint and discipline data where the source terms, format, and caveats are understood.
+The repository currently satisfies the code-side v1 target. Release publication and recurring source maintenance remain operational work.
+
+## v1.x Maintenance
+
+- run scheduled source-evidence audits before `nextReviewAt`;
+- update adapters when official columns or status semantics change;
+- promote blocked sources only after terms, access, and stable source shape are defensible;
+- add separate source entries when materially different boards require distinct coverage semantics;
+- keep all default tests offline;
+- maintain zero unresolved high or critical security findings;
+- preserve neutral no-match language and local-first operation.
+
+## Future Major Work
+
+- additional local or territory sources beyond the current statewide scope;
+- Postgres export helpers that do not alter core contracts;
+- lawful, source-specific lookup adapters where no technical controls are bypassed;
+- complaint or discipline records only when source terms, semantics, privacy, and stability are independently reviewed.
+
+Hosted license-record search, generated dataset publication, rankings, recommendations, and marketplace features remain out of scope.

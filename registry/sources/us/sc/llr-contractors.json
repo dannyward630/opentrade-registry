@@ -15,8 +15,12 @@
   "dataDictionaryUrl": null,
   "termsUrl": "https://llr.sc.gov/",
   "updateFrequency": "unknown; verify against the official lookup before relying on freshness assumptions",
-  "tradeCoverage": ["contractors"],
-  "licenseTypesIncluded": ["South Carolina Contractor's Licensing Board records exposed by the public lookup"],
+  "tradeCoverage": [
+    "contractors"
+  ],
+  "licenseTypesIncluded": [
+    "South Carolina Contractor's Licensing Board records exposed by the public lookup"
+  ],
   "knownExclusions": [
     "South Carolina residential builder records use a separate LLR lookup path and are not included in this source entry.",
     "Local permits, business registrations, and non-LLR authorizations are outside this source entry."
@@ -29,15 +33,35 @@
   "rateLimitNotes": "No adapter is implemented. Do not automate lookup pages unless access terms and technical controls are reviewed.",
   "redistributionStatus": "unknown",
   "publicRecordsNotes": "Official lookup source metadata only. Absence from this source is not proof that a license does not exist elsewhere.",
-  "adapterStatus": "planned",
-  "sourceDiscoveryStatus": "researched",
-  "adapterMaturity": "registry_only",
+  "adapterStatus": "blocked",
+  "sourceDiscoveryStatus": "blocked",
+  "adapterMaturity": "blocked",
   "coverageScope": "state_agency_partial",
-  "adapterPackage": "@opentrade/adapter-sc-llr",
+  "adapterPackage": null,
   "testFixturePath": null,
   "officialLookupUrl": "https://verify.llronline.com/LicLookup/Contractors/Contractor.aspx?div=69",
   "officialBulkDownloadNotes": "No official bulk download has been confirmed in this phase.",
   "researchNotes": "Registry-only source for the Contractor's Licensing Board. Add a separate source entry if residential builders are modeled.",
-  "lastVerifiedAt": "2026-06-21T00:00:00.000Z",
-  "maintainerNotes": "South Carolina has multiple construction-related boards; keep source scope explicit."
+  "lastVerifiedAt": "2026-06-27T00:00:00.000Z",
+  "maintainerNotes": "South Carolina has multiple construction-related boards; keep source scope explicit.",
+  "schemaVersion": "1.0",
+  "researchReviewedAt": "2026-06-27T00:00:00.000Z",
+  "nextReviewAt": "2026-12-27T00:00:00.000Z",
+  "researchEvidence": [
+    {
+      "url": "https://verify.llronline.com/LicLookup/Contractors/Contractor.aspx?div=69",
+      "checkedAt": "2026-06-27T00:00:00.000Z",
+      "note": "Official public source, access shape, and current automation constraints reviewed."
+    }
+  ],
+  "sourceResearchOutcome": "blocked",
+  "adapterQualityLevel": 0,
+  "blocker": {
+    "code": "technical_instability",
+    "summary": "No stable, documented machine-readable official interface is currently suitable for an offline-tested adapter.",
+    "evidenceUrls": [
+      "https://verify.llronline.com/LicLookup/Contractors/Contractor.aspx?div=69",
+      "https://llr.sc.gov/"
+    ]
+  }
 }

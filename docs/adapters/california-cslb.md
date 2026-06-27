@@ -1,6 +1,6 @@
 # California CSLB Adapter
 
-California CSLB is currently fixture-supported. Do not add live network behavior or generated datasets without a separate opt-in design and source-specific review.
+California CSLB supports local CSV and XLSX license-master snapshots. Do not add live network behavior or generated datasets without a separate opt-in design and source-specific review.
 
 ## Official Sources
 
@@ -10,15 +10,15 @@ California CSLB is currently fixture-supported. Do not add live network behavior
 
 CSLB describes a master list of licensed contractors and companion files for workers' compensation and personnel data. The current adapter starts with a tiny hand-authored license-master-like fixture only.
 
-## Current Fixture Support
+## Current Local-File Support
 
 - Package: `@opentrade/adapter-ca-cslb`
 - Source ID: `us.ca.cslb.contractors`
-- Fixture: `packages/adapter-ca-cslb/fixtures/contractors-master-sample.csv`
-- Maturity: `fixture_adapter`
+- Fixtures: `packages/adapter-ca-cslb/fixtures/contractors-master-sample.csv` and `.xlsx`
+- Maturity: `local_file_adapter`
 - Quality: Level 4 verification semantics
 
-The fixture maps license number, business identity, DBA, classifications, status, dates, contact fields, personnel name/title, source URL, fetched time, raw record, caveats, and fingerprint. It intentionally does not parse live CSLB XLSX/CSV files or companion files.
+The adapter maps license number, business identity, DBA, classifications, status, dates, contact fields, personnel name/title, source URL, fetched time, raw record, caveats, and fingerprint. Companion personnel, bond, and workers compensation files remain out of scope.
 
 ## No-Network Next Steps
 

@@ -1,49 +1,26 @@
-# @opentrade/cli
+# `@opentrade/cli`
 
-The CLI is the simplest way to use OpenTrade Registry from this repository. It lists and filters source metadata, validates the registry, syncs supported local files, and checks one license number against a local file or explicit opt-in URL snapshot.
-
-Current registry state: `56` source entries are checked in, all states plus DC and five major U.S. territories have researched entries, and nine sources have implemented adapters. Florida DBPR supports local files plus explicit URL snapshots. Alaska CBPL, California CSLB, Illinois IDFPR, Indiana PLA, Minnesota DLI, Oregon CCB, Texas TDLR, and Washington L&I are fixture-supported.
-
-## Commands
+The `opentrade` CLI lists source decisions, syncs implemented adapters, exports canonical records, manages local SQLite caches, and verifies one normalized license number.
 
 ```bash
-opentrade sources list
-opentrade sources list --state CA
-opentrade sources list --implemented
-opentrade sources list --bulk-candidates --json
-opentrade sources list --maturity registry_only --source-type bulk_xlsx
-opentrade sources list --research-outcome adapter_candidate
-opentrade sources show us.tx.tdlr.all_licenses
+opentrade sources list [--state CA] [--maturity blocked] [--research-outcome blocked]
+opentrade sources show us.az.roc.contractors
 opentrade sources readiness
 opentrade sources coverage
 opentrade sources validate
-opentrade sync us.ak.commerce.construction_contractors --file ./alaska-fixture.csv --out ./records.jsonl
-opentrade sync us.ca.cslb.contractors --file ./cslb-fixture.csv --out ./records.jsonl
-opentrade sync us.fl.dbpr.construction --file ./fixture.csv --out ./records.jsonl
-opentrade sync us.fl.dbpr.construction --url <official-csv-url> --allow-network --out ./records.jsonl
-opentrade sync us.il.idfpr.roofing_contractors --file ./illinois-fixture.csv --out ./records.jsonl
-opentrade sync us.in.pla.professional_licenses --file ./indiana-fixture.csv --out ./records.jsonl
-opentrade sync us.mn.dli.licenses_registrations --file ./minnesota-fixture.csv --out ./records.jsonl
-opentrade sync us.or.ccb.active_licenses --file ./oregon-fixture.csv --out ./records.jsonl
-opentrade sync us.tx.tdlr.all_licenses --file ./tdlr-fixture.csv --out ./records.jsonl
-opentrade sync us.wa.lni.contractors --file ./wa-fixture.csv --out ./records.jsonl
-opentrade sync us.fl.dbpr.construction --file ./fixture.csv --out ./records.csv --format csv
-opentrade verify --source us.fl.dbpr.construction --file ./fixture.csv --license CGC012345
-opentrade verify --source us.fl.dbpr.construction --url <official-csv-url> --allow-network --license CGC012345
+
+opentrade sync <sourceId> --file <path> --out <records.jsonl>
+opentrade sync <sourceId> --file <path> --out <records.csv> --format csv
+opentrade sync <sourceId> --file <path> --cache <cache.sqlite>
+opentrade sync <sourceId> --url <official-url> --allow-network --out <records.jsonl>
+
+opentrade verify --source <sourceId> --file <path> --license <number>
+opentrade verify --source <sourceId> --cache <cache.sqlite> --license <number>
+opentrade verify --source <sourceId> --url <official-url> --allow-network --license <number>
 ```
 
-Use `--json` when you need structured output. Use `--strict` for sync commands that should fail on the first row-level normalization error.
+Use `--json` for machine-readable output and `--strict` to stop sync at the first normalization failure. Network operations require explicit consent and an implemented adapter. Blocked or unsupported source operations return structured neutral errors.
 
-`sources list` and `sources show` include registry-only sources. `sources list` can filter by `--state`, `--maturity`, `--status`, `--source-type`, `--quality-level`, `--research-outcome`, `--implemented`, `--registry-only`, and `--bulk-candidates`. `sources readiness` summarizes implemented adapters, unimplemented bulk-shaped candidates, download/export research candidates, lookup automation constraint sources, and research-outcome counts from local registry metadata. Candidate and coverage status are planning signals only; review source terms, fixture safety, field shape, filters, access controls, and verification caveats before implementation. `sync` and `verify` only run for sources with implemented adapters. URL sync and URL verification require `--allow-network`.
+Exit codes are `0` success, `1` general error, `2` invalid/unsupported input, `3` unavailable/network disabled, `4` no match, `5` ambiguous, and `6` validation failure.
 
-## Exit Codes
-
-- `0`: success
-- `1`: general error
-- `2`: invalid input
-- `3`: source unavailable or network source disabled
-- `4`: no matching record in the checked source
-- `5`: ambiguous match
-- `6`: validation failed
-
-The CLI does not download live agency data unless `--allow-network` is passed. URL sync and URL verification both use a temporary local file, preserve fetched source metadata when adapters normalize records, and clean up the temporary file afterward.
+A no-match result means no matching record appeared in the checked source or cache at the checked time. It is not a licensing determination.

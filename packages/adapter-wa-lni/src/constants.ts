@@ -36,7 +36,7 @@ export const WA_LNI_SOURCE_ENTRY: SourceRegistryEntry = {
   publicRecordsNotes: "Official open-data source metadata. Absence from this source is not proof that a license does not exist elsewhere.",
   adapterStatus: "implemented",
   sourceDiscoveryStatus: "researched",
-  adapterMaturity: "fixture_adapter",
+  adapterMaturity: "network_opt_in",
   adapterQualityLevel: 4,
   coverageScope: "statewide",
   adapterPackage: "@opentrade/adapter-wa-lni",
@@ -51,6 +51,17 @@ export const WA_LNI_SOURCE_ENTRY: SourceRegistryEntry = {
     "Bond, insurance, workers compensation, and enforcement-like fields need separate source-specific interpretation before being treated as final compliance facts.",
   ],
   verificationNotes: "Fixture verification uses neutral result states and keeps L&I coverage limits in source caveats.",
-  lastVerifiedAt: "2026-06-21T00:00:00.000Z",
+  lastVerifiedAt: "2026-06-27T00:00:00.000Z",
+  schemaVersion: "1.0",
+  sourceResearchOutcome: "network_opt_in",
+  researchReviewedAt: "2026-06-27T00:00:00.000Z",
+  nextReviewAt: "2026-12-27T00:00:00.000Z",
+  researchEvidence: [
+    {
+      "url": "https://secure.lni.wa.gov/verify/",
+      "checkedAt": "2026-06-27T00:00:00.000Z",
+      "note": "Official bulk source and opt-in network path reviewed."
+    }
+  ],
   maintainerNotes: "Keep bond, insurance, workers compensation, and disciplinary-like fields as raw or compliance placeholders until their source semantics are reviewed.",
 };

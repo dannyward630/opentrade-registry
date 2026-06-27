@@ -8,8 +8,10 @@ import {
   type SourceFilterOptions,
   type SourceRegistryEntry,
 } from "@opentrade/core";
+import { applyPublicApiHeaders, withApiVersion } from "./http.js";
 
 export default async function handler(request: ApiRequest, response: ApiResponse) {
+  applyPublicApiHeaders(response);
   const result = await loadSourcesForApi();
   const sources = result.sources;
   const sourceId = typeof request.query.id === "string" ? request.query.id : null;
@@ -17,14 +19,14 @@ export default async function handler(request: ApiRequest, response: ApiResponse
   if (sourceId) {
     const source = sources.find((entry) => entry.id === sourceId);
     if (!source) {
-      response.status(404).json({
+      response.status(404).json(withApiVersion({
         error: "not_found",
         message: "No matching source registry entry was found."
-      });
+      }));
       return;
     }
 
-    response.status(200).json({ ...serializeSource(source), origin: result.origin });
+    response.status(200).json(withApiVersion({ ...serializeSource(source), origin: result.origin }));
     return;
   }
 
@@ -32,20 +34,20 @@ export default async function handler(request: ApiRequest, response: ApiResponse
   try {
     filtered = filterSourcesForApi(sources, request.query);
   } catch (error) {
-    response.status(400).json({
+    response.status(400).json(withApiVersion({
       error: "invalid_filter",
       message: error instanceof Error ? error.message : String(error),
-    });
+    }));
     return;
   }
 
-  response.status(200).json({
+  response.status(200).json(withApiVersion({
     origin: result.origin,
     count: filtered.sources.length,
     sources: filtered.sources.map(serializeSource),
     filters: filtered.filters,
     databaseError: result.databaseError,
-  });
+  }));
 }
 
 export function filterSourcesForApi(

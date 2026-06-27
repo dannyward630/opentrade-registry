@@ -1,5 +1,6 @@
 import { describe, expect, it } from "vitest";
-import { parseCaliforniaCslbCsvLine, parseCaliforniaCslbCsvRow } from "../src/parse.js";
+import { join } from "node:path";
+import { parseCaliforniaCslbCsvLine, parseCaliforniaCslbCsvRow, streamCaliforniaCslbFile } from "../src/parse.js";
 
 describe("California CSLB CSV parsing", () => {
   it("parses quoted fields and escaped quotes", () => {
@@ -22,5 +23,17 @@ describe("California CSLB CSV parsing", () => {
     expect(row.expirationDate).toBe("2099-12-31T00:00:00.000Z");
     expect(row.fingerprint).toMatch(/^[a-f0-9]{64}$/);
   });
-});
 
+  it("streams the official XLSX-shaped fixture", async () => {
+    const records = [];
+    for await (const record of streamCaliforniaCslbFile({
+      filePath: join(process.cwd(), "packages/adapter-ca-cslb/fixtures/contractors-master-sample.xlsx"),
+      fetchedAt: "2026-06-27T00:00:00.000Z",
+    })) {
+      records.push(record);
+    }
+
+    expect(records).toHaveLength(6);
+    expect(records[0]?.sourceId).toBe("us.ca.cslb.contractors");
+  });
+});

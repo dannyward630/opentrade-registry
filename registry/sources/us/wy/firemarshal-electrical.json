@@ -15,8 +15,12 @@
   "dataDictionaryUrl": null,
   "termsUrl": "https://wyoming.gov/usage-policy",
   "updateFrequency": "unknown; verify against the official public portal before relying on freshness assumptions",
-  "tradeCoverage": ["electrical"],
-  "licenseTypesIncluded": ["Wyoming electrical licensing records and permit-related records exposed through State Fire Marshal electrical safety portal paths"],
+  "tradeCoverage": [
+    "electrical"
+  ],
+  "licenseTypesIncluded": [
+    "Wyoming electrical licensing records and permit-related records exposed through State Fire Marshal electrical safety portal paths"
+  ],
   "knownExclusions": [
     "Wyoming general contractor, plumbing, mechanical, and local contractor licenses may be local and are outside this source entry.",
     "This source entry is scoped to State Fire Marshal electrical licensing and does not represent every construction authorization in Wyoming.",
@@ -30,15 +34,35 @@
   "rateLimitNotes": "No adapter is implemented. Future access should respect public portal controls and prefer official export options if discovered.",
   "redistributionStatus": "unknown",
   "publicRecordsNotes": "Official electrical-licensing metadata only. Absence from this source is not proof that a license, local contractor authorization, or permit does not exist elsewhere.",
-  "adapterStatus": "planned",
-  "sourceDiscoveryStatus": "researched",
-  "adapterMaturity": "registry_only",
+  "adapterStatus": "blocked",
+  "sourceDiscoveryStatus": "blocked",
+  "adapterMaturity": "blocked",
   "coverageScope": "state_agency_partial",
-  "adapterPackage": "@opentrade/adapter-wy-firemarshal",
+  "adapterPackage": null,
   "testFixturePath": null,
   "officialLookupUrl": "https://wsfm.wyo.gov/electrical-safety",
   "officialBulkDownloadNotes": "No official bulk download has been confirmed in this phase.",
   "researchNotes": "Registry-only source for Wyoming State Fire Marshal electrical licensing. Future work should research local contractor licensing and whether statewide electrical lookup fields are stable.",
-  "lastVerifiedAt": "2026-06-24T00:00:00.000Z",
-  "maintainerNotes": "Do not describe this as full Wyoming contractor coverage; it is a state electrical licensing source."
+  "lastVerifiedAt": "2026-06-27T00:00:00.000Z",
+  "maintainerNotes": "Do not describe this as full Wyoming contractor coverage; it is a state electrical licensing source.",
+  "schemaVersion": "1.0",
+  "researchReviewedAt": "2026-06-27T00:00:00.000Z",
+  "nextReviewAt": "2026-12-27T00:00:00.000Z",
+  "researchEvidence": [
+    {
+      "url": "https://wsfm.wyo.gov/electrical-safety",
+      "checkedAt": "2026-06-27T00:00:00.000Z",
+      "note": "Official public source, access shape, and current automation constraints reviewed."
+    }
+  ],
+  "sourceResearchOutcome": "blocked",
+  "adapterQualityLevel": 0,
+  "blocker": {
+    "code": "technical_instability",
+    "summary": "No stable, documented machine-readable official interface is currently suitable for an offline-tested adapter.",
+    "evidenceUrls": [
+      "https://wsfm.wyo.gov/electrical-safety",
+      "https://wyoming.gov/usage-policy"
+    ]
+  }
 }

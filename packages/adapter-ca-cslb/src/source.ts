@@ -3,7 +3,7 @@ import { canonicalTradeLicenseRecordSchema, normalizeLicenseNumber } from "@open
 import { CA_CSLB_CONTRACTORS_SOURCE_ID, CA_CSLB_CONTRACTORS_SOURCE_URL, CA_CSLB_SOURCE_ENTRY } from "./constants.js";
 import type { CaliforniaCslbRow } from "./map.js";
 import { mapCaliforniaCslbTradeCategories, normalizeCaliforniaCslbStatus } from "./normalize.js";
-import { streamCaliforniaCslbCsvFile } from "./parse.js";
+import { streamCaliforniaCslbFile } from "./parse.js";
 
 export const californiaCslbContractorsAdapter: TradeLicenseSourceAdapter = {
   sourceId: CA_CSLB_CONTRACTORS_SOURCE_ID,
@@ -22,7 +22,7 @@ export const californiaCslbContractorsAdapter: TradeLicenseSourceAdapter = {
       throw new Error("The California CSLB fixture adapter requires a local filePath.");
     }
 
-    yield* streamCaliforniaCslbCsvFile({
+    yield* streamCaliforniaCslbFile({
       filePath: options.filePath,
       sourceUrl: options.sourceUrl,
       fetchedAt: options.fetchedAt,

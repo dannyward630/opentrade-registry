@@ -36,15 +36,26 @@ export const MN_DLI_SOURCE_ENTRY: SourceRegistryEntry = {
   publicRecordsNotes: "Fixture adapter only. Absence from this source is not proof that a license does not exist elsewhere.",
   adapterStatus: "implemented",
   sourceDiscoveryStatus: "researched",
-  adapterMaturity: "fixture_adapter",
+  adapterMaturity: "local_file_adapter",
   coverageScope: "state_agency_partial",
   adapterPackage: "@opentrade/adapter-mn-dli",
-  testFixturePath: "packages/adapter-mn-dli/fixtures/licenses-registrations-sample.csv",
+  testFixturePath: "packages/adapter-mn-dli/fixtures/licenses-registrations-sample.xlsx",
   officialLookupUrl: MN_DLI_LICENSES_REGISTRATIONS_SOURCE_URL,
   officialBulkDownloadNotes:
     "The official DLI page describes a downloadable spreadsheet of all licensed businesses and individuals issued by the Construction Codes and Licensing Division. This adapter currently uses only a tiny fixture and does not download or parse the live XLSX export.",
   researchNotes: "Strong future bulk-adapter candidate, but the dataset spans licenses, bonds, certifications, and registrations and needs filtering.",
-  lastVerifiedAt: "2026-06-26T00:00:00.000Z",
+  lastVerifiedAt: "2026-06-27T00:00:00.000Z",
+  schemaVersion: "1.0",
+  sourceResearchOutcome: "local_file_adapter",
+  researchReviewedAt: "2026-06-27T00:00:00.000Z",
+  nextReviewAt: "2026-12-27T00:00:00.000Z",
+  researchEvidence: [
+    {
+      "url": "https://www.dli.mn.gov/license-and-registration-lookup",
+      "checkedAt": "2026-06-27T00:00:00.000Z",
+      "note": "Official source documentation and supported local-file shape reviewed."
+    }
+  ],
   maintainerNotes: "Do not treat every DLI export row as a contractor license without type filtering.",
   adapterQualityLevel: 4,
   verificationReviewedAt: "2026-06-26T00:00:00.000Z",

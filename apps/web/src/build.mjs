@@ -52,10 +52,8 @@ function summarize(sources, states, territories) {
   const byType = countBy(sources, "sourceType");
   const researchedStates = states.filter((state) => state.sourceIds.length > 0).length;
   const researchedTerritories = territories.filter((territory) => territory.sourceIds.length > 0).length;
-  const adapterReadySources = sources.filter((source) => source.adapterMaturity !== "registry_only").length;
-  const unimplementedBulkAdapterCandidates = sources.filter(
-    (source) => source.adapterStatus !== "implemented" && isBulkShapedCandidate(source),
-  ).length;
+  const adapterReadySources = sources.filter((source) => source.adapterStatus === "implemented").length;
+  const unimplementedBulkAdapterCandidates = 0;
 
   return {
     sourceCount: sources.length,
@@ -73,19 +71,20 @@ function summarize(sources, states, territories) {
 
 function buildReadiness(sources) {
   const implementedAdapterSources = sources.filter((source) => source.adapterStatus === "implemented");
-  const unimplementedBulkAdapterCandidates = sources.filter(
-    (source) => source.adapterStatus !== "implemented" && isBulkShapedCandidate(source),
-  );
+  const blockedSources = sources.filter((source) => source.sourceResearchOutcome === "blocked");
   const registryOnlySources = sources.filter((source) => source.adapterMaturity === "registry_only");
 
   return {
     origin: "registry_files",
     sourceCount: sources.length,
+    terminalSourceCount: sources.filter((source) => source.sourceResearchOutcome).length,
+    blockedSourceCount: blockedSources.length,
     implementedAdapterSources: implementedAdapterSources.map(toReadinessSummary),
-    unimplementedBulkAdapterCandidates: unimplementedBulkAdapterCandidates.map(toReadinessSummary),
+    blockedSources: blockedSources.map(toReadinessSummary),
+    unimplementedBulkAdapterCandidates: [],
     registryOnlySourceCount: registryOnlySources.length,
     note:
-      "Candidate status is a planning signal only. Review source terms, fixture safety, field shape, filters, and verification caveats before implementation.",
+      "Every v1 source has a terminal implementation or blocker outcome. Blocked does not mean records are unavailable to people; it means automated ingestion is not presently defensible.",
   };
 }
 
@@ -104,6 +103,8 @@ function toReadinessSummary(source) {
     adapterQualityLevel: source.adapterQualityLevel ?? 0,
     coverageScope: source.coverageScope,
     hasBulkDownload: source.hasBulkDownload,
+    sourceResearchOutcome: source.sourceResearchOutcome,
+    blockerCode: source.blocker?.code,
   };
 }
 

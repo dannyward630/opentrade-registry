@@ -1,13 +1,13 @@
 # @opentrade/adapter-mn-dli
 
-Fixture-first adapter for the Minnesota Department of Labor and Industry license and registration data source.
+Local-file CSV/XLSX adapter for the Minnesota Department of Labor and Industry license and registration data source.
 
-The official DLI source describes a downloadable spreadsheet for licenses, bonds, certifications, and registrations issued by the Construction Codes and Licensing Division. This package does not download that live spreadsheet yet. It only parses a tiny hand-authored CSV fixture that mirrors documented source concepts closely enough to exercise parser, mapper, normalization, and verification semantics.
+The official DLI source describes a downloadable spreadsheet for licenses, bonds, certifications, and registrations issued by the Construction Codes and Licensing Division. This package parses local CSV or XLSX snapshots and includes tiny hand-authored fixtures for offline tests.
 
 ## Current Scope
 
 - Source ID: `us.mn.dli.licenses_registrations`
-- Maturity: `fixture_adapter`
+- Maturity: `local_file_adapter`
 - Network behavior: none
 - Default tests: local fixture only
 

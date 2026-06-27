@@ -1,4 +1,5 @@
 import { alaskaCommerceConstructionContractorsAdapter } from "@opentrade/adapter-ak-commerce";
+import { arizonaRocContractorsAdapter } from "@opentrade/adapter-az-roc";
 import { californiaCslbContractorsAdapter } from "@opentrade/adapter-ca-cslb";
 import { floridaDbprConstructionAdapter } from "@opentrade/adapter-fl-dbpr";
 import { illinoisIdfprRoofingContractorsAdapter } from "@opentrade/adapter-il-idfpr";
@@ -14,6 +15,11 @@ const adapterCases: AdapterConformanceCase[] = [
   {
     adapter: alaskaCommerceConstructionContractorsAdapter,
     registryPath: "registry/sources/us/ak/commerce-construction-contractors.json",
+    expectedFixtureRecordCount: 6,
+  },
+  {
+    adapter: arizonaRocContractorsAdapter,
+    registryPath: "registry/sources/us/az/roc-contractors.json",
     expectedFixtureRecordCount: 6,
   },
   {

@@ -1,5 +1,6 @@
 import type { SourceRegistryEntry } from "./schema/source-registry.js";
-import { getSourceResearchOutcome, isUnimplementedBulkAdapterCandidate, type SourceResearchOutcome } from "./source-readiness.js";
+import type { SourceResearchOutcome } from "./schema/source-registry.js";
+import { getSourceResearchOutcome, isUnimplementedBulkAdapterCandidate } from "./source-readiness.js";
 
 export type SourceFilterOptions = {
   state?: string;

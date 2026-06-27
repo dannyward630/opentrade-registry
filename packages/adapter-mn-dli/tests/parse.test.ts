@@ -1,5 +1,6 @@
 import { describe, expect, it } from "vitest";
-import { parseMinnesotaDliCsvLine, parseMinnesotaDliCsvRow } from "../src/parse.js";
+import { join } from "node:path";
+import { parseMinnesotaDliCsvLine, parseMinnesotaDliCsvRow, streamMinnesotaDliFile } from "../src/parse.js";
 
 describe("Minnesota DLI CSV parsing", () => {
   it("parses quoted fields and commas", () => {
@@ -21,5 +22,18 @@ describe("Minnesota DLI CSV parsing", () => {
     expect(row.issueDate).toBe("2021-04-20T00:00:00.000Z");
     expect(row.expirationDate).toBe("2099-12-31T00:00:00.000Z");
     expect(row.fingerprint).toMatch(/^[a-f0-9]{64}$/);
+  });
+
+  it("streams the official XLSX-shaped fixture", async () => {
+    const records = [];
+    for await (const record of streamMinnesotaDliFile({
+      filePath: join(process.cwd(), "packages/adapter-mn-dli/fixtures/licenses-registrations-sample.xlsx"),
+      fetchedAt: "2026-06-27T00:00:00.000Z",
+    })) {
+      records.push(record);
+    }
+
+    expect(records).toHaveLength(6);
+    expect(records[0]?.sourceId).toBe("us.mn.dli.licenses_registrations");
   });
 });

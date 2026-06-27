@@ -15,8 +15,14 @@
   "dataDictionaryUrl": null,
   "termsUrl": "https://dc.gov/page/terms-and-conditions",
   "updateFrequency": "unknown; verify against SCOUT and DLCP online resources before relying on freshness assumptions",
-  "tradeCoverage": ["general_contracting", "home_improvement", "other"],
-  "licenseTypesIncluded": ["business license records exposed by SCOUT that may include contractor-related license categories"],
+  "tradeCoverage": [
+    "general_contracting",
+    "home_improvement",
+    "other"
+  ],
+  "licenseTypesIncluded": [
+    "business license records exposed by SCOUT that may include contractor-related license categories"
+  ],
   "knownExclusions": [
     "SCOUT spans business, property, permit, and licensing information; this source entry is not a contractor-only export.",
     "Occupational and professional licenses, permits, local enforcement records, and business registrations may require separate source entries or filters.",
@@ -30,15 +36,35 @@
   "rateLimitNotes": "No adapter is implemented. Prefer official APIs or exports if discovered; do not bypass login walls, CAPTCHAs, or technical controls.",
   "redistributionStatus": "unknown",
   "publicRecordsNotes": "Official lookup source metadata only. Absence from this source is not proof that a license, permit, registration, or authorization does not exist elsewhere.",
-  "adapterStatus": "planned",
-  "sourceDiscoveryStatus": "researched",
-  "adapterMaturity": "registry_only",
+  "adapterStatus": "blocked",
+  "sourceDiscoveryStatus": "blocked",
+  "adapterMaturity": "blocked",
   "coverageScope": "state_agency_partial",
-  "adapterPackage": "@opentrade/adapter-dc-dlcp",
+  "adapterPackage": null,
   "testFixturePath": null,
   "officialLookupUrl": "https://scout.dcra.dc.gov/",
   "officialBulkDownloadNotes": "No official contractor-specific bulk download has been confirmed in this phase.",
   "researchNotes": "Registry-only source for DC DLCP business license verification. Future work should decide whether contractor-related license categories need a dedicated adapter or separate source entries.",
-  "lastVerifiedAt": "2026-06-22T00:00:00.000Z",
-  "maintainerNotes": "Keep broad business-license scope explicit and avoid treating every SCOUT record as a contractor license."
+  "lastVerifiedAt": "2026-06-27T00:00:00.000Z",
+  "maintainerNotes": "Keep broad business-license scope explicit and avoid treating every SCOUT record as a contractor license.",
+  "schemaVersion": "1.0",
+  "researchReviewedAt": "2026-06-27T00:00:00.000Z",
+  "nextReviewAt": "2026-12-27T00:00:00.000Z",
+  "researchEvidence": [
+    {
+      "url": "https://scout.dcra.dc.gov/",
+      "checkedAt": "2026-06-27T00:00:00.000Z",
+      "note": "Official public source, access shape, and current automation constraints reviewed."
+    }
+  ],
+  "sourceResearchOutcome": "blocked",
+  "adapterQualityLevel": 0,
+  "blocker": {
+    "code": "not_contractor_specific",
+    "summary": "The official source is too broad or not sufficiently contractor-specific for reliable canonical verification.",
+    "evidenceUrls": [
+      "https://scout.dcra.dc.gov/",
+      "https://dc.gov/page/terms-and-conditions"
+    ]
+  }
 }

@@ -2,7 +2,7 @@ import { readdir, readFile } from "node:fs/promises";
 import { join, relative } from "node:path";
 
 const root = process.cwd();
-const ignoredDirectories = new Set([".git", "node_modules", "dist", ".vite"]);
+const ignoredDirectories = new Set([".git", "node_modules", "dist", ".vite", "wiki-export"]);
 const ignoredFiles = new Set(["pnpm-lock.yaml"]);
 const terms = [
   [77, 97, 116, 116, 8217, 115, 32, 76, 105, 115, 116],

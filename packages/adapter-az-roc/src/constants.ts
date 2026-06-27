@@ -1,0 +1,66 @@
+import type { SourceRegistryEntry } from "@opentrade/core";
+
+export const AZ_ROC_CONTRACTORS_SOURCE_ID = "us.az.roc.contractors";
+export const AZ_ROC_CONTRACTORS_SOURCE_URL = "https://roc.az.gov/posting-list";
+
+export const AZ_ROC_SOURCE_ENTRY: SourceRegistryEntry = {
+  id: AZ_ROC_CONTRACTORS_SOURCE_ID,
+  name: "Arizona Registrar of Contractors License Records",
+  jurisdiction: { country: "US", state: "AZ" },
+  agency: { name: "Arizona Registrar of Contractors", url: "https://roc.az.gov/" },
+  sourceType: "bulk_csv",
+  sourceUrl: AZ_ROC_CONTRACTORS_SOURCE_URL,
+  documentationUrl: AZ_ROC_CONTRACTORS_SOURCE_URL,
+  dataDictionaryUrl: null,
+  termsUrl: "https://az.gov/policy/term-use-agreement",
+  updateFrequency: "The official posting list displays a dated current-contractor export; verify the page before each import.",
+  tradeCoverage: ["construction"],
+  licenseTypesIncluded: ["Arizona ROC contractor licenses shown in the current active-contractor posting list"],
+  knownExclusions: [
+    "The current-contractor export is not a historical register and may omit inactive or otherwise non-current records.",
+    "Local registrations, permits, and credentials outside Arizona ROC jurisdiction are not represented.",
+  ],
+  hasBulkDownload: true,
+  hasLiveLookup: true,
+  requiresJavaScript: false,
+  requiresCaptcha: false,
+  requiresAccount: false,
+  rateLimitNotes: "Resolve the current dated CSV from the official posting-list page and keep network use explicit.",
+  redistributionStatus: "unknown",
+  publicRecordsNotes: "The agency says posting data should be confirmed with its office before action because records can change after publication.",
+  adapterStatus: "implemented",
+  sourceDiscoveryStatus: "researched",
+  adapterMaturity: "network_opt_in",
+  adapterQualityLevel: 4,
+  coverageScope: "statewide",
+  adapterPackage: "@opentrade/adapter-az-roc",
+  testFixturePath: "packages/adapter-az-roc/fixtures/contractor-license-sample.csv",
+  officialLookupUrl: "https://azroc.my.site.com/AZRoc/s/contractor-search",
+  officialBulkDownloadNotes: "The posting-list page publishes a dated CSV of current active contractors. File names change with the posting date, so callers must supply the current official URL explicitly.",
+  researchNotes: "The fixture is hand-authored from the official posting-list columns and contains no copied agency rows.",
+  verificationReviewedAt: "2026-06-27T00:00:00.000Z",
+  verificationCaveats: [
+    "Verification covers only the checked file and its publication date, not a live agency decision.",
+    "The current-contractor export can omit inactive, expired, revoked, pending, or historical records.",
+    "No matching record is not proof that a license does not exist or never existed.",
+  ],
+  verificationNotes: "Use the official live lookup or contact the agency before taking action on a posting-list result.",
+  lastVerifiedAt: "2026-06-27T00:00:00.000Z",
+  schemaVersion: "1.0",
+  sourceResearchOutcome: "network_opt_in",
+  researchReviewedAt: "2026-06-27T00:00:00.000Z",
+  nextReviewAt: "2026-09-27T00:00:00.000Z",
+  researchEvidence: [
+    {
+      url: AZ_ROC_CONTRACTORS_SOURCE_URL,
+      checkedAt: "2026-06-27T00:00:00.000Z",
+      note: "Official page displayed dated all-current, commercial, dual, and residential CSV exports plus record counts and freshness caveats.",
+    },
+    {
+      url: "https://az.gov/policy/term-use-agreement",
+      checkedAt: "2026-06-27T00:00:00.000Z",
+      note: "Official statewide terms page reviewed; redistribution remains unknown.",
+    },
+  ],
+  maintainerNotes: "Do not synthesize historical coverage from the active posting list or publish generated datasets without confirming redistribution rights.",
+};

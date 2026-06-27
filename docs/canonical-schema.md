@@ -1,5 +1,7 @@
 # Canonical Schema
 
+The v1 schema identifier is exported as `OPENTRADE_CANONICAL_SCHEMA_VERSION`. See the [compatibility policy](compatibility-policy.md) before changing required fields or semantics.
+
 The canonical schema is the shape adapters produce after reading an official source. It gives developers a consistent record to work with while keeping the original source record close by.
 
 That second part is important. Normalized fields are convenient, but official data can be incomplete, stale, or shaped by agency-specific rules. A canonical record should make the common fields easy to read without hiding where the data came from.
@@ -26,3 +28,5 @@ Adapters should not throw away source fields just because they do not fit the ca
 ## What The Schema Does Not Decide
 
 The schema does not decide whether a person or business should be hired. It records what an official source said, when it was checked, and what caveats came with that source.
+
+Dates are ISO strings rather than `Date` objects. Fingerprints are deterministic SHA-256 hashes of stable raw-record serialization. Compliance sections remain source-cited placeholders and should not be interpreted without source-specific semantics.

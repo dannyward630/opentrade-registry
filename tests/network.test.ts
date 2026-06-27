@@ -1,4 +1,4 @@
-import { existsSync } from "node:fs";
+import { existsSync, readFileSync } from "node:fs";
 import { createServer, type Server } from "node:http";
 import { describe, expect, it } from "vitest";
 import { downloadSourceToTempFile } from "../packages/cli/src/import/network.js";
@@ -13,14 +13,49 @@ describe("network source download helper", () => {
     });
 
     try {
-      const downloaded = await downloadSourceToTempFile(server.url, { timeoutMs: 1_000, maxBytes: 1024 });
+      const downloaded = await downloadSourceToTempFile(server.url, { timeoutMs: 1_000, maxBytes: 1024, allowedHosts: ["127.0.0.1"] });
       expect(existsSync(downloaded.filePath)).toBe(true);
       expect(downloaded.metadata.sourceUrl).toBe(server.url);
       expect(downloaded.metadata.lastModifiedAt).toBe("2026-01-01T00:00:00.000Z");
       expect(downloaded.metadata.etag).toBe("\"fixture\"");
+      expect(downloaded.metadata.contentType).toBe("text/csv");
+      expect(downloaded.metadata.sha256).toMatch(/^[a-f0-9]{64}$/);
 
       await downloaded.cleanup();
       expect(existsSync(downloaded.filePath)).toBe(false);
+    } finally {
+      await server.close();
+    }
+  });
+
+  it("preserves binary XLSX bytes and chooses an XLSX temp suffix", async () => {
+    const bytes = Buffer.from([0x50, 0x4b, 0x03, 0x04, 0x00, 0xff]);
+    const server = await startServer((_request, response) => {
+      response.setHeader("content-type", "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet");
+      response.end(bytes);
+    }, "/licenses.xlsx");
+
+    try {
+      const downloaded = await downloadSourceToTempFile(server.url, { timeoutMs: 1_000, maxBytes: 1024, allowedHosts: ["127.0.0.1"] });
+      expect(downloaded.filePath.endsWith(".xlsx")).toBe(true);
+      expect(readFileSync(downloaded.filePath)).toEqual(bytes);
+      await downloaded.cleanup();
+    } finally {
+      await server.close();
+    }
+  });
+
+  it("rejects redirects to a host outside the allowlist", async () => {
+    const server = await startServer((_request, response) => {
+      response.statusCode = 302;
+      response.setHeader("location", "https://example.com/licenses.csv");
+      response.end();
+    });
+
+    try {
+      await expect(
+        downloadSourceToTempFile(server.url, { timeoutMs: 1_000, maxBytes: 1024, allowedHosts: ["127.0.0.1"] }),
+      ).rejects.toThrow(/host .* not allowed/i);
     } finally {
       await server.close();
     }
@@ -33,7 +68,7 @@ describe("network source download helper", () => {
     });
 
     try {
-      await expect(downloadSourceToTempFile(server.url, { timeoutMs: 1_000, maxBytes: 10 })).rejects.toThrow(/download limit/i);
+      await expect(downloadSourceToTempFile(server.url, { timeoutMs: 1_000, maxBytes: 10, allowedHosts: ["127.0.0.1"] })).rejects.toThrow(/exceeds 10 bytes/i);
     } finally {
       await server.close();
     }
@@ -47,7 +82,20 @@ describe("network source download helper", () => {
     });
 
     try {
-      await expect(downloadSourceToTempFile(server.url, { timeoutMs: 10, maxBytes: 1024 })).rejects.toThrow(/timed out/i);
+      await expect(downloadSourceToTempFile(server.url, { timeoutMs: 10, maxBytes: 1024, allowedHosts: ["127.0.0.1"] })).rejects.toThrow(/timed out/i);
+    } finally {
+      await server.close();
+    }
+  });
+
+  it("cancels an in-progress download", async () => {
+    const server = await startServer((_request, response) => {
+      setTimeout(() => response.end("late"), 250);
+    });
+    const controller = new AbortController();
+    setTimeout(() => controller.abort(new Error("cancelled by test")), 10);
+    try {
+      await expect(downloadSourceToTempFile(server.url, { timeoutMs: 1_000, maxBytes: 1024, signal: controller.signal, allowedHosts: ["127.0.0.1"] })).rejects.toThrow(/cancelled by test|aborted/i);
     } finally {
       await server.close();
     }
@@ -56,6 +104,7 @@ describe("network source download helper", () => {
 
 async function startServer(
   handler: Parameters<typeof createServer>[0],
+  path = "/source.csv",
 ): Promise<{ url: string; close(): Promise<void> }> {
   const server = createServer(handler);
   await new Promise<void>((resolve) => {
@@ -68,7 +117,7 @@ async function startServer(
   }
 
   return {
-    url: `http://127.0.0.1:${address.port}/source.csv`,
+    url: `http://127.0.0.1:${address.port}${path}`,
     close: () => closeServer(server),
   };
 }

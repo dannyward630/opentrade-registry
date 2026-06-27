@@ -1,6 +1,6 @@
 {
   "name": "@opentrade/adapter-mn-dli",
-  "version": "0.2.0",
+  "version": "1.0.0",
   "type": "module",
   "description": "Minnesota DLI fixture adapter for OpenTrade Registry.",
   "license": "MIT",
@@ -30,7 +30,8 @@
     "fixtures"
   ],
   "publishConfig": {
-    "access": "public"
+    "access": "public",
+    "provenance": true
   },
   "exports": {
     ".": {

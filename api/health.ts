@@ -1,9 +1,11 @@
 import { compareSourceMirrors, createDatabaseClientFromEnv, loadSourcesFromDatabase, loadSourcesFromFiles, type RegistryDatabaseClient, type SourceMirrorMismatch } from "./registry.js";
 import type { ApiRequest, ApiResponse } from "./types.js";
+import { applyPublicApiHeaders, withApiVersion } from "./http.js";
 
 export default async function handler(_request: ApiRequest, response: ApiResponse) {
+  applyPublicApiHeaders(response, { health: true });
   const health = await getHealthStatus();
-  response.status(health.statusCode).json(health.body);
+  response.status(health.statusCode).json(withApiVersion(health.body));
 }
 
 export async function getHealthStatus(options: { rootDir?: string; databaseClient?: RegistryDatabaseClient | null } = {}) {
@@ -41,7 +43,7 @@ export async function getHealthStatus(options: { rootDir?: string; databaseClien
     sourceMetadataMismatchCount = comparison.sourceMetadataMismatchCount;
     sourceMetadataMismatches = comparison.sourceMetadataMismatches;
   } catch (caught) {
-    error = caught instanceof Error ? caught.message : "Unknown database source loading error";
+    error = "database_unavailable";
   }
 
   const sourceCountMatchesFiles = registrySourceCount === fileRegistrySourceCount;

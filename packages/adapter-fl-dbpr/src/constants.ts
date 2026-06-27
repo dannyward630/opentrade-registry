@@ -38,7 +38,7 @@ export const FL_DBPR_SOURCE_ENTRY: SourceRegistryEntry = {
   publicRecordsNotes: "Official public-record source for Florida DBPR construction-industry data. Absence from this source is not proof that a license does not exist elsewhere.",
   adapterStatus: "implemented",
   sourceDiscoveryStatus: "researched",
-  adapterMaturity: "local_file_adapter",
+  adapterMaturity: "network_opt_in",
   adapterQualityLevel: 4,
   coverageScope: "state_agency_partial",
   adapterPackage: "@opentrade/adapter-fl-dbpr",
@@ -53,7 +53,18 @@ export const FL_DBPR_SOURCE_ENTRY: SourceRegistryEntry = {
     "Status normalization is based on DBPR primary and secondary status codes preserved in the raw record.",
   ],
   verificationNotes: "CLI verification returns matched, not_found, ambiguous, or missing_required_input without making licensing accusations.",
-  lastVerifiedAt: "2026-06-19T00:00:00.000Z",
+  lastVerifiedAt: "2026-06-27T00:00:00.000Z",
+  schemaVersion: "1.0",
+  sourceResearchOutcome: "network_opt_in",
+  researchReviewedAt: "2026-06-27T00:00:00.000Z",
+  nextReviewAt: "2026-12-27T00:00:00.000Z",
+  researchEvidence: [
+    {
+      "url": "https://www.myfloridalicense.com/wl11.asp",
+      "checkedAt": "2026-06-27T00:00:00.000Z",
+      "note": "Official bulk source and opt-in network path reviewed."
+    }
+  ],
   maintainerNotes: "Use source URL, fetched time, caveats, raw record, and fingerprint in downstream exports.",
 };
 

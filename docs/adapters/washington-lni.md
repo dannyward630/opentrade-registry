@@ -1,6 +1,6 @@
 # Washington L&I Adapter Notes
 
-Washington L&I support starts with a fixture adapter for the official Data.WA contractor license dataset shape.
+Washington L&I is a network-opt-in adapter for the official Data.WA contractor license dataset shape.
 
 The source is useful because it is open-data-shaped and has stable column metadata. It still needs careful handling: contractor license data does not represent every local permit, business registration, trade credential, bond, insurance, or workers compensation fact in Washington.
 
@@ -10,7 +10,7 @@ The source is useful because it is open-data-shaped and has stable column metada
 - Column metadata: `https://data.wa.gov/api/views/m8qx-ubtq/columns.json`
 - License lookup: `https://secure.lni.wa.gov/verify/`
 
-## Current Support
+## Current Support (`network_opt_in`)
 
 - Reads a local CSV file with the official Data.WA column names.
 - Includes a tiny hand-authored fixture under `packages/adapter-wa-lni/fixtures/`.
@@ -29,7 +29,6 @@ The source is useful because it is open-data-shaped and has stable column metada
 
 ## Future Work
 
-- Review the full official column set and add local-file support for downloaded Data.WA CSV exports.
+- Revalidate the full official column set on schedule.
 - Add more representative hand-authored fixture cases.
-- Decide whether Washington should be promoted from `fixture_adapter` to `local_file_adapter`.
-- Compare fixture-backed verification caveats against the official L&I lookup before any live-source promotion.
+- Compare verification caveats against the official L&I lookup during scheduled review.

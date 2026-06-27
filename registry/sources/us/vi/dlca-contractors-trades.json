@@ -16,8 +16,19 @@
   "termsUrl": null,
   "termsReviewNotes": "No dedicated DLCA access, reuse, or website terms page was found in the official agency site or license-search navigation during the 2026-06-27 review. Keep redistribution and automation status unknown and do not infer permission from public accessibility.",
   "updateFrequency": "unknown; verify against the DLCA license search before relying on freshness assumptions",
-  "tradeCoverage": ["general_contracting", "commercial_contracting", "hvac", "electrical", "plumbing", "mechanical", "other", "unknown"],
-  "licenseTypesIncluded": ["construction contractors and trades records exposed by the official DLCA license search"],
+  "tradeCoverage": [
+    "general_contracting",
+    "commercial_contracting",
+    "hvac",
+    "electrical",
+    "plumbing",
+    "mechanical",
+    "other",
+    "unknown"
+  ],
+  "licenseTypesIncluded": [
+    "construction contractors and trades records exposed by the official DLCA license search"
+  ],
   "knownExclusions": [
     "License-search fields, board certification categories, inactive coverage, and historical records require follow-up review before adapter work.",
     "Business-license applications, board certifications, complaint records, and enforcement records may need separate official source entries.",
@@ -31,15 +42,34 @@
   "rateLimitNotes": "No adapter is implemented. Future access should confirm stable query behavior and avoid bypassing technical controls.",
   "redistributionStatus": "unknown",
   "publicRecordsNotes": "Official DLCA license-search metadata only. Absence from this source is not proof that a license, business authorization, permit, or board certification does not exist elsewhere.",
-  "adapterStatus": "planned",
-  "sourceDiscoveryStatus": "researched",
-  "adapterMaturity": "registry_only",
+  "adapterStatus": "blocked",
+  "sourceDiscoveryStatus": "blocked",
+  "adapterMaturity": "blocked",
   "coverageScope": "state_agency_partial",
-  "adapterPackage": "@opentrade/adapter-vi-dlca",
+  "adapterPackage": null,
   "testFixturePath": null,
   "officialLookupUrl": "https://dlca.vi.gov/_new/",
   "officialBulkDownloadNotes": "No official bulk download has been confirmed in this phase.",
   "researchNotes": "Registry-only source for U.S. Virgin Islands DLCA construction contractors and trades license search. Future work should research license-type filters and fixture-safe search results.",
   "lastVerifiedAt": "2026-06-27T00:00:00.000Z",
-  "maintainerNotes": "Keep DLCA board-certification and business-license paths distinct unless future source research proves a shared data model."
+  "maintainerNotes": "Keep DLCA board-certification and business-license paths distinct unless future source research proves a shared data model.",
+  "schemaVersion": "1.0",
+  "researchReviewedAt": "2026-06-27T00:00:00.000Z",
+  "nextReviewAt": "2026-12-27T00:00:00.000Z",
+  "researchEvidence": [
+    {
+      "url": "https://dlca.vi.gov/_new/",
+      "checkedAt": "2026-06-27T00:00:00.000Z",
+      "note": "Official public source, access shape, and current automation constraints reviewed."
+    }
+  ],
+  "sourceResearchOutcome": "blocked",
+  "adapterQualityLevel": 0,
+  "blocker": {
+    "code": "terms",
+    "summary": "Official automation or reuse terms remain unavailable or insufficiently clear for adapter implementation.",
+    "evidenceUrls": [
+      "https://dlca.vi.gov/_new/"
+    ]
+  }
 }

@@ -29,15 +29,23 @@ Use this checklist before adding a new source registry entry. The goal is to rec
 - Public-record caveats:
 - Privacy concerns, including individual home-address exposure:
 
+## Review Evidence
+
+- Research reviewed at:
+- Next review at:
+- Official evidence URLs and what each proves:
+- Missing terms/lookup review notes, if applicable:
+
 ## Adapter Readiness
 
-- Source discovery status:
+- Terminal source outcome: `production_ready`, `network_opt_in`, `local_file_adapter`, `blocked`, or `deprecated`
 - Adapter maturity:
 - Coverage scope:
 - Candidate package name:
 - Fixture plan:
 - Fields likely needed for canonical mapping:
 - Verification wording caveats:
+- Blocker code, summary, and evidence URLs when blocked:
 
 ## Acceptance Checklist
 
@@ -46,3 +54,4 @@ Use this checklist before adding a new source registry entry. The goal is to rec
 - No network test is added to default CI.
 - No access controls are bypassed.
 - Absence from the source is described only as no matching record in that source at the checked time.
+- The source has no provisional outcome when merged for release.

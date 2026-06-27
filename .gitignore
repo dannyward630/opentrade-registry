@@ -9,3 +9,5 @@ out.csv
 *.db
 
 .vercel
+release-artifacts/
+wiki-export/

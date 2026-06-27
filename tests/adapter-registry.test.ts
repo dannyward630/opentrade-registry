@@ -5,6 +5,7 @@ describe("CLI adapter registry", () => {
   it("resolves implemented adapters and rejects registry-only sources", () => {
     expect(listImplementedSourceIds()).toEqual([
       "us.ak.commerce.construction_contractors",
+      "us.az.roc.contractors",
       "us.ca.cslb.contractors",
       "us.fl.dbpr.construction",
       "us.il.idfpr.roofing_contractors",
@@ -15,6 +16,7 @@ describe("CLI adapter registry", () => {
       "us.wa.lni.contractors",
     ]);
     expect(getAdapter("us.ak.commerce.construction_contractors")?.sourceId).toBe("us.ak.commerce.construction_contractors");
+    expect(getAdapter("us.az.roc.contractors")?.sourceId).toBe("us.az.roc.contractors");
     expect(getAdapter("us.ca.cslb.contractors")?.sourceId).toBe("us.ca.cslb.contractors");
     expect(getAdapter("us.fl.dbpr.construction")?.sourceId).toBe("us.fl.dbpr.construction");
     expect(getAdapter("us.il.idfpr.roofing_contractors")?.sourceId).toBe("us.il.idfpr.roofing_contractors");

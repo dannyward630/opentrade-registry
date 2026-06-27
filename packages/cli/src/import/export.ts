@@ -1,5 +1,6 @@
-import { mkdir, writeFile } from "node:fs/promises";
-import { dirname } from "node:path";
+import { randomUUID } from "node:crypto";
+import { mkdir, rename, rm, writeFile } from "node:fs/promises";
+import { basename, dirname, join } from "node:path";
 import type { CanonicalTradeLicenseRecord } from "@opentrade/core";
 
 export type SyncFormat = "jsonl" | "csv";
@@ -22,14 +23,20 @@ export async function writeCanonicalRecords(input: {
   records: CanonicalTradeLicenseRecord[];
 }): Promise<void> {
   await mkdir(dirname(input.outputPath), { recursive: true });
-  await writeFile(input.outputPath, input.format === "jsonl" ? toJsonl(input.records) : toCsv(input.records), "utf8");
+  const temporaryPath = join(dirname(input.outputPath), `.${basename(input.outputPath)}.${randomUUID()}.tmp`);
+  try {
+    await writeFile(temporaryPath, input.format === "jsonl" ? toJsonl(input.records) : toCsv(input.records), "utf8");
+    await rename(temporaryPath, input.outputPath);
+  } finally {
+    await rm(temporaryPath, { force: true });
+  }
 }
 
-function toJsonl(records: CanonicalTradeLicenseRecord[]): string {
+export function toJsonl(records: CanonicalTradeLicenseRecord[]): string {
   return `${records.map((record) => JSON.stringify(record)).join("\n")}\n`;
 }
 
-function toCsv(records: CanonicalTradeLicenseRecord[]): string {
+export function toCsv(records: CanonicalTradeLicenseRecord[]): string {
   const header = [
     "sourceId",
     "licenseNumber",
@@ -63,9 +70,10 @@ function toCsv(records: CanonicalTradeLicenseRecord[]): string {
 }
 
 function csvCell(value: string): string {
-  if (!/[",\n\r]/.test(value)) {
-    return value;
+  const safeValue = /^[=+\-@\t\r]/.test(value) ? `'${value}` : value;
+  if (!/[",\n\r]/.test(safeValue)) {
+    return safeValue;
   }
 
-  return `"${value.replaceAll("\"", "\"\"")}"`;
+  return `"${safeValue.replaceAll("\"", "\"\"")}"`;
 }

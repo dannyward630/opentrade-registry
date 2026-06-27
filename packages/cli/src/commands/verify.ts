@@ -7,12 +7,14 @@ import {
   type VerificationWarning,
 } from "@opentrade/core";
 import { requireAdapter } from "../adapters.js";
-import { downloadSourceToTempFile } from "../import/network.js";
+import { buildAllowedSourceHosts, downloadSourceToTempFile } from "../import/network.js";
+import { OpenTradeSqliteCache } from "@opentrade/storage-sqlite";
 
 export async function verifyLicense(input: {
   rootDir: string;
   sourceId?: string;
   file?: string;
+  cache?: string;
   url?: string;
   allowNetwork?: boolean;
   sourceLastModifiedAt?: string;
@@ -32,10 +34,6 @@ export async function verifyLicense(input: {
     throw Object.assign(new Error("Missing --url for network verification."), { exitCode: 2 });
   }
 
-  if (!input.file && !input.url) {
-    throw Object.assign(new Error("Missing --file for local-file verification."), { exitCode: 2 });
-  }
-
   const normalizedQuery = normalizeLicenseNumber(input.license);
   if (!normalizedQuery) {
     const result = buildVerificationResult({
@@ -50,7 +48,27 @@ export async function verifyLicense(input: {
     throw Object.assign(new Error("Missing or invalid --license value."), { exitCode: 2, alreadyReported: true });
   }
 
-  const downloaded = input.url ? await downloadSourceToTempFile(input.url) : null;
+  if (input.cache) {
+    if (input.file || input.url) throw Object.assign(new Error("Choose exactly one verification input: --file, --url, or --cache."), { exitCode: 2 });
+    const cache = await OpenTradeSqliteCache.open({ filePath: resolveFromRoot(input.rootDir, input.cache), create: false });
+    try {
+      const result = cache.verify(sourceId, jurisdiction, normalizedQuery);
+      printVerificationResult(result, input.json);
+      if (result.result === "not_found") throw Object.assign(new Error("No matching record was found in this local cache as of the checked time."), { exitCode: 4, alreadyReported: true });
+      if (result.result === "ambiguous") throw Object.assign(new Error("Multiple matching records were found in this local cache."), { exitCode: 5, alreadyReported: true });
+      return;
+    } finally {
+      await cache.close();
+    }
+  }
+
+  if (!input.file && !input.url) {
+    throw Object.assign(new Error("Missing verification input. Use --file, --url, or --cache."), { exitCode: 2 });
+  }
+
+  const downloaded = input.url
+    ? await downloadSourceToTempFile(input.url, { allowedHosts: buildAllowedSourceHosts(metadata, input.url) })
+    : null;
 
   try {
     await runVerification({

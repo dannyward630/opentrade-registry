@@ -2,21 +2,19 @@
 
 This directory contains the optional hosted database schema for OpenTrade Registry.
 
-The core packages and CLI remain local-first. A database is not required for fixture sync, local-file sync, registry validation, or package tests. The hosted database exists so a deployment can expose source metadata and, later, imported public-record snapshots with provenance.
+The core packages and CLI remain local-first. A database is not required for local-file sync, registry validation, or package tests. The hosted database exists only so a deployment can expose public source metadata.
 
 ## Schema
 
-The first migration creates:
+The migration history initially created experimental hosted record tables. The v1 cleanup migration removes those empty tables and leaves:
 
 - `registry_sources` for source registry metadata.
-- `import_runs` for import provenance, counts, warnings, and source freshness metadata.
-- `license_records` for canonical normalized records, raw-record fingerprints, and source metadata.
 
-Row-level security is enabled. Public read policies are added for `registry_sources` and `license_records`; writes should be performed only from trusted server-side tooling with a service role key. Do not expose service role credentials in a browser or checked-in file.
+Row-level security is enabled and anonymous access is read-only. Seed writes are performed through trusted operational tooling. Do not expose service role credentials in a browser or checked-in file.
 
 ## Apply Locally Or Remotely
 
-Apply the SQL in `migrations/` with your preferred Supabase workflow. Generated public-record datasets should remain local unless redistribution is clearly allowed by the official source terms.
+Apply the SQL in `migrations/` with your preferred Supabase workflow. Canonical license records and generated datasets remain local; the hosted database is not a record store.
 
 Public source metadata can be seeded from `supabase/seeds/registry_sources.sql`. Regenerate that file after source registry changes:
 
@@ -30,4 +28,4 @@ Required hosted environment variables:
 - `OPENTRADE_SUPABASE_URL`
 - `OPENTRADE_SUPABASE_ANON_KEY`
 
-The hosted API deliberately uses an anon key for health checks and read paths. Write/import jobs should use a separate trusted environment with stronger credentials.
+The hosted API deliberately uses an anonymous key for source-metadata health checks and read paths. Seed updates use separate trusted operational access.

@@ -15,8 +15,13 @@
   "dataDictionaryUrl": null,
   "termsUrl": "https://licensesearch.alabama.gov/Home/Policies",
   "updateFrequency": "unknown; verify against the official license roster before relying on freshness assumptions",
-  "tradeCoverage": ["general contracting", "commercial contracting"],
-  "licenseTypesIncluded": ["Alabama general contractor license records exposed by the official license roster"],
+  "tradeCoverage": [
+    "general contracting",
+    "commercial contracting"
+  ],
+  "licenseTypesIncluded": [
+    "Alabama general contractor license records exposed by the official license roster"
+  ],
   "knownExclusions": [
     "Residential home builder licensing is handled by the Alabama Home Builders Licensure Board and is outside this source entry.",
     "Specialty trade boards, local permits, business registrations, and non-board authorizations are outside this source entry."
@@ -29,15 +34,35 @@
   "rateLimitNotes": "No adapter is implemented. Any future access should respect lookup controls and prefer official bulk options if discovered.",
   "redistributionStatus": "unknown",
   "publicRecordsNotes": "Official lookup source metadata only. Absence from this source is not proof that a license does not exist elsewhere.",
-  "adapterStatus": "planned",
-  "sourceDiscoveryStatus": "researched",
-  "adapterMaturity": "registry_only",
+  "adapterStatus": "blocked",
+  "sourceDiscoveryStatus": "blocked",
+  "adapterMaturity": "blocked",
   "coverageScope": "state_agency_partial",
-  "adapterPackage": "@opentrade/adapter-al-genconbd",
+  "adapterPackage": null,
   "testFixturePath": null,
   "officialLookupUrl": "https://licensesearch.alabama.gov/",
   "officialBulkDownloadNotes": "No official bulk download has been confirmed in this phase.",
   "researchNotes": "Registry-only source for Alabama general contractor roster lookup. Future work should add separate entries for residential home builders and specialty trade boards if researched.",
-  "lastVerifiedAt": "2026-06-21T00:00:00.000Z",
-  "maintainerNotes": "Keep the general-contractor-board scope explicit; do not imply all Alabama construction or trade authorizations are covered."
+  "lastVerifiedAt": "2026-06-27T00:00:00.000Z",
+  "maintainerNotes": "Keep the general-contractor-board scope explicit; do not imply all Alabama construction or trade authorizations are covered.",
+  "schemaVersion": "1.0",
+  "researchReviewedAt": "2026-06-27T00:00:00.000Z",
+  "nextReviewAt": "2026-12-27T00:00:00.000Z",
+  "researchEvidence": [
+    {
+      "url": "https://licensesearch.alabama.gov/",
+      "checkedAt": "2026-06-27T00:00:00.000Z",
+      "note": "Official public source, access shape, and current automation constraints reviewed."
+    }
+  ],
+  "sourceResearchOutcome": "blocked",
+  "adapterQualityLevel": 0,
+  "blocker": {
+    "code": "technical_instability",
+    "summary": "No stable, documented machine-readable official interface is currently suitable for an offline-tested adapter.",
+    "evidenceUrls": [
+      "https://licensesearch.alabama.gov/",
+      "https://licensesearch.alabama.gov/Home/Policies"
+    ]
+  }
 }

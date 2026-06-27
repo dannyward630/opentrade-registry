@@ -1,13 +1,14 @@
 # @opentrade/core
 
-Core contains the pieces that should not be tied to one state or agency: schemas, adapter contracts, normalization helpers, and verification result types.
+Core contains the stable v1 contracts that are not tied to one state or agency: schemas, adapter contracts, compatibility identifiers, bounded parsers, normalization helpers, filters, and verification result types.
 
 ## Public Imports
 
 ```ts
 import {
   canonicalTradeLicenseRecordSchema,
-  sourceRegistryEntrySchema,
+  sourceRegistryEntryV1Schema,
+  OPENTRADE_API_VERSION,
   buildFingerprint,
   filterSources,
   buildSourceReadiness,
@@ -30,10 +31,10 @@ import {
 - Source discovery, coverage scope, and adapter maturity types.
 - Adapter interface and shared result types.
 - Generic fingerprint, license-number, and text normalization helpers.
-- Generic CSV line parsing for simple source fixtures.
+- Strict CSV parsing and bounded XLSX reading for untrusted local snapshots.
 - Shared source filtering for CLI and hosted API registry views.
 - Source readiness summaries for CLI/API reporting.
-- Candidate and source-research outcome helpers that separate implemented adapters, adapter candidates, access blockers, terms blockers, unstable sources, and broad non-contractor-specific entries.
+- Terminal source readiness and filtering helpers.
 - Neutral verification result types.
 
-This package does not read agency websites, write to a database, or know about any one state source.
+This package does not read agency websites, write to a database, or know about any one state source. Network orchestration belongs to `@opentrade/registry`; persistence belongs to `@opentrade/storage-sqlite`.

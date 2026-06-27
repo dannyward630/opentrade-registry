@@ -3,7 +3,7 @@ import { canonicalTradeLicenseRecordSchema, normalizeLicenseNumber } from "@open
 import { MN_DLI_LICENSES_REGISTRATIONS_SOURCE_ID, MN_DLI_LICENSES_REGISTRATIONS_SOURCE_URL, MN_DLI_SOURCE_ENTRY } from "./constants.js";
 import type { MinnesotaDliRow } from "./map.js";
 import { mapMinnesotaDliTradeCategory, normalizeMinnesotaDliStatus } from "./normalize.js";
-import { streamMinnesotaDliCsvFile } from "./parse.js";
+import { streamMinnesotaDliFile } from "./parse.js";
 
 export const minnesotaDliLicensesRegistrationsAdapter: TradeLicenseSourceAdapter = {
   sourceId: MN_DLI_LICENSES_REGISTRATIONS_SOURCE_ID,
@@ -22,7 +22,7 @@ export const minnesotaDliLicensesRegistrationsAdapter: TradeLicenseSourceAdapter
       throw new Error("The Minnesota DLI fixture adapter requires a local filePath.");
     }
 
-    yield* streamMinnesotaDliCsvFile({
+    yield* streamMinnesotaDliFile({
       filePath: options.filePath,
       sourceUrl: options.sourceUrl,
       fetchedAt: options.fetchedAt,

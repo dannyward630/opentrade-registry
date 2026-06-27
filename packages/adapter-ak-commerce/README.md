@@ -1,6 +1,6 @@
 # @opentrade/adapter-ak-commerce
 
-Fixture adapter for Alaska Division of Corporations, Business and Professional Licensing construction-contractor-shaped records.
+Local-file adapter for Alaska Division of Corporations, Business and Professional Licensing construction-contractor-shaped records.
 
 This package is intentionally conservative:
 
@@ -14,4 +14,4 @@ This package is intentionally conservative:
 import { alaskaCommerceConstructionContractorsAdapter } from "@opentrade/adapter-ak-commerce";
 ```
 
-Current support is fixture-only. Treat no-match results as limited to the checked local file and checked time.
+Current maturity is `local_file_adapter`. The package accepts local CSV files shaped like the documented source fields; it does not automate protected agency pages. Treat no-match results as limited to the checked local file and checked time.

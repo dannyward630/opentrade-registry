@@ -39,7 +39,7 @@ export const IN_PLA_SOURCE_ENTRY: SourceRegistryEntry = {
   publicRecordsNotes: "Official lookup metadata only. Absence from this source is not proof that a state license, local contractor registration, or authorization does not exist elsewhere.",
   adapterStatus: "implemented",
   sourceDiscoveryStatus: "researched",
-  adapterMaturity: "fixture_adapter",
+  adapterMaturity: "local_file_adapter",
   adapterQualityLevel: 4,
   coverageScope: "state_agency_partial",
   adapterPackage: "@opentrade/adapter-in-pla",
@@ -54,6 +54,17 @@ export const IN_PLA_SOURCE_ENTRY: SourceRegistryEntry = {
     "No matching record means no match in this source at the checked time, not proof that a state license, local registration, or authorization does not exist elsewhere.",
   ],
   verificationNotes: "Fixture verification supports matched, not-found, ambiguous duplicate, and invalid-input outcomes while preserving PLA source scope caveats.",
-  lastVerifiedAt: "2026-06-26T00:00:00.000Z",
+  lastVerifiedAt: "2026-06-27T00:00:00.000Z",
+  schemaVersion: "1.0",
+  sourceResearchOutcome: "local_file_adapter",
+  researchReviewedAt: "2026-06-27T00:00:00.000Z",
+  nextReviewAt: "2026-12-27T00:00:00.000Z",
+  researchEvidence: [
+    {
+      "url": "https://mylicense.in.gov/everification/",
+      "checkedAt": "2026-06-27T00:00:00.000Z",
+      "note": "Official source documentation and supported local-file shape reviewed."
+    }
+  ],
   maintainerNotes: "Do not imply statewide Indiana general-contractor coverage; local licensing remains outside this source entry.",
 };

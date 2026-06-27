@@ -36,7 +36,7 @@ export const OR_CCB_SOURCE_ENTRY: SourceRegistryEntry = {
   publicRecordsNotes: "Official open-data source metadata. Absence from this active-license source is not proof that a license does not exist elsewhere.",
   adapterStatus: "implemented",
   sourceDiscoveryStatus: "researched",
-  adapterMaturity: "fixture_adapter",
+  adapterMaturity: "network_opt_in",
   adapterQualityLevel: 4,
   coverageScope: "state_agency_partial",
   adapterPackage: "@opentrade/adapter-or-ccb",
@@ -51,6 +51,17 @@ export const OR_CCB_SOURCE_ENTRY: SourceRegistryEntry = {
     "Status normalization uses expiration and source fields preserved in the raw record and should not be treated as a full official standing report.",
   ],
   verificationNotes: "Fixture verification uses neutral result states and keeps active-source caveats visible in normalized records.",
-  lastVerifiedAt: "2026-06-21T00:00:00.000Z",
+  lastVerifiedAt: "2026-06-27T00:00:00.000Z",
+  schemaVersion: "1.0",
+  sourceResearchOutcome: "network_opt_in",
+  researchReviewedAt: "2026-06-27T00:00:00.000Z",
+  nextReviewAt: "2026-12-27T00:00:00.000Z",
+  researchEvidence: [
+    {
+      "url": "https://search.ccb.state.or.us/search/",
+      "checkedAt": "2026-06-27T00:00:00.000Z",
+      "note": "Official bulk source and opt-in network path reviewed."
+    }
+  ],
   maintainerNotes: "Do not present this source as complete statewide contractor licensing coverage.",
 };

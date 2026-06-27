@@ -15,8 +15,13 @@
   "dataDictionaryUrl": null,
   "termsUrl": "https://sos.vermont.gov/about-office/privacy-policy/",
   "updateFrequency": "unknown; verify against the official OPR find-a-professional lookup before relying on freshness assumptions",
-  "tradeCoverage": ["residential_contracting", "home_improvement"],
-  "licenseTypesIncluded": ["Vermont residential contractor registration records and related OPR license records where exposed by official lookup paths"],
+  "tradeCoverage": [
+    "residential_contracting",
+    "home_improvement"
+  ],
+  "licenseTypesIncluded": [
+    "Vermont residential contractor registration records and related OPR license records where exposed by official lookup paths"
+  ],
   "knownExclusions": [
     "This source entry is scoped to Vermont residential contractor registration and OPR lookup context.",
     "Other trade licenses, local permits, business registrations, and non-OPR authorizations may require separate sources.",
@@ -30,15 +35,35 @@
   "rateLimitNotes": "No adapter is implemented. Do not bypass CAPTCHA or technical controls; prefer official export options if discovered.",
   "redistributionStatus": "unknown",
   "publicRecordsNotes": "Official OPR residential-contractor metadata only. Absence from this source is not proof that a registration, trade license, local authorization, or business registration does not exist elsewhere.",
-  "adapterStatus": "planned",
-  "sourceDiscoveryStatus": "researched",
-  "adapterMaturity": "registry_only",
+  "adapterStatus": "blocked",
+  "sourceDiscoveryStatus": "blocked",
+  "adapterMaturity": "blocked",
   "coverageScope": "state_agency_partial",
-  "adapterPackage": "@opentrade/adapter-vt-sos",
+  "adapterPackage": null,
   "testFixturePath": null,
   "officialLookupUrl": "https://sos.vermont.gov/opr/find-a-professional",
   "officialBulkDownloadNotes": "No official bulk download has been confirmed in this phase.",
   "researchNotes": "Registry-only source for Vermont residential contractor registration. Future work should research OPR lookup access and whether residential contractor records can be exported lawfully.",
-  "lastVerifiedAt": "2026-06-24T00:00:00.000Z",
-  "maintainerNotes": "Keep CAPTCHA and access-control cautions visible; do not add portal automation by default."
+  "lastVerifiedAt": "2026-06-27T00:00:00.000Z",
+  "maintainerNotes": "Keep CAPTCHA and access-control cautions visible; do not add portal automation by default.",
+  "schemaVersion": "1.0",
+  "researchReviewedAt": "2026-06-27T00:00:00.000Z",
+  "nextReviewAt": "2026-12-27T00:00:00.000Z",
+  "researchEvidence": [
+    {
+      "url": "https://sos.vermont.gov/opr/find-a-professional",
+      "checkedAt": "2026-06-27T00:00:00.000Z",
+      "note": "Official public source, access shape, and current automation constraints reviewed."
+    }
+  ],
+  "sourceResearchOutcome": "blocked",
+  "adapterQualityLevel": 0,
+  "blocker": {
+    "code": "access_controls",
+    "summary": "The official path requires or may require protected interactive access; OpenTrade Registry will not bypass technical controls.",
+    "evidenceUrls": [
+      "https://sos.vermont.gov/opr/find-a-professional",
+      "https://sos.vermont.gov/about-office/privacy-policy/"
+    ]
+  }
 }

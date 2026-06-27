@@ -15,8 +15,17 @@
   "dataDictionaryUrl": null,
   "termsUrl": "https://portal.ehawaii.gov/page/terms-of-use/",
   "updateFrequency": "unknown; verify against the official PVL license search before relying on freshness assumptions",
-  "tradeCoverage": ["general_contracting", "residential_contracting", "commercial_contracting", "electrical", "plumbing", "other"],
-  "licenseTypesIncluded": ["Hawaii contractor license records exposed by DCCA PVL public license search"],
+  "tradeCoverage": [
+    "general_contracting",
+    "residential_contracting",
+    "commercial_contracting",
+    "electrical",
+    "plumbing",
+    "other"
+  ],
+  "licenseTypesIncluded": [
+    "Hawaii contractor license records exposed by DCCA PVL public license search"
+  ],
   "knownExclusions": [
     "This source entry is scoped to professional and vocational licensing records and does not represent every business registration, local permit, or tax record in Hawaii.",
     "Business Check and complaint-history resources are separate public tools and are not modeled as normalized license records in this entry.",
@@ -30,15 +39,35 @@
   "rateLimitNotes": "No adapter is implemented. Do not bypass portal controls; prefer official export options if discovered.",
   "redistributionStatus": "unknown",
   "publicRecordsNotes": "Official DCCA PVL lookup metadata only. Absence from this source is not proof that a license, business registration, or local authorization does not exist elsewhere.",
-  "adapterStatus": "planned",
-  "sourceDiscoveryStatus": "researched",
-  "adapterMaturity": "registry_only",
+  "adapterStatus": "blocked",
+  "sourceDiscoveryStatus": "blocked",
+  "adapterMaturity": "blocked",
   "coverageScope": "state_agency_partial",
-  "adapterPackage": "@opentrade/adapter-hi-dcca",
+  "adapterPackage": null,
   "testFixturePath": null,
   "officialLookupUrl": "https://mypvl.dcca.hawaii.gov/public-license-search/",
   "officialBulkDownloadNotes": "No official bulk download has been confirmed in this phase.",
   "researchNotes": "Registry-only source for Hawaii DCCA PVL contractor license search. Future work should research classification mapping and whether the public search exposes stable result fields.",
-  "lastVerifiedAt": "2026-06-24T00:00:00.000Z",
-  "maintainerNotes": "Keep DCCA PVL licensing separate from Hawaii business registration and complaint-history tools."
+  "lastVerifiedAt": "2026-06-27T00:00:00.000Z",
+  "maintainerNotes": "Keep DCCA PVL licensing separate from Hawaii business registration and complaint-history tools.",
+  "schemaVersion": "1.0",
+  "researchReviewedAt": "2026-06-27T00:00:00.000Z",
+  "nextReviewAt": "2026-12-27T00:00:00.000Z",
+  "researchEvidence": [
+    {
+      "url": "https://mypvl.dcca.hawaii.gov/public-license-search/",
+      "checkedAt": "2026-06-27T00:00:00.000Z",
+      "note": "Official public source, access shape, and current automation constraints reviewed."
+    }
+  ],
+  "sourceResearchOutcome": "blocked",
+  "adapterQualityLevel": 0,
+  "blocker": {
+    "code": "technical_instability",
+    "summary": "No stable, documented machine-readable official interface is currently suitable for an offline-tested adapter.",
+    "evidenceUrls": [
+      "https://mypvl.dcca.hawaii.gov/public-license-search/",
+      "https://portal.ehawaii.gov/page/terms-of-use/"
+    ]
+  }
 }

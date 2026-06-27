@@ -1,18 +1,25 @@
 # Changelog
 
+All notable changes follow semantic versioning from v1 onward.
+
+## 1.0.0 - 2026-06-27
+
+- Stabilized canonical, source registry, adapter, verification, CLI, and JSON contracts with v1 identifiers and v0.2 compatibility readers.
+- Finalized 56 source decisions across all states, DC, and five major territories: 10 Level 4 adapters and 46 evidence-backed blockers.
+- Added Arizona ROC and promoted existing adapters to local-file or explicit network capability.
+- Added `@opentrade/registry` file/cache/network orchestration.
+- Added a versioned Node-compatible SQLite cache with migrations, transactions, indexes, retention, redaction, and atomic persistence.
+- Added CLI SQLite sync and verification.
+- Hardened downloads, CSV/XLSX parsing, malformed-row isolation, cancellation, safe CSV export, and atomic outputs.
+- Added property, archive-limit, large-file memory, cancellation, migration, package-install, hosted parity, and adapter conformance tests.
+- Added API versioning, bounded caching, public-read CORS, sanitized errors, and metadata parity health checks.
+- Added Node 20/22/24 Linux/macOS/Windows CI, pinned Actions, dependency review, CodeQL, deterministic status matrix, and npm provenance metadata.
+
 ## 0.2.0
 
-- Expanded the researched source registry to 34 official state and district source entries.
-- Added fixture adapters for Oregon CCB, Texas TDLR, and Washington L&I.
-- Added opt-in Florida DBPR URL sync guarded by `--allow-network`.
-- Added adapter conformance and Level 4 verification-semantics tests for all implemented adapters.
-- Added optional hosted source metadata APIs with registry-file fallback when Supabase is absent.
-- Added source quality, seed consistency, cleanliness, file hygiene, and package dry-run checks.
+- Expanded the researched source registry and adapter set.
+- Added explicit Florida URL sync, source-quality reporting, optional hosted metadata, and Level 4 verification semantics.
 
 ## 0.1.0
 
-- Added the initial TypeScript workspace.
-- Added core canonical license and source registry schemas.
-- Added Florida DBPR local-file adapter with fixture coverage.
-- Added CLI commands for source metadata, local sync, and local verification.
-- Added public documentation and data-use caveats.
+- Added the initial TypeScript workspace, canonical schema, Florida local-file adapter, CLI, and public data-use documentation.

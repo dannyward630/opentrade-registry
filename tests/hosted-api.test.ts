@@ -24,6 +24,9 @@ describe("hosted API", () => {
     restoreEnv("OPENTRADE_SUPABASE_ANON_KEY", originalAnonKey);
 
     expect(response.statusCode).toBe(200);
+    expect(response.body.apiVersion).toBe("1.0");
+    expect(response.headers["Cache-Control"]).toBe("no-store");
+    expect(response.headers["X-Content-Type-Options"]).toBe("nosniff");
     expect(response.body).toMatchObject({
       ok: true,
       service: "opentrade-registry",
@@ -40,6 +43,9 @@ describe("hosted API", () => {
     await sourcesHandler({ query: {} } as never, response as never);
 
     expect(response.statusCode).toBe(200);
+    expect(response.body.apiVersion).toBe("1.0");
+    expect(response.headers["Access-Control-Allow-Origin"]).toBe("*");
+    expect(response.headers["Cache-Control"]).toContain("stale-while-revalidate");
     expect(response.body.origin).toBe("registry_files");
     expect(response.body.count).toBe(56);
     expect(response.body.sources.some((source: { id: string }) => source.id === "us.fl.dbpr.construction")).toBe(true);
@@ -50,10 +56,11 @@ describe("hosted API", () => {
     await sourcesHandler({ query: { implemented: "true" } } as never, implemented as never);
 
     expect(implemented.statusCode).toBe(200);
-    expect(implemented.body.count).toBe(9);
+    expect(implemented.body.count).toBe(10);
     expect(implemented.body.filters.implemented).toBe(true);
     expect(implemented.body.sources.map((source: { id: string }) => source.id)).toEqual([
       "us.ak.commerce.construction_contractors",
+      "us.az.roc.contractors",
       "us.ca.cslb.contractors",
       "us.fl.dbpr.construction",
       "us.il.idfpr.roofing_contractors",
@@ -65,7 +72,7 @@ describe("hosted API", () => {
     ]);
 
     const california = createMockResponse();
-    await sourcesHandler({ query: { state: "ca", maturity: "fixture_adapter" } } as never, california as never);
+    await sourcesHandler({ query: { state: "ca", maturity: "local_file_adapter" } } as never, california as never);
     expect(california.statusCode).toBe(200);
     expect(california.body.count).toBe(1);
     expect(california.body.filters.state).toBe("CA");
@@ -77,14 +84,14 @@ describe("hosted API", () => {
     expect(bulkCandidates.body.count).toBe(0);
     expect(bulkCandidates.body.sources.map((source: { id: string }) => source.id)).toEqual([]);
 
-    const adapterCandidates = createMockResponse();
-    await sourcesHandler({ query: { researchOutcome: "adapter_candidate" } } as never, adapterCandidates as never);
-    expect(adapterCandidates.statusCode).toBe(200);
-    expect(adapterCandidates.body.count).toBe(8);
-    expect(adapterCandidates.body.filters.researchOutcome).toBe("adapter_candidate");
-    expect(adapterCandidates.body.sources.map((source: { id: string }) => source.id)).toContain("us.pa.oag.home_improvement_contractors");
-    expect(adapterCandidates.body.sources[0]).toHaveProperty("sourceResearchOutcome");
-    expect(adapterCandidates.body.sources[0]).toHaveProperty("nextAction");
+    const blocked = createMockResponse();
+    await sourcesHandler({ query: { researchOutcome: "blocked" } } as never, blocked as never);
+    expect(blocked.statusCode).toBe(200);
+    expect(blocked.body.count).toBe(46);
+    expect(blocked.body.filters.researchOutcome).toBe("blocked");
+    expect(blocked.body.sources.map((source: { id: string }) => source.id)).toContain("us.pa.oag.home_improvement_contractors");
+    expect(blocked.body.sources[0]).toHaveProperty("sourceResearchOutcome", "blocked");
+    expect(blocked.body.sources[0]).toHaveProperty("nextAction");
   });
 
   it("rejects invalid source filters", async () => {
@@ -106,11 +113,14 @@ describe("hosted API", () => {
     expect(response.body).toMatchObject({
       origin: "registry_files",
       sourceCount: 56,
-      registryOnlySourceCount: 47,
-      note: expect.stringContaining("planning signal only"),
+      terminalSourceCount: 56,
+      blockedSourceCount: 46,
+      registryOnlySourceCount: 0,
+      note: expect.stringContaining("terminal"),
     });
     expect(response.body.implementedAdapterSources.map((source: { id: string }) => source.id)).toEqual([
       "us.ak.commerce.construction_contractors",
+      "us.az.roc.contractors",
       "us.ca.cslb.contractors",
       "us.fl.dbpr.construction",
       "us.il.idfpr.roofing_contractors",
@@ -121,9 +131,9 @@ describe("hosted API", () => {
       "us.wa.lni.contractors",
     ]);
     expect(response.body.unimplementedBulkAdapterCandidates.map((source: { id: string }) => source.id)).toEqual([]);
-    expect(response.body.downloadResearchCandidates.map((source: { id: string }) => source.id)).toContain("us.pa.oag.home_improvement_contractors");
-    expect(response.body.lookupAutomationConstraintSources.map((source: { id: string }) => source.id)).toContain("us.vt.sos.residential_contractors");
-    expect(response.body.sourcesByResearchOutcome.adapter_candidate).toBe(8);
+    expect(response.body.downloadResearchCandidates).toEqual([]);
+    expect(response.body.lookupAutomationConstraintSources).toEqual([]);
+    expect(response.body.sourcesByResearchOutcome.blocked).toBe(46);
   });
 
   it("returns a single source registry entry by id", async () => {
@@ -133,9 +143,9 @@ describe("hosted API", () => {
     expect(response.statusCode).toBe(200);
     expect(response.body).toMatchObject({
       id: "us.oh.commerce.ocilb_contractors",
-      adapterMaturity: "registry_only",
-      sourceResearchOutcome: "adapter_candidate",
-      nextAction: expect.stringContaining("Review official terms"),
+      adapterMaturity: "blocked",
+      sourceResearchOutcome: "blocked",
+      nextAction: expect.stringContaining("protected interactive access"),
       origin: "registry_files"
     });
   });
@@ -212,7 +222,8 @@ describe("hosted API", () => {
     expect(result.implementedAdapterSources.map((source) => source.id)).toEqual(["us.fl.dbpr.construction", "us.ca.cslb.contractors"]);
     expect(result.unimplementedBulkAdapterCandidates.map((source) => source.id)).toEqual([]);
     expect(result.registryOnlySourceCount).toBe(0);
-    expect(result.sourcesByResearchOutcome.implemented_adapter).toBe(2);
+    expect(result.sourcesByResearchOutcome.local_file_adapter).toBe(1);
+    expect(result.sourcesByResearchOutcome.network_opt_in).toBe(1);
   });
 
   it("fills legacy partial database metadata from registry files before validation", async () => {
@@ -249,7 +260,7 @@ describe("hosted API", () => {
     });
 
     expect(result.origin).toBe("registry_files");
-    expect(result.databaseError).toBe("database unavailable");
+    expect(result.databaseError).toBe("database_unavailable");
     expect(result.sources).toHaveLength(56);
   });
 
@@ -261,7 +272,7 @@ describe("hosted API", () => {
     });
 
     expect(result.origin).toBe("registry_files");
-    expect(result.databaseError).toBe("database unavailable");
+    expect(result.databaseError).toBe("database_unavailable");
     expect(result.sourceCount).toBe(56);
     expect(result.unimplementedBulkAdapterCandidates).toHaveLength(0);
   });
@@ -337,12 +348,17 @@ function createMockResponse() {
   return {
     statusCode: 200,
     body: undefined as unknown,
+    headers: {} as Record<string, string>,
     status(code: number) {
       this.statusCode = code;
       return this;
     },
     json(body: unknown) {
       this.body = body;
+      return this;
+    },
+    setHeader(name: string, value: string) {
+      this.headers[name] = value;
       return this;
     }
   };

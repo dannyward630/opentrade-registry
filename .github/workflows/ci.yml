@@ -9,17 +9,27 @@ on:
 permissions:
   contents: read
 
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
-  verify:
-    runs-on: ubuntu-latest
+  test-matrix:
+    name: Node ${{ matrix.node }} / ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+        node: [20, 22, 24]
+    runs-on: ${{ matrix.os }}
     steps:
       - name: Check out repository
-        uses: actions/checkout@v7
+        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7
 
       - name: Set up Node.js
-        uses: actions/setup-node@v6
+        uses: actions/setup-node@48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e # v6
         with:
-          node-version: 20
+          node-version: ${{ matrix.node }}
 
       - name: Enable Corepack
         run: corepack enable
@@ -27,27 +37,58 @@ jobs:
       - name: Install dependencies
         run: corepack pnpm install --frozen-lockfile
 
-      - name: Build workspace packages
+      - name: Build packages
         run: corepack pnpm build
 
-      - name: Registry and seed tests
+      - name: Typecheck
         run: |
-          corepack pnpm test:registry
-          corepack pnpm registry:validate
-          corepack pnpm db:seed:check
-          corepack pnpm source:quality --json
+          corepack pnpm typecheck
+          corepack pnpm api:typecheck
 
-      - name: Adapter contract tests
-        run: corepack pnpm test:adapters
+      - name: Run offline test suite
+        run: corepack pnpm test
 
-      - name: CLI smoke tests
-        run: corepack pnpm test:cli
+  quality:
+    name: Registry, security, and package gates
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7
 
-      - name: Hosted API and network guard tests
-        run: corepack pnpm test:api
+      - name: Set up Node.js
+        uses: actions/setup-node@48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e # v6
+        with:
+          node-version: 24
 
-      - name: Verify
+      - name: Enable Corepack
+        run: corepack enable
+
+      - name: Install dependencies
+        run: corepack pnpm install --frozen-lockfile
+
+      - name: Verify repository
         run: corepack pnpm verify
 
-      - name: Package dry-run
+      - name: Check source quality
+        run: corepack pnpm source:quality --json
+
+      - name: Audit dependencies
+        run: corepack pnpm security:audit
+
+      - name: Check package tarballs
         run: corepack pnpm pack:check
+
+  dependency-review:
+    name: Dependency review
+    if: github.event_name == 'pull_request'
+    permissions:
+      contents: read
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7
+
+      - name: Review dependency changes
+        uses: actions/dependency-review-action@2031cfc080254a8a887f58cffee85186f0e49e48 # v4.9.0
+        with:
+          fail-on-severity: high

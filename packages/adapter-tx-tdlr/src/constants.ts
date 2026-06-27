@@ -36,7 +36,7 @@ export const TX_TDLR_SOURCE_ENTRY: SourceRegistryEntry = {
   publicRecordsNotes: "Official open-data source. Absence from this source is not proof that a license does not exist elsewhere.",
   adapterStatus: "implemented",
   sourceDiscoveryStatus: "researched",
-  adapterMaturity: "fixture_adapter",
+  adapterMaturity: "network_opt_in",
   adapterQualityLevel: 4,
   coverageScope: "state_agency_partial",
   adapterPackage: "@opentrade/adapter-tx-tdlr",
@@ -51,6 +51,17 @@ export const TX_TDLR_SOURCE_ENTRY: SourceRegistryEntry = {
     "No matching record means no match in this source at the checked time and is not proof that a Texas authorization does not exist elsewhere.",
   ],
   verificationNotes: "Fixture verification preserves source caveats and avoids presenting TDLR all-license rows as contractor-only records.",
-  lastVerifiedAt: "2026-06-21T00:00:00.000Z",
+  lastVerifiedAt: "2026-06-27T00:00:00.000Z",
+  schemaVersion: "1.0",
+  sourceResearchOutcome: "network_opt_in",
+  researchReviewedAt: "2026-06-27T00:00:00.000Z",
+  nextReviewAt: "2026-12-27T00:00:00.000Z",
+  researchEvidence: [
+    {
+      "url": "https://www.tdlr.texas.gov/verify.htm",
+      "checkedAt": "2026-06-27T00:00:00.000Z",
+      "note": "Official bulk source and opt-in network path reviewed."
+    }
+  ],
   maintainerNotes: "Do not treat all TDLR rows as contractor records without license-type filtering.",
 };

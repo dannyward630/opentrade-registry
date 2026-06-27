@@ -21,6 +21,7 @@ describe("source readiness helpers", () => {
     expect(readiness.sourceCount).toBe(56);
     expect(readiness.implementedAdapterSources.map((source) => source.id)).toEqual([
       "us.ak.commerce.construction_contractors",
+      "us.az.roc.contractors",
       "us.ca.cslb.contractors",
       "us.fl.dbpr.construction",
       "us.il.idfpr.roofing_contractors",
@@ -31,38 +32,19 @@ describe("source readiness helpers", () => {
       "us.wa.lni.contractors",
     ]);
     expect(readiness.unimplementedBulkAdapterCandidates.map((source) => source.id)).toEqual([]);
-    expect(readiness.downloadResearchCandidates.map((source) => source.id)).toEqual([
-      "us.az.roc.contractors",
-      "us.ct.dcp.home_improvement_contractors",
-      "us.ma.dol.opsi_construction_supervisors",
-      "us.oh.commerce.ocilb_contractors",
-      "us.pa.oag.home_improvement_contractors",
-      "us.pr.daco.contractors",
-      "us.ri.crlb.contractors",
-      "us.wv.labor.contractors",
-    ]);
-    expect(readiness.lookupAutomationConstraintSources.map((source) => source.id)).toEqual([
-      "us.ks.ag.roofing_registration",
-      "us.mi.lara.residential_builders",
-      "us.mo.pr.professional_licenses",
-      "us.nd.sos.contractors",
-      "us.oh.commerce.ocilb_contractors",
-      "us.pa.oag.home_improvement_contractors",
-      "us.vi.dlca.contractors_trades",
-      "us.vt.sos.residential_contractors",
-      "us.wi.dsps.dwelling_trades",
-    ]);
+    expect(readiness.downloadResearchCandidates).toEqual([]);
+    expect(readiness.lookupAutomationConstraintSources).toEqual([]);
     expect(readiness.sourcesByResearchOutcome).toEqual({
-      adapter_candidate: 8,
-      blocked_by_access_controls: 1,
-      blocked_by_no_stable_source: 1,
-      blocked_by_terms: 2,
-      implemented_adapter: 9,
-      needs_manual_research: 27,
-      not_contractor_specific: 8,
+      blocked: 46,
+      deprecated: 0,
+      local_file_adapter: 5,
+      network_opt_in: 5,
+      production_ready: 0,
     });
-    expect(readiness.registryOnlySourceCount).toBe(47);
-    expect(readiness.note).toContain("planning signal only");
+    expect(readiness.registryOnlySourceCount).toBe(0);
+    expect(readiness.blockedSourceCount).toBe(46);
+    expect(readiness.terminalSourceCount).toBe(56);
+    expect(readiness.note).toContain("terminal");
   });
 
   it("classifies sources as bulk-shaped adapter candidates conservatively", async () => {
@@ -71,7 +53,7 @@ describe("source readiness helpers", () => {
 
     expect(isBulkShapedCandidate(requiredSource(byId, "us.ca.cslb.contractors"))).toBe(true);
     expect(isBulkShapedCandidate(requiredSource(byId, "us.nv.nscb.contractors"))).toBe(false);
-    expect(isDownloadResearchCandidate(requiredSource(byId, "us.pa.oag.home_improvement_contractors"))).toBe(true);
+    expect(isDownloadResearchCandidate(requiredSource(byId, "us.pa.oag.home_improvement_contractors"))).toBe(false);
     expect(isDownloadResearchCandidate(requiredSource(byId, "us.nv.nscb.contractors"))).toBe(false);
     expect(hasLookupAutomationConstraint(requiredSource(byId, "us.vt.sos.residential_contractors"))).toBe(true);
     expect(hasLookupAutomationConstraint(requiredSource(byId, "us.tx.tdlr.all_licenses"))).toBe(false);
@@ -81,29 +63,34 @@ describe("source readiness helpers", () => {
     const sources = await loadRegistrySources();
     const byId = new Map(sources.map((source) => [source.id, source]));
 
-    expect(getSourceResearchOutcome(requiredSource(byId, "us.fl.dbpr.construction"))).toBe("implemented_adapter");
-    expect(getSourceResearchOutcome(requiredSource(byId, "us.pa.oag.home_improvement_contractors"))).toBe("adapter_candidate");
-    expect(getSourceResearchOutcome(requiredSource(byId, "us.vt.sos.residential_contractors"))).toBe("blocked_by_access_controls");
-    expect(getSourceResearchOutcome(requiredSource(byId, "us.as.doc.business_licenses"))).toBe("blocked_by_no_stable_source");
-    expect(getSourceResearchOutcome(requiredSource(byId, "us.ms.msboc.contractors"))).toBe("blocked_by_terms");
-    expect(getSourceResearchOutcome(requiredSource(byId, "us.mp.bpl.professional_licenses"))).toBe("not_contractor_specific");
-    expect(getSourceResearchOutcome(requiredSource(byId, "us.al.genconbd.general_contractors"))).toBe("needs_manual_research");
-    expect(getSourceResearchNextAction(requiredSource(byId, "us.pa.oag.home_improvement_contractors"))).toContain("Review official terms");
+    expect(getSourceResearchOutcome(requiredSource(byId, "us.fl.dbpr.construction"))).toBe("network_opt_in");
+    expect(getSourceResearchOutcome(requiredSource(byId, "us.pa.oag.home_improvement_contractors"))).toBe("blocked");
+    expect(getSourceResearchOutcome(requiredSource(byId, "us.vt.sos.residential_contractors"))).toBe("blocked");
+    expect(getSourceResearchOutcome(requiredSource(byId, "us.as.doc.business_licenses"))).toBe("blocked");
+    expect(getSourceResearchOutcome(requiredSource(byId, "us.ms.msboc.contractors"))).toBe("blocked");
+    expect(getSourceResearchOutcome(requiredSource(byId, "us.mp.bpl.professional_licenses"))).toBe("blocked");
+    expect(getSourceResearchOutcome(requiredSource(byId, "us.al.genconbd.general_contractors"))).toBe("blocked");
+    expect(getSourceResearchNextAction(requiredSource(byId, "us.pa.oag.home_improvement_contractors"))).toContain("protected interactive access");
   });
 
   it("excludes blocked and deprecated sources from unimplemented bulk adapter candidates", async () => {
     const sources = await loadRegistrySources();
     const florida = requiredSource(new Map(sources.map((source) => [source.id, source])), "us.fl.dbpr.construction");
-    const syntheticCandidate = { ...florida, id: "test.planned.bulk", adapterStatus: "planned" as const, adapterMaturity: "registry_only" as const };
-    const blocked = { ...syntheticCandidate, id: "test.blocked.bulk", adapterStatus: "blocked" as const, adapterMaturity: "blocked" as const };
-    const deprecated = { ...syntheticCandidate, id: "test.deprecated.bulk", adapterStatus: "deprecated" as const, adapterMaturity: "deprecated" as const };
+    const syntheticCandidate = {
+      ...florida,
+      id: "test.planned.bulk",
+      adapterStatus: "planned" as const,
+      adapterMaturity: "registry_only" as const,
+      sourceResearchOutcome: undefined,
+    };
+    const blocked = { ...syntheticCandidate, id: "test.blocked.bulk", adapterStatus: "blocked" as const, adapterMaturity: "blocked" as const, sourceResearchOutcome: "blocked" as const };
+    const deprecated = { ...syntheticCandidate, id: "test.deprecated.bulk", adapterStatus: "deprecated" as const, adapterMaturity: "deprecated" as const, sourceResearchOutcome: "deprecated" as const };
 
-    expect(isUnimplementedBulkAdapterCandidate(syntheticCandidate)).toBe(true);
+    expect(isUnimplementedBulkAdapterCandidate(syntheticCandidate)).toBe(false);
     expect(isUnimplementedBulkAdapterCandidate(blocked)).toBe(false);
     expect(isUnimplementedBulkAdapterCandidate(deprecated)).toBe(false);
 
-    const readiness = buildSourceReadiness([syntheticCandidate, blocked, deprecated]);
-    expect(readiness.unimplementedBulkAdapterCandidates.map((source) => source.id)).toEqual(["test.planned.bulk"]);
+    expect(() => buildSourceReadiness([syntheticCandidate, blocked, deprecated])).toThrow("no terminal v1 research outcome");
   });
 });
 

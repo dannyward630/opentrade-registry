@@ -8,7 +8,7 @@ An adapter implements `TradeLicenseSourceAdapter` from `@opentrade/core`.
 
 Before writing parser code, fill out the source research template. Confirm the source is official, record the lookup or bulk URLs, note access controls, and be honest about what the source does not cover.
 
-New states should usually start as `registry_only`. Move to adapter work after the source shape and caveats are understood.
+During development a source may start as `registry_only`, but a release must finalize it as implemented, blocked, or deprecated with evidence.
 
 ## Adapter Quality Levels
 
@@ -46,6 +46,7 @@ Level 2 to Level 3:
 
 - Keep network access opt-in with `--allow-network`.
 - Capture fetched time, source URL, last-modified, ETag, and content length when available.
+- Capture SHA-256 and final URL, validate official hosts, and enforce redirect, timeout, cancellation, and byte limits.
 - Use local or mocked HTTP tests by default; live agency tests must stay opt-in.
 
 Level 3 or lower to Level 4:
@@ -63,10 +64,11 @@ Level 4 to `production_ready`:
 - Keep conformance tests, CLI smoke tests, and source-specific parser/mapping tests green.
 - Document operational limits, expected warnings, and what users should do when source fields change.
 - Keep generated datasets out of the repository.
+- Pass clean tarball installation and package-import tests.
 
 Any level to `blocked` or `deprecated`:
 
-- Record the reason in `researchNotes`, `maintainerNotes`, or source-specific docs.
+- Record a structured blocker code, summary, evidence URLs, review date, and next-review date.
 - Keep the source registry entry if it helps users avoid a dead end.
 - Do not let blocked or deprecated sources appear as implemented adapter candidates.
 
@@ -105,6 +107,8 @@ Unknown source values should become warnings when the record can still be normal
 ## Testing Rules
 
 Keep normal tests offline. Use small fixtures that exercise parsing, mapping, status normalization, warnings, and verification behavior. Do not commit bulk public datasets.
+
+CSV adapters must reject malformed quoting. XLSX adapters use shared archive ceilings. Exported CSV must not expose raw JSON or spreadsheet formulas. Add cancellation and malformed-row behavior when shared orchestration changes.
 
 If a future adapter supports live download, network tests should be opt-in and separate from default CI.
 

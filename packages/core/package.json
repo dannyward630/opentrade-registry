@@ -1,6 +1,6 @@
 {
   "name": "@opentrade/core",
-  "version": "0.2.0",
+  "version": "1.0.0",
   "type": "module",
   "description": "Shared schemas, adapter contracts, and normalization helpers for OpenTrade Registry.",
   "license": "MIT",
@@ -29,7 +29,8 @@
     "README.md"
   ],
   "publishConfig": {
-    "access": "public"
+    "access": "public",
+    "provenance": true
   },
   "exports": {
     ".": {
@@ -42,6 +43,11 @@
     "typecheck": "tsc -p tsconfig.json --noEmit"
   },
   "dependencies": {
+    "exceljs": "^4.4.0",
+    "yauzl": "^3.4.0",
     "zod": "^4.4.3"
+  },
+  "devDependencies": {
+    "@types/yauzl": "^3.4.0"
   }
 }

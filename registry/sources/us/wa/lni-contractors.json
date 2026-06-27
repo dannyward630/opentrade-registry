@@ -15,8 +15,12 @@
   "dataDictionaryUrl": "https://data.wa.gov/api/views/m8qx-ubtq/columns.json",
   "termsUrl": "https://data.wa.gov/stories/s/Open-Data-Policy/9n5e-k4ra/",
   "updateFrequency": "The Data.WA listing says the contractor data is updated multiple times per day; verify current portal metadata before relying on freshness assumptions.",
-  "tradeCoverage": ["contractor registration"],
-  "licenseTypesIncluded": ["Washington L&I contractor license records"],
+  "tradeCoverage": [
+    "contractor registration"
+  ],
+  "licenseTypesIncluded": [
+    "Washington L&I contractor license records"
+  ],
   "knownExclusions": [
     "This source is focused on Washington L&I contractor licensing and does not represent every local permit, business registration, or trade authorization in Washington.",
     "Related workers compensation, bond, insurance, infraction, and lawsuit details may require separate official sources or fields that need additional review before normalization."
@@ -31,7 +35,7 @@
   "publicRecordsNotes": "Official open-data source metadata. Absence from this source is not proof that a license does not exist elsewhere.",
   "adapterStatus": "implemented",
   "sourceDiscoveryStatus": "researched",
-  "adapterMaturity": "fixture_adapter",
+  "adapterMaturity": "network_opt_in",
   "adapterQualityLevel": 4,
   "coverageScope": "statewide",
   "adapterPackage": "@opentrade/adapter-wa-lni",
@@ -46,6 +50,17 @@
     "Bond, insurance, workers compensation, and enforcement-like fields need separate source-specific interpretation before being treated as final compliance facts."
   ],
   "verificationNotes": "Fixture verification uses neutral result states and keeps L&I coverage limits in source caveats.",
-  "lastVerifiedAt": "2026-06-21T00:00:00.000Z",
-  "maintainerNotes": "Keep bond, insurance, workers compensation, and disciplinary-like fields as raw or compliance placeholders until their source semantics are reviewed."
+  "lastVerifiedAt": "2026-06-27T00:00:00.000Z",
+  "maintainerNotes": "Keep bond, insurance, workers compensation, and disciplinary-like fields as raw or compliance placeholders until their source semantics are reviewed.",
+  "schemaVersion": "1.0",
+  "researchReviewedAt": "2026-06-27T00:00:00.000Z",
+  "nextReviewAt": "2026-12-27T00:00:00.000Z",
+  "researchEvidence": [
+    {
+      "url": "https://secure.lni.wa.gov/verify/",
+      "checkedAt": "2026-06-27T00:00:00.000Z",
+      "note": "Official bulk source and opt-in network path reviewed."
+    }
+  ],
+  "sourceResearchOutcome": "network_opt_in"
 }

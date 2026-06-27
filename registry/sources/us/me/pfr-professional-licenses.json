@@ -15,30 +15,57 @@
   "dataDictionaryUrl": null,
   "termsUrl": "https://www.maine.gov/portal/policies/",
   "updateFrequency": "unknown; verify against the official licensee search before relying on freshness assumptions",
-  "tradeCoverage": ["electrical", "plumbing", "hvac", "other"],
-  "licenseTypesIncluded": ["Maine professional and occupational license records exposed by PFR/OPOR licensee search, including construction-relevant boards where available"],
+  "tradeCoverage": [
+    "electrical",
+    "plumbing",
+    "hvac",
+    "other"
+  ],
+  "licenseTypesIncluded": [
+    "Maine professional and occupational license records exposed by PFR/OPOR licensee search, including construction-relevant boards where available"
+  ],
   "knownExclusions": [
     "Maine does not have a single statewide general-contractor source represented by this entry.",
     "This broad licensee search spans many boards and professions; construction-relevant records require source-specific filtering.",
     "Local permits, municipal contractor rules, business registrations, and non-PFR authorizations are outside this source entry."
   ],
-  "hasBulkDownload": "unknown",
+  "hasBulkDownload": true,
   "hasLiveLookup": true,
-  "requiresJavaScript": "unknown",
-  "requiresCaptcha": "unknown",
+  "requiresJavaScript": false,
+  "requiresCaptcha": false,
   "requiresAccount": false,
   "rateLimitNotes": "No adapter is implemented. Future work should prefer official downloadable or API options if confirmed.",
   "redistributionStatus": "unknown",
   "publicRecordsNotes": "Official PFR lookup metadata only. Absence from this source is not proof that a trade license, local authorization, or business registration does not exist elsewhere.",
-  "adapterStatus": "planned",
-  "sourceDiscoveryStatus": "researched",
-  "adapterMaturity": "registry_only",
+  "adapterStatus": "blocked",
+  "sourceDiscoveryStatus": "blocked",
+  "adapterMaturity": "blocked",
   "coverageScope": "state_agency_partial",
-  "adapterPackage": "@opentrade/adapter-me-pfr",
+  "adapterPackage": null,
   "testFixturePath": null,
   "officialLookupUrl": "https://www.maine.gov/pfr/consumer/licensee-search",
-  "officialBulkDownloadNotes": "No official construction-specific bulk download has been confirmed in this phase.",
-  "researchNotes": "Registry-only source for Maine PFR/OPOR licensee search. Future work should decide whether electricians, plumbers, fuel board, and other construction-relevant boards need separate source entries.",
-  "lastVerifiedAt": "2026-06-24T00:00:00.000Z",
-  "maintainerNotes": "Do not imply Maine general-contractor coverage from this broad professional-license source."
+  "officialBulkDownloadNotes": "The official service offers comma-delimited downloads after interactive entity-type, regulator, and search filtering; it does not expose one stable construction-specific bulk URL.",
+  "researchNotes": "The 2026-06-27 review confirmed separate individual, company, and other-credential searches with electrician, plumber, fuel, fire sprinkler, manufactured-housing, and related regulator filters. Separate source entries are required before these scopes can be represented accurately.",
+  "lastVerifiedAt": "2026-06-27T00:00:00.000Z",
+  "maintainerNotes": "Do not imply Maine general-contractor coverage from this broad professional-license source.",
+  "schemaVersion": "1.0",
+  "researchReviewedAt": "2026-06-27T00:00:00.000Z",
+  "nextReviewAt": "2026-12-27T00:00:00.000Z",
+  "researchEvidence": [
+    {
+      "url": "https://www.maine.gov/pfr/consumer/licensee-search",
+      "checkedAt": "2026-06-27T00:00:00.000Z",
+      "note": "Official documentation and live search confirmed filtered comma-delimited downloads, separate entity paths, source disclaimers, and construction-relevant regulator choices."
+    }
+  ],
+  "sourceResearchOutcome": "blocked",
+  "adapterQualityLevel": 0,
+  "blocker": {
+    "code": "technical_instability",
+    "summary": "Downloads depend on interactive regulator and entity-type searches, and one broad record cannot accurately represent the separate trade boards.",
+    "evidenceUrls": [
+      "https://www.maine.gov/pfr/consumer/licensee-search",
+      "https://www.maine.gov/portal/policies/"
+    ]
+  }
 }

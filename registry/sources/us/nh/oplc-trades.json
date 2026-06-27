@@ -15,8 +15,15 @@
   "dataDictionaryUrl": null,
   "termsUrl": "https://www.nh.gov/policies/",
   "updateFrequency": "unknown; verify against the official OPLC lookup before relying on freshness assumptions",
-  "tradeCoverage": ["electrical", "plumbing", "mechanical", "other"],
-  "licenseTypesIncluded": ["New Hampshire OPLC license records exposed by official lookup, including construction-relevant boards where available"],
+  "tradeCoverage": [
+    "electrical",
+    "plumbing",
+    "mechanical",
+    "other"
+  ],
+  "licenseTypesIncluded": [
+    "New Hampshire OPLC license records exposed by official lookup, including construction-relevant boards where available"
+  ],
   "knownExclusions": [
     "New Hampshire contractor work may be regulated by state boards, local authorities, or both; this entry only covers OPLC lookup scope.",
     "The OPLC lookup spans many professions; construction-relevant records require careful filtering.",
@@ -30,15 +37,35 @@
   "rateLimitNotes": "No adapter is implemented. Do not bypass browser or portal controls; prefer official export options if discovered.",
   "redistributionStatus": "unknown",
   "publicRecordsNotes": "Official OPLC lookup metadata only. Absence from this source is not proof that a state license, local authorization, or registration does not exist elsewhere.",
-  "adapterStatus": "planned",
-  "sourceDiscoveryStatus": "researched",
-  "adapterMaturity": "registry_only",
+  "adapterStatus": "blocked",
+  "sourceDiscoveryStatus": "blocked",
+  "adapterMaturity": "blocked",
   "coverageScope": "state_agency_partial",
-  "adapterPackage": "@opentrade/adapter-nh-oplc",
+  "adapterPackage": null,
   "testFixturePath": null,
   "officialLookupUrl": "https://www.oplc.nh.gov/license-lookup",
   "officialBulkDownloadNotes": "No official construction-specific bulk download has been confirmed in this phase.",
   "researchNotes": "Registry-only source for New Hampshire OPLC lookup. Future work should narrow to electrical, mechanical, plumbing, and related boards before parser work.",
-  "lastVerifiedAt": "2026-06-24T00:00:00.000Z",
-  "maintainerNotes": "Keep OPLC scope separate from municipal contractor licensing and permits."
+  "lastVerifiedAt": "2026-06-27T00:00:00.000Z",
+  "maintainerNotes": "Keep OPLC scope separate from municipal contractor licensing and permits.",
+  "schemaVersion": "1.0",
+  "researchReviewedAt": "2026-06-27T00:00:00.000Z",
+  "nextReviewAt": "2026-12-27T00:00:00.000Z",
+  "researchEvidence": [
+    {
+      "url": "https://www.oplc.nh.gov/license-lookup",
+      "checkedAt": "2026-06-27T00:00:00.000Z",
+      "note": "Official public source, access shape, and current automation constraints reviewed."
+    }
+  ],
+  "sourceResearchOutcome": "blocked",
+  "adapterQualityLevel": 0,
+  "blocker": {
+    "code": "not_contractor_specific",
+    "summary": "The official source is too broad or not sufficiently contractor-specific for reliable canonical verification.",
+    "evidenceUrls": [
+      "https://www.oplc.nh.gov/license-lookup",
+      "https://www.nh.gov/policies/"
+    ]
+  }
 }

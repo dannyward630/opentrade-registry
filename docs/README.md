@@ -1,36 +1,42 @@
-# OpenTrade Registry Docs
+# OpenTrade Registry Documentation
 
-These docs explain how the project models official sources, writes adapters, and keeps source context attached to normalized records.
+## Project Contracts
 
-## Start Here
+- [Current State](current-state.md)
+- [Architecture](architecture.md)
+- [Compatibility Policy](compatibility-policy.md)
+- [Canonical Schema](canonical-schema.md)
+- [Programmatic API](api-reference.md)
+- [Source Registry](source-registry.md)
+- [Generated Source Status Matrix](source-status-matrix.md)
+- [Local SQLite Storage](storage.md)
+- [v0.2 to v1 Migration](migration-v0.2-to-v1.md)
 
-- [Architecture](architecture.md): how the registry, adapters, canonical records, and CLI fit together.
-- [Current Project State](current-state.md): current source counts, implemented adapters, hosted behavior, and safety invariants.
-- [Canonical Schema](canonical-schema.md): what a normalized record keeps and why raw records stay attached.
-- [Source Registry](source-registry.md): how official sources are described before and after adapter support exists.
-- [Source Status Matrix](source-status-matrix.md): generated status table with maturity, quality level, research outcome, and next action for every source.
-- [Source Research Template](source-research-template.md): the checklist to use before adding a new source.
-- [Adapter Authoring](adapter-authoring.md): practical guidance for writing a source adapter.
-- [Adapter Candidate Priorities](adapters/candidate-priorities.md): current registry-derived queue for future fixture adapters.
-- [Alaska CBPL Adapter Notes](adapters/alaska-commerce.md): fixture support and protected-download caveats for Alaska CBPL.
-- [California CSLB Adapter](adapters/california-cslb.md): fixture-supported CSLB license-master adapter notes and caveats.
-- [Illinois IDFPR Adapter Notes](adapters/illinois-idfpr.md): fixture support and roofing-contractor source caveats for Illinois IDFPR.
-- [Indiana PLA Adapter Notes](adapters/indiana-pla.md): fixture support and source caveats for Indiana PLA.
-- [Minnesota DLI Adapter Notes](adapters/minnesota-dli.md): fixture support and source caveats for Minnesota DLI.
-- [Oregon CCB Adapter Notes](adapters/oregon-ccb.md): fixture support and active-source caveats for Oregon CCB.
-- [Texas TDLR Adapter Notes](adapters/texas-tdlr.md): fixture support and source caveats for Texas TDLR.
-- [Washington L&I Adapter Notes](adapters/washington-lni.md): fixture support and source caveats for Washington L&I.
-- [Legal And Data Use](legal-and-data-use.md): readable data-use guardrails.
-- [Hosted Deployment](deployment/vercel-supabase.md): Vercel hosting and optional database setup.
-- [Storage](storage.md): optional SQLite storage helpers and local-cache boundaries.
-- [Florida DBPR URL Sync](florida-dbpr-url-sync.md): explicit opt-in URL sync and verification behavior plus operational guardrails.
-- [Release Checklist](release-checklist.md): practical pre-tag verification steps.
-- [Roadmap](roadmap.md): modest release goals.
-- [Release Process](release-process.md): release checklist.
-- [Package Publishing](package-publishing.md): dry-run packaging checks.
+## Source And Adapter Work
 
-## Current Boundary
+- [Source Research Template](source-research-template.md)
+- [Source Review Cadence](source-review-cadence.md)
+- [Adapter Authoring](adapter-authoring.md)
+- [Arizona ROC](adapters/arizona-roc.md)
+- [Alaska CBPL](adapters/alaska-commerce.md)
+- [California CSLB](adapters/california-cslb.md)
+- [Florida DBPR Network Sync](florida-dbpr-url-sync.md)
+- [Illinois IDFPR](adapters/illinois-idfpr.md)
+- [Indiana PLA](adapters/indiana-pla.md)
+- [Minnesota DLI](adapters/minnesota-dli.md)
+- [Oregon CCB](adapters/oregon-ccb.md)
+- [Texas TDLR](adapters/texas-tdlr.md)
+- [Washington L&I](adapters/washington-lni.md)
 
-The project works from local files by default. URL sync and URL verification require an explicit `--allow-network` flag, and default tests do not download live agency files. The current registry covers all states plus DC and five major U.S. territories, but only implemented adapters can sync or verify records.
+## Operations And Governance
 
-Implemented adapter notes include Alaska CBPL, California CSLB, Florida DBPR, Illinois IDFPR, Indiana PLA, Minnesota DLI, Oregon CCB, Texas TDLR, and Washington L&I.
+- [Legal And Data Use](legal-and-data-use.md)
+- [Operational Runbook](operations.md)
+- [Security Incident Handling](incident-response.md)
+- [Vercel And Supabase Deployment](deployment/vercel-supabase.md)
+- [Release Process](release-process.md)
+- [Release Checklist](release-checklist.md)
+- [Package Publishing](package-publishing.md)
+- [Roadmap](roadmap.md)
+
+Core workflows are local-first. File, cache, and fixture tests run offline. Network use is explicit, and hosted metadata is optional.

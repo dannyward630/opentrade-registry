@@ -1,6 +1,6 @@
 {
   "name": "@opentrade/cli",
-  "version": "0.2.0",
+  "version": "1.0.0",
   "type": "module",
   "description": "Command-line interface for OpenTrade Registry.",
   "license": "MIT",
@@ -29,7 +29,8 @@
     "README.md"
   ],
   "publishConfig": {
-    "access": "public"
+    "access": "public",
+    "provenance": true
   },
   "bin": {
     "opentrade": "./dist/index.js"
@@ -41,6 +42,7 @@
   },
   "dependencies": {
     "@opentrade/adapter-ak-commerce": "workspace:*",
+    "@opentrade/adapter-az-roc": "workspace:*",
     "@opentrade/adapter-ca-cslb": "workspace:*",
     "@opentrade/adapter-fl-dbpr": "workspace:*",
     "@opentrade/adapter-il-idfpr": "workspace:*",
@@ -50,6 +52,8 @@
     "@opentrade/adapter-tx-tdlr": "workspace:*",
     "@opentrade/adapter-wa-lni": "workspace:*",
     "@opentrade/core": "workspace:*",
+    "@opentrade/registry": "workspace:*",
+    "@opentrade/storage-sqlite": "workspace:*",
     "zod": "^4.4.3"
   },
   "devDependencies": {

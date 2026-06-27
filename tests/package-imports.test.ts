@@ -18,6 +18,11 @@ import {
   normalizeAlaskaCommerceStatus,
 } from "@opentrade/adapter-ak-commerce";
 import {
+  arizonaRocContractorsAdapter,
+  AZ_ROC_CONTRACTORS_SOURCE_ID,
+  normalizeArizonaRocStatus,
+} from "@opentrade/adapter-az-roc";
+import {
   californiaCslbContractorsAdapter,
   CA_CSLB_CONTRACTORS_SOURCE_ID,
   normalizeCaliforniaCslbStatus,
@@ -62,6 +67,7 @@ import {
   SQLITE_LICENSE_RECORD_TABLE,
   SQLITE_SCHEMA_VERSION,
 } from "@opentrade/storage-sqlite";
+import { OpenTradeRegistry, downloadOfficialSource } from "@opentrade/registry";
 
 describe("public package imports", () => {
   it("imports stable public APIs from core and the Florida adapter", () => {
@@ -78,26 +84,30 @@ describe("public package imports", () => {
     expect(sourceDiscoveryStatusSchema.parse("researched")).toBe("researched");
     expect(buildSourceReadiness([])).toEqual({
       sourceCount: 0,
+      terminalSourceCount: 0,
+      blockedSourceCount: 0,
       implementedAdapterSources: [],
+      blockedSources: [],
       unimplementedBulkAdapterCandidates: [],
       downloadResearchCandidates: [],
       lookupAutomationConstraintSources: [],
       sourcesByResearchOutcome: {
-        adapter_candidate: 0,
-        blocked_by_access_controls: 0,
-        blocked_by_no_stable_source: 0,
-        blocked_by_terms: 0,
-        implemented_adapter: 0,
-        needs_manual_research: 0,
-        not_contractor_specific: 0,
+        blocked: 0,
+        deprecated: 0,
+        local_file_adapter: 0,
+        network_opt_in: 0,
+        production_ready: 0,
       },
       registryOnlySourceCount: 0,
-      note: expect.stringContaining("planning signal only"),
+      note: expect.stringContaining("terminal"),
     });
     expect(typeof isUnimplementedBulkAdapterCandidate).toBe("function");
     expect(typeof getSourceResearchOutcome).toBe("function");
     expect(AK_COMMERCE_CONSTRUCTION_CONTRACTORS_SOURCE_ID).toBe("us.ak.commerce.construction_contractors");
     expect(alaskaCommerceConstructionContractorsAdapter.sourceId).toBe("us.ak.commerce.construction_contractors");
+    expect(AZ_ROC_CONTRACTORS_SOURCE_ID).toBe("us.az.roc.contractors");
+    expect(arizonaRocContractorsAdapter.sourceId).toBe("us.az.roc.contractors");
+    expect(normalizeArizonaRocStatus({ status: "Suspended", expirationDate: "2099-12-31T00:00:00.000Z" }).normalized).toBe("suspended");
     expect(
       normalizeAlaskaCommerceStatus({
         status: "Suspended",
@@ -138,7 +148,9 @@ describe("public package imports", () => {
         expirationDate: "2099-12-31T00:00:00.000Z",
       } as Parameters<typeof normalizeWashingtonLniStatus>[0]).normalized,
     ).toBe("suspended");
-    expect(SQLITE_SCHEMA_VERSION).toBe(1);
+    expect(SQLITE_SCHEMA_VERSION).toBe(2);
     expect(buildInsertLicenseRecordSql()).toContain(`insert into ${SQLITE_LICENSE_RECORD_TABLE}`);
+    expect(new OpenTradeRegistry([]).adapters.size).toBe(0);
+    expect(typeof downloadOfficialSource).toBe("function");
   });
 });

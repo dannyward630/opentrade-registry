@@ -1,89 +1,107 @@
 # Current Project State
 
-This page is a quick snapshot of what the repository supports today. It should be updated when registry coverage, adapter maturity, hosted API behavior, or release gates change.
+This is the human-readable v1 snapshot. The generated [source-status matrix](source-status-matrix.md), source JSON, and repository gates are authoritative when counts drift.
 
-## Source Coverage
+## Coverage
 
-As of the current repository state:
+- `56` official source entries.
+- All 50 states plus DC have researched coverage rows.
+- American Samoa, Guam, Northern Mariana Islands, Puerto Rico, and the U.S. Virgin Islands have researched territory rows.
+- `10` implemented adapters, all at quality Level 4.
+- `5` local-file adapter outcomes.
+- `5` explicit network opt-in outcomes.
+- `46` terminal blocked outcomes.
+- `0` provisional outcomes.
+- `0` fixture-only terminal adapters.
 
-- `56` source registry entries are checked in.
-- All `50` states plus DC have at least one researched official source entry.
-- Five major U.S. territories have researched entries: American Samoa, Guam, Northern Mariana Islands, Puerto Rico, and the U.S. Virgin Islands.
-- `47` sources are registry-only metadata entries.
-- `9` sources have implemented adapters.
-- `0` unimplemented sources are currently bulk-shaped adapter candidates according to `corepack pnpm source:quality`.
-- `8` registry-only sources have download/export clues that need deeper research before any fixture or local-file work: Arizona ROC, Connecticut DCP, Massachusetts OPSI, Ohio OCILB, Pennsylvania OAG, Puerto Rico DACO, Rhode Island CRLB, and West Virginia Labor.
-- `9` registry-only lookup sources currently show JavaScript or CAPTCHA constraints that should be treated as automation caution flags: Kansas, Michigan, Missouri, North Dakota, Ohio, Pennsylvania, U.S. Virgin Islands, Vermont, and Wisconsin.
-- Every source now has a computed research outcome and next action in `source:quality`, `sources readiness`, and `/api/sources`: `implemented_adapter` 9, `adapter_candidate` 8, `needs_manual_research` 27, `blocked_by_access_controls` 1, `blocked_by_no_stable_source` 1, `blocked_by_terms` 2, and `not_contractor_specific` 8.
-- Four sources still have no published terms URL and American Samoa has no confirmed contractor-specific lookup URL. Those absences are explicitly reviewed and documented with source-specific notes; they are not treated as permission to automate or redistribute.
-- All current source entries include the required metadata fields checked by `source:quality`: documentation, update frequency, known exclusions, rate-limit notes, public-record notes, bulk-download notes, research notes, and maintainer notes.
-
-Registry coverage is not the same as end-to-end verification support. A registry-only source has source metadata and caveats, but it cannot be synced or checked with `opentrade verify` until an adapter exists.
+Four sources do not expose a standalone terms URL and American Samoa does not expose a confirmed contractor-specific lookup URL. Those absences are recorded with explicit review notes and blocker evidence; they are not interpreted as permission to automate or redistribute.
 
 ## Implemented Adapters
 
-| Source ID | Jurisdiction | Maturity | Network Behavior | Quality |
+| Source ID | Jurisdiction | Terminal capability | Input | Quality |
 | --- | --- | --- | --- | --- |
-| `us.ak.commerce.construction_contractors` | Alaska | `fixture_adapter` | Local fixture only by default | Level 4 |
-| `us.ca.cslb.contractors` | California | `fixture_adapter` | Local fixture only by default | Level 4 |
-| `us.fl.dbpr.construction` | Florida | `local_file_adapter` | CLI can use the official CSV URL only with `--allow-network` | Level 4 |
-| `us.il.idfpr.roofing_contractors` | Illinois | `fixture_adapter` | Local fixture only by default | Level 4 |
-| `us.in.pla.professional_licenses` | Indiana | `fixture_adapter` | Local fixture only by default | Level 4 |
-| `us.mn.dli.licenses_registrations` | Minnesota | `fixture_adapter` | Local fixture only by default | Level 4 |
-| `us.or.ccb.active_licenses` | Oregon | `fixture_adapter` | Local fixture only by default | Level 4 |
-| `us.tx.tdlr.all_licenses` | Texas | `fixture_adapter` | Local fixture only by default | Level 4 |
-| `us.wa.lni.contractors` | Washington | `fixture_adapter` | Local fixture only by default | Level 4 |
+| `us.ak.commerce.construction_contractors` | Alaska | `local_file_adapter` | CSV | Level 4 |
+| `us.az.roc.contractors` | Arizona | `network_opt_in` | dated CSV | Level 4 |
+| `us.ca.cslb.contractors` | California | `local_file_adapter` | CSV/XLSX | Level 4 |
+| `us.fl.dbpr.construction` | Florida | `network_opt_in` | CSV | Level 4 |
+| `us.il.idfpr.roofing_contractors` | Illinois | `local_file_adapter` | CSV | Level 4 |
+| `us.in.pla.professional_licenses` | Indiana | `local_file_adapter` | CSV | Level 4 |
+| `us.mn.dli.licenses_registrations` | Minnesota | `local_file_adapter` | CSV/XLSX | Level 4 |
+| `us.or.ccb.active_licenses` | Oregon | `network_opt_in` | CSV | Level 4 |
+| `us.tx.tdlr.all_licenses` | Texas | `network_opt_in` | CSV | Level 4 |
+| `us.wa.lni.contractors` | Washington | `network_opt_in` | CSV | Level 4 |
 
-Level 4 means the adapter has reviewed neutral verification semantics and source-specific caveats. It does not mean the source is complete, current beyond its own fetched time, or a replacement for official agency interpretation.
+Level 4 means verification language, status behavior, and source-specific caveats have been reviewed. It does not mean a source is complete, real-time, or authoritative beyond the agency record and checked time.
 
-## CLI Capability
+## Core And Orchestration
+
+The canonical schema, source schema, adapter contract, verification result, JSON output, and CLI exit codes carry v1 identifiers and compatibility guidance. Compatibility readers accept the prior v0.2 record and registry shapes where documented.
+
+`@opentrade/registry` provides programmatic `sync()` and `verify()` orchestration for:
+
+- local files;
+- the versioned SQLite cache;
+- explicitly allowed official network URLs;
+- structured unsupported and blocked results.
+
+## CLI
 
 The CLI can:
 
-- list, filter, show, and validate registry source metadata;
-- summarize state/DC/territory coverage;
-- summarize implemented adapters, bulk-shaped future candidates, download/export research candidates, and lookup automation constraints;
-- sync implemented local-file or fixture adapters to JSONL or a narrow CSV view;
-- check one license number against supported local files;
-- use Florida's official DBPR CSV URL for sync or verification only when `--allow-network` is provided.
+- list, filter, show, validate, and summarize all source decisions;
+- sync supported files to deterministic JSONL, safe CSV, SQLite, or multiple destinations;
+- verify from a local file, SQLite cache, or explicit official URL;
+- isolate malformed normalization rows unless strict mode is requested;
+- report matched, not-found, ambiguous, invalid-input, unsupported, and unavailable outcomes without making licensing accusations.
 
-The CLI cannot sync or verify registry-only sources. Unsupported source operations return neutral wording rather than claiming anything about a contractor or license.
+Exit codes remain `0` success, `1` general error, `2` invalid or unsupported input, `3` source unavailable or network consent missing, `4` no match, `5` ambiguous match, and `6` validation failure.
 
-## Hosted Capability
+## Storage
 
-The optional hosted layer provides:
+`@opentrade/storage-sqlite` is a working Node 20-compatible SQLite cache. It includes:
 
-- a static status page generated from the checked-in registry;
-- `GET /api/health` for deployment and optional database health;
-- `GET /api/sources` for source metadata;
-- `GET /api/sources?id=<sourceId>` for a single source;
-- `GET /api/readiness` for implemented adapter and adapter-candidate metadata.
+- versioned migrations;
+- transactions and indexed normalized-license lookup;
+- atomic file persistence;
+- canonical record reconstruction;
+- cache verification semantics;
+- retention pruning;
+- configurable contact/address/personnel redaction.
 
-`/api/sources` can filter by state, maturity, status, source type, quality level, implemented sources, registry-only sources, and bulk candidates. The endpoint is database-first when Supabase environment variables exist and falls back to registry files when the database is absent or unavailable.
+The cache remains local. It is not uploaded to the optional hosted metadata service.
 
-The hosted layer does not provide a hosted verification API, background importer, account system, browser automation, or generated public-record dataset publishing.
+## Ingestion And Security
 
-## Optional Storage Capability
+- CSV quoting is strict and property-tested.
+- XLSX input is preflighted for compressed size, uncompressed size, entry count, compression ratio, and unsafe archive paths.
+- Network downloads enforce explicit consent, HTTPS, declared hosts, redirect limits, timeouts, cancellation, byte ceilings, and SHA-256 metadata.
+- JSONL/CSV replacement is atomic.
+- CSV exports neutralize spreadsheet formula prefixes.
+- Large-file streaming is tested with 25,000 generated rows and a 128 MiB heap-growth ceiling.
+- Dependency audit currently reports no known vulnerabilities.
+- CI covers Node 20/22/24 on Linux, macOS, and Windows, plus dependency review and CodeQL.
 
-`@opentrade/storage-sqlite` provides a driverless SQLite schema and row helpers for canonical records. It is intended for applications that want a local cache while keeping OpenTrade usable without hosted services, credentials, or database setup.
+## Hosted Metadata
 
-The package does not include a SQLite driver, migration runner, importer, or generated dataset. Applications choose their own SQLite runtime and remain responsible for source terms, retention choices, redaction, and redistribution limits.
+The optional hosted surface provides:
 
-## Default Safety Invariants
+- static status artifacts generated from registry files;
+- `GET /api/sources` and single-source lookup;
+- `GET /api/readiness`;
+- `GET /api/health` with file/database count and metadata parity;
+- API version identifiers, public-read CORS, bounded cache headers, sanitized errors, and `nosniff`.
 
-- Normal tests do not contact agency websites.
-- Network source access requires explicit opt-in.
-- Generated public-record datasets are not committed.
-- Source URL, checked time, caveats, raw record, and fingerprint stay attached to normalized records.
-- A no-match result means: "No matching record was found in this source as of the checked time."
+Supabase is an optional metadata mirror. The API falls back to checked-in files when database configuration is absent or unavailable. No imported license records or generated datasets are stored there.
 
-## Verification Commands
+## Verification Evidence
 
-Use these commands to refresh this page's counts before editing public docs:
+Refresh the snapshot with:
 
 ```bash
-corepack pnpm source:quality -- --json
+corepack pnpm source:matrix
+corepack pnpm source:quality
 corepack pnpm coverage:health
-corepack pnpm cli -- sources readiness --json
-corepack pnpm cli -- sources coverage --json
+corepack pnpm verify
+corepack pnpm pack:check
+corepack pnpm security:audit
 ```

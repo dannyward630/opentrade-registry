@@ -1,6 +1,6 @@
 {
   "name": "opentrade-registry",
-  "version": "0.2.0",
+  "version": "1.0.0",
   "private": true,
   "type": "module",
   "description": "Local-first toolkit for working with official contractor and skilled-trade license records.",
@@ -26,8 +26,13 @@
     "node": ">=20"
   },
   "packageManager": "pnpm@9.15.4",
+  "pnpm": {
+    "overrides": {
+      "uuid@<11.1.1": "11.1.1"
+    }
+  },
   "scripts": {
-    "verify": "corepack pnpm build && corepack pnpm typecheck && corepack pnpm api:typecheck && corepack pnpm test && corepack pnpm registry:validate && corepack pnpm coverage:health && corepack pnpm db:seed:check && corepack pnpm cleanliness:scan && corepack pnpm files:check",
+    "verify": "corepack pnpm build && corepack pnpm typecheck && corepack pnpm api:typecheck && corepack pnpm test && corepack pnpm registry:validate && corepack pnpm coverage:health && corepack pnpm db:seed:check && corepack pnpm source:matrix:check && corepack pnpm docs:check && corepack pnpm cleanliness:scan && corepack pnpm files:check",
     "build": "corepack pnpm -r build",
     "test": "vitest run",
     "test:registry": "vitest run tests/source-registry.test.ts tests/source-quality-report.test.ts",
@@ -41,17 +46,23 @@
     "cleanliness:scan": "node scripts/cleanliness-scan.mjs",
     "files:check": "node scripts/files-check.mjs",
     "source:quality": "node scripts/source-quality-report.mjs",
-    "source:matrix": "node scripts/source-quality-report.mjs --markdown",
+    "source:matrix": "node scripts/source-quality-report.mjs --write-markdown",
+    "source:matrix:check": "node scripts/source-quality-report.mjs --check-markdown",
+    "docs:check": "node scripts/docs-check.mjs",
     "db:seed:generate": "node scripts/generate-registry-source-seed.mjs",
     "db:seed:check": "node scripts/generate-registry-source-seed.mjs --check",
     "security:audit": "corepack pnpm audit --prod=false",
     "pack:check": "corepack pnpm build && node scripts/pack-check.mjs",
+    "release:check-version": "node scripts/check-release-version.mjs",
+    "release:pack": "corepack pnpm build && node scripts/pack-release.mjs",
+    "wiki:generate": "node scripts/generate-wiki.mjs",
     "cli": "corepack pnpm --filter @opentrade/cli cli",
     "web:build": "corepack pnpm --filter @opentrade/web build",
     "web:dev": "corepack pnpm --filter @opentrade/web dev"
   },
   "devDependencies": {
     "@opentrade/adapter-ak-commerce": "workspace:*",
+    "@opentrade/adapter-az-roc": "workspace:*",
     "@opentrade/adapter-ca-cslb": "workspace:*",
     "@opentrade/adapter-fl-dbpr": "workspace:*",
     "@opentrade/adapter-il-idfpr": "workspace:*",
@@ -61,9 +72,11 @@
     "@opentrade/adapter-tx-tdlr": "workspace:*",
     "@opentrade/adapter-wa-lni": "workspace:*",
     "@opentrade/core": "workspace:*",
+    "@opentrade/registry": "workspace:*",
     "@opentrade/storage-sqlite": "workspace:*",
     "@supabase/supabase-js": "^2.87.1",
     "@types/node": "^20.17.14",
+    "fast-check": "^4.8.0",
     "tsx": "^4.19.2",
     "typescript": "^6.0.3",
     "vite": "^8.0.16",

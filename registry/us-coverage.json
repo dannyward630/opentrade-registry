@@ -13,56 +13,413 @@
     "deprecated"
   ],
   "states": [
-    { "state": "AL", "status": "registry_entry_added", "sourceIds": ["us.al.genconbd.general_contractors"], "notes": "Alabama general contractors board license roster source metadata exists; no adapter is implemented." },
-    { "state": "AK", "status": "fixture_supported", "sourceIds": ["us.ak.commerce.construction_contractors"], "notes": "Alaska CBPL fixture adapter is implemented for a tiny hand-authored construction-contractor-shaped sample. Live protected lookup and download access are not implemented." },
-    { "state": "AZ", "status": "registry_entry_added", "sourceIds": ["us.az.roc.contractors"], "notes": "Arizona ROC source metadata has been added; no adapter is implemented." },
-    { "state": "AR", "status": "registry_entry_added", "sourceIds": ["us.ar.aclb.contractors"], "notes": "Arkansas Contractors Licensing Board lookup source metadata exists; no adapter is implemented." },
-    { "state": "CA", "status": "fixture_supported", "sourceIds": ["us.ca.cslb.contractors"], "notes": "California CSLB fixture adapter is implemented for a tiny hand-authored sample. Live master-list and companion-file parsing are not implemented." },
-    { "state": "CO", "status": "registry_entry_added", "sourceIds": ["us.co.dora.trades"], "notes": "Colorado DORA/DPO trade-license lookup source metadata exists; no adapter is implemented." },
-    { "state": "CT", "status": "registry_entry_added", "sourceIds": ["us.ct.dcp.home_improvement_contractors"], "notes": "Connecticut DCP/eLicense home improvement contractor lookup source metadata exists; no adapter is implemented." },
-    { "state": "DE", "status": "registry_entry_added", "sourceIds": ["us.de.labor.construction_contractors"], "notes": "Delaware registered construction contractor public lookup source metadata exists; no adapter is implemented." },
-    { "state": "DC", "status": "registry_entry_added", "sourceIds": ["us.dc.dlcp.contractors"], "notes": "District of Columbia DLCP/SCOUT business license verification source metadata exists; no adapter is implemented." },
-    { "state": "FL", "status": "local_file_supported", "sourceIds": ["us.fl.dbpr.construction"], "notes": "Florida DBPR construction fixture and local-file adapter are implemented." },
-    { "state": "GA", "status": "registry_entry_added", "sourceIds": ["us.ga.sos.residential_general_contractors"], "notes": "Georgia Secretary of State residential and general contractor lookup source metadata exists; no adapter is implemented." },
-    { "state": "HI", "status": "registry_entry_added", "sourceIds": ["us.hi.dcca.contractors"], "notes": "Hawaii DCCA PVL contractor license search source metadata exists; no adapter is implemented." },
-    { "state": "ID", "status": "registry_entry_added", "sourceIds": ["us.id.dopl.contractors"], "notes": "Idaho DOPL contractor registration search source metadata exists; no adapter is implemented." },
-    { "state": "IL", "status": "fixture_supported", "sourceIds": ["us.il.idfpr.roofing_contractors"], "notes": "Illinois IDFPR roofing contractor fixture adapter is implemented for a tiny hand-authored sample. Live lookup and bulk lookup access are not implemented." },
-    { "state": "IN", "status": "fixture_supported", "sourceIds": ["us.in.pla.professional_licenses"], "notes": "Indiana PLA fixture adapter is implemented for a tiny hand-authored sample based on license-download-shaped fields. Live MyLicense lookup, API, and paid download access are not implemented." },
-    { "state": "IA", "status": "registry_entry_added", "sourceIds": ["us.ia.dial.contractor_registration"], "notes": "Iowa DIAL contractor registration lookup source metadata exists; no adapter is implemented." },
-    { "state": "KS", "status": "registry_entry_added", "sourceIds": ["us.ks.ag.roofing_registration"], "notes": "Kansas Attorney General roofing registration directory source metadata exists; no adapter is implemented." },
-    { "state": "KY", "status": "registry_entry_added", "sourceIds": ["us.ky.dhbc.trades"], "notes": "Kentucky DHBC trade licensee search source metadata exists; no adapter is implemented." },
-    { "state": "LA", "status": "registry_entry_added", "sourceIds": ["us.la.lslbc.contractors"], "notes": "Louisiana State Licensing Board for Contractors lookup source metadata exists; no adapter is implemented." },
-    { "state": "ME", "status": "registry_entry_added", "sourceIds": ["us.me.pfr.professional_licenses"], "notes": "Maine PFR/OPOR professional licensee search source metadata exists for construction-relevant credentials; no adapter is implemented." },
-    { "state": "MD", "status": "registry_entry_added", "sourceIds": ["us.md.dllr.home_improvement_contractors"], "notes": "Maryland MHIC home improvement contractor license search source metadata exists; no adapter is implemented." },
-    { "state": "MA", "status": "registry_entry_added", "sourceIds": ["us.ma.dol.opsi_construction_supervisors"], "notes": "Massachusetts OPSI construction supervisor license verification source metadata exists; no adapter is implemented." },
-    { "state": "MI", "status": "registry_entry_added", "sourceIds": ["us.mi.lara.residential_builders"], "notes": "Michigan LARA residential builder lookup source metadata exists; no adapter is implemented." },
-    { "state": "MN", "status": "fixture_supported", "sourceIds": ["us.mn.dli.licenses_registrations"], "notes": "Minnesota DLI license and registration fixture adapter is implemented for a tiny hand-authored sample with documented source concepts." },
-    { "state": "MS", "status": "registry_entry_added", "sourceIds": ["us.ms.msboc.contractors"], "notes": "Mississippi State Board of Contractors license search source metadata exists; no adapter is implemented." },
-    { "state": "MO", "status": "registry_entry_added", "sourceIds": ["us.mo.pr.professional_licenses"], "notes": "Missouri Division of Professional Registration license search source metadata exists for construction-relevant credentials; no adapter is implemented." },
-    { "state": "MT", "status": "registry_entry_added", "sourceIds": ["us.mt.dli.contractor_registration"], "notes": "Montana DLI construction contractor registration search source metadata exists; no adapter is implemented." },
-    { "state": "NE", "status": "registry_entry_added", "sourceIds": ["us.ne.dol.contractor_registration"], "notes": "Nebraska Department of Labor contractor registration search source metadata exists; no adapter is implemented." },
-    { "state": "NV", "status": "registry_entry_added", "sourceIds": ["us.nv.nscb.contractors"], "notes": "Nevada State Contractors Board lookup source metadata exists; no adapter is implemented." },
-    { "state": "NH", "status": "registry_entry_added", "sourceIds": ["us.nh.oplc.trades"], "notes": "New Hampshire OPLC license lookup source metadata exists for construction-relevant credentials; no adapter is implemented." },
-    { "state": "NJ", "status": "registry_entry_added", "sourceIds": ["us.nj.dca.home_improvement_contractors"], "notes": "New Jersey Division of Consumer Affairs home improvement contractor verification source metadata exists; no adapter is implemented." },
-    { "state": "NM", "status": "registry_entry_added", "sourceIds": ["us.nm.rld.construction_industries"], "notes": "New Mexico RLD Construction Industries verification source metadata exists; no adapter is implemented." },
-    { "state": "NY", "status": "registry_entry_added", "sourceIds": ["us.ny.dos.licensee_search"], "notes": "New York Department of State active licensee search source metadata exists for construction-adjacent credentials; no adapter is implemented." },
-    { "state": "NC", "status": "registry_entry_added", "sourceIds": ["us.nc.nclbgc.general_contractors"], "notes": "North Carolina general contractors board lookup source metadata exists; no adapter is implemented." },
-    { "state": "ND", "status": "registry_entry_added", "sourceIds": ["us.nd.sos.contractors"], "notes": "North Dakota Secretary of State contractor search source metadata exists; no adapter is implemented." },
-    { "state": "OH", "status": "registry_entry_added", "sourceIds": ["us.oh.commerce.ocilb_contractors"], "notes": "Ohio OCILB commercial trade contractor lookup source metadata exists; no adapter is implemented." },
-    { "state": "OK", "status": "registry_entry_added", "sourceIds": ["us.ok.cib.trades"], "notes": "Oklahoma Construction Industries Board trade lookup source metadata exists; no adapter is implemented." },
-    { "state": "OR", "status": "fixture_supported", "sourceIds": ["us.or.ccb.active_licenses"], "notes": "Oregon CCB active-license fixture adapter is implemented for a tiny hand-authored sample with official column names." },
-    { "state": "PA", "status": "registry_entry_added", "sourceIds": ["us.pa.oag.home_improvement_contractors"], "notes": "Pennsylvania OAG home improvement contractor search source metadata exists; no adapter is implemented." },
-    { "state": "RI", "status": "registry_entry_added", "sourceIds": ["us.ri.crlb.contractors"], "notes": "Rhode Island CRLB registrant and licensee search source metadata exists; no adapter is implemented." },
-    { "state": "SC", "status": "registry_entry_added", "sourceIds": ["us.sc.llr.contractors"], "notes": "South Carolina LLR contractor lookup source metadata exists; no adapter is implemented." },
-    { "state": "SD", "status": "registry_entry_added", "sourceIds": ["us.sd.dlr.plumbing"], "notes": "South Dakota DLR Plumbing Commission licensing source metadata exists; no adapter is implemented." },
-    { "state": "TN", "status": "registry_entry_added", "sourceIds": ["us.tn.commerce.contractors"], "notes": "Tennessee contractor board lookup source metadata exists; no adapter is implemented." },
-    { "state": "TX", "status": "fixture_supported", "sourceIds": ["us.tx.tdlr.all_licenses"], "notes": "Texas TDLR fixture adapter is implemented for a tiny hand-authored sample with official column names." },
-    { "state": "UT", "status": "registry_entry_added", "sourceIds": ["us.ut.dopl.contractors"], "notes": "Utah DOPL contractor lookup source metadata exists; no adapter is implemented." },
-    { "state": "VT", "status": "registry_entry_added", "sourceIds": ["us.vt.sos.residential_contractors"], "notes": "Vermont Secretary of State residential contractor registry source metadata exists; no adapter is implemented." },
-    { "state": "VA", "status": "registry_entry_added", "sourceIds": ["us.va.dpor.contractors"], "notes": "Virginia DPOR lookup source metadata exists; no adapter is implemented." },
-    { "state": "WA", "status": "fixture_supported", "sourceIds": ["us.wa.lni.contractors"], "notes": "Washington L&I fixture adapter is implemented for a tiny hand-authored sample with official column names." },
-    { "state": "WV", "status": "registry_entry_added", "sourceIds": ["us.wv.labor.contractors"], "notes": "West Virginia Division of Labor contractor license search source metadata exists; no adapter is implemented." },
-    { "state": "WI", "status": "registry_entry_added", "sourceIds": ["us.wi.dsps.dwelling_trades"], "notes": "Wisconsin DSPS LicensE dwelling and trades credential lookup source metadata exists; no adapter is implemented." },
-    { "state": "WY", "status": "registry_entry_added", "sourceIds": ["us.wy.firemarshal.electrical"], "notes": "Wyoming State Fire Marshal electrical licensing source metadata exists; no adapter is implemented." }
+    {
+      "state": "AL",
+      "status": "blocked",
+      "sourceIds": [
+        "us.al.genconbd.general_contractors"
+      ],
+      "notes": "Official source metadata is retained, but automated ingestion is blocked by documented legal, access, scope, or technical constraints."
+    },
+    {
+      "state": "AK",
+      "status": "local_file_supported",
+      "sourceIds": [
+        "us.ak.commerce.construction_contractors"
+      ],
+      "notes": "A terminal OpenTrade Registry adapter capability is implemented with offline tests and documented source caveats."
+    },
+    {
+      "state": "AZ",
+      "status": "network_opt_in_supported",
+      "sourceIds": [
+        "us.az.roc.contractors"
+      ],
+      "notes": "A terminal OpenTrade Registry adapter capability is implemented with offline tests and documented source caveats."
+    },
+    {
+      "state": "AR",
+      "status": "blocked",
+      "sourceIds": [
+        "us.ar.aclb.contractors"
+      ],
+      "notes": "Official source metadata is retained, but automated ingestion is blocked by documented legal, access, scope, or technical constraints."
+    },
+    {
+      "state": "CA",
+      "status": "local_file_supported",
+      "sourceIds": [
+        "us.ca.cslb.contractors"
+      ],
+      "notes": "A terminal OpenTrade Registry adapter capability is implemented with offline tests and documented source caveats."
+    },
+    {
+      "state": "CO",
+      "status": "blocked",
+      "sourceIds": [
+        "us.co.dora.trades"
+      ],
+      "notes": "Official source metadata is retained, but automated ingestion is blocked by documented legal, access, scope, or technical constraints."
+    },
+    {
+      "state": "CT",
+      "status": "blocked",
+      "sourceIds": [
+        "us.ct.dcp.home_improvement_contractors"
+      ],
+      "notes": "Official source metadata is retained, but automated ingestion is blocked by documented legal, access, scope, or technical constraints."
+    },
+    {
+      "state": "DE",
+      "status": "blocked",
+      "sourceIds": [
+        "us.de.labor.construction_contractors"
+      ],
+      "notes": "Official source metadata is retained, but automated ingestion is blocked by documented legal, access, scope, or technical constraints."
+    },
+    {
+      "state": "DC",
+      "status": "blocked",
+      "sourceIds": [
+        "us.dc.dlcp.contractors"
+      ],
+      "notes": "Official source metadata is retained, but automated ingestion is blocked by documented legal, access, scope, or technical constraints."
+    },
+    {
+      "state": "FL",
+      "status": "network_opt_in_supported",
+      "sourceIds": [
+        "us.fl.dbpr.construction"
+      ],
+      "notes": "A terminal OpenTrade Registry adapter capability is implemented with offline tests and documented source caveats."
+    },
+    {
+      "state": "GA",
+      "status": "blocked",
+      "sourceIds": [
+        "us.ga.sos.residential_general_contractors"
+      ],
+      "notes": "Official source metadata is retained, but automated ingestion is blocked by documented legal, access, scope, or technical constraints."
+    },
+    {
+      "state": "HI",
+      "status": "blocked",
+      "sourceIds": [
+        "us.hi.dcca.contractors"
+      ],
+      "notes": "Official source metadata is retained, but automated ingestion is blocked by documented legal, access, scope, or technical constraints."
+    },
+    {
+      "state": "ID",
+      "status": "blocked",
+      "sourceIds": [
+        "us.id.dopl.contractors"
+      ],
+      "notes": "Official source metadata is retained, but automated ingestion is blocked by documented legal, access, scope, or technical constraints."
+    },
+    {
+      "state": "IL",
+      "status": "local_file_supported",
+      "sourceIds": [
+        "us.il.idfpr.roofing_contractors"
+      ],
+      "notes": "A terminal OpenTrade Registry adapter capability is implemented with offline tests and documented source caveats."
+    },
+    {
+      "state": "IN",
+      "status": "local_file_supported",
+      "sourceIds": [
+        "us.in.pla.professional_licenses"
+      ],
+      "notes": "A terminal OpenTrade Registry adapter capability is implemented with offline tests and documented source caveats."
+    },
+    {
+      "state": "IA",
+      "status": "blocked",
+      "sourceIds": [
+        "us.ia.dial.contractor_registration"
+      ],
+      "notes": "Official source metadata is retained, but automated ingestion is blocked by documented legal, access, scope, or technical constraints."
+    },
+    {
+      "state": "KS",
+      "status": "blocked",
+      "sourceIds": [
+        "us.ks.ag.roofing_registration"
+      ],
+      "notes": "Official source metadata is retained, but automated ingestion is blocked by documented legal, access, scope, or technical constraints."
+    },
+    {
+      "state": "KY",
+      "status": "blocked",
+      "sourceIds": [
+        "us.ky.dhbc.trades"
+      ],
+      "notes": "Official source metadata is retained, but automated ingestion is blocked by documented legal, access, scope, or technical constraints."
+    },
+    {
+      "state": "LA",
+      "status": "blocked",
+      "sourceIds": [
+        "us.la.lslbc.contractors"
+      ],
+      "notes": "Official source metadata is retained, but automated ingestion is blocked by documented legal, access, scope, or technical constraints."
+    },
+    {
+      "state": "ME",
+      "status": "blocked",
+      "sourceIds": [
+        "us.me.pfr.professional_licenses"
+      ],
+      "notes": "Official source metadata is retained, but automated ingestion is blocked by documented legal, access, scope, or technical constraints."
+    },
+    {
+      "state": "MD",
+      "status": "blocked",
+      "sourceIds": [
+        "us.md.dllr.home_improvement_contractors"
+      ],
+      "notes": "Official source metadata is retained, but automated ingestion is blocked by documented legal, access, scope, or technical constraints."
+    },
+    {
+      "state": "MA",
+      "status": "blocked",
+      "sourceIds": [
+        "us.ma.dol.opsi_construction_supervisors"
+      ],
+      "notes": "Official source metadata is retained, but automated ingestion is blocked by documented legal, access, scope, or technical constraints."
+    },
+    {
+      "state": "MI",
+      "status": "blocked",
+      "sourceIds": [
+        "us.mi.lara.residential_builders"
+      ],
+      "notes": "Official source metadata is retained, but automated ingestion is blocked by documented legal, access, scope, or technical constraints."
+    },
+    {
+      "state": "MN",
+      "status": "local_file_supported",
+      "sourceIds": [
+        "us.mn.dli.licenses_registrations"
+      ],
+      "notes": "A terminal OpenTrade Registry adapter capability is implemented with offline tests and documented source caveats."
+    },
+    {
+      "state": "MS",
+      "status": "blocked",
+      "sourceIds": [
+        "us.ms.msboc.contractors"
+      ],
+      "notes": "Official source metadata is retained, but automated ingestion is blocked by documented legal, access, scope, or technical constraints."
+    },
+    {
+      "state": "MO",
+      "status": "blocked",
+      "sourceIds": [
+        "us.mo.pr.professional_licenses"
+      ],
+      "notes": "Official source metadata is retained, but automated ingestion is blocked by documented legal, access, scope, or technical constraints."
+    },
+    {
+      "state": "MT",
+      "status": "blocked",
+      "sourceIds": [
+        "us.mt.dli.contractor_registration"
+      ],
+      "notes": "Official source metadata is retained, but automated ingestion is blocked by documented legal, access, scope, or technical constraints."
+    },
+    {
+      "state": "NE",
+      "status": "blocked",
+      "sourceIds": [
+        "us.ne.dol.contractor_registration"
+      ],
+      "notes": "Official source metadata is retained, but automated ingestion is blocked by documented legal, access, scope, or technical constraints."
+    },
+    {
+      "state": "NV",
+      "status": "blocked",
+      "sourceIds": [
+        "us.nv.nscb.contractors"
+      ],
+      "notes": "Official source metadata is retained, but automated ingestion is blocked by documented legal, access, scope, or technical constraints."
+    },
+    {
+      "state": "NH",
+      "status": "blocked",
+      "sourceIds": [
+        "us.nh.oplc.trades"
+      ],
+      "notes": "Official source metadata is retained, but automated ingestion is blocked by documented legal, access, scope, or technical constraints."
+    },
+    {
+      "state": "NJ",
+      "status": "blocked",
+      "sourceIds": [
+        "us.nj.dca.home_improvement_contractors"
+      ],
+      "notes": "Official source metadata is retained, but automated ingestion is blocked by documented legal, access, scope, or technical constraints."
+    },
+    {
+      "state": "NM",
+      "status": "blocked",
+      "sourceIds": [
+        "us.nm.rld.construction_industries"
+      ],
+      "notes": "Official source metadata is retained, but automated ingestion is blocked by documented legal, access, scope, or technical constraints."
+    },
+    {
+      "state": "NY",
+      "status": "blocked",
+      "sourceIds": [
+        "us.ny.dos.licensee_search"
+      ],
+      "notes": "Official source metadata is retained, but automated ingestion is blocked by documented legal, access, scope, or technical constraints."
+    },
+    {
+      "state": "NC",
+      "status": "blocked",
+      "sourceIds": [
+        "us.nc.nclbgc.general_contractors"
+      ],
+      "notes": "Official source metadata is retained, but automated ingestion is blocked by documented legal, access, scope, or technical constraints."
+    },
+    {
+      "state": "ND",
+      "status": "blocked",
+      "sourceIds": [
+        "us.nd.sos.contractors"
+      ],
+      "notes": "Official source metadata is retained, but automated ingestion is blocked by documented legal, access, scope, or technical constraints."
+    },
+    {
+      "state": "OH",
+      "status": "blocked",
+      "sourceIds": [
+        "us.oh.commerce.ocilb_contractors"
+      ],
+      "notes": "Official source metadata is retained, but automated ingestion is blocked by documented legal, access, scope, or technical constraints."
+    },
+    {
+      "state": "OK",
+      "status": "blocked",
+      "sourceIds": [
+        "us.ok.cib.trades"
+      ],
+      "notes": "Official source metadata is retained, but automated ingestion is blocked by documented legal, access, scope, or technical constraints."
+    },
+    {
+      "state": "OR",
+      "status": "network_opt_in_supported",
+      "sourceIds": [
+        "us.or.ccb.active_licenses"
+      ],
+      "notes": "A terminal OpenTrade Registry adapter capability is implemented with offline tests and documented source caveats."
+    },
+    {
+      "state": "PA",
+      "status": "blocked",
+      "sourceIds": [
+        "us.pa.oag.home_improvement_contractors"
+      ],
+      "notes": "Official source metadata is retained, but automated ingestion is blocked by documented legal, access, scope, or technical constraints."
+    },
+    {
+      "state": "RI",
+      "status": "blocked",
+      "sourceIds": [
+        "us.ri.crlb.contractors"
+      ],
+      "notes": "Official source metadata is retained, but automated ingestion is blocked by documented legal, access, scope, or technical constraints."
+    },
+    {
+      "state": "SC",
+      "status": "blocked",
+      "sourceIds": [
+        "us.sc.llr.contractors"
+      ],
+      "notes": "Official source metadata is retained, but automated ingestion is blocked by documented legal, access, scope, or technical constraints."
+    },
+    {
+      "state": "SD",
+      "status": "blocked",
+      "sourceIds": [
+        "us.sd.dlr.plumbing"
+      ],
+      "notes": "Official source metadata is retained, but automated ingestion is blocked by documented legal, access, scope, or technical constraints."
+    },
+    {
+      "state": "TN",
+      "status": "blocked",
+      "sourceIds": [
+        "us.tn.commerce.contractors"
+      ],
+      "notes": "Official source metadata is retained, but automated ingestion is blocked by documented legal, access, scope, or technical constraints."
+    },
+    {
+      "state": "TX",
+      "status": "network_opt_in_supported",
+      "sourceIds": [
+        "us.tx.tdlr.all_licenses"
+      ],
+      "notes": "A terminal OpenTrade Registry adapter capability is implemented with offline tests and documented source caveats."
+    },
+    {
+      "state": "UT",
+      "status": "blocked",
+      "sourceIds": [
+        "us.ut.dopl.contractors"
+      ],
+      "notes": "Official source metadata is retained, but automated ingestion is blocked by documented legal, access, scope, or technical constraints."
+    },
+    {
+      "state": "VT",
+      "status": "blocked",
+      "sourceIds": [
+        "us.vt.sos.residential_contractors"
+      ],
+      "notes": "Official source metadata is retained, but automated ingestion is blocked by documented legal, access, scope, or technical constraints."
+    },
+    {
+      "state": "VA",
+      "status": "blocked",
+      "sourceIds": [
+        "us.va.dpor.contractors"
+      ],
+      "notes": "Official source metadata is retained, but automated ingestion is blocked by documented legal, access, scope, or technical constraints."
+    },
+    {
+      "state": "WA",
+      "status": "network_opt_in_supported",
+      "sourceIds": [
+        "us.wa.lni.contractors"
+      ],
+      "notes": "A terminal OpenTrade Registry adapter capability is implemented with offline tests and documented source caveats."
+    },
+    {
+      "state": "WV",
+      "status": "blocked",
+      "sourceIds": [
+        "us.wv.labor.contractors"
+      ],
+      "notes": "Official source metadata is retained, but automated ingestion is blocked by documented legal, access, scope, or technical constraints."
+    },
+    {
+      "state": "WI",
+      "status": "blocked",
+      "sourceIds": [
+        "us.wi.dsps.dwelling_trades"
+      ],
+      "notes": "Official source metadata is retained, but automated ingestion is blocked by documented legal, access, scope, or technical constraints."
+    },
+    {
+      "state": "WY",
+      "status": "blocked",
+      "sourceIds": [
+        "us.wy.firemarshal.electrical"
+      ],
+      "notes": "Official source metadata is retained, but automated ingestion is blocked by documented legal, access, scope, or technical constraints."
+    }
   ]
 }
