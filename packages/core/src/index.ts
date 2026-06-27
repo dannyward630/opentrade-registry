@@ -1,4 +1,5 @@
 export * from "./adapter/types.js";
+export * from "./contracts/version.js";
 export * from "./normalize/fingerprint.js";
 export * from "./normalize/license-number.js";
 export * from "./normalize/text.js";
