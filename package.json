@@ -32,7 +32,7 @@
     }
   },
   "scripts": {
-    "verify": "corepack pnpm build && corepack pnpm typecheck && corepack pnpm api:typecheck && corepack pnpm test && corepack pnpm registry:validate && corepack pnpm coverage:health && corepack pnpm db:seed:check && corepack pnpm source:matrix:check && corepack pnpm cleanliness:scan && corepack pnpm files:check",
+    "verify": "corepack pnpm build && corepack pnpm typecheck && corepack pnpm api:typecheck && corepack pnpm test && corepack pnpm registry:validate && corepack pnpm coverage:health && corepack pnpm db:seed:check && corepack pnpm source:matrix:check && corepack pnpm docs:check && corepack pnpm cleanliness:scan && corepack pnpm files:check",
     "build": "corepack pnpm -r build",
     "test": "vitest run",
     "test:registry": "vitest run tests/source-registry.test.ts tests/source-quality-report.test.ts",
@@ -48,10 +48,13 @@
     "source:quality": "node scripts/source-quality-report.mjs",
     "source:matrix": "node scripts/source-quality-report.mjs --write-markdown",
     "source:matrix:check": "node scripts/source-quality-report.mjs --check-markdown",
+    "docs:check": "node scripts/docs-check.mjs",
     "db:seed:generate": "node scripts/generate-registry-source-seed.mjs",
     "db:seed:check": "node scripts/generate-registry-source-seed.mjs --check",
     "security:audit": "corepack pnpm audit --prod=false",
     "pack:check": "corepack pnpm build && node scripts/pack-check.mjs",
+    "release:check-version": "node scripts/check-release-version.mjs",
+    "release:pack": "corepack pnpm build && node scripts/pack-release.mjs",
     "cli": "corepack pnpm --filter @opentrade/cli cli",
     "web:build": "corepack pnpm --filter @opentrade/web build",
     "web:dev": "corepack pnpm --filter @opentrade/web dev"
