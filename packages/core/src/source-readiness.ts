@@ -13,7 +13,7 @@ export type SourceReadinessSummary = {
   adapterQualityLevel: number;
   coverageScope: SourceRegistryEntry["coverageScope"];
   hasBulkDownload: SourceRegistryEntry["hasBulkDownload"];
-  sourceResearchOutcome: SourceResearchOutcome;
+  sourceResearchOutcome: SourceResearchPlanningOutcome;
   nextAction: string;
 };
 
@@ -23,7 +23,7 @@ export type SourceReadiness = {
   unimplementedBulkAdapterCandidates: SourceReadinessSummary[];
   downloadResearchCandidates: SourceReadinessSummary[];
   lookupAutomationConstraintSources: SourceReadinessSummary[];
-  sourcesByResearchOutcome: Record<SourceResearchOutcome, number>;
+  sourcesByResearchOutcome: Record<SourceResearchPlanningOutcome, number>;
   registryOnlySourceCount: number;
   note: string;
 };
@@ -38,7 +38,7 @@ export const SOURCE_RESEARCH_OUTCOMES = [
   "not_contractor_specific",
 ] as const;
 
-export type SourceResearchOutcome = (typeof SOURCE_RESEARCH_OUTCOMES)[number];
+export type SourceResearchPlanningOutcome = (typeof SOURCE_RESEARCH_OUTCOMES)[number];
 
 export function buildSourceReadiness(sources: SourceRegistryEntry[]): SourceReadiness {
   const implementedAdapterSources = sources.filter((source) => source.adapterStatus === "implemented");
@@ -89,7 +89,7 @@ export function hasLookupAutomationConstraint(source: SourceRegistryEntry): bool
   );
 }
 
-export function getSourceResearchOutcome(source: SourceRegistryEntry): SourceResearchOutcome {
+export function getSourceResearchOutcome(source: SourceRegistryEntry): SourceResearchPlanningOutcome {
   if (source.adapterStatus === "implemented") {
     return "implemented_adapter";
   }
@@ -152,8 +152,8 @@ export function toSourceReadinessSummary(source: SourceRegistryEntry): SourceRea
   };
 }
 
-function countSourcesByResearchOutcome(sources: SourceRegistryEntry[]): Record<SourceResearchOutcome, number> {
-  const counts = Object.fromEntries(SOURCE_RESEARCH_OUTCOMES.map((outcome) => [outcome, 0])) as Record<SourceResearchOutcome, number>;
+function countSourcesByResearchOutcome(sources: SourceRegistryEntry[]): Record<SourceResearchPlanningOutcome, number> {
+  const counts = Object.fromEntries(SOURCE_RESEARCH_OUTCOMES.map((outcome) => [outcome, 0])) as Record<SourceResearchPlanningOutcome, number>;
   for (const source of sources) {
     counts[getSourceResearchOutcome(source)] += 1;
   }
