@@ -39,6 +39,7 @@ export const sourceBlockerSchema = z.object({
 });
 
 export const sourceRegistryEntrySchema = z.object({
+  schemaVersion: z.literal("1.0").optional(),
   id: z.string().min(1),
   name: z.string().min(1),
   jurisdiction: z.object({
@@ -85,6 +86,11 @@ export const sourceRegistryEntrySchema = z.object({
   verificationNotes: z.string().nullable().optional(),
   lastVerifiedAt: z.string().datetime().nullable().optional(),
   maintainerNotes: z.string().nullable().optional(),
+  sourceResearchOutcome: sourceResearchOutcomeSchema.optional(),
+  researchReviewedAt: z.string().datetime().optional(),
+  nextReviewAt: z.string().datetime().optional(),
+  researchEvidence: z.array(sourceResearchEvidenceSchema).optional(),
+  blocker: sourceBlockerSchema.optional(),
 });
 
 export const sourceRegistryEntryV1Schema = sourceRegistryEntrySchema
