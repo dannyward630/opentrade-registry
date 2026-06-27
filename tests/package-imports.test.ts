@@ -67,6 +67,7 @@ import {
   SQLITE_LICENSE_RECORD_TABLE,
   SQLITE_SCHEMA_VERSION,
 } from "@opentrade/storage-sqlite";
+import { OpenTradeRegistry, downloadOfficialSource } from "@opentrade/registry";
 
 describe("public package imports", () => {
   it("imports stable public APIs from core and the Florida adapter", () => {
@@ -149,5 +150,7 @@ describe("public package imports", () => {
     ).toBe("suspended");
     expect(SQLITE_SCHEMA_VERSION).toBe(2);
     expect(buildInsertLicenseRecordSql()).toContain(`insert into ${SQLITE_LICENSE_RECORD_TABLE}`);
+    expect(new OpenTradeRegistry([]).adapters.size).toBe(0);
+    expect(typeof downloadOfficialSource).toBe("function");
   });
 });

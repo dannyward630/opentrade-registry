@@ -41,6 +41,9 @@ importers:
       '@opentrade/core':
         specifier: workspace:*
         version: link:packages/core
+      '@opentrade/registry':
+        specifier: workspace:*
+        version: link:packages/registry
       '@opentrade/storage-sqlite':
         specifier: workspace:*
         version: link:packages/storage-sqlite
@@ -199,6 +202,9 @@ importers:
       '@opentrade/core':
         specifier: workspace:*
         version: link:../core
+      '@opentrade/registry':
+        specifier: workspace:*
+        version: link:../registry
       zod:
         specifier: ^4.4.3
         version: 4.4.3
@@ -215,6 +221,15 @@ importers:
       zod:
         specifier: ^4.4.3
         version: 4.4.3
+
+  packages/registry:
+    dependencies:
+      '@opentrade/core':
+        specifier: workspace:*
+        version: link:../core
+      '@opentrade/storage-sqlite':
+        specifier: workspace:*
+        version: link:../storage-sqlite
 
   packages/storage-sqlite:
     dependencies:

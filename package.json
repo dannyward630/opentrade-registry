@@ -62,6 +62,7 @@
     "@opentrade/adapter-tx-tdlr": "workspace:*",
     "@opentrade/adapter-wa-lni": "workspace:*",
     "@opentrade/core": "workspace:*",
+    "@opentrade/registry": "workspace:*",
     "@opentrade/storage-sqlite": "workspace:*",
     "@supabase/supabase-js": "^2.87.1",
     "@types/node": "^20.17.14",
