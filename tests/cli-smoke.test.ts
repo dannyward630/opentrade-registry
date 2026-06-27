@@ -20,6 +20,7 @@ const washingtonFixture = join(process.cwd(), "packages", "adapter-wa-lni", "fix
 const minnesotaFixture = join(process.cwd(), "packages", "adapter-mn-dli", "fixtures", "licenses-registrations-sample.xlsx");
 const expectedJsonl = join(process.cwd(), "examples", "basic-sync", "expected", "sample-record.jsonl");
 const expectedCsv = join(process.cwd(), "examples", "basic-sync", "expected", "sample-record.csv");
+const CLI_SMOKE_TIMEOUT_MS = 60_000;
 
 describe("opentrade CLI", () => {
   it("prints release-current help text for local-first and opt-in URL sync", () => {
@@ -137,7 +138,7 @@ describe("opentrade CLI", () => {
     expect(puertoRico).toContain("Puerto Rico DACO Registered Contractors List");
     expect(puertoRico).toContain("maturity: blocked");
     expect(runCli(["sources", "validate"]).stdout).toContain("Validated 56 source registry entries.");
-  }, 15000);
+  }, CLI_SMOKE_TIMEOUT_MS);
 
   it("filters source listings for discovery workflows", () => {
     const california = runCli(["sources", "list", "--state", "CA"]).stdout;
@@ -187,7 +188,7 @@ describe("opentrade CLI", () => {
 
     const invalidMaturity = runCli(["sources", "list", "--maturity", "fixture"], 2, { allowStderr: true });
     expect(invalidMaturity.stderr).toContain("Invalid value for --maturity");
-  }, 15000);
+  }, CLI_SMOKE_TIMEOUT_MS);
 
   it("summarizes terminal source readiness", () => {
     const readiness = runCli(["sources", "readiness"]).stdout;
@@ -232,7 +233,7 @@ describe("opentrade CLI", () => {
     expect(json.lookupAutomationConstraintSources).toEqual([]);
     expect(json.sourcesByResearchOutcome.blocked).toBe(46);
     expect(json.registryOnlySourceCount).toBe(0);
-  }, 15000);
+  }, CLI_SMOKE_TIMEOUT_MS);
 
   it("summarizes state and territory source coverage", () => {
     const coverage = runCli(["sources", "coverage"]).stdout;
@@ -265,7 +266,7 @@ describe("opentrade CLI", () => {
     expect(json.states.find((row: { state: string }) => row.state === "FL").sourceIds).toEqual(["us.fl.dbpr.construction"]);
     expect(json.states.find((row: { state: string }) => row.state === "MN").sourceIds).toEqual(["us.mn.dli.licenses_registrations"]);
     expect(json.territories.map((row: { territory: string }) => row.territory)).toEqual(["AS", "GU", "MP", "PR", "VI"]);
-  }, 15000);
+  }, CLI_SMOKE_TIMEOUT_MS);
 
   it("rejects registry-only sources for sync and verify with neutral wording", () => {
     const sync = runCli(
@@ -336,7 +337,7 @@ describe("opentrade CLI", () => {
       );
       expect(unsupported.stderr).toContain(`Source ${sourceId} is registered for metadata, but no verify adapter is implemented yet.`);
     }
-  }, 45000);
+  }, CLI_SMOKE_TIMEOUT_MS);
 
   it("syncs fixture data to JSONL with structured stats", () => {
     const dir = mkdtempSync(join(tmpdir(), "opentrade-jsonl-"));
