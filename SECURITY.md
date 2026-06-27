@@ -1,25 +1,32 @@
 # Security Policy
 
-If you find a security issue, use a private security advisory once advisories are enabled. If that is not available, open a minimal issue asking maintainers to enable private disclosure. Do not post sensitive details in a public issue.
-
-Do not include sensitive personal data in a report unless it is necessary to explain the issue.
-
-OpenTrade Registry should not bypass CAPTCHAs, login walls, paywalls, or technical access controls.
-
 ## Supported Versions
 
-OpenTrade Registry is pre-1.0. Security fixes target the latest `main` branch until versioned releases begin.
+| Version | Supported |
+| --- | --- |
+| `1.x` | Yes |
+| `<1.0` | No |
 
-## Security-Sensitive Areas
+## Reporting
 
-- Source fetching and future network sync.
-- CLI file path handling.
-- Raw public-record preservation.
-- Generated exports.
-- Package publishing and release provenance.
+Use a private GitHub security advisory. Do not disclose exploit details, credentials, private source snapshots, or personal data in a public issue. If private advisories are unavailable, open a minimal issue requesting a private contact channel.
 
-## Dependency Security
+## Security Boundaries
 
-Dependabot monitors npm workspace dependencies and GitHub Actions weekly. When it opens an alert or update PR, prefer upgrading the affected package or transitive toolchain instead of dismissing the alert.
+Sensitive areas include official URL validation, redirects, CSV/XLSX parsing, formula injection, decompression limits, local file paths, raw personal data, SQLite retention/redaction, hosted error handling, dependencies, Actions, and package provenance.
 
-Run `corepack pnpm security:audit` before security-focused releases or dependency-update PRs. The main `verify` script intentionally does not include live advisory checks so normal development is not blocked by registry timing or newly published advisories unrelated to a code change.
+OpenTrade does not bypass CAPTCHA, account, login, paywall, or technical controls. Default tests remain offline.
+
+## Maintainer Response
+
+High and critical issues block release. Maintainers reproduce with safe fixtures, patch with regression coverage, audit related shared paths, and publish advisories/patch releases when users need action. See [incident response](docs/incident-response.md).
+
+Run:
+
+```bash
+corepack pnpm security:audit
+corepack pnpm audit --prod
+corepack pnpm verify
+```
+
+Dependabot, CodeQL, dependency review, and secret scanning are monitored. Alerts are fixed at the cause or documented as verified false positives; they are not dismissed for convenience.

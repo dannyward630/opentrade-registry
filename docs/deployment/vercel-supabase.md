@@ -8,7 +8,7 @@ The hosted layer currently provides:
 - `GET /api/health` for deployment and optional database health.
 - `GET /api/sources` for source registry metadata.
 - `GET /api/sources?id=<sourceId>` for one source registry entry.
-- `GET /api/readiness` for implemented-adapter and adapter-candidate metadata.
+- `GET /api/readiness` for terminal source and implemented-adapter metadata.
 
 It does not provide live verification across every state, a hosted import worker, browser automation, account features, or generated public-record dataset publishing.
 
@@ -30,9 +30,9 @@ The repository also includes root API functions under `api/`. Vercel packages `r
 - `origin: "database"` when rows were read from Supabase.
 - `origin: "registry_files"` when rows were read from the checked-in registry.
 - `count` and `sources` for `/api/sources`, with computed `sourceResearchOutcome` and `nextAction` fields on each source.
-- `implementedAdapterSources`, `unimplementedBulkAdapterCandidates`, download/export research candidates, lookup automation constraint sources, and research-outcome counts for `/api/readiness`.
+- `implementedAdapterSources`, blocked sources, terminal counts, and research-outcome counts for `/api/readiness`.
 
-Readiness candidate status is a planning signal only. It is not evidence that a source can already be imported, redistributed, or verified end to end.
+Every v1 readiness outcome is terminal. A blocked outcome documents why automation is not currently defensible; it is not evidence that the underlying credential does not exist.
 
 `/api/sources` supports the same registry filters as the CLI source listing command:
 
@@ -41,12 +41,14 @@ Readiness candidate status is a planning signal only. It is not evidence that a 
 - `status=implemented`, `status=blocked`, or another supported adapter status
 - `sourceType=bulk_csv` or `source_type=bulk_csv`
 - `qualityLevel=4` or `quality_level=4`
-- `researchOutcome=adapter_candidate` or `research_outcome=adapter_candidate`
+- `researchOutcome=blocked` or `research_outcome=blocked`
 - `implemented=true`
 - `registryOnly=true` or `registry_only=true`
 - `bulkCandidates=true` or `bulk_candidates=true`
 
 Filters apply to database-backed responses and file-registry fallback responses. The response includes a `filters` object so callers can see which filters were accepted. Invalid enum filters return `400` with `error: "invalid_filter"`.
+
+Responses include `apiVersion`, public-read CORS, `nosniff`, and bounded public caching. Health responses use `no-store`, and database failures expose a generic code instead of infrastructure error details.
 
 `/api/health` reports the checked-in file source count and, when Supabase is configured, the database source count plus row-level registry metadata parity. Both `sourceCountMatchesFiles` and `sourceMetadataMatchesFiles` should be `true` after the seed SQL has been applied. If metadata drifts, the health response includes `sourceMetadataMismatchCount` and a short `sourceMetadataMismatches` sample.
 
