@@ -1,0 +1,7 @@
+License No,Business Name,Doing Business As,Class,Class Detail,Class Type,Address,City,State,Zip,Qualifying Party,Issued Date,Expiration Date,Status
+001001,"DESERT GENERAL, LLC",Desert General,B-1,General Commercial Contractor,Commercial,100 W SAMPLE ST,PHOENIX,AZ,85001,"MORGAN, ALEX",2020-01-15,2099-06-30,Active
+001002,"SONORAN ROOF ""PLUS""",,CR-42,Roofing,Specialty Dual,200 E EXAMPLE AVE,TUCSON,AZ,85701,"LEE, CASEY",2018-03-01,2020-06-30,Active
+001003,VALLEY MECHANICAL,,C-39,Air Conditioning and Refrigeration,Commercial,300 TEST RD,MESA,AZ,85201,"PATEL, SAM",2019-05-10,2099-11-30,Suspended
+001004,UNKNOWN SPECIALTY WORKS,,X-99,Unmapped Classification,Other,400 FIXTURE LN,FLAGSTAFF,AZ,86001,"RIVERA, ALEX",2021-07-04,,Under Review
+009999,DUPLICATE NORTH,,B,General Residential Contractor,Residential,500 NORTH ST,PRESCOTT,AZ,86301,"NGUYEN, JORDAN",2022-01-01,2099-12-31,Active
+009999,DUPLICATE SOUTH,,B,General Residential Contractor,Residential,501 SOUTH ST,PRESCOTT,AZ,86301,"NGUYEN, JORDAN",2022-01-01,2099-12-31,Active
