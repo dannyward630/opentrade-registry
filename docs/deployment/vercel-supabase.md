@@ -54,11 +54,11 @@ Responses include `apiVersion`, public-read CORS, `nosniff`, and bounded public 
 
 ## Supabase
 
-The database is optional. Apply the migration in `supabase/migrations/` to create:
+The database is optional. Apply the complete migration history in `supabase/migrations/`. The v1 end state contains only:
 
 - `registry_sources`
-- `import_runs`
-- `license_records`
+
+The migration history removes the earlier empty hosted import and record tables. License records and import manifests remain in local files or the optional local SQLite cache.
 
 Set these Vercel environment variables after the project exists:
 
