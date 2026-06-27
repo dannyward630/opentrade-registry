@@ -147,7 +147,7 @@ describe("public package imports", () => {
         expirationDate: "2099-12-31T00:00:00.000Z",
       } as Parameters<typeof normalizeWashingtonLniStatus>[0]).normalized,
     ).toBe("suspended");
-    expect(SQLITE_SCHEMA_VERSION).toBe(1);
+    expect(SQLITE_SCHEMA_VERSION).toBe(2);
     expect(buildInsertLicenseRecordSql()).toContain(`insert into ${SQLITE_LICENSE_RECORD_TABLE}`);
   });
 });

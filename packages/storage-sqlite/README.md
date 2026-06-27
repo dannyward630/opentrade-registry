@@ -1,40 +1,25 @@
 # @opentrade/storage-sqlite
 
-Driverless SQLite schema and row helpers for OpenTrade Registry canonical records.
+Versioned SQLite cache and low-level row helpers for OpenTrade Registry canonical records.
 
-This package does not open database connections and does not depend on a SQLite runtime. It exports SQL and deterministic row helpers that can be used with `better-sqlite3`, `sqlite`, Bun SQLite, `node:sqlite`, or another driver chosen by an application.
+The package includes a Node 20-compatible WASM SQLite runtime. It can create or reopen local cache files, import records transactionally, verify normalized license numbers, apply retention, redact selected personal fields, and persist changes atomically. Low-level SQL helpers remain public for applications that use another driver.
 
 ## Exports
 
 ```ts
 import {
-  SQLITE_SCHEMA_SQL,
-  buildInsertLicenseRecordSql,
-  buildInsertLicenseRecordValues,
-  toSqliteLicenseRecordRow,
+  OpenTradeSqliteCache,
 } from "@opentrade/storage-sqlite";
 ```
 
 ## Basic Usage
 
 ```ts
-import Database from "better-sqlite3";
-import {
-  SQLITE_SCHEMA_SQL,
-  buildInsertLicenseRecordSql,
-  buildInsertLicenseRecordValues,
-  toSqliteLicenseRecordRow,
-} from "@opentrade/storage-sqlite";
-
-const db = new Database("opentrade.sqlite");
-db.exec(SQLITE_SCHEMA_SQL);
-
-const insert = db.prepare(buildInsertLicenseRecordSql());
-const row = toSqliteLicenseRecordRow(canonicalRecord, {
+const cache = await OpenTradeSqliteCache.open({ filePath: "opentrade.sqlite" });
+cache.importRecords([canonicalRecord], {
   importRunId: "import-2026-06-26",
 });
-
-insert.run(...buildInsertLicenseRecordValues(row));
+await cache.close();
 ```
 
 ## Current Scope
@@ -43,8 +28,6 @@ The schema stores canonical license records and import-run metadata. It preserve
 
 It intentionally does not include:
 
-- a bundled SQLite driver;
-- migrations beyond the initial v0.1 schema string;
 - hosted sync jobs;
 - generated public datasets;
 - live agency network access.

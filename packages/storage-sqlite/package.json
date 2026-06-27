@@ -1,6 +1,6 @@
 {
   "name": "@opentrade/storage-sqlite",
-  "version": "0.2.0",
+  "version": "1.0.0",
   "type": "module",
   "description": "Driverless SQLite schema and row helpers for storing OpenTrade Registry canonical records.",
   "license": "MIT",
@@ -42,6 +42,10 @@
     "typecheck": "tsc -p tsconfig.json --noEmit"
   },
   "dependencies": {
-    "@opentrade/core": "workspace:*"
+    "@opentrade/core": "workspace:*",
+    "sql.js": "^1.14.1"
+  },
+  "devDependencies": {
+    "@types/sql.js": "^1.4.11"
   }
 }
