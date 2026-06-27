@@ -19,18 +19,18 @@ describe("source quality report", () => {
     expect(report.researchedTerritoryCount).toBe(5);
     expect(report.coverageByStatus.not_started ?? 0).toBe(0);
     expect(report.terminalSourceCount).toBe(56);
-    expect(report.blockedSourceCount).toBe(47);
+    expect(report.blockedSourceCount).toBe(46);
     expect(report.territoryCoverageByStatus.blocked).toBe(5);
-    expect(report.sourcesByMaturity.blocked).toBe(47);
+    expect(report.sourcesByMaturity.blocked).toBe(46);
     expect(report.sourcesByMaturity.local_file_adapter).toBe(5);
-    expect(report.sourcesByMaturity.network_opt_in).toBe(4);
-    expect(report.sourcesByAdapterQualityLevel["0"]).toBe(47);
-    expect(report.sourcesByAdapterQualityLevel["4"]).toBe(9);
+    expect(report.sourcesByMaturity.network_opt_in).toBe(5);
+    expect(report.sourcesByAdapterQualityLevel["0"]).toBe(46);
+    expect(report.sourcesByAdapterQualityLevel["4"]).toBe(10);
     expect(report.sourcesByResearchOutcome).toEqual({
-      blocked: 47,
+      blocked: 46,
       deprecated: 0,
       local_file_adapter: 5,
-      network_opt_in: 4,
+      network_opt_in: 5,
       production_ready: 0,
     });
     expect(report.metadataCompleteness.requiredFields).toEqual([
@@ -64,6 +64,7 @@ describe("source quality report", () => {
     expect(report.implementedSourcesNeedingLevel4).toEqual([]);
     expect(report.implementedAdapterSources.map((source: { id: string }) => source.id)).toEqual([
       "us.ak.commerce.construction_contractors",
+      "us.az.roc.contractors",
       "us.ca.cslb.contractors",
       "us.fl.dbpr.construction",
       "us.il.idfpr.roofing_contractors",
@@ -138,7 +139,7 @@ describe("source quality report", () => {
     expect(result.stdout).toContain("manual public-records-file sources:");
     expect(result.stdout).toContain("- us.as.doc.business_licenses (manual_public_records_file, blocked)");
     expect(result.stdout).toContain("sources by research outcome:");
-    expect(result.stdout).toContain("- blocked: 47");
+    expect(result.stdout).toContain("- blocked: 46");
     expect(result.stdout).toContain("metadata completeness:");
     expect(result.stdout).toContain("sources missing required metadata:");
     expect(result.stdout).toContain("- none");

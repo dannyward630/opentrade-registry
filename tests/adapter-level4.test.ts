@@ -12,6 +12,11 @@ const implementedVerificationCases = [
     missingLicense: "AKCOMM999999",
   },
   {
+    sourceId: "us.az.roc.contractors",
+    fixturePath: "packages/adapter-az-roc/fixtures/contractor-license-sample.csv",
+    missingLicense: "AZROC999999",
+  },
+  {
     sourceId: "us.ca.cslb.contractors",
     fixturePath: "packages/adapter-ca-cslb/fixtures/contractors-master-sample.csv",
     missingLicense: "9999999",

@@ -1,67 +1,61 @@
 {
   "id": "us.az.roc.contractors",
   "name": "Arizona Registrar of Contractors License Records",
-  "jurisdiction": {
-    "country": "US",
-    "state": "AZ"
-  },
-  "agency": {
-    "name": "Arizona Registrar of Contractors",
-    "url": "https://roc.az.gov/"
-  },
-  "sourceType": "html_lookup",
+  "jurisdiction": { "country": "US", "state": "AZ" },
+  "agency": { "name": "Arizona Registrar of Contractors", "url": "https://roc.az.gov/" },
+  "sourceType": "bulk_csv",
   "sourceUrl": "https://roc.az.gov/posting-list",
   "documentationUrl": "https://roc.az.gov/posting-list",
   "dataDictionaryUrl": null,
-  "termsUrl": "https://az.gov/policies",
-  "updateFrequency": "unknown; verify against the official posting-list page before relying on freshness assumptions",
-  "tradeCoverage": [
-    "construction"
-  ],
-  "licenseTypesIncluded": [
-    "contractor licenses"
-  ],
+  "termsUrl": "https://az.gov/policy/term-use-agreement",
+  "updateFrequency": "The official posting list displays a dated current-contractor export; verify the page before each import.",
+  "tradeCoverage": ["construction"],
+  "licenseTypesIncluded": ["Arizona ROC contractor licenses shown in the current active-contractor posting list"],
   "knownExclusions": [
-    "The posting-list and search pages require additional research before file formats, historical coverage, and exclusions are modeled.",
-    "Local registrations or permits outside AZ ROC scope are not represented by this source entry."
+    "The current-contractor export is not a historical register and may omit inactive or otherwise non-current records.",
+    "Local registrations, permits, and credentials outside Arizona ROC jurisdiction are not represented."
   ],
-  "hasBulkDownload": "unknown",
+  "hasBulkDownload": true,
   "hasLiveLookup": true,
-  "requiresJavaScript": "unknown",
-  "requiresCaptcha": "unknown",
+  "requiresJavaScript": false,
+  "requiresCaptcha": false,
   "requiresAccount": false,
-  "rateLimitNotes": "No adapter is implemented yet. Any future automated access should prefer official downloadable posting-list files if available.",
+  "rateLimitNotes": "Resolve the current dated CSV from the official posting-list page and keep network use explicit.",
   "redistributionStatus": "unknown",
-  "publicRecordsNotes": "Official source metadata only. Absence from this source is not proof that a license does not exist elsewhere.",
-  "adapterStatus": "blocked",
-  "sourceDiscoveryStatus": "blocked",
-  "adapterMaturity": "blocked",
+  "publicRecordsNotes": "The agency says posting data should be confirmed with its office before action because records can change after publication.",
+  "adapterStatus": "implemented",
+  "sourceDiscoveryStatus": "researched",
+  "adapterMaturity": "network_opt_in",
+  "adapterQualityLevel": 4,
   "coverageScope": "statewide",
-  "adapterPackage": null,
-  "testFixturePath": null,
+  "adapterPackage": "@opentrade/adapter-az-roc",
+  "testFixturePath": "packages/adapter-az-roc/fixtures/contractor-license-sample.csv",
   "officialLookupUrl": "https://azroc.my.site.com/AZRoc/s/contractor-search",
-  "officialBulkDownloadNotes": "Arizona ROC publishes posting-list information; exact downloadable file locations and formats need follow-up research before adapter work.",
-  "researchNotes": "Useful source-discovery pilot for a lookup-oriented or posting-list adapter, but not ready for parsing logic.",
+  "officialBulkDownloadNotes": "The posting-list page publishes a dated CSV of current active contractors. File names change with the posting date, so callers must supply the current official URL explicitly.",
+  "researchNotes": "The fixture is hand-authored from the official posting-list columns and contains no copied agency rows.",
+  "verificationReviewedAt": "2026-06-27T00:00:00.000Z",
+  "verificationCaveats": [
+    "Verification covers only the checked file and its publication date, not a live agency decision.",
+    "The current-contractor export can omit inactive, expired, revoked, pending, or historical records.",
+    "No matching record is not proof that a license does not exist or never existed."
+  ],
+  "verificationNotes": "Use the official live lookup or contact the agency before taking action on a posting-list result.",
   "lastVerifiedAt": "2026-06-27T00:00:00.000Z",
-  "maintainerNotes": "Do not automate portal access unless it is lawful, technically stable, and respects posted controls.",
   "schemaVersion": "1.0",
+  "sourceResearchOutcome": "network_opt_in",
   "researchReviewedAt": "2026-06-27T00:00:00.000Z",
-  "nextReviewAt": "2026-12-27T00:00:00.000Z",
+  "nextReviewAt": "2026-09-27T00:00:00.000Z",
   "researchEvidence": [
     {
-      "url": "https://azroc.my.site.com/AZRoc/s/contractor-search",
+      "url": "https://roc.az.gov/posting-list",
       "checkedAt": "2026-06-27T00:00:00.000Z",
-      "note": "Official public source, access shape, and current automation constraints reviewed."
+      "note": "Official page displayed dated all-current, commercial, dual, and residential CSV exports plus record counts and freshness caveats."
+    },
+    {
+      "url": "https://az.gov/policy/term-use-agreement",
+      "checkedAt": "2026-06-27T00:00:00.000Z",
+      "note": "Official statewide terms page reviewed; redistribution remains unknown."
     }
   ],
-  "sourceResearchOutcome": "blocked",
-  "adapterQualityLevel": 0,
-  "blocker": {
-    "code": "technical_instability",
-    "summary": "No stable, documented machine-readable official interface is currently suitable for an offline-tested adapter.",
-    "evidenceUrls": [
-      "https://azroc.my.site.com/AZRoc/s/contractor-search",
-      "https://az.gov/policies"
-    ]
-  }
+  "maintainerNotes": "Do not synthesize historical coverage from the active posting list or publish generated datasets without confirming redistribution rights."
 }

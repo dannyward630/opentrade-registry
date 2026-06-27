@@ -33,9 +33,10 @@ describe("web status build", () => {
     expect(readiness.sourceCount).toBe(56);
     expect(readiness.registryOnlySourceCount).toBe(0);
     expect(readiness.terminalSourceCount).toBe(56);
-    expect(readiness.blockedSourceCount).toBe(47);
+    expect(readiness.blockedSourceCount).toBe(46);
     expect(readiness.implementedAdapterSources.map((source) => source.id)).toEqual([
       "us.ak.commerce.construction_contractors",
+      "us.az.roc.contractors",
       "us.ca.cslb.contractors",
       "us.fl.dbpr.construction",
       "us.il.idfpr.roofing_contractors",

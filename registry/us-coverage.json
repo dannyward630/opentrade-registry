@@ -31,11 +31,11 @@
     },
     {
       "state": "AZ",
-      "status": "blocked",
+      "status": "network_opt_in_supported",
       "sourceIds": [
         "us.az.roc.contractors"
       ],
-      "notes": "Official source metadata is retained, but automated ingestion is blocked by documented legal, access, scope, or technical constraints."
+      "notes": "A terminal OpenTrade Registry adapter capability is implemented with offline tests and documented source caveats."
     },
     {
       "state": "AR",

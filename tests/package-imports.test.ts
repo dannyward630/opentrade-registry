@@ -18,6 +18,11 @@ import {
   normalizeAlaskaCommerceStatus,
 } from "@opentrade/adapter-ak-commerce";
 import {
+  arizonaRocContractorsAdapter,
+  AZ_ROC_CONTRACTORS_SOURCE_ID,
+  normalizeArizonaRocStatus,
+} from "@opentrade/adapter-az-roc";
+import {
   californiaCslbContractorsAdapter,
   CA_CSLB_CONTRACTORS_SOURCE_ID,
   normalizeCaliforniaCslbStatus,
@@ -99,6 +104,9 @@ describe("public package imports", () => {
     expect(typeof getSourceResearchOutcome).toBe("function");
     expect(AK_COMMERCE_CONSTRUCTION_CONTRACTORS_SOURCE_ID).toBe("us.ak.commerce.construction_contractors");
     expect(alaskaCommerceConstructionContractorsAdapter.sourceId).toBe("us.ak.commerce.construction_contractors");
+    expect(AZ_ROC_CONTRACTORS_SOURCE_ID).toBe("us.az.roc.contractors");
+    expect(arizonaRocContractorsAdapter.sourceId).toBe("us.az.roc.contractors");
+    expect(normalizeArizonaRocStatus({ status: "Suspended", expirationDate: "2099-12-31T00:00:00.000Z" }).normalized).toBe("suspended");
     expect(
       normalizeAlaskaCommerceStatus({
         status: "Suspended",
