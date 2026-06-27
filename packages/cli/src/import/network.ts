@@ -1,3 +1,4 @@
+import { createHash } from "node:crypto";
 import { mkdtemp, rm, writeFile } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
@@ -12,6 +13,8 @@ export type DownloadedSourceFile = {
 export type DownloadSourceOptions = {
   timeoutMs?: number;
   maxBytes?: number;
+  allowedHosts?: string[];
+  maxRedirects?: number;
 };
 
 const DEFAULT_DOWNLOAD_TIMEOUT_MS = 30_000;
@@ -25,7 +28,7 @@ export async function downloadSourceToTempFile(sourceUrl: string, options: Downl
   const timeout = setTimeout(() => controller.abort(), timeoutMs);
 
   try {
-    const response = await fetch(sourceUrl, { signal: controller.signal });
+    const { response, finalUrl } = await fetchWithRedirects(sourceUrl, controller.signal, options.allowedHosts, options.maxRedirects ?? 3);
 
     if (!response.ok) {
       throw Object.assign(new Error(`Source unavailable: ${sourceUrl} returned HTTP ${response.status}.`), { exitCode: 3 });
@@ -37,19 +40,23 @@ export async function downloadSourceToTempFile(sourceUrl: string, options: Downl
       throw Object.assign(new Error(`Source unavailable: ${sourceUrl} is larger than the ${maxBytes} byte download limit.`), { exitCode: 3 });
     }
 
-    const text = await readResponseText(response, maxBytes, sourceUrl);
+    const bytes = await readResponseBytes(response, maxBytes, sourceUrl);
     const directory = await mkdtemp(join(tmpdir(), "opentrade-source-"));
-    const filePath = join(directory, "source.csv");
-    await writeFile(filePath, text, "utf8");
+    const contentType = normalizeContentType(response.headers.get("content-type"));
+    const filePath = join(directory, `source${inferFileExtension(finalUrl, contentType)}`);
+    await writeFile(filePath, bytes);
 
     return {
       filePath,
       metadata: {
         fetchedAt,
-        sourceUrl,
+        sourceUrl: finalUrl,
+        originalSourceUrl: finalUrl === sourceUrl ? null : sourceUrl,
         lastModifiedAt: parseHttpDate(response.headers.get("last-modified")),
         etag: response.headers.get("etag"),
-        contentLength: declaredContentLength ?? Buffer.byteLength(text),
+        contentLength: bytes.byteLength,
+        contentType,
+        sha256: createHash("sha256").update(bytes).digest("hex"),
       },
       async cleanup() {
         await rm(directory, { recursive: true, force: true });
@@ -66,15 +73,14 @@ export async function downloadSourceToTempFile(sourceUrl: string, options: Downl
   }
 }
 
-async function readResponseText(response: Response, maxBytes: number, sourceUrl: string): Promise<string> {
+async function readResponseBytes(response: Response, maxBytes: number, sourceUrl: string): Promise<Buffer> {
   if (!response.body) {
-    return response.text();
+    return Buffer.from(await response.arrayBuffer());
   }
 
   const reader = response.body.getReader();
-  const decoder = new TextDecoder();
   let totalBytes = 0;
-  let text = "";
+  const chunks: Uint8Array[] = [];
 
   while (true) {
     const { done, value } = await reader.read();
@@ -88,11 +94,65 @@ async function readResponseText(response: Response, maxBytes: number, sourceUrl:
       throw Object.assign(new Error(`Source unavailable: ${sourceUrl} exceeded the ${maxBytes} byte download limit.`), { exitCode: 3 });
     }
 
-    text += decoder.decode(value, { stream: true });
+    chunks.push(value);
   }
 
-  text += decoder.decode();
-  return text;
+  return Buffer.concat(chunks, totalBytes);
+}
+
+async function fetchWithRedirects(
+  sourceUrl: string,
+  signal: AbortSignal,
+  allowedHosts: string[] | undefined,
+  maxRedirects: number,
+): Promise<{ response: Response; finalUrl: string }> {
+  let currentUrl = sourceUrl;
+  validateHost(currentUrl, allowedHosts, "source");
+
+  for (let redirectCount = 0; redirectCount <= maxRedirects; redirectCount += 1) {
+    const response = await fetch(currentUrl, { signal, redirect: "manual" });
+    if (![301, 302, 303, 307, 308].includes(response.status)) {
+      return { response, finalUrl: currentUrl };
+    }
+
+    const location = response.headers.get("location");
+    if (!location) {
+      throw Object.assign(new Error(`Source unavailable: ${currentUrl} returned a redirect without a location.`), { exitCode: 3 });
+    }
+    if (redirectCount === maxRedirects) {
+      throw Object.assign(new Error(`Source unavailable: ${sourceUrl} exceeded the ${maxRedirects} redirect limit.`), { exitCode: 3 });
+    }
+
+    currentUrl = new URL(location, currentUrl).toString();
+    validateHost(currentUrl, allowedHosts, "redirect");
+  }
+
+  throw new Error("Unreachable redirect state.");
+}
+
+function validateHost(url: string, allowedHosts: string[] | undefined, kind: "source" | "redirect"): void {
+  if (!allowedHosts || allowedHosts.length === 0) {
+    return;
+  }
+  const hostname = new URL(url).hostname.toLowerCase();
+  if (!allowedHosts.map((host) => host.toLowerCase()).includes(hostname)) {
+    throw Object.assign(new Error(`Source unavailable: ${kind} host ${hostname} is not in the allowed host list.`), { exitCode: 3 });
+  }
+}
+
+function normalizeContentType(value: string | null): string | null {
+  return value?.split(";", 1)[0]?.trim().toLowerCase() || null;
+}
+
+function inferFileExtension(sourceUrl: string, contentType: string | null): string {
+  const pathname = new URL(sourceUrl).pathname.toLowerCase();
+  if (pathname.endsWith(".xlsx") || contentType === "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet") {
+    return ".xlsx";
+  }
+  if (pathname.endsWith(".json") || contentType === "application/json") {
+    return ".json";
+  }
+  return ".csv";
 }
 
 function parseHttpDate(value: string | null): string | null {

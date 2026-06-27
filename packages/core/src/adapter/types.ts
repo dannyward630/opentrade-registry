@@ -11,9 +11,12 @@ export type SourceAvailability = {
 export type RemoteSnapshotMetadata = {
   fetchedAt: string;
   sourceUrl: string;
+  originalSourceUrl?: string | null;
   lastModifiedAt?: string | null;
   etag?: string | null;
   contentLength?: number | null;
+  contentType?: string | null;
+  sha256?: string | null;
 };
 
 export type StreamRecordsOptions = {
