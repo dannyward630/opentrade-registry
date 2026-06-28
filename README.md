@@ -16,10 +16,10 @@ It is local-first, provenance-first, source-cited public-records infrastructure.
 
 OpenTrade Registry v1 tracks `56` official sources covering all 50 states, DC, and five major U.S. territories. Every source has a terminal, evidence-backed outcome:
 
-- `10` implemented adapters, all reviewed at adapter quality Level 4;
-- `5` local-file adapters;
+- `7` implemented adapters, all reviewed at adapter quality Level 4;
+- `2` local-file adapters;
 - `5` explicit network opt-in adapters;
-- `46` blocked sources with documented legal, technical, access-control, scope, or source-stability evidence;
+- `49` blocked sources with documented legal, technical, access-control, scope, or source-stability evidence;
 - `0` provisional research outcomes;
 - `0` default tests that contact agency systems.
 
@@ -27,12 +27,9 @@ The [generated source-status matrix](docs/source-status-matrix.md) is the author
 
 | Source | Capability | Input |
 | --- | --- | --- |
-| Alaska CBPL | `local_file_adapter` | CSV |
 | Arizona ROC | `network_opt_in` | dated posting-list CSV |
 | California CSLB | `local_file_adapter` | CSV or XLSX |
 | Florida DBPR | `network_opt_in` | CSV |
-| Illinois IDFPR roofing | `local_file_adapter` | CSV |
-| Indiana PLA | `local_file_adapter` | CSV |
 | Minnesota DLI | `local_file_adapter` | CSV or XLSX |
 | Oregon CCB | `network_opt_in` | CSV |
 | Texas TDLR | `network_opt_in` | CSV |
@@ -181,7 +178,7 @@ corepack pnpm coverage:health
 corepack pnpm db:seed:check
 ```
 
-`verify` runs build, type checks, 179 offline tests, registry validation, coverage consistency, deterministic seed and status-matrix checks, public cleanliness, and generated-file guards. `pack:check` packs all 14 public packages and installs them into a clean temporary project before executing package imports and the CLI.
+`verify` runs build, type checks, the complete offline test suite, registry validation, coverage consistency, deterministic seed and status-matrix checks, public cleanliness, and generated-file guards. `pack:check` packs every public workspace package and installs the tarballs into a clean temporary project before executing package imports and the CLI.
 
 CI runs Node 20, 22, and 24 on Linux, macOS, and Windows. GitHub dependency review and CodeQL run separately.
 
