@@ -26,6 +26,9 @@ export type StreamRecordsOptions = {
   fetchedAt?: string;
   limit?: number;
   signal?: AbortSignal;
+  strict?: boolean;
+  startAfterRow?: number;
+  onError?: (error: AdapterError) => void;
 };
 
 export type RawSourceRecord = {

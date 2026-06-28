@@ -1,4 +1,6 @@
 import { createServer } from "node:http";
+import { mkdtemp, readFile, rm, writeFile } from "node:fs/promises";
+import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { describe, expect, it } from "vitest";
 import { floridaDbprConstructionAdapter } from "@opentrade/adapter-fl-dbpr";
@@ -89,5 +91,37 @@ describe("OpenTrade registry orchestration", () => {
     expect(result.errors[0].message).toContain("fixture normalization failure");
     expect(cache.findByLicenseNumber(floridaDbprConstructionAdapter.sourceId, "CGC012345")).toEqual([]);
     await cache.close();
+  });
+
+  it("isolates malformed CSV rows unless strict mode is enabled", async () => {
+    const directory = await mkdtemp(join(tmpdir(), "opentrade-malformed-row-"));
+    const filePath = join(directory, "malformed.csv");
+    try {
+      const rows = (await readFile(fixture, "utf8")).trim().split("\n");
+      await writeFile(filePath, `${rows[0]}\n"unterminated\n${rows[1]}\n`, "utf8");
+      const registry = new OpenTradeRegistry([floridaDbprConstructionAdapter]);
+
+      const tolerant = await registry.sync({
+        sourceId: floridaDbprConstructionAdapter.sourceId,
+        input: { mode: "file", filePath },
+        collectRecords: true,
+      });
+      expect(tolerant.status).toBe("completed");
+      expect(tolerant.records).toHaveLength(2);
+      expect(tolerant.errors).toContainEqual(expect.objectContaining({
+        code: "row_parse_failed",
+        rowNumber: 2,
+      }));
+
+      const strict = await registry.sync({
+        sourceId: floridaDbprConstructionAdapter.sourceId,
+        input: { mode: "file", filePath },
+        strict: true,
+      });
+      expect(strict.status).toBe("failed");
+      expect(strict.errors).toContainEqual(expect.objectContaining({ code: "row_parse_failed", rowNumber: 2 }));
+    } finally {
+      await rm(directory, { recursive: true, force: true });
+    }
   });
 });

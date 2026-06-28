@@ -77,7 +77,11 @@ export class OpenTradeRegistry {
         options.cache.beginImport();
         cacheTransactionActive = true;
       }
-      for await (const raw of adapter.streamRawRecords({ ...streamOptions, signal: options.signal })) {
+      const onStreamError = (error: AdapterError) => {
+        errors.push(error);
+        if (options.strict) throw new Error(error.message);
+      };
+      for await (const raw of adapter.streamRawRecords({ ...streamOptions, signal: options.signal, strict: options.strict, onError: onStreamError })) {
         options.signal?.throwIfAborted();
         stats.rawRecordCount += 1;
         warnings.push(...(raw.warnings ?? []));
@@ -137,7 +141,10 @@ export class OpenTradeRegistry {
       const streamOptions = await resolveStreamInput(metadata, options.input, options.signal, (value) => { cleanupDownload = value.cleanup; });
       const candidates: CanonicalTradeLicenseRecord[] = [];
       const warnings: VerificationWarning[] = [];
-      for await (const raw of adapter.streamRawRecords({ ...streamOptions, signal: options.signal })) {
+      const onStreamError = (error: AdapterError) => {
+        warnings.push({ code: error.code, message: error.message, rowNumber: error.rowNumber, recordFingerprint: error.recordFingerprint });
+      };
+      for await (const raw of adapter.streamRawRecords({ ...streamOptions, signal: options.signal, onError: onStreamError })) {
         options.signal?.throwIfAborted();
         warnings.push(...(raw.warnings ?? []).map((warning) => ({ ...warning, rowNumber: raw.rowNumber, recordFingerprint: warning.recordFingerprint ?? raw.fingerprint })));
         try {
