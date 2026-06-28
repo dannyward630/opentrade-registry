@@ -20,12 +20,9 @@ describe("source readiness helpers", () => {
 
     expect(readiness.sourceCount).toBe(56);
     expect(readiness.implementedAdapterSources.map((source) => source.id)).toEqual([
-      "us.ak.commerce.construction_contractors",
       "us.az.roc.contractors",
       "us.ca.cslb.contractors",
       "us.fl.dbpr.construction",
-      "us.il.idfpr.roofing_contractors",
-      "us.in.pla.professional_licenses",
       "us.mn.dli.licenses_registrations",
       "us.or.ccb.active_licenses",
       "us.tx.tdlr.all_licenses",
@@ -35,14 +32,14 @@ describe("source readiness helpers", () => {
     expect(readiness.downloadResearchCandidates).toEqual([]);
     expect(readiness.lookupAutomationConstraintSources).toEqual([]);
     expect(readiness.sourcesByResearchOutcome).toEqual({
-      blocked: 46,
+      blocked: 49,
       deprecated: 0,
-      local_file_adapter: 5,
+      local_file_adapter: 2,
       network_opt_in: 5,
       production_ready: 0,
     });
     expect(readiness.registryOnlySourceCount).toBe(0);
-    expect(readiness.blockedSourceCount).toBe(46);
+    expect(readiness.blockedSourceCount).toBe(49);
     expect(readiness.terminalSourceCount).toBe(56);
     expect(readiness.note).toContain("terminal");
   });
