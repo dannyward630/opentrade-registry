@@ -19,17 +19,17 @@ describe("source quality report", () => {
     expect(report.researchedTerritoryCount).toBe(5);
     expect(report.coverageByStatus.not_started ?? 0).toBe(0);
     expect(report.terminalSourceCount).toBe(56);
-    expect(report.blockedSourceCount).toBe(46);
+    expect(report.blockedSourceCount).toBe(49);
     expect(report.territoryCoverageByStatus.blocked).toBe(5);
-    expect(report.sourcesByMaturity.blocked).toBe(46);
-    expect(report.sourcesByMaturity.local_file_adapter).toBe(5);
+    expect(report.sourcesByMaturity.blocked).toBe(49);
+    expect(report.sourcesByMaturity.local_file_adapter).toBe(2);
     expect(report.sourcesByMaturity.network_opt_in).toBe(5);
-    expect(report.sourcesByAdapterQualityLevel["0"]).toBe(46);
-    expect(report.sourcesByAdapterQualityLevel["4"]).toBe(10);
+    expect(report.sourcesByAdapterQualityLevel["0"]).toBe(49);
+    expect(report.sourcesByAdapterQualityLevel["4"]).toBe(7);
     expect(report.sourcesByResearchOutcome).toEqual({
-      blocked: 46,
+      blocked: 49,
       deprecated: 0,
-      local_file_adapter: 5,
+      local_file_adapter: 2,
       network_opt_in: 5,
       production_ready: 0,
     });
@@ -63,12 +63,9 @@ describe("source quality report", () => {
     expect(report.metadataCompleteness.sourcesMissingNextAction).toEqual([]);
     expect(report.implementedSourcesNeedingLevel4).toEqual([]);
     expect(report.implementedAdapterSources.map((source: { id: string }) => source.id)).toEqual([
-      "us.ak.commerce.construction_contractors",
       "us.az.roc.contractors",
       "us.ca.cslb.contractors",
       "us.fl.dbpr.construction",
-      "us.il.idfpr.roofing_contractors",
-      "us.in.pla.professional_licenses",
       "us.mn.dli.licenses_registrations",
       "us.or.ccb.active_licenses",
       "us.tx.tdlr.all_licenses",
@@ -109,6 +106,7 @@ describe("source quality report", () => {
     expect(report.unimplementedBulkAdapterCandidates.map((source: { id: string }) => source.id)).toEqual([]);
     expect(report.downloadResearchCandidates).toEqual([]);
     expect(report.lookupAutomationConstraintSources.map((source: { id: string }) => source.id)).toEqual([
+      "us.ak.commerce.construction_contractors",
       "us.ks.ag.roofing_registration",
       "us.mi.lara.residential_builders",
       "us.mo.pr.professional_licenses",
@@ -129,17 +127,15 @@ describe("source quality report", () => {
     expect(result.status).toBe(0);
     expect(result.stderr).toBe("");
     expect(result.stdout).toContain("implemented adapter sources:");
-    expect(result.stdout).toContain("- us.ak.commerce.construction_contractors (html_lookup, local_file_adapter)");
-    expect(result.stdout).toContain("- us.ca.cslb.contractors (bulk_xlsx, local_file_adapter)");
-    expect(result.stdout).toContain("- us.il.idfpr.roofing_contractors (html_lookup, local_file_adapter)");
-    expect(result.stdout).toContain("- us.mn.dli.licenses_registrations (bulk_xlsx, local_file_adapter)");
+    expect(result.stdout).toContain("- us.ca.cslb.contractors (bulk_csv, local_file_adapter)");
+    expect(result.stdout).toContain("- us.mn.dli.licenses_registrations (bulk_csv, local_file_adapter)");
     expect(result.stdout).toContain("- us.tx.tdlr.all_licenses (bulk_csv, network_opt_in)");
     expect(result.stdout).toContain("territory sources:");
     expect(result.stdout).toContain("- us.pr.daco.contractors (html_lookup, blocked)");
     expect(result.stdout).toContain("manual public-records-file sources:");
     expect(result.stdout).toContain("- us.as.doc.business_licenses (manual_public_records_file, blocked)");
     expect(result.stdout).toContain("sources by research outcome:");
-    expect(result.stdout).toContain("- blocked: 46");
+    expect(result.stdout).toContain("- blocked: 49");
     expect(result.stdout).toContain("metadata completeness:");
     expect(result.stdout).toContain("sources missing required metadata:");
     expect(result.stdout).toContain("- none");
@@ -152,8 +148,9 @@ describe("source quality report", () => {
     expect(result.stdout).toContain("download/export research candidates:");
     expect(result.stdout).toContain("- none");
     expect(result.stdout).toContain("lookup automation constraint sources:");
+    expect(result.stdout).toContain("- us.ak.commerce.construction_contractors (html_lookup, blocked)");
     expect(result.stdout).toContain("- us.vt.sos.residential_contractors (html_lookup, blocked)");
-    expect(result.stdout).not.toContain("- us.ca.cslb.contractors (bulk_xlsx, blocked)");
+    expect(result.stdout).not.toContain("- us.ca.cslb.contractors (bulk_csv, blocked)");
   });
 
   it("keeps the database source seed synchronized with the file registry", () => {
