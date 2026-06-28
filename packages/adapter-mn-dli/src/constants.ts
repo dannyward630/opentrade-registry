@@ -1,7 +1,7 @@
 import type { SourceRegistryEntry } from "@opentrade/core";
 
 export const MN_DLI_LICENSES_REGISTRATIONS_SOURCE_ID = "us.mn.dli.licenses_registrations";
-export const MN_DLI_LICENSES_REGISTRATIONS_SOURCE_URL = "https://www.dli.mn.gov/license-and-registration-lookup";
+export const MN_DLI_LICENSES_REGISTRATIONS_SOURCE_URL = "https://secure.doli.state.mn.us/ccld/data/MNDLILicRegCertExport.zip";
 
 export const MN_DLI_SOURCE_ENTRY: SourceRegistryEntry = {
   id: MN_DLI_LICENSES_REGISTRATIONS_SOURCE_ID,
@@ -14,9 +14,9 @@ export const MN_DLI_SOURCE_ENTRY: SourceRegistryEntry = {
     name: "Minnesota Department of Labor and Industry",
     url: "https://www.dli.mn.gov/",
   },
-  sourceType: "bulk_xlsx",
+  sourceType: "bulk_csv",
   sourceUrl: MN_DLI_LICENSES_REGISTRATIONS_SOURCE_URL,
-  documentationUrl: MN_DLI_LICENSES_REGISTRATIONS_SOURCE_URL,
+  documentationUrl: "https://www.dli.mn.gov/license-and-registration-lookup",
   dataDictionaryUrl: null,
   termsUrl: "https://mn.gov/portal/policies/",
   updateFrequency: "The official page states the export file is updated nightly; verify current source text before relying on freshness assumptions.",
@@ -28,42 +28,42 @@ export const MN_DLI_SOURCE_ENTRY: SourceRegistryEntry = {
   ],
   hasBulkDownload: true,
   hasLiveLookup: true,
-  requiresJavaScript: "unknown",
-  requiresCaptcha: "unknown",
+  requiresJavaScript: false,
+  requiresCaptcha: false,
   requiresAccount: false,
-  rateLimitNotes: "Fixture adapter only. Future work should prefer the official spreadsheet export and keep live download opt-in.",
+  rateLimitNotes: "The official page links a nightly ZIP archive. Network download and archive extraction are not implemented; obtain and extract it locally.",
   redistributionStatus: "unknown",
-  publicRecordsNotes: "Fixture adapter only. Absence from this source is not proof that a license does not exist elsewhere.",
+  publicRecordsNotes: "The local-file adapter is validated against the official nightly CSV columns. Absence from this source is not proof that a license does not exist elsewhere.",
   adapterStatus: "implemented",
   sourceDiscoveryStatus: "researched",
   adapterMaturity: "local_file_adapter",
   coverageScope: "state_agency_partial",
   adapterPackage: "@opentrade/adapter-mn-dli",
-  testFixturePath: "packages/adapter-mn-dli/fixtures/licenses-registrations-sample.xlsx",
-  officialLookupUrl: MN_DLI_LICENSES_REGISTRATIONS_SOURCE_URL,
+  testFixturePath: "packages/adapter-mn-dli/fixtures/licenses-registrations-sample.csv",
+  officialLookupUrl: "https://www.dli.mn.gov/license-and-registration-lookup",
   officialBulkDownloadNotes:
-    "The official DLI page describes a downloadable spreadsheet of all licensed businesses and individuals issued by the Construction Codes and Licensing Division. This adapter currently uses only a tiny fixture and does not download or parse the live XLSX export.",
-  researchNotes: "Strong future bulk-adapter candidate, but the dataset spans licenses, bonds, certifications, and registrations and needs filtering.",
-  lastVerifiedAt: "2026-06-27T00:00:00.000Z",
+    "The official DLI page links a nightly ZIP containing a CSV export. The adapter accepts the extracted local CSV/XLSX shape but does not download or extract the archive.",
+  researchNotes: "The nightly CSV header and representative rows were checked against the official archive. The export spans licenses, bonds, certifications, and registrations, so trade mapping remains conservative.",
+  lastVerifiedAt: "2026-06-28T00:00:00.000Z",
   schemaVersion: "1.0",
   sourceResearchOutcome: "local_file_adapter",
-  researchReviewedAt: "2026-06-27T00:00:00.000Z",
-  nextReviewAt: "2026-12-27T00:00:00.000Z",
+  researchReviewedAt: "2026-06-28T00:00:00.000Z",
+  nextReviewAt: "2026-12-28T00:00:00.000Z",
   researchEvidence: [
     {
       "url": "https://www.dli.mn.gov/license-and-registration-lookup",
-      "checkedAt": "2026-06-27T00:00:00.000Z",
-      "note": "Official source documentation and supported local-file shape reviewed."
+      "checkedAt": "2026-06-28T00:00:00.000Z",
+      "note": "Official page, nightly ZIP link, CSV header, and representative row shape reviewed."
     }
   ],
   maintainerNotes: "Do not treat every DLI export row as a contractor license without type filtering.",
   adapterQualityLevel: 4,
-  verificationReviewedAt: "2026-06-26T00:00:00.000Z",
+  verificationReviewedAt: "2026-06-28T00:00:00.000Z",
   verificationCaveats: [
-    "Minnesota DLI fixture support is based on a tiny hand-authored sample, not the live DLI spreadsheet.",
+    "Minnesota DLI mapping is validated against the official nightly export columns; fixture rows remain hand-authored.",
     "The DLI source can include many license, bond, certification, and registration types beyond contractor licenses.",
     "No matching record means no match in this source at the checked time, not proof that a license does not exist elsewhere.",
   ],
   verificationNotes:
-    "Fixture verification supports matched, not-found, ambiguous duplicate, and invalid-input outcomes through the shared CLI verifier. Rows are normalized conservatively because the official DLI export includes multiple record types beyond contractor licenses.",
+    "Local extracted-file verification supports matched, not-found, ambiguous duplicate, and invalid-input outcomes. Rows are normalized conservatively because the official DLI export includes multiple record types beyond contractor licenses.",
 };

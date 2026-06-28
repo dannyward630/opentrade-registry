@@ -1,21 +1,24 @@
 import { buildFingerprint, normalizeLicenseNumber, normalizeText } from "@opentrade/core";
 
 export const MN_DLI_COLUMNS = [
-  "License Number",
-  "License Type",
+  "Bus_Pers",
+  "License_Type",
+  "License_Subtype",
   "Name",
-  "Doing Business As",
-  "Address Line 1",
-  "Address Line 2",
+  "DBA_Name",
+  "Addr1",
+  "Addr2",
   "City",
-  "State",
+  "St",
   "Zip",
-  "County",
-  "Phone",
+  "Phone_No",
+  "Email_Address",
+  "Lic_Number",
   "Status",
-  "Issue Date",
-  "Expiration Date",
-  "Discipline Indicator",
+  "Orig_Date",
+  "Exp_Date",
+  "Enforcement_Action",
+  "Renewal_in_Progress",
 ] as const;
 
 export type MinnesotaDliColumn = (typeof MN_DLI_COLUMNS)[number];
@@ -49,28 +52,33 @@ export function mapMinnesotaDliFields(fields: string[], header: string[] = [...M
   const raw = Object.fromEntries(
     MN_DLI_COLUMNS.map((columnName) => [columnName, fields[header.indexOf(columnName)] ?? ""]),
   ) as Record<MinnesotaDliColumn, string>;
-  const licenseNumber = normalizeText(raw["License Number"]) ?? "";
+  const licenseNumber = normalizeText(raw.Lic_Number) ?? "";
 
   return {
     licenseNumber,
     licenseNumberNormalized: normalizeLicenseNumber(licenseNumber) ?? licenseNumber,
-    licenseType: normalizeText(raw["License Type"]),
+    licenseType: normalizeText(raw.License_Subtype) ?? normalizeText(raw.License_Type),
     name: normalizeText(raw.Name),
-    dbaName: normalizeText(raw["Doing Business As"]),
-    addressLine1: normalizeText(raw["Address Line 1"]),
-    addressLine2: normalizeText(raw["Address Line 2"]),
+    dbaName: normalizeText(raw.DBA_Name),
+    addressLine1: normalizeText(raw.Addr1),
+    addressLine2: normalizeText(raw.Addr2),
     city: normalizeText(raw.City),
-    state: normalizeText(raw.State),
+    state: normalizeText(raw.St),
     zipCode: normalizeText(raw.Zip),
-    county: normalizeText(raw.County),
-    phone: normalizeText(raw.Phone),
+    county: null,
+    phone: normalizeText(raw.Phone_No),
     status: normalizeText(raw.Status),
-    issueDate: parseMinnesotaDliDate(raw["Issue Date"]),
-    expirationDate: parseMinnesotaDliDate(raw["Expiration Date"]),
-    disciplineIndicator: normalizeText(raw["Discipline Indicator"]),
+    issueDate: parseMinnesotaDliDate(raw.Orig_Date),
+    expirationDate: parseMinnesotaDliDate(raw.Exp_Date),
+    disciplineIndicator: normalizeEnforcementAction(raw.Enforcement_Action),
     raw,
     fingerprint: buildFingerprint(raw),
   };
+}
+
+function normalizeEnforcementAction(value: string | null | undefined): string | null {
+  const normalized = normalizeText(value);
+  return normalized === "0" ? null : normalized;
 }
 
 export function parseMinnesotaDliDate(value: string | null | undefined): string | null {

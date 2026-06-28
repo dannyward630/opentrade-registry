@@ -9,11 +9,6 @@ const tsxPath = require.resolve("tsx/cli");
 
 const implementedVerificationCases = [
   {
-    sourceId: "us.ak.commerce.construction_contractors",
-    fixturePath: "packages/adapter-ak-commerce/fixtures/construction-contractors-sample.csv",
-    missingLicense: "AKCOMM999999",
-  },
-  {
     sourceId: "us.az.roc.contractors",
     fixturePath: "packages/adapter-az-roc/fixtures/contractor-license-sample.csv",
     missingLicense: "AZROC999999",
@@ -27,16 +22,6 @@ const implementedVerificationCases = [
     sourceId: "us.fl.dbpr.construction",
     fixturePath: "packages/adapter-fl-dbpr/fixtures/construction-license-sample.csv",
     missingLicense: "CGC000000",
-  },
-  {
-    sourceId: "us.il.idfpr.roofing_contractors",
-    fixturePath: "packages/adapter-il-idfpr/fixtures/roofing-contractors-sample.csv",
-    missingLicense: "ILROOF999999",
-  },
-  {
-    sourceId: "us.in.pla.professional_licenses",
-    fixturePath: "packages/adapter-in-pla/fixtures/professional-licenses-sample.csv",
-    missingLicense: "INPLA999999",
   },
   {
     sourceId: "us.mn.dli.licenses_registrations",

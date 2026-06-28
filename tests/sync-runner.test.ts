@@ -1,4 +1,4 @@
-import { mkdtemp, readFile, rm } from "node:fs/promises";
+import { mkdtemp, readFile, rm, writeFile } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { describe, expect, it } from "vitest";
@@ -15,6 +15,7 @@ describe("sync runner canonical validation", () => {
   it("skips invalid canonical records and exports valid records", async () => {
     const rootDir = await mkdtemp(join(tmpdir(), "opentrade-sync-runner-"));
     try {
+      await writeFile(join(rootDir, "unused.csv"), "fixture\n", "utf8");
       const outPath = join(rootDir, "records.jsonl");
       const result = await runAdapterSync({
         adapter: fixtureAdapter(),
@@ -45,6 +46,7 @@ describe("sync runner canonical validation", () => {
   it("fails strict sync when normalized records violate the canonical schema", async () => {
     const rootDir = await mkdtemp(join(tmpdir(), "opentrade-sync-runner-strict-"));
     try {
+      await writeFile(join(rootDir, "unused.csv"), "fixture\n", "utf8");
       await expect(
         runAdapterSync({
           adapter: fixtureAdapter(),
@@ -67,6 +69,7 @@ describe("sync runner canonical validation", () => {
     const rootDir = await mkdtemp(join(tmpdir(), "opentrade-sync-runner-cache-"));
     const cachePath = join(rootDir, "records.sqlite");
     try {
+      await writeFile(join(rootDir, "unused.csv"), "fixture\n", "utf8");
       const result = await runAdapterSync({
         adapter: fixtureAdapter(),
         rootDir,

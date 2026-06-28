@@ -1,16 +1,7 @@
-# @opentrade/adapter-in-pla
+# Archived Indiana Parser Research
 
-Local-file adapter for Indiana Professional Licensing Agency MyLicense / license-download-shaped records.
+This private workspace package preserves historical Indiana PLA parser research. It is not published, not registered by the CLI, and not a supported adapter.
 
-This package is intentionally conservative:
+Official bulk license files require accepting user conditions and payment. The tiny hand-authored fixture does not establish compatibility with those files or permission to use them.
 
-- it reads local CSV files only;
-- it does not call MyLicense, paid download services, or verification APIs;
-- it uses a tiny hand-authored fixture, not copied agency bulk data;
-- it preserves raw rows, fingerprints, source URL, fetched time, warnings, and source caveats.
-
-```ts
-import { indianaPlaProfessionalLicensesAdapter } from "@opentrade/adapter-in-pla";
-```
-
-Current maturity is `local_file_adapter`. Treat no-match results as limited to the checked local file and checked time.
+The public source registry therefore records `us.in.pla.professional_licenses` as `blocked`. Do not use this package for licensing conclusions.

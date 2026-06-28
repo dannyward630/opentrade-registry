@@ -1,8 +1,9 @@
 {
   "name": "@opentrade/adapter-ak-commerce",
+  "private": true,
   "version": "1.0.0",
   "type": "module",
-  "description": "Alaska CBPL fixture adapter for OpenTrade Registry.",
+  "description": "Archived Alaska CBPL parser research; not a supported OpenTrade adapter.",
   "license": "MIT",
   "homepage": "https://github.com/dannyward630/opentrade-registry#readme",
   "repository": {

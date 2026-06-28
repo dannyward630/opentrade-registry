@@ -1,22 +1,58 @@
 import { buildFingerprint, normalizeLicenseNumber, normalizeText } from "@opentrade/core";
 
 export const CA_CSLB_COLUMNS = [
-  "License Number",
-  "Business Name",
-  "DBA Name",
-  "License Type",
-  "Classifications",
-  "Status",
-  "Issue Date",
-  "Expiration Date",
-  "Address",
+  "LicenseNo",
+  "LastUpdate",
+  "BusinessName",
+  "BUS-NAME-2",
+  "FullBusinessName",
+  "MailingAddress",
   "City",
   "State",
-  "Zip",
   "County",
-  "Phone",
-  "Personnel Name",
-  "Personnel Title",
+  "ZIPCode",
+  "country",
+  "BusinessPhone",
+  "BusinessType",
+  "IssueDate",
+  "ReissueDate",
+  "ExpirationDate",
+  "InactivationDate",
+  "ReactivationDate",
+  "PendingSuspension",
+  "PendingClassRemoval",
+  "PendingClassReplace",
+  "PrimaryStatus",
+  "SecondaryStatus",
+  "Classifications(s)",
+  "AsbestosReg",
+  "WorkersCompCoverageType",
+  "WCInsuranceCompany",
+  "WCPolicyNumber",
+  "WCEffectiveDate",
+  "WCExpirationDate",
+  "WCCancellationDate",
+  "WCSuspendDate",
+  "CBSuretyCompany",
+  "CBNumber",
+  "CBEffectiveDate",
+  "CBCancellationDate",
+  "CBAmount",
+  "WBSuretyCompany",
+  "WBNumber",
+  "WBEffectiveDate",
+  "WBCancellationDate",
+  "WBAmount",
+  "DBSuretyCompany",
+  "DBNumber",
+  "DBEffectiveDate",
+  "DBCancellationDate",
+  "DBAmount",
+  "DateRequired",
+  "DiscpCaseRegion",
+  "DBBondReason",
+  "DBCaseNo",
+  "NAME-TP-2",
 ] as const;
 
 export type CaliforniaCslbColumn = (typeof CA_CSLB_COLUMNS)[number];
@@ -51,26 +87,27 @@ export function mapCaliforniaCslbFields(fields: string[], header: string[] = [..
   const raw = Object.fromEntries(
     CA_CSLB_COLUMNS.map((columnName) => [columnName, fields[header.indexOf(columnName)] ?? ""]),
   ) as Record<CaliforniaCslbColumn, string>;
-  const licenseNumber = normalizeText(raw["License Number"]) ?? "";
+  const licenseNumber = normalizeText(raw.LicenseNo) ?? "";
+  const statuses = [normalizeText(raw.PrimaryStatus), normalizeText(raw.SecondaryStatus)].filter((value): value is string => Boolean(value));
 
   return {
     licenseNumber,
     licenseNumberNormalized: normalizeLicenseNumber(licenseNumber) ?? licenseNumber,
-    businessName: normalizeText(raw["Business Name"]),
-    dbaName: normalizeText(raw["DBA Name"]),
-    licenseType: normalizeText(raw["License Type"]),
-    classifications: splitClassifications(raw.Classifications),
-    status: normalizeText(raw.Status),
-    issueDate: parseCaliforniaCslbDate(raw["Issue Date"]),
-    expirationDate: parseCaliforniaCslbDate(raw["Expiration Date"]),
-    address: normalizeText(raw.Address),
+    businessName: normalizeText(raw.BusinessName) ?? normalizeText(raw.FullBusinessName),
+    dbaName: normalizeText(raw["BUS-NAME-2"]),
+    licenseType: normalizeText(raw.BusinessType),
+    classifications: splitClassifications(raw["Classifications(s)"]),
+    status: statuses.join("; ") || null,
+    issueDate: parseCaliforniaCslbDate(raw.IssueDate),
+    expirationDate: parseCaliforniaCslbDate(raw.ExpirationDate),
+    address: normalizeText(raw.MailingAddress),
     city: normalizeText(raw.City),
     state: normalizeText(raw.State),
-    zipCode: normalizeText(raw.Zip),
+    zipCode: normalizeText(raw.ZIPCode),
     county: normalizeText(raw.County),
-    phone: normalizeText(raw.Phone),
-    personnelName: normalizeText(raw["Personnel Name"]),
-    personnelTitle: normalizeText(raw["Personnel Title"]),
+    phone: normalizeText(raw.BusinessPhone),
+    personnelName: null,
+    personnelTitle: null,
     raw,
     fingerprint: buildFingerprint(raw),
   };
@@ -105,8 +142,7 @@ function splitClassifications(value: string | null | undefined): string[] {
   }
 
   return normalized
-    .split(";")
+    .split(/[;,]/)
     .map((classification) => classification.trim())
     .filter(Boolean);
 }
-

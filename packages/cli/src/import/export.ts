@@ -1,7 +1,7 @@
 import { randomUUID } from "node:crypto";
 import { mkdir, rename, rm, writeFile } from "node:fs/promises";
 import { basename, dirname, join } from "node:path";
-import type { CanonicalTradeLicenseRecord } from "@opentrade/core";
+import { parseCanonicalTradeLicenseRecord, type CanonicalTradeLicenseRecord } from "@opentrade/core";
 
 export type SyncFormat = "jsonl" | "csv";
 
@@ -33,7 +33,7 @@ export async function writeCanonicalRecords(input: {
 }
 
 export function toJsonl(records: CanonicalTradeLicenseRecord[]): string {
-  return `${records.map((record) => JSON.stringify(record)).join("\n")}\n`;
+  return `${records.map((record) => JSON.stringify(parseCanonicalTradeLicenseRecord(record))).join("\n")}\n`;
 }
 
 export function toCsv(records: CanonicalTradeLicenseRecord[]): string {

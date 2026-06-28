@@ -61,7 +61,7 @@
   "sourceResearchOutcome": "blocked",
   "adapterQualityLevel": 0,
   "blocker": {
-    "code": "not_contractor_specific",
+    "code": "scope_mismatch",
     "summary": "The official source is too broad or not sufficiently contractor-specific for reliable canonical verification.",
     "evidenceUrls": [
       "https://www.oplc.nh.gov/license-lookup",

@@ -82,6 +82,9 @@ async function main() {
       sourceLastModifiedAt: stringFlag(parsed, "source-last-modified"),
       json,
       strict: parsed.flags.strict === true,
+      resumable: parsed.flags.resumable === true,
+      checkpointInterval: numberFlag(parsed, "checkpoint-interval"),
+      resumeFromRunId: stringFlag(parsed, "resume-run"),
     });
     return;
   }
@@ -185,13 +188,15 @@ Default commands do not contact agency sites. Network sync and verification requ
 
 Commands:
   opentrade sources list [--json]
-  opentrade sources list [--state CA] [--maturity registry_only] [--status implemented] [--source-type bulk_csv] [--quality-level 4] [--research-outcome adapter_candidate]
+  opentrade sources list [--state CA] [--maturity network_opt_in] [--status implemented] [--source-type bulk_csv] [--quality-level 4] [--research-outcome network_opt_in]
   opentrade sources list [--implemented | --registry-only | --bulk-candidates] [--json]
   opentrade sources show <sourceId> [--json]
   opentrade sources readiness [--json]
   opentrade sources coverage [--json]
   opentrade sources validate [--json]
   opentrade sync <sourceId> --file <path> [--out <path>] [--cache <path>] [--format jsonl|csv] [--json] [--strict]
+  opentrade sync <sourceId> --file <path> --cache <path> --resumable [--checkpoint-interval <records>] [--json]
+  opentrade sync <sourceId> --file <path> --cache <path> --resume-run <importRunId> [--checkpoint-interval <records>] [--json]
   opentrade sync <sourceId> --url <sourceUrl> --allow-network --out <path> [--format jsonl|csv] [--json] [--strict]
   opentrade verify --source <sourceId> --file <path> --license <licenseNumber> [--json]
   opentrade verify --source <sourceId> --cache <path> --license <licenseNumber> [--json]

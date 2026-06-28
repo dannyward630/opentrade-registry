@@ -2,6 +2,7 @@ import { isAbsolute, resolve } from "node:path";
 import { FL_DBPR_CONSTRUCTION_SOURCE_ID } from "@opentrade/adapter-fl-dbpr";
 import {
   normalizeLicenseNumber,
+  parseCanonicalTradeLicenseRecord,
   type CanonicalTradeLicenseRecord,
   type TradeLicenseVerificationResult,
   type VerificationWarning,
@@ -122,7 +123,7 @@ async function runVerification(input: {
 
     let record: CanonicalTradeLicenseRecord;
     try {
-      record = await input.adapter.normalize(rawRecord);
+      record = parseCanonicalTradeLicenseRecord(await input.adapter.normalize(rawRecord));
     } catch (error) {
       skippedRecordCount += 1;
       warnings.push({

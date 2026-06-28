@@ -13,7 +13,9 @@ describe("OpenTrade SQLite cache", () => {
       const cache = await OpenTradeSqliteCache.open({ filePath });
       expect(cache.schemaVersion).toBe(SQLITE_SCHEMA_VERSION);
       expect(cache.importRecords([record("ONE", "fingerprint-one")])).toBe(1);
-      expect(cache.verify("test.source", "US-TS", "one").result).toBe("matched");
+      const matched = cache.verify("test.source", "US-TS", "one");
+      expect(matched.result).toBe("matched");
+      expect(matched.matchedRecord?.schemaVersion).toBe("1.0");
       await cache.close();
       expect((await readFile(filePath)).subarray(0, 6).toString()).toBe("SQLite");
 
@@ -63,6 +65,46 @@ describe("OpenTrade SQLite cache", () => {
     const redacted = redactCanonicalRecord(record("PURE", "fingerprint-pure"));
     expect(redacted.contact.email).toBeNull();
     expect(redacted.contact.website).toBe("https://example.test");
+  });
+
+  it("persists resumable import manifests with snapshot provenance", async () => {
+    const cache = await OpenTradeSqliteCache.open();
+    cache.startImportRun({
+      id: "run-1",
+      sourceId: "test.source",
+      sourceUrl: "https://example.test/source",
+      sourceSha256: "a".repeat(64),
+      startedAt: "2026-06-27T00:00:00.000Z",
+    });
+    cache.checkpointImportRun("run-1", {
+      lastProcessedRow: 250,
+      rawRecordCount: 249,
+      normalizedRecordCount: 248,
+      warningCount: 1,
+      errorCount: 1,
+      duplicateRecordCount: 2,
+    });
+    cache.finishImportRun("run-1", {
+      status: "interrupted",
+      finishedAt: "2026-06-27T00:05:00.000Z",
+    });
+
+    expect(cache.getImportRun("run-1")).toEqual({
+      id: "run-1",
+      sourceId: "test.source",
+      sourceUrl: "https://example.test/source",
+      sourceSha256: "a".repeat(64),
+      status: "interrupted",
+      startedAt: "2026-06-27T00:00:00.000Z",
+      finishedAt: "2026-06-27T00:05:00.000Z",
+      lastProcessedRow: 250,
+      rawRecordCount: 249,
+      normalizedRecordCount: 248,
+      warningCount: 1,
+      errorCount: 1,
+      duplicateRecordCount: 2,
+    });
+    await cache.close();
   });
 });
 

@@ -2,7 +2,7 @@
   "name": "@opentrade/adapter-mn-dli",
   "version": "1.0.0",
   "type": "module",
-  "description": "Minnesota DLI fixture adapter for OpenTrade Registry.",
+  "description": "Minnesota DLI local nightly-export adapter for OpenTrade Registry.",
   "license": "MIT",
   "homepage": "https://github.com/dannyward630/opentrade-registry#readme",
   "repository": {

@@ -2,10 +2,12 @@
 
 All notable changes follow semantic versioning from v1 onward.
 
-## 1.0.0 - 2026-06-27
+## 1.0.0 - 2026-06-28
 
 - Stabilized canonical, source registry, adapter, verification, CLI, and JSON contracts with v1 identifiers and v0.2 compatibility readers.
-- Finalized 56 source decisions across all states, DC, and five major territories: 10 Level 4 adapters and 46 evidence-backed blockers.
+- Finalized 56 source decisions across all states, DC, and five major territories: 7 Level 4 adapters and 49 evidence-backed blockers.
+- Validated California and Minnesota local-file mappings against current official export columns; retained only hand-authored fixture rows in git.
+- Corrected Alaska, Illinois, and Indiana from unsupported fixture claims to evidence-backed blocked outcomes.
 - Added Arizona ROC and promoted existing adapters to local-file or explicit network capability.
 - Added `@opentrade/registry` file/cache/network orchestration.
 - Added a versioned Node-compatible SQLite cache with migrations, transactions, indexes, retention, redaction, and atomic persistence.

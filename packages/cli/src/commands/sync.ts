@@ -15,6 +15,9 @@ export async function syncSource(input: {
   sourceLastModifiedAt?: string;
   json?: boolean;
   strict?: boolean;
+  resumable?: boolean;
+  checkpointInterval?: number;
+  resumeFromRunId?: string;
 }) {
   const adapter = requireAdapter(input.sourceId, "sync");
 
@@ -32,6 +35,18 @@ export async function syncSource(input: {
 
   if (!input.out && !input.cache) {
     throw Object.assign(new Error("Sync requires at least one destination: --out or --cache."), { exitCode: 2 });
+  }
+
+  if ((input.resumable || input.resumeFromRunId) && !input.cache) {
+    throw Object.assign(new Error("Resumable sync requires --cache."), { exitCode: 2 });
+  }
+
+  if (input.resumeFromRunId && input.out) {
+    throw Object.assign(new Error("Resumed sync is cache-only; omit --out."), { exitCode: 2 });
+  }
+
+  if (input.checkpointInterval !== undefined && (!Number.isInteger(input.checkpointInterval) || input.checkpointInterval < 1)) {
+    throw Object.assign(new Error("--checkpoint-interval must be a positive integer."), { exitCode: 2 });
   }
 
   const format = parseSyncFormat(input.format);
@@ -53,6 +68,9 @@ export async function syncSource(input: {
       sourceUrl: downloaded?.metadata.sourceUrl,
       remoteSnapshot: downloaded?.metadata,
       strict: input.strict,
+      resumable: input.resumable || Boolean(input.resumeFromRunId),
+      checkpointInterval: input.checkpointInterval,
+      resumeFromRunId: input.resumeFromRunId,
     });
     const destinations = [result.outputPath, result.cachePath].filter(Boolean).join(" and ");
     console.log(input.json ? JSON.stringify(result, null, 2) : `Wrote ${result.stats.normalizedRecordCount} canonical records to ${destinations}.`);

@@ -33,38 +33,45 @@
   "hasLiveLookup": true,
   "requiresJavaScript": "unknown",
   "requiresCaptcha": "unknown",
-  "requiresAccount": false,
-  "rateLimitNotes": "Fixture adapter only. Future work should review PLA download/API terms before considering automated access.",
+  "requiresAccount": true,
+  "rateLimitNotes": "Bulk downloads require accepting official conditions and payment. The project does not treat that gated path as a supported adapter source.",
   "redistributionStatus": "unknown",
   "publicRecordsNotes": "Official lookup metadata only. Absence from this source is not proof that a state license, local contractor registration, or authorization does not exist elsewhere.",
-  "adapterStatus": "implemented",
-  "sourceDiscoveryStatus": "researched",
-  "adapterMaturity": "local_file_adapter",
-  "adapterQualityLevel": 4,
+  "adapterStatus": "blocked",
+  "sourceDiscoveryStatus": "blocked",
+  "adapterMaturity": "blocked",
+  "adapterQualityLevel": 0,
   "coverageScope": "state_agency_partial",
-  "adapterPackage": "@opentrade/adapter-in-pla",
-  "testFixturePath": "packages/adapter-in-pla/fixtures/professional-licenses-sample.csv",
+  "adapterPackage": null,
+  "testFixturePath": null,
   "officialLookupUrl": "https://mylicense.in.gov/everification/",
-  "officialBulkDownloadNotes": "The PLA services page references license data downloads and a verification API. The fixture adapter does not access live PLA services or paid downloads.",
-  "researchNotes": "Fixture support exists for a tiny hand-authored license-download-shaped CSV. Future adapter work should narrow construction-relevant credential types and review download/API terms.",
-  "verificationReviewedAt": "2026-06-26T00:00:00.000Z",
+  "officialBulkDownloadNotes": "Indiana offers license data downloads under user conditions and paid pricing. Those gated downloads are not a supported adapter path.",
+  "researchNotes": "A historical hand-authored parser fixture does not establish compatibility with a paid official download or authorization to redistribute it.",
+  "verificationReviewedAt": null,
   "verificationCaveats": [
     "Indiana PLA fixture support is based on a tiny hand-authored sample, not a live MyLicense export.",
     "The source spans many PLA professions and does not represent local general-contractor licensing.",
     "No matching record means no match in this source at the checked time, not proof that a state license, local registration, or authorization does not exist elsewhere."
   ],
-  "verificationNotes": "Fixture verification supports matched, not-found, ambiguous duplicate, and invalid-input outcomes while preserving PLA source scope caveats.",
-  "lastVerifiedAt": "2026-06-27T00:00:00.000Z",
+  "verificationNotes": "No supported sync or verification adapter is exposed for the gated download path.",
+  "lastVerifiedAt": "2026-06-28T00:00:00.000Z",
   "maintainerNotes": "Do not imply statewide Indiana general-contractor coverage; local licensing remains outside this source entry.",
   "schemaVersion": "1.0",
-  "researchReviewedAt": "2026-06-27T00:00:00.000Z",
-  "nextReviewAt": "2026-12-27T00:00:00.000Z",
+  "researchReviewedAt": "2026-06-28T00:00:00.000Z",
+  "nextReviewAt": "2026-12-28T00:00:00.000Z",
   "researchEvidence": [
     {
-      "url": "https://mylicense.in.gov/everification/",
-      "checkedAt": "2026-06-27T00:00:00.000Z",
-      "note": "Official source documentation and supported local-file shape reviewed."
+      "url": "https://www.in.gov/pla/license/download-license-files/",
+      "checkedAt": "2026-06-28T00:00:00.000Z",
+      "note": "Official download page reviewed; downloads require acceptance of conditions and payment."
     }
   ],
-  "sourceResearchOutcome": "local_file_adapter"
+  "sourceResearchOutcome": "blocked",
+  "blocker": {
+    "code": "terms",
+    "summary": "Bulk license files are agreement- and payment-gated, so OpenTrade does not expose them as a supported adapter path.",
+    "evidenceUrls": [
+      "https://www.in.gov/pla/license/download-license-files/"
+    ]
+  }
 }

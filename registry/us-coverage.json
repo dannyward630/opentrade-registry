@@ -23,11 +23,11 @@
     },
     {
       "state": "AK",
-      "status": "local_file_supported",
+      "status": "blocked",
       "sourceIds": [
         "us.ak.commerce.construction_contractors"
       ],
-      "notes": "A terminal OpenTrade Registry adapter capability is implemented with offline tests and documented source caveats."
+      "notes": "Official search and download paths are protected by technical access controls; OpenTrade does not bypass them."
     },
     {
       "state": "AZ",
@@ -119,19 +119,19 @@
     },
     {
       "state": "IL",
-      "status": "local_file_supported",
+      "status": "blocked",
       "sourceIds": [
         "us.il.idfpr.roofing_contractors"
       ],
-      "notes": "A terminal OpenTrade Registry adapter capability is implemented with offline tests and documented source caveats."
+      "notes": "No stable public IDFPR bulk file shape has been validated for an offline adapter."
     },
     {
       "state": "IN",
-      "status": "local_file_supported",
+      "status": "blocked",
       "sourceIds": [
         "us.in.pla.professional_licenses"
       ],
-      "notes": "A terminal OpenTrade Registry adapter capability is implemented with offline tests and documented source caveats."
+      "notes": "Official bulk license downloads require accepting conditions and payment, so they are not a supported adapter path."
     },
     {
       "state": "IA",

@@ -1,5 +1,5 @@
 import { extname } from "node:path";
-import { buildFingerprint, parseCsvLine, streamTabularFileRows, streamTextFileLines, type RawSourceRecord } from "@opentrade/core";
+import { buildFingerprint, parseCsvLine, streamMappedCsvRecords, streamTabularFileRows, type AdapterError, type RawSourceRecord } from "@opentrade/core";
 import { CA_CSLB_CONTRACTORS_SOURCE_ID } from "./constants.js";
 import { CA_CSLB_COLUMNS, mapCaliforniaCslbFields, type CaliforniaCslbRow } from "./map.js";
 import { buildCaliforniaCslbWarnings } from "./normalize.js";
@@ -18,40 +18,11 @@ export async function* streamCaliforniaCslbCsvFile(input: {
   fetchedAt?: string;
   sourceLastModifiedAt?: string | null;
   limit?: number;
+  signal?: AbortSignal;
+  startAfterRow?: number;
+  onError?: (error: AdapterError) => void;
 }): AsyncIterable<RawSourceRecord> {
-  const fetchedAt = input.fetchedAt ?? new Date().toISOString();
-  let rowNumber = 0;
-  let header: string[] | null = null;
-
-  for await (const line of streamTextFileLines(input.filePath)) {
-      const trimmedLine = line.trim();
-      if (!trimmedLine) {
-        continue;
-      }
-
-      if (!header) {
-        header = parseCaliforniaCslbCsvLine(trimmedLine);
-        validateHeader(header);
-        continue;
-      }
-
-      rowNumber += 1;
-      const record = parseCaliforniaCslbCsvRow(trimmedLine, header);
-      yield {
-        sourceId: CA_CSLB_CONTRACTORS_SOURCE_ID,
-        sourceUrl: input.sourceUrl,
-        record,
-        rowNumber,
-        fetchedAt,
-        sourceLastModifiedAt: input.sourceLastModifiedAt ?? null,
-        fingerprint: buildFingerprint(record.raw),
-        warnings: buildCaliforniaCslbWarnings(record),
-      };
-
-      if (input.limit && rowNumber >= input.limit) {
-        break;
-      }
-  }
+  yield* streamMappedCsvRecords({ ...input, sourceId: CA_CSLB_CONTRACTORS_SOURCE_ID, header: "first_row", validateHeader, mapFields: mapCaliforniaCslbFields, rawRecord: (record) => record.raw, warnings: buildCaliforniaCslbWarnings });
 }
 
 export async function* streamCaliforniaCslbFile(input: {
@@ -60,6 +31,9 @@ export async function* streamCaliforniaCslbFile(input: {
   fetchedAt?: string;
   sourceLastModifiedAt?: string | null;
   limit?: number;
+  signal?: AbortSignal;
+  startAfterRow?: number;
+  onError?: (error: AdapterError) => void;
 }): AsyncIterable<RawSourceRecord> {
   if (extname(input.filePath).toLowerCase() !== ".xlsx") {
     yield* streamCaliforniaCslbCsvFile(input);
@@ -68,8 +42,11 @@ export async function* streamCaliforniaCslbFile(input: {
 
   const fetchedAt = input.fetchedAt ?? new Date().toISOString();
   let header: string[] | null = null;
-  let rowNumber = 0;
+  let physicalRowNumber = 0;
+  let yielded = 0;
   for await (const fields of streamTabularFileRows(input.filePath)) {
+    input.signal?.throwIfAborted();
+    physicalRowNumber += 1;
     if (!header) {
       header = fields;
       validateHeader(header);
@@ -78,19 +55,27 @@ export async function* streamCaliforniaCslbFile(input: {
     if (fields.every((value) => value.trim() === "")) {
       continue;
     }
-    rowNumber += 1;
-    const record = mapCaliforniaCslbFields(fields, header);
+    if (physicalRowNumber <= (input.startAfterRow ?? 0)) continue;
+    let record: CaliforniaCslbRow;
+    try {
+      record = mapCaliforniaCslbFields(fields, header);
+    } catch (cause) {
+      if (!input.onError) throw cause;
+      input.onError({ code: "row_parse_failed", message: cause instanceof Error ? cause.message : String(cause), cause, rowNumber: physicalRowNumber });
+      continue;
+    }
     yield {
       sourceId: CA_CSLB_CONTRACTORS_SOURCE_ID,
       sourceUrl: input.sourceUrl,
       record,
-      rowNumber,
+      rowNumber: physicalRowNumber,
       fetchedAt,
       sourceLastModifiedAt: input.sourceLastModifiedAt ?? null,
       fingerprint: buildFingerprint(record.raw),
       warnings: buildCaliforniaCslbWarnings(record),
     };
-    if (input.limit && rowNumber >= input.limit) {
+    yielded += 1;
+    if (input.limit && yielded >= input.limit) {
       break;
     }
   }

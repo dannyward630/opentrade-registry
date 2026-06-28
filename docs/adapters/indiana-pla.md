@@ -1,20 +1,20 @@
 # Indiana PLA Adapter
 
-Indiana PLA supports local CSV snapshots. Do not add live MyLicense lookup, verification API, or paid-download behavior without a separate opt-in design and source-specific review.
+Indiana PLA is a terminal blocked source for v1. Official bulk files require acceptance of user conditions and payment; OpenTrade does not expose that path as a supported adapter.
 
 ## Source
 
 - Source ID: `us.in.pla.professional_licenses`
-- Adapter package: `@opentrade/adapter-in-pla`
-- Current maturity: `local_file_adapter`
-- Current quality level: Level 4
+- Historical package: `@opentrade/adapter-in-pla` (private, not published)
+- Current maturity: `blocked`
+- Current quality level: Level 0
 - Fixture: `packages/adapter-in-pla/fixtures/professional-licenses-sample.csv`
 
 The registry entry is scoped to Indiana Professional Licensing Agency MyLicense verification and license-download-shaped records that may include construction-relevant credentials. It does not represent Indiana local general-contractor licensing, city/county registrations, or every construction authorization in Indiana.
 
-## Current Parser
+## Historical Parser Research
 
-The fixture parser reads local CSV files with a tiny hand-authored shape:
+The repository retains a fixture parser with a tiny hand-authored shape:
 
 - license number
 - license type
@@ -35,7 +35,9 @@ The fixture includes plumbing, home-improvement, manufactured-home, electrical, 
 - The source spans many PLA professions and does not represent local general-contractor licensing.
 - No matching record means no match in the checked source at the checked time, not proof that a state license, local registration, or authorization does not exist elsewhere.
 
-## Future Work
+The fixture does not establish compatibility with an official paid download. The CLI does not register this parser.
+
+## Reconsideration Criteria
 
 - Confirm the current official downloadable-license-file shape and whether it can be accessed and used lawfully.
 - Review PLA verification API and paid-download terms before any automation.

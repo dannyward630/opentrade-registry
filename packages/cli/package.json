@@ -41,12 +41,9 @@
     "cli": "tsx src/index.ts"
   },
   "dependencies": {
-    "@opentrade/adapter-ak-commerce": "workspace:*",
     "@opentrade/adapter-az-roc": "workspace:*",
     "@opentrade/adapter-ca-cslb": "workspace:*",
     "@opentrade/adapter-fl-dbpr": "workspace:*",
-    "@opentrade/adapter-il-idfpr": "workspace:*",
-    "@opentrade/adapter-in-pla": "workspace:*",
     "@opentrade/adapter-mn-dli": "workspace:*",
     "@opentrade/adapter-or-ccb": "workspace:*",
     "@opentrade/adapter-tx-tdlr": "workspace:*",

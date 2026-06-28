@@ -8,7 +8,7 @@ California CSLB supports local CSV and XLSX license-master snapshots. Do not add
 - Master list page: `https://www.cslb.ca.gov/OnlineServices/DataPortal/__FriendlyUrls_SwitchView?ReturnUrl=%2Fonlineservices%2Fdataportal%2FContractorList`
 - Instant license check: `https://www.cslb.ca.gov/onlineservices/checklicenseII/checklicense.aspx`
 
-CSLB describes a master list of licensed contractors and companion files for workers' compensation and personnel data. The current adapter starts with a tiny hand-authored license-master-like fixture only.
+CSLB describes a master list of licensed contractors and companion files for workers' compensation and personnel data. The master CSV header and representative row shape were reviewed against the official download on June 28, 2026; committed fixtures remain hand-authored.
 
 ## Current Local-File Support
 
@@ -18,15 +18,14 @@ CSLB describes a master list of licensed contractors and companion files for wor
 - Maturity: `local_file_adapter`
 - Quality: Level 4 verification semantics
 
-The adapter maps license number, business identity, DBA, classifications, status, dates, contact fields, personnel name/title, source URL, fetched time, raw record, caveats, and fingerprint. Companion personnel, bond, and workers compensation files remain out of scope.
+The adapter maps license number, business identity, DBA, classifications, status, dates, contact fields, source URL, fetched time, raw record, caveats, and fingerprint. The master file does not supply the companion personnel data, and companion personnel, bond, and workers compensation files remain out of scope.
 
-## No-Network Next Steps
+## Operational Limits
 
-1. Research the current downloadable file formats and column names.
-2. Compare the fixture shape against the live license master export without committing public bulk rows.
-3. Decide whether local-file support should accept CSV only, XLSX only, or both.
-4. Keep companion files out of scope until the license master path is stable.
-5. Keep network download disabled unless a later `--allow-network` path is designed and tested separately.
+1. Obtain the official master file directly from CSLB and retain its retrieval metadata.
+2. Use CSV or XLSX input locally; do not commit downloaded rows.
+3. Keep companion files out of scope until separate source contracts and joins are reviewed.
+4. Keep network download disabled unless a later `--allow-network` path is designed and tested separately.
 
 ## Caveats
 

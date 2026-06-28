@@ -1,4 +1,4 @@
-import { buildFingerprint, parseCsvLine, streamTextFileLines, type RawSourceRecord } from "@opentrade/core";
+import { parseCsvLine, streamMappedCsvRecords, type AdapterError, type RawSourceRecord } from "@opentrade/core";
 import { TX_TDLR_ALL_LICENSES_SOURCE_ID } from "./constants.js";
 import { mapTexasTdlrFields, TDLR_COLUMNS, type TexasTdlrRow } from "./map.js";
 import { buildTexasTdlrWarnings } from "./normalize.js";
@@ -17,40 +17,11 @@ export async function* streamTexasTdlrCsvFile(input: {
   fetchedAt?: string;
   sourceLastModifiedAt?: string | null;
   limit?: number;
+  signal?: AbortSignal;
+  startAfterRow?: number;
+  onError?: (error: AdapterError) => void;
 }): AsyncIterable<RawSourceRecord> {
-  const fetchedAt = input.fetchedAt ?? new Date().toISOString();
-  let rowNumber = 0;
-  let header: string[] | null = null;
-
-  for await (const line of streamTextFileLines(input.filePath)) {
-      const trimmedLine = line.trim();
-      if (!trimmedLine) {
-        continue;
-      }
-
-      if (!header) {
-        header = parseTexasTdlrCsvLine(trimmedLine);
-        validateHeader(header);
-        continue;
-      }
-
-      rowNumber += 1;
-      const record = parseTexasTdlrCsvRow(trimmedLine, header);
-      yield {
-        sourceId: TX_TDLR_ALL_LICENSES_SOURCE_ID,
-        sourceUrl: input.sourceUrl,
-        record,
-        rowNumber,
-        fetchedAt,
-        sourceLastModifiedAt: input.sourceLastModifiedAt ?? null,
-        fingerprint: buildFingerprint(record.raw),
-        warnings: buildTexasTdlrWarnings(record),
-      };
-
-      if (input.limit && rowNumber >= input.limit) {
-        break;
-      }
-  }
+  yield* streamMappedCsvRecords({ ...input, sourceId: TX_TDLR_ALL_LICENSES_SOURCE_ID, header: "first_row", validateHeader, mapFields: mapTexasTdlrFields, rawRecord: (record) => record.raw, warnings: buildTexasTdlrWarnings });
 }
 
 function validateHeader(header: string[]): void {

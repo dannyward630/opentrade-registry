@@ -1,11 +1,40 @@
 import { describe, expect, it } from "vitest";
 import { buildFingerprint, canonicalTradeLicenseRecordSchema, type RawSourceRecord } from "@opentrade/core";
 import { CA_CSLB_CONTRACTORS_SOURCE_ID } from "../src/constants.js";
-import { mapCaliforniaCslbFields } from "../src/map.js";
+import { CA_CSLB_COLUMNS, mapCaliforniaCslbFields } from "../src/map.js";
 import { mapCaliforniaCslbTradeCategories, normalizeCaliforniaCslbStatus } from "../src/normalize.js";
 import { normalizeCaliforniaCslbRecord } from "../src/source.js";
 
 describe("California CSLB mapping", () => {
+  it("maps the current official master-license CSV columns", () => {
+    const header = "LicenseNo,LastUpdate,BusinessName,BUS-NAME-2,FullBusinessName,MailingAddress,City,State,County,ZIPCode,country,BusinessPhone,BusinessType,IssueDate,ReissueDate,ExpirationDate,InactivationDate,ReactivationDate,PendingSuspension,PendingClassRemoval,PendingClassReplace,PrimaryStatus,SecondaryStatus,Classifications(s),AsbestosReg,WorkersCompCoverageType,WCInsuranceCompany,WCPolicyNumber,WCEffectiveDate,WCExpirationDate,WCCancellationDate,WCSuspendDate,CBSuretyCompany,CBNumber,CBEffectiveDate,CBCancellationDate,CBAmount,WBSuretyCompany,WBNumber,WBEffectiveDate,WBCancellationDate,WBAmount,DBSuretyCompany,DBNumber,DBEffectiveDate,DBCancellationDate,DBAmount,DateRequired,DiscpCaseRegion,DBBondReason,DBCaseNo,NAME-TP-2".split(",");
+    const fields = new Array(header.length).fill("");
+    const set = (column: string, value: string) => { fields[header.indexOf(column)] = value; };
+    set("LicenseNo", "1234567");
+    set("BusinessName", "Golden State Builders LLC");
+    set("BUS-NAME-2", "Golden State Construction");
+    set("MailingAddress", "100 Market St");
+    set("City", "San Francisco");
+    set("State", "CA");
+    set("County", "San Francisco");
+    set("ZIPCode", "94105");
+    set("BusinessPhone", "4155550100");
+    set("BusinessType", "LLC");
+    set("IssueDate", "01/15/2019");
+    set("ExpirationDate", "12/31/2099");
+    set("PrimaryStatus", "CLEAR");
+    set("Classifications(s)", "A;B");
+
+    const row = mapCaliforniaCslbFields(fields, header);
+    expect(row).toMatchObject({
+      licenseNumber: "1234567",
+      businessName: "Golden State Builders LLC",
+      dbaName: "Golden State Construction",
+      status: "CLEAR",
+      classifications: ["A", "B"],
+    });
+  });
+
   it("normalizes statuses conservatively", () => {
     expect(normalizeCaliforniaCslbStatus({ status: "Active", expirationDate: "2099-12-31T00:00:00.000Z" }).normalized).toBe("active");
     expect(normalizeCaliforniaCslbStatus({ status: "Active", expirationDate: "2020-06-30T00:00:00.000Z" }).normalized).toBe("expired");
@@ -23,24 +52,21 @@ describe("California CSLB mapping", () => {
   });
 
   it("maps rows to canonical records with source caveats and fingerprints", () => {
-    const row = mapCaliforniaCslbFields([
-      "1234567",
-      "Golden State Builders LLC",
-      "",
-      "Contractor",
-      "A-General Engineering; B-General Building",
-      "Active",
-      "01/15/2019",
-      "12/31/2099",
-      "100 Market St",
-      "San Francisco",
-      "CA",
-      "94105",
-      "San Francisco",
-      "4155550100",
-      "Jordan Lee",
-      "Qualifier",
-    ]);
+    const row = mapCaliforniaCslbFields(buildFields(CA_CSLB_COLUMNS, {
+      LicenseNo: "1234567",
+      BusinessName: "Golden State Builders LLC",
+      MailingAddress: "100 Market St",
+      City: "San Francisco",
+      State: "CA",
+      County: "San Francisco",
+      ZIPCode: "94105",
+      BusinessPhone: "4155550100",
+      BusinessType: "LLC",
+      IssueDate: "01/15/2019",
+      ExpirationDate: "12/31/2099",
+      PrimaryStatus: "CLEAR",
+      "Classifications(s)": "A;B",
+    }));
     const rawRecord: RawSourceRecord = {
       sourceId: CA_CSLB_CONTRACTORS_SOURCE_ID,
       sourceUrl: "https://www.cslb.ca.gov/onlineservices/dataportal/",
@@ -60,8 +86,11 @@ describe("California CSLB mapping", () => {
     expect(canonical.license.tradeCategories).toEqual(["commercial_contracting", "general_contracting"]);
     expect(canonical.identity.businessName).toBe("Golden State Builders LLC");
     expect(canonical.status.normalized).toBe("active");
-    expect(canonical.source.caveats).toContain("California CSLB fixture support is based on a tiny hand-authored sample, not the live CSLB master list.");
+    expect(canonical.source.caveats).toContain("California CSLB mapping is validated against the official master-license CSV columns; fixture rows remain hand-authored.");
     expect(canonical.raw.fingerprint).toMatch(/^[a-f0-9]{64}$/);
   });
 });
 
+function buildFields(header: readonly string[], values: Record<string, string>): string[] {
+  return header.map((column) => values[column] ?? "");
+}

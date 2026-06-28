@@ -11,9 +11,6 @@ importers:
 
   .:
     devDependencies:
-      '@opentrade/adapter-ak-commerce':
-        specifier: workspace:*
-        version: link:packages/adapter-ak-commerce
       '@opentrade/adapter-az-roc':
         specifier: workspace:*
         version: link:packages/adapter-az-roc
@@ -23,12 +20,6 @@ importers:
       '@opentrade/adapter-fl-dbpr':
         specifier: workspace:*
         version: link:packages/adapter-fl-dbpr
-      '@opentrade/adapter-il-idfpr':
-        specifier: workspace:*
-        version: link:packages/adapter-il-idfpr
-      '@opentrade/adapter-in-pla':
-        specifier: workspace:*
-        version: link:packages/adapter-in-pla
       '@opentrade/adapter-mn-dli':
         specifier: workspace:*
         version: link:packages/adapter-mn-dli
@@ -175,9 +166,6 @@ importers:
 
   packages/cli:
     dependencies:
-      '@opentrade/adapter-ak-commerce':
-        specifier: workspace:*
-        version: link:../adapter-ak-commerce
       '@opentrade/adapter-az-roc':
         specifier: workspace:*
         version: link:../adapter-az-roc
@@ -187,12 +175,6 @@ importers:
       '@opentrade/adapter-fl-dbpr':
         specifier: workspace:*
         version: link:../adapter-fl-dbpr
-      '@opentrade/adapter-il-idfpr':
-        specifier: workspace:*
-        version: link:../adapter-il-idfpr
-      '@opentrade/adapter-in-pla':
-        specifier: workspace:*
-        version: link:../adapter-in-pla
       '@opentrade/adapter-mn-dli':
         specifier: workspace:*
         version: link:../adapter-mn-dli

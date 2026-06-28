@@ -56,15 +56,12 @@ describe("hosted API", () => {
     await sourcesHandler({ query: { implemented: "true" } } as never, implemented as never);
 
     expect(implemented.statusCode).toBe(200);
-    expect(implemented.body.count).toBe(10);
+    expect(implemented.body.count).toBe(7);
     expect(implemented.body.filters.implemented).toBe(true);
     expect(implemented.body.sources.map((source: { id: string }) => source.id)).toEqual([
-      "us.ak.commerce.construction_contractors",
       "us.az.roc.contractors",
       "us.ca.cslb.contractors",
       "us.fl.dbpr.construction",
-      "us.il.idfpr.roofing_contractors",
-      "us.in.pla.professional_licenses",
       "us.mn.dli.licenses_registrations",
       "us.or.ccb.active_licenses",
       "us.tx.tdlr.all_licenses",
@@ -87,7 +84,7 @@ describe("hosted API", () => {
     const blocked = createMockResponse();
     await sourcesHandler({ query: { researchOutcome: "blocked" } } as never, blocked as never);
     expect(blocked.statusCode).toBe(200);
-    expect(blocked.body.count).toBe(46);
+    expect(blocked.body.count).toBe(49);
     expect(blocked.body.filters.researchOutcome).toBe("blocked");
     expect(blocked.body.sources.map((source: { id: string }) => source.id)).toContain("us.pa.oag.home_improvement_contractors");
     expect(blocked.body.sources[0]).toHaveProperty("sourceResearchOutcome", "blocked");
@@ -114,17 +111,14 @@ describe("hosted API", () => {
       origin: "registry_files",
       sourceCount: 56,
       terminalSourceCount: 56,
-      blockedSourceCount: 46,
+      blockedSourceCount: 49,
       registryOnlySourceCount: 0,
       note: expect.stringContaining("terminal"),
     });
     expect(response.body.implementedAdapterSources.map((source: { id: string }) => source.id)).toEqual([
-      "us.ak.commerce.construction_contractors",
       "us.az.roc.contractors",
       "us.ca.cslb.contractors",
       "us.fl.dbpr.construction",
-      "us.il.idfpr.roofing_contractors",
-      "us.in.pla.professional_licenses",
       "us.mn.dli.licenses_registrations",
       "us.or.ccb.active_licenses",
       "us.tx.tdlr.all_licenses",
@@ -133,7 +127,7 @@ describe("hosted API", () => {
     expect(response.body.unimplementedBulkAdapterCandidates.map((source: { id: string }) => source.id)).toEqual([]);
     expect(response.body.downloadResearchCandidates).toEqual([]);
     expect(response.body.lookupAutomationConstraintSources).toEqual([]);
-    expect(response.body.sourcesByResearchOutcome.blocked).toBe(46);
+    expect(response.body.sourcesByResearchOutcome.blocked).toBe(49);
   });
 
   it("returns a single source registry entry by id", async () => {

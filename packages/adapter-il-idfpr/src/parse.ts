@@ -1,4 +1,4 @@
-import { buildFingerprint, parseCsvLine, streamTextFileLines, type RawSourceRecord } from "@opentrade/core";
+import { parseCsvLine, streamMappedCsvRecords, type AdapterError, type RawSourceRecord } from "@opentrade/core";
 import { IL_IDFPR_ROOFING_CONTRACTORS_SOURCE_ID } from "./constants.js";
 import { IL_IDFPR_COLUMNS, mapIllinoisIdfprFields, type IllinoisIdfprRow } from "./map.js";
 import { buildIllinoisIdfprWarnings } from "./normalize.js";
@@ -17,40 +17,11 @@ export async function* streamIllinoisIdfprCsvFile(input: {
   fetchedAt?: string;
   sourceLastModifiedAt?: string | null;
   limit?: number;
+  signal?: AbortSignal;
+  startAfterRow?: number;
+  onError?: (error: AdapterError) => void;
 }): AsyncIterable<RawSourceRecord> {
-  const fetchedAt = input.fetchedAt ?? new Date().toISOString();
-  let rowNumber = 0;
-  let header: string[] | null = null;
-
-  for await (const line of streamTextFileLines(input.filePath)) {
-      const trimmedLine = line.trim();
-      if (!trimmedLine) {
-        continue;
-      }
-
-      if (!header) {
-        header = parseIllinoisIdfprCsvLine(trimmedLine);
-        validateHeader(header);
-        continue;
-      }
-
-      rowNumber += 1;
-      const record = parseIllinoisIdfprCsvRow(trimmedLine, header);
-      yield {
-        sourceId: IL_IDFPR_ROOFING_CONTRACTORS_SOURCE_ID,
-        sourceUrl: input.sourceUrl,
-        record,
-        rowNumber,
-        fetchedAt,
-        sourceLastModifiedAt: input.sourceLastModifiedAt ?? null,
-        fingerprint: buildFingerprint(record.raw),
-        warnings: buildIllinoisIdfprWarnings(record),
-      };
-
-      if (input.limit && rowNumber >= input.limit) {
-        break;
-      }
-  }
+  yield* streamMappedCsvRecords({ ...input, sourceId: IL_IDFPR_ROOFING_CONTRACTORS_SOURCE_ID, header: "first_row", validateHeader, mapFields: mapIllinoisIdfprFields, rawRecord: (record) => record.raw, warnings: buildIllinoisIdfprWarnings });
 }
 
 function validateHeader(header: string[]): void {

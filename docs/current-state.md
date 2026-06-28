@@ -7,10 +7,10 @@ This is the human-readable v1 snapshot. The generated [source-status matrix](sou
 - `56` official source entries.
 - All 50 states plus DC have researched coverage rows.
 - American Samoa, Guam, Northern Mariana Islands, Puerto Rico, and the U.S. Virgin Islands have researched territory rows.
-- `10` implemented adapters, all at quality Level 4.
-- `5` local-file adapter outcomes.
+- `7` implemented adapters, all at quality Level 4.
+- `2` local-file adapter outcomes.
 - `5` explicit network opt-in outcomes.
-- `46` terminal blocked outcomes.
+- `49` terminal blocked outcomes.
 - `0` provisional outcomes.
 - `0` fixture-only terminal adapters.
 
@@ -20,18 +20,17 @@ Four sources do not expose a standalone terms URL and American Samoa does not ex
 
 | Source ID | Jurisdiction | Terminal capability | Input | Quality |
 | --- | --- | --- | --- | --- |
-| `us.ak.commerce.construction_contractors` | Alaska | `local_file_adapter` | CSV | Level 4 |
 | `us.az.roc.contractors` | Arizona | `network_opt_in` | dated CSV | Level 4 |
 | `us.ca.cslb.contractors` | California | `local_file_adapter` | CSV/XLSX | Level 4 |
 | `us.fl.dbpr.construction` | Florida | `network_opt_in` | CSV | Level 4 |
-| `us.il.idfpr.roofing_contractors` | Illinois | `local_file_adapter` | CSV | Level 4 |
-| `us.in.pla.professional_licenses` | Indiana | `local_file_adapter` | CSV | Level 4 |
 | `us.mn.dli.licenses_registrations` | Minnesota | `local_file_adapter` | CSV/XLSX | Level 4 |
 | `us.or.ccb.active_licenses` | Oregon | `network_opt_in` | CSV | Level 4 |
 | `us.tx.tdlr.all_licenses` | Texas | `network_opt_in` | CSV | Level 4 |
 | `us.wa.lni.contractors` | Washington | `network_opt_in` | CSV | Level 4 |
 
 Level 4 means verification language, status behavior, and source-specific caveats have been reviewed. It does not mean a source is complete, real-time, or authoritative beyond the agency record and checked time.
+
+Alaska, Illinois, and Indiana retain private parser-research packages for historical test evidence, but the public registry marks them blocked and the CLI does not register them. Alaska access is technically controlled, Illinois lacks a validated stable public file shape, and Indiana bulk files are agreement- and payment-gated.
 
 ## Core And Orchestration
 

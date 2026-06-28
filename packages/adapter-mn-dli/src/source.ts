@@ -14,12 +14,12 @@ export const minnesotaDliLicensesRegistrationsAdapter: TradeLicenseSourceAdapter
     return {
       ok: true,
       checkedAt: new Date().toISOString(),
-      message: "Local fixture adapter is available. Live Minnesota DLI spreadsheet download is not implemented.",
+      message: "Local official-shape CSV/XLSX import is available. Live Minnesota DLI archive download is not implemented.",
     };
   },
   async *streamRawRecords(options) {
     if (!options.filePath) {
-      throw new Error("The Minnesota DLI fixture adapter requires a local filePath.");
+      throw new Error("The Minnesota DLI local-file adapter requires a filePath.");
     }
 
     yield* streamMinnesotaDliFile({
@@ -28,6 +28,9 @@ export const minnesotaDliLicensesRegistrationsAdapter: TradeLicenseSourceAdapter
       fetchedAt: options.fetchedAt,
       sourceLastModifiedAt: options.sourceLastModifiedAt,
       limit: options.limit,
+      signal: options.signal,
+      startAfterRow: options.startAfterRow,
+      onError: options.onError,
     });
   },
   async normalize(raw) {
@@ -49,12 +52,12 @@ export function normalizeMinnesotaDliRecord(raw: RawSourceRecord): CanonicalTrad
     agency: MN_DLI_SOURCE_ENTRY.agency,
     source: {
       sourceUrl: raw.sourceUrl ?? MN_DLI_LICENSES_REGISTRATIONS_SOURCE_URL,
-      sourceType: "bulk_xlsx",
+      sourceType: "bulk_csv",
       fetchedAt: raw.fetchedAt,
       sourceLastModifiedAt: raw.sourceLastModifiedAt ?? undefined,
       redistributionStatus: MN_DLI_SOURCE_ENTRY.redistributionStatus,
       caveats: [
-        "Minnesota DLI fixture support is based on a tiny hand-authored sample, not the live DLI spreadsheet.",
+        "Minnesota DLI mapping is validated against the official nightly export columns; fixture rows remain hand-authored.",
         "The DLI source can include many license, bond, certification, and registration types beyond contractor licenses.",
         "No matching record in this source is not proof that a license does not exist elsewhere.",
         ...(raw.warnings?.map((warning) => warning.message) ?? []),
