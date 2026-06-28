@@ -16,7 +16,7 @@ export const MN_DLI_SOURCE_ENTRY: SourceRegistryEntry = {
   },
   sourceType: "bulk_csv",
   sourceUrl: MN_DLI_LICENSES_REGISTRATIONS_SOURCE_URL,
-  documentationUrl: MN_DLI_LICENSES_REGISTRATIONS_SOURCE_URL,
+  documentationUrl: "https://www.dli.mn.gov/license-and-registration-lookup",
   dataDictionaryUrl: null,
   termsUrl: "https://mn.gov/portal/policies/",
   updateFrequency: "The official page states the export file is updated nightly; verify current source text before relying on freshness assumptions.",
