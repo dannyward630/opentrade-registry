@@ -1,10 +1,10 @@
-# `@opentrade/registry`
+# `@opentrade-registry/registry`
 
 Programmatic orchestration for OpenTrade Registry adapters.
 
 ```ts
-import { OpenTradeRegistry } from "@opentrade/registry";
-import { floridaDbprConstructionAdapter } from "@opentrade/adapter-fl-dbpr";
+import { OpenTradeRegistry } from "@opentrade-registry/registry";
+import { floridaDbprConstructionAdapter } from "@opentrade-registry/adapter-fl-dbpr";
 
 const registry = new OpenTradeRegistry([floridaDbprConstructionAdapter]);
 const result = await registry.verify({

@@ -13,7 +13,7 @@ The v1 contract includes:
 - CLI commands, flags, exit codes, and JSON output;
 - public package exports.
 
-`@opentrade/core` exports `OPENTRADE_API_VERSION`, `OPENTRADE_CANONICAL_SCHEMA_VERSION`, and `OPENTRADE_SOURCE_REGISTRY_SCHEMA_VERSION`.
+`@opentrade-registry/core` exports `OPENTRADE_API_VERSION`, `OPENTRADE_CANONICAL_SCHEMA_VERSION`, and `OPENTRADE_SOURCE_REGISTRY_SCHEMA_VERSION`.
 
 ## Compatible Changes
 

@@ -1,4 +1,4 @@
-# @opentrade/adapter-tx-tdlr
+# @opentrade-registry/adapter-tx-tdlr
 
 This package supports local files and explicit network snapshots for the official Texas TDLR All Licenses dataset shape.
 
@@ -11,7 +11,7 @@ import {
   TX_TDLR_ALL_LICENSES_SOURCE_ID,
   texasTdlrAllLicensesAdapter,
   normalizeTexasTdlrRecord,
-} from "@opentrade/adapter-tx-tdlr";
+} from "@opentrade-registry/adapter-tx-tdlr";
 ```
 
 ## What It Does

@@ -2,7 +2,7 @@
 
 Source ID: `us.il.idfpr.roofing_contractors`
 
-Historical package: `@opentrade/adapter-il-idfpr` (private, not published)
+Historical package: `@opentrade-registry/adapter-il-idfpr` (private, not published)
 
 Current maturity: `blocked`
 

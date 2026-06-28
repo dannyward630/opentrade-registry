@@ -1,4 +1,4 @@
-# @opentrade/adapter-or-ccb
+# @opentrade-registry/adapter-or-ccb
 
 Network-opt-in adapter for Oregon Construction Contractors Board active-license data.
 
@@ -13,7 +13,7 @@ Current behavior:
 Example:
 
 ```ts
-import { oregonCcbActiveLicensesAdapter } from "@opentrade/adapter-or-ccb";
+import { oregonCcbActiveLicensesAdapter } from "@opentrade-registry/adapter-or-ccb";
 ```
 
 Live source access remains opt-in through the CLI network path. Do not publish generated datasets unless redistribution rights and source caveats have been reviewed.

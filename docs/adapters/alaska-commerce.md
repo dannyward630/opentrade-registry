@@ -2,7 +2,7 @@
 
 Source ID: `us.ak.commerce.construction_contractors`
 
-Historical package: `@opentrade/adapter-ak-commerce` (private, not published)
+Historical package: `@opentrade-registry/adapter-ak-commerce` (private, not published)
 
 Current maturity: `blocked`
 

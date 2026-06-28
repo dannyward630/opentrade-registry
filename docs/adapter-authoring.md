@@ -2,7 +2,7 @@
 
 Adapters are where source-specific work belongs. Core should stay generic; the adapter should know how one agency formats license numbers, statuses, dates, classifications, and caveats.
 
-An adapter implements `TradeLicenseSourceAdapter` from `@opentrade/core`.
+An adapter implements `TradeLicenseSourceAdapter` from `@opentrade-registry/core`.
 
 ## Start With Research
 

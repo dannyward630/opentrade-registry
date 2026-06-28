@@ -36,7 +36,7 @@ Alaska, Illinois, and Indiana retain private parser-research packages for histor
 
 The canonical schema, source schema, adapter contract, verification result, JSON output, and CLI exit codes carry v1 identifiers and compatibility guidance. Compatibility readers accept the prior v0.2 record and registry shapes where documented.
 
-`@opentrade/registry` provides programmatic `sync()` and `verify()` orchestration for:
+`@opentrade-registry/registry` provides programmatic `sync()` and `verify()` orchestration for:
 
 - local files;
 - the versioned SQLite cache;
@@ -57,7 +57,7 @@ Exit codes remain `0` success, `1` general error, `2` invalid or unsupported inp
 
 ## Storage
 
-`@opentrade/storage-sqlite` is a working Node 20-compatible SQLite cache. It includes:
+`@opentrade-registry/storage-sqlite` is a working Node 20-compatible SQLite cache. It includes:
 
 - versioned migrations;
 - transactions and indexed normalized-license lookup;

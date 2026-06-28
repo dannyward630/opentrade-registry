@@ -1,4 +1,4 @@
-# @opentrade/adapter-ca-cslb
+# @opentrade-registry/adapter-ca-cslb
 
 Local-file adapter for California Contractors State License Board license-master records.
 
@@ -17,7 +17,7 @@ The official master CSV header and representative row shape were reviewed on Jun
 import {
   CA_CSLB_CONTRACTORS_SOURCE_ID,
   californiaCslbContractorsAdapter,
-} from "@opentrade/adapter-ca-cslb";
+} from "@opentrade-registry/adapter-ca-cslb";
 ```
 
 Current maturity is `local_file_adapter`. Live CSLB portal access is not implemented; callers obtain official files themselves and retain source caveats.

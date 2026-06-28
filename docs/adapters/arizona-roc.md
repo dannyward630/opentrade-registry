@@ -2,7 +2,7 @@
 
 Source ID: `us.az.roc.contractors`
 
-Package: `@opentrade/adapter-az-roc`
+Package: `@opentrade-registry/adapter-az-roc`
 
 Maturity: `network_opt_in`
 

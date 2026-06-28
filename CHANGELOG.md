@@ -9,7 +9,8 @@ All notable changes follow semantic versioning from v1 onward.
 - Validated California and Minnesota local-file mappings against current official export columns; retained only hand-authored fixture rows in git.
 - Corrected Alaska, Illinois, and Indiana from unsupported fixture claims to evidence-backed blocked outcomes.
 - Added Arizona ROC and promoted existing adapters to local-file or explicit network capability.
-- Added `@opentrade/registry` file/cache/network orchestration.
+- Published the public package family under the owned `@opentrade-registry/*` npm scope.
+- Added `@opentrade-registry/registry` file/cache/network orchestration.
 - Added a versioned Node-compatible SQLite cache with migrations, transactions, indexes, retention, redaction, and atomic persistence.
 - Added CLI SQLite sync and verification.
 - Hardened downloads, CSV/XLSX parsing, malformed-row isolation, cancellation, safe CSV export, and atomic outputs.

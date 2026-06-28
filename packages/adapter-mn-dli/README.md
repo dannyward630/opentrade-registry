@@ -1,4 +1,4 @@
-# @opentrade/adapter-mn-dli
+# @opentrade-registry/adapter-mn-dli
 
 Local-file CSV/XLSX adapter for the Minnesota Department of Labor and Industry license and registration data source.
 
@@ -30,5 +30,5 @@ import {
   MN_DLI_LICENSES_REGISTRATIONS_SOURCE_ID,
   minnesotaDliLicensesRegistrationsAdapter,
   normalizeMinnesotaDliStatus,
-} from "@opentrade/adapter-mn-dli";
+} from "@opentrade-registry/adapter-mn-dli";
 ```

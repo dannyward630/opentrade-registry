@@ -14,12 +14,12 @@ It does not provide live verification across every state, a hosted import worker
 
 ## Vercel
 
-The root `vercel.json` builds `@opentrade/web` and serves the generated output from `apps/web/dist`.
+The root `vercel.json` builds `@opentrade-registry/web` and serves the generated output from `apps/web/dist`.
 
 Expected project settings:
 
 - Framework preset: Other.
-- Build command: `corepack pnpm install --frozen-lockfile && corepack pnpm --filter @opentrade/web build`.
+- Build command: `corepack pnpm install --frozen-lockfile && corepack pnpm --filter @opentrade-registry/web build`.
 - Output directory: `apps/web/dist`.
 - Node.js: 20+.
 

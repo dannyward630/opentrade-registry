@@ -1,4 +1,4 @@
-# @opentrade/adapter-wa-lni
+# @opentrade-registry/adapter-wa-lni
 
 Network-opt-in adapter for Washington State Department of Labor & Industries contractor license data.
 
@@ -13,7 +13,7 @@ Current behavior:
 Example:
 
 ```ts
-import { washingtonLniContractorsAdapter } from "@opentrade/adapter-wa-lni";
+import { washingtonLniContractorsAdapter } from "@opentrade-registry/adapter-wa-lni";
 ```
 
 Live source access remains opt-in through the CLI network path. Do not publish generated datasets unless redistribution rights and source caveats have been reviewed.

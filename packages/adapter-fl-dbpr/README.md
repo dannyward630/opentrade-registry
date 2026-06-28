@@ -1,4 +1,4 @@
-# @opentrade/adapter-fl-dbpr
+# @opentrade-registry/adapter-fl-dbpr
 
 This package reads Florida DBPR construction-license CSV records from local files and maps them into the OpenTrade canonical schema.
 
@@ -11,7 +11,7 @@ import {
   FL_DBPR_CONSTRUCTION_SOURCE_ID,
   floridaDbprConstructionAdapter,
   normalizeFloridaDbprConstructionRecord,
-} from "@opentrade/adapter-fl-dbpr";
+} from "@opentrade-registry/adapter-fl-dbpr";
 ```
 
 ## What It Does

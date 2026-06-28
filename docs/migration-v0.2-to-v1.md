@@ -25,7 +25,7 @@ The former driverless schema helpers remain exported. `OpenTradeSqliteCache` now
 
 ## Network
 
-Network use remains explicit. Redirects are now constrained to declared hosts and downloads record SHA-256 and response metadata. Applications that previously called CLI-internal download helpers should use `downloadOfficialSource` from `@opentrade/registry`.
+Network use remains explicit. Redirects are now constrained to declared hosts and downloads record SHA-256 and response metadata. Applications that previously called CLI-internal download helpers should use `downloadOfficialSource` from `@opentrade-registry/registry`.
 
 ## Parsing
 

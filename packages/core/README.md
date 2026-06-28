@@ -1,4 +1,4 @@
-# @opentrade/core
+# @opentrade-registry/core
 
 Core contains the stable v1 contracts that are not tied to one state or agency: schemas, adapter contracts, compatibility identifiers, bounded parsers, normalization helpers, filters, and verification result types.
 
@@ -21,7 +21,7 @@ import {
   type SourceDiscoveryStatus,
   type TradeLicenseSourceAdapter,
   type CanonicalTradeLicenseRecord,
-} from "@opentrade/core";
+} from "@opentrade-registry/core";
 ```
 
 ## What It Provides
@@ -37,4 +37,4 @@ import {
 - Terminal source readiness and filtering helpers.
 - Neutral verification result types.
 
-This package does not read agency websites, write to a database, or know about any one state source. Network orchestration belongs to `@opentrade/registry`; persistence belongs to `@opentrade/storage-sqlite`.
+This package does not read agency websites, write to a database, or know about any one state source. Network orchestration belongs to `@opentrade-registry/registry`; persistence belongs to `@opentrade-registry/storage-sqlite`.
