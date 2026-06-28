@@ -1,17 +1,7 @@
-# @opentrade/adapter-ak-commerce
+# Archived Alaska Parser Research
 
-Local-file adapter for Alaska Division of Corporations, Business and Professional Licensing construction-contractor-shaped records.
+This private workspace package preserves historical Alaska CBPL parser research. It is not published, not registered by the CLI, and not a supported adapter.
 
-This package is intentionally conservative:
+The tiny hand-authored fixture does not establish compatibility with an official export. During the v1 review, technical access controls prevented validation of a stable lawful file shape. OpenTrade does not bypass those controls.
 
-- it reads local CSV files only;
-- it does not automate Alaska search or download pages;
-- it does not bypass DataDome, CAPTCHA, JavaScript checks, or other technical controls;
-- it uses a tiny hand-authored fixture, not copied agency bulk data;
-- it preserves raw rows, fingerprints, source URL, fetched time, warnings, and source caveats.
-
-```ts
-import { alaskaCommerceConstructionContractorsAdapter } from "@opentrade/adapter-ak-commerce";
-```
-
-Current maturity is `local_file_adapter`. The package accepts local CSV files shaped like the documented source fields; it does not automate protected agency pages. Treat no-match results as limited to the checked local file and checked time.
+The public source registry therefore records `us.ak.commerce.construction_contractors` as `blocked`. Do not use this package for licensing conclusions.
