@@ -13,7 +13,7 @@
     "@opentrade-registry/core": "workspace:*"
   },
   "devDependencies": {
-    "@types/node": "^20.17.14",
+    "@types/node": "^26.0.1",
     "typescript": "^6.0.3"
   }
 }
