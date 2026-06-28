@@ -17,6 +17,15 @@ describe("OpenTrade registry orchestration", () => {
     expect(sync.status).toBe("completed");
     expect(sync.stats.normalizedRecordCount).toBe(5);
     expect(sync.records).toHaveLength(5);
+    expect(sync.importRun).toMatchObject({
+      sourceId: floridaDbprConstructionAdapter.sourceId,
+      status: "completed",
+      lastProcessedRow: 5,
+      rawRecordCount: 5,
+      normalizedRecordCount: 5,
+    });
+    expect(sync.importRun?.sourceSha256).toMatch(/^[a-f0-9]{64}$/);
+    expect(cache.getImportRun(sync.importRun?.id ?? "missing")).toEqual(sync.importRun);
 
     expect((await registry.verify({ sourceId: floridaDbprConstructionAdapter.sourceId, licenseNumber: "CGC012345", input: { mode: "file", filePath: fixture } })).result).toBe("matched");
     expect((await registry.verify({ sourceId: floridaDbprConstructionAdapter.sourceId, licenseNumber: "CGC012345", input: { mode: "cache" }, cache })).result).toBe("matched");
@@ -68,6 +77,38 @@ describe("OpenTrade registry orchestration", () => {
     expect(result.stats.normalizedRecordCount).toBe(1);
     expect(result.errors.at(-1)?.message).toContain("cancelled by caller");
     expect(cache.findByLicenseNumber(floridaDbprConstructionAdapter.sourceId, "CGC012345")).toEqual([]);
+    await cache.close();
+  });
+
+  it("checkpoints and resumes an explicitly resumable cache import", async () => {
+    const controller = new AbortController();
+    const cache = await OpenTradeSqliteCache.open();
+    const registry = new OpenTradeRegistry([floridaDbprConstructionAdapter]);
+    const interrupted = await registry.sync({
+      sourceId: floridaDbprConstructionAdapter.sourceId,
+      input: { mode: "file", filePath: fixture },
+      cache,
+      resumable: true,
+      checkpointInterval: 1,
+      onRecord() { controller.abort(new Error("intentional resumable interruption")); },
+      signal: controller.signal,
+    });
+
+    expect(interrupted.status).toBe("failed");
+    expect(interrupted.importRun).toMatchObject({ status: "interrupted", lastProcessedRow: 1, normalizedRecordCount: 1 });
+    expect(cache.findByLicenseNumber(floridaDbprConstructionAdapter.sourceId, "CGC012345")).toHaveLength(1);
+
+    const resumed = await registry.sync({
+      sourceId: floridaDbprConstructionAdapter.sourceId,
+      input: { mode: "file", filePath: fixture },
+      cache,
+      resumable: true,
+      checkpointInterval: 1,
+      resumeFromRunId: interrupted.importRun?.id,
+    });
+    expect(resumed.status).toBe("completed");
+    expect(resumed.importRun).toMatchObject({ status: "completed", lastProcessedRow: 5, normalizedRecordCount: 5 });
+    expect(cache.database.exec("select count(*) from opentrade_license_records")[0]?.values[0]?.[0]).toBe(5);
     await cache.close();
   });
 
@@ -123,5 +164,29 @@ describe("OpenTrade registry orchestration", () => {
     } finally {
       await rm(directory, { recursive: true, force: true });
     }
+  });
+
+  it("counts and skips exact duplicate source records", async () => {
+    const duplicateAdapter = {
+      ...floridaDbprConstructionAdapter,
+      async *streamRawRecords(options: Parameters<typeof floridaDbprConstructionAdapter.streamRawRecords>[0]) {
+        const first = await floridaDbprConstructionAdapter.streamRawRecords({ ...options, limit: 1 })[Symbol.asyncIterator]().next();
+        if (first.done) throw new Error("Fixture did not provide a record.");
+        yield first.value;
+        yield { ...first.value, rowNumber: 2 };
+      },
+    };
+    const result = await new OpenTradeRegistry([duplicateAdapter]).sync({
+      sourceId: duplicateAdapter.sourceId,
+      input: { mode: "file", filePath: fixture },
+      collectRecords: true,
+    });
+
+    expect(result.status).toBe("completed");
+    expect(result.stats.rawRecordCount).toBe(2);
+    expect(result.stats.normalizedRecordCount).toBe(1);
+    expect(result.stats.duplicateRecordCount).toBe(1);
+    expect(result.records).toHaveLength(1);
+    expect(result.warnings).toContainEqual(expect.objectContaining({ code: "duplicate_source_record" }));
   });
 });
