@@ -2,17 +2,17 @@
 
 Source ID: `us.il.idfpr.roofing_contractors`
 
-Package: `@opentrade/adapter-il-idfpr`
+Historical package: `@opentrade/adapter-il-idfpr` (private, not published)
 
-Current maturity: `local_file_adapter`
+Current maturity: `blocked`
 
-Quality level: 4
+Quality level: 0
 
 ## Current Scope
 
-The Illinois adapter reads local CSV files shaped around Illinois Department of Financial and Professional Regulation roofing-contractor lookup concepts. Tests use a tiny hand-authored fixture.
+The repository retains parser research shaped around Illinois Department of Financial and Professional Regulation roofing-contractor lookup concepts. Its tiny hand-authored fixture does not establish compatibility with an official file or lookup response.
 
-It does not access the live IDFPR lookup or bulk lookup service. Revalidate field shape, access controls, terms, and update metadata before considering explicit network support.
+No stable public downloadable file shape was validated during the v1 review. The CLI does not register this parser and the package is not published.
 
 ## Fixture Behavior
 
@@ -35,7 +35,7 @@ No-match wording must remain neutral:
 
 Do not imply that a missing Illinois IDFPR fixture match proves no state license, local authorization, business registration, or other credential exists.
 
-## Future Work
+## Reconsideration Criteria
 
 - Verify whether IDFPR exposes a roofing-specific export shape that can be used lawfully.
 - Decide whether other Illinois trade or construction sources need separate source entries.

@@ -2,17 +2,17 @@
 
 Source ID: `us.ak.commerce.construction_contractors`
 
-Package: `@opentrade/adapter-ak-commerce`
+Historical package: `@opentrade/adapter-ak-commerce` (private, not published)
 
-Current maturity: `local_file_adapter`
+Current maturity: `blocked`
 
-Quality level: 4
+Quality level: 0
 
 ## Current Scope
 
-The Alaska adapter reads local CSV files shaped around Alaska Division of Corporations, Business and Professional Licensing professional-license concepts for construction-contractor records. Offline tests use a tiny hand-authored fixture.
+The repository retains parser research shaped around Alaska Division of Corporations, Business and Professional Licensing concepts. Its tiny hand-authored fixture does not establish compatibility with an official export.
 
-It does not download the live Alaska search or database-download pages. Command-line access to the apparent download path was observed to be protected by DataDome, so OpenTrade does not attempt to bypass that control.
+Command-line access to the apparent download path was observed to be protected by DataDome. OpenTrade does not bypass that control, register this parser in the CLI, or publish the package.
 
 ## Fixture Behavior
 
@@ -35,8 +35,8 @@ No-match wording must remain neutral:
 
 Do not imply that a missing Alaska CBPL fixture match proves no state license, endorsement, business license, local registration, or other authorization exists.
 
-## Future Work
+## Reconsideration Criteria
 
-- Revalidate the current official field layout on the scheduled source-review cadence.
+- Confirm a lawful stable official file shape without bypassing technical controls.
 - Keep CBPL professional licensing separate from Alaska business-license and corporation records.
 - Do not add live automation unless access terms and technical controls clearly allow it.
