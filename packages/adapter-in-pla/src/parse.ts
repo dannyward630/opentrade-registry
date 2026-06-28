@@ -1,4 +1,4 @@
-import { buildFingerprint, parseCsvLine, streamTextFileLines, type RawSourceRecord } from "@opentrade/core";
+import { parseCsvLine, streamMappedCsvRecords, type AdapterError, type RawSourceRecord } from "@opentrade/core";
 import { IN_PLA_PROFESSIONAL_LICENSES_SOURCE_ID } from "./constants.js";
 import { buildIndianaPlaWarnings } from "./normalize.js";
 import { IN_PLA_COLUMNS, mapIndianaPlaFields, type IndianaPlaRow } from "./map.js";
@@ -17,40 +17,11 @@ export async function* streamIndianaPlaCsvFile(input: {
   fetchedAt?: string;
   sourceLastModifiedAt?: string | null;
   limit?: number;
+  signal?: AbortSignal;
+  startAfterRow?: number;
+  onError?: (error: AdapterError) => void;
 }): AsyncIterable<RawSourceRecord> {
-  const fetchedAt = input.fetchedAt ?? new Date().toISOString();
-  let rowNumber = 0;
-  let header: string[] | null = null;
-
-  for await (const line of streamTextFileLines(input.filePath)) {
-      const trimmedLine = line.trim();
-      if (!trimmedLine) {
-        continue;
-      }
-
-      if (!header) {
-        header = parseIndianaPlaCsvLine(trimmedLine);
-        validateHeader(header);
-        continue;
-      }
-
-      rowNumber += 1;
-      const record = parseIndianaPlaCsvRow(trimmedLine, header);
-      yield {
-        sourceId: IN_PLA_PROFESSIONAL_LICENSES_SOURCE_ID,
-        sourceUrl: input.sourceUrl,
-        record,
-        rowNumber,
-        fetchedAt,
-        sourceLastModifiedAt: input.sourceLastModifiedAt ?? null,
-        fingerprint: buildFingerprint(record.raw),
-        warnings: buildIndianaPlaWarnings(record),
-      };
-
-      if (input.limit && rowNumber >= input.limit) {
-        break;
-      }
-  }
+  yield* streamMappedCsvRecords({ ...input, sourceId: IN_PLA_PROFESSIONAL_LICENSES_SOURCE_ID, header: "first_row", validateHeader, mapFields: mapIndianaPlaFields, rawRecord: (record) => record.raw, warnings: buildIndianaPlaWarnings });
 }
 
 function validateHeader(header: string[]): void {
