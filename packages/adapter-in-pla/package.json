@@ -1,7 +1,7 @@
 {
   "name": "@opentrade-registry/adapter-in-pla",
   "private": true,
-  "version": "1.0.0",
+  "version": "1.0.1",
   "type": "module",
   "description": "Archived Indiana PLA parser research; not a supported OpenTrade adapter.",
   "license": "MIT",

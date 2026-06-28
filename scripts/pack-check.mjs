@@ -53,6 +53,14 @@ try {
   const cliBinary = join(smokeDirectory, "node_modules", ".bin", process.platform === "win32" ? "opentrade.cmd" : "opentrade");
   const help = run(cliBinary, ["help"], smokeDirectory);
   if (!help.includes("OpenTrade Registry CLI")) throw new Error("Packed CLI smoke test did not return expected help output.");
+  const sources = JSON.parse(run(cliBinary, ["sources", "list", "--json"], smokeDirectory));
+  if (!Array.isArray(sources) || sources.length !== 56) {
+    throw new Error(`Packed CLI source registry smoke test expected 56 entries, received ${Array.isArray(sources) ? sources.length : "invalid JSON"}.`);
+  }
+  const coverage = JSON.parse(run(cliBinary, ["sources", "coverage", "--json"], smokeDirectory));
+  if (coverage.stateCount !== 51 || coverage.territoryCount !== 5) {
+    throw new Error(`Packed CLI coverage smoke test expected 51 state rows and 5 territory rows, received ${coverage.stateCount} and ${coverage.territoryCount}.`);
+  }
   console.log(`Clean-install smoke passed for ${tarballs.length} package tarballs.`);
 } finally {
   await rm(temporaryRoot, { recursive: true, force: true });

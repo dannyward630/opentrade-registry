@@ -169,7 +169,12 @@ function enumFlag<const T extends readonly string[]>(parsed: ParsedArgs, key: st
 }
 
 function findProjectRoot(): string {
-  let current = resolve(dirname(fileURLToPath(import.meta.url)));
+  const moduleDirectory = resolve(dirname(fileURLToPath(import.meta.url)));
+  if (existsSync(join(moduleDirectory, "registry", "sources"))) {
+    return moduleDirectory;
+  }
+
+  let current = moduleDirectory;
   for (let depth = 0; depth < 8; depth += 1) {
     if (existsSync(join(current, "pnpm-workspace.yaml")) && existsSync(join(current, "registry", "sources"))) {
       return current;

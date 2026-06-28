@@ -1,6 +1,6 @@
 {
   "name": "@opentrade-registry/registry",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "type": "module",
   "description": "Programmatic sync and verification orchestration for OpenTrade Registry.",
   "license": "MIT",

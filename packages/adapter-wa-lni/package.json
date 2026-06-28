@@ -1,6 +1,6 @@
 {
   "name": "@opentrade-registry/adapter-wa-lni",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "type": "module",
   "description": "Fixture-first Washington L&I contractor license adapter for OpenTrade Registry.",
   "license": "MIT",
