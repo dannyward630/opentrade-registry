@@ -32,6 +32,9 @@ export const alaskaCommerceConstructionContractorsAdapter: TradeLicenseSourceAda
       fetchedAt: options.fetchedAt,
       sourceLastModifiedAt: options.sourceLastModifiedAt,
       limit: options.limit,
+      signal: options.signal,
+      startAfterRow: options.startAfterRow,
+      onError: options.onError,
     });
   },
   async normalize(raw) {
