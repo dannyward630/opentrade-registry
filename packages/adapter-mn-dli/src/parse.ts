@@ -1,5 +1,5 @@
 import { extname } from "node:path";
-import { buildFingerprint, parseCsvLine, streamTabularFileRows, streamTextFileLines, type RawSourceRecord } from "@opentrade/core";
+import { buildFingerprint, parseCsvLine, streamMappedCsvRecords, streamTabularFileRows, type AdapterError, type RawSourceRecord } from "@opentrade/core";
 import { MN_DLI_LICENSES_REGISTRATIONS_SOURCE_ID } from "./constants.js";
 import { mapMinnesotaDliFields, MN_DLI_COLUMNS, type MinnesotaDliRow } from "./map.js";
 import { buildMinnesotaDliWarnings } from "./normalize.js";
@@ -18,40 +18,11 @@ export async function* streamMinnesotaDliCsvFile(input: {
   fetchedAt?: string;
   sourceLastModifiedAt?: string | null;
   limit?: number;
+  signal?: AbortSignal;
+  startAfterRow?: number;
+  onError?: (error: AdapterError) => void;
 }): AsyncIterable<RawSourceRecord> {
-  const fetchedAt = input.fetchedAt ?? new Date().toISOString();
-  let rowNumber = 0;
-  let header: string[] | null = null;
-
-  for await (const line of streamTextFileLines(input.filePath)) {
-      const trimmedLine = line.trim();
-      if (!trimmedLine) {
-        continue;
-      }
-
-      if (!header) {
-        header = parseMinnesotaDliCsvLine(trimmedLine);
-        validateHeader(header);
-        continue;
-      }
-
-      rowNumber += 1;
-      const record = parseMinnesotaDliCsvRow(trimmedLine, header);
-      yield {
-        sourceId: MN_DLI_LICENSES_REGISTRATIONS_SOURCE_ID,
-        sourceUrl: input.sourceUrl,
-        record,
-        rowNumber,
-        fetchedAt,
-        sourceLastModifiedAt: input.sourceLastModifiedAt ?? null,
-        fingerprint: buildFingerprint(record.raw),
-        warnings: buildMinnesotaDliWarnings(record),
-      };
-
-      if (input.limit && rowNumber >= input.limit) {
-        break;
-      }
-  }
+  yield* streamMappedCsvRecords({ ...input, sourceId: MN_DLI_LICENSES_REGISTRATIONS_SOURCE_ID, header: "first_row", validateHeader, mapFields: mapMinnesotaDliFields, rawRecord: (record) => record.raw, warnings: buildMinnesotaDliWarnings });
 }
 
 export async function* streamMinnesotaDliFile(input: {
@@ -60,6 +31,9 @@ export async function* streamMinnesotaDliFile(input: {
   fetchedAt?: string;
   sourceLastModifiedAt?: string | null;
   limit?: number;
+  signal?: AbortSignal;
+  startAfterRow?: number;
+  onError?: (error: AdapterError) => void;
 }): AsyncIterable<RawSourceRecord> {
   if (extname(input.filePath).toLowerCase() !== ".xlsx") {
     yield* streamMinnesotaDliCsvFile(input);
@@ -68,8 +42,11 @@ export async function* streamMinnesotaDliFile(input: {
 
   const fetchedAt = input.fetchedAt ?? new Date().toISOString();
   let header: string[] | null = null;
-  let rowNumber = 0;
+  let physicalRowNumber = 0;
+  let yielded = 0;
   for await (const fields of streamTabularFileRows(input.filePath)) {
+    input.signal?.throwIfAborted();
+    physicalRowNumber += 1;
     if (!header) {
       header = fields;
       validateHeader(header);
@@ -78,19 +55,27 @@ export async function* streamMinnesotaDliFile(input: {
     if (fields.every((value) => value.trim() === "")) {
       continue;
     }
-    rowNumber += 1;
-    const record = mapMinnesotaDliFields(fields, header);
+    if (physicalRowNumber <= (input.startAfterRow ?? 0)) continue;
+    let record: MinnesotaDliRow;
+    try {
+      record = mapMinnesotaDliFields(fields, header);
+    } catch (cause) {
+      if (!input.onError) throw cause;
+      input.onError({ code: "row_parse_failed", message: cause instanceof Error ? cause.message : String(cause), cause, rowNumber: physicalRowNumber });
+      continue;
+    }
     yield {
       sourceId: MN_DLI_LICENSES_REGISTRATIONS_SOURCE_ID,
       sourceUrl: input.sourceUrl,
       record,
-      rowNumber,
+      rowNumber: physicalRowNumber,
       fetchedAt,
       sourceLastModifiedAt: input.sourceLastModifiedAt ?? null,
       fingerprint: buildFingerprint(record.raw),
       warnings: buildMinnesotaDliWarnings(record),
     };
-    if (input.limit && rowNumber >= input.limit) {
+    yielded += 1;
+    if (input.limit && yielded >= input.limit) {
       break;
     }
   }
