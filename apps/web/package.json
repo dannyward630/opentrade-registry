@@ -1,6 +1,6 @@
 {
   "name": "@opentrade-registry/web",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "private": true,
   "type": "module",
   "description": "Hosted status page for OpenTrade Registry source coverage.",

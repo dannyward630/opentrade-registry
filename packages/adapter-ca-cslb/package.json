@@ -1,6 +1,6 @@
 {
   "name": "@opentrade-registry/adapter-ca-cslb",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "type": "module",
   "description": "California CSLB local master-file adapter for OpenTrade Registry.",
   "license": "MIT",

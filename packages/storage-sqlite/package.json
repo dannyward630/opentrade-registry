@@ -1,6 +1,6 @@
 {
   "name": "@opentrade-registry/storage-sqlite",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "type": "module",
   "description": "Driverless SQLite schema and row helpers for storing OpenTrade Registry canonical records.",
   "license": "MIT",

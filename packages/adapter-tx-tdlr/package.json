@@ -1,6 +1,6 @@
 {
   "name": "@opentrade-registry/adapter-tx-tdlr",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "type": "module",
   "description": "Texas TDLR fixture adapter for OpenTrade Registry.",
   "license": "MIT",

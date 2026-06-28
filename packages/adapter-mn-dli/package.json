@@ -1,6 +1,6 @@
 {
   "name": "@opentrade-registry/adapter-mn-dli",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "type": "module",
   "description": "Minnesota DLI local nightly-export adapter for OpenTrade Registry.",
   "license": "MIT",
