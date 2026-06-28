@@ -1,5 +1,5 @@
-import type { CanonicalTradeLicenseRecord, RawSourceRecord, SourceAvailability, TradeLicenseSourceAdapter } from "@opentrade/core";
-import { canonicalTradeLicenseRecordSchema, normalizeLicenseNumber } from "@opentrade/core";
+import type { CanonicalTradeLicenseRecord, RawSourceRecord, SourceAvailability, TradeLicenseSourceAdapter } from "@opentrade-registry/core";
+import { canonicalTradeLicenseRecordSchema, normalizeLicenseNumber } from "@opentrade-registry/core";
 import { WA_LNI_CONTRACTORS_SOURCE_ID, WA_LNI_CONTRACTORS_SOURCE_URL, WA_LNI_SOURCE_ENTRY } from "./constants.js";
 import type { WashingtonLniRow } from "./map.js";
 import { streamWashingtonLniCsvFile } from "./parse.js";

@@ -1,4 +1,4 @@
-import type { SourceRegistryEntry } from "@opentrade/core";
+import type { SourceRegistryEntry } from "@opentrade-registry/core";
 
 export const MN_DLI_LICENSES_REGISTRATIONS_SOURCE_ID = "us.mn.dli.licenses_registrations";
 export const MN_DLI_LICENSES_REGISTRATIONS_SOURCE_URL = "https://secure.doli.state.mn.us/ccld/data/MNDLILicRegCertExport.zip";
@@ -38,7 +38,7 @@ export const MN_DLI_SOURCE_ENTRY: SourceRegistryEntry = {
   sourceDiscoveryStatus: "researched",
   adapterMaturity: "local_file_adapter",
   coverageScope: "state_agency_partial",
-  adapterPackage: "@opentrade/adapter-mn-dli",
+  adapterPackage: "@opentrade-registry/adapter-mn-dli",
   testFixturePath: "packages/adapter-mn-dli/fixtures/licenses-registrations-sample.csv",
   officialLookupUrl: "https://www.dli.mn.gov/license-and-registration-lookup",
   officialBulkDownloadNotes:

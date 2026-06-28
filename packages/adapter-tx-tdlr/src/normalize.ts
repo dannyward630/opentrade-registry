@@ -1,4 +1,4 @@
-import type { AdapterWarning, NormalizedLicenseStatus, TradeCategory } from "@opentrade/core";
+import type { AdapterWarning, NormalizedLicenseStatus, TradeCategory } from "@opentrade-registry/core";
 import type { TexasTdlrRow } from "./map.js";
 
 export type TexasTdlrLicenseRelevance = "trade_relevant" | "possibly_trade_relevant" | "not_trade_relevant" | "unknown";

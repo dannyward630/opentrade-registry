@@ -8,7 +8,7 @@ import {
   sourceRegistryEntrySchema,
   type SourceFilterOptions,
   type SourceRegistryEntry,
-} from "@opentrade/core";
+} from "@opentrade-registry/core";
 
 type CoverageStatus =
   | "not_started"

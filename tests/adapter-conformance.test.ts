@@ -1,14 +1,14 @@
-import { arizonaRocContractorsAdapter } from "@opentrade/adapter-az-roc";
-import { californiaCslbContractorsAdapter } from "@opentrade/adapter-ca-cslb";
-import { floridaDbprConstructionAdapter } from "@opentrade/adapter-fl-dbpr";
-import { minnesotaDliLicensesRegistrationsAdapter } from "@opentrade/adapter-mn-dli";
-import { oregonCcbActiveLicensesAdapter } from "@opentrade/adapter-or-ccb";
-import { texasTdlrAllLicensesAdapter } from "@opentrade/adapter-tx-tdlr";
-import { washingtonLniContractorsAdapter } from "@opentrade/adapter-wa-lni";
+import { arizonaRocContractorsAdapter } from "@opentrade-registry/adapter-az-roc";
+import { californiaCslbContractorsAdapter } from "@opentrade-registry/adapter-ca-cslb";
+import { floridaDbprConstructionAdapter } from "@opentrade-registry/adapter-fl-dbpr";
+import { minnesotaDliLicensesRegistrationsAdapter } from "@opentrade-registry/adapter-mn-dli";
+import { oregonCcbActiveLicensesAdapter } from "@opentrade-registry/adapter-or-ccb";
+import { texasTdlrAllLicensesAdapter } from "@opentrade-registry/adapter-tx-tdlr";
+import { washingtonLniContractorsAdapter } from "@opentrade-registry/adapter-wa-lni";
 import { mkdtemp, readFile, rm, writeFile } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
-import { OpenTradeRegistry } from "@opentrade/registry";
+import { OpenTradeRegistry } from "@opentrade-registry/registry";
 import { describe, expect, it } from "vitest";
 import { expectAdapterConforms, type AdapterConformanceCase } from "./helpers/adapter-conformance.js";
 

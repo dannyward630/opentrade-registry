@@ -1,10 +1,10 @@
 import { isAbsolute, resolve } from "node:path";
-import { type ImportStats, type RemoteSnapshotMetadata, type TradeLicenseSourceAdapter } from "@opentrade/core";
+import { type ImportStats, type RemoteSnapshotMetadata, type TradeLicenseSourceAdapter } from "@opentrade-registry/core";
 import type { SyncFormat } from "./export.js";
 import { writeCanonicalRecords } from "./export.js";
-import { OpenTradeSqliteCache } from "@opentrade/storage-sqlite";
-import type { SqliteImportRun } from "@opentrade/storage-sqlite";
-import { OpenTradeRegistry } from "@opentrade/registry";
+import { OpenTradeSqliteCache } from "@opentrade-registry/storage-sqlite";
+import type { SqliteImportRun } from "@opentrade-registry/storage-sqlite";
+import { OpenTradeRegistry } from "@opentrade-registry/registry";
 
 export type SyncResult = {
   sourceId: string;

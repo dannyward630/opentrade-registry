@@ -1,4 +1,4 @@
-import type { AdapterWarning, NormalizedLicenseStatus, TradeCategory } from "@opentrade/core";
+import type { AdapterWarning, NormalizedLicenseStatus, TradeCategory } from "@opentrade-registry/core";
 import type { IllinoisIdfprRow } from "./map.js";
 
 export type IllinoisIdfprLicenseRelevance = "trade_relevant" | "not_trade_relevant" | "unknown";

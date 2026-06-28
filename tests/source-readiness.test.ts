@@ -11,7 +11,7 @@ import {
   isUnimplementedBulkAdapterCandidate,
   sourceRegistryEntrySchema,
   type SourceRegistryEntry,
-} from "@opentrade/core";
+} from "@opentrade-registry/core";
 
 describe("source readiness helpers", () => {
   it("summarizes implemented sources and unimplemented bulk-shaped candidates", async () => {

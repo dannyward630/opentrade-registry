@@ -1,5 +1,5 @@
 import { extname } from "node:path";
-import { buildFingerprint, parseCsvLine, streamMappedCsvRecords, streamTabularFileRows, type AdapterError, type RawSourceRecord } from "@opentrade/core";
+import { buildFingerprint, parseCsvLine, streamMappedCsvRecords, streamTabularFileRows, type AdapterError, type RawSourceRecord } from "@opentrade-registry/core";
 import { CA_CSLB_CONTRACTORS_SOURCE_ID } from "./constants.js";
 import { CA_CSLB_COLUMNS, mapCaliforniaCslbFields, type CaliforniaCslbRow } from "./map.js";
 import { buildCaliforniaCslbWarnings } from "./normalize.js";

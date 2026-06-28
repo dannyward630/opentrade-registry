@@ -10,8 +10,8 @@ export default defineConfig({
   },
   resolve: {
     alias: {
-      "@opentrade/core": resolve(rootDir, "packages/core/src/index.ts"),
-      "@opentrade/adapter-fl-dbpr": resolve(rootDir, "packages/adapter-fl-dbpr/src/index.ts"),
+      "@opentrade-registry/core": resolve(rootDir, "packages/core/src/index.ts"),
+      "@opentrade-registry/adapter-fl-dbpr": resolve(rootDir, "packages/adapter-fl-dbpr/src/index.ts"),
     },
   },
 });

@@ -1,5 +1,5 @@
 {
-  "name": "@opentrade/adapter-az-roc",
+  "name": "@opentrade-registry/adapter-az-roc",
   "version": "1.0.0",
   "type": "module",
   "description": "Arizona Registrar of Contractors posting-list adapter for OpenTrade Registry.",
@@ -27,5 +27,5 @@
     "build": "tsc -p tsconfig.json",
     "typecheck": "tsc -p tsconfig.json --noEmit"
   },
-  "dependencies": { "@opentrade/core": "workspace:*" }
+  "dependencies": { "@opentrade-registry/core": "workspace:*" }
 }

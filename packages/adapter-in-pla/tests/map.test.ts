@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { buildFingerprint, canonicalTradeLicenseRecordSchema } from "@opentrade/core";
+import { buildFingerprint, canonicalTradeLicenseRecordSchema } from "@opentrade-registry/core";
 import {
   classifyIndianaPlaLicenseRelevance,
   indianaPlaProfessionalLicensesAdapter,

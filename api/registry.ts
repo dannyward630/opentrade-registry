@@ -1,7 +1,7 @@
 import { readFile, readdir } from "node:fs/promises";
 import { join } from "node:path";
 import { createClient } from "@supabase/supabase-js";
-import { buildSourceReadiness, sourceRegistryEntrySchema, type SourceReadiness, type SourceRegistryEntry } from "@opentrade/core";
+import { buildSourceReadiness, sourceRegistryEntrySchema, type SourceReadiness, type SourceRegistryEntry } from "@opentrade-registry/core";
 
 export type SourceApiOrigin = "database" | "registry_files";
 

@@ -2,8 +2,8 @@ import { mkdtemp, readFile, rm } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { describe, expect, it } from "vitest";
-import type { CanonicalTradeLicenseRecord } from "@opentrade/core";
-import { OpenTradeSqliteCache, SQLITE_SCHEMA_VERSION, redactCanonicalRecord } from "@opentrade/storage-sqlite";
+import type { CanonicalTradeLicenseRecord } from "@opentrade-registry/core";
+import { OpenTradeSqliteCache, SQLITE_SCHEMA_VERSION, redactCanonicalRecord } from "@opentrade-registry/storage-sqlite";
 
 describe("OpenTrade SQLite cache", () => {
   it("imports, persists, reopens, and verifies canonical records", async () => {

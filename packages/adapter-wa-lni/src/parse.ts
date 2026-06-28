@@ -1,4 +1,4 @@
-import { parseCsvLine, streamMappedCsvRecords, type AdapterError, type RawSourceRecord } from "@opentrade/core";
+import { parseCsvLine, streamMappedCsvRecords, type AdapterError, type RawSourceRecord } from "@opentrade-registry/core";
 import { WA_LNI_CONTRACTORS_SOURCE_ID } from "./constants.js";
 import { mapWashingtonLniFields, WA_LNI_COLUMNS, type WashingtonLniRow } from "./map.js";
 import { buildWashingtonLniWarnings } from "./normalize.js";

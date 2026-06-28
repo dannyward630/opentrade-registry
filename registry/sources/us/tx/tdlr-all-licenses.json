@@ -38,7 +38,7 @@
   "adapterMaturity": "network_opt_in",
   "adapterQualityLevel": 4,
   "coverageScope": "state_agency_partial",
-  "adapterPackage": "@opentrade/adapter-tx-tdlr",
+  "adapterPackage": "@opentrade-registry/adapter-tx-tdlr",
   "testFixturePath": "packages/adapter-tx-tdlr/fixtures/all-licenses-sample.csv",
   "officialLookupUrl": "https://www.tdlr.texas.gov/verify.htm",
   "officialBulkDownloadNotes": "The Texas Open Data Portal lists downloadable formats for the TDLR All Licenses dataset. The v0.2 adapter uses a tiny hand-authored fixture with the official column shape.",

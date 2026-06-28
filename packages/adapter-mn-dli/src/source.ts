@@ -1,5 +1,5 @@
-import type { CanonicalTradeLicenseRecord, RawSourceRecord, SourceAvailability, TradeLicenseSourceAdapter } from "@opentrade/core";
-import { canonicalTradeLicenseRecordSchema, normalizeLicenseNumber } from "@opentrade/core";
+import type { CanonicalTradeLicenseRecord, RawSourceRecord, SourceAvailability, TradeLicenseSourceAdapter } from "@opentrade-registry/core";
+import { canonicalTradeLicenseRecordSchema, normalizeLicenseNumber } from "@opentrade-registry/core";
 import { MN_DLI_LICENSES_REGISTRATIONS_SOURCE_ID, MN_DLI_LICENSES_REGISTRATIONS_SOURCE_URL, MN_DLI_SOURCE_ENTRY } from "./constants.js";
 import type { MinnesotaDliRow } from "./map.js";
 import { mapMinnesotaDliTradeCategory, normalizeMinnesotaDliStatus } from "./normalize.js";

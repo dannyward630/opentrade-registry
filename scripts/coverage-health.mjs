@@ -148,7 +148,7 @@ async function buildCoverageHealthReport(sourceFiles, states, territories) {
   const adapterPackageMismatches = sources
     .filter((source) => {
       const state = source.jurisdiction?.state?.toLowerCase();
-      return source.adapterPackage && !source.adapterPackage.startsWith(`@opentrade/adapter-${state}-`);
+      return source.adapterPackage && !source.adapterPackage.startsWith(`@opentrade-registry/adapter-${state}-`);
     })
     .map((source) => ({ sourceId: source.id, adapterPackage: source.adapterPackage }))
     .sort((a, b) => a.sourceId.localeCompare(b.sourceId));

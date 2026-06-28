@@ -1,4 +1,4 @@
-import { parseCsvLine, streamMappedCsvRecords, type AdapterError, type RawSourceRecord } from "@opentrade/core";
+import { parseCsvLine, streamMappedCsvRecords, type AdapterError, type RawSourceRecord } from "@opentrade-registry/core";
 import { AK_COMMERCE_CONSTRUCTION_CONTRACTORS_SOURCE_ID } from "./constants.js";
 import { AK_COMMERCE_COLUMNS, mapAlaskaCommerceFields, type AlaskaCommerceRow } from "./map.js";
 import { buildAlaskaCommerceWarnings } from "./normalize.js";

@@ -5,7 +5,7 @@ import { tmpdir } from "node:os";
 import { extname, join } from "node:path";
 import { Readable, Transform } from "node:stream";
 import { pipeline } from "node:stream/promises";
-import type { RemoteSnapshotMetadata } from "@opentrade/core";
+import type { RemoteSnapshotMetadata } from "@opentrade-registry/core";
 
 export type DownloadOptions = {
   allowedHosts: string[];

@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { buildFingerprint, canonicalTradeLicenseRecordSchema, type RawSourceRecord } from "@opentrade/core";
+import { buildFingerprint, canonicalTradeLicenseRecordSchema, type RawSourceRecord } from "@opentrade-registry/core";
 import { CA_CSLB_CONTRACTORS_SOURCE_ID } from "../src/constants.js";
 import { CA_CSLB_COLUMNS, mapCaliforniaCslbFields } from "../src/map.js";
 import { mapCaliforniaCslbTradeCategories, normalizeCaliforniaCslbStatus } from "../src/normalize.js";

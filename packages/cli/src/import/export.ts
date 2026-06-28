@@ -1,7 +1,7 @@
 import { randomUUID } from "node:crypto";
 import { mkdir, rename, rm, writeFile } from "node:fs/promises";
 import { basename, dirname, join } from "node:path";
-import { parseCanonicalTradeLicenseRecord, type CanonicalTradeLicenseRecord } from "@opentrade/core";
+import { parseCanonicalTradeLicenseRecord, type CanonicalTradeLicenseRecord } from "@opentrade-registry/core";
 
 export type SyncFormat = "jsonl" | "csv";
 

@@ -2,7 +2,7 @@
 import { existsSync } from "node:fs";
 import { dirname, join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
-import { SOURCE_RESEARCH_OUTCOMES } from "@opentrade/core";
+import { SOURCE_RESEARCH_OUTCOMES } from "@opentrade-registry/core";
 import { listSources, showSource, showSourceCoverage, showSourceReadiness, type SourceListOptions } from "./commands/sources.js";
 import { syncSource } from "./commands/sync.js";
 import { validateSources } from "./commands/validate.js";

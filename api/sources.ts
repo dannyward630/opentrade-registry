@@ -7,7 +7,7 @@ import {
   SOURCE_RESEARCH_OUTCOMES,
   type SourceFilterOptions,
   type SourceRegistryEntry,
-} from "@opentrade/core";
+} from "@opentrade-registry/core";
 import { applyPublicApiHeaders, withApiVersion } from "./http.js";
 
 export default async function handler(request: ApiRequest, response: ApiResponse) {

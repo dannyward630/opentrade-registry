@@ -4,7 +4,7 @@ import { once } from "node:events";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { describe, expect, it } from "vitest";
-import { floridaDbprConstructionAdapter } from "@opentrade/adapter-fl-dbpr";
+import { floridaDbprConstructionAdapter } from "@opentrade-registry/adapter-fl-dbpr";
 
 describe("large local-file ingestion", () => {
   it("streams 25,000 CSV rows below a 128 MiB heap-growth ceiling", async () => {

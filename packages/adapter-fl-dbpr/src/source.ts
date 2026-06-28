@@ -1,5 +1,5 @@
-import type { CanonicalTradeLicenseRecord, RawSourceRecord, SourceAvailability, TradeLicenseSourceAdapter } from "@opentrade/core";
-import { canonicalTradeLicenseRecordSchema, normalizeLicenseNumber } from "@opentrade/core";
+import type { CanonicalTradeLicenseRecord, RawSourceRecord, SourceAvailability, TradeLicenseSourceAdapter } from "@opentrade-registry/core";
+import { canonicalTradeLicenseRecordSchema, normalizeLicenseNumber } from "@opentrade-registry/core";
 import { FL_DBPR_CONSTRUCTION_SOURCE_ID, FL_DBPR_CONSTRUCTION_SOURCE_URL, FL_DBPR_SOURCE_ENTRY } from "./constants.js";
 import type { DbprConstructionRow } from "./map.js";
 import { streamConstructionCsvFile } from "./parse.js";

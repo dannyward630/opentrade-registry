@@ -1,5 +1,5 @@
 {
-  "name": "@opentrade/adapter-mn-dli",
+  "name": "@opentrade-registry/adapter-mn-dli",
   "version": "1.0.0",
   "type": "module",
   "description": "Minnesota DLI local nightly-export adapter for OpenTrade Registry.",
@@ -45,7 +45,7 @@
     "test": "cd ../.. && corepack pnpm exec vitest run packages/adapter-mn-dli/tests/parse.test.ts packages/adapter-mn-dli/tests/map.test.ts"
   },
   "dependencies": {
-    "@opentrade/core": "workspace:*"
+    "@opentrade-registry/core": "workspace:*"
   },
   "devDependencies": {
     "vitest": "^4.1.9"

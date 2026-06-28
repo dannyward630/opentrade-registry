@@ -2,7 +2,7 @@ import { mkdtemp, readFile, readdir, rm } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { describe, expect, it } from "vitest";
-import type { CanonicalTradeLicenseRecord } from "@opentrade/core";
+import type { CanonicalTradeLicenseRecord } from "@opentrade-registry/core";
 import { toCsv, writeCanonicalRecords } from "../packages/cli/src/import/export.js";
 
 describe("canonical export hardening", () => {

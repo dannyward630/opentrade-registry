@@ -1,5 +1,5 @@
 import { extname } from "node:path";
-import { buildFingerprint, parseCsvLine, streamMappedCsvRecords, streamTabularFileRows, type AdapterError, type RawSourceRecord } from "@opentrade/core";
+import { buildFingerprint, parseCsvLine, streamMappedCsvRecords, streamTabularFileRows, type AdapterError, type RawSourceRecord } from "@opentrade-registry/core";
 import { MN_DLI_LICENSES_REGISTRATIONS_SOURCE_ID } from "./constants.js";
 import { mapMinnesotaDliFields, MN_DLI_COLUMNS, type MinnesotaDliRow } from "./map.js";
 import { buildMinnesotaDliWarnings } from "./normalize.js";

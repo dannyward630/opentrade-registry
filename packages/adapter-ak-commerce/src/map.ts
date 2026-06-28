@@ -1,4 +1,4 @@
-import { buildFingerprint, normalizeLicenseNumber, normalizeText } from "@opentrade/core";
+import { buildFingerprint, normalizeLicenseNumber, normalizeText } from "@opentrade-registry/core";
 
 export const AK_COMMERCE_COLUMNS = [
   "LicenseNumber",

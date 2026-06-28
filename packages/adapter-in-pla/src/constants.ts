@@ -1,4 +1,4 @@
-import type { SourceRegistryEntry } from "@opentrade/core";
+import type { SourceRegistryEntry } from "@opentrade-registry/core";
 
 export const IN_PLA_PROFESSIONAL_LICENSES_SOURCE_ID = "us.in.pla.professional_licenses";
 export const IN_PLA_PROFESSIONAL_LICENSES_SOURCE_URL = "https://mylicense.in.gov/everification/";

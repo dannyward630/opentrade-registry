@@ -7,9 +7,9 @@ import {
   type RawSourceRecord,
   type SourceRegistryEntry,
   type TradeLicenseSourceAdapter,
-} from "@opentrade/core";
+} from "@opentrade-registry/core";
 import { runAdapterSync } from "../packages/cli/src/import/sync-runner.js";
-import { OpenTradeSqliteCache } from "@opentrade/storage-sqlite";
+import { OpenTradeSqliteCache } from "@opentrade-registry/storage-sqlite";
 
 describe("sync runner canonical validation", () => {
   it("skips invalid canonical records and exports valid records", async () => {

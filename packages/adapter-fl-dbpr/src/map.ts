@@ -1,4 +1,4 @@
-import { buildFingerprint, normalizeLicenseDigits, normalizeLicenseNumber, normalizeText } from "@opentrade/core";
+import { buildFingerprint, normalizeLicenseDigits, normalizeLicenseNumber, normalizeText } from "@opentrade-registry/core";
 import { CLASS_LABELS, OCCUPATION_LABELS, PRIMARY_STATUS_LABELS, SECONDARY_STATUS_LABELS } from "./constants.js";
 
 type DbprCsvColumn =

@@ -1,4 +1,4 @@
-import type { SourceRegistryEntry } from "@opentrade/core";
+import type { SourceRegistryEntry } from "@opentrade-registry/core";
 
 export const AK_COMMERCE_CONSTRUCTION_CONTRACTORS_SOURCE_ID = "us.ak.commerce.construction_contractors";
 export const AK_COMMERCE_CONSTRUCTION_CONTRACTORS_SOURCE_URL = "https://www.commerce.alaska.gov/cbp/main/Search/Professional";

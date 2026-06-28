@@ -46,7 +46,7 @@ try {
   run("npm", ["init", "--yes"], smokeDirectory);
   run("npm", ["install", "--ignore-scripts", "--no-audit", "--no-fund", ...tarballs], smokeDirectory);
   const imports = publicPackages
-    .filter(({ manifest }) => manifest.name !== "@opentrade/cli")
+    .filter(({ manifest }) => manifest.name !== "@opentrade-registry/cli")
     .map(({ manifest }) => `await import(${JSON.stringify(manifest.name)});`)
     .join("");
   run(process.execPath, ["--input-type=module", "--eval", imports], smokeDirectory);

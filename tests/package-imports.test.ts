@@ -11,48 +11,48 @@ import {
   parseCsvLine,
   sourceDiscoveryStatusSchema,
   sourceRegistryEntrySchema,
-} from "@opentrade/core";
+} from "@opentrade-registry/core";
 import {
   arizonaRocContractorsAdapter,
   AZ_ROC_CONTRACTORS_SOURCE_ID,
   normalizeArizonaRocStatus,
-} from "@opentrade/adapter-az-roc";
+} from "@opentrade-registry/adapter-az-roc";
 import {
   californiaCslbContractorsAdapter,
   CA_CSLB_CONTRACTORS_SOURCE_ID,
   normalizeCaliforniaCslbStatus,
-} from "@opentrade/adapter-ca-cslb";
+} from "@opentrade-registry/adapter-ca-cslb";
 import {
   FL_DBPR_CONSTRUCTION_SOURCE_ID,
   floridaDbprConstructionAdapter,
   normalizeDbprStatus,
-} from "@opentrade/adapter-fl-dbpr";
+} from "@opentrade-registry/adapter-fl-dbpr";
 import {
   minnesotaDliLicensesRegistrationsAdapter,
   MN_DLI_LICENSES_REGISTRATIONS_SOURCE_ID,
   normalizeMinnesotaDliStatus,
-} from "@opentrade/adapter-mn-dli";
+} from "@opentrade-registry/adapter-mn-dli";
 import {
   normalizeOregonCcbStatus,
   oregonCcbActiveLicensesAdapter,
   OR_CCB_ACTIVE_LICENSES_SOURCE_ID,
-} from "@opentrade/adapter-or-ccb";
+} from "@opentrade-registry/adapter-or-ccb";
 import {
   texasTdlrAllLicensesAdapter,
   TX_TDLR_ALL_LICENSES_SOURCE_ID,
   normalizeTexasTdlrStatus,
-} from "@opentrade/adapter-tx-tdlr";
+} from "@opentrade-registry/adapter-tx-tdlr";
 import {
   normalizeWashingtonLniStatus,
   washingtonLniContractorsAdapter,
   WA_LNI_CONTRACTORS_SOURCE_ID,
-} from "@opentrade/adapter-wa-lni";
+} from "@opentrade-registry/adapter-wa-lni";
 import {
   buildInsertLicenseRecordSql,
   SQLITE_LICENSE_RECORD_TABLE,
   SQLITE_SCHEMA_VERSION,
-} from "@opentrade/storage-sqlite";
-import { OpenTradeRegistry, downloadOfficialSource } from "@opentrade/registry";
+} from "@opentrade-registry/storage-sqlite";
+import { OpenTradeRegistry, downloadOfficialSource } from "@opentrade-registry/registry";
 
 describe("public package imports", () => {
   it("imports stable public APIs from core and the Florida adapter", () => {

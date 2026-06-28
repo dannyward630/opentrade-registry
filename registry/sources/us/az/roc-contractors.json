@@ -28,7 +28,7 @@
   "adapterMaturity": "network_opt_in",
   "adapterQualityLevel": 4,
   "coverageScope": "statewide",
-  "adapterPackage": "@opentrade/adapter-az-roc",
+  "adapterPackage": "@opentrade-registry/adapter-az-roc",
   "testFixturePath": "packages/adapter-az-roc/fixtures/contractor-license-sample.csv",
   "officialLookupUrl": "https://azroc.my.site.com/AZRoc/s/contractor-search",
   "officialBulkDownloadNotes": "The posting-list page publishes a dated CSV of current active contractors. File names change with the posting date, so callers must supply the current official URL explicitly.",

@@ -1,5 +1,5 @@
 {
-  "name": "@opentrade/core",
+  "name": "@opentrade-registry/core",
   "version": "1.0.0",
   "type": "module",
   "description": "Shared schemas, adapter contracts, and normalization helpers for OpenTrade Registry.",

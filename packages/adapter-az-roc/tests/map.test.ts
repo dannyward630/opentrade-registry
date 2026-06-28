@@ -1,4 +1,4 @@
-import { canonicalTradeLicenseRecordSchema } from "@opentrade/core";
+import { canonicalTradeLicenseRecordSchema } from "@opentrade-registry/core";
 import { describe, expect, it } from "vitest";
 import { parseArizonaRocCsvRow } from "../src/parse.js";
 import { mapArizonaRocTradeCategories, normalizeArizonaRocStatus } from "../src/normalize.js";

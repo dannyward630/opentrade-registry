@@ -1,11 +1,11 @@
-import { arizonaRocContractorsAdapter, AZ_ROC_CONTRACTORS_SOURCE_ID } from "@opentrade/adapter-az-roc";
-import { californiaCslbContractorsAdapter, CA_CSLB_CONTRACTORS_SOURCE_ID } from "@opentrade/adapter-ca-cslb";
-import { floridaDbprConstructionAdapter, FL_DBPR_CONSTRUCTION_SOURCE_ID } from "@opentrade/adapter-fl-dbpr";
-import { minnesotaDliLicensesRegistrationsAdapter, MN_DLI_LICENSES_REGISTRATIONS_SOURCE_ID } from "@opentrade/adapter-mn-dli";
-import { oregonCcbActiveLicensesAdapter, OR_CCB_ACTIVE_LICENSES_SOURCE_ID } from "@opentrade/adapter-or-ccb";
-import { texasTdlrAllLicensesAdapter, TX_TDLR_ALL_LICENSES_SOURCE_ID } from "@opentrade/adapter-tx-tdlr";
-import { washingtonLniContractorsAdapter, WA_LNI_CONTRACTORS_SOURCE_ID } from "@opentrade/adapter-wa-lni";
-import type { TradeLicenseSourceAdapter } from "@opentrade/core";
+import { arizonaRocContractorsAdapter, AZ_ROC_CONTRACTORS_SOURCE_ID } from "@opentrade-registry/adapter-az-roc";
+import { californiaCslbContractorsAdapter, CA_CSLB_CONTRACTORS_SOURCE_ID } from "@opentrade-registry/adapter-ca-cslb";
+import { floridaDbprConstructionAdapter, FL_DBPR_CONSTRUCTION_SOURCE_ID } from "@opentrade-registry/adapter-fl-dbpr";
+import { minnesotaDliLicensesRegistrationsAdapter, MN_DLI_LICENSES_REGISTRATIONS_SOURCE_ID } from "@opentrade-registry/adapter-mn-dli";
+import { oregonCcbActiveLicensesAdapter, OR_CCB_ACTIVE_LICENSES_SOURCE_ID } from "@opentrade-registry/adapter-or-ccb";
+import { texasTdlrAllLicensesAdapter, TX_TDLR_ALL_LICENSES_SOURCE_ID } from "@opentrade-registry/adapter-tx-tdlr";
+import { washingtonLniContractorsAdapter, WA_LNI_CONTRACTORS_SOURCE_ID } from "@opentrade-registry/adapter-wa-lni";
+import type { TradeLicenseSourceAdapter } from "@opentrade-registry/core";
 
 const adapters = new Map<string, TradeLicenseSourceAdapter>([
   [AZ_ROC_CONTRACTORS_SOURCE_ID, arizonaRocContractorsAdapter],

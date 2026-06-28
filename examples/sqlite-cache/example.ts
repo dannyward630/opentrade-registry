@@ -1,13 +1,13 @@
 import { readFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import { dirname, resolve } from "node:path";
-import { canonicalTradeLicenseRecordSchema } from "@opentrade/core";
+import { canonicalTradeLicenseRecordSchema } from "@opentrade-registry/core";
 import {
   buildInsertLicenseRecordSql,
   buildInsertLicenseRecordValues,
   SQLITE_SCHEMA_SQL,
   toSqliteLicenseRecordRow,
-} from "@opentrade/storage-sqlite";
+} from "@opentrade-registry/storage-sqlite";
 
 export type SqliteCacheExampleResult = {
   schemaSql: string;

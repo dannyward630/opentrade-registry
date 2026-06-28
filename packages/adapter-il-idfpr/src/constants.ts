@@ -1,4 +1,4 @@
-import type { SourceRegistryEntry } from "@opentrade/core";
+import type { SourceRegistryEntry } from "@opentrade-registry/core";
 
 export const IL_IDFPR_ROOFING_CONTRACTORS_SOURCE_ID = "us.il.idfpr.roofing_contractors";
 export const IL_IDFPR_ROOFING_CONTRACTORS_SOURCE_URL = "https://idfpr.illinois.gov/checklicense.html";

@@ -1,7 +1,7 @@
 import { access, readFile, readdir } from "node:fs/promises";
 import { join, relative } from "node:path";
 import { describe, expect, it } from "vitest";
-import { sourceRegistryEntrySchema, sourceRegistryEntryV1Schema } from "@opentrade/core";
+import { sourceRegistryEntrySchema, sourceRegistryEntryV1Schema } from "@opentrade-registry/core";
 import { listImplementedSourceIds } from "../packages/cli/src/adapters.js";
 
 const coverageStatuses = [
@@ -151,7 +151,7 @@ describe("source registry", () => {
       expect(relativeParts[1], `${entry.id} should be stored under its two-letter state directory`).toBe(state);
       expect(entry.id.startsWith(`us.${state}.`), `${entry.id} should include its jurisdiction state`).toBe(true);
       if (entry.adapterPackage) {
-        expect(entry.adapterPackage.startsWith(`@opentrade/adapter-${state}-`), `${entry.id} has an adapter package that does not include its state code`).toBe(true);
+        expect(entry.adapterPackage.startsWith(`@opentrade-registry/adapter-${state}-`), `${entry.id} has an adapter package that does not include its state code`).toBe(true);
       }
 
       if (!entry.termsUrl) {
