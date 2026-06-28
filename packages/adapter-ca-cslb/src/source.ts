@@ -14,7 +14,7 @@ export const californiaCslbContractorsAdapter: TradeLicenseSourceAdapter = {
     return {
       ok: true,
       checkedAt: new Date().toISOString(),
-      message: "Local fixture adapter is available. Live California CSLB data portal download is not implemented.",
+      message: "Local official-shape CSV/XLSX import is available. Live California CSLB download is not implemented.",
     };
   },
   async *streamRawRecords(options) {
@@ -51,12 +51,12 @@ export function normalizeCaliforniaCslbRecord(raw: RawSourceRecord): CanonicalTr
     agency: CA_CSLB_SOURCE_ENTRY.agency,
     source: {
       sourceUrl: raw.sourceUrl ?? CA_CSLB_CONTRACTORS_SOURCE_URL,
-      sourceType: "bulk_xlsx",
+      sourceType: "bulk_csv",
       fetchedAt: raw.fetchedAt,
       sourceLastModifiedAt: raw.sourceLastModifiedAt ?? undefined,
       redistributionStatus: CA_CSLB_SOURCE_ENTRY.redistributionStatus,
       caveats: [
-        "California CSLB fixture support is based on a tiny hand-authored sample, not the live CSLB master list.",
+        "California CSLB mapping is validated against the official master-license CSV columns; fixture rows remain hand-authored.",
         "CSLB companion files and instant license lookup may contain source details that are not represented by this fixture.",
         "No matching record in this source is not proof that a license does not exist elsewhere.",
         ...(raw.warnings?.map((warning) => warning.message) ?? []),

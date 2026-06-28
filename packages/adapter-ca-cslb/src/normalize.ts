@@ -23,7 +23,7 @@ export function normalizeCaliforniaCslbStatus(row: Pick<CaliforniaCslbRow, "stat
     return { normalized: "inactive", isCurrent: false };
   }
 
-  if (status.includes("ACTIVE")) {
+  if (status.includes("ACTIVE") || status === "CLEAR") {
     if (row.expirationDate && isPastDate(row.expirationDate)) {
       return { normalized: "expired", isCurrent: false };
     }
@@ -121,4 +121,3 @@ function isPastDate(value: string): boolean {
   const dateUtc = Date.UTC(date.getUTCFullYear(), date.getUTCMonth(), date.getUTCDate());
   return dateUtc < todayUtc;
 }
-
