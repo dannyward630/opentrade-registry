@@ -73,6 +73,7 @@ export const licenseAddressSchema = z.object({
 });
 
 export const canonicalTradeLicenseRecordSchema = z.object({
+  schemaVersion: z.literal("1.0").optional(),
   id: z.string().min(1).optional(),
   sourceId: z.string().min(1),
   jurisdiction: z.object({
@@ -154,4 +155,3 @@ export type SourceRedistributionStatus = z.infer<typeof sourceRedistributionStat
 export type LicensePerson = z.infer<typeof licensePersonSchema>;
 export type LicenseAddress = z.infer<typeof licenseAddressSchema>;
 export type CanonicalTradeLicenseRecord = z.infer<typeof canonicalTradeLicenseRecordSchema>;
-

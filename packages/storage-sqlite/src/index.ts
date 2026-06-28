@@ -5,11 +5,12 @@ import initSqlJs, { type Database, type SqlJsStatic } from "sql.js";
 import {
   canonicalTradeLicenseRecordSchema,
   normalizeLicenseNumber,
+  parseCanonicalTradeLicenseRecord,
   type CanonicalTradeLicenseRecord,
   type TradeLicenseVerificationResult,
 } from "@opentrade/core";
 
-export const SQLITE_SCHEMA_VERSION = 3;
+export const SQLITE_SCHEMA_VERSION = 4;
 
 export const SQLITE_IMPORT_RUN_TABLE = "opentrade_import_runs";
 export const SQLITE_LICENSE_RECORD_TABLE = "opentrade_license_records";
@@ -56,6 +57,7 @@ create table if not exists ${SQLITE_IMPORT_RUN_TABLE} (
   output_format text,
   raw_count integer not null default 0,
   normalized_count integer not null default 0,
+  duplicate_count integer not null default 0,
   warning_count integer not null default 0,
   error_count integer not null default 0,
   created_at text not null default (strftime('%Y-%m-%dT%H:%M:%fZ','now'))
@@ -179,6 +181,7 @@ export type SqliteImportRun = {
   lastProcessedRow: number;
   rawRecordCount: number;
   normalizedRecordCount: number;
+  duplicateRecordCount: number;
   warningCount: number;
   errorCount: number;
 };
@@ -189,7 +192,7 @@ export type StartImportRunInput = Pick<SqliteImportRun, "id" | "sourceId" | "sou
 
 export type ImportRunCheckpoint = Pick<
   SqliteImportRun,
-  "lastProcessedRow" | "rawRecordCount" | "normalizedRecordCount" | "warningCount" | "errorCount"
+  "lastProcessedRow" | "rawRecordCount" | "normalizedRecordCount" | "duplicateRecordCount" | "warningCount" | "errorCount"
 >;
 
 export type RedactionOptions = {
@@ -245,12 +248,13 @@ export class OpenTradeSqliteCache {
         addColumnIfMissing(this.database, SQLITE_LICENSE_RECORD_TABLE, "redacted_at", "text");
         this.database.run("delete from opentrade_schema_version");
         this.database.run("insert into opentrade_schema_version(version) values (?)", [SQLITE_SCHEMA_VERSION]);
-      } else if (current === 1 || current === 2) {
+      } else if (current === 1 || current === 2 || current === 3) {
         addColumnIfMissing(this.database, SQLITE_LICENSE_RECORD_TABLE, "retained_until", "text");
         addColumnIfMissing(this.database, SQLITE_LICENSE_RECORD_TABLE, "redacted_at", "text");
         addColumnIfMissing(this.database, SQLITE_IMPORT_RUN_TABLE, "source_sha256", "text");
         addColumnIfMissing(this.database, SQLITE_IMPORT_RUN_TABLE, "status", "text not null default 'running'");
         addColumnIfMissing(this.database, SQLITE_IMPORT_RUN_TABLE, "last_processed_row", "integer not null default 0");
+        addColumnIfMissing(this.database, SQLITE_IMPORT_RUN_TABLE, "duplicate_count", "integer not null default 0");
         this.database.run("update opentrade_schema_version set version = ?", [SQLITE_SCHEMA_VERSION]);
       } else if (current > SQLITE_SCHEMA_VERSION) {
         throw new Error(`SQLite cache schema ${current} is newer than supported schema ${SQLITE_SCHEMA_VERSION}.`);
@@ -307,8 +311,8 @@ export class OpenTradeSqliteCache {
     this.database.run(
       `insert into ${SQLITE_IMPORT_RUN_TABLE} (
         id, source_id, source_url, source_sha256, status, started_at, finished_at,
-        last_processed_row, raw_count, normalized_count, warning_count, error_count
-      ) values (?, ?, ?, ?, 'running', ?, null, 0, 0, 0, 0, 0)
+        last_processed_row, raw_count, normalized_count, duplicate_count, warning_count, error_count
+      ) values (?, ?, ?, ?, 'running', ?, null, 0, 0, 0, 0, 0, 0)
       on conflict(id) do update set
         source_id = excluded.source_id,
         source_url = excluded.source_url,
@@ -319,6 +323,7 @@ export class OpenTradeSqliteCache {
         last_processed_row = 0,
         raw_count = 0,
         normalized_count = 0,
+        duplicate_count = 0,
         warning_count = 0,
         error_count = 0`,
       [input.id, input.sourceId, input.sourceUrl, input.sourceSha256 ?? null, input.startedAt],
@@ -326,15 +331,22 @@ export class OpenTradeSqliteCache {
     this.#dirty = true;
   }
 
+  resumeImportRun(id: string): void {
+    this.database.run(`update ${SQLITE_IMPORT_RUN_TABLE} set status = 'running', finished_at = null where id = ? and status = 'interrupted'`, [id]);
+    if (this.database.getRowsModified() !== 1) throw new Error(`Import run ${id} is not interrupted or does not exist.`);
+    this.#dirty = true;
+  }
+
   checkpointImportRun(id: string, checkpoint: ImportRunCheckpoint): void {
     this.database.run(
       `update ${SQLITE_IMPORT_RUN_TABLE} set
-        last_processed_row = ?, raw_count = ?, normalized_count = ?, warning_count = ?, error_count = ?
+        last_processed_row = ?, raw_count = ?, normalized_count = ?, duplicate_count = ?, warning_count = ?, error_count = ?
       where id = ?`,
       [
         checkpoint.lastProcessedRow,
         checkpoint.rawRecordCount,
         checkpoint.normalizedRecordCount,
+        checkpoint.duplicateRecordCount,
         checkpoint.warningCount,
         checkpoint.errorCount,
         id,
@@ -367,6 +379,7 @@ export class OpenTradeSqliteCache {
       lastProcessedRow: Number(row.last_processed_row),
       rawRecordCount: Number(row.raw_count),
       normalizedRecordCount: Number(row.normalized_count),
+      duplicateRecordCount: Number(row.duplicate_count),
       warningCount: Number(row.warning_count),
       errorCount: Number(row.error_count),
     };
@@ -478,7 +491,7 @@ async function getSqlRuntime(): Promise<SqlJsStatic> {
 }
 
 function rowToCanonicalRecord(row: Record<string, unknown>): CanonicalTradeLicenseRecord {
-  return canonicalTradeLicenseRecordSchema.parse({
+  return parseCanonicalTradeLicenseRecord({
     id: String(row.id),
     sourceId: String(row.source_id),
     jurisdiction: JSON.parse(String(row.jurisdiction_json)),

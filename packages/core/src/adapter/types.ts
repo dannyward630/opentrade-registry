@@ -80,6 +80,7 @@ export type ImportStats = {
   finishedAt?: string;
   rawRecordCount: number;
   normalizedRecordCount: number;
+  duplicateRecordCount: number;
   warningCount: number;
   errorCount: number;
 };
