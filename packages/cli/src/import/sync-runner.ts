@@ -3,6 +3,7 @@ import { type ImportStats, type RemoteSnapshotMetadata, type TradeLicenseSourceA
 import type { SyncFormat } from "./export.js";
 import { writeCanonicalRecords } from "./export.js";
 import { OpenTradeSqliteCache } from "@opentrade/storage-sqlite";
+import type { SqliteImportRun } from "@opentrade/storage-sqlite";
 import { OpenTradeRegistry } from "@opentrade/registry";
 
 export type SyncResult = {
@@ -15,6 +16,7 @@ export type SyncResult = {
   remoteSnapshot?: RemoteSnapshotMetadata;
   warnings: string[];
   errors: SyncRecordError[];
+  importRun?: SqliteImportRun;
 };
 
 export type SyncRecordError = {
@@ -35,6 +37,9 @@ export async function runAdapterSync(input: {
   sourceUrl?: string;
   remoteSnapshot?: RemoteSnapshotMetadata;
   strict?: boolean;
+  resumable?: boolean;
+  checkpointInterval?: number;
+  resumeFromRunId?: string;
 }): Promise<SyncResult> {
   const outputPath = input.outPath ? resolveFromRoot(input.rootDir, input.outPath) : undefined;
   const cachePath = input.cachePath ? resolveFromRoot(input.rootDir, input.cachePath) : undefined;
@@ -54,6 +59,9 @@ export async function runAdapterSync(input: {
       collectRecords: Boolean(outputPath),
       strict: input.strict,
       importRunId: input.remoteSnapshot?.sha256 ?? undefined,
+      resumable: input.resumable,
+      checkpointInterval: input.checkpointInterval,
+      resumeFromRunId: input.resumeFromRunId,
     });
     if (result.status !== "completed") {
       const message = result.errors.find((error) => error.code === "record_normalization_failed")?.message
@@ -74,6 +82,7 @@ export async function runAdapterSync(input: {
       remoteSnapshot: input.remoteSnapshot,
       warnings: result.warnings.map((warning) => warning.message),
       errors: result.errors.map((error) => ({ rowNumber: error.rowNumber, recordFingerprint: error.recordFingerprint, message: error.message })),
+      importRun: result.importRun,
     };
   } finally {
     await cache?.close();

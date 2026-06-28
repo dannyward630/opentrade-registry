@@ -36,6 +36,9 @@ describe("opentrade CLI", () => {
     expect(help).not.toContain("adapter_candidate");
     expect(help).toContain("opentrade sources list [--implemented | --registry-only | --bulk-candidates] [--json]");
     expect(help).toContain("opentrade sync <sourceId> --url <sourceUrl> --allow-network --out <path>");
+    expect(help).toContain("--resumable");
+    expect(help).toContain("--resume-run <importRunId>");
+    expect(help).toContain("--checkpoint-interval <records>");
     expect(help).toContain("opentrade verify --source <sourceId> --url <sourceUrl> --allow-network --license <licenseNumber>");
     expect(help).toContain("adapter maturity");
     expect(help).not.toContain("v0.1 does not download live agency data");
@@ -409,9 +412,17 @@ describe("opentrade CLI", () => {
       expect(syncJson.cachePath).toBe(cachePath);
       expect(syncJson.outputPath).toBeUndefined();
       expect(syncJson.stats.normalizedRecordCount).toBe(5);
+      expect(syncJson.importRun).toMatchObject({
+        sourceId: "us.fl.dbpr.construction",
+        status: "completed",
+        normalizedRecordCount: 5,
+      });
+      expect(syncJson.importRun.sourceSha256).toMatch(/^[a-f0-9]{64}$/);
 
       const matched = runCli(["verify", "--source", "us.fl.dbpr.construction", "--cache", cachePath, "--license", "CGC012345", "--json"]);
-      expect(JSON.parse(matched.stdout).result).toBe("matched");
+      const matchedJson = JSON.parse(matched.stdout);
+      expect(matchedJson.result).toBe("matched");
+      expect(matchedJson.matchedRecord.schemaVersion).toBe("1.0");
       const notFound = runCli(["verify", "--source", "us.fl.dbpr.construction", "--cache", cachePath, "--license", "CGC999999"], 4);
       expect(notFound.stdout).toContain("not_found");
     } finally {
@@ -915,6 +926,7 @@ describe("opentrade CLI", () => {
       ]);
       const json = JSON.parse(matched.stdout);
       expect(json.result).toBe("matched");
+      expect(json.matchedRecord.schemaVersion).toBe("1.0");
       expect(json.matchedRecord.license.licenseNumber).toBe("CGC012345");
       expect(json.matchedRecord.source.sourceUrl).toBe(server.url);
       expect(json.matchedRecord.source.sourceLastModifiedAt).toBe("2026-01-01T00:00:00.000Z");
