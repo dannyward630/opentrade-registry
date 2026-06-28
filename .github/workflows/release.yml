@@ -56,8 +56,18 @@ jobs:
       - name: Publish core
         run: corepack pnpm --filter @opentrade/core publish --access public --provenance --no-git-checks
 
-      - name: Publish adapters and storage
-        run: corepack pnpm --filter './packages/adapter-*' --filter @opentrade/storage-sqlite publish --access public --provenance --no-git-checks
+      - name: Publish supported adapters and storage
+        run: |
+          corepack pnpm \
+            --filter @opentrade/adapter-az-roc \
+            --filter @opentrade/adapter-ca-cslb \
+            --filter @opentrade/adapter-fl-dbpr \
+            --filter @opentrade/adapter-mn-dli \
+            --filter @opentrade/adapter-or-ccb \
+            --filter @opentrade/adapter-tx-tdlr \
+            --filter @opentrade/adapter-wa-lni \
+            --filter @opentrade/storage-sqlite \
+            publish --access public --provenance --no-git-checks
 
       - name: Publish orchestration and CLI
         run: |
