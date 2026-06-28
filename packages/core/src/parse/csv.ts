@@ -1,3 +1,21 @@
+import { streamTextFileLines } from "./lines.js";
+
+export type CsvFileRow = {
+  fields: string[];
+  line: string;
+  rowNumber: number;
+};
+
+export type CsvRowError = {
+  rowNumber: number;
+  message: string;
+};
+
+export type StreamCsvFileRowsOptions = {
+  onError?: (error: CsvRowError) => void;
+  signal?: AbortSignal;
+};
+
 export function parseCsvLine(line: string): string[] {
   const values: string[] = [];
   let current = "";
@@ -45,4 +63,19 @@ export function parseCsvLine(line: string): string[] {
 
   values.push(current);
   return values;
+}
+
+export async function* streamCsvFileRows(filePath: string, options: StreamCsvFileRowsOptions = {}): AsyncIterable<CsvFileRow> {
+  let rowNumber = 0;
+  for await (const line of streamTextFileLines(filePath)) {
+    options.signal?.throwIfAborted();
+    rowNumber += 1;
+    if (!line.trim()) continue;
+    try {
+      yield { fields: parseCsvLine(line.replace(/^\uFEFF/, "")), line, rowNumber };
+    } catch (cause) {
+      if (!options.onError) throw cause;
+      options.onError({ rowNumber, message: cause instanceof Error ? cause.message : String(cause) });
+    }
+  }
 }
