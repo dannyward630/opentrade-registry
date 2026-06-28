@@ -64,6 +64,44 @@ describe("OpenTrade SQLite cache", () => {
     expect(redacted.contact.email).toBeNull();
     expect(redacted.contact.website).toBe("https://example.test");
   });
+
+  it("persists resumable import manifests with snapshot provenance", async () => {
+    const cache = await OpenTradeSqliteCache.open();
+    cache.startImportRun({
+      id: "run-1",
+      sourceId: "test.source",
+      sourceUrl: "https://example.test/source",
+      sourceSha256: "a".repeat(64),
+      startedAt: "2026-06-27T00:00:00.000Z",
+    });
+    cache.checkpointImportRun("run-1", {
+      lastProcessedRow: 250,
+      rawRecordCount: 249,
+      normalizedRecordCount: 248,
+      warningCount: 1,
+      errorCount: 1,
+    });
+    cache.finishImportRun("run-1", {
+      status: "interrupted",
+      finishedAt: "2026-06-27T00:05:00.000Z",
+    });
+
+    expect(cache.getImportRun("run-1")).toEqual({
+      id: "run-1",
+      sourceId: "test.source",
+      sourceUrl: "https://example.test/source",
+      sourceSha256: "a".repeat(64),
+      status: "interrupted",
+      startedAt: "2026-06-27T00:00:00.000Z",
+      finishedAt: "2026-06-27T00:05:00.000Z",
+      lastProcessedRow: 250,
+      rawRecordCount: 249,
+      normalizedRecordCount: 248,
+      warningCount: 1,
+      errorCount: 1,
+    });
+    await cache.close();
+  });
 });
 
 function record(licenseNumber: string, fingerprint: string): CanonicalTradeLicenseRecord {
