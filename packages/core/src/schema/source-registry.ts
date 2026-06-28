@@ -20,7 +20,7 @@ export const sourceBlockerCodeSchema = z.enum([
   "terms",
   "access_controls",
   "no_stable_source",
-  "not_contractor_specific",
+  "scope_mismatch",
   "no_public_records",
   "technical_instability",
   "deprecated_source",

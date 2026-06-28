@@ -7,6 +7,7 @@ import {
   OPENTRADE_SOURCE_REGISTRY_SCHEMA_VERSION,
   parseCanonicalTradeLicenseRecord,
   parseSourceRegistryEntry,
+  sourceBlockerCodeSchema,
   sourceRegistryEntryV1Schema,
 } from "@opentrade/core";
 
@@ -15,6 +16,11 @@ describe("v1 public contracts", () => {
     expect(OPENTRADE_API_VERSION).toBe("1.0");
     expect(OPENTRADE_CANONICAL_SCHEMA_VERSION).toBe("1.0");
     expect(OPENTRADE_SOURCE_REGISTRY_SCHEMA_VERSION).toBe("1.0");
+  });
+
+  it("does not expose provisional research outcomes as blocker codes", () => {
+    expect(sourceBlockerCodeSchema.options).toContain("scope_mismatch");
+    expect(sourceBlockerCodeSchema.options).not.toContain("not_contractor_specific");
   });
 
   it("upgrades an unversioned v0.2 canonical record while preserving provenance", () => {
