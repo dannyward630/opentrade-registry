@@ -1,7 +1,7 @@
-License Number,License Type,Name,Doing Business As,Address Line 1,Address Line 2,City,State,Zip,County,Phone,Status,Issue Date,Expiration Date,Discipline Indicator
-BC000001,Residential Building Contractor,"North Star Builders, LLC",,100 Lake St,,Minneapolis,MN,55401,Hennepin,6125550100,Issued,01/15/2020,12/31/2099,N
-RE000002,Residential Remodeler,"Remodel, Renew & Repair LLC","Renew Co",200 Pine Ave,Suite 2,Saint Paul,MN,55101,Ramsey,6515550100,Expired,02/01/2018,12/31/2020,N
-PL000003,Plumbing Contractor,Clear Water Plumbing,,300 River Rd,,Duluth,MN,55802,St. Louis,2185550100,Suspended,03/10/2019,12/31/2099,Y
-EL000004,Electrical Contractor,Bright North Electric,,400 Circuit Blvd,,Rochester,MN,55901,Olmsted,5075550100,Issued,04/20/2021,12/31/2099,N
-IR000005,Contractor Registration,Independent Repair Services,,500 Rural Route,,Bemidji,MN,56601,Beltrami,2185550111,Issued,05/05/2022,,N
-BC000001,Residential Building Contractor,North Star Builders North,,101 Lake St,,Minneapolis,MN,55401,Hennepin,6125550101,Issued,01/15/2020,12/31/2099,N
+Bus_Pers,License_Type,License_Subtype,Name,DBA_Name,Addr1,Addr2,City,St,Zip,Phone_No,Email_Address,Lic_Number,Status,Orig_Date,Exp_Date,Enforcement_Action,Renewal_in_Progress
+Business,Residential Contractor,Residential Building Contractor,"North Star Builders, LLC",North Star,100 Lake St,,Minneapolis,MN,55401,6125550100,,BC000001,Issued,01/15/2020,12/31/2099,0,
+Business,Residential Contractor,Residential Remodeler,"Remodel, Renew & Repair LLC",Renew Co,200 Pine Ave,Suite 2,Saint Paul,MN,55101,6515550100,,RE000002,EXPIRED,02/01/2018,12/31/2020,0,
+Business,Plumbing,Plumbing Contractor,Clear Water Plumbing,,300 River Rd,,Duluth,MN,55802,2185550100,,PL000003,Suspended,03/10/2019,12/31/2099,Order 2026-01,
+Business,Electrical,Electrical Contractor,Bright North Electric,,400 Circuit Blvd,,Rochester,MN,55901,5075550100,,EL000004,Issued,04/20/2021,12/31/2099,0,
+Business,Registration,Contractor Registration,Independent Repair Services,,500 Rural Route,,Bemidji,MN,56601,2185550111,,IR000005,Issued,05/05/2022,,0,
+Business,Residential Contractor,Residential Building Contractor,North Star Builders North,,101 Lake St,,Minneapolis,MN,55401,6125550101,,BC000001,Issued,01/15/2020,12/31/2099,0,
