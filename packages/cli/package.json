@@ -36,7 +36,7 @@
     "opentrade": "./dist/index.js"
   },
   "scripts": {
-    "build": "tsc -p tsconfig.json",
+    "build": "tsc -p tsconfig.json && node ../../scripts/copy-cli-registry.mjs",
     "typecheck": "tsc -p tsconfig.json --noEmit",
     "cli": "tsx src/index.ts"
   },
