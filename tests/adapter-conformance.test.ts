@@ -1,9 +1,6 @@
-import { alaskaCommerceConstructionContractorsAdapter } from "@opentrade/adapter-ak-commerce";
 import { arizonaRocContractorsAdapter } from "@opentrade/adapter-az-roc";
 import { californiaCslbContractorsAdapter } from "@opentrade/adapter-ca-cslb";
 import { floridaDbprConstructionAdapter } from "@opentrade/adapter-fl-dbpr";
-import { illinoisIdfprRoofingContractorsAdapter } from "@opentrade/adapter-il-idfpr";
-import { indianaPlaProfessionalLicensesAdapter } from "@opentrade/adapter-in-pla";
 import { minnesotaDliLicensesRegistrationsAdapter } from "@opentrade/adapter-mn-dli";
 import { oregonCcbActiveLicensesAdapter } from "@opentrade/adapter-or-ccb";
 import { texasTdlrAllLicensesAdapter } from "@opentrade/adapter-tx-tdlr";
@@ -16,11 +13,6 @@ import { describe, expect, it } from "vitest";
 import { expectAdapterConforms, type AdapterConformanceCase } from "./helpers/adapter-conformance.js";
 
 const adapterCases: AdapterConformanceCase[] = [
-  {
-    adapter: alaskaCommerceConstructionContractorsAdapter,
-    registryPath: "registry/sources/us/ak/commerce-construction-contractors.json",
-    expectedFixtureRecordCount: 6,
-  },
   {
     adapter: arizonaRocContractorsAdapter,
     registryPath: "registry/sources/us/az/roc-contractors.json",
@@ -35,16 +27,6 @@ const adapterCases: AdapterConformanceCase[] = [
     adapter: floridaDbprConstructionAdapter,
     registryPath: "registry/sources/us/fl/dbpr-construction.json",
     expectedFixtureRecordCount: 5,
-  },
-  {
-    adapter: illinoisIdfprRoofingContractorsAdapter,
-    registryPath: "registry/sources/us/il/idfpr-roofing-contractors.json",
-    expectedFixtureRecordCount: 6,
-  },
-  {
-    adapter: indianaPlaProfessionalLicensesAdapter,
-    registryPath: "registry/sources/us/in/pla-professional-licenses.json",
-    expectedFixtureRecordCount: 6,
   },
   {
     adapter: minnesotaDliLicensesRegistrationsAdapter,
@@ -69,12 +51,9 @@ const adapterCases: AdapterConformanceCase[] = [
 ];
 
 const csvFixtures = new Map([
-  [alaskaCommerceConstructionContractorsAdapter.sourceId, "packages/adapter-ak-commerce/fixtures/construction-contractors-sample.csv"],
   [arizonaRocContractorsAdapter.sourceId, "packages/adapter-az-roc/fixtures/contractor-license-sample.csv"],
   [californiaCslbContractorsAdapter.sourceId, "packages/adapter-ca-cslb/fixtures/contractors-master-sample.csv"],
   [floridaDbprConstructionAdapter.sourceId, "packages/adapter-fl-dbpr/fixtures/construction-license-sample.csv"],
-  [illinoisIdfprRoofingContractorsAdapter.sourceId, "packages/adapter-il-idfpr/fixtures/roofing-contractors-sample.csv"],
-  [indianaPlaProfessionalLicensesAdapter.sourceId, "packages/adapter-in-pla/fixtures/professional-licenses-sample.csv"],
   [minnesotaDliLicensesRegistrationsAdapter.sourceId, "packages/adapter-mn-dli/fixtures/licenses-registrations-sample.csv"],
   [oregonCcbActiveLicensesAdapter.sourceId, "packages/adapter-or-ccb/fixtures/active-licenses-sample.csv"],
   [texasTdlrAllLicensesAdapter.sourceId, "packages/adapter-tx-tdlr/fixtures/all-licenses-sample.csv"],

@@ -13,11 +13,6 @@ import {
   sourceRegistryEntrySchema,
 } from "@opentrade/core";
 import {
-  alaskaCommerceConstructionContractorsAdapter,
-  AK_COMMERCE_CONSTRUCTION_CONTRACTORS_SOURCE_ID,
-  normalizeAlaskaCommerceStatus,
-} from "@opentrade/adapter-ak-commerce";
-import {
   arizonaRocContractorsAdapter,
   AZ_ROC_CONTRACTORS_SOURCE_ID,
   normalizeArizonaRocStatus,
@@ -32,16 +27,6 @@ import {
   floridaDbprConstructionAdapter,
   normalizeDbprStatus,
 } from "@opentrade/adapter-fl-dbpr";
-import {
-  illinoisIdfprRoofingContractorsAdapter,
-  IL_IDFPR_ROOFING_CONTRACTORS_SOURCE_ID,
-  normalizeIllinoisIdfprStatus,
-} from "@opentrade/adapter-il-idfpr";
-import {
-  indianaPlaProfessionalLicensesAdapter,
-  IN_PLA_PROFESSIONAL_LICENSES_SOURCE_ID,
-  normalizeIndianaPlaStatus,
-} from "@opentrade/adapter-in-pla";
 import {
   minnesotaDliLicensesRegistrationsAdapter,
   MN_DLI_LICENSES_REGISTRATIONS_SOURCE_ID,
@@ -103,29 +88,15 @@ describe("public package imports", () => {
     });
     expect(typeof isUnimplementedBulkAdapterCandidate).toBe("function");
     expect(typeof getSourceResearchOutcome).toBe("function");
-    expect(AK_COMMERCE_CONSTRUCTION_CONTRACTORS_SOURCE_ID).toBe("us.ak.commerce.construction_contractors");
-    expect(alaskaCommerceConstructionContractorsAdapter.sourceId).toBe("us.ak.commerce.construction_contractors");
     expect(AZ_ROC_CONTRACTORS_SOURCE_ID).toBe("us.az.roc.contractors");
     expect(arizonaRocContractorsAdapter.sourceId).toBe("us.az.roc.contractors");
     expect(normalizeArizonaRocStatus({ status: "Suspended", expirationDate: "2099-12-31T00:00:00.000Z" }).normalized).toBe("suspended");
-    expect(
-      normalizeAlaskaCommerceStatus({
-        status: "Suspended",
-        expirationDate: "2099-12-31T00:00:00.000Z",
-      } as Parameters<typeof normalizeAlaskaCommerceStatus>[0]).normalized,
-    ).toBe("suspended");
     expect(CA_CSLB_CONTRACTORS_SOURCE_ID).toBe("us.ca.cslb.contractors");
     expect(californiaCslbContractorsAdapter.sourceId).toBe("us.ca.cslb.contractors");
     expect(normalizeCaliforniaCslbStatus({ status: "Suspended", expirationDate: "2099-12-31T00:00:00.000Z" }).normalized).toBe("suspended");
     expect(FL_DBPR_CONSTRUCTION_SOURCE_ID).toBe("us.fl.dbpr.construction");
     expect(floridaDbprConstructionAdapter.sourceId).toBe("us.fl.dbpr.construction");
     expect(normalizeDbprStatus({ primaryStatusCode: "S", secondaryStatusCode: "A" }).normalized).toBe("suspended");
-    expect(IL_IDFPR_ROOFING_CONTRACTORS_SOURCE_ID).toBe("us.il.idfpr.roofing_contractors");
-    expect(illinoisIdfprRoofingContractorsAdapter.sourceId).toBe("us.il.idfpr.roofing_contractors");
-    expect(normalizeIllinoisIdfprStatus({ status: "Suspended", expirationDate: "2099-12-31T00:00:00.000Z" } as Parameters<typeof normalizeIllinoisIdfprStatus>[0]).normalized).toBe("suspended");
-    expect(IN_PLA_PROFESSIONAL_LICENSES_SOURCE_ID).toBe("us.in.pla.professional_licenses");
-    expect(indianaPlaProfessionalLicensesAdapter.sourceId).toBe("us.in.pla.professional_licenses");
-    expect(normalizeIndianaPlaStatus({ status: "Suspended", expirationDate: "2099-12-31T00:00:00.000Z" }).normalized).toBe("suspended");
     expect(MN_DLI_LICENSES_REGISTRATIONS_SOURCE_ID).toBe("us.mn.dli.licenses_registrations");
     expect(minnesotaDliLicensesRegistrationsAdapter.sourceId).toBe("us.mn.dli.licenses_registrations");
     expect(normalizeMinnesotaDliStatus({ status: "Issued", expirationDate: "2099-12-31T00:00:00.000Z" }).normalized).toBe("active");
@@ -148,7 +119,7 @@ describe("public package imports", () => {
         expirationDate: "2099-12-31T00:00:00.000Z",
       } as Parameters<typeof normalizeWashingtonLniStatus>[0]).normalized,
     ).toBe("suspended");
-    expect(SQLITE_SCHEMA_VERSION).toBe(2);
+    expect(SQLITE_SCHEMA_VERSION).toBe(4);
     expect(buildInsertLicenseRecordSql()).toContain(`insert into ${SQLITE_LICENSE_RECORD_TABLE}`);
     expect(new OpenTradeRegistry([]).adapters.size).toBe(0);
     expect(typeof downloadOfficialSource).toBe("function");
