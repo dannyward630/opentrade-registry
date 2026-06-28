@@ -4,9 +4,9 @@ Source ID: `us.mn.dli.licenses_registrations`
 
 Current maturity: `local_file_adapter`
 
-The Minnesota Department of Labor and Industry source describes a downloadable spreadsheet for licenses, bonds, certifications, and registrations issued by the Construction Codes and Licensing Division. The adapter accepts local CSV and XLSX snapshots; tests use tiny hand-authored fixtures and do not download the live export.
+The Minnesota Department of Labor and Industry publishes a nightly ZIP archive containing CSV data for licenses, bonds, certifications, and registrations issued by the Construction Codes and Licensing Division. The official CSV header and representative row shape were reviewed on June 28, 2026. The adapter accepts extracted local CSV and XLSX snapshots; tests use tiny hand-authored fixtures.
 
-## Current Fixture Support
+## Current Local-File Support
 
 The adapter can parse and normalize:
 
@@ -52,9 +52,8 @@ No-match wording remains:
 
 > No matching record was found in this source as of the checked time.
 
-## Future Work
+## Operational Limits
 
-- Confirm the exact live XLSX file URL and workbook/column structure.
-- Decide whether XLSX parsing belongs in a shared helper or a source-specific adapter.
-- Keep any live download path opt-in and outside default tests.
+- Download and ZIP extraction remain caller-operated; the adapter consumes the extracted file.
+- Keep any future archive download path opt-in and outside default tests.
 - Revisit redistribution terms before publishing any generated datasets.
