@@ -185,7 +185,7 @@ Default commands do not contact agency sites. Network sync and verification requ
 
 Commands:
   opentrade sources list [--json]
-  opentrade sources list [--state CA] [--maturity registry_only] [--status implemented] [--source-type bulk_csv] [--quality-level 4] [--research-outcome adapter_candidate]
+  opentrade sources list [--state CA] [--maturity network_opt_in] [--status implemented] [--source-type bulk_csv] [--quality-level 4] [--research-outcome network_opt_in]
   opentrade sources list [--implemented | --registry-only | --bulk-candidates] [--json]
   opentrade sources show <sourceId> [--json]
   opentrade sources readiness [--json]

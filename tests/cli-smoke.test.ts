@@ -32,7 +32,8 @@ describe("opentrade CLI", () => {
     expect(help).toContain("opentrade sources readiness [--json]");
     expect(help).toContain("opentrade sources coverage [--json]");
     expect(help).toContain("opentrade sources list [--state CA]");
-    expect(help).toContain("--research-outcome adapter_candidate");
+    expect(help).toContain("--research-outcome network_opt_in");
+    expect(help).not.toContain("adapter_candidate");
     expect(help).toContain("opentrade sources list [--implemented | --registry-only | --bulk-candidates] [--json]");
     expect(help).toContain("opentrade sync <sourceId> --url <sourceUrl> --allow-network --out <path>");
     expect(help).toContain("opentrade verify --source <sourceId> --url <sourceUrl> --allow-network --license <licenseNumber>");
@@ -363,7 +364,8 @@ describe("opentrade CLI", () => {
       const generated = JSON.parse(lines[0]);
       const expected = JSON.parse(readFileSync(expectedJsonl, "utf8"));
       expect(lines).toHaveLength(5);
-      expect(Object.keys(generated).sort()).toEqual(Object.keys(expected).sort());
+      expect(generated.schemaVersion).toBe("1.0");
+      expect(Object.keys(generated).filter((key) => key !== "schemaVersion").sort()).toEqual(Object.keys(expected).sort());
       expect(generated.license.licenseNumber).toBe(expected.license.licenseNumber);
       expect(generated.status.normalized).toBe(expected.status.normalized);
     } finally {

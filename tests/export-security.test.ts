@@ -17,7 +17,9 @@ describe("canonical export hardening", () => {
     const outputPath = join(directory, "records.jsonl");
     try {
       await writeCanonicalRecords({ outputPath, format: "jsonl", records: [record("SAFE")] });
-      expect(JSON.parse((await readFile(outputPath, "utf8")).trim()).license.licenseNumber).toBe("SAFE");
+      const exported = JSON.parse((await readFile(outputPath, "utf8")).trim());
+      expect(exported.schemaVersion).toBe("1.0");
+      expect(exported.license.licenseNumber).toBe("SAFE");
       expect((await readdir(directory)).filter((name) => name.endsWith(".tmp"))).toEqual([]);
     } finally {
       await rm(directory, { recursive: true, force: true });
