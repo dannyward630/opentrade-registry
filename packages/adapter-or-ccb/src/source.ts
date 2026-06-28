@@ -1,5 +1,5 @@
-import type { CanonicalTradeLicenseRecord, RawSourceRecord, SourceAvailability, TradeLicenseSourceAdapter } from "@opentrade/core";
-import { canonicalTradeLicenseRecordSchema, normalizeLicenseNumber } from "@opentrade/core";
+import type { CanonicalTradeLicenseRecord, RawSourceRecord, SourceAvailability, TradeLicenseSourceAdapter } from "@opentrade-registry/core";
+import { canonicalTradeLicenseRecordSchema, normalizeLicenseNumber } from "@opentrade-registry/core";
 import { OR_CCB_ACTIVE_LICENSES_SOURCE_ID, OR_CCB_ACTIVE_LICENSES_SOURCE_URL, OR_CCB_SOURCE_ENTRY } from "./constants.js";
 import type { OregonCcbRow } from "./map.js";
 import { streamOregonCcbCsvFile } from "./parse.js";

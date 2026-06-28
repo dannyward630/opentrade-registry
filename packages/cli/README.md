@@ -1,4 +1,4 @@
-# `@opentrade/cli`
+# `@opentrade-registry/cli`
 
 The `opentrade` CLI lists source decisions, syncs implemented adapters, exports canonical records, manages local SQLite caches, and verifies one normalized license number.
 

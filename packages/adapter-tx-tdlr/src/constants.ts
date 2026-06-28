@@ -1,4 +1,4 @@
-import type { SourceRegistryEntry } from "@opentrade/core";
+import type { SourceRegistryEntry } from "@opentrade-registry/core";
 
 export const TX_TDLR_ALL_LICENSES_SOURCE_ID = "us.tx.tdlr.all_licenses";
 export const TX_TDLR_ALL_LICENSES_SOURCE_URL = "https://data.texas.gov/dataset/TDLR-All-Licenses/7358-krk7";
@@ -39,7 +39,7 @@ export const TX_TDLR_SOURCE_ENTRY: SourceRegistryEntry = {
   adapterMaturity: "network_opt_in",
   adapterQualityLevel: 4,
   coverageScope: "state_agency_partial",
-  adapterPackage: "@opentrade/adapter-tx-tdlr",
+  adapterPackage: "@opentrade-registry/adapter-tx-tdlr",
   testFixturePath: "packages/adapter-tx-tdlr/fixtures/all-licenses-sample.csv",
   officialLookupUrl: "https://www.tdlr.texas.gov/verify.htm",
   officialBulkDownloadNotes: "The Texas Open Data Portal lists downloadable formats for the TDLR All Licenses dataset. The v0.2 adapter uses a tiny hand-authored fixture with the official column shape.",

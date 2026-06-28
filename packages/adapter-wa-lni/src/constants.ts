@@ -1,4 +1,4 @@
-import type { SourceRegistryEntry } from "@opentrade/core";
+import type { SourceRegistryEntry } from "@opentrade-registry/core";
 
 export const WA_LNI_CONTRACTORS_SOURCE_ID = "us.wa.lni.contractors";
 export const WA_LNI_CONTRACTORS_SOURCE_URL = "https://data.wa.gov/Labor/L-I-Contractor-License-Data-General/m8qx-ubtq";
@@ -39,7 +39,7 @@ export const WA_LNI_SOURCE_ENTRY: SourceRegistryEntry = {
   adapterMaturity: "network_opt_in",
   adapterQualityLevel: 4,
   coverageScope: "statewide",
-  adapterPackage: "@opentrade/adapter-wa-lni",
+  adapterPackage: "@opentrade-registry/adapter-wa-lni",
   testFixturePath: "packages/adapter-wa-lni/fixtures/contractor-license-sample.csv",
   officialLookupUrl: "https://secure.lni.wa.gov/verify/",
   officialBulkDownloadNotes: "The Data.WA portal exposes bulk exports and API metadata for this dataset. The adapter fixture is hand-authored from official column names and does not include copied bulk rows.",

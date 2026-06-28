@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import type { CanonicalTradeLicenseRecord } from "@opentrade/core";
+import type { CanonicalTradeLicenseRecord } from "@opentrade-registry/core";
 import {
   buildInsertLicenseRecordSql,
   buildInsertLicenseRecordValues,
@@ -7,9 +7,9 @@ import {
   SQLITE_LICENSE_RECORD_TABLE,
   SQLITE_SCHEMA_SQL,
   toSqliteLicenseRecordRow,
-} from "@opentrade/storage-sqlite";
+} from "@opentrade-registry/storage-sqlite";
 
-describe("@opentrade/storage-sqlite", () => {
+describe("@opentrade-registry/storage-sqlite", () => {
   it("exposes a schema for import runs and canonical license records", () => {
     expect(SQLITE_SCHEMA_SQL).toContain("create table if not exists opentrade_import_runs");
     expect(SQLITE_SCHEMA_SQL).toContain("create table if not exists opentrade_license_records");

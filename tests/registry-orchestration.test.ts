@@ -3,9 +3,9 @@ import { mkdtemp, readFile, rm, writeFile } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { describe, expect, it } from "vitest";
-import { floridaDbprConstructionAdapter } from "@opentrade/adapter-fl-dbpr";
-import { OpenTradeRegistry } from "@opentrade/registry";
-import { OpenTradeSqliteCache } from "@opentrade/storage-sqlite";
+import { floridaDbprConstructionAdapter } from "@opentrade-registry/adapter-fl-dbpr";
+import { OpenTradeRegistry } from "@opentrade-registry/registry";
+import { OpenTradeSqliteCache } from "@opentrade-registry/storage-sqlite";
 
 const fixture = join(process.cwd(), "packages/adapter-fl-dbpr/fixtures/construction-license-sample.csv");
 

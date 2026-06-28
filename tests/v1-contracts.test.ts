@@ -9,7 +9,7 @@ import {
   parseSourceRegistryEntry,
   sourceBlockerCodeSchema,
   sourceRegistryEntryV1Schema,
-} from "@opentrade/core";
+} from "@opentrade-registry/core";
 
 describe("v1 public contracts", () => {
   it("publishes stable contract version identifiers", () => {

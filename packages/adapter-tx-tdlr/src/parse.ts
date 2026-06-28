@@ -1,4 +1,4 @@
-import { parseCsvLine, streamMappedCsvRecords, type AdapterError, type RawSourceRecord } from "@opentrade/core";
+import { parseCsvLine, streamMappedCsvRecords, type AdapterError, type RawSourceRecord } from "@opentrade-registry/core";
 import { TX_TDLR_ALL_LICENSES_SOURCE_ID } from "./constants.js";
 import { mapTexasTdlrFields, TDLR_COLUMNS, type TexasTdlrRow } from "./map.js";
 import { buildTexasTdlrWarnings } from "./normalize.js";

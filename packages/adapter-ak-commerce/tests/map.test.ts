@@ -1,4 +1,4 @@
-import { canonicalTradeLicenseRecordSchema } from "@opentrade/core";
+import { canonicalTradeLicenseRecordSchema } from "@opentrade-registry/core";
 import { describe, expect, it } from "vitest";
 import { mapAlaskaCommerceTradeCategories, normalizeAlaskaCommerceStatus } from "../src/normalize.js";
 import { parseAlaskaCommerceCsvRow } from "../src/parse.js";

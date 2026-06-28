@@ -1,4 +1,4 @@
-import { parseCsvLine, streamMappedCsvRecords, type AdapterError, type RawSourceRecord } from "@opentrade/core";
+import { parseCsvLine, streamMappedCsvRecords, type AdapterError, type RawSourceRecord } from "@opentrade-registry/core";
 import { FL_DBPR_CONSTRUCTION_SOURCE_ID } from "./constants.js";
 import { mapConstructionCsvFields, type DbprConstructionRow } from "./map.js";
 import { buildDbprRecordWarnings } from "./normalize.js";

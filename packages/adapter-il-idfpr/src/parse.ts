@@ -1,4 +1,4 @@
-import { parseCsvLine, streamMappedCsvRecords, type AdapterError, type RawSourceRecord } from "@opentrade/core";
+import { parseCsvLine, streamMappedCsvRecords, type AdapterError, type RawSourceRecord } from "@opentrade-registry/core";
 import { IL_IDFPR_ROOFING_CONTRACTORS_SOURCE_ID } from "./constants.js";
 import { IL_IDFPR_COLUMNS, mapIllinoisIdfprFields, type IllinoisIdfprRow } from "./map.js";
 import { buildIllinoisIdfprWarnings } from "./normalize.js";

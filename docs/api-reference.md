@@ -2,7 +2,7 @@
 
 ## Core
 
-`@opentrade/core` exports schemas, types, normalization helpers, strict CSV parsing, bounded XLSX reading, source filters, readiness summaries, and v1 compatibility identifiers.
+`@opentrade-registry/core` exports schemas, types, normalization helpers, strict CSV parsing, bounded XLSX reading, source filters, readiness summaries, and v1 compatibility identifiers.
 
 ```ts
 import {
@@ -10,7 +10,7 @@ import {
   sourceRegistryEntryV1Schema,
   normalizeLicenseNumber,
   buildFingerprint,
-} from "@opentrade/core";
+} from "@opentrade-registry/core";
 ```
 
 ## Registry Orchestration

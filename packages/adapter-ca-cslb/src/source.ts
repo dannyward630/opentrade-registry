@@ -1,5 +1,5 @@
-import type { CanonicalTradeLicenseRecord, RawSourceRecord, SourceAvailability, TradeLicenseSourceAdapter } from "@opentrade/core";
-import { canonicalTradeLicenseRecordSchema, normalizeLicenseNumber } from "@opentrade/core";
+import type { CanonicalTradeLicenseRecord, RawSourceRecord, SourceAvailability, TradeLicenseSourceAdapter } from "@opentrade-registry/core";
+import { canonicalTradeLicenseRecordSchema, normalizeLicenseNumber } from "@opentrade-registry/core";
 import { CA_CSLB_CONTRACTORS_SOURCE_ID, CA_CSLB_CONTRACTORS_SOURCE_URL, CA_CSLB_SOURCE_ENTRY } from "./constants.js";
 import type { CaliforniaCslbRow } from "./map.js";
 import { mapCaliforniaCslbTradeCategories, normalizeCaliforniaCslbStatus } from "./normalize.js";

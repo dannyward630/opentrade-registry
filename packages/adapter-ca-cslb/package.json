@@ -1,5 +1,5 @@
 {
-  "name": "@opentrade/adapter-ca-cslb",
+  "name": "@opentrade-registry/adapter-ca-cslb",
   "version": "1.0.0",
   "type": "module",
   "description": "California CSLB local master-file adapter for OpenTrade Registry.",
@@ -45,7 +45,7 @@
     "test": "cd ../.. && corepack pnpm exec vitest run packages/adapter-ca-cslb/tests/parse.test.ts packages/adapter-ca-cslb/tests/map.test.ts"
   },
   "dependencies": {
-    "@opentrade/core": "workspace:*"
+    "@opentrade-registry/core": "workspace:*"
   },
   "devDependencies": {
     "vitest": "^4.1.9"

@@ -1,5 +1,5 @@
 {
-  "name": "@opentrade/adapter-or-ccb",
+  "name": "@opentrade-registry/adapter-or-ccb",
   "version": "1.0.0",
   "type": "module",
   "description": "Fixture-first Oregon CCB active-license adapter for OpenTrade Registry.",
@@ -44,6 +44,6 @@
     "typecheck": "tsc -p tsconfig.json --noEmit"
   },
   "dependencies": {
-    "@opentrade/core": "workspace:*"
+    "@opentrade-registry/core": "workspace:*"
   }
 }

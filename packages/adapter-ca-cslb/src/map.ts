@@ -1,4 +1,4 @@
-import { buildFingerprint, normalizeLicenseNumber, normalizeText } from "@opentrade/core";
+import { buildFingerprint, normalizeLicenseNumber, normalizeText } from "@opentrade-registry/core";
 
 export const CA_CSLB_COLUMNS = [
   "LicenseNo",

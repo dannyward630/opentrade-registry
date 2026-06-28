@@ -1,6 +1,6 @@
 import { join } from "node:path";
 import { describe, expect, it } from "vitest";
-import { buildFingerprint, normalizeLicenseDigits, normalizeLicenseNumber } from "@opentrade/core";
+import { buildFingerprint, normalizeLicenseDigits, normalizeLicenseNumber } from "@opentrade-registry/core";
 import { floridaDbprConstructionAdapter } from "../src/source.js";
 
 const fixturePath = join(process.cwd(), "packages", "adapter-fl-dbpr", "fixtures", "construction-license-sample.csv");

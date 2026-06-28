@@ -1,4 +1,4 @@
-import { parseCsvLine, streamMappedCsvRecords, type AdapterError, type RawSourceRecord } from "@opentrade/core";
+import { parseCsvLine, streamMappedCsvRecords, type AdapterError, type RawSourceRecord } from "@opentrade-registry/core";
 import { IN_PLA_PROFESSIONAL_LICENSES_SOURCE_ID } from "./constants.js";
 import { buildIndianaPlaWarnings } from "./normalize.js";
 import { IN_PLA_COLUMNS, mapIndianaPlaFields, type IndianaPlaRow } from "./map.js";

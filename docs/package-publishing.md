@@ -19,7 +19,7 @@ Publish all packages at one version. Workspace dependencies are rewritten during
 After publication:
 
 ```bash
-npm install @opentrade/core @opentrade/registry @opentrade/storage-sqlite @opentrade/cli
+npm install @opentrade-registry/core @opentrade-registry/registry @opentrade-registry/storage-sqlite @opentrade-registry/cli
 npx opentrade help
 ```
 

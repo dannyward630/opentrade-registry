@@ -1,4 +1,4 @@
-import type { SourceRegistryEntry } from "@opentrade/core";
+import type { SourceRegistryEntry } from "@opentrade-registry/core";
 
 export const AZ_ROC_CONTRACTORS_SOURCE_ID = "us.az.roc.contractors";
 export const AZ_ROC_CONTRACTORS_SOURCE_URL = "https://roc.az.gov/posting-list";
@@ -33,7 +33,7 @@ export const AZ_ROC_SOURCE_ENTRY: SourceRegistryEntry = {
   adapterMaturity: "network_opt_in",
   adapterQualityLevel: 4,
   coverageScope: "statewide",
-  adapterPackage: "@opentrade/adapter-az-roc",
+  adapterPackage: "@opentrade-registry/adapter-az-roc",
   testFixturePath: "packages/adapter-az-roc/fixtures/contractor-license-sample.csv",
   officialLookupUrl: "https://azroc.my.site.com/AZRoc/s/contractor-search",
   officialBulkDownloadNotes: "The posting-list page publishes a dated CSV of current active contractors. File names change with the posting date, so callers must supply the current official URL explicitly.",

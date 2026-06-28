@@ -11,8 +11,8 @@ import {
   type TradeLicenseSourceAdapter,
   type TradeLicenseVerificationResult,
   type VerificationWarning,
-} from "@opentrade/core";
-import type { OpenTradeSqliteCache, SqliteImportRun } from "@opentrade/storage-sqlite";
+} from "@opentrade-registry/core";
+import type { OpenTradeSqliteCache, SqliteImportRun } from "@opentrade-registry/storage-sqlite";
 import { downloadOfficialSource, type DownloadOptions, type DownloadedSource } from "./network.js";
 
 export { downloadOfficialSource, type DownloadOptions, type DownloadedSource } from "./network.js";

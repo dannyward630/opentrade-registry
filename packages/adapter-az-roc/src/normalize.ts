@@ -1,4 +1,4 @@
-import type { AdapterWarning, NormalizedLicenseStatus, TradeCategory } from "@opentrade/core";
+import type { AdapterWarning, NormalizedLicenseStatus, TradeCategory } from "@opentrade-registry/core";
 import type { ArizonaRocRow } from "./map.js";
 
 export function normalizeArizonaRocStatus(row: Pick<ArizonaRocRow, "status" | "expirationDate">): { normalized: NormalizedLicenseStatus; isCurrent: boolean | null } {

@@ -1,4 +1,4 @@
-import { canonicalTradeLicenseRecordSchema, normalizeLicenseNumber, type CanonicalTradeLicenseRecord, type RawSourceRecord, type SourceAvailability, type TradeLicenseSourceAdapter } from "@opentrade/core";
+import { canonicalTradeLicenseRecordSchema, normalizeLicenseNumber, type CanonicalTradeLicenseRecord, type RawSourceRecord, type SourceAvailability, type TradeLicenseSourceAdapter } from "@opentrade-registry/core";
 import { AZ_ROC_CONTRACTORS_SOURCE_ID, AZ_ROC_CONTRACTORS_SOURCE_URL, AZ_ROC_SOURCE_ENTRY } from "./constants.js";
 import type { ArizonaRocRow } from "./map.js";
 import { mapArizonaRocTradeCategories, normalizeArizonaRocStatus } from "./normalize.js";

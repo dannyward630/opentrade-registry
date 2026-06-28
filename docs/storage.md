@@ -1,6 +1,6 @@
 # Local SQLite Storage
 
-`@opentrade/storage-sqlite` is the optional local cache for canonical records. It runs on Node 20, 22, and 24 without a native compilation step.
+`@opentrade-registry/storage-sqlite` is the optional local cache for canonical records. It runs on Node 20, 22, and 24 without a native compilation step.
 
 ## Capabilities
 
@@ -20,7 +20,7 @@ The low-level schema and row helpers remain exported for applications that use a
 ## Example
 
 ```ts
-import { OpenTradeSqliteCache } from "@opentrade/storage-sqlite";
+import { OpenTradeSqliteCache } from "@opentrade-registry/storage-sqlite";
 
 const cache = await OpenTradeSqliteCache.open({ filePath: "opentrade.sqlite" });
 cache.importRecords(records, {

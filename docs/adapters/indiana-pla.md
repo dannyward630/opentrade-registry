@@ -5,7 +5,7 @@ Indiana PLA is a terminal blocked source for v1. Official bulk files require acc
 ## Source
 
 - Source ID: `us.in.pla.professional_licenses`
-- Historical package: `@opentrade/adapter-in-pla` (private, not published)
+- Historical package: `@opentrade-registry/adapter-in-pla` (private, not published)
 - Current maturity: `blocked`
 - Current quality level: Level 0
 - Fixture: `packages/adapter-in-pla/fixtures/professional-licenses-sample.csv`

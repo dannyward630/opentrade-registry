@@ -1,5 +1,5 @@
 {
-  "name": "@opentrade/adapter-il-idfpr",
+  "name": "@opentrade-registry/adapter-il-idfpr",
   "private": true,
   "version": "1.0.0",
   "type": "module",
@@ -47,7 +47,7 @@
     "test": "vitest run"
   },
   "dependencies": {
-    "@opentrade/core": "workspace:*"
+    "@opentrade-registry/core": "workspace:*"
   },
   "devDependencies": {
     "vitest": "^4.1.9"

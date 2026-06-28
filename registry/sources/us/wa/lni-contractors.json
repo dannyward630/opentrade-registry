@@ -38,7 +38,7 @@
   "adapterMaturity": "network_opt_in",
   "adapterQualityLevel": 4,
   "coverageScope": "statewide",
-  "adapterPackage": "@opentrade/adapter-wa-lni",
+  "adapterPackage": "@opentrade-registry/adapter-wa-lni",
   "testFixturePath": "packages/adapter-wa-lni/fixtures/contractor-license-sample.csv",
   "officialLookupUrl": "https://secure.lni.wa.gov/verify/",
   "officialBulkDownloadNotes": "The Data.WA portal exposes bulk exports and API metadata for this dataset. The adapter fixture is hand-authored from official column names and does not include copied bulk rows.",

@@ -1,5 +1,5 @@
-import type { CanonicalTradeLicenseRecord, RawSourceRecord, SourceAvailability, TradeLicenseSourceAdapter } from "@opentrade/core";
-import { canonicalTradeLicenseRecordSchema, normalizeLicenseNumber } from "@opentrade/core";
+import type { CanonicalTradeLicenseRecord, RawSourceRecord, SourceAvailability, TradeLicenseSourceAdapter } from "@opentrade-registry/core";
+import { canonicalTradeLicenseRecordSchema, normalizeLicenseNumber } from "@opentrade-registry/core";
 import { IN_PLA_PROFESSIONAL_LICENSES_SOURCE_ID, IN_PLA_PROFESSIONAL_LICENSES_SOURCE_URL, IN_PLA_SOURCE_ENTRY } from "./constants.js";
 import type { IndianaPlaRow } from "./map.js";
 import { mapIndianaPlaTradeCategory, normalizeIndianaPlaStatus } from "./normalize.js";

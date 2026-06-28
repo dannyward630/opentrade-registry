@@ -11,34 +11,34 @@ importers:
 
   .:
     devDependencies:
-      '@opentrade/adapter-az-roc':
+      '@opentrade-registry/adapter-az-roc':
         specifier: workspace:*
         version: link:packages/adapter-az-roc
-      '@opentrade/adapter-ca-cslb':
+      '@opentrade-registry/adapter-ca-cslb':
         specifier: workspace:*
         version: link:packages/adapter-ca-cslb
-      '@opentrade/adapter-fl-dbpr':
+      '@opentrade-registry/adapter-fl-dbpr':
         specifier: workspace:*
         version: link:packages/adapter-fl-dbpr
-      '@opentrade/adapter-mn-dli':
+      '@opentrade-registry/adapter-mn-dli':
         specifier: workspace:*
         version: link:packages/adapter-mn-dli
-      '@opentrade/adapter-or-ccb':
+      '@opentrade-registry/adapter-or-ccb':
         specifier: workspace:*
         version: link:packages/adapter-or-ccb
-      '@opentrade/adapter-tx-tdlr':
+      '@opentrade-registry/adapter-tx-tdlr':
         specifier: workspace:*
         version: link:packages/adapter-tx-tdlr
-      '@opentrade/adapter-wa-lni':
+      '@opentrade-registry/adapter-wa-lni':
         specifier: workspace:*
         version: link:packages/adapter-wa-lni
-      '@opentrade/core':
+      '@opentrade-registry/core':
         specifier: workspace:*
         version: link:packages/core
-      '@opentrade/registry':
+      '@opentrade-registry/registry':
         specifier: workspace:*
         version: link:packages/registry
-      '@opentrade/storage-sqlite':
+      '@opentrade-registry/storage-sqlite':
         specifier: workspace:*
         version: link:packages/storage-sqlite
       '@supabase/supabase-js':
@@ -65,7 +65,7 @@ importers:
 
   apps/web:
     dependencies:
-      '@opentrade/core':
+      '@opentrade-registry/core':
         specifier: workspace:*
         version: link:../../packages/core
     devDependencies:
@@ -78,7 +78,7 @@ importers:
 
   packages/adapter-ak-commerce:
     dependencies:
-      '@opentrade/core':
+      '@opentrade-registry/core':
         specifier: workspace:*
         version: link:../core
     devDependencies:
@@ -88,13 +88,13 @@ importers:
 
   packages/adapter-az-roc:
     dependencies:
-      '@opentrade/core':
+      '@opentrade-registry/core':
         specifier: workspace:*
         version: link:../core
 
   packages/adapter-ca-cslb:
     dependencies:
-      '@opentrade/core':
+      '@opentrade-registry/core':
         specifier: workspace:*
         version: link:../core
     devDependencies:
@@ -104,7 +104,7 @@ importers:
 
   packages/adapter-fl-dbpr:
     dependencies:
-      '@opentrade/core':
+      '@opentrade-registry/core':
         specifier: workspace:*
         version: link:../core
     devDependencies:
@@ -114,7 +114,7 @@ importers:
 
   packages/adapter-il-idfpr:
     dependencies:
-      '@opentrade/core':
+      '@opentrade-registry/core':
         specifier: workspace:*
         version: link:../core
     devDependencies:
@@ -124,7 +124,7 @@ importers:
 
   packages/adapter-in-pla:
     dependencies:
-      '@opentrade/core':
+      '@opentrade-registry/core':
         specifier: workspace:*
         version: link:../core
     devDependencies:
@@ -134,7 +134,7 @@ importers:
 
   packages/adapter-mn-dli:
     dependencies:
-      '@opentrade/core':
+      '@opentrade-registry/core':
         specifier: workspace:*
         version: link:../core
     devDependencies:
@@ -144,13 +144,13 @@ importers:
 
   packages/adapter-or-ccb:
     dependencies:
-      '@opentrade/core':
+      '@opentrade-registry/core':
         specifier: workspace:*
         version: link:../core
 
   packages/adapter-tx-tdlr:
     dependencies:
-      '@opentrade/core':
+      '@opentrade-registry/core':
         specifier: workspace:*
         version: link:../core
     devDependencies:
@@ -160,40 +160,40 @@ importers:
 
   packages/adapter-wa-lni:
     dependencies:
-      '@opentrade/core':
+      '@opentrade-registry/core':
         specifier: workspace:*
         version: link:../core
 
   packages/cli:
     dependencies:
-      '@opentrade/adapter-az-roc':
+      '@opentrade-registry/adapter-az-roc':
         specifier: workspace:*
         version: link:../adapter-az-roc
-      '@opentrade/adapter-ca-cslb':
+      '@opentrade-registry/adapter-ca-cslb':
         specifier: workspace:*
         version: link:../adapter-ca-cslb
-      '@opentrade/adapter-fl-dbpr':
+      '@opentrade-registry/adapter-fl-dbpr':
         specifier: workspace:*
         version: link:../adapter-fl-dbpr
-      '@opentrade/adapter-mn-dli':
+      '@opentrade-registry/adapter-mn-dli':
         specifier: workspace:*
         version: link:../adapter-mn-dli
-      '@opentrade/adapter-or-ccb':
+      '@opentrade-registry/adapter-or-ccb':
         specifier: workspace:*
         version: link:../adapter-or-ccb
-      '@opentrade/adapter-tx-tdlr':
+      '@opentrade-registry/adapter-tx-tdlr':
         specifier: workspace:*
         version: link:../adapter-tx-tdlr
-      '@opentrade/adapter-wa-lni':
+      '@opentrade-registry/adapter-wa-lni':
         specifier: workspace:*
         version: link:../adapter-wa-lni
-      '@opentrade/core':
+      '@opentrade-registry/core':
         specifier: workspace:*
         version: link:../core
-      '@opentrade/registry':
+      '@opentrade-registry/registry':
         specifier: workspace:*
         version: link:../registry
-      '@opentrade/storage-sqlite':
+      '@opentrade-registry/storage-sqlite':
         specifier: workspace:*
         version: link:../storage-sqlite
       zod:
@@ -222,16 +222,16 @@ importers:
 
   packages/registry:
     dependencies:
-      '@opentrade/core':
+      '@opentrade-registry/core':
         specifier: workspace:*
         version: link:../core
-      '@opentrade/storage-sqlite':
+      '@opentrade-registry/storage-sqlite':
         specifier: workspace:*
         version: link:../storage-sqlite
 
   packages/storage-sqlite:
     dependencies:
-      '@opentrade/core':
+      '@opentrade-registry/core':
         specifier: workspace:*
         version: link:../core
       sql.js:

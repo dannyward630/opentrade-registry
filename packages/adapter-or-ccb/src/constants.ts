@@ -1,4 +1,4 @@
-import type { SourceRegistryEntry } from "@opentrade/core";
+import type { SourceRegistryEntry } from "@opentrade-registry/core";
 
 export const OR_CCB_ACTIVE_LICENSES_SOURCE_ID = "us.or.ccb.active_licenses";
 export const OR_CCB_ACTIVE_LICENSES_SOURCE_URL = "https://data.oregon.gov/Business/CCB-Active-Licenses/g77e-6bhs";
@@ -39,7 +39,7 @@ export const OR_CCB_SOURCE_ENTRY: SourceRegistryEntry = {
   adapterMaturity: "network_opt_in",
   adapterQualityLevel: 4,
   coverageScope: "state_agency_partial",
-  adapterPackage: "@opentrade/adapter-or-ccb",
+  adapterPackage: "@opentrade-registry/adapter-or-ccb",
   testFixturePath: "packages/adapter-or-ccb/fixtures/active-licenses-sample.csv",
   officialLookupUrl: "https://search.ccb.state.or.us/search/",
   officialBulkDownloadNotes: "Oregon Open Data exposes the active-license dataset and export metadata. The fixture adapter uses a tiny hand-authored sample with official column names.",

@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { canonicalTradeLicenseRecordSchema } from "@opentrade/core";
+import { canonicalTradeLicenseRecordSchema } from "@opentrade-registry/core";
 import { mapWashingtonLniTradeCategories, normalizeWashingtonLniStatus } from "../src/normalize.js";
 import { parseWashingtonLniCsvRow } from "../src/parse.js";
 import { normalizeWashingtonLniRecord } from "../src/source.js";

@@ -1,4 +1,4 @@
-import { parseCsvLine, streamMappedCsvRecords, type AdapterError, type RawSourceRecord } from "@opentrade/core";
+import { parseCsvLine, streamMappedCsvRecords, type AdapterError, type RawSourceRecord } from "@opentrade-registry/core";
 import { OR_CCB_ACTIVE_LICENSES_SOURCE_ID } from "./constants.js";
 import { mapOregonCcbFields, OR_CCB_COLUMNS, type OregonCcbRow } from "./map.js";
 import { buildOregonCcbWarnings } from "./normalize.js";

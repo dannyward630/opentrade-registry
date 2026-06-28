@@ -1,5 +1,5 @@
 {
-  "name": "@opentrade/web",
+  "name": "@opentrade-registry/web",
   "version": "1.0.0",
   "private": true,
   "type": "module",
@@ -10,7 +10,7 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@opentrade/core": "workspace:*"
+    "@opentrade-registry/core": "workspace:*"
   },
   "devDependencies": {
     "@types/node": "^20.17.14",

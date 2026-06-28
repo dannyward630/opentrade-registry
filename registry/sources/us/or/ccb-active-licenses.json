@@ -38,7 +38,7 @@
   "adapterMaturity": "network_opt_in",
   "adapterQualityLevel": 4,
   "coverageScope": "state_agency_partial",
-  "adapterPackage": "@opentrade/adapter-or-ccb",
+  "adapterPackage": "@opentrade-registry/adapter-or-ccb",
   "testFixturePath": "packages/adapter-or-ccb/fixtures/active-licenses-sample.csv",
   "officialLookupUrl": "https://search.ccb.state.or.us/search/",
   "officialBulkDownloadNotes": "Oregon Open Data exposes the active-license dataset and export metadata. The fixture adapter uses a tiny hand-authored sample with official column names.",

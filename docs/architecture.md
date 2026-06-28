@@ -19,7 +19,7 @@ license query             -> file / cache / explicit URL -> neutral verification
 
 ## Core
 
-`@opentrade/core` owns:
+`@opentrade-registry/core` owns:
 
 - canonical record and source schemas;
 - adapter and verification contracts;
@@ -41,17 +41,17 @@ All implemented v1 adapters satisfy the shared conformance suite and Level 4 ver
 
 ## Orchestration
 
-`@opentrade/registry` owns reusable `sync()` and `verify()` workflows. Callers inject adapters; the package handles local files, SQLite cache verification, explicit network snapshots, stats, warnings, normalization isolation, cancellation, and structured unsupported/blocked results.
+`@opentrade-registry/registry` owns reusable `sync()` and `verify()` workflows. Callers inject adapters; the package handles local files, SQLite cache verification, explicit network snapshots, stats, warnings, normalization isolation, cancellation, and structured unsupported/blocked results.
 
 The hardened downloader validates protocol and declared hosts, follows a bounded redirect chain, limits time and bytes, writes a temporary file, and records URL, fetched time, ETag, Last-Modified, content type, content length, and SHA-256 when available.
 
 ## CLI
 
-`@opentrade/cli` is a thin command surface over registry metadata, adapters, exports, and storage. It owns human/JSON rendering and stable exit codes. It supports local JSONL/CSV exports and cache workflows without requiring network access.
+`@opentrade-registry/cli` is a thin command surface over registry metadata, adapters, exports, and storage. It owns human/JSON rendering and stable exit codes. It supports local JSONL/CSV exports and cache workflows without requiring network access.
 
 ## SQLite
 
-`@opentrade/storage-sqlite` uses a Node-compatible WASM SQLite runtime. It applies versioned migrations, imports records transactionally, persists files atomically, maintains lookup indexes, reconstructs canonical records, and exposes retention/redaction helpers.
+`@opentrade-registry/storage-sqlite` uses a Node-compatible WASM SQLite runtime. It applies versioned migrations, imports records transactionally, persists files atomically, maintains lookup indexes, reconstructs canonical records, and exposes retention/redaction helpers.
 
 SQLite is optional and local. No cache is sent to the hosted service.
 

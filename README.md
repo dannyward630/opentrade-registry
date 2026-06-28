@@ -117,10 +117,14 @@ Network downloads enforce HTTPS, declared official hosts, redirect limits, timeo
 
 ## Programmatic API
 
+```bash
+npm install @opentrade-registry/core @opentrade-registry/registry @opentrade-registry/storage-sqlite
+```
+
 ```ts
-import { floridaDbprConstructionAdapter } from "@opentrade/adapter-fl-dbpr";
-import { OpenTradeRegistry } from "@opentrade/registry";
-import { OpenTradeSqliteCache } from "@opentrade/storage-sqlite";
+import { floridaDbprConstructionAdapter } from "@opentrade-registry/adapter-fl-dbpr";
+import { OpenTradeRegistry } from "@opentrade-registry/registry";
+import { OpenTradeSqliteCache } from "@opentrade-registry/storage-sqlite";
 
 const cache = await OpenTradeSqliteCache.open({ filePath: "opentrade.sqlite" });
 const registry = new OpenTradeRegistry([floridaDbprConstructionAdapter]);
@@ -145,11 +149,11 @@ Public v1 contracts expose explicit schema and API version identifiers. See [Com
 
 ## Architecture
 
-- `@opentrade/core`: canonical schemas, source schema, adapter contracts, normalization, CSV/XLSX helpers, and compatibility identifiers.
-- `@opentrade/registry`: programmatic file/cache/network orchestration and hardened downloads.
-- `@opentrade/storage-sqlite`: versioned local SQLite cache, migrations, indexed verification, retention, and redaction.
-- `@opentrade/cli`: `opentrade` source, sync, export, cache, and verification commands.
-- `@opentrade/adapter-*`: source-specific parsers and canonical mappers.
+- `@opentrade-registry/core`: canonical schemas, source schema, adapter contracts, normalization, CSV/XLSX helpers, and compatibility identifiers.
+- `@opentrade-registry/registry`: programmatic file/cache/network orchestration and hardened downloads.
+- `@opentrade-registry/storage-sqlite`: versioned local SQLite cache, migrations, indexed verification, retention, and redaction.
+- `@opentrade-registry/cli`: `opentrade` source, sync, export, cache, and verification commands.
+- `@opentrade-registry/adapter-*`: source-specific parsers and canonical mappers.
 - `registry/sources`: evidence-backed official-source metadata.
 - `apps/web` and `api`: optional metadata-only status hosting with file fallback and Supabase mirror parity.
 

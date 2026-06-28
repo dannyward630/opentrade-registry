@@ -1,5 +1,5 @@
-import { downloadOfficialSource, type DownloadOptions, type DownloadedSource } from "@opentrade/registry";
-import type { SourceRegistryEntry } from "@opentrade/core";
+import { downloadOfficialSource, type DownloadOptions, type DownloadedSource } from "@opentrade-registry/registry";
+import type { SourceRegistryEntry } from "@opentrade-registry/core";
 
 export type DownloadedSourceFile = DownloadedSource;
 export type DownloadSourceOptions = Omit<DownloadOptions, "allowedHosts"> & { allowedHosts: string[] };

@@ -1,4 +1,4 @@
-import { OPENTRADE_API_VERSION } from "@opentrade/core";
+import { OPENTRADE_API_VERSION } from "@opentrade-registry/core";
 import type { ApiResponse } from "./types.js";
 
 export function applyPublicApiHeaders(response: ApiResponse, options: { health?: boolean } = {}): void {

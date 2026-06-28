@@ -1,4 +1,4 @@
-# `@opentrade/adapter-az-roc`
+# `@opentrade-registry/adapter-az-roc`
 
 Parses Arizona Registrar of Contractors current-contractor posting-list CSV files into the OpenTrade canonical license schema.
 

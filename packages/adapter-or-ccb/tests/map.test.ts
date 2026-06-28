@@ -1,5 +1,5 @@
 import { join } from "node:path";
-import { canonicalTradeLicenseRecordSchema } from "@opentrade/core";
+import { canonicalTradeLicenseRecordSchema } from "@opentrade-registry/core";
 import { describe, expect, it } from "vitest";
 import { oregonCcbActiveLicensesAdapter } from "../src/source.js";
 

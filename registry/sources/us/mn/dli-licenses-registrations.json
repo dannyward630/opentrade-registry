@@ -37,7 +37,7 @@
   "sourceDiscoveryStatus": "researched",
   "adapterMaturity": "local_file_adapter",
   "coverageScope": "state_agency_partial",
-  "adapterPackage": "@opentrade/adapter-mn-dli",
+  "adapterPackage": "@opentrade-registry/adapter-mn-dli",
   "testFixturePath": "packages/adapter-mn-dli/fixtures/licenses-registrations-sample.csv",
   "officialLookupUrl": "https://www.dli.mn.gov/license-and-registration-lookup",
   "officialBulkDownloadNotes": "The official DLI page links a nightly ZIP containing a CSV export. The adapter accepts the extracted local CSV/XLSX shape but does not download or extract the archive.",

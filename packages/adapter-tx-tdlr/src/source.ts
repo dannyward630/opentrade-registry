@@ -1,5 +1,5 @@
-import type { CanonicalTradeLicenseRecord, RawSourceRecord, SourceAvailability, TradeLicenseSourceAdapter } from "@opentrade/core";
-import { canonicalTradeLicenseRecordSchema, normalizeLicenseNumber } from "@opentrade/core";
+import type { CanonicalTradeLicenseRecord, RawSourceRecord, SourceAvailability, TradeLicenseSourceAdapter } from "@opentrade-registry/core";
+import { canonicalTradeLicenseRecordSchema, normalizeLicenseNumber } from "@opentrade-registry/core";
 import { TX_TDLR_ALL_LICENSES_SOURCE_ID, TX_TDLR_ALL_LICENSES_SOURCE_URL, TX_TDLR_SOURCE_ENTRY } from "./constants.js";
 import type { TexasTdlrRow } from "./map.js";
 import { streamTexasTdlrCsvFile } from "./parse.js";

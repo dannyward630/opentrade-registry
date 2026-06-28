@@ -1,5 +1,5 @@
 {
-  "name": "@opentrade/registry",
+  "name": "@opentrade-registry/registry",
   "version": "1.0.0",
   "type": "module",
   "description": "Programmatic sync and verification orchestration for OpenTrade Registry.",
@@ -21,7 +21,7 @@
     "typecheck": "tsc -p tsconfig.json --noEmit"
   },
   "dependencies": {
-    "@opentrade/core": "workspace:*",
-    "@opentrade/storage-sqlite": "workspace:*"
+    "@opentrade-registry/core": "workspace:*",
+    "@opentrade-registry/storage-sqlite": "workspace:*"
   }
 }

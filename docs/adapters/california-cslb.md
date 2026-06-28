@@ -12,7 +12,7 @@ CSLB describes a master list of licensed contractors and companion files for wor
 
 ## Current Local-File Support
 
-- Package: `@opentrade/adapter-ca-cslb`
+- Package: `@opentrade-registry/adapter-ca-cslb`
 - Source ID: `us.ca.cslb.contractors`
 - Fixtures: `packages/adapter-ca-cslb/fixtures/contractors-master-sample.csv` and `.xlsx`
 - Maturity: `local_file_adapter`

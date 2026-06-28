@@ -1,4 +1,4 @@
-import { parseCsvLine, streamMappedCsvRecords, type AdapterError, type RawSourceRecord } from "@opentrade/core";
+import { parseCsvLine, streamMappedCsvRecords, type AdapterError, type RawSourceRecord } from "@opentrade-registry/core";
 import { AZ_ROC_CONTRACTORS_SOURCE_ID } from "./constants.js";
 import { AZ_ROC_COLUMNS, mapArizonaRocFields, type ArizonaRocRow } from "./map.js";
 import { buildArizonaRocWarnings } from "./normalize.js";

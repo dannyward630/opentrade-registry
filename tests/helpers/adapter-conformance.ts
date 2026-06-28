@@ -1,6 +1,6 @@
 import { readFile } from "node:fs/promises";
 import { join } from "node:path";
-import { canonicalTradeLicenseRecordSchema, type TradeLicenseSourceAdapter } from "@opentrade/core";
+import { canonicalTradeLicenseRecordSchema, type TradeLicenseSourceAdapter } from "@opentrade-registry/core";
 import { expect } from "vitest";
 
 export type AdapterConformanceCase = {

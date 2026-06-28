@@ -1,4 +1,4 @@
-import type { SourceRegistryEntry } from "@opentrade/core";
+import type { SourceRegistryEntry } from "@opentrade-registry/core";
 
 export const FL_DBPR_CONSTRUCTION_SOURCE_ID = "us.fl.dbpr.construction";
 
@@ -41,7 +41,7 @@ export const FL_DBPR_SOURCE_ENTRY: SourceRegistryEntry = {
   adapterMaturity: "network_opt_in",
   adapterQualityLevel: 4,
   coverageScope: "state_agency_partial",
-  adapterPackage: "@opentrade/adapter-fl-dbpr",
+  adapterPackage: "@opentrade-registry/adapter-fl-dbpr",
   testFixturePath: "packages/adapter-fl-dbpr/fixtures/construction-license-sample.csv",
   officialLookupUrl: "https://www.myfloridalicense.com/wl11.asp",
   officialBulkDownloadNotes: "The adapter reads local CSV files that match the official DBPR construction-license extract shape. The CLI also supports explicit opt-in URL sync and verification with fetched-time and remote metadata capture.",

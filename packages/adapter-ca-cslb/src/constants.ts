@@ -1,4 +1,4 @@
-import type { SourceRegistryEntry } from "@opentrade/core";
+import type { SourceRegistryEntry } from "@opentrade-registry/core";
 
 export const CA_CSLB_CONTRACTORS_SOURCE_ID = "us.ca.cslb.contractors";
 export const CA_CSLB_CONTRACTORS_SOURCE_URL = "https://cslb.ca.gov/OnlineServices/DataPortal/DownLoadFile.ashx?fName=MasterLicenseData&type=C";
@@ -38,7 +38,7 @@ export const CA_CSLB_SOURCE_ENTRY: SourceRegistryEntry = {
   sourceDiscoveryStatus: "researched",
   adapterMaturity: "local_file_adapter",
   coverageScope: "statewide",
-  adapterPackage: "@opentrade/adapter-ca-cslb",
+  adapterPackage: "@opentrade-registry/adapter-ca-cslb",
   testFixturePath: "packages/adapter-ca-cslb/fixtures/contractors-master-sample.csv",
   officialLookupUrl: "https://www.cslb.ca.gov/onlineservices/checklicenseII/checklicense.aspx",
   officialBulkDownloadNotes: "CSLB provides a direct master-license CSV and separate companion files. The adapter accepts local CSV/XLSX master files but does not download or join companion files.",

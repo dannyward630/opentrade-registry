@@ -1,4 +1,4 @@
-import { buildFingerprint, normalizeLicenseNumber, normalizeText } from "@opentrade/core";
+import { buildFingerprint, normalizeLicenseNumber, normalizeText } from "@opentrade-registry/core";
 
 export const MN_DLI_COLUMNS = [
   "Bus_Pers",

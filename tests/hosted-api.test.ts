@@ -227,7 +227,7 @@ describe("hosted API", () => {
           {
             ...createSourceRow("us.fl.dbpr.construction", "FL"),
             metadata: {
-              adapterPackage: "@opentrade/adapter-fl-dbpr",
+              adapterPackage: "@opentrade-registry/adapter-fl-dbpr",
               officialLookupUrl: "https://www.myfloridalicense.com/wl11.asp",
               publicRecordsNotes: "Legacy partial metadata row.",
             },
@@ -427,7 +427,7 @@ function createSourceRow(id: string, state: string) {
       requiresAccount: false,
       rateLimitNotes: "test rate limit notes",
       publicRecordsNotes: "test public records notes",
-      adapterPackage: `@opentrade/adapter-${state.toLowerCase()}-test`,
+      adapterPackage: `@opentrade-registry/adapter-${state.toLowerCase()}-test`,
       testFixturePath: null,
       officialLookupUrl: "https://example.gov/lookup",
       officialBulkDownloadNotes: "none",

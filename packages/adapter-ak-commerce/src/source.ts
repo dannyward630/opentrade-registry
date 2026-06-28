@@ -1,5 +1,5 @@
-import type { CanonicalTradeLicenseRecord, RawSourceRecord, SourceAvailability, TradeLicenseSourceAdapter } from "@opentrade/core";
-import { canonicalTradeLicenseRecordSchema, normalizeLicenseNumber } from "@opentrade/core";
+import type { CanonicalTradeLicenseRecord, RawSourceRecord, SourceAvailability, TradeLicenseSourceAdapter } from "@opentrade-registry/core";
+import { canonicalTradeLicenseRecordSchema, normalizeLicenseNumber } from "@opentrade-registry/core";
 import {
   AK_COMMERCE_CONSTRUCTION_CONTRACTORS_SOURCE_ID,
   AK_COMMERCE_CONSTRUCTION_CONTRACTORS_SOURCE_URL,

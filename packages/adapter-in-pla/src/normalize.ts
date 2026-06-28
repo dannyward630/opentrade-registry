@@ -1,4 +1,4 @@
-import type { AdapterWarning, NormalizedLicenseStatus, TradeCategory } from "@opentrade/core";
+import type { AdapterWarning, NormalizedLicenseStatus, TradeCategory } from "@opentrade-registry/core";
 import type { IndianaPlaRow } from "./map.js";
 
 export type IndianaPlaLicenseRelevance = "trade_relevant" | "possibly_trade_relevant" | "not_trade_relevant" | "unknown";

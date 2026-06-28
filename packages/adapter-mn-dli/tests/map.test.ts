@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { buildFingerprint, type RawSourceRecord } from "@opentrade/core";
+import { buildFingerprint, type RawSourceRecord } from "@opentrade-registry/core";
 import { MN_DLI_LICENSES_REGISTRATIONS_SOURCE_ID } from "../src/constants.js";
 import { mapMinnesotaDliFields, MN_DLI_COLUMNS } from "../src/map.js";
 import { mapMinnesotaDliTradeCategory, normalizeMinnesotaDliStatus } from "../src/normalize.js";

@@ -1,4 +1,4 @@
-import type { AdapterWarning, NormalizedLicenseStatus, TradeCategory } from "@opentrade/core";
+import type { AdapterWarning, NormalizedLicenseStatus, TradeCategory } from "@opentrade-registry/core";
 import { OCCUPATION_LABELS, PRIMARY_STATUS_LABELS, SECONDARY_STATUS_LABELS } from "./constants.js";
 import type { DbprConstructionRow } from "./map.js";
 

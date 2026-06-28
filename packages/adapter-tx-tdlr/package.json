@@ -1,5 +1,5 @@
 {
-  "name": "@opentrade/adapter-tx-tdlr",
+  "name": "@opentrade-registry/adapter-tx-tdlr",
   "version": "1.0.0",
   "type": "module",
   "description": "Texas TDLR fixture adapter for OpenTrade Registry.",
@@ -45,7 +45,7 @@
     "test": "vitest run tests/**/*.test.ts"
   },
   "dependencies": {
-    "@opentrade/core": "workspace:*"
+    "@opentrade-registry/core": "workspace:*"
   },
   "devDependencies": {
     "vitest": "^4.1.9"

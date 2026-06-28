@@ -8,7 +8,7 @@ import {
   parseCanonicalTradeLicenseRecord,
   type CanonicalTradeLicenseRecord,
   type TradeLicenseVerificationResult,
-} from "@opentrade/core";
+} from "@opentrade-registry/core";
 
 export const SQLITE_SCHEMA_VERSION = 4;
 

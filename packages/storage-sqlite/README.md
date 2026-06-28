@@ -1,4 +1,4 @@
-# @opentrade/storage-sqlite
+# @opentrade-registry/storage-sqlite
 
 Versioned SQLite cache and low-level row helpers for OpenTrade Registry canonical records.
 
@@ -9,7 +9,7 @@ The package includes a Node 20-compatible WASM SQLite runtime. It can create or 
 ```ts
 import {
   OpenTradeSqliteCache,
-} from "@opentrade/storage-sqlite";
+} from "@opentrade-registry/storage-sqlite";
 ```
 
 ## Basic Usage

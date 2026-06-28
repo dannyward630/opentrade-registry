@@ -1,4 +1,4 @@
-import type { AdapterWarning, NormalizedLicenseStatus, TradeCategory } from "@opentrade/core";
+import type { AdapterWarning, NormalizedLicenseStatus, TradeCategory } from "@opentrade-registry/core";
 import type { MinnesotaDliRow } from "./map.js";
 
 export function normalizeMinnesotaDliStatus(row: Pick<MinnesotaDliRow, "status" | "expirationDate">): {

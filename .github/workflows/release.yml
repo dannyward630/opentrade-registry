@@ -54,25 +54,25 @@ jobs:
         run: corepack pnpm release:pack
 
       - name: Publish core
-        run: corepack pnpm --filter @opentrade/core publish --access public --provenance --no-git-checks
+        run: corepack pnpm --filter @opentrade-registry/core publish --access public --provenance --no-git-checks
 
       - name: Publish supported adapters and storage
         run: |
           corepack pnpm \
-            --filter @opentrade/adapter-az-roc \
-            --filter @opentrade/adapter-ca-cslb \
-            --filter @opentrade/adapter-fl-dbpr \
-            --filter @opentrade/adapter-mn-dli \
-            --filter @opentrade/adapter-or-ccb \
-            --filter @opentrade/adapter-tx-tdlr \
-            --filter @opentrade/adapter-wa-lni \
-            --filter @opentrade/storage-sqlite \
+            --filter @opentrade-registry/adapter-az-roc \
+            --filter @opentrade-registry/adapter-ca-cslb \
+            --filter @opentrade-registry/adapter-fl-dbpr \
+            --filter @opentrade-registry/adapter-mn-dli \
+            --filter @opentrade-registry/adapter-or-ccb \
+            --filter @opentrade-registry/adapter-tx-tdlr \
+            --filter @opentrade-registry/adapter-wa-lni \
+            --filter @opentrade-registry/storage-sqlite \
             publish --access public --provenance --no-git-checks
 
       - name: Publish orchestration and CLI
         run: |
-          corepack pnpm --filter @opentrade/registry publish --access public --provenance --no-git-checks
-          corepack pnpm --filter @opentrade/cli publish --access public --provenance --no-git-checks
+          corepack pnpm --filter @opentrade-registry/registry publish --access public --provenance --no-git-checks
+          corepack pnpm --filter @opentrade-registry/cli publish --access public --provenance --no-git-checks
 
       - name: Create GitHub release
         env:

@@ -1,15 +1,15 @@
 import { isAbsolute, resolve } from "node:path";
-import { FL_DBPR_CONSTRUCTION_SOURCE_ID } from "@opentrade/adapter-fl-dbpr";
+import { FL_DBPR_CONSTRUCTION_SOURCE_ID } from "@opentrade-registry/adapter-fl-dbpr";
 import {
   normalizeLicenseNumber,
   parseCanonicalTradeLicenseRecord,
   type CanonicalTradeLicenseRecord,
   type TradeLicenseVerificationResult,
   type VerificationWarning,
-} from "@opentrade/core";
+} from "@opentrade-registry/core";
 import { requireAdapter } from "../adapters.js";
 import { buildAllowedSourceHosts, downloadSourceToTempFile } from "../import/network.js";
-import { OpenTradeSqliteCache } from "@opentrade/storage-sqlite";
+import { OpenTradeSqliteCache } from "@opentrade-registry/storage-sqlite";
 
 export async function verifyLicense(input: {
   rootDir: string;
