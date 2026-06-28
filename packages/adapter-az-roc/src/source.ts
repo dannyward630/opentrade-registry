@@ -10,7 +10,7 @@ export const arizonaRocContractorsAdapter: TradeLicenseSourceAdapter = {
   async checkAvailability(): Promise<SourceAvailability> { return { ok: true, checkedAt: new Date().toISOString(), message: "Local-file parsing is available; network downloads require an explicit current official URL and --allow-network." }; },
   async *streamRawRecords(options) {
     if (!options.filePath) throw new Error("The Arizona ROC adapter requires a local filePath.");
-    yield* streamArizonaRocCsvFile({ filePath: options.filePath, sourceUrl: options.sourceUrl, fetchedAt: options.fetchedAt, sourceLastModifiedAt: options.sourceLastModifiedAt, limit: options.limit });
+    yield* streamArizonaRocCsvFile({ filePath: options.filePath, sourceUrl: options.sourceUrl, fetchedAt: options.fetchedAt, sourceLastModifiedAt: options.sourceLastModifiedAt, limit: options.limit, signal: options.signal, startAfterRow: options.startAfterRow, onError: options.onError });
   },
   async normalize(raw) { return normalizeArizonaRocRecord(raw); },
 };
