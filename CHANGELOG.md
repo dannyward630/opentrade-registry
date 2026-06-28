@@ -2,6 +2,11 @@
 
 All notable changes follow semantic versioning from v1 onward.
 
+## 1.0.1 - 2026-06-28
+
+- Bundled the source registry and U.S. coverage indexes into the published CLI package so registry commands work outside the repository.
+- Extended package verification to execute `sources list` and `sources coverage` from a clean tarball installation.
+
 ## 1.0.0 - 2026-06-28
 
 - Stabilized canonical, source registry, adapter, verification, CLI, and JSON contracts with v1 identifiers and v0.2 compatibility readers.
