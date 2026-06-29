@@ -16,6 +16,12 @@ import type { OpenTradeSqliteCache, SqliteImportRun } from "@opentrade-registry/
 import { downloadOfficialSource, type DownloadOptions, type DownloadedSource } from "./network.js";
 
 export { downloadOfficialSource, type DownloadOptions, type DownloadedSource } from "./network.js";
+export {
+  resolveOfficialSnapshotUrl,
+  type ResolvedOfficialSnapshotUrl,
+  type SnapshotResolutionMethod,
+  type SnapshotResolverOptions,
+} from "./snapshot-resolvers.js";
 
 export type RegistryInput =
   | { mode: "file"; filePath: string; sourceUrl?: string; fetchedAt?: string; sourceLastModifiedAt?: string | null }
