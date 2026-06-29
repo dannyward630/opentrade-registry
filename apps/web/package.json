@@ -3,7 +3,7 @@
   "version": "1.0.1",
   "private": true,
   "type": "module",
-  "description": "Hosted status page for OpenTrade Registry source coverage.",
+  "description": "Released metadata surface and migration host for OpenTrade Registry web APIs.",
   "scripts": {
     "build": "node src/build.mjs",
     "dev": "node src/build.mjs --watch",

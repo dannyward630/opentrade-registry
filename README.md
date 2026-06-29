@@ -12,7 +12,13 @@ OpenTrade Registry is an open-source framework for discovering, importing, norma
 
 It is local-first, provenance-first, source-cited public-records infrastructure. It is not a marketplace, recommendation service, scoring system, or substitute for an official licensing agency.
 
-## v1 Status
+## Released And In Development
+
+The current stable release is [`v1.0.1`](https://github.com/dannyward630/opentrade-registry/releases/tag/v1.0.1). It provides the local-first CLI, programmatic orchestration, SQLite cache, seven supported adapters, and the completed statewide source-decision registry described below.
+
+V2 development is underway as a sequence of focused, compatibility-tested changes. Explicit v2 canonical, source-policy, adapter, and verification contracts are available in source while v1 remains the default emitter until the CLI, storage, and hosted interfaces migrate together. The v2 target is a nationwide search platform with board-specific inventory, automatic official snapshot resolution, versioned record history, privacy-reviewed publication, and structured manual handoffs for protected sources.
+
+## v1 Coverage
 
 OpenTrade Registry v1 tracks `56` official sources covering all 50 states, DC, and five major U.S. territories. Every source has a terminal, evidence-backed outcome:
 
@@ -145,7 +151,7 @@ const result = await registry.verify({
 await cache.close();
 ```
 
-Public v1 contracts expose explicit schema and API version identifiers. See [Compatibility Policy](docs/compatibility-policy.md) and [API Reference](docs/api-reference.md).
+Public contracts expose explicit schema and API version identifiers. See [Compatibility Policy](docs/compatibility-policy.md), [v1 to v2 Migration](docs/migration-v1-to-v2.md), and [API Reference](docs/api-reference.md).
 
 ## Architecture
 
@@ -155,7 +161,7 @@ Public v1 contracts expose explicit schema and API version identifiers. See [Com
 - `@opentrade-registry/cli`: `opentrade` source, sync, export, cache, and verification commands.
 - `@opentrade-registry/adapter-*`: source-specific parsers and canonical mappers.
 - `registry/sources`: evidence-backed official-source metadata.
-- `apps/web` and `api`: optional metadata-only status hosting with file fallback and Supabase mirror parity.
+- `apps/web` and `api`: the released metadata-only hosted surface; v2 replaces it with privacy-reviewed record search and versioned APIs.
 
 The local packages do not require Vercel, Supabase, Postgres, or any hosted service. The hosted layer does not store imported license records.
 
