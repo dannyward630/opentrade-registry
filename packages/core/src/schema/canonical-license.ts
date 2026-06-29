@@ -148,6 +148,41 @@ export const canonicalTradeLicenseRecordSchema = z.object({
   }),
 });
 
+export const recordPublicationDispositionSchema = z.enum([
+  "allowed",
+  "review_required",
+  "restricted",
+  "withheld",
+]);
+
+export const recordSensitivityLevelSchema = z.enum([
+  "business_only",
+  "personal_contact",
+  "sensitive_personal_data",
+  "unknown",
+]);
+
+export const canonicalTradeLicenseRecordV2Schema = canonicalTradeLicenseRecordSchema.extend({
+  schemaVersion: z.literal("2.0"),
+  id: z.string().min(1),
+  recordVersion: z.string().min(1),
+  sourceSnapshotId: z.string().min(1),
+  observedAt: z.string().datetime(),
+  publication: z.object({
+    disposition: recordPublicationDispositionSchema,
+    rawRecordDisposition: recordPublicationDispositionSchema,
+    reviewedAt: z.string().datetime(),
+    notes: z.array(z.string().min(1)).optional(),
+  }),
+  sensitivity: z.object({
+    level: recordSensitivityLevelSchema,
+    containsHomeAddress: z.union([z.boolean(), z.literal("unknown")]),
+    containsPersonalEmail: z.union([z.boolean(), z.literal("unknown")]),
+    containsPersonalPhone: z.union([z.boolean(), z.literal("unknown")]),
+    redactedFields: z.array(z.string().min(1)).optional(),
+  }),
+});
+
 export type TradeCategory = z.infer<typeof tradeCategorySchema>;
 export type NormalizedLicenseStatus = z.infer<typeof normalizedLicenseStatusSchema>;
 export type SourceType = z.infer<typeof sourceTypeSchema>;
@@ -155,3 +190,6 @@ export type SourceRedistributionStatus = z.infer<typeof sourceRedistributionStat
 export type LicensePerson = z.infer<typeof licensePersonSchema>;
 export type LicenseAddress = z.infer<typeof licenseAddressSchema>;
 export type CanonicalTradeLicenseRecord = z.infer<typeof canonicalTradeLicenseRecordSchema>;
+export type RecordPublicationDisposition = z.infer<typeof recordPublicationDispositionSchema>;
+export type RecordSensitivityLevel = z.infer<typeof recordSensitivityLevelSchema>;
+export type CanonicalTradeLicenseRecordV2 = z.infer<typeof canonicalTradeLicenseRecordV2Schema>;

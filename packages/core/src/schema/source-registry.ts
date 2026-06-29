@@ -38,6 +38,68 @@ export const sourceBlockerSchema = z.object({
   evidenceUrls: z.array(z.string().url()).min(1),
 });
 
+export const sourceAutomationModeSchema = z.enum([
+  "bulk",
+  "api",
+  "browser_lookup",
+  "manual_handoff",
+  "blocked",
+  "deprecated",
+]);
+
+export const sourceAccessControlsSchema = z.object({
+  javascript: z.boolean(),
+  captcha: z.boolean(),
+  account: z.boolean(),
+  paywall: z.boolean(),
+  antiBot: z.enum(["not_observed", "present", "unknown"]),
+  notes: z.array(z.string().min(1)).optional(),
+});
+
+export const sourcePublicationPolicySchema = z.object({
+  records: z.enum(["allowed", "review_required", "restricted", "withheld"]),
+  rawRecords: z.enum(["allowed", "review_required", "restricted", "withheld"]),
+  reviewedAt: z.string().datetime(),
+  notes: z.array(z.string().min(1)).optional(),
+});
+
+export const sourcePrivacyPolicySchema = z.object({
+  sensitivity: z.enum(["business_only", "personal_contact_possible", "sensitive_personal_data", "unknown"]),
+  minimizePersonalData: z.boolean(),
+  homeAddressHandling: z.enum(["publish", "redact", "withhold_pending_review", "not_present", "unknown"]),
+  notes: z.array(z.string().min(1)).optional(),
+});
+
+export const sourceRetentionPolicySchema = z.object({
+  snapshots: z.enum(["indefinite", "bounded", "prohibited"]),
+  records: z.enum(["indefinite", "bounded", "prohibited"]),
+  boundedDays: z.number().int().positive().optional(),
+}).superRefine((policy, context) => {
+  if ((policy.snapshots === "bounded" || policy.records === "bounded") && policy.boundedDays === undefined) {
+    context.addIssue({ code: "custom", path: ["boundedDays"], message: "Bounded retention requires boundedDays." });
+  }
+});
+
+export const sourceSynchronizationPolicySchema = z.object({
+  mode: z.enum(["scheduled_opt_in", "manual", "on_demand", "disabled"]),
+  expectedCadence: z.string().min(1).nullable(),
+  requiresExplicitNetworkPermission: z.boolean(),
+});
+
+export const sourceFreshnessPolicySchema = z.object({
+  staleAfterDays: z.number().int().positive(),
+  unavailableAfterDays: z.number().int().positive(),
+}).refine((policy) => policy.unavailableAfterDays >= policy.staleAfterDays, {
+  message: "unavailableAfterDays must be greater than or equal to staleAfterDays.",
+  path: ["unavailableAfterDays"],
+});
+
+export const sourceHealthPolicySchema = z.object({
+  minimumRecordCount: z.number().int().nonnegative().optional(),
+  maximumCountDeltaRatio: z.number().min(0).max(1).optional(),
+  requiredFields: z.array(z.string().min(1)).optional(),
+});
+
 export const sourceRegistryEntrySchema = z.object({
   schemaVersion: z.literal("1.0").optional(),
   id: z.string().min(1),
@@ -124,6 +186,42 @@ export const sourceRegistryEntryV1Schema = sourceRegistryEntrySchema
     }
   });
 
+export const sourceRegistryEntryV2Schema = sourceRegistryEntrySchema
+  .omit({ schemaVersion: true })
+  .extend({
+    schemaVersion: z.literal("2.0"),
+    sourceResearchOutcome: sourceResearchOutcomeSchema,
+    researchReviewedAt: z.string().datetime(),
+    nextReviewAt: z.string().datetime(),
+    researchEvidence: z.array(sourceResearchEvidenceSchema).min(1),
+    automationMode: sourceAutomationModeSchema,
+    allowedSourceHosts: z.array(z.string().min(1).regex(
+      /^(?=.{1,253}$)(?:[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?\.)*[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?$/i,
+      "Expected a hostname without a scheme or path.",
+    )).min(1),
+    accessControls: sourceAccessControlsSchema,
+    publicationPolicy: sourcePublicationPolicySchema,
+    privacyPolicy: sourcePrivacyPolicySchema,
+    retentionPolicy: sourceRetentionPolicySchema,
+    synchronizationPolicy: sourceSynchronizationPolicySchema,
+    freshnessPolicy: sourceFreshnessPolicySchema,
+    healthPolicy: sourceHealthPolicySchema,
+  })
+  .superRefine((entry, context) => {
+    if (entry.knownExclusions.length === 0) {
+      context.addIssue({ code: "custom", path: ["knownExclusions"], message: "v2 sources must document coverage limitations." });
+    }
+    if ((entry.sourceResearchOutcome === "blocked" || entry.sourceResearchOutcome === "deprecated") && !entry.blocker) {
+      context.addIssue({ code: "custom", path: ["blocker"], message: "Blocked and deprecated sources require structured blocker evidence." });
+    }
+    if (!["blocked", "deprecated"].includes(entry.sourceResearchOutcome) && entry.blocker) {
+      context.addIssue({ code: "custom", path: ["blocker"], message: "Implemented terminal outcomes cannot include a blocker." });
+    }
+    if (entry.automationMode === "blocked" && entry.sourceResearchOutcome !== "blocked") {
+      context.addIssue({ code: "custom", path: ["automationMode"], message: "Blocked automation requires a blocked research outcome." });
+    }
+  });
+
 const terminalOutcomeState = {
   production_ready: { adapterStatus: "implemented", adapterMaturity: "production_ready" },
   network_opt_in: { adapterStatus: "implemented", adapterMaturity: "network_opt_in" },
@@ -142,3 +240,12 @@ export type SourceBlockerCode = z.infer<typeof sourceBlockerCodeSchema>;
 export type SourceResearchEvidence = z.infer<typeof sourceResearchEvidenceSchema>;
 export type SourceBlocker = z.infer<typeof sourceBlockerSchema>;
 export type SourceRegistryEntryV1 = z.infer<typeof sourceRegistryEntryV1Schema>;
+export type SourceAutomationMode = z.infer<typeof sourceAutomationModeSchema>;
+export type SourceAccessControls = z.infer<typeof sourceAccessControlsSchema>;
+export type SourcePublicationPolicy = z.infer<typeof sourcePublicationPolicySchema>;
+export type SourcePrivacyPolicy = z.infer<typeof sourcePrivacyPolicySchema>;
+export type SourceRetentionPolicy = z.infer<typeof sourceRetentionPolicySchema>;
+export type SourceSynchronizationPolicy = z.infer<typeof sourceSynchronizationPolicySchema>;
+export type SourceFreshnessPolicy = z.infer<typeof sourceFreshnessPolicySchema>;
+export type SourceHealthPolicy = z.infer<typeof sourceHealthPolicySchema>;
+export type SourceRegistryEntryV2 = z.infer<typeof sourceRegistryEntryV2Schema>;
