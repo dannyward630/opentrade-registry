@@ -1,9 +1,56 @@
 import { describe, expect, it } from "vitest";
-import { sourceRegistryEntryV2Schema } from "@opentrade-registry/core";
+import {
+  migrateSourceRegistryEntryV1ToV2,
+  parseSourceRegistryEntryV2,
+  sourceRegistryEntryV2Schema,
+} from "@opentrade-registry/core";
 
 describe("v2 source contracts", () => {
   it("requires operational and access policies", () => {
-    const result = sourceRegistryEntryV2Schema.safeParse({
+    const result = sourceRegistryEntryV2Schema.safeParse(v2Source());
+    expect(result.success).toBe(true);
+  });
+
+  it("rejects URL-shaped allowlist entries", () => {
+    expect(sourceRegistryEntryV2Schema.safeParse({
+      ...v2Source(),
+      allowedSourceHosts: ["https://data.example.gov/path"],
+    }).success).toBe(false);
+  });
+
+  it("migrates a reviewed v1 source with explicit v2 policies", () => {
+    const source = v2Source();
+    const {
+      schemaVersion: _schemaVersion,
+      automationMode,
+      allowedSourceHosts,
+      accessControls,
+      publicationPolicy,
+      privacyPolicy,
+      retentionPolicy,
+      synchronizationPolicy,
+      freshnessPolicy,
+      healthPolicy,
+      ...v1Source
+    } = source;
+    const migrated = migrateSourceRegistryEntryV1ToV2({ ...v1Source, schemaVersion: "1.0" }, {
+      automationMode,
+      allowedSourceHosts,
+      accessControls,
+      publicationPolicy,
+      privacyPolicy,
+      retentionPolicy,
+      synchronizationPolicy,
+      freshnessPolicy,
+      healthPolicy,
+    });
+    expect(migrated.schemaVersion).toBe("2.0");
+    expect(parseSourceRegistryEntryV2(migrated)).toEqual(migrated);
+  });
+});
+
+function v2Source() {
+  return {
       schemaVersion: "2.0",
       id: "us.fl.example.contractors",
       name: "Example Contractor Licenses",
@@ -60,7 +107,5 @@ describe("v2 source contracts", () => {
       },
       freshnessPolicy: { staleAfterDays: 45, unavailableAfterDays: 120 },
       healthPolicy: { minimumRecordCount: 1, maximumCountDeltaRatio: 0.5 },
-    });
-    expect(result.success).toBe(true);
-  });
-});
+    } as const;
+}
