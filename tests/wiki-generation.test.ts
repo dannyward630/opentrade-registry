@@ -1,4 +1,4 @@
-import { readFileSync, readdirSync, rmSync } from "node:fs";
+import { readFileSync, readdirSync, rmSync, statSync } from "node:fs";
 import { join } from "node:path";
 import { spawnSync } from "node:child_process";
 import { afterAll, describe, expect, it } from "vitest";
@@ -18,10 +18,11 @@ describe("GitHub Wiki generation", () => {
 
     expect(result.status).toBe(0);
     expect(result.stderr).toBe("");
-    expect(result.stdout).toContain("Generated 34 wiki pages");
+    const expectedPageCount = countMarkdownFiles(join(process.cwd(), "docs")) + 1;
+    expect(result.stdout).toContain(`Generated ${expectedPageCount} wiki pages`);
 
     const pages = readdirSync(outputDirectory).filter((file) => file.endsWith(".md")).sort();
-    expect(pages).toHaveLength(34);
+    expect(pages).toHaveLength(expectedPageCount);
     expect(pages).toContain("Home.md");
     expect(pages).toContain("adapters--arizona-roc.md");
 
@@ -33,3 +34,10 @@ describe("GitHub Wiki generation", () => {
     expect(architecture).toContain("https://github.com/dannyward630/opentrade-registry/blob/main/docs/architecture.md");
   });
 });
+
+function countMarkdownFiles(directory: string): number {
+  return readdirSync(directory).reduce((count, entry) => {
+    const path = join(directory, entry);
+    return count + (statSync(path).isDirectory() ? countMarkdownFiles(path) : entry.endsWith(".md") ? 1 : 0);
+  }, 0);
+}
