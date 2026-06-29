@@ -14,12 +14,12 @@ export const texasTdlrAllLicensesAdapter: TradeLicenseSourceAdapter = {
     return {
       ok: true,
       checkedAt: new Date().toISOString(),
-      message: "Local-file fixture adapter is available. Live Texas Open Data download is not implemented in v0.2.",
+      message: "Official-shape CSV parsing is available; registry orchestration owns explicit network retrieval.",
     };
   },
   async *streamRawRecords(options) {
     if (!options.filePath) {
-      throw new Error("The Texas TDLR v0.2 adapter requires a local filePath.");
+      throw new Error("The Texas TDLR adapter requires a local filePath.");
     }
 
     yield* streamTexasTdlrCsvFile({

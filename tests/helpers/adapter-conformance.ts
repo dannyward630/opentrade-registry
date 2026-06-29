@@ -24,6 +24,7 @@ export async function expectAdapterConforms(input: AdapterConformanceCase): Prom
   const availability = await input.adapter.checkAvailability();
   expect(availability.ok).toBe(true);
   expect(availability.checkedAt).toMatch(/^\d{4}-\d{2}-\d{2}T/);
+  expect(availability.message).not.toMatch(/v0\.2|fixture adapter/i);
 
   const rawRecords = [];
   for await (const rawRecord of input.adapter.streamRawRecords({

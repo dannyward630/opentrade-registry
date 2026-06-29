@@ -14,7 +14,7 @@ export const washingtonLniContractorsAdapter: TradeLicenseSourceAdapter = {
     return {
       ok: true,
       checkedAt: new Date().toISOString(),
-      message: "Local-file fixture adapter is available. Live Washington Data.WA download is not implemented in this adapter.",
+      message: "Official-shape CSV parsing is available; registry orchestration owns explicit network retrieval.",
     };
   },
   async *streamRawRecords(options) {

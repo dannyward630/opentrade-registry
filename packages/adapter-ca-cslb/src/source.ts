@@ -14,12 +14,12 @@ export const californiaCslbContractorsAdapter: TradeLicenseSourceAdapter = {
     return {
       ok: true,
       checkedAt: new Date().toISOString(),
-      message: "Local official-shape CSV/XLSX import is available. Live California CSLB download is not implemented.",
+      message: "Official-shape CSV/XLSX import is available; callers retain control of source acquisition and provenance.",
     };
   },
   async *streamRawRecords(options) {
     if (!options.filePath) {
-      throw new Error("The California CSLB fixture adapter requires a local filePath.");
+      throw new Error("The California CSLB adapter requires a local filePath.");
     }
 
     yield* streamCaliforniaCslbFile({

@@ -14,7 +14,7 @@ export const minnesotaDliLicensesRegistrationsAdapter: TradeLicenseSourceAdapter
     return {
       ok: true,
       checkedAt: new Date().toISOString(),
-      message: "Local official-shape CSV/XLSX import is available. Live Minnesota DLI archive download is not implemented.",
+      message: "Official-shape CSV/XLSX import is available; callers retain control of archive acquisition and extraction.",
     };
   },
   async *streamRawRecords(options) {
