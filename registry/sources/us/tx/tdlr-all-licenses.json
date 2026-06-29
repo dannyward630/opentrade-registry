@@ -30,7 +30,7 @@
   "requiresJavaScript": "unknown",
   "requiresCaptcha": "unknown",
   "requiresAccount": false,
-  "rateLimitNotes": "The v0.2 adapter reads local fixture-shaped files. Any future live download support should use the official open-data export responsibly and remain opt-in.",
+  "rateLimitNotes": "Network retrieval must use the official open-data export responsibly and remain explicitly opt-in.",
   "redistributionStatus": "unknown",
   "publicRecordsNotes": "Official open-data source. Absence from this source is not proof that a license does not exist elsewhere.",
   "adapterStatus": "implemented",
@@ -41,7 +41,7 @@
   "adapterPackage": "@opentrade-registry/adapter-tx-tdlr",
   "testFixturePath": "packages/adapter-tx-tdlr/fixtures/all-licenses-sample.csv",
   "officialLookupUrl": "https://www.tdlr.texas.gov/verify.htm",
-  "officialBulkDownloadNotes": "The Texas Open Data Portal lists downloadable formats for the TDLR All Licenses dataset. The v0.2 adapter uses a tiny hand-authored fixture with the official column shape.",
+  "officialBulkDownloadNotes": "The Texas Open Data Portal lists downloadable formats for the TDLR All Licenses dataset. Offline tests use a tiny hand-authored fixture with the official column shape.",
   "researchNotes": "Fixture adapter support exists. Future local-file work should narrow trade coverage carefully because this source spans many TDLR programs.",
   "verificationReviewedAt": "2026-06-22T00:00:00.000Z",
   "verificationCaveats": [
