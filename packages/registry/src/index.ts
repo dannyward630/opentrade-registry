@@ -15,6 +15,12 @@ import {
 import type { OpenTradeSqliteCache, SqliteImportRun } from "@opentrade-registry/storage-sqlite";
 import { downloadOfficialSource, type DownloadOptions, type DownloadedSource } from "./network.js";
 
+export {
+  extractSingleTabularArchive,
+  type ExtractedSourceFile,
+  type SourceArchiveLimits,
+} from "./archive.js";
+
 export { downloadOfficialSource, type DownloadOptions, type DownloadedSource } from "./network.js";
 export {
   resolveOfficialSnapshotUrl,
