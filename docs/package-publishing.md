@@ -1,6 +1,6 @@
 # Package Publishing
 
-OpenTrade v1 contains 14 public packages: core, registry orchestration, SQLite storage, CLI, and ten adapters.
+OpenTrade v1 contains 11 public packages: core, registry orchestration, SQLite storage, CLI, and seven supported adapters. Three additional adapter-research packages remain private and are not release artifacts.
 
 `corepack pnpm pack:check` discovers every public workspace package, creates pnpm-rewritten tarballs in a temporary directory, rejects workspace protocols and development-only files, installs all tarballs into a clean project, imports every library, and runs packed CLI help.
 

@@ -3,7 +3,7 @@
 - [ ] Versions and changelog are aligned.
 - [ ] Source matrix and Supabase seed are regenerated and clean.
 - [ ] `corepack pnpm verify` passes.
-- [ ] `corepack pnpm pack:check` installs all 14 tarballs cleanly.
+- [ ] `corepack pnpm pack:check` installs all 11 tarballs cleanly.
 - [ ] Development and production dependency audits pass.
 - [ ] No high/critical Dependabot, CodeQL, or secret-scanning alert is unresolved.
 - [ ] Node 20/22/24 CI is green on Linux, macOS, and Windows.
