@@ -1,4 +1,10 @@
-import type { CanonicalTradeLicenseRecord, SourceRegistryEntry } from "../schema/index.js";
+import type {
+  CanonicalTradeLicenseRecord,
+  CanonicalTradeLicenseRecordV2,
+  SourceAutomationMode,
+  SourceRegistryEntry,
+  SourceRegistryEntryV2,
+} from "../schema/index.js";
 
 export type SourceAvailability = {
   ok: boolean;
@@ -92,5 +98,34 @@ export interface TradeLicenseSourceAdapter {
   getRemoteSnapshotMetadata?(): Promise<RemoteSnapshotMetadata>;
   streamRawRecords(options: StreamRecordsOptions): AsyncIterable<RawSourceRecord>;
   normalize(raw: RawSourceRecord): Promise<CanonicalTradeLicenseRecord>;
+  lookupLicense?(query: LicenseLookupQuery): Promise<LicenseLookupResult>;
+}
+
+export type AdapterCapabilitiesV2 = {
+  automationMode: SourceAutomationMode;
+  supportsLocalFile: boolean;
+  supportsNetworkSync: boolean;
+  supportsLiveLookup: boolean;
+  supportedSourceTypes: SourceRegistryEntryV2["sourceType"][];
+};
+
+export type ResolveSnapshotOptions = {
+  allowNetwork: boolean;
+  signal?: AbortSignal;
+};
+
+export type ResolvedSourceSnapshot = RemoteSnapshotMetadata & {
+  downloadUrl: string;
+  allowedHost: string;
+};
+
+export interface TradeLicenseSourceAdapterV2 {
+  sourceId: string;
+  capabilities: AdapterCapabilitiesV2;
+  getSourceMetadata(): Promise<SourceRegistryEntryV2>;
+  checkAvailability(options?: { signal?: AbortSignal }): Promise<SourceAvailability>;
+  resolveSnapshot(options: ResolveSnapshotOptions): Promise<ResolvedSourceSnapshot>;
+  streamRawRecords(options: StreamRecordsOptions): AsyncIterable<RawSourceRecord>;
+  normalize(raw: RawSourceRecord): Promise<CanonicalTradeLicenseRecordV2>;
   lookupLicense?(query: LicenseLookupQuery): Promise<LicenseLookupResult>;
 }
