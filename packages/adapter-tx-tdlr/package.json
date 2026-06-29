@@ -2,7 +2,7 @@
   "name": "@opentrade-registry/adapter-tx-tdlr",
   "version": "1.0.1",
   "type": "module",
-  "description": "Texas TDLR fixture adapter for OpenTrade Registry.",
+  "description": "Texas TDLR all-licenses CSV adapter for OpenTrade Registry.",
   "license": "MIT",
   "homepage": "https://github.com/dannyward630/opentrade-registry#readme",
   "repository": {
