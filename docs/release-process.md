@@ -28,7 +28,7 @@ The release maintainer verifies source truth, package contents, security state, 
 
 ## Publish
 
-1. Create a signed annotated tag: `git tag -s v1.0.0 -m "OpenTrade Registry v1.0.0"`.
+1. Create a signed annotated tag matching the prepared version, for example `git tag -s v2.0.0 -m "OpenTrade Registry v2.0.0"`.
 2. Push the tag from clean `main`.
 3. The release workflow rebuilds, verifies, packs, and publishes public packages with npm provenance and `access=public`.
 4. Create the GitHub release from the signed tag and changelog.
