@@ -8,6 +8,7 @@
 - [Canonical Schema](canonical-schema.md)
 - [Programmatic API](api-reference.md)
 - [Source Registry](source-registry.md)
+- [Nationwide Board Inventory](board-inventory.md)
 - [Generated Source Status Matrix](source-status-matrix.md)
 - [Local SQLite Storage](storage.md)
 - [v0.2 to v1 Migration](migration-v0.2-to-v1.md)

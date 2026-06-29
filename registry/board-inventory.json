@@ -1,0 +1,1637 @@
+{
+  "schemaVersion": "2.0",
+  "completeness": "representative_source_baseline",
+  "scope": {
+    "jurisdictions": "states_dc_major_territories",
+    "municipalLicensing": "excluded",
+    "notes": [
+      "This baseline contains one board row per existing source and does not yet claim complete board-level coverage.",
+      "Municipal contractor and trade licensing remains outside the project scope unless separately registered."
+    ]
+  },
+  "boards": [
+    {
+      "id": "us.ak.commerce.construction_contractors",
+      "jurisdiction": {
+        "country": "US",
+        "state": "AK"
+      },
+      "boardName": "Alaska CBPL Construction Contractor License Search",
+      "agencyName": "Alaska Division of Corporations, Business and Professional Licensing",
+      "officialUrl": "https://www.commerce.alaska.gov/cbp/main/Search/Professional",
+      "sourceIds": [
+        "us.ak.commerce.construction_contractors"
+      ],
+      "trades": [
+        "general_contracting",
+        "residential_contracting",
+        "roofing",
+        "other"
+      ],
+      "accessPath": "manual_handoff",
+      "coverageLimitations": [
+        "The Alaska professional licensing search spans many programs; this source entry is scoped to construction contractor records and related contractor endorsements only.",
+        "Business licenses, corporations, local permits, and non-CBPL authorizations are outside this source entry.",
+        "Disciplinary action history may require separate official reports or public records requests.",
+        "The live search and download endpoints are protected by technical access controls that this project does not bypass."
+      ],
+      "evidence": {
+        "url": "https://www.commerce.alaska.gov/cbp/main/Search/Professional",
+        "reviewedAt": "2026-06-28T00:00:00.000Z",
+        "note": "Official lookup and download path reviewed; automated access was blocked by DataDome."
+      }
+    },
+    {
+      "id": "us.al.genconbd.general_contractors",
+      "jurisdiction": {
+        "country": "US",
+        "state": "AL"
+      },
+      "boardName": "Alabama Licensing Board for General Contractors License Roster",
+      "agencyName": "Alabama Licensing Board for General Contractors",
+      "officialUrl": "https://licensesearch.alabama.gov/",
+      "sourceIds": [
+        "us.al.genconbd.general_contractors"
+      ],
+      "trades": [
+        "general contracting",
+        "commercial contracting"
+      ],
+      "accessPath": "manual_handoff",
+      "coverageLimitations": [
+        "Residential home builder licensing is handled by the Alabama Home Builders Licensure Board and is outside this source entry.",
+        "Specialty trade boards, local permits, business registrations, and non-board authorizations are outside this source entry."
+      ],
+      "evidence": {
+        "url": "https://licensesearch.alabama.gov/",
+        "reviewedAt": "2026-06-27T00:00:00.000Z",
+        "note": "Official public source, access shape, and current automation constraints reviewed."
+      }
+    },
+    {
+      "id": "us.ar.aclb.contractors",
+      "jurisdiction": {
+        "country": "US",
+        "state": "AR"
+      },
+      "boardName": "Arkansas Contractors Licensing Board Licensed Contractor Search",
+      "agencyName": "Arkansas Contractors Licensing Board",
+      "officialUrl": "https://labor.arkansas.gov/licensing/arkansas-contractors-licensing-board/find-a-licensed-contractor/",
+      "sourceIds": [
+        "us.ar.aclb.contractors"
+      ],
+      "trades": [
+        "general_contracting",
+        "residential_contracting",
+        "commercial_contracting",
+        "other"
+      ],
+      "accessPath": "manual_handoff",
+      "coverageLimitations": [
+        "This source is scoped to the Arkansas Contractors Licensing Board and does not represent every local permit, business registration, or trade credential in Arkansas.",
+        "Source-specific license classifications and inactive or historical coverage need further review before adapter work."
+      ],
+      "evidence": {
+        "url": "https://labor.arkansas.gov/licensing/arkansas-contractors-licensing-board/find-a-licensed-contractor/",
+        "reviewedAt": "2026-06-27T00:00:00.000Z",
+        "note": "Official public source, access shape, and current automation constraints reviewed."
+      }
+    },
+    {
+      "id": "us.as.doc.business_licenses",
+      "jurisdiction": {
+        "country": "US",
+        "state": "AS"
+      },
+      "boardName": "American Samoa Department of Commerce Business Licensing",
+      "agencyName": "American Samoa Department of Commerce",
+      "officialUrl": "https://www.doc.as.gov/applyforbusinesslicense",
+      "sourceIds": [
+        "us.as.doc.business_licenses"
+      ],
+      "trades": [
+        "general_contracting",
+        "commercial_contracting",
+        "other",
+        "unknown"
+      ],
+      "accessPath": "blocked",
+      "coverageLimitations": [
+        "This is not confirmed as a contractor-specific public lookup source.",
+        "License categories, public search availability, and construction-specific fields require follow-up research.",
+        "Professional board, permit, tax, and enforcement records may require separate official sources."
+      ],
+      "evidence": {
+        "url": "https://www.doc.as.gov/applyforbusinesslicense",
+        "reviewedAt": "2026-06-27T00:00:00.000Z",
+        "note": "Official public source, access shape, and current automation constraints reviewed."
+      }
+    },
+    {
+      "id": "us.az.roc.contractors",
+      "jurisdiction": {
+        "country": "US",
+        "state": "AZ"
+      },
+      "boardName": "Arizona Registrar of Contractors License Records",
+      "agencyName": "Arizona Registrar of Contractors",
+      "officialUrl": "https://azroc.my.site.com/AZRoc/s/contractor-search",
+      "sourceIds": [
+        "us.az.roc.contractors"
+      ],
+      "trades": [
+        "construction"
+      ],
+      "accessPath": "network_opt_in",
+      "coverageLimitations": [
+        "The current-contractor export is not a historical register and may omit inactive or otherwise non-current records.",
+        "Local registrations, permits, and credentials outside Arizona ROC jurisdiction are not represented."
+      ],
+      "evidence": {
+        "url": "https://roc.az.gov/posting-list",
+        "reviewedAt": "2026-06-27T00:00:00.000Z",
+        "note": "Official page displayed dated all-current, commercial, dual, and residential CSV exports plus record counts and freshness caveats."
+      }
+    },
+    {
+      "id": "us.ca.cslb.contractors",
+      "jurisdiction": {
+        "country": "US",
+        "state": "CA"
+      },
+      "boardName": "California CSLB Master List of Licensed Contractors",
+      "agencyName": "Contractors State License Board",
+      "officialUrl": "https://www.cslb.ca.gov/onlineservices/checklicenseII/checklicense.aspx",
+      "sourceIds": [
+        "us.ca.cslb.contractors"
+      ],
+      "trades": [
+        "construction"
+      ],
+      "accessPath": "local_file",
+      "coverageLimitations": [
+        "The master file includes currently renewed licenses and expired licenses that remain renewable; it excludes cancelled, revoked, and nonrenewable licenses.",
+        "This adapter does not model companion files such as personnel, bond, or workers' compensation data."
+      ],
+      "evidence": {
+        "url": "https://www.cslb.ca.gov/onlineservices/dataportal/ContractorList",
+        "reviewedAt": "2026-06-28T00:00:00.000Z",
+        "note": "Official portal coverage text, direct master CSV header, and representative row shape reviewed."
+      }
+    },
+    {
+      "id": "us.co.dora.trades",
+      "jurisdiction": {
+        "country": "US",
+        "state": "CO"
+      },
+      "boardName": "Colorado DORA Division of Professions and Occupations Trade License Lookup",
+      "agencyName": "Colorado Department of Regulatory Agencies",
+      "officialUrl": "https://apps.colorado.gov/dora/licensing/Lookup/LicenseLookup.aspx",
+      "sourceIds": [
+        "us.co.dora.trades"
+      ],
+      "trades": [
+        "electrical",
+        "plumbing",
+        "other"
+      ],
+      "accessPath": "manual_handoff",
+      "coverageLimitations": [
+        "Colorado does not have a single statewide general contractor source represented by this entry.",
+        "Local contractor licenses, local permits, and non-DORA authorizations are outside this source entry.",
+        "Separate DPO boards and programs may require separate source entries before adapter work."
+      ],
+      "evidence": {
+        "url": "https://apps.colorado.gov/dora/licensing/Lookup/LicenseLookup.aspx",
+        "reviewedAt": "2026-06-27T00:00:00.000Z",
+        "note": "Official public source, access shape, and current automation constraints reviewed."
+      }
+    },
+    {
+      "id": "us.ct.dcp.home_improvement_contractors",
+      "jurisdiction": {
+        "country": "US",
+        "state": "CT"
+      },
+      "boardName": "Connecticut DCP eLicense Home Improvement Contractor Lookup",
+      "agencyName": "Connecticut Department of Consumer Protection",
+      "officialUrl": "https://www.elicense.ct.gov/Lookup/LicenseLookup.aspx",
+      "sourceIds": [
+        "us.ct.dcp.home_improvement_contractors"
+      ],
+      "trades": [
+        "home_improvement",
+        "other"
+      ],
+      "accessPath": "manual_handoff",
+      "coverageLimitations": [
+        "The eLicense portal covers many license and registration types and this source entry does not isolate every construction-relevant credential.",
+        "Local permits, municipal registrations, and non-DCP authorizations are outside this source entry.",
+        "Roster generation is referenced by the official page, but bulk-export terms and fixture-safe fields require future review."
+      ],
+      "evidence": {
+        "url": "https://www.elicense.ct.gov/Lookup/LicenseLookup.aspx",
+        "reviewedAt": "2026-06-27T00:00:00.000Z",
+        "note": "Official public source, access shape, and current automation constraints reviewed."
+      }
+    },
+    {
+      "id": "us.dc.dlcp.contractors",
+      "jurisdiction": {
+        "country": "US",
+        "state": "DC"
+      },
+      "boardName": "District of Columbia DLCP Business License Verification",
+      "agencyName": "District of Columbia Department of Licensing and Consumer Protection",
+      "officialUrl": "https://scout.dcra.dc.gov/",
+      "sourceIds": [
+        "us.dc.dlcp.contractors"
+      ],
+      "trades": [
+        "general_contracting",
+        "home_improvement",
+        "other"
+      ],
+      "accessPath": "manual_handoff",
+      "coverageLimitations": [
+        "SCOUT spans business, property, permit, and licensing information; this source entry is not a contractor-only export.",
+        "Occupational and professional licenses, permits, local enforcement records, and business registrations may require separate source entries or filters.",
+        "Contractor category semantics must be reviewed before any adapter treats rows as construction-license records."
+      ],
+      "evidence": {
+        "url": "https://scout.dcra.dc.gov/",
+        "reviewedAt": "2026-06-27T00:00:00.000Z",
+        "note": "Official public source, access shape, and current automation constraints reviewed."
+      }
+    },
+    {
+      "id": "us.de.labor.construction_contractors",
+      "jurisdiction": {
+        "country": "US",
+        "state": "DE"
+      },
+      "boardName": "Delaware Registered Construction Contractors Public Lookup",
+      "agencyName": "Delaware Department of Labor",
+      "officialUrl": "https://contractorregistry.delaware.gov/",
+      "sourceIds": [
+        "us.de.labor.construction_contractors"
+      ],
+      "trades": [
+        "general_contracting",
+        "home_improvement",
+        "other"
+      ],
+      "accessPath": "manual_handoff",
+      "coverageLimitations": [
+        "The public lookup is a construction contractor registry and does not represent every Delaware professional, trade, municipal, or business license.",
+        "Individual professional licenses are handled through separate Delaware professional licensing systems.",
+        "Contractors absent from the registry may be under review, removed, suspended, revoked, or outside the registry scope."
+      ],
+      "evidence": {
+        "url": "https://contractorregistry.delaware.gov/",
+        "reviewedAt": "2026-06-27T00:00:00.000Z",
+        "note": "Official search supports name, ZIP, certification number, NAICS, and all-contractors queries; no stable file or API contract was documented."
+      }
+    },
+    {
+      "id": "us.fl.dbpr.construction",
+      "jurisdiction": {
+        "country": "US",
+        "state": "FL"
+      },
+      "boardName": "Florida DBPR Construction Industry Licenses",
+      "agencyName": "Florida Department of Business and Professional Regulation",
+      "officialUrl": "https://www.myfloridalicense.com/wl11.asp",
+      "sourceIds": [
+        "us.fl.dbpr.construction"
+      ],
+      "trades": [
+        "construction"
+      ],
+      "accessPath": "network_opt_in",
+      "coverageLimitations": [
+        "Source coverage and exclusions must be verified against official documentation before generated datasets are redistributed.",
+        "This source entry is limited to DBPR construction-industry records and does not represent every Florida trade, local license, complaint, or discipline source."
+      ],
+      "evidence": {
+        "url": "https://www.myfloridalicense.com/wl11.asp",
+        "reviewedAt": "2026-06-27T00:00:00.000Z",
+        "note": "Official bulk source and opt-in network path reviewed."
+      }
+    },
+    {
+      "id": "us.ga.sos.residential_general_contractors",
+      "jurisdiction": {
+        "country": "US",
+        "state": "GA"
+      },
+      "boardName": "Georgia Residential and General Contractors License Search",
+      "agencyName": "Georgia Secretary of State Licensing Division",
+      "officialUrl": "https://goals.sos.ga.gov/GASOSOneStop/s/licensee-search",
+      "sourceIds": [
+        "us.ga.sos.residential_general_contractors"
+      ],
+      "trades": [
+        "general contracting",
+        "residential contracting"
+      ],
+      "accessPath": "manual_handoff",
+      "coverageLimitations": [
+        "Specialty occupations such as roofing, painting, drywall, and some repair work may not require this state license or may be outside this board's scope.",
+        "Local permits, business registrations, and other state construction-industry boards are not represented by this source entry."
+      ],
+      "evidence": {
+        "url": "https://goals.sos.ga.gov/GASOSOneStop/s/licensee-search",
+        "reviewedAt": "2026-06-27T00:00:00.000Z",
+        "note": "Official public source, access shape, and current automation constraints reviewed."
+      }
+    },
+    {
+      "id": "us.gu.clb.contractors",
+      "jurisdiction": {
+        "country": "US",
+        "state": "GU"
+      },
+      "boardName": "Guam Contractors Licensing Board Contractors Listing",
+      "agencyName": "Guam Contractors Licensing Board",
+      "officialUrl": "https://clb.guam.gov/contractors-listing/",
+      "sourceIds": [
+        "us.gu.clb.contractors"
+      ],
+      "trades": [
+        "general_contracting",
+        "residential_contracting",
+        "commercial_contracting",
+        "electrical",
+        "plumbing",
+        "mechanical",
+        "other",
+        "unknown"
+      ],
+      "accessPath": "manual_handoff",
+      "coverageLimitations": [
+        "Source fields, update cadence, inactive-license coverage, and classification semantics require follow-up review before adapter work.",
+        "Business licenses, permits, enforcement records, and other professional licenses may require separate official sources.",
+        "No redistribution permission for generated datasets has been confirmed."
+      ],
+      "evidence": {
+        "url": "https://clb.guam.gov/contractors-listing/",
+        "reviewedAt": "2026-06-27T00:00:00.000Z",
+        "note": "Official page exposed 2026 and 2027 annual contractor listings but no stable structured machine-readable interface."
+      }
+    },
+    {
+      "id": "us.hi.dcca.contractors",
+      "jurisdiction": {
+        "country": "US",
+        "state": "HI"
+      },
+      "boardName": "Hawaii DCCA PVL Contractor License Search",
+      "agencyName": "Hawaii Department of Commerce and Consumer Affairs Professional and Vocational Licensing",
+      "officialUrl": "https://mypvl.dcca.hawaii.gov/public-license-search/",
+      "sourceIds": [
+        "us.hi.dcca.contractors"
+      ],
+      "trades": [
+        "general_contracting",
+        "residential_contracting",
+        "commercial_contracting",
+        "electrical",
+        "plumbing",
+        "other"
+      ],
+      "accessPath": "manual_handoff",
+      "coverageLimitations": [
+        "This source entry is scoped to professional and vocational licensing records and does not represent every business registration, local permit, or tax record in Hawaii.",
+        "Business Check and complaint-history resources are separate public tools and are not modeled as normalized license records in this entry.",
+        "License classifications and personnel relationships need follow-up review before adapter work."
+      ],
+      "evidence": {
+        "url": "https://mypvl.dcca.hawaii.gov/public-license-search/",
+        "reviewedAt": "2026-06-27T00:00:00.000Z",
+        "note": "Official public source, access shape, and current automation constraints reviewed."
+      }
+    },
+    {
+      "id": "us.ia.dial.contractor_registration",
+      "jurisdiction": {
+        "country": "US",
+        "state": "IA"
+      },
+      "boardName": "Iowa DIAL Contractor Registration Lookup",
+      "agencyName": "Iowa Department of Inspections, Appeals, and Licensing",
+      "officialUrl": "https://dial.iowa.gov/i-need/records",
+      "sourceIds": [
+        "us.ia.dial.contractor_registration"
+      ],
+      "trades": [
+        "general_contracting",
+        "residential_contracting",
+        "commercial_contracting",
+        "electrical",
+        "plumbing",
+        "mechanical",
+        "hvac",
+        "other"
+      ],
+      "accessPath": "manual_handoff",
+      "coverageLimitations": [
+        "Iowa contractor registration is not the same as every electrical, plumbing, mechanical, HVAC, or local permit credential.",
+        "Local requirements and separate DIAL trade-board records may need separate source entries or adapter filters."
+      ],
+      "evidence": {
+        "url": "https://dial.iowa.gov/i-need/records",
+        "reviewedAt": "2026-06-27T00:00:00.000Z",
+        "note": "Official public source, access shape, and current automation constraints reviewed."
+      }
+    },
+    {
+      "id": "us.id.dopl.contractors",
+      "jurisdiction": {
+        "country": "US",
+        "state": "ID"
+      },
+      "boardName": "Idaho DOPL Contractor Registration Search",
+      "agencyName": "Idaho Division of Occupational and Professional Licenses",
+      "officialUrl": "https://edopl.idaho.gov/OnlineServices/?link=PubSearch",
+      "sourceIds": [
+        "us.id.dopl.contractors"
+      ],
+      "trades": [
+        "general_contracting",
+        "residential_contracting",
+        "other"
+      ],
+      "accessPath": "manual_handoff",
+      "coverageLimitations": [
+        "Electrical, HVAC, plumbing, elevator, manufactured housing, local permits, and business registration records may require separate official sources or filters.",
+        "The contractor board page is a program page and the lookup is hosted in DOPL online services; adapter work must review the lookup controls before automation.",
+        "Formal actions and unregistered-contractor actions are separate linked resources and are not normalized by this source entry."
+      ],
+      "evidence": {
+        "url": "https://edopl.idaho.gov/OnlineServices/?link=PubSearch",
+        "reviewedAt": "2026-06-27T00:00:00.000Z",
+        "note": "Official public source, access shape, and current automation constraints reviewed."
+      }
+    },
+    {
+      "id": "us.il.idfpr.roofing_contractors",
+      "jurisdiction": {
+        "country": "US",
+        "state": "IL"
+      },
+      "boardName": "Illinois IDFPR Roofing Contractor License Lookup",
+      "agencyName": "Illinois Department of Financial and Professional Regulation",
+      "officialUrl": "https://online-dfpr.micropact.com/Lookup/LicenseLookup.aspx",
+      "sourceIds": [
+        "us.il.idfpr.roofing_contractors"
+      ],
+      "trades": [
+        "roofing"
+      ],
+      "accessPath": "manual_handoff",
+      "coverageLimitations": [
+        "This source entry is scoped to IDFPR roofing contractor licenses and does not represent every Illinois construction, trade, local permit, or business registration source.",
+        "No stable downloadable file shape has been validated for the IDFPR bulk lookup path.",
+        "Discipline, enforcement, complaints, local authorizations, and non-IDFPR records may require separate official sources."
+      ],
+      "evidence": {
+        "url": "https://online-dfpr.micropact.com/Lookup/LicenseLookup.aspx",
+        "reviewedAt": "2026-06-28T00:00:00.000Z",
+        "note": "Official lookup documentation reviewed; no stable public file shape was available for validation."
+      }
+    },
+    {
+      "id": "us.in.pla.professional_licenses",
+      "jurisdiction": {
+        "country": "US",
+        "state": "IN"
+      },
+      "boardName": "Indiana PLA MyLicense Professional License Verification",
+      "agencyName": "Indiana Professional Licensing Agency",
+      "officialUrl": "https://mylicense.in.gov/everification/",
+      "sourceIds": [
+        "us.in.pla.professional_licenses"
+      ],
+      "trades": [
+        "plumbing",
+        "home_improvement",
+        "electrical",
+        "other"
+      ],
+      "accessPath": "manual_handoff",
+      "coverageLimitations": [
+        "Indiana general contractor licensing is often local; this source entry does not represent every city or county contractor registration.",
+        "The MyLicense portal spans many professions, boards, and credential types; construction-relevant records require careful filtering.",
+        "Paid printable verification, data downloads, and API offerings have separate access and terms questions that are not modeled as adapter support."
+      ],
+      "evidence": {
+        "url": "https://www.in.gov/pla/license/download-license-files/",
+        "reviewedAt": "2026-06-28T00:00:00.000Z",
+        "note": "Official download page reviewed; downloads require acceptance of conditions and payment."
+      }
+    },
+    {
+      "id": "us.ks.ag.roofing_registration",
+      "jurisdiction": {
+        "country": "US",
+        "state": "KS"
+      },
+      "boardName": "Kansas Attorney General Roofing Registration Directory",
+      "agencyName": "Kansas Attorney General's Office",
+      "officialUrl": "https://www.ag.ks.gov/divisions/public-protection/resources/roofing-registration-directory",
+      "sourceIds": [
+        "us.ks.ag.roofing_registration"
+      ],
+      "trades": [
+        "roofing"
+      ],
+      "accessPath": "manual_handoff",
+      "coverageLimitations": [
+        "Kansas does not have a single statewide general contractor source represented by this entry.",
+        "The directory is scoped to roofing registration and exempt registrants under Kansas roofing-registration law.",
+        "Local contractor licenses, permits, business registrations, and non-roofing trade authorizations are outside this source entry."
+      ],
+      "evidence": {
+        "url": "https://www.ag.ks.gov/divisions/public-protection/resources/roofing-registration-directory",
+        "reviewedAt": "2026-06-27T00:00:00.000Z",
+        "note": "Official public source, access shape, and current automation constraints reviewed."
+      }
+    },
+    {
+      "id": "us.ky.dhbc.trades",
+      "jurisdiction": {
+        "country": "US",
+        "state": "KY"
+      },
+      "boardName": "Kentucky DHBC Trade Licensee Search",
+      "agencyName": "Kentucky Department of Housing, Buildings and Construction",
+      "officialUrl": "https://dhbc.ky.gov/Search/HBC_List_Licensees.aspx",
+      "sourceIds": [
+        "us.ky.dhbc.trades"
+      ],
+      "trades": [
+        "electrical",
+        "hvac",
+        "plumbing",
+        "mechanical",
+        "other"
+      ],
+      "accessPath": "manual_handoff",
+      "coverageLimitations": [
+        "This source entry is scoped to DHBC licensee search records and does not represent every local contractor license, permit, or business registration in Kentucky.",
+        "Kentucky general contractor licensing may be local or otherwise outside DHBC trade-license scope.",
+        "The DHBC search spans many divisions and license types; adapter work must filter construction-relevant records carefully."
+      ],
+      "evidence": {
+        "url": "https://dhbc.ky.gov/Search/HBC_List_Licensees.aspx",
+        "reviewedAt": "2026-06-27T00:00:00.000Z",
+        "note": "Official public source, access shape, and current automation constraints reviewed."
+      }
+    },
+    {
+      "id": "us.la.lslbc.contractors",
+      "jurisdiction": {
+        "country": "US",
+        "state": "LA"
+      },
+      "boardName": "Louisiana State Licensing Board for Contractors Contractor Search",
+      "agencyName": "Louisiana State Licensing Board for Contractors",
+      "officialUrl": "https://arlspublic.lslbc.louisiana.gov/Public/DetailedSearch/ByNumber",
+      "sourceIds": [
+        "us.la.lslbc.contractors"
+      ],
+      "trades": [
+        "general contracting",
+        "residential contracting",
+        "commercial contracting",
+        "other"
+      ],
+      "accessPath": "manual_handoff",
+      "coverageLimitations": [
+        "The official search states that only currently licensed or registered contractors appear in search results.",
+        "Local permits, business registrations, and sources outside LSLBC scope are not represented by this source entry."
+      ],
+      "evidence": {
+        "url": "https://arlspublic.lslbc.louisiana.gov/Public/DetailedSearch/ByNumber",
+        "reviewedAt": "2026-06-27T00:00:00.000Z",
+        "note": "Official public source, access shape, and current automation constraints reviewed."
+      }
+    },
+    {
+      "id": "us.ma.dol.opsi_construction_supervisors",
+      "jurisdiction": {
+        "country": "US",
+        "state": "MA"
+      },
+      "boardName": "Massachusetts OPSI Construction Supervisor License Verification",
+      "agencyName": "Massachusetts Division of Occupational Licensure Office of Public Safety and Inspections",
+      "officialUrl": "https://madpl.mylicense.com/Verification/",
+      "sourceIds": [
+        "us.ma.dol.opsi_construction_supervisors"
+      ],
+      "trades": [
+        "general_contracting",
+        "residential_contracting",
+        "commercial_contracting",
+        "other"
+      ],
+      "accessPath": "manual_handoff",
+      "coverageLimitations": [
+        "This source is scoped to OPSI-issued licenses and does not cover every home improvement registration, local permit, or trade license in Massachusetts.",
+        "Other Massachusetts DOL boards and registration programs may require separate source entries."
+      ],
+      "evidence": {
+        "url": "https://madpl.mylicense.com/Verification/",
+        "reviewedAt": "2026-06-27T00:00:00.000Z",
+        "note": "Official public source, access shape, and current automation constraints reviewed."
+      }
+    },
+    {
+      "id": "us.md.dllr.home_improvement_contractors",
+      "jurisdiction": {
+        "country": "US",
+        "state": "MD"
+      },
+      "boardName": "Maryland MHIC Home Improvement Contractor License Search",
+      "agencyName": "Maryland Department of Labor Maryland Home Improvement Commission",
+      "officialUrl": "https://www.dllr.state.md.us/cgi-bin/ElectronicLicensing/OP_search/OP_search.cgi?calling_app=HIC::HIC_qselect",
+      "sourceIds": [
+        "us.md.dllr.home_improvement_contractors"
+      ],
+      "trades": [
+        "home_improvement",
+        "roofing",
+        "solar",
+        "other"
+      ],
+      "accessPath": "manual_handoff",
+      "coverageLimitations": [
+        "MHIC is scoped to home improvement work and does not represent every Maryland construction, local permit, trade, or business credential.",
+        "Maryland's former home improvement subcontractor license category has been eliminated; preserve this caveat in future normalization.",
+        "Complaint, guaranty fund, discipline, and insurance details require separate source review before modeling."
+      ],
+      "evidence": {
+        "url": "https://www.dllr.state.md.us/cgi-bin/ElectronicLicensing/OP_search/OP_search.cgi?calling_app=HIC::HIC_qselect",
+        "reviewedAt": "2026-06-27T00:00:00.000Z",
+        "note": "Official public source, access shape, and current automation constraints reviewed."
+      }
+    },
+    {
+      "id": "us.me.pfr.professional_licenses",
+      "jurisdiction": {
+        "country": "US",
+        "state": "ME"
+      },
+      "boardName": "Maine PFR Professional Licensee Search",
+      "agencyName": "Maine Department of Professional and Financial Regulation",
+      "officialUrl": "https://www.maine.gov/pfr/consumer/licensee-search",
+      "sourceIds": [
+        "us.me.pfr.professional_licenses"
+      ],
+      "trades": [
+        "electrical",
+        "plumbing",
+        "hvac",
+        "other"
+      ],
+      "accessPath": "manual_handoff",
+      "coverageLimitations": [
+        "Maine does not have a single statewide general-contractor source represented by this entry.",
+        "This broad licensee search spans many boards and professions; construction-relevant records require source-specific filtering.",
+        "Local permits, municipal contractor rules, business registrations, and non-PFR authorizations are outside this source entry."
+      ],
+      "evidence": {
+        "url": "https://www.maine.gov/pfr/consumer/licensee-search",
+        "reviewedAt": "2026-06-27T00:00:00.000Z",
+        "note": "Official documentation and live search confirmed filtered comma-delimited downloads, separate entity paths, source disclaimers, and construction-relevant regulator choices."
+      }
+    },
+    {
+      "id": "us.mi.lara.residential_builders",
+      "jurisdiction": {
+        "country": "US",
+        "state": "MI"
+      },
+      "boardName": "Michigan LARA Residential Builder and Maintenance & Alteration License Search",
+      "agencyName": "Michigan Department of Licensing and Regulatory Affairs",
+      "officialUrl": "https://aca-prod.accela.com/LARA/GeneralProperty/PropertyLookUp.aspx?TabName=APO&isLicensee=Y",
+      "sourceIds": [
+        "us.mi.lara.residential_builders"
+      ],
+      "trades": [
+        "residential contracting",
+        "home_improvement",
+        "other"
+      ],
+      "accessPath": "manual_handoff",
+      "coverageLimitations": [
+        "This source entry is scoped to LARA residential builder and maintenance-and-alteration license types visible in the lookup.",
+        "Local permits, business registrations, and non-LARA construction or specialty trade authorizations are outside this source entry."
+      ],
+      "evidence": {
+        "url": "https://aca-prod.accela.com/LARA/GeneralProperty/PropertyLookUp.aspx?TabName=APO&isLicensee=Y",
+        "reviewedAt": "2026-06-27T00:00:00.000Z",
+        "note": "Official public source, access shape, and current automation constraints reviewed."
+      }
+    },
+    {
+      "id": "us.mn.dli.licenses_registrations",
+      "jurisdiction": {
+        "country": "US",
+        "state": "MN"
+      },
+      "boardName": "Minnesota DLI License and Registration Data",
+      "agencyName": "Minnesota Department of Labor and Industry",
+      "officialUrl": "https://www.dli.mn.gov/license-and-registration-lookup",
+      "sourceIds": [
+        "us.mn.dli.licenses_registrations"
+      ],
+      "trades": [
+        "construction codes and licensing"
+      ],
+      "accessPath": "local_file",
+      "coverageLimitations": [
+        "The export may include many license, bond, certification, and registration types beyond contractor licenses.",
+        "Local permits, business registrations, and sources outside DLI Construction Codes and Licensing are not represented by this source entry."
+      ],
+      "evidence": {
+        "url": "https://www.dli.mn.gov/license-and-registration-lookup",
+        "reviewedAt": "2026-06-28T00:00:00.000Z",
+        "note": "Official page, nightly ZIP link, CSV header, and representative row shape reviewed."
+      }
+    },
+    {
+      "id": "us.mo.pr.professional_licenses",
+      "jurisdiction": {
+        "country": "US",
+        "state": "MO"
+      },
+      "boardName": "Missouri Division of Professional Registration License Search",
+      "agencyName": "Missouri Division of Professional Registration",
+      "officialUrl": "https://mopro.mo.gov/license/s/license-search",
+      "sourceIds": [
+        "us.mo.pr.professional_licenses"
+      ],
+      "trades": [
+        "electrical",
+        "plumbing",
+        "mechanical",
+        "other"
+      ],
+      "accessPath": "manual_handoff",
+      "coverageLimitations": [
+        "Missouri general contractor licensing is often local and is not represented as statewide coverage by this source entry.",
+        "The MOPRO search spans many professions and license types; construction-relevant records require careful filtering.",
+        "Local permits, municipal contractor licenses, business registrations, and non-Division authorizations are outside this source entry."
+      ],
+      "evidence": {
+        "url": "https://mopro.mo.gov/license/s/license-search",
+        "reviewedAt": "2026-06-27T00:00:00.000Z",
+        "note": "Official public source, access shape, and current automation constraints reviewed."
+      }
+    },
+    {
+      "id": "us.mp.bpl.professional_licenses",
+      "jurisdiction": {
+        "country": "US",
+        "state": "MP"
+      },
+      "boardName": "CNMI Board of Professional Licensing Construction-Adjacent Licenses",
+      "agencyName": "Commonwealth of the Northern Mariana Islands Board of Professional Licensing",
+      "officialUrl": "https://www.cnmilicensing.gov.mp/",
+      "sourceIds": [
+        "us.mp.bpl.professional_licenses"
+      ],
+      "trades": [
+        "other",
+        "unknown"
+      ],
+      "accessPath": "manual_handoff",
+      "coverageLimitations": [
+        "This source is construction-adjacent professional licensing metadata, not a confirmed contractor-specific registry.",
+        "CNMI business licenses, construction permits, contractor-specific requirements, and local enforcement records may require separate official sources.",
+        "The public lookup/export path and field structure have not been confirmed."
+      ],
+      "evidence": {
+        "url": "https://www.cnmilicensing.gov.mp/",
+        "reviewedAt": "2026-06-27T00:00:00.000Z",
+        "note": "Official public source, access shape, and current automation constraints reviewed."
+      }
+    },
+    {
+      "id": "us.ms.msboc.contractors",
+      "jurisdiction": {
+        "country": "US",
+        "state": "MS"
+      },
+      "boardName": "Mississippi State Board of Contractors License Search",
+      "agencyName": "Mississippi State Board of Contractors",
+      "officialUrl": "https://search.msboc.us/",
+      "sourceIds": [
+        "us.ms.msboc.contractors"
+      ],
+      "trades": [
+        "commercial_contracting",
+        "residential_contracting",
+        "roofing",
+        "other"
+      ],
+      "accessPath": "manual_handoff",
+      "coverageLimitations": [
+        "This source entry is scoped to Mississippi State Board of Contractors licensing and does not represent local permits, business registrations, or non-MSBOC authorizations.",
+        "The official search includes a disclosure that information may have changed since publication and recommends contacting the office before making decisions based on the information.",
+        "Violator lists, complaint information, and enforcement data may require separate official sources or source-specific caveats."
+      ],
+      "evidence": {
+        "url": "https://search.msboc.us/",
+        "reviewedAt": "2026-06-27T00:00:00.000Z",
+        "note": "Official public source, access shape, and current automation constraints reviewed."
+      }
+    },
+    {
+      "id": "us.mt.dli.contractor_registration",
+      "jurisdiction": {
+        "country": "US",
+        "state": "MT"
+      },
+      "boardName": "Montana DLI Construction Contractor Registration Search",
+      "agencyName": "Montana Department of Labor and Industry",
+      "officialUrl": "https://erd.dli.mt.gov/work-comp-regulations/montana-contractor/icec-search-old",
+      "sourceIds": [
+        "us.mt.dli.contractor_registration"
+      ],
+      "trades": [
+        "general_contracting",
+        "residential_contracting",
+        "commercial_contracting",
+        "other"
+      ],
+      "accessPath": "manual_handoff",
+      "coverageLimitations": [
+        "Construction Contractor Registration is not the same as a full trade license or endorsement for every construction activity.",
+        "Professional and occupational licenses, local permits, business registrations, and non-DLI authorizations may require separate official sources.",
+        "Workers compensation coverage and exemption details need source-specific interpretation before being normalized as compliance facts."
+      ],
+      "evidence": {
+        "url": "https://erd.dli.mt.gov/work-comp-regulations/montana-contractor/icec-search-old",
+        "reviewedAt": "2026-06-27T00:00:00.000Z",
+        "note": "Official DLI page confirmed the current interactive registration lookup, JavaScript dependency, and separate CCR, ICEC, and professional-license concepts."
+      }
+    },
+    {
+      "id": "us.nc.nclbgc.general_contractors",
+      "jurisdiction": {
+        "country": "US",
+        "state": "NC"
+      },
+      "boardName": "North Carolina Licensing Board for General Contractors Verify License Search",
+      "agencyName": "North Carolina Licensing Board for General Contractors",
+      "officialUrl": "https://portal.nclbgc.org/Public/Search",
+      "sourceIds": [
+        "us.nc.nclbgc.general_contractors"
+      ],
+      "trades": [
+        "general contracting"
+      ],
+      "accessPath": "manual_handoff",
+      "coverageLimitations": [
+        "This source is scoped to the North Carolina general contractors board and does not cover every construction-related license or local authorization in North Carolina.",
+        "The official source is lookup-oriented; bulk file availability has not been confirmed."
+      ],
+      "evidence": {
+        "url": "https://portal.nclbgc.org/Public/Search",
+        "reviewedAt": "2026-06-27T00:00:00.000Z",
+        "note": "Official public source, access shape, and current automation constraints reviewed."
+      }
+    },
+    {
+      "id": "us.nd.sos.contractors",
+      "jurisdiction": {
+        "country": "US",
+        "state": "ND"
+      },
+      "boardName": "North Dakota Secretary of State Contractor Search",
+      "agencyName": "North Dakota Secretary of State",
+      "officialUrl": "https://firststop.sos.nd.gov/search/contractor",
+      "sourceIds": [
+        "us.nd.sos.contractors"
+      ],
+      "trades": [
+        "general_contracting",
+        "residential_contracting",
+        "commercial_contracting",
+        "other"
+      ],
+      "accessPath": "manual_handoff",
+      "coverageLimitations": [
+        "Specialty trade boards, local permits, business registration details, and non-Secretary-of-State authorizations may require separate sources.",
+        "Electrical, plumbing, HVAC, and local contractor requirements may not be fully represented by this source entry.",
+        "Complaint and enforcement information may require separate official pages or requests."
+      ],
+      "evidence": {
+        "url": "https://firststop.sos.nd.gov/search/contractor",
+        "reviewedAt": "2026-06-27T00:00:00.000Z",
+        "note": "Official public source, access shape, and current automation constraints reviewed."
+      }
+    },
+    {
+      "id": "us.ne.dol.contractor_registration",
+      "jurisdiction": {
+        "country": "US",
+        "state": "NE"
+      },
+      "boardName": "Nebraska Department of Labor Contractor Registration Search",
+      "agencyName": "Nebraska Department of Labor",
+      "officialUrl": "https://dol.nebraska.gov/conreg/Search",
+      "sourceIds": [
+        "us.ne.dol.contractor_registration"
+      ],
+      "trades": [
+        "general_contracting",
+        "residential_contracting",
+        "commercial_contracting",
+        "other"
+      ],
+      "accessPath": "manual_handoff",
+      "coverageLimitations": [
+        "Nebraska contractor registration does not ensure quality of work or protect against fraud according to the official search page.",
+        "This entry does not represent every trade license, local permit, business registration, or authorization in Nebraska.",
+        "Sales tax, worker count, and workers compensation fields require source-specific interpretation before normalization."
+      ],
+      "evidence": {
+        "url": "https://dol.nebraska.gov/conreg/Search",
+        "reviewedAt": "2026-06-27T00:00:00.000Z",
+        "note": "Official public source, access shape, and current automation constraints reviewed."
+      }
+    },
+    {
+      "id": "us.nh.oplc.trades",
+      "jurisdiction": {
+        "country": "US",
+        "state": "NH"
+      },
+      "boardName": "New Hampshire OPLC License Lookup",
+      "agencyName": "New Hampshire Office of Professional Licensure and Certification",
+      "officialUrl": "https://www.oplc.nh.gov/license-lookup",
+      "sourceIds": [
+        "us.nh.oplc.trades"
+      ],
+      "trades": [
+        "electrical",
+        "plumbing",
+        "mechanical",
+        "other"
+      ],
+      "accessPath": "manual_handoff",
+      "coverageLimitations": [
+        "New Hampshire contractor work may be regulated by state boards, local authorities, or both; this entry only covers OPLC lookup scope.",
+        "The OPLC lookup spans many professions; construction-relevant records require careful filtering.",
+        "Local permits, municipal contractor licenses, business registrations, and non-OPLC authorizations are outside this source entry."
+      ],
+      "evidence": {
+        "url": "https://www.oplc.nh.gov/license-lookup",
+        "reviewedAt": "2026-06-27T00:00:00.000Z",
+        "note": "Official public source, access shape, and current automation constraints reviewed."
+      }
+    },
+    {
+      "id": "us.nj.dca.home_improvement_contractors",
+      "jurisdiction": {
+        "country": "US",
+        "state": "NJ"
+      },
+      "boardName": "New Jersey Division of Consumer Affairs Home Improvement Contractor Verification",
+      "agencyName": "New Jersey Division of Consumer Affairs",
+      "officialUrl": "https://newjersey.mylicense.com/verification/Search.aspx?facility=Y",
+      "sourceIds": [
+        "us.nj.dca.home_improvement_contractors"
+      ],
+      "trades": [
+        "home_improvement",
+        "other"
+      ],
+      "accessPath": "manual_handoff",
+      "coverageLimitations": [
+        "This source entry is scoped to home improvement contractor registration and does not represent every New Jersey construction, local permit, trade, or business credential.",
+        "The official page points to public web verification rather than a confirmed bulk dataset.",
+        "Home elevation contractor and other consumer affairs registration types may need separate source entries if modeled."
+      ],
+      "evidence": {
+        "url": "https://newjersey.mylicense.com/verification/Search.aspx?facility=Y",
+        "reviewedAt": "2026-06-27T00:00:00.000Z",
+        "note": "Official public source, access shape, and current automation constraints reviewed."
+      }
+    },
+    {
+      "id": "us.nm.rld.construction_industries",
+      "jurisdiction": {
+        "country": "US",
+        "state": "NM"
+      },
+      "boardName": "New Mexico RLD Construction Industries License Verification",
+      "agencyName": "New Mexico Regulation and Licensing Department",
+      "officialUrl": "https://public.psiexams.com/search.jsp",
+      "sourceIds": [
+        "us.nm.rld.construction_industries"
+      ],
+      "trades": [
+        "general_contracting",
+        "electrical",
+        "plumbing",
+        "mechanical",
+        "hvac",
+        "other"
+      ],
+      "accessPath": "manual_handoff",
+      "coverageLimitations": [
+        "The RLD verification page routes Construction Industries Division verification to an external PSI search path.",
+        "Local permits, business registrations, and non-RLD authorizations are outside this source entry.",
+        "RLD boards and commissions license lookup is separate from the Construction Industries Division path and may need separate entries."
+      ],
+      "evidence": {
+        "url": "https://public.psiexams.com/search.jsp",
+        "reviewedAt": "2026-06-27T00:00:00.000Z",
+        "note": "Official public source, access shape, and current automation constraints reviewed."
+      }
+    },
+    {
+      "id": "us.nv.nscb.contractors",
+      "jurisdiction": {
+        "country": "US",
+        "state": "NV"
+      },
+      "boardName": "Nevada State Contractors Board License Search",
+      "agencyName": "Nevada State Contractors Board",
+      "officialUrl": "https://app.nvcontractorsboard.com/Clients/NVSCB/Public/ContractorLicenseSearch/ContractorLicenseSearch.aspx",
+      "sourceIds": [
+        "us.nv.nscb.contractors"
+      ],
+      "trades": [
+        "construction"
+      ],
+      "accessPath": "manual_handoff",
+      "coverageLimitations": [
+        "This registry entry is for an official lookup path, not a confirmed bulk download.",
+        "Local permits, business registrations, and other state or local authorizations may be outside NSCB scope."
+      ],
+      "evidence": {
+        "url": "https://app.nvcontractorsboard.com/Clients/NVSCB/Public/ContractorLicenseSearch/ContractorLicenseSearch.aspx",
+        "reviewedAt": "2026-06-27T00:00:00.000Z",
+        "note": "Official public source, access shape, and current automation constraints reviewed."
+      }
+    },
+    {
+      "id": "us.ny.dos.licensee_search",
+      "jurisdiction": {
+        "country": "US",
+        "state": "NY"
+      },
+      "boardName": "New York Department of State Licensee Search",
+      "agencyName": "New York Department of State Division of Licensing Services",
+      "officialUrl": "https://dos.ny.gov/licensee-search",
+      "sourceIds": [
+        "us.ny.dos.licensee_search"
+      ],
+      "trades": [
+        "home_improvement",
+        "other"
+      ],
+      "accessPath": "manual_handoff",
+      "coverageLimitations": [
+        "New York contractor and home-improvement licensing is often local; this source entry does not represent every city or county contractor license.",
+        "The DOS search is limited to active licenses and is not a complete historical license source.",
+        "Skilled trades, NYC Department of Buildings licenses, local home-improvement licenses, and county consumer-affairs records require separate source entries."
+      ],
+      "evidence": {
+        "url": "https://dos.ny.gov/licensee-search",
+        "reviewedAt": "2026-06-27T00:00:00.000Z",
+        "note": "Official public source, access shape, and current automation constraints reviewed."
+      }
+    },
+    {
+      "id": "us.oh.commerce.ocilb_contractors",
+      "jurisdiction": {
+        "country": "US",
+        "state": "OH"
+      },
+      "boardName": "Ohio Construction Industry Licensing Board Contractor License Lookup",
+      "agencyName": "Ohio Department of Commerce Construction Industry Licensing Board",
+      "officialUrl": "https://elicense4.com.ohio.gov/lookup/licenselookup.aspx",
+      "sourceIds": [
+        "us.oh.commerce.ocilb_contractors"
+      ],
+      "trades": [
+        "electrical",
+        "hvac",
+        "plumbing",
+        "mechanical",
+        "other"
+      ],
+      "accessPath": "manual_handoff",
+      "coverageLimitations": [
+        "Ohio OCILB covers specific commercial trade contractor licenses and does not represent statewide general contractor licensing.",
+        "Local general contractor licenses, local permits, and non-OCILB authorizations are outside this source entry."
+      ],
+      "evidence": {
+        "url": "https://elicense4.com.ohio.gov/lookup/licenselookup.aspx",
+        "reviewedAt": "2026-06-27T00:00:00.000Z",
+        "note": "Official public source, access shape, and current automation constraints reviewed."
+      }
+    },
+    {
+      "id": "us.ok.cib.trades",
+      "jurisdiction": {
+        "country": "US",
+        "state": "OK"
+      },
+      "boardName": "Oklahoma Construction Industries Board License Searches",
+      "agencyName": "Oklahoma Construction Industries Board",
+      "officialUrl": "https://oklahoma.gov/cib/consumers/are-they-licensed.html",
+      "sourceIds": [
+        "us.ok.cib.trades"
+      ],
+      "trades": [
+        "roofing",
+        "electrical",
+        "mechanical",
+        "plumbing",
+        "other"
+      ],
+      "accessPath": "manual_handoff",
+      "coverageLimitations": [
+        "General contractor licensing and local permits may be handled locally and are outside this source entry unless CIB-specific.",
+        "The CIB site links multiple searches; future adapter work may need separate source entries or per-search filters.",
+        "Search result fields, historical coverage, and bulk access have not been modeled."
+      ],
+      "evidence": {
+        "url": "https://oklahoma.gov/cib/consumers/are-they-licensed.html",
+        "reviewedAt": "2026-06-27T00:00:00.000Z",
+        "note": "Official public source, access shape, and current automation constraints reviewed."
+      }
+    },
+    {
+      "id": "us.or.ccb.active_licenses",
+      "jurisdiction": {
+        "country": "US",
+        "state": "OR"
+      },
+      "boardName": "Oregon CCB Active Licenses",
+      "agencyName": "Oregon Construction Contractors Board",
+      "officialUrl": "https://search.ccb.state.or.us/search/",
+      "sourceIds": [
+        "us.or.ccb.active_licenses"
+      ],
+      "trades": [
+        "construction"
+      ],
+      "accessPath": "network_opt_in",
+      "coverageLimitations": [
+        "The source name indicates active licenses; inactive, expired, suspended, historical, local, or other agency records may be excluded.",
+        "Electrical, plumbing, landscape, asbestos, and other specialized records can be regulated by separate Oregon agencies."
+      ],
+      "evidence": {
+        "url": "https://search.ccb.state.or.us/search/",
+        "reviewedAt": "2026-06-27T00:00:00.000Z",
+        "note": "Official bulk source and opt-in network path reviewed."
+      }
+    },
+    {
+      "id": "us.pa.oag.home_improvement_contractors",
+      "jurisdiction": {
+        "country": "US",
+        "state": "PA"
+      },
+      "boardName": "Pennsylvania Office of Attorney General Home Improvement Contractor Search",
+      "agencyName": "Pennsylvania Office of Attorney General",
+      "officialUrl": "https://hicsearch.attorneygeneral.gov/",
+      "sourceIds": [
+        "us.pa.oag.home_improvement_contractors"
+      ],
+      "trades": [
+        "home_improvement",
+        "roofing",
+        "hvac",
+        "plumbing",
+        "electrical",
+        "handyman",
+        "other"
+      ],
+      "accessPath": "manual_handoff",
+      "coverageLimitations": [
+        "The official search states that search results display active registrations only.",
+        "Registration under HICPA is not an endorsement, recommendation, or approval by the Pennsylvania Office of Attorney General.",
+        "Local permits, municipal licenses, and non-home-improvement trade authorizations are outside this source entry."
+      ],
+      "evidence": {
+        "url": "https://hicsearch.attorneygeneral.gov/",
+        "reviewedAt": "2026-06-27T00:00:00.000Z",
+        "note": "Official public source, access shape, and current automation constraints reviewed."
+      }
+    },
+    {
+      "id": "us.pr.daco.contractors",
+      "jurisdiction": {
+        "country": "US",
+        "state": "PR"
+      },
+      "boardName": "Puerto Rico DACO Registered Contractors List",
+      "agencyName": "Departamento de Asuntos del Consumidor de Puerto Rico",
+      "officialUrl": "https://www.daco.pr.gov/consumidores/listado-contratistas-registrados/",
+      "sourceIds": [
+        "us.pr.daco.contractors"
+      ],
+      "trades": [
+        "general_contracting",
+        "residential_contracting",
+        "roofing",
+        "home_improvement",
+        "handyman",
+        "other",
+        "unknown"
+      ],
+      "accessPath": "manual_handoff",
+      "coverageLimitations": [
+        "The DACO page describes residential construction, home repair, alterations, installations, masonry, carpentry, roof treatments, and analogous repair work; exact category fields require adapter research.",
+        "Professional licenses, municipal permits, business registrations, complaints, fines, and non-DACO authorizations may require separate official sources.",
+        "PDF reports or linked exports must not be redistributed unless terms clearly allow it."
+      ],
+      "evidence": {
+        "url": "https://www.daco.pr.gov/consumidores/listado-contratistas-registrados/",
+        "reviewedAt": "2026-06-27T00:00:00.000Z",
+        "note": "Official public source, access shape, and current automation constraints reviewed."
+      }
+    },
+    {
+      "id": "us.ri.crlb.contractors",
+      "jurisdiction": {
+        "country": "US",
+        "state": "RI"
+      },
+      "boardName": "Rhode Island CRLB Registrant and Licensee Search",
+      "agencyName": "Rhode Island Contractors' Registration and Licensing Board",
+      "officialUrl": "https://crb.ecms.ri.gov/consumer/search-registrantlicensee",
+      "sourceIds": [
+        "us.ri.crlb.contractors"
+      ],
+      "trades": [
+        "general_contracting",
+        "commercial_contracting",
+        "roofing",
+        "underground_utility",
+        "other"
+      ],
+      "accessPath": "manual_handoff",
+      "coverageLimitations": [
+        "CRLB covers contractor registration and several state building office license categories; this source entry does not represent every Rhode Island trade, permit, or business authorization.",
+        "Lookup, roster generation, and enforcement-action paths may have different coverage and terms that require separate review.",
+        "Complaint and enforcement history is not normalized by this source entry."
+      ],
+      "evidence": {
+        "url": "https://crb.ecms.ri.gov/consumer/search-registrantlicensee",
+        "reviewedAt": "2026-06-27T00:00:00.000Z",
+        "note": "Official public source, access shape, and current automation constraints reviewed."
+      }
+    },
+    {
+      "id": "us.sc.llr.contractors",
+      "jurisdiction": {
+        "country": "US",
+        "state": "SC"
+      },
+      "boardName": "South Carolina LLR Contractor License Lookup",
+      "agencyName": "South Carolina Department of Labor, Licensing and Regulation",
+      "officialUrl": "https://verify.llronline.com/LicLookup/Contractors/Contractor.aspx?div=69",
+      "sourceIds": [
+        "us.sc.llr.contractors"
+      ],
+      "trades": [
+        "contractors"
+      ],
+      "accessPath": "manual_handoff",
+      "coverageLimitations": [
+        "South Carolina residential builder records use a separate LLR lookup path and are not included in this source entry.",
+        "Local permits, business registrations, and non-LLR authorizations are outside this source entry."
+      ],
+      "evidence": {
+        "url": "https://verify.llronline.com/LicLookup/Contractors/Contractor.aspx?div=69",
+        "reviewedAt": "2026-06-27T00:00:00.000Z",
+        "note": "Official public source, access shape, and current automation constraints reviewed."
+      }
+    },
+    {
+      "id": "us.sd.dlr.plumbing",
+      "jurisdiction": {
+        "country": "US",
+        "state": "SD"
+      },
+      "boardName": "South Dakota DLR Plumbing Commission Licensing",
+      "agencyName": "South Dakota Department of Labor and Regulation Plumbing Commission",
+      "officialUrl": "https://dlr.sd.gov/plumbing/default.aspx",
+      "sourceIds": [
+        "us.sd.dlr.plumbing"
+      ],
+      "trades": [
+        "plumbing",
+        "underground_utility",
+        "other"
+      ],
+      "accessPath": "manual_handoff",
+      "coverageLimitations": [
+        "This source entry is scoped to the South Dakota Plumbing Commission and does not represent every contractor, electrical, local permit, or tax registration source in South Dakota.",
+        "The official pages describe licensing categories but no stable public lookup or bulk dataset has been modeled yet.",
+        "Electrical licensing and local contractor licensing should be separate source entries if researched."
+      ],
+      "evidence": {
+        "url": "https://dlr.sd.gov/plumbing/default.aspx",
+        "reviewedAt": "2026-06-27T00:00:00.000Z",
+        "note": "Official public source, access shape, and current automation constraints reviewed."
+      }
+    },
+    {
+      "id": "us.tn.commerce.contractors",
+      "jurisdiction": {
+        "country": "US",
+        "state": "TN"
+      },
+      "boardName": "Tennessee Board for Licensing Contractors",
+      "agencyName": "Tennessee Department of Commerce and Insurance",
+      "officialUrl": "https://verify.tn.gov/",
+      "sourceIds": [
+        "us.tn.commerce.contractors"
+      ],
+      "trades": [
+        "contractors",
+        "home improvement",
+        "limited licensed electricians",
+        "limited licensed plumbers"
+      ],
+      "accessPath": "manual_handoff",
+      "coverageLimitations": [
+        "Tennessee licensing thresholds and county-specific home-improvement coverage require source-specific review before normalization.",
+        "Local permits, business registrations, and non-board authorizations are outside this source entry."
+      ],
+      "evidence": {
+        "url": "https://verify.tn.gov/",
+        "reviewedAt": "2026-06-27T00:00:00.000Z",
+        "note": "Official public source, access shape, and current automation constraints reviewed."
+      }
+    },
+    {
+      "id": "us.tx.tdlr.all_licenses",
+      "jurisdiction": {
+        "country": "US",
+        "state": "TX"
+      },
+      "boardName": "Texas TDLR All Licenses",
+      "agencyName": "Texas Department of Licensing and Regulation",
+      "officialUrl": "https://www.tdlr.texas.gov/verify.htm",
+      "sourceIds": [
+        "us.tx.tdlr.all_licenses"
+      ],
+      "trades": [
+        "multiple regulated trades"
+      ],
+      "accessPath": "network_opt_in",
+      "coverageLimitations": [
+        "The dataset spans many TDLR license types and is not limited to construction or skilled-trade licenses.",
+        "Texas licensing is split across state and local authorities; this source does not represent every Texas contractor or trade authorization."
+      ],
+      "evidence": {
+        "url": "https://www.tdlr.texas.gov/verify.htm",
+        "reviewedAt": "2026-06-27T00:00:00.000Z",
+        "note": "Official bulk source and opt-in network path reviewed."
+      }
+    },
+    {
+      "id": "us.ut.dopl.contractors",
+      "jurisdiction": {
+        "country": "US",
+        "state": "UT"
+      },
+      "boardName": "Utah DOPL Contractor License Lookup",
+      "agencyName": "Utah Division of Professional Licensing",
+      "officialUrl": "https://secure.utah.gov/llv/search/index.html",
+      "sourceIds": [
+        "us.ut.dopl.contractors"
+      ],
+      "trades": [
+        "contracting"
+      ],
+      "accessPath": "manual_handoff",
+      "coverageLimitations": [
+        "Local permits, business registrations, and non-DOPL authorizations are outside this source entry.",
+        "Classification and qualifier details require source-specific research before normalization."
+      ],
+      "evidence": {
+        "url": "https://secure.utah.gov/llv/search/index.html",
+        "reviewedAt": "2026-06-27T00:00:00.000Z",
+        "note": "Official public source, access shape, and current automation constraints reviewed."
+      }
+    },
+    {
+      "id": "us.va.dpor.contractors",
+      "jurisdiction": {
+        "country": "US",
+        "state": "VA"
+      },
+      "boardName": "Virginia DPOR Contractor License Lookup",
+      "agencyName": "Virginia Department of Professional and Occupational Regulation",
+      "officialUrl": "https://www.dpor.virginia.gov/LicenseLookup",
+      "sourceIds": [
+        "us.va.dpor.contractors"
+      ],
+      "trades": [
+        "contractors",
+        "tradesmen"
+      ],
+      "accessPath": "manual_handoff",
+      "coverageLimitations": [
+        "The lookup is not modeled as a confirmed bulk public dataset.",
+        "DPOR scope does not represent every local permit, business registration, or non-DPOR construction authorization in Virginia."
+      ],
+      "evidence": {
+        "url": "https://www.dpor.virginia.gov/LicenseLookup",
+        "reviewedAt": "2026-06-27T00:00:00.000Z",
+        "note": "Official public source, access shape, and current automation constraints reviewed."
+      }
+    },
+    {
+      "id": "us.vi.dlca.contractors_trades",
+      "jurisdiction": {
+        "country": "US",
+        "state": "VI"
+      },
+      "boardName": "U.S. Virgin Islands DLCA Construction Contractors and Trades License Search",
+      "agencyName": "U.S. Virgin Islands Department of Licensing and Consumer Affairs",
+      "officialUrl": "https://dlca.vi.gov/_new/",
+      "sourceIds": [
+        "us.vi.dlca.contractors_trades"
+      ],
+      "trades": [
+        "general_contracting",
+        "commercial_contracting",
+        "hvac",
+        "electrical",
+        "plumbing",
+        "mechanical",
+        "other",
+        "unknown"
+      ],
+      "accessPath": "manual_handoff",
+      "coverageLimitations": [
+        "License-search fields, board certification categories, inactive coverage, and historical records require follow-up review before adapter work.",
+        "Business-license applications, board certifications, complaint records, and enforcement records may need separate official source entries.",
+        "No redistribution permission for generated datasets has been confirmed."
+      ],
+      "evidence": {
+        "url": "https://dlca.vi.gov/_new/",
+        "reviewedAt": "2026-06-27T00:00:00.000Z",
+        "note": "Official public source, access shape, and current automation constraints reviewed."
+      }
+    },
+    {
+      "id": "us.vt.sos.residential_contractors",
+      "jurisdiction": {
+        "country": "US",
+        "state": "VT"
+      },
+      "boardName": "Vermont Secretary of State Residential Contractor Registry",
+      "agencyName": "Vermont Secretary of State Office of Professional Regulation",
+      "officialUrl": "https://sos.vermont.gov/opr/find-a-professional",
+      "sourceIds": [
+        "us.vt.sos.residential_contractors"
+      ],
+      "trades": [
+        "residential_contracting",
+        "home_improvement"
+      ],
+      "accessPath": "manual_handoff",
+      "coverageLimitations": [
+        "This source entry is scoped to Vermont residential contractor registration and OPR lookup context.",
+        "Other trade licenses, local permits, business registrations, and non-OPR authorizations may require separate sources.",
+        "Some OPR lookup pages may use browser checks or other access controls; do not bypass them."
+      ],
+      "evidence": {
+        "url": "https://sos.vermont.gov/opr/find-a-professional",
+        "reviewedAt": "2026-06-27T00:00:00.000Z",
+        "note": "Official public source, access shape, and current automation constraints reviewed."
+      }
+    },
+    {
+      "id": "us.wa.lni.contractors",
+      "jurisdiction": {
+        "country": "US",
+        "state": "WA"
+      },
+      "boardName": "Washington L&I Contractor License Data",
+      "agencyName": "Washington State Department of Labor & Industries",
+      "officialUrl": "https://secure.lni.wa.gov/verify/",
+      "sourceIds": [
+        "us.wa.lni.contractors"
+      ],
+      "trades": [
+        "contractor registration"
+      ],
+      "accessPath": "network_opt_in",
+      "coverageLimitations": [
+        "This source is focused on Washington L&I contractor licensing and does not represent every local permit, business registration, or trade authorization in Washington.",
+        "Related workers compensation, bond, insurance, infraction, and lawsuit details may require separate official sources or fields that need additional review before normalization."
+      ],
+      "evidence": {
+        "url": "https://secure.lni.wa.gov/verify/",
+        "reviewedAt": "2026-06-27T00:00:00.000Z",
+        "note": "Official bulk source and opt-in network path reviewed."
+      }
+    },
+    {
+      "id": "us.wi.dsps.dwelling_trades",
+      "jurisdiction": {
+        "country": "US",
+        "state": "WI"
+      },
+      "boardName": "Wisconsin DSPS LicensE Dwelling and Trades Credential Lookup",
+      "agencyName": "Wisconsin Department of Safety and Professional Services",
+      "officialUrl": "https://license.wi.gov/s/license-lookup",
+      "sourceIds": [
+        "us.wi.dsps.dwelling_trades"
+      ],
+      "trades": [
+        "residential_contracting",
+        "home_improvement",
+        "electrical",
+        "hvac",
+        "plumbing",
+        "other"
+      ],
+      "accessPath": "manual_handoff",
+      "coverageLimitations": [
+        "This source entry is broad DSPS lookup metadata and does not yet isolate every construction-relevant credential type.",
+        "Local permits, municipal registrations, and non-DSPS authorizations are outside this source entry."
+      ],
+      "evidence": {
+        "url": "https://license.wi.gov/s/license-lookup",
+        "reviewedAt": "2026-06-27T00:00:00.000Z",
+        "note": "Official public source, access shape, and current automation constraints reviewed."
+      }
+    },
+    {
+      "id": "us.wv.labor.contractors",
+      "jurisdiction": {
+        "country": "US",
+        "state": "WV"
+      },
+      "boardName": "West Virginia Division of Labor Contractor License Search",
+      "agencyName": "West Virginia Division of Labor",
+      "officialUrl": "https://wvclboard.wv.gov/",
+      "sourceIds": [
+        "us.wv.labor.contractors"
+      ],
+      "trades": [
+        "general_contracting",
+        "hvac",
+        "plumbing",
+        "other"
+      ],
+      "accessPath": "manual_handoff",
+      "coverageLimitations": [
+        "The Division of Labor database search links multiple lists, including contractors, HVAC technicians, plumbers, and manufactured housing licensees; this source entry is primarily scoped to contractor license search.",
+        "Local permits, business registrations, and non-Division-of-Labor authorizations are outside this source entry.",
+        "Separate HVAC and plumbing lists may need separate entries or adapter filters before normalization."
+      ],
+      "evidence": {
+        "url": "https://wvclboard.wv.gov/",
+        "reviewedAt": "2026-06-27T00:00:00.000Z",
+        "note": "Official public source, access shape, and current automation constraints reviewed."
+      }
+    },
+    {
+      "id": "us.wy.firemarshal.electrical",
+      "jurisdiction": {
+        "country": "US",
+        "state": "WY"
+      },
+      "boardName": "Wyoming State Fire Marshal Electrical Licensing",
+      "agencyName": "Wyoming State Fire Marshal's Office",
+      "officialUrl": "https://wsfm.wyo.gov/electrical-safety",
+      "sourceIds": [
+        "us.wy.firemarshal.electrical"
+      ],
+      "trades": [
+        "electrical"
+      ],
+      "accessPath": "manual_handoff",
+      "coverageLimitations": [
+        "Wyoming general contractor, plumbing, mechanical, and local contractor licenses may be local and are outside this source entry.",
+        "This source entry is scoped to State Fire Marshal electrical licensing and does not represent every construction authorization in Wyoming.",
+        "The public portal and lookup behavior need follow-up review before adapter work."
+      ],
+      "evidence": {
+        "url": "https://wsfm.wyo.gov/electrical-safety",
+        "reviewedAt": "2026-06-27T00:00:00.000Z",
+        "note": "Official public source, access shape, and current automation constraints reviewed."
+      }
+    }
+  ]
+}

@@ -29,7 +29,7 @@ OpenTrade Registry v1 tracks `56` official sources covering all 50 states, DC, a
 - `0` provisional research outcomes;
 - `0` default tests that contact agency systems.
 
-The [generated source-status matrix](docs/source-status-matrix.md) is the authoritative public summary. Source JSON remains the authoritative machine-readable record.
+The [generated source-status matrix](docs/source-status-matrix.md) is the authoritative public source summary. The v2 [nationwide board inventory](docs/board-inventory.md) currently provides a representative-source baseline and deliberately does not claim complete board-level coverage yet.
 
 | Source | Capability | Input |
 | --- | --- | --- |
