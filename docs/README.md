@@ -7,6 +7,7 @@
 - [Compatibility Policy](compatibility-policy.md)
 - [Canonical Schema](canonical-schema.md)
 - [Programmatic API](api-reference.md)
+- [Hosted V2 Record API](hosted-v2-api.md)
 - [Source Registry](source-registry.md)
 - [Nationwide Board Inventory](board-inventory.md)
 - [Generated Source Status Matrix](source-status-matrix.md)
