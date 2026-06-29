@@ -8,7 +8,7 @@ import {
   type VerificationWarning,
 } from "@opentrade-registry/core";
 import { requireAdapter } from "../adapters.js";
-import { buildAllowedSourceHosts, downloadSourceToTempFile } from "../import/network.js";
+import { buildAllowedSourceHosts, downloadSourceToTempFile, resolveNetworkSourceUrl } from "../import/network.js";
 import { OpenTradeSqliteCache } from "@opentrade-registry/storage-sqlite";
 
 export async function verifyLicense(input: {
@@ -29,10 +29,6 @@ export async function verifyLicense(input: {
 
   if (input.url && !input.allowNetwork) {
     throw Object.assign(new Error("Network verification requires --allow-network. Use --file for local verification."), { exitCode: 3 });
-  }
-
-  if (input.allowNetwork && !input.url) {
-    throw Object.assign(new Error("Missing --url for network verification."), { exitCode: 2 });
   }
 
   const normalizedQuery = normalizeLicenseNumber(input.license);
@@ -63,12 +59,13 @@ export async function verifyLicense(input: {
     }
   }
 
-  if (!input.file && !input.url) {
-    throw Object.assign(new Error("Missing verification input. Use --file, --url, or --cache."), { exitCode: 2 });
+  if (!input.file && !input.allowNetwork) {
+    throw Object.assign(new Error("Missing verification input. Use --file, --cache, or --allow-network."), { exitCode: 2 });
   }
 
-  const downloaded = input.url
-    ? await downloadSourceToTempFile(input.url, { allowedHosts: buildAllowedSourceHosts(metadata, input.url) })
+  const networkUrl = input.allowNetwork ? await resolveNetworkSourceUrl(metadata, input.url) : undefined;
+  const downloaded = networkUrl
+    ? await downloadSourceToTempFile(networkUrl, { allowedHosts: buildAllowedSourceHosts(metadata, networkUrl) })
     : null;
 
   try {

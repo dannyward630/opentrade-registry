@@ -1,4 +1,9 @@
-import { downloadOfficialSource, type DownloadOptions, type DownloadedSource } from "@opentrade-registry/registry";
+import {
+  downloadOfficialSource,
+  resolveOfficialSnapshotUrl,
+  type DownloadOptions,
+  type DownloadedSource,
+} from "@opentrade-registry/registry";
 import type { SourceRegistryEntry } from "@opentrade-registry/core";
 
 export type DownloadedSourceFile = DownloadedSource;
@@ -11,6 +16,14 @@ export async function downloadSourceToTempFile(sourceUrl: string, options: Downl
     if (error instanceof Error) Object.assign(error, { exitCode: 3 });
     throw error;
   }
+}
+
+export async function resolveNetworkSourceUrl(
+  metadata: SourceRegistryEntry,
+  explicitUrl?: string,
+): Promise<string> {
+  if (explicitUrl) return explicitUrl;
+  return (await resolveOfficialSnapshotUrl(metadata)).url;
 }
 
 export function buildAllowedSourceHosts(
