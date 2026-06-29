@@ -202,10 +202,10 @@ Commands:
   opentrade sync <sourceId> --file <path> [--out <path>] [--cache <path>] [--format jsonl|csv] [--json] [--strict]
   opentrade sync <sourceId> --file <path> --cache <path> --resumable [--checkpoint-interval <records>] [--json]
   opentrade sync <sourceId> --file <path> --cache <path> --resume-run <importRunId> [--checkpoint-interval <records>] [--json]
-  opentrade sync <sourceId> --url <sourceUrl> --allow-network --out <path> [--format jsonl|csv] [--json] [--strict]
+  opentrade sync <sourceId> --allow-network [--url <sourceUrl>] --out <path> [--format jsonl|csv] [--json] [--strict]
   opentrade verify --source <sourceId> --file <path> --license <licenseNumber> [--json]
   opentrade verify --source <sourceId> --cache <path> --license <licenseNumber> [--json]
-  opentrade verify --source <sourceId> --url <sourceUrl> --allow-network --license <licenseNumber> [--json]
+  opentrade verify --source <sourceId> --allow-network [--url <sourceUrl>] --license <licenseNumber> [--json]
 
 Use "sources show" before syncing or verifying a source to review coverage, caveats, adapter maturity, and data-use notes.
 `);

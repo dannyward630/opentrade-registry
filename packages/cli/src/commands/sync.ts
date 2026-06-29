@@ -1,6 +1,6 @@
 import { requireAdapter } from "../adapters.js";
 import { parseSyncFormat } from "../import/export.js";
-import { buildAllowedSourceHosts, downloadSourceToTempFile } from "../import/network.js";
+import { buildAllowedSourceHosts, downloadSourceToTempFile, resolveNetworkSourceUrl } from "../import/network.js";
 import { runAdapterSync } from "../import/sync-runner.js";
 
 export async function syncSource(input: {
@@ -25,12 +25,8 @@ export async function syncSource(input: {
     throw Object.assign(new Error("Network sync requires --allow-network. Use --file for local sync."), { exitCode: 3 });
   }
 
-  if (input.allowNetwork && !input.url) {
-    throw Object.assign(new Error("Missing --url for network sync."), { exitCode: 2 });
-  }
-
-  if (!input.file && !input.url) {
-    throw Object.assign(new Error("Missing --file for local-file sync."), { exitCode: 2 });
+  if (!input.file && !input.allowNetwork) {
+    throw Object.assign(new Error("Missing input. Use --file or explicitly opt into source resolution with --allow-network."), { exitCode: 2 });
   }
 
   if (!input.out && !input.cache) {
@@ -51,8 +47,9 @@ export async function syncSource(input: {
 
   const format = parseSyncFormat(input.format);
   const metadata = await adapter.getSourceMetadata();
-  const downloaded = input.url
-    ? await downloadSourceToTempFile(input.url, { allowedHosts: buildAllowedSourceHosts(metadata, input.url) })
+  const networkUrl = input.allowNetwork ? await resolveNetworkSourceUrl(metadata, input.url) : undefined;
+  const downloaded = networkUrl
+    ? await downloadSourceToTempFile(networkUrl, { allowedHosts: buildAllowedSourceHosts(metadata, networkUrl) })
     : null;
 
   try {

@@ -22,6 +22,10 @@
   },
   "dependencies": {
     "@opentrade-registry/core": "workspace:*",
-    "@opentrade-registry/storage-sqlite": "workspace:*"
+    "@opentrade-registry/storage-sqlite": "workspace:*",
+    "yauzl": "^3.4.0"
+  },
+  "devDependencies": {
+    "@types/yauzl": "^3.4.0"
   }
 }

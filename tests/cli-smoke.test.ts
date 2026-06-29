@@ -32,11 +32,11 @@ describe("opentrade CLI", () => {
     expect(help).toContain("--research-outcome network_opt_in");
     expect(help).not.toContain("adapter_candidate");
     expect(help).toContain("opentrade sources list [--implemented | --registry-only | --bulk-candidates] [--json]");
-    expect(help).toContain("opentrade sync <sourceId> --url <sourceUrl> --allow-network --out <path>");
+    expect(help).toContain("opentrade sync <sourceId> --allow-network [--url <sourceUrl>] --out <path>");
     expect(help).toContain("--resumable");
     expect(help).toContain("--resume-run <importRunId>");
     expect(help).toContain("--checkpoint-interval <records>");
-    expect(help).toContain("opentrade verify --source <sourceId> --url <sourceUrl> --allow-network --license <licenseNumber>");
+    expect(help).toContain("opentrade verify --source <sourceId> --allow-network [--url <sourceUrl>] --license <licenseNumber>");
     expect(help).toContain("adapter maturity");
     expect(help).not.toContain("v0.1 does not download live agency data");
   });
