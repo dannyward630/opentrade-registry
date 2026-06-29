@@ -36,6 +36,7 @@
 - [Operational Runbook](operations.md)
 - [Security Incident Handling](incident-response.md)
 - [Vercel And Supabase Deployment](deployment/vercel-supabase.md)
+- [Self-Hosted Record Infrastructure](deployment/self-hosted-records.md)
 - [Release Process](release-process.md)
 - [Release Checklist](release-checklist.md)
 - [Package Publishing](package-publishing.md)
