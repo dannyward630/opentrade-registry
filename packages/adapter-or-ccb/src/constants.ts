@@ -42,7 +42,7 @@ export const OR_CCB_SOURCE_ENTRY: SourceRegistryEntry = {
   adapterPackage: "@opentrade-registry/adapter-or-ccb",
   testFixturePath: "packages/adapter-or-ccb/fixtures/active-licenses-sample.csv",
   officialLookupUrl: "https://search.ccb.state.or.us/search/",
-  officialBulkDownloadNotes: "Oregon Open Data exposes the active-license dataset and export metadata. The fixture adapter uses a tiny hand-authored sample with official column names.",
+  officialBulkDownloadNotes: "Oregon Open Data exposes the active-license dataset and export metadata. Offline tests use a tiny hand-authored sample with official column names.",
   researchNotes: "Fixture adapter support exists, but active-only coverage must be represented clearly in verification language.",
   verificationReviewedAt: "2026-06-22T00:00:00.000Z",
   verificationCaveats: [

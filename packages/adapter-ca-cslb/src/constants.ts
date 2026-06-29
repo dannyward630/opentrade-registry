@@ -31,7 +31,7 @@ export const CA_CSLB_SOURCE_ENTRY: SourceRegistryEntry = {
   requiresJavaScript: false,
   requiresCaptcha: false,
   requiresAccount: false,
-  rateLimitNotes: "The official data portal exposes a direct master CSV download. Network retrieval is not implemented and future support must remain opt-in.",
+  rateLimitNotes: "The official data portal exposes a direct master CSV download. Network retrieval remains explicitly opt-in and orchestration-owned.",
   redistributionStatus: "unknown",
   publicRecordsNotes: "The local-file adapter is validated against the official master CSV columns. Generated dataset redistribution is not assumed to be allowed.",
   adapterStatus: "implemented",
@@ -55,7 +55,7 @@ export const CA_CSLB_SOURCE_ENTRY: SourceRegistryEntry = {
       "note": "Official portal coverage text, direct master CSV header, and representative row shape reviewed."
     }
   ],
-  maintainerNotes: "Keep the fixture adapter scoped to license-master concepts; do not infer companion-file compliance facts.",
+  maintainerNotes: "Keep the adapter scoped to license-master concepts; do not infer companion-file compliance facts.",
   adapterQualityLevel: 4,
   verificationReviewedAt: "2026-06-28T00:00:00.000Z",
   verificationCaveats: [

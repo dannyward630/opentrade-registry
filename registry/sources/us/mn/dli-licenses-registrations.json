@@ -30,7 +30,7 @@
   "requiresJavaScript": false,
   "requiresCaptcha": false,
   "requiresAccount": false,
-  "rateLimitNotes": "The official page links a nightly ZIP archive. Network download and archive extraction are not implemented; obtain and extract it locally.",
+  "rateLimitNotes": "The official page links a nightly ZIP archive. The v1 adapter accepts extracted CSV/XLSX files; archive resolution remains explicit and caller-managed.",
   "redistributionStatus": "unknown",
   "publicRecordsNotes": "The local-file adapter is validated against the official nightly CSV columns. Absence from this source is not proof that a license does not exist elsewhere.",
   "adapterStatus": "implemented",
