@@ -2,7 +2,7 @@
   "name": "@opentrade-registry/storage-sqlite",
   "version": "1.0.1",
   "type": "module",
-  "description": "Driverless SQLite schema and row helpers for storing OpenTrade Registry canonical records.",
+  "description": "Versioned SQLite cache, migrations, and indexed verification for OpenTrade Registry.",
   "license": "MIT",
   "homepage": "https://github.com/dannyward630/opentrade-registry#readme",
   "repository": {

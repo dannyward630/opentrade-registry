@@ -30,7 +30,7 @@
   "requiresJavaScript": false,
   "requiresCaptcha": false,
   "requiresAccount": false,
-  "rateLimitNotes": "The official data portal exposes a direct master CSV download. Network retrieval is not implemented and future support must remain opt-in.",
+  "rateLimitNotes": "The official data portal exposes a direct master CSV download. Network retrieval remains explicitly opt-in and orchestration-owned.",
   "redistributionStatus": "unknown",
   "publicRecordsNotes": "The local-file adapter is validated against the official master CSV columns. Generated dataset redistribution is not assumed to be allowed.",
   "adapterStatus": "implemented",
@@ -43,7 +43,7 @@
   "officialBulkDownloadNotes": "CSLB provides a direct master-license CSV and separate companion files. The adapter accepts local CSV/XLSX master files but does not download or join companion files.",
   "researchNotes": "The master CSV header and representative rows were checked against the official download. Companion personnel, bond, and workers' compensation files remain outside this adapter.",
   "lastVerifiedAt": "2026-06-28T00:00:00.000Z",
-  "maintainerNotes": "Keep the fixture adapter scoped to license-master concepts; do not infer companion-file compliance facts.",
+  "maintainerNotes": "Keep the adapter scoped to license-master concepts; do not infer companion-file compliance facts.",
   "adapterQualityLevel": 4,
   "verificationReviewedAt": "2026-06-28T00:00:00.000Z",
   "verificationCaveats": [

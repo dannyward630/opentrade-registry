@@ -11,6 +11,7 @@
 - [Generated Source Status Matrix](source-status-matrix.md)
 - [Local SQLite Storage](storage.md)
 - [v0.2 to v1 Migration](migration-v0.2-to-v1.md)
+- [v1 to v2 Migration](migration-v1-to-v2.md)
 
 ## Source And Adapter Work
 

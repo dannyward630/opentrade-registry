@@ -13,7 +13,9 @@ The v1 contract includes:
 - CLI commands, flags, exit codes, and JSON output;
 - public package exports.
 
-`@opentrade-registry/core` exports `OPENTRADE_API_VERSION`, `OPENTRADE_CANONICAL_SCHEMA_VERSION`, and `OPENTRADE_SOURCE_REGISTRY_SCHEMA_VERSION`.
+`@opentrade-registry/core` exports default version identifiers plus named v1 and v2 identifiers. During the v2 migration, `OPENTRADE_API_VERSION`, `OPENTRADE_CANONICAL_SCHEMA_VERSION`, and `OPENTRADE_SOURCE_REGISTRY_SCHEMA_VERSION` remain v1 until all default emitters migrate together. Consumers can opt into the explicit `OPENTRADE_V2_*` constants and v2 schemas without guessing from package version numbers.
+
+V2 adds required provenance, snapshot, publication, sensitivity, source operating-policy, discovery, and verification metadata. V1 records and source entries remain readable through named compatibility functions. Supplying review metadata is required when migrating into v2; the library does not invent a publication or privacy decision.
 
 ## Compatible Changes
 
@@ -28,6 +30,8 @@ Source-driven mapping corrections are documented in the changelog. Raw records a
 ## Legacy Readers
 
 The v1 compatibility helpers can read the documented v0.2 source and canonical record shapes. Compatibility does not guarantee that every obsolete agency field remains meaningful; records are still validated against current canonical semantics.
+
+V2 migration helpers validate v1 input and require the caller to provide the new policy and provenance fields. See [Migrating From v1 To v2](migration-v1-to-v2.md).
 
 ## Deprecation
 

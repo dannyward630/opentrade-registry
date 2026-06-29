@@ -1,6 +1,14 @@
 # Current Project State
 
-This is the human-readable v1 snapshot. The generated [source-status matrix](source-status-matrix.md), source JSON, and repository gates are authoritative when counts drift.
+This is the human-readable snapshot for the released `v1.0.1` line and the v2 migration now in progress. The generated [source-status matrix](source-status-matrix.md), source JSON, and repository gates are authoritative when counts drift.
+
+## Release State
+
+- `v1.0.1` is published on GitHub and npm.
+- `11` public packages are published: core, registry orchestration, SQLite storage, CLI, and seven supported adapters.
+- V1 remains the default runtime and serialization contract.
+- Explicit v2 canonical, source-policy, adapter, and verification schemas are being introduced behind compatibility readers before any default changes.
+- The hosted production surface remains metadata-only until the v2 record storage, privacy review, and search API are complete.
 
 ## Coverage
 
@@ -34,7 +42,7 @@ Alaska, Illinois, and Indiana retain private parser-research packages for histor
 
 ## Core And Orchestration
 
-The canonical schema, source schema, adapter contract, verification result, JSON output, and CLI exit codes carry v1 identifiers and compatibility guidance. Compatibility readers accept the prior v0.2 record and registry shapes where documented.
+The default canonical schema, source schema, adapter contract, verification result, JSON output, and CLI exit codes carry v1 identifiers and compatibility guidance. Compatibility readers accept the prior v0.2 record and registry shapes where documented. V2 schemas add record/snapshot versions, publication and sensitivity metadata, source operating policies, source discovery, and expanded verification outcomes without silently reinterpreting v1 data.
 
 `@opentrade-registry/registry` provides programmatic `sync()` and `verify()` orchestration for:
 
