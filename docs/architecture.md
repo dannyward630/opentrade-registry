@@ -43,7 +43,7 @@ All implemented v1 adapters satisfy the shared conformance suite and Level 4 ver
 
 `@opentrade-registry/registry` owns reusable `sync()` and `verify()` workflows. Callers inject adapters; the package handles local files, SQLite cache verification, explicit network snapshots, stats, warnings, normalization isolation, cancellation, and structured unsupported/blocked results.
 
-The hardened downloader validates protocol and declared hosts, follows a bounded redirect chain, limits time and bytes, writes a temporary file, and records URL, fetched time, ETag, Last-Modified, content type, content length, and SHA-256 when available.
+The snapshot resolver selects a reviewed direct file, Socrata export, dated official link, or archive by source ID. The hardened downloader then validates protocol and declared hosts, follows a bounded redirect chain, limits time and bytes, writes a temporary file, and records URL, fetched time, ETag, Last-Modified, content type, content length, and SHA-256 when available. Single-file ZIP sources are extracted under compressed-size, uncompressed-size, entry-count, path, and compression-ratio limits.
 
 ## CLI
 

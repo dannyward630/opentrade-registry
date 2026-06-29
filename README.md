@@ -110,14 +110,15 @@ corepack pnpm cli -- verify \
   --license CGC012345
 ```
 
-Use an official URL only with explicit network consent:
+Resolve and download the registered official source only with explicit network consent:
 
 ```bash
 corepack pnpm cli -- sync us.fl.dbpr.construction \
-  --url https://www2.myfloridalicense.com/sto/file_download/extracts/CONSTRUCTIONLICENSE_1.csv \
   --allow-network \
   --out ./florida.jsonl
 ```
+
+Supported resolvers use direct bulk URLs, Socrata export endpoints, dated official-file links, or bounded single-file ZIP extraction as appropriate. `--url` remains an optional override and is still restricted to declared official hosts.
 
 Network downloads enforce HTTPS, declared official hosts, redirect limits, timeouts, byte limits, cancellation, and SHA-256 snapshot metadata. Live agency access is never required by the default test suite.
 
