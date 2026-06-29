@@ -2,6 +2,7 @@ import { existsSync, readFileSync } from "node:fs";
 import { createServer, type Server } from "node:http";
 import { describe, expect, it } from "vitest";
 import { downloadSourceToTempFile } from "../packages/cli/src/import/network.js";
+import { SINGLE_CSV_ZIP } from "./helpers/zip-fixture.js";
 
 describe("network source download helper", () => {
   it("downloads a local fixture response and cleans up the temp file", async () => {
@@ -40,6 +41,24 @@ describe("network source download helper", () => {
       expect(downloaded.filePath.endsWith(".xlsx")).toBe(true);
       expect(readFileSync(downloaded.filePath)).toEqual(bytes);
       await downloaded.cleanup();
+    } finally {
+      await server.close();
+    }
+  });
+
+  it("downloads and safely extracts a single-file ZIP source", async () => {
+    const server = await startServer((_request, response) => {
+      response.setHeader("content-type", "application/zip");
+      response.end(SINGLE_CSV_ZIP);
+    }, "/licenses.zip");
+
+    try {
+      const downloaded = await downloadSourceToTempFile(server.url, { timeoutMs: 1_000, maxBytes: 1024, allowedHosts: ["127.0.0.1"] });
+      expect(downloaded.filePath.endsWith(".csv")).toBe(true);
+      expect(readFileSync(downloaded.filePath, "utf8")).toContain("MN123,Example");
+      expect(downloaded.metadata.contentType).toBe("application/zip");
+      await downloaded.cleanup();
+      expect(existsSync(downloaded.filePath)).toBe(false);
     } finally {
       await server.close();
     }

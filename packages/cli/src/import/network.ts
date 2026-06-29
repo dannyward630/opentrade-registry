@@ -1,5 +1,7 @@
+import { extname } from "node:path";
 import {
   downloadOfficialSource,
+  extractSingleTabularArchive,
   resolveOfficialSnapshotUrl,
   type DownloadOptions,
   type DownloadedSource,
@@ -11,7 +13,22 @@ export type DownloadSourceOptions = Omit<DownloadOptions, "allowedHosts"> & { al
 
 export async function downloadSourceToTempFile(sourceUrl: string, options: DownloadSourceOptions): Promise<DownloadedSourceFile> {
   try {
-    return await downloadOfficialSource(sourceUrl, options);
+    const downloaded = await downloadOfficialSource(sourceUrl, options);
+    if (extname(downloaded.filePath).toLowerCase() !== ".zip") return downloaded;
+    try {
+      const extracted = await extractSingleTabularArchive(downloaded.filePath);
+      return {
+        filePath: extracted.filePath,
+        metadata: downloaded.metadata,
+        cleanup: async () => {
+          await extracted.cleanup();
+          await downloaded.cleanup();
+        },
+      };
+    } catch (error) {
+      await downloaded.cleanup();
+      throw error;
+    }
   } catch (error) {
     if (error instanceof Error) Object.assign(error, { exitCode: 3 });
     throw error;

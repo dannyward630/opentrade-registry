@@ -105,9 +105,10 @@ function normalizeHttpDate(value: string | null): string | null {
 
 function inferSuffix(url: string, contentType: string | null): string {
   const extension = extname(new URL(url).pathname).toLowerCase();
-  if ([".csv", ".xlsx", ".json"].includes(extension)) return extension;
+  if ([".csv", ".xlsx", ".json", ".zip"].includes(extension)) return extension;
   if (contentType?.includes("spreadsheetml")) return ".xlsx";
   if (contentType?.includes("json")) return ".json";
+  if (contentType?.includes("zip")) return ".zip";
   return ".csv";
 }
 
