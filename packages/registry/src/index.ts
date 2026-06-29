@@ -14,6 +14,7 @@ import {
 } from "@opentrade-registry/core";
 import type { OpenTradeSqliteCache, SqliteImportRun } from "@opentrade-registry/storage-sqlite";
 import { downloadOfficialSource, type DownloadOptions, type DownloadedSource } from "./network.js";
+import { resolveOfficialSnapshotUrl } from "./snapshot-resolvers.js";
 
 export {
   extractSingleTabularArchive,
@@ -32,7 +33,7 @@ export {
 export type RegistryInput =
   | { mode: "file"; filePath: string; sourceUrl?: string; fetchedAt?: string; sourceLastModifiedAt?: string | null }
   | { mode: "cache" }
-  | { mode: "network"; url: string; allowNetwork: boolean; download?: Omit<DownloadOptions, "allowedHosts"> };
+  | { mode: "network"; url?: string; allowNetwork: boolean; download?: Omit<DownloadOptions, "allowedHosts"> };
 
 export type RegistrySyncResult = {
   status: "completed" | "unsupported" | "blocked" | "failed";
@@ -266,10 +267,11 @@ async function resolveStreamInput(metadata: Awaited<ReturnType<TradeLicenseSourc
     };
   }
   if (!input.allowNetwork) throw new Error("Network access requires allowNetwork: true.");
-  const requestedHost = new URL(input.url).hostname.toLowerCase();
+  const networkUrl = input.url ?? (await resolveOfficialSnapshotUrl(metadata, { signal })).url;
+  const requestedHost = new URL(networkUrl).hostname.toLowerCase();
   const declared = [metadata.sourceUrl, metadata.documentationUrl, metadata.officialLookupUrl, metadata.agency.url].filter((value): value is string => Boolean(value)).map((value) => new URL(value).hostname.toLowerCase());
   if (["localhost", "127.0.0.1", "::1"].includes(requestedHost)) declared.push(requestedHost);
-  const downloaded = await downloadOfficialSource(input.url, { ...input.download, allowedHosts: [...new Set(declared)], signal });
+  const downloaded = await downloadOfficialSource(networkUrl, { ...input.download, allowedHosts: [...new Set(declared)], signal });
   setDownloaded(downloaded);
   return {
     streamOptions: { filePath: downloaded.filePath, sourceUrl: downloaded.metadata.sourceUrl, fetchedAt: downloaded.metadata.fetchedAt, sourceLastModifiedAt: downloaded.metadata.lastModifiedAt },
