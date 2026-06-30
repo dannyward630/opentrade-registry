@@ -16,7 +16,7 @@ It is local-first, provenance-first, source-cited public-records infrastructure.
 
 The current stable release is [`v1.0.1`](https://github.com/dannyward630/opentrade-registry/releases/tag/v1.0.1). It provides the local-first CLI, programmatic orchestration, SQLite cache, seven supported adapters, and the completed statewide source-decision registry described below.
 
-V2 development is underway as a sequence of focused, compatibility-tested changes. Explicit v2 canonical, source-policy, adapter, and verification contracts are available in source while v1 remains the default emitter until the CLI, storage, and hosted interfaces migrate together. The v2 target is a nationwide search platform with board-specific inventory, automatic official snapshot resolution, versioned record history, privacy-reviewed publication, and structured manual handoffs for protected sources.
+V2 development is underway as a sequence of focused, compatibility-tested changes. Explicit v2 canonical, source-policy, adapter, verification, and hosted API contracts are available while v1 remains the default emitter until the CLI, storage, and hosted interfaces migrate together. The repository also contains the private Postgres record schema and record API foundation; neither is a production deployment yet. The v2 target remains a nationwide search platform with board-specific inventory, automatic official snapshot resolution, versioned record history, privacy-reviewed publication, and structured manual handoffs for protected sources.
 
 ## v1 Coverage
 
@@ -162,7 +162,8 @@ Public contracts expose explicit schema and API version identifiers. See [Compat
 - `@opentrade-registry/cli`: `opentrade` source, sync, export, cache, and verification commands.
 - `@opentrade-registry/adapter-*`: source-specific parsers and canonical mappers.
 - `registry/sources`: evidence-backed official-source metadata.
-- `apps/web` and `api`: the released metadata-only hosted surface; v2 replaces it with privacy-reviewed record search and versioned APIs.
+- `apps/web` and `api`: the released metadata-only hosted surface.
+- `services/record-api` and `infra`: the private v2 record API, versioned Postgres schema, and local Compose foundation pending runtime deployment and recovery validation.
 
 The local packages do not require Vercel, Supabase, Postgres, or any hosted service. The hosted layer does not store imported license records.
 

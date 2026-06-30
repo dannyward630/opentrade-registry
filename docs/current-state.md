@@ -7,8 +7,9 @@ This is the human-readable snapshot for the released `v1.0.1` line and the v2 mi
 - `v1.0.1` is published on GitHub and npm.
 - `11` public packages are published: core, registry orchestration, SQLite storage, CLI, and seven supported adapters.
 - V1 remains the default runtime and serialization contract.
-- Explicit v2 canonical, source-policy, adapter, and verification schemas are being introduced behind compatibility readers before any default changes.
-- The hosted production surface remains metadata-only until the v2 record storage, privacy review, and search API are complete.
+- Explicit v2 canonical, source-policy, adapter, verification, and hosted API schemas are available behind compatibility readers before any default changes.
+- The repository contains a versioned Postgres record schema, privacy-filtered record API, Supabase identity verification, hashed developer keys, quotas, and private Compose foundation.
+- The deployed public surface remains metadata-only. The private record stack has not been runtime-validated because this host does not yet have a compatible container runtime.
 
 ## Coverage
 
@@ -99,6 +100,10 @@ The optional hosted surface provides:
 - API version identifiers, public-read CORS, bounded cache headers, sanitized errors, and `nosniff`.
 
 Supabase is an optional metadata mirror. The API falls back to checked-in files when database configuration is absent or unavailable. No imported license records or generated datasets are stored there.
+
+## V2 Hosted Foundation
+
+The unreleased private v2 foundation includes publication-filtered search and record endpoints, structured indexed/manual/pending/unavailable verification, Postgres-backed developer keys and quotas, Supabase claim verification, immutable snapshot/record tables, atomic dataset promotion, and private Postgres/MinIO Compose services. Its contracts are test-covered, but the stack is not considered operational until container startup, migration, backup, restore, restart, and ingress isolation have been exercised on the deployment host.
 
 ## Verification Evidence
 
