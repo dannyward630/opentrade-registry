@@ -17,6 +17,8 @@ Sensitive areas include official URL validation, redirects, CSV/XLSX parsing, fo
 
 OpenTrade does not bypass CAPTCHA, account, login, paywall, or technical controls. Default tests remain offline.
 
+See the [repository threat model](docs/security-threat-model.md) for assets, trust boundaries, attacker stories, existing controls, and severity calibration.
+
 ## Maintainer Response
 
 High and critical issues block release. Maintainers reproduce with safe fixtures, patch with regression coverage, audit related shared paths, and publish advisories/patch releases when users need action. See [incident response](docs/incident-response.md).
