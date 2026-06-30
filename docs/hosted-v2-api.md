@@ -10,8 +10,17 @@ The v2 record API is an optional self-hosted service. Local CLI and package work
 - `GET /api/v2/licenses/:id`: one publication-approved canonical record.
 - `POST /api/v2/verifications`: indexed verification, queued permitted lookup, official manual handoff, or structured unavailable result.
 - `GET /api/v2/verifications/:jobId`: asynchronous verification-job state.
+- `GET /api/v2/developer/keys`: list API-key metadata for the authenticated developer.
+- `POST /api/v2/developer/keys`: create a key and disclose its raw value once.
+- `DELETE /api/v2/developer/keys/:id`: revoke a key owned by the authenticated developer.
 
 Search requires a `license` or `business` value. `limit` defaults to 25 and cannot exceed 100. Postgres queries are parameterized, use keyset pagination, and return only records whose publication review disposition is `allowed`.
+
+## Developer Authentication
+
+Developer identity comes from a Supabase access token in `Authorization: Bearer <token>`. The service verifies the token claims server-side using `SUPABASE_URL` and `SUPABASE_PUBLISHABLE_KEY`; it does not accept an unverified user ID and does not require a service-role key. A client can obtain the access token through the Supabase magic-link flow.
+
+OpenTrade developer keys are separate credentials. Only their prefix and SHA-256 hash are stored. The raw key appears only in the successful create response, can be sent in `X-API-Key` for search, and cannot be recovered later. Revocation is immediate. Daily quota consumption is atomic in Postgres; anonymous searches use a bounded in-memory fixed window. A public-only deployment may omit both Supabase variables, in which case record reads remain available and key-management routes return `401`.
 
 ## Verification Semantics
 
@@ -28,4 +37,4 @@ Search requires a `license` or `business` value. `limit` defaults to 25 and cann
 
 The service connects to Postgres through a bounded pool and runs on the internal Compose network. Its local port binds to `127.0.0.1`. A future Cloudflare Tunnel route may expose only this HTTP service; Postgres and MinIO must remain private.
 
-Request bodies are capped at 64 KiB, unexpected errors are sanitized, CORS is allowlisted, and responses send `nosniff` plus explicit cache policy. Authentication, API keys, and quota endpoints are added before public deployment.
+Request bodies are capped at 64 KiB, unexpected errors are sanitized, CORS is allowlisted, and responses send `nosniff` plus explicit cache policy. API-key failures return `401`, quota and anonymous-rate failures return `429`, and raw credentials are never logged or returned by list endpoints.

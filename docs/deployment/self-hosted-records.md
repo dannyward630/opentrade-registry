@@ -16,6 +16,7 @@ This checkout has not yet run the Compose stack because no compatible container 
 ## First Start
 
 1. Create `infra/.env` from `infra/.env.example` and replace every placeholder with unique secrets.
+   Set both `SUPABASE_URL` and `SUPABASE_PUBLISHABLE_KEY` to enable developer key management, or leave both empty for public read-only operation. Never put a Supabase service-role key in this service.
 2. Pin reviewed image digests before production use.
 3. Start the private storage services:
 
@@ -25,6 +26,7 @@ This checkout has not yet run the Compose stack because no compatible container 
 
 4. Confirm Postgres and MinIO report healthy status.
 5. Verify the `opentrade-snapshots` bucket denies anonymous access.
+6. Start `record-api`, verify `/health`, then test anonymous search limits and the authenticated create/list/revoke key lifecycle before exposing ingress.
 
 Postgres runs the ordered SQL files under `infra/postgres/migrations` only when initializing a new data volume. Existing deployments require an explicit migration runner before schema changes are deployed.
 
