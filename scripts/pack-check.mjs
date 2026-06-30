@@ -48,6 +48,7 @@ try {
   const imports = publicPackages
     .filter(({ manifest }) => manifest.name !== "@opentrade-registry/cli")
     .map(({ manifest }) => `await import(${JSON.stringify(manifest.name)});`)
+    .concat("const exitCodes = await import('@opentrade-registry/cli/exit-codes'); if (exitCodes.OPENTRADE_CLI_EXIT_CODES.validationFailed !== 6) throw new Error('Packed CLI exit-code contract mismatch.');")
     .join("");
   run(process.execPath, ["--input-type=module", "--eval", imports], smokeDirectory);
   const cliBinary = join(smokeDirectory, "node_modules", ".bin", process.platform === "win32" ? "opentrade.cmd" : "opentrade");
