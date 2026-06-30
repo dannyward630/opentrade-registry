@@ -4,6 +4,12 @@ import type { DeveloperKeyMetadata } from "../services/record-api/src/api-keys.j
 import { ApiKeyError } from "../services/record-api/src/api-keys.js";
 import { AuthenticationError } from "../services/record-api/src/supabase-auth.js";
 import { setTrustedClientAddress } from "../services/record-api/src/client-address.js";
+import {
+  recordApiDeveloperKeyCreatedResponseV2Schema,
+  recordApiDeveloperKeyListResponseV2Schema,
+  recordApiErrorResponseV2Schema,
+  recordApiSearchResponseV2Schema,
+} from "@opentrade-registry/core";
 
 const keyMetadata: DeveloperKeyMetadata = {
   id: "key-1",
@@ -28,12 +34,12 @@ describe("v2 record API authentication", () => {
 
     const created = await api(request("/api/v2/developer/keys", "POST", { name: "Build" }));
     expect(created.status).toBe(201);
-    expect(await created.json()).toMatchObject({ key: keyMetadata, rawKey: "otr_live_12345678_secret" });
+    expect(recordApiDeveloperKeyCreatedResponseV2Schema.parse(await created.json())).toMatchObject({ key: keyMetadata, rawKey: "otr_live_12345678_secret" });
     expect(developerKeyService.create).toHaveBeenCalledWith("user-1", "Build");
 
     const listed = await api(request("/api/v2/developer/keys"));
     expect(listed.status).toBe(200);
-    expect(await listed.json()).toMatchObject({ keys: [keyMetadata] });
+    expect(recordApiDeveloperKeyListResponseV2Schema.parse(await listed.json())).toMatchObject({ keys: [keyMetadata] });
     expect(JSON.stringify(await developerKeyService.list.mock.results[0]?.value)).not.toContain("rawKey");
 
     const revoked = await api(request("/api/v2/developer/keys/key-1", "DELETE"));
@@ -46,7 +52,7 @@ describe("v2 record API authentication", () => {
     const api = createRecordApi({ repository: fakeRepository(), sources: [], boardInventory: inventory(), identityVerifier });
     const response = await api(request("/api/v2/developer/keys"));
     expect(response.status).toBe(401);
-    expect(await response.json()).toMatchObject({ error: { code: "authentication_required" } });
+    expect(recordApiErrorResponseV2Schema.parse(await response.json())).toMatchObject({ error: { code: "authentication_required" } });
   });
 
   it("enforces developer-key authentication and daily quotas on search", async () => {
@@ -64,6 +70,7 @@ describe("v2 record API authentication", () => {
     expect(invalid.status).toBe(401);
     expect(limited.status).toBe(429);
     expect(valid.status).toBe(200);
+    expect(recordApiSearchResponseV2Schema.safeParse(await valid.json()).success).toBe(true);
     expect(valid.headers.get("x-ratelimit-remaining")).toBe("98");
   });
 
