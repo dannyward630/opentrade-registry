@@ -2,6 +2,7 @@ import { createServer, type IncomingMessage } from "node:http";
 import { readFile, readdir } from "node:fs/promises";
 import { join } from "node:path";
 import { Pool } from "pg";
+import { createClient } from "@supabase/supabase-js";
 import {
   nationwideBoardInventorySchema,
   sourceRegistryEntryV1Schema,
@@ -9,6 +10,8 @@ import {
 } from "@opentrade-registry/core";
 import { createRecordApi } from "./index.js";
 import { createPostgresRecordRepository, type SqlClient } from "./postgres.js";
+import { createRuntimeAuth } from "./runtime-auth.js";
+import { createFixedWindowRateLimiter } from "./rate-limit.js";
 
 const databaseUrl = requiredEnvironment("DATABASE_URL");
 const registryRoot = process.env.OPENTRADE_REGISTRY_ROOT ?? join(process.cwd(), "registry");
@@ -24,11 +27,18 @@ const [sources, boardInventory] = await Promise.all([
   readSources(join(registryRoot, "sources")),
   readFile(join(registryRoot, "board-inventory.json"), "utf8").then((value) => nationwideBoardInventorySchema.parse(JSON.parse(value))),
 ]);
+const sqlClient = pool as unknown as SqlClient;
+const runtimeAuth = createRuntimeAuth({ environment: process.env, sqlClient, createSupabaseClient: createClient });
 const api = createRecordApi({
-  repository: createPostgresRecordRepository(pool as unknown as SqlClient),
+  repository: createPostgresRecordRepository(sqlClient),
   sources,
   boardInventory,
   allowedOrigins: (process.env.CORS_ALLOWED_ORIGINS ?? "").split(",").map((value) => value.trim()).filter(Boolean),
+  anonymousRateLimiter: createFixedWindowRateLimiter({
+    limit: parsePositiveInteger(process.env.ANONYMOUS_SEARCH_LIMIT ?? "60", "ANONYMOUS_SEARCH_LIMIT"),
+    windowMs: parsePositiveInteger(process.env.ANONYMOUS_SEARCH_WINDOW_MS ?? "60000", "ANONYMOUS_SEARCH_WINDOW_MS"),
+  }),
+  ...runtimeAuth,
 });
 
 const server = createServer(async (incoming, outgoing) => {
@@ -106,6 +116,12 @@ function requiredEnvironment(name: string): string {
 function parsePort(value: string): number {
   const parsed = Number(value);
   if (!Number.isInteger(parsed) || parsed < 1 || parsed > 65_535) throw new Error("PORT must be an integer between 1 and 65535.");
+  return parsed;
+}
+
+function parsePositiveInteger(value: string, name: string): number {
+  const parsed = Number(value);
+  if (!Number.isSafeInteger(parsed) || parsed < 1) throw new Error(`${name} must be a positive integer.`);
   return parsed;
 }
 
