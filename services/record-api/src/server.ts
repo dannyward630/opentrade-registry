@@ -12,6 +12,7 @@ import { createRecordApi } from "./index.js";
 import { createPostgresRecordRepository, type SqlClient } from "./postgres.js";
 import { createRuntimeAuth } from "./runtime-auth.js";
 import { createFixedWindowRateLimiter } from "./rate-limit.js";
+import { setTrustedClientAddress } from "./client-address.js";
 
 const databaseUrl = requiredEnvironment("DATABASE_URL");
 const registryRoot = process.env.OPENTRADE_REGISTRY_ROOT ?? join(process.cwd(), "registry");
@@ -79,7 +80,9 @@ async function toRequest(incoming: IncomingMessage, portNumber: number): Promise
   for (const [name, value] of Object.entries(incoming.headers)) {
     if (value !== undefined) headers.set(name, Array.isArray(value) ? value.join(", ") : value);
   }
-  return new Request(url, { method, headers, body });
+  const request = new Request(url, { method, headers, body });
+  setTrustedClientAddress(request, incoming.socket.remoteAddress);
+  return request;
 }
 
 async function readBody(incoming: IncomingMessage, maxBytes: number): Promise<Buffer> {

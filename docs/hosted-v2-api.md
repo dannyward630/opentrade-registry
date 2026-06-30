@@ -22,6 +22,8 @@ Developer identity comes from a Supabase access token in `Authorization: Bearer 
 
 OpenTrade developer keys are separate credentials. Only their prefix and SHA-256 hash are stored. The raw key appears only in the successful create response, can be sent in `X-API-Key` for search, and cannot be recovered later. Revocation is immediate. Daily quota consumption is atomic in Postgres; anonymous searches use a bounded in-memory fixed window. A public-only deployment may omit both Supabase variables, in which case record reads remain available and key-management routes return `401`.
 
+Anonymous rate-limit identity comes from the Node server's accepted socket, not caller-provided forwarding headers. Any future trusted-proxy integration must overwrite, validate, and test its client-address signal at the ingress boundary before the API uses it.
+
 ## Verification Semantics
 
 - `indexed_match`: a current indexed record matched.

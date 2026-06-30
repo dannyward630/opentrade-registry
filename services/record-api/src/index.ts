@@ -1,6 +1,7 @@
 import { normalizeLicenseNumber, type NationwideBoardInventory } from "@opentrade-registry/core";
 import { ApiKeyError, type createDeveloperKeyService } from "./api-keys.js";
 import { AuthenticationError, type IdentityVerifier } from "./supabase-auth.js";
+import { getTrustedClientAddress } from "./client-address.js";
 
 export type StoredLicenseRecord = {
   id: string;
@@ -276,7 +277,7 @@ async function authorizeSearch(request: Request, options: RecordApiOptions): Pro
     };
   }
   if (!options.anonymousRateLimiter) return {};
-  const clientId = clean(request.headers.get("x-forwarded-for"))?.split(",")[0]!.trim() ?? "unknown";
+  const clientId = getTrustedClientAddress(request);
   const result = options.anonymousRateLimiter.allow(clientId);
   if (!result.allowed) throw new AnonymousRateLimitError(result.resetAt);
   return { "x-ratelimit-remaining": String(result.remaining) };

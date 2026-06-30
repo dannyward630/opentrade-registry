@@ -36,6 +36,7 @@
 - [Legal And Data Use](legal-and-data-use.md)
 - [Operational Runbook](operations.md)
 - [Security Incident Handling](incident-response.md)
+- [Security Threat Model](security-threat-model.md)
 - [Vercel And Supabase Deployment](deployment/vercel-supabase.md)
 - [Self-Hosted Record Infrastructure](deployment/self-hosted-records.md)
 - [Release Process](release-process.md)
