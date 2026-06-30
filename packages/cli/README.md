@@ -23,4 +23,6 @@ Use `--json` for machine-readable output and `--strict` to stop sync at the firs
 
 Exit codes are `0` success, `1` general error, `2` invalid/unsupported input, `3` unavailable/network disabled, `4` no match, `5` ambiguous, and `6` validation failure.
 
+Consumers that wrap the binary can import the frozen constants from `@opentrade-registry/cli/exit-codes`.
+
 A no-match result means no matching record appeared in the checked source or cache at the checked time. It is not a licensing determination.
