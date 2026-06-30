@@ -1,0 +1,65 @@
+{
+  "id": "us.fl.example.contractors",
+  "name": "Example Contractor Licenses",
+  "jurisdiction": { "country": "US", "state": "FL" },
+  "agency": { "name": "Example Licensing Agency", "url": "https://example.gov" },
+  "sourceType": "bulk_csv",
+  "sourceUrl": "https://data.example.gov/licenses.csv",
+  "documentationUrl": "https://example.gov/data-documentation",
+  "termsUrl": "https://example.gov/terms",
+  "updateFrequency": "Monthly",
+  "tradeCoverage": ["general contracting"],
+  "licenseTypesIncluded": ["contractor"],
+  "knownExclusions": ["Municipal licenses are excluded."],
+  "hasBulkDownload": true,
+  "hasLiveLookup": true,
+  "requiresJavaScript": false,
+  "requiresCaptcha": false,
+  "requiresAccount": false,
+  "redistributionStatus": "unknown",
+  "adapterStatus": "implemented",
+  "sourceDiscoveryStatus": "researched",
+  "adapterMaturity": "production_ready",
+  "adapterQualityLevel": 4,
+  "coverageScope": "statewide",
+  "sourceResearchOutcome": "production_ready",
+  "researchReviewedAt": "2026-06-29T00:00:00.000Z",
+  "nextReviewAt": "2026-12-29T00:00:00.000Z",
+  "researchEvidence": [{
+    "url": "https://example.gov/data-documentation",
+    "checkedAt": "2026-06-29T00:00:00.000Z",
+    "note": "Official fixture documentation reviewed."
+  }],
+  "automationMode": "bulk",
+  "allowedSourceHosts": ["data.example.gov"],
+  "accessControls": {
+    "javascript": false,
+    "captcha": false,
+    "account": false,
+    "paywall": false,
+    "antiBot": "not_observed"
+  },
+  "publicationPolicy": {
+    "records": "review_required",
+    "rawRecords": "withheld",
+    "reviewedAt": "2026-06-29T00:00:00.000Z"
+  },
+  "privacyPolicy": {
+    "sensitivity": "personal_contact_possible",
+    "minimizePersonalData": true,
+    "homeAddressHandling": "withhold_pending_review"
+  },
+  "retentionPolicy": { "snapshots": "indefinite", "records": "indefinite" },
+  "synchronizationPolicy": {
+    "mode": "scheduled_opt_in",
+    "expectedCadence": "monthly",
+    "requiresExplicitNetworkPermission": true
+  },
+  "freshnessPolicy": { "staleAfterDays": 45, "unavailableAfterDays": 120 },
+  "healthPolicy": {
+    "minimumRecordCount": 1,
+    "maximumCountDeltaRatio": 0.5,
+    "requiredFields": ["license.licenseNumberNormalized", "status.normalized"]
+  },
+  "schemaVersion": "2.0"
+}
