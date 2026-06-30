@@ -3,6 +3,7 @@ import { createRecordApi, type RecordRepository } from "../services/record-api/s
 import type { DeveloperKeyMetadata } from "../services/record-api/src/api-keys.js";
 import { ApiKeyError } from "../services/record-api/src/api-keys.js";
 import { AuthenticationError } from "../services/record-api/src/supabase-auth.js";
+import { setTrustedClientAddress } from "../services/record-api/src/client-address.js";
 
 const keyMetadata: DeveloperKeyMetadata = {
   id: "key-1",
@@ -75,6 +76,17 @@ describe("v2 record API authentication", () => {
     const limited = await api(searchRequest());
     expect(limited.status).toBe(429);
     expect(limited.headers.get("retry-after")).toBeTruthy();
+  });
+
+  it("ignores caller-controlled forwarding headers for anonymous identity", async () => {
+    const allow = vi.fn(() => ({ allowed: true, remaining: 1, resetAt: 100 }));
+    const api = createRecordApi({ repository: fakeRepository(), sources: [], boardInventory: inventory(), anonymousRateLimiter: { allow } });
+    const request = new Request("https://api.example.test/api/v2/licenses/search?license=ABC123", {
+      headers: { "x-forwarded-for": "198.51.100.20", "x-opentrade-client-ip": "127.0.0.1" },
+    });
+    setTrustedClientAddress(request, "127.0.0.1");
+    await api(request);
+    expect(allow).toHaveBeenCalledWith("127.0.0.1");
   });
 });
 
