@@ -1,5 +1,10 @@
 import { describe, expect, it, vi } from "vitest";
 import { createRecordApi, type RecordRepository, type StoredLicenseRecord } from "../services/record-api/src/index.js";
+import {
+  recordApiLicenseResponseV2Schema,
+  recordApiSearchResponseV2Schema,
+  recordApiVerificationResponseV2Schema,
+} from "@opentrade-registry/core";
 
 const record: StoredLicenseRecord = {
   id: "record-1",
@@ -26,7 +31,7 @@ describe("v2 record API", () => {
     const repository = fakeRepository({ records: [record] });
     const api = createRecordApi({ repository, sources: [source()], boardInventory: inventory() });
     const response = await api(new Request("https://api.example.test/api/v2/licenses/search?license=CGC1234567&state=FL"));
-    const body = await response.json() as { apiVersion: string; records: StoredLicenseRecord[] };
+    const body = recordApiSearchResponseV2Schema.parse(await response.json());
     expect(response.status).toBe(200);
     expect(body.apiVersion).toBe("2.0");
     expect(body.records[0]).toMatchObject({ id: "record-1", sourceUrl: "https://example.gov/licenses.csv" });
@@ -37,7 +42,7 @@ describe("v2 record API", () => {
     const api = createRecordApi({ repository: fakeRepository({ record }), sources: [source()], boardInventory: inventory() });
     const response = await api(new Request("https://api.example.test/api/v2/licenses/record-1"));
     expect(response.status).toBe(200);
-    expect(await response.json()).toMatchObject({ record: { id: "record-1", recordVersion: "version-1" } });
+    expect(recordApiLicenseResponseV2Schema.parse(await response.json())).toMatchObject({ record: { id: "record-1", recordVersion: "version-1" } });
   });
 
   it("returns indexed, manual, pending, and unavailable verification semantics", async () => {
@@ -114,5 +119,5 @@ async function resultBody(api: ReturnType<typeof createRecordApi>, sourceId: str
     body: JSON.stringify({ sourceId, licenseNumber: "CGC1234567" }),
   }));
   expect(response.status).toBe(200);
-  return response.json() as Promise<Record<string, unknown>>;
+  return recordApiVerificationResponseV2Schema.parse(await response.json()) as unknown as Record<string, unknown>;
 }

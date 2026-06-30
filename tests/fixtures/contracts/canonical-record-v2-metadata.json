@@ -1,0 +1,18 @@
+{
+  "id": "record-fixture-1",
+  "recordVersion": "version-fixture-1",
+  "sourceSnapshotId": "snapshot-fixture-1",
+  "observedAt": "2026-06-29T00:00:00.000Z",
+  "publication": {
+    "disposition": "review_required",
+    "rawRecordDisposition": "withheld",
+    "reviewedAt": "2026-06-29T00:00:00.000Z",
+    "notes": ["No publication decision is inferred during migration."]
+  },
+  "sensitivity": {
+    "level": "unknown",
+    "containsHomeAddress": "unknown",
+    "containsPersonalEmail": "unknown",
+    "containsPersonalPhone": "unknown"
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "sourceId": "us.fl.dbpr.construction",
+  "jurisdiction": { "country": "US", "state": "FL" },
+  "agency": { "name": "Florida Department of Business and Professional Regulation" },
+  "source": {
+    "sourceUrl": "https://example.gov/construction.csv",
+    "sourceType": "bulk_csv",
+    "fetchedAt": "2026-06-29T00:00:00.000Z",
+    "redistributionStatus": "unknown",
+    "caveats": ["Fixture data for compatibility testing only."]
+  },
+  "license": {
+    "licenseNumber": "CGC1234567",
+    "licenseNumberNormalized": "CGC1234567",
+    "tradeCategories": ["general_contracting"]
+  },
+  "identity": { "businessName": "EXAMPLE BUILDERS LLC" },
+  "status": { "normalized": "active", "isCurrent": true },
+  "dates": { "expirationDate": "2027-08-31T00:00:00.000Z" },
+  "contact": {},
+  "raw": {
+    "record": { "license": "CGC1234567", "status": "C" },
+    "fingerprint": "fixture-fingerprint-v1"
+  },
+  "id": "record-fixture-1",
+  "recordVersion": "version-fixture-1",
+  "sourceSnapshotId": "snapshot-fixture-1",
+  "observedAt": "2026-06-29T00:00:00.000Z",
+  "publication": {
+    "disposition": "review_required",
+    "rawRecordDisposition": "withheld",
+    "reviewedAt": "2026-06-29T00:00:00.000Z",
+    "notes": ["No publication decision is inferred during migration."]
+  },
+  "sensitivity": {
+    "level": "unknown",
+    "containsHomeAddress": "unknown",
+    "containsPersonalEmail": "unknown",
+    "containsPersonalPhone": "unknown"
+  },
+  "schemaVersion": "2.0"
+}

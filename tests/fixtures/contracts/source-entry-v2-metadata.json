@@ -1,0 +1,33 @@
+{
+  "automationMode": "bulk",
+  "allowedSourceHosts": ["data.example.gov"],
+  "accessControls": {
+    "javascript": false,
+    "captcha": false,
+    "account": false,
+    "paywall": false,
+    "antiBot": "not_observed"
+  },
+  "publicationPolicy": {
+    "records": "review_required",
+    "rawRecords": "withheld",
+    "reviewedAt": "2026-06-29T00:00:00.000Z"
+  },
+  "privacyPolicy": {
+    "sensitivity": "personal_contact_possible",
+    "minimizePersonalData": true,
+    "homeAddressHandling": "withhold_pending_review"
+  },
+  "retentionPolicy": { "snapshots": "indefinite", "records": "indefinite" },
+  "synchronizationPolicy": {
+    "mode": "scheduled_opt_in",
+    "expectedCadence": "monthly",
+    "requiresExplicitNetworkPermission": true
+  },
+  "freshnessPolicy": { "staleAfterDays": 45, "unavailableAfterDays": 120 },
+  "healthPolicy": {
+    "minimumRecordCount": 1,
+    "maximumCountDeltaRatio": 0.5,
+    "requiredFields": ["license.licenseNumberNormalized", "status.normalized"]
+  }
+}

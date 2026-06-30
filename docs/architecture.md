@@ -55,9 +55,11 @@ The snapshot resolver selects a reviewed direct file, Socrata export, dated offi
 
 SQLite is optional and local. No cache is sent to the hosted service.
 
-## Hosted Metadata
+## Hosted Surfaces
 
-`apps/web` and `api` expose only project/source metadata. Registry files are primary; Supabase is an optional mirror. Health compares file and database counts plus full normalized metadata. The hosted layer never performs agency imports or hosts generated license datasets.
+`apps/web` and `api` are the released metadata-only surface. Registry files are primary; Supabase is an optional mirror. Health compares file and database counts plus full normalized metadata.
+
+`services/record-api` and `infra` are the unreleased private v2 foundation. They provide publication-filtered record search, structured verification, developer-key management, versioned Postgres storage, and private MinIO snapshot storage. These services remain optional and do not change local package behavior. Imported agency datasets are never stored in Supabase or Vercel.
 
 ## Browser Automation
 
