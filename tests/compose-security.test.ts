@@ -8,6 +8,7 @@ describe("self-hosted Compose security", () => {
     expect(compose).toContain('"127.0.0.1:${POSTGRES_PORT:-5432}:5432"');
     expect(compose).toContain('"127.0.0.1:${MINIO_API_PORT:-9000}:9000"');
     expect(compose).toContain('"127.0.0.1:${MINIO_CONSOLE_PORT:-9001}:9001"');
+    expect(compose).toContain('"127.0.0.1:${RECORD_API_PORT:-8787}:8787"');
     expect(compose).not.toMatch(/-\s*["']?(?:0\.0\.0\.0:)?(?:5432|9000|9001):/);
     expect(compose).toContain("internal: true");
   });
