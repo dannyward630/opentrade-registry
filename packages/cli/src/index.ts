@@ -7,9 +7,10 @@ import { listSources, showSource, showSourceCoverage, showSourceReadiness, type 
 import { syncSource } from "./commands/sync.js";
 import { validateSources } from "./commands/validate.js";
 import { verifyLicense } from "./commands/verify.js";
+import { OPENTRADE_CLI_EXIT_CODES } from "./exit-codes.js";
 
-const EXIT_GENERAL_ERROR = 1;
-const EXIT_INVALID_INPUT = 2;
+const EXIT_GENERAL_ERROR = OPENTRADE_CLI_EXIT_CODES.generalError;
+const EXIT_INVALID_INPUT = OPENTRADE_CLI_EXIT_CODES.invalidInput;
 const SOURCE_TYPES = ["bulk_csv", "bulk_xlsx", "bulk_json", "api", "html_lookup", "playwright_portal", "manual_public_records_file"] as const;
 const ADAPTER_MATURITIES = ["registry_only", "fixture_adapter", "local_file_adapter", "network_opt_in", "production_ready", "blocked", "deprecated"] as const;
 const ADAPTER_STATUSES = ["planned", "implemented", "experimental", "blocked", "deprecated"] as const;

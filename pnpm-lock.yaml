@@ -32,6 +32,9 @@ importers:
       '@opentrade-registry/adapter-wa-lni':
         specifier: workspace:*
         version: link:packages/adapter-wa-lni
+      '@opentrade-registry/cli':
+        specifier: workspace:*
+        version: link:packages/cli
       '@opentrade-registry/core':
         specifier: workspace:*
         version: link:packages/core
