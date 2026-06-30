@@ -1,4 +1,6 @@
 import { normalizeLicenseNumber, type NationwideBoardInventory } from "@opentrade-registry/core";
+import { ApiKeyError, type createDeveloperKeyService } from "./api-keys.js";
+import { AuthenticationError, type IdentityVerifier } from "./supabase-auth.js";
 
 export type StoredLicenseRecord = {
   id: string;
@@ -57,7 +59,14 @@ export type RecordApiOptions = {
   sources: PublicSourceMetadata[];
   boardInventory: NationwideBoardInventory;
   allowedOrigins?: string[];
+  identityVerifier?: IdentityVerifier;
+  developerKeyService?: ReturnType<typeof createDeveloperKeyService>;
+  anonymousRateLimiter?: AnonymousRateLimiter;
 };
+
+export interface AnonymousRateLimiter {
+  allow(clientId: string): { allowed: boolean; remaining: number; resetAt: number };
+}
 
 export function createRecordApi(options: RecordApiOptions): (request: Request) => Promise<Response> {
   const sources = new Map(options.sources.map((source) => [source.id, source]));
@@ -78,9 +87,27 @@ export function createRecordApi(options: RecordApiOptions): (request: Request) =
       }
 
       if (request.method === "GET" && url.pathname === "/api/v2/licenses/search") {
+        const rateLimitHeaders = await authorizeSearch(request, options);
         const query = parseSearchQuery(url.searchParams);
         const result = await options.repository.searchLicenses(query);
-        return response({ apiVersion: "2.0", ...result }, 200, request, options.allowedOrigins, "public, max-age=60");
+        return response({ apiVersion: "2.0", ...result }, 200, request, options.allowedOrigins, "public, max-age=60", rateLimitHeaders);
+      }
+
+      if (url.pathname === "/api/v2/developer/keys" && ["GET", "POST"].includes(request.method)) {
+        const identity = await requireIdentity(request, options);
+        const service = requireDeveloperKeyService(options);
+        if (request.method === "GET") {
+          return response({ apiVersion: "2.0", keys: await service.list(identity.userId) }, 200, request, options.allowedOrigins);
+        }
+        const name = await parseKeyName(request);
+        return response({ apiVersion: "2.0", ...await service.create(identity.userId, name) }, 201, request, options.allowedOrigins);
+      }
+
+      const developerKeyId = matchPath(url.pathname, "/api/v2/developer/keys/");
+      if (request.method === "DELETE" && developerKeyId) {
+        const identity = await requireIdentity(request, options);
+        await requireDeveloperKeyService(options).revoke(identity.userId, developerKeyId);
+        return response(null, 204, request, options.allowedOrigins);
       }
 
       const licenseId = matchPath(url.pathname, "/api/v2/licenses/");
@@ -139,6 +166,15 @@ export function createRecordApi(options: RecordApiOptions): (request: Request) =
       return errorResponse("not_found", "Route not found.", 404, request, options.allowedOrigins);
     } catch (error) {
       if (error instanceof InvalidRequestError) return errorResponse("invalid_request", error.message, 400, request, options.allowedOrigins);
+      if (error instanceof AuthenticationError) return errorResponse("authentication_required", error.message, 401, request, options.allowedOrigins);
+      if (error instanceof ApiKeyError) {
+        const status = error.code === "quota_exceeded" ? 429 : error.code === "not_found" ? 404 : error.code === "invalid_name" ? 400 : 401;
+        return errorResponse(error.code, error.message, status, request, options.allowedOrigins);
+      }
+      if (error instanceof AnonymousRateLimitError) {
+        const retryAfter = Math.max(1, Math.ceil((error.resetAt - Date.now()) / 1000));
+        return response({ apiVersion: "2.0", error: { code: "rate_limit_exceeded", message: error.message } }, 429, request, options.allowedOrigins, "no-store", { "retry-after": String(retryAfter) });
+      }
       console.error("record_api_request_failed", error instanceof Error ? error.message : String(error));
       return errorResponse("internal_error", "The request could not be completed.", 500, request, options.allowedOrigins);
     }
@@ -175,12 +211,13 @@ async function parseVerificationInput(request: Request): Promise<{ sourceId: str
   return { sourceId, licenseNumber };
 }
 
-function response(body: unknown, status: number, request: Request, allowedOrigins: string[] | undefined, cacheControl = "no-store"): Response {
+function response(body: unknown, status: number, request: Request, allowedOrigins: string[] | undefined, cacheControl = "no-store", extraHeaders?: Record<string, string>): Response {
   const headers = new Headers({ "cache-control": cacheControl, "x-content-type-options": "nosniff" });
+  for (const [name, value] of Object.entries(extraHeaders ?? {})) headers.set(name, value);
   const origin = request.headers.get("origin");
   if (origin && allowedOrigins?.includes(origin)) {
     headers.set("access-control-allow-origin", origin);
-    headers.set("access-control-allow-methods", "GET, POST, OPTIONS");
+    headers.set("access-control-allow-methods", "GET, POST, DELETE, OPTIONS");
     headers.set("access-control-allow-headers", "authorization, content-type, x-api-key");
     headers.set("vary", "Origin");
   }
@@ -209,3 +246,42 @@ function clean(value: unknown): string | null {
 }
 
 class InvalidRequestError extends Error {}
+
+async function requireIdentity(request: Request, options: RecordApiOptions) {
+  if (!options.identityVerifier) throw new AuthenticationError();
+  return options.identityVerifier.verify(request.headers.get("authorization"));
+}
+
+function requireDeveloperKeyService(options: RecordApiOptions): ReturnType<typeof createDeveloperKeyService> {
+  if (!options.developerKeyService) throw new AuthenticationError();
+  return options.developerKeyService;
+}
+
+async function parseKeyName(request: Request): Promise<string> {
+  if (!(request.headers.get("content-type") ?? "").includes("application/json")) throw new InvalidRequestError("Expected application/json.");
+  const value = await request.json().catch(() => null) as Record<string, unknown> | null;
+  const name = clean(value?.name);
+  if (!name) throw new InvalidRequestError("name is required.");
+  return name;
+}
+
+async function authorizeSearch(request: Request, options: RecordApiOptions): Promise<Record<string, string>> {
+  const rawKey = clean(request.headers.get("x-api-key"));
+  if (rawKey) {
+    if (!options.developerKeyService) throw new ApiKeyError("invalid_api_key", "Invalid API key.");
+    const authenticated = await options.developerKeyService.authenticate(rawKey);
+    return {
+      "x-ratelimit-limit": String(authenticated.quota.quotaPerDay),
+      "x-ratelimit-remaining": String(Math.max(0, authenticated.quota.quotaPerDay - authenticated.quota.requestCount)),
+    };
+  }
+  if (!options.anonymousRateLimiter) return {};
+  const clientId = clean(request.headers.get("x-forwarded-for"))?.split(",")[0]!.trim() ?? "unknown";
+  const result = options.anonymousRateLimiter.allow(clientId);
+  if (!result.allowed) throw new AnonymousRateLimitError(result.resetAt);
+  return { "x-ratelimit-remaining": String(result.remaining) };
+}
+
+class AnonymousRateLimitError extends Error {
+  constructor(readonly resetAt: number) { super("Anonymous search rate limit exceeded."); }
+}
