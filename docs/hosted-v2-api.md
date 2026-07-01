@@ -2,6 +2,8 @@
 
 The v2 record API is an optional self-hosted service. Local CLI and package workflows do not depend on it.
 
+The generated [OpenAPI 3.1 document](openapi-v2.json) is checked for drift during `corepack pnpm verify`. Runtime Zod schemas remain the source of truth.
+
 ## Endpoints
 
 - `GET /health`: private deployment health probe.
