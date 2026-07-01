@@ -1,9 +1,15 @@
 import type { SourceRegistryEntry } from "@opentrade-registry/core";
 
 export const FL_DBPR_CONSTRUCTION_SOURCE_ID = "us.fl.dbpr.construction";
+export const FL_DBPR_ELECTRICAL_SOURCE_ID = "us.fl.dbpr.electrical_contractors";
+export const FL_DBPR_ASBESTOS_SOURCE_ID = "us.fl.dbpr.asbestos_contractors";
 
 export const FL_DBPR_CONSTRUCTION_SOURCE_URL =
   "https://www2.myfloridalicense.com/sto/file_download/extracts/CONSTRUCTIONLICENSE_1.csv";
+export const FL_DBPR_ELECTRICAL_SOURCE_URL =
+  "https://www2.myfloridalicense.com/sto/file_download/extracts/lic08el.csv";
+export const FL_DBPR_ASBESTOS_SOURCE_URL =
+  "https://www2.myfloridalicense.com/sto/file_download/extracts/lic59asb.csv";
 
 export const FL_DBPR_SOURCE_ENTRY: SourceRegistryEntry = {
   id: FL_DBPR_CONSTRUCTION_SOURCE_ID,
@@ -68,6 +74,64 @@ export const FL_DBPR_SOURCE_ENTRY: SourceRegistryEntry = {
   maintainerNotes: "Use source URL, fetched time, caveats, raw record, and fingerprint in downstream exports.",
 };
 
+export const FL_DBPR_ELECTRICAL_SOURCE_ENTRY: SourceRegistryEntry = {
+  ...FL_DBPR_SOURCE_ENTRY,
+  id: FL_DBPR_ELECTRICAL_SOURCE_ID,
+  name: "Florida DBPR Electrical Contractor Licenses",
+  sourceUrl: FL_DBPR_ELECTRICAL_SOURCE_URL,
+  documentationUrl: "https://www2.myfloridalicense.com/electrical-contractors/public-records/",
+  updateFrequency: "DBPR states that public-record download data is refreshed weekly, subject to maintenance delays.",
+  tradeCoverage: ["electrical"],
+  licenseTypesIncluded: ["electrical contractor licenses in the DBPR board 08 public-records extract"],
+  knownExclusions: [
+    "The download excludes null-and-void, delinquent, and involuntarily inactive records.",
+    "This source does not represent local permits, local registrations outside DBPR coverage, complaints, or discipline history.",
+  ],
+  publicRecordsNotes: "Official public-record source for Florida DBPR electrical contractor data. Absence from this source is not proof that a license or local authorization does not exist.",
+  testFixturePath: "packages/adapter-fl-dbpr/fixtures/electrical-license-sample.csv",
+  officialBulkDownloadNotes: "DBPR publishes a weekly quote/comma-delimited board 08 licensee file. Network access remains explicit and opt-in.",
+  researchNotes: "The adapter shares the documented DBPR public-record layout while preserving the electrical board as a distinct source.",
+  verificationCaveats: [
+    "Verification is limited to the checked DBPR electrical source file or opt-in URL snapshot.",
+    "The download excludes null-and-void, delinquent, and involuntarily inactive records.",
+    "No matching record is not proof that an electrical license or local authorization does not exist.",
+  ],
+  researchEvidence: [{
+    url: "https://www2.myfloridalicense.com/electrical-contractors/public-records/",
+    checkedAt: "2026-07-01T05:35:00.000Z",
+    note: "Official DBPR page documents the board 08 bulk file, layout, included statuses, and exclusions.",
+  }],
+};
+
+export const FL_DBPR_ASBESTOS_SOURCE_ENTRY: SourceRegistryEntry = {
+  ...FL_DBPR_SOURCE_ENTRY,
+  id: FL_DBPR_ASBESTOS_SOURCE_ID,
+  name: "Florida DBPR Asbestos Contractor Licenses",
+  sourceUrl: FL_DBPR_ASBESTOS_SOURCE_URL,
+  documentationUrl: "https://www2.myfloridalicense.com/asbestos-contractors-and-consultants/public-records/",
+  updateFrequency: "DBPR states that public-record download data is refreshed weekly, subject to maintenance delays.",
+  tradeCoverage: ["asbestos"],
+  licenseTypesIncluded: ["asbestos contractor licenses in the DBPR board 59 public-records extract"],
+  knownExclusions: [
+    "The download excludes null-and-void, delinquent, and involuntarily inactive records.",
+    "The source also contains asbestos consultant and business categories; OpenTrade maps only clearly identified occupation codes and preserves all raw fields.",
+  ],
+  publicRecordsNotes: "Official public-record source for Florida DBPR asbestos contractor and consultant data. Absence from this source is not proof that a credential or authorization does not exist.",
+  testFixturePath: "packages/adapter-fl-dbpr/fixtures/asbestos-license-sample.csv",
+  officialBulkDownloadNotes: "DBPR publishes a weekly quote/comma-delimited board 59 licensee file. Network access remains explicit and opt-in.",
+  researchNotes: "The adapter shares the documented DBPR public-record layout while preserving the asbestos board as a distinct source.",
+  verificationCaveats: [
+    "Verification is limited to the checked DBPR asbestos source file or opt-in URL snapshot.",
+    "The download excludes null-and-void, delinquent, and involuntarily inactive records.",
+    "No matching record is not proof that an asbestos credential or authorization does not exist.",
+  ],
+  researchEvidence: [{
+    url: "https://www2.myfloridalicense.com/asbestos-contractors-and-consultants/public-records/",
+    checkedAt: "2026-07-01T05:35:00.000Z",
+    note: "Official DBPR page documents the board 59 bulk file, layout, included statuses, and exclusions.",
+  }],
+};
+
 export const PRIMARY_STATUS_LABELS: Record<string, string> = {
   C: "Current",
   P: "Probation",
@@ -80,6 +144,9 @@ export const SECONDARY_STATUS_LABELS: Record<string, string> = {
 };
 
 export const OCCUPATION_LABELS: Record<string, string> = {
+  CJC: "Asbestos Contractor",
+  EC: "Electrical Contractor",
+  ER: "Registered Electrical Contractor",
   CAC: "Certified Air Conditioning Contractor",
   CBC: "Certified Building Contractor",
   CCC: "Certified Roofing Contractor",

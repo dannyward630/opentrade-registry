@@ -55,7 +55,7 @@ Do not bypass CAPTCHAs, accounts, login walls, paywalls, or technical controls. 
 
 The state/DC and territory indexes contain one row per tracked jurisdiction and reference source IDs. `corepack pnpm coverage:health` checks completeness, cross-links, directory/state consistency, and terminal maturity alignment.
 
-The current registry contains `56` terminal entries: `10` implemented Level 4 adapters and `46` blockers. See the generated [source-status matrix](source-status-matrix.md).
+The current registry contains `58` terminal entries: `9` implemented Level 4 adapters and `49` blockers. See the generated [source-status matrix](source-status-matrix.md).
 
 ## Updating A Source
 

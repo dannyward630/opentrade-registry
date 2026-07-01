@@ -15,8 +15,8 @@ describe("nationwide board trade coverage ledger", () => {
     expect(ledger.jurisdictions).toHaveLength(56);
     expect(new Set(ledger.jurisdictions.map((entry) => entry.state)).size).toBe(56);
     expect(expanded).toHaveLength(56 * BOARD_TRADE_DOMAINS.length);
-    expect(expanded.filter((decision) => decision.outcome === "needs_research")).toHaveLength(745);
-    expect(expanded.filter((decision) => decision.outcome === "covered_by_board")).toHaveLength(39);
+    expect(expanded.filter((decision) => decision.outcome === "needs_research")).toHaveLength(743);
+    expect(expanded.filter((decision) => decision.outcome === "covered_by_board")).toHaveLength(41);
   });
 
   it("records Arizona ROC coverage without claiming an asbestos credential source", async () => {
@@ -31,16 +31,18 @@ describe("nationwide board trade coverage ledger", () => {
     expect(asbestos?.outcome).toBe("needs_research");
   });
 
-  it("records Florida construction-board coverage without folding in separate electrical or asbestos boards", async () => {
+  it("records complete Florida coverage against separate DBPR board sources", async () => {
     const ledger = boardTradeCoverageLedgerSchema.parse(await json("registry/board-coverage.json"));
     const expanded = expandBoardTradeCoverageLedger(ledger).filter((decision) => decision.state === "FL");
-    const separateBoards = expanded.filter((decision) => ["electrical", "asbestos"].includes(decision.tradeDomain));
+    const electrical = expanded.find((decision) => decision.tradeDomain === "electrical");
+    const asbestos = expanded.find((decision) => decision.tradeDomain === "asbestos");
     const constructionDomains = expanded.filter((decision) => !["electrical", "asbestos"].includes(decision.tradeDomain));
 
     expect(constructionDomains).toHaveLength(12);
     expect(constructionDomains.every((decision) => decision.outcome === "covered_by_board")).toBe(true);
     expect(constructionDomains.every((decision) => decision.boardIds.includes("us.fl.dbpr.construction"))).toBe(true);
-    expect(separateBoards.every((decision) => decision.outcome === "needs_research")).toBe(true);
+    expect(electrical).toMatchObject({ outcome: "covered_by_board", boardIds: ["us.fl.dbpr.electrical_contractors"] });
+    expect(asbestos).toMatchObject({ outcome: "covered_by_board", boardIds: ["us.fl.dbpr.asbestos_contractors"] });
   });
 
   it("requires board references and evidence for terminal coverage decisions", () => {

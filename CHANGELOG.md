@@ -2,6 +2,11 @@
 
 All notable changes follow semantic versioning from v1 onward.
 
+## Unreleased
+
+- Added Level 4 Florida DBPR electrical and asbestos bulk-file adapters with separate source provenance and official coverage caveats.
+- Expanded the board-specific source registry from 56 to 58 terminal entries.
+
 ## 1.0.1 - 2026-06-28
 
 - Bundled the source registry and U.S. coverage indexes into the published CLI package so registry commands work outside the repository.

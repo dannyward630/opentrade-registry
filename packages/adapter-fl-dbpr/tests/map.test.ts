@@ -1,10 +1,16 @@
 import { join } from "node:path";
 import { describe, expect, it } from "vitest";
 import { buildFingerprint, normalizeLicenseDigits, normalizeLicenseNumber } from "@opentrade-registry/core";
-import { floridaDbprConstructionAdapter } from "../src/source.js";
+import {
+  floridaDbprAsbestosAdapter,
+  floridaDbprConstructionAdapter,
+  floridaDbprElectricalAdapter,
+} from "../src/source.js";
 
 const fixturePath = join(process.cwd(), "packages", "adapter-fl-dbpr", "fixtures", "construction-license-sample.csv");
 const edgeFixturePath = join(process.cwd(), "packages", "adapter-fl-dbpr", "fixtures", "construction-license-edge-cases.csv");
+const electricalFixturePath = join(process.cwd(), "packages", "adapter-fl-dbpr", "fixtures", "electrical-license-sample.csv");
+const asbestosFixturePath = join(process.cwd(), "packages", "adapter-fl-dbpr", "fixtures", "asbestos-license-sample.csv");
 
 describe("Florida DBPR canonical mapping", () => {
   it("normalizes license numbers and fingerprints stably", () => {
@@ -55,5 +61,35 @@ describe("Florida DBPR canonical mapping", () => {
     expect(records[1]?.license.tradeCategories).toEqual(["unknown"]);
     expect(records[1]?.status.normalized).toBe("unknown");
     expect(records[2]?.status.normalized).toBe("expired");
+  });
+
+  it("maps the electrical bulk layout with electrical source provenance", async () => {
+    const records = [];
+    for await (const raw of floridaDbprElectricalAdapter.streamRawRecords({
+      filePath: electricalFixturePath,
+      fetchedAt: "2026-07-01T00:00:00.000Z",
+    })) records.push(await floridaDbprElectricalAdapter.normalize(raw));
+
+    expect(records).toHaveLength(2);
+    expect(records[0]?.sourceId).toBe("us.fl.dbpr.electrical_contractors");
+    expect(records[0]?.license.licenseNumber).toBe("EC13000001");
+    expect(records[0]?.license.typeLabel).toBe("Electrical Contractor");
+    expect(records[0]?.license.tradeCategories).toEqual(["electrical"]);
+    expect(records[0]?.raw.fingerprint).toMatch(/^[a-f0-9]{64}$/);
+  });
+
+  it("maps the asbestos bulk layout with asbestos source provenance", async () => {
+    const records = [];
+    for await (const raw of floridaDbprAsbestosAdapter.streamRawRecords({
+      filePath: asbestosFixturePath,
+      fetchedAt: "2026-07-01T00:00:00.000Z",
+    })) records.push(await floridaDbprAsbestosAdapter.normalize(raw));
+
+    expect(records).toHaveLength(2);
+    expect(records[0]?.sourceId).toBe("us.fl.dbpr.asbestos_contractors");
+    expect(records[0]?.license.licenseNumber).toBe("CJC000001");
+    expect(records[0]?.license.typeLabel).toBe("Asbestos Contractor");
+    expect(records[0]?.license.tradeCategories).toEqual(["asbestos"]);
+    expect(records[0]?.raw.fingerprint).toMatch(/^[a-f0-9]{64}$/);
   });
 });

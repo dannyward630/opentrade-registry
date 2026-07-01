@@ -89,7 +89,9 @@
       "state": "FL",
       "status": "network_opt_in_supported",
       "sourceIds": [
-        "us.fl.dbpr.construction"
+        "us.fl.dbpr.asbestos_contractors",
+        "us.fl.dbpr.construction",
+        "us.fl.dbpr.electrical_contractors"
       ],
       "notes": "A terminal OpenTrade Registry adapter capability is implemented with offline tests and documented source caveats."
     },

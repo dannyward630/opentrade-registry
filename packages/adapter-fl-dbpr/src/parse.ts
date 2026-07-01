@@ -21,9 +21,22 @@ export async function* streamConstructionCsvFile(input: {
   startAfterRow?: number;
   onError?: (error: AdapterError) => void;
 }): AsyncIterable<RawSourceRecord> {
+  yield* streamDbprCsvFile({ ...input, sourceId: FL_DBPR_CONSTRUCTION_SOURCE_ID });
+}
+
+export async function* streamDbprCsvFile(input: {
+  sourceId: string;
+  filePath: string;
+  sourceUrl?: string;
+  fetchedAt?: string;
+  sourceLastModifiedAt?: string | null;
+  limit?: number;
+  signal?: AbortSignal;
+  startAfterRow?: number;
+  onError?: (error: AdapterError) => void;
+}): AsyncIterable<RawSourceRecord> {
   yield* streamMappedCsvRecords({
     ...input,
-    sourceId: FL_DBPR_CONSTRUCTION_SOURCE_ID,
     header: "none",
     defaultHeader: [],
     mapFields: (fields) => mapConstructionCsvFields(fields),

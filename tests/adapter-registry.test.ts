@@ -6,7 +6,9 @@ describe("CLI adapter registry", () => {
     expect(listImplementedSourceIds()).toEqual([
       "us.az.roc.contractors",
       "us.ca.cslb.contractors",
+      "us.fl.dbpr.asbestos_contractors",
       "us.fl.dbpr.construction",
+      "us.fl.dbpr.electrical_contractors",
       "us.mn.dli.licenses_registrations",
       "us.or.ccb.active_licenses",
       "us.tx.tdlr.all_licenses",
@@ -16,6 +18,8 @@ describe("CLI adapter registry", () => {
     expect(getAdapter("us.az.roc.contractors")?.sourceId).toBe("us.az.roc.contractors");
     expect(getAdapter("us.ca.cslb.contractors")?.sourceId).toBe("us.ca.cslb.contractors");
     expect(getAdapter("us.fl.dbpr.construction")?.sourceId).toBe("us.fl.dbpr.construction");
+    expect(getAdapter("us.fl.dbpr.electrical_contractors")?.sourceId).toBe("us.fl.dbpr.electrical_contractors");
+    expect(getAdapter("us.fl.dbpr.asbestos_contractors")?.sourceId).toBe("us.fl.dbpr.asbestos_contractors");
     expect(getAdapter("us.il.idfpr.roofing_contractors")).toBeNull();
     expect(getAdapter("us.in.pla.professional_licenses")).toBeNull();
     expect(getAdapter("us.mn.dli.licenses_registrations")?.sourceId).toBe("us.mn.dli.licenses_registrations");

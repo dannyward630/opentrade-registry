@@ -1,6 +1,10 @@
 import { arizonaRocContractorsAdapter } from "@opentrade-registry/adapter-az-roc";
 import { californiaCslbContractorsAdapter } from "@opentrade-registry/adapter-ca-cslb";
-import { floridaDbprConstructionAdapter } from "@opentrade-registry/adapter-fl-dbpr";
+import {
+  floridaDbprAsbestosAdapter,
+  floridaDbprConstructionAdapter,
+  floridaDbprElectricalAdapter,
+} from "@opentrade-registry/adapter-fl-dbpr";
 import { minnesotaDliLicensesRegistrationsAdapter } from "@opentrade-registry/adapter-mn-dli";
 import { oregonCcbActiveLicensesAdapter } from "@opentrade-registry/adapter-or-ccb";
 import { texasTdlrAllLicensesAdapter } from "@opentrade-registry/adapter-tx-tdlr";
@@ -29,6 +33,16 @@ const adapterCases: AdapterConformanceCase[] = [
     expectedFixtureRecordCount: 5,
   },
   {
+    adapter: floridaDbprElectricalAdapter,
+    registryPath: "registry/sources/us/fl/dbpr-electrical-contractors.json",
+    expectedFixtureRecordCount: 2,
+  },
+  {
+    adapter: floridaDbprAsbestosAdapter,
+    registryPath: "registry/sources/us/fl/dbpr-asbestos-contractors.json",
+    expectedFixtureRecordCount: 2,
+  },
+  {
     adapter: minnesotaDliLicensesRegistrationsAdapter,
     registryPath: "registry/sources/us/mn/dli-licenses-registrations.json",
     expectedFixtureRecordCount: 6,
@@ -54,6 +68,8 @@ const csvFixtures = new Map([
   [arizonaRocContractorsAdapter.sourceId, "packages/adapter-az-roc/fixtures/contractor-license-sample.csv"],
   [californiaCslbContractorsAdapter.sourceId, "packages/adapter-ca-cslb/fixtures/contractors-master-sample.csv"],
   [floridaDbprConstructionAdapter.sourceId, "packages/adapter-fl-dbpr/fixtures/construction-license-sample.csv"],
+  [floridaDbprElectricalAdapter.sourceId, "packages/adapter-fl-dbpr/fixtures/electrical-license-sample.csv"],
+  [floridaDbprAsbestosAdapter.sourceId, "packages/adapter-fl-dbpr/fixtures/asbestos-license-sample.csv"],
   [minnesotaDliLicensesRegistrationsAdapter.sourceId, "packages/adapter-mn-dli/fixtures/licenses-registrations-sample.csv"],
   [oregonCcbActiveLicensesAdapter.sourceId, "packages/adapter-or-ccb/fixtures/active-licenses-sample.csv"],
   [texasTdlrAllLicensesAdapter.sourceId, "packages/adapter-tx-tdlr/fixtures/all-licenses-sample.csv"],

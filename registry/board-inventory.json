@@ -295,6 +295,32 @@
       }
     },
     {
+      "id": "us.fl.dbpr.asbestos_contractors",
+      "jurisdiction": {
+        "country": "US",
+        "state": "FL"
+      },
+      "boardName": "Florida DBPR Asbestos Contractor Licenses",
+      "agencyName": "Florida Department of Business and Professional Regulation",
+      "officialUrl": "https://www.myfloridalicense.com/wl11.asp",
+      "sourceIds": [
+        "us.fl.dbpr.asbestos_contractors"
+      ],
+      "trades": [
+        "asbestos"
+      ],
+      "accessPath": "network_opt_in",
+      "coverageLimitations": [
+        "The download excludes null-and-void, delinquent, and involuntarily inactive records.",
+        "The source also contains asbestos consultant and business categories; OpenTrade maps only clearly identified occupation codes and preserves all raw fields."
+      ],
+      "evidence": {
+        "url": "https://www2.myfloridalicense.com/asbestos-contractors-and-consultants/public-records/",
+        "reviewedAt": "2026-06-27T00:00:00.000Z",
+        "note": "Official DBPR page documents the board 59 bulk file, layout, included statuses, and exclusions."
+      }
+    },
+    {
       "id": "us.fl.dbpr.construction",
       "jurisdiction": {
         "country": "US",
@@ -318,6 +344,32 @@
         "url": "https://www.myfloridalicense.com/wl11.asp",
         "reviewedAt": "2026-06-27T00:00:00.000Z",
         "note": "Official bulk source and opt-in network path reviewed."
+      }
+    },
+    {
+      "id": "us.fl.dbpr.electrical_contractors",
+      "jurisdiction": {
+        "country": "US",
+        "state": "FL"
+      },
+      "boardName": "Florida DBPR Electrical Contractor Licenses",
+      "agencyName": "Florida Department of Business and Professional Regulation",
+      "officialUrl": "https://www.myfloridalicense.com/wl11.asp",
+      "sourceIds": [
+        "us.fl.dbpr.electrical_contractors"
+      ],
+      "trades": [
+        "electrical"
+      ],
+      "accessPath": "network_opt_in",
+      "coverageLimitations": [
+        "The download excludes null-and-void, delinquent, and involuntarily inactive records.",
+        "This source does not represent local permits, local registrations outside DBPR coverage, complaints, or discipline history."
+      ],
+      "evidence": {
+        "url": "https://www2.myfloridalicense.com/electrical-contractors/public-records/",
+        "reviewedAt": "2026-06-27T00:00:00.000Z",
+        "note": "Official DBPR page documents the board 08 bulk file, layout, included statuses, and exclusions."
       }
     },
     {

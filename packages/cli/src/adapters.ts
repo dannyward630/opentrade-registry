@@ -1,6 +1,13 @@
 import { arizonaRocContractorsAdapter, AZ_ROC_CONTRACTORS_SOURCE_ID } from "@opentrade-registry/adapter-az-roc";
 import { californiaCslbContractorsAdapter, CA_CSLB_CONTRACTORS_SOURCE_ID } from "@opentrade-registry/adapter-ca-cslb";
-import { floridaDbprConstructionAdapter, FL_DBPR_CONSTRUCTION_SOURCE_ID } from "@opentrade-registry/adapter-fl-dbpr";
+import {
+  floridaDbprAsbestosAdapter,
+  floridaDbprConstructionAdapter,
+  floridaDbprElectricalAdapter,
+  FL_DBPR_ASBESTOS_SOURCE_ID,
+  FL_DBPR_CONSTRUCTION_SOURCE_ID,
+  FL_DBPR_ELECTRICAL_SOURCE_ID,
+} from "@opentrade-registry/adapter-fl-dbpr";
 import { minnesotaDliLicensesRegistrationsAdapter, MN_DLI_LICENSES_REGISTRATIONS_SOURCE_ID } from "@opentrade-registry/adapter-mn-dli";
 import { oregonCcbActiveLicensesAdapter, OR_CCB_ACTIVE_LICENSES_SOURCE_ID } from "@opentrade-registry/adapter-or-ccb";
 import { texasTdlrAllLicensesAdapter, TX_TDLR_ALL_LICENSES_SOURCE_ID } from "@opentrade-registry/adapter-tx-tdlr";
@@ -11,6 +18,8 @@ const adapters = new Map<string, TradeLicenseSourceAdapter>([
   [AZ_ROC_CONTRACTORS_SOURCE_ID, arizonaRocContractorsAdapter],
   [CA_CSLB_CONTRACTORS_SOURCE_ID, californiaCslbContractorsAdapter],
   [FL_DBPR_CONSTRUCTION_SOURCE_ID, floridaDbprConstructionAdapter],
+  [FL_DBPR_ELECTRICAL_SOURCE_ID, floridaDbprElectricalAdapter],
+  [FL_DBPR_ASBESTOS_SOURCE_ID, floridaDbprAsbestosAdapter],
   [MN_DLI_LICENSES_REGISTRATIONS_SOURCE_ID, minnesotaDliLicensesRegistrationsAdapter],
   [OR_CCB_ACTIVE_LICENSES_SOURCE_ID, oregonCcbActiveLicensesAdapter],
   [TX_TDLR_ALL_LICENSES_SOURCE_ID, texasTdlrAllLicensesAdapter],

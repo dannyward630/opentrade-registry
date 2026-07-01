@@ -14,17 +14,17 @@ It is local-first, provenance-first, source-cited public-records infrastructure.
 
 ## Released And In Development
 
-The current stable release is [`v1.0.1`](https://github.com/dannyward630/opentrade-registry/releases/tag/v1.0.1). It provides the local-first CLI, programmatic orchestration, SQLite cache, seven supported adapters, and the completed statewide source-decision registry described below.
+The current stable release is [`v1.0.1`](https://github.com/dannyward630/opentrade-registry/releases/tag/v1.0.1). The current `main` development line provides the local-first CLI, programmatic orchestration, SQLite cache, nine supported adapters, and the statewide source-decision registry described below.
 
 V2 development is underway as a sequence of focused, compatibility-tested changes. Explicit v2 canonical, source-policy, adapter, verification, and hosted API contracts are available while v1 remains the default emitter until the CLI, storage, and hosted interfaces migrate together. The repository also contains the private Postgres record schema and record API foundation; neither is a production deployment yet. The v2 target remains a nationwide search platform with board-specific inventory, automatic official snapshot resolution, versioned record history, privacy-reviewed publication, and structured manual handoffs for protected sources.
 
 ## v1 Coverage
 
-OpenTrade Registry v1 tracks `56` official sources covering all 50 states, DC, and five major U.S. territories. Every source has a terminal, evidence-backed outcome:
+OpenTrade Registry currently tracks `58` official sources covering all 50 states, DC, and five major U.S. territories. Every source has a terminal, evidence-backed outcome:
 
-- `7` implemented adapters, all reviewed at adapter quality Level 4;
+- `9` implemented adapters, all reviewed at adapter quality Level 4;
 - `2` local-file adapters;
-- `5` explicit network opt-in adapters;
+- `7` explicit network opt-in adapters;
 - `49` blocked sources with documented legal, technical, access-control, scope, or source-stability evidence;
 - `0` provisional research outcomes;
 - `0` default tests that contact agency systems.
@@ -35,7 +35,9 @@ The [generated source-status matrix](docs/source-status-matrix.md) is the author
 | --- | --- | --- |
 | Arizona ROC | `network_opt_in` | dated posting-list CSV |
 | California CSLB | `local_file_adapter` | CSV or XLSX |
-| Florida DBPR | `network_opt_in` | CSV |
+| Florida DBPR construction | `network_opt_in` | CSV |
+| Florida DBPR electrical | `network_opt_in` | CSV |
+| Florida DBPR asbestos | `network_opt_in` | CSV |
 | Minnesota DLI | `local_file_adapter` | CSV or XLSX |
 | Oregon CCB | `network_opt_in` | CSV |
 | Texas TDLR | `network_opt_in` | CSV |
