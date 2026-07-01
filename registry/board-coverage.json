@@ -384,7 +384,38 @@
     { "state": "SC", "decisions": {} },
     { "state": "SD", "decisions": {} },
     { "state": "TN", "decisions": {} },
-    { "state": "TX", "decisions": {} },
+    {
+      "state": "TX",
+      "decisions": {
+        "electrical": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.tx.tdlr.all_licenses"],
+          "evidence": [{ "url": "https://www.tdlr.texas.gov/electricians/elecfaq.htm", "reviewedAt": "2026-07-01T10:00:00.000Z", "note": "TDLR Electrical Safety and Licensing FAQ states that anyone who performs electrical work in Texas must be licensed and identifies contractor license paths." }]
+        },
+        "plumbing": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.tx.tsbpe.plumbing"],
+          "evidence": [{ "url": "https://tsbpe.texas.gov/license-types/", "reviewedAt": "2026-07-01T10:00:00.000Z", "note": "The Texas State Board of Plumbing Examiners lists statewide plumbing license types including Tradesman Plumber-Limited, Journeyman Plumber, Master Plumber, and Plumbing Inspector." }]
+        },
+        "hvac": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.tx.tdlr.all_licenses"],
+          "evidence": [{ "url": "https://www.tdlr.texas.gov/acr/", "reviewedAt": "2026-07-01T10:00:00.000Z", "note": "TDLR states that contractors who install, repair, or maintain air conditioning, refrigeration, or heating systems must have a TDLR license." }]
+        },
+        "mechanical": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.tx.tdlr.all_licenses"],
+          "evidence": [{ "url": "https://www.tdlr.texas.gov/acr/contractor-apply.htm", "reviewedAt": "2026-07-01T10:00:00.000Z", "note": "TDLR Air Conditioning and Refrigeration contractor licensing documentation says license class and endorsements determine the type of air conditioning and refrigeration work that may be performed." }],
+          "limitations": ["This decision covers the TDLR ACR mechanical/HVAC path and does not resolve unrelated mechanical scopes outside TDLR ACR licensing."]
+        },
+        "solar": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.tx.tdlr.all_licenses"],
+          "evidence": [{ "url": "https://www.tdlr.texas.gov/media/pdf/Consumer%20Protection%20-%20Solar%20Panel.pdf", "reviewedAt": "2026-07-01T10:00:00.000Z", "note": "TDLR consumer guidance for solar panels says licensed electrical contractors perform solar installation work and must hold or employ a master electrician." }],
+          "limitations": ["This decision covers solar installation through the electrical-contractor licensing path; residential solar retail sales registration is a separate future TDLR program and is not treated as active contractor-license coverage here."]
+        }
+      }
+    },
     { "state": "UT", "decisions": {} },
     { "state": "VA", "decisions": {} },
     { "state": "VI", "decisions": {} },

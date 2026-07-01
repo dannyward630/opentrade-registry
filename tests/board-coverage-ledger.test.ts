@@ -15,8 +15,8 @@ describe("nationwide board trade coverage ledger", () => {
     expect(ledger.jurisdictions).toHaveLength(56);
     expect(new Set(ledger.jurisdictions.map((entry) => entry.state)).size).toBe(56);
     expect(expanded).toHaveLength(56 * BOARD_TRADE_DOMAINS.length);
-    expect(expanded.filter((decision) => decision.outcome === "needs_research")).toHaveLength(722);
-    expect(expanded.filter((decision) => decision.outcome === "covered_by_board")).toHaveLength(56);
+    expect(expanded.filter((decision) => decision.outcome === "needs_research")).toHaveLength(717);
+    expect(expanded.filter((decision) => decision.outcome === "covered_by_board")).toHaveLength(61);
     expect(expanded.filter((decision) => decision.outcome === "not_state_regulated")).toHaveLength(1);
     expect(expanded.filter((decision) => decision.outcome === "local_only")).toHaveLength(5);
   });
@@ -71,6 +71,34 @@ describe("nationwide board trade coverage ledger", () => {
     expect(constructionDomains.every((decision) => decision.boardIds.includes("us.fl.dbpr.construction"))).toBe(true);
     expect(electrical).toMatchObject({ outcome: "covered_by_board", boardIds: ["us.fl.dbpr.electrical_contractors"] });
     expect(asbestos).toMatchObject({ outcome: "covered_by_board", boardIds: ["us.fl.dbpr.asbestos_contractors"] });
+  });
+
+  it("records Texas TDLR and TSBPE trade coverage without overclaiming broad construction domains", async () => {
+    const ledger = boardTradeCoverageLedgerSchema.parse(await json("registry/board-coverage.json"));
+    const expanded = expandBoardTradeCoverageLedger(ledger).filter((decision) => decision.state === "TX");
+    const unresolved = expanded.filter((decision) => decision.outcome === "needs_research");
+
+    expect(unresolved.map((decision) => decision.tradeDomain).sort()).toEqual([
+      "asbestos",
+      "commercial_contracting",
+      "general_contracting",
+      "home_improvement",
+      "pool_spa",
+      "residential_contracting",
+      "roofing",
+      "sheet_metal",
+      "underground_utility",
+    ]);
+    for (const domain of ["electrical", "hvac", "mechanical", "solar"]) {
+      expect(expanded.find((decision) => decision.tradeDomain === domain)).toMatchObject({
+        outcome: "covered_by_board",
+        boardIds: ["us.tx.tdlr.all_licenses"],
+      });
+    }
+    expect(expanded.find((decision) => decision.tradeDomain === "plumbing")).toMatchObject({
+      outcome: "covered_by_board",
+      boardIds: ["us.tx.tsbpe.plumbing"],
+    });
   });
 
   it("records Colorado statewide trade boards and local-only construction boundaries", async () => {
