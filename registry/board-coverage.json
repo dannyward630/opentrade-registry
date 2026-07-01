@@ -85,7 +85,89 @@
         }
       }
     },
-    { "state": "AL", "decisions": {} },
+    {
+      "state": "AL",
+      "decisions": {
+        "general_contracting": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.al.genconbd.general_contractors"],
+          "evidence": [{ "url": "https://genconbd.alabama.gov/about/law/", "reviewedAt": "2026-07-01T00:00:00.000Z", "note": "The Alabama Licensing Board for General Contractors defines and licenses statewide general contracting above the statutory project-value threshold." }],
+          "limitations": ["The general-contractor threshold is $100,000 for covered projects; smaller work may be regulated by another state board or local authority."]
+        },
+        "residential_contracting": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.al.hblb.home_builders"],
+          "evidence": [{ "url": "https://hblb.alabama.gov/", "reviewedAt": "2026-07-01T00:00:00.000Z", "note": "The Alabama Home Builders Licensure Board states that it regulates residential construction and remodeling industries." }]
+        },
+        "commercial_contracting": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.al.genconbd.general_contractors"],
+          "evidence": [{ "url": "https://genconbd.alabama.gov/Rules_%20Regulations_.pdf", "reviewedAt": "2026-07-01T00:00:00.000Z", "note": "The board's official rules describe its licensing and regulation of commercial and industrial contractors across major and specialty classifications." }],
+          "limitations": ["Coverage remains subject to the statutory project-value threshold and the classifications printed on the license."]
+        },
+        "electrical": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.al.aecb.electrical_contractors", "us.al.genconbd.general_contractors"],
+          "evidence": [{ "url": "https://aecb.alabama.gov/", "reviewedAt": "2026-07-01T00:00:00.000Z", "note": "The Alabama Board of Electrical Contractors provides a statewide roster of licensed electrical contractors, journeymen, and provisional licensees." }],
+          "limitations": ["A General Contractors Board classification and project threshold may also apply to larger electrical contracts."]
+        },
+        "plumbing": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.al.pgfb.plumbers_gas_fitters", "us.al.genconbd.general_contractors"],
+          "evidence": [{ "url": "https://pgfb.alabama.gov/applicants/how-do-i-become-licensed/", "reviewedAt": "2026-07-01T00:00:00.000Z", "note": "The Alabama Plumbers and Gas Fitters Examining Board defines master and journeyman plumbing credentials and requires companies performing plumbing work to register." }]
+        },
+        "hvac": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.al.hacr.contractors", "us.al.genconbd.general_contractors"],
+          "evidence": [{ "url": "https://hacr.igovsolution.net/online/Lookups/Individual_Lookup.aspx", "reviewedAt": "2026-07-01T00:00:00.000Z", "note": "The Alabama HACR Board's official linked lookup includes HVAC and refrigeration credential types." }],
+          "limitations": ["The public lookup requires a verification code and remains a manual handoff."]
+        },
+        "mechanical": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.al.genconbd.general_contractors", "us.al.hacr.contractors", "us.al.pgfb.plumbers_gas_fitters"],
+          "evidence": [{ "url": "https://genconbd.alabama.gov/administrativecodes/230-X-1-.27.pdf", "reviewedAt": "2026-07-01T00:00:00.000Z", "note": "The General Contractors Board's official classification rule defines Mechanical and its HVAC, plumbing, refrigeration, fire-protection, process-piping, boiler, and related subclasses." }],
+          "limitations": ["Companion HACR and plumbing/gas-fitting certifications may be required for the regulated work within a mechanical classification."]
+        },
+        "roofing": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.al.hblb.home_builders", "us.al.genconbd.general_contractors"],
+          "evidence": [{ "url": "https://hblb.alabama.gov/https-alhobv7prod-glsuite-us-glsuiteweb-clients-alhob-public-licenseesearch-aspx/", "reviewedAt": "2026-07-01T00:00:00.000Z", "note": "The Home Builders Licensure Board states that it issues roofing licenses to individuals and corporations; the general board separately lists Roofing and Sheet Metal classifications." }],
+          "limitations": ["Applicable board and threshold depend on residential versus commercial scope and contract value."]
+        },
+        "solar": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.al.hblb.home_builders", "us.al.aecb.electrical_contractors", "us.al.genconbd.general_contractors"],
+          "evidence": [{ "url": "https://hblb.alabama.gov/building-officials/", "reviewedAt": "2026-07-01T00:00:00.000Z", "note": "The Home Builders Licensure Board states that qualifying residential solar-panel installation requires an unlimited board license; the general-board application also lists Solar Projects." }],
+          "limitations": ["Electrical work may additionally require an Alabama electrical contractor credential."]
+        },
+        "pool_spa": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.al.genconbd.general_contractors"],
+          "evidence": [{ "url": "https://genconbd.alabama.gov/about/law/", "reviewedAt": "2026-07-01T00:00:00.000Z", "note": "The board's contractor law explicitly covers swimming-pool construction, repair, and renovation at the stated $5,000 threshold." }]
+        },
+        "asbestos": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.al.genconbd.general_contractors"],
+          "evidence": [{ "url": "https://genconbd.alabama.gov/administrativecodes/230-X-1-.27.pdf", "reviewedAt": "2026-07-01T00:00:00.000Z", "note": "The board's Environmental specialty classification includes remediation and abatement work." }],
+          "limitations": ["Additional Alabama environmental, labor, or project-notification requirements are not represented by this contractor-board decision and require separate source research."]
+        },
+        "sheet_metal": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.al.genconbd.general_contractors", "us.al.hacr.contractors"],
+          "evidence": [{ "url": "https://genconbd.alabama.gov/wp-content/uploads/2025/05/2022-Prime-App-with-Citizenship.pdf", "reviewedAt": "2026-07-01T00:00:00.000Z", "note": "The General Contractors Board's official application lists Roofing and Sheet Metal; HVAC duct work may also fall within HACR board scope." }]
+        },
+        "underground_utility": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.al.genconbd.general_contractors"],
+          "evidence": [{ "url": "https://genconbd.alabama.gov/wp-content/uploads/2025/05/2022-Prime-App-with-Citizenship.pdf", "reviewedAt": "2026-07-01T00:00:00.000Z", "note": "The official Municipal and Utility classification includes sewer, water, gas, electric and telephone projects and lists Underground Utilities as a subclassification." }]
+        },
+        "home_improvement": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.al.hblb.home_builders"],
+          "evidence": [{ "url": "https://hblb.alabama.gov/", "reviewedAt": "2026-07-01T00:00:00.000Z", "note": "The Home Builders Licensure Board states that its mission includes regulating residential remodeling as well as residential construction." }]
+        }
+      }
+    },
     { "state": "AR", "decisions": {} },
     { "state": "AS", "decisions": {} },
     {
