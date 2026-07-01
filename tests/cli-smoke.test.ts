@@ -430,7 +430,7 @@ describe("opentrade CLI", () => {
         status: "completed",
         normalizedRecordCount: 5,
       });
-      expect(syncJson.importRun.sourceSha256).toMatch(/^[a-f0-9]{68}$/);
+      expect(syncJson.importRun.sourceSha256).toMatch(/^[a-f0-9]{64}$/);
 
       const matched = runCli(["verify", "--source", "us.fl.dbpr.construction", "--cache", cachePath, "--license", "CGC012345", "--json"]);
       const matchedJson = JSON.parse(matched.stdout);
