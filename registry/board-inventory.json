@@ -1553,6 +1553,34 @@
       }
     },
     {
+      "id": "us.tx.tsbpe.plumbing",
+      "jurisdiction": {
+        "country": "US",
+        "state": "TX"
+      },
+      "boardName": "Texas State Board of Plumbing Examiners License Search",
+      "agencyName": "Texas State Board of Plumbing Examiners",
+      "officialUrl": "https://vo.licensing.hpc.texas.gov/datamart/selSearchType.do",
+      "sourceIds": [
+        "us.tx.tsbpe.plumbing"
+      ],
+      "trades": [
+        "plumbing"
+      ],
+      "accessPath": "manual_handoff",
+      "coverageLimitations": [
+        "This source entry is scoped to plumbing licenses and registrations regulated by the Texas State Board of Plumbing Examiners.",
+        "Texas electrical, air conditioning and refrigeration, general contractor, local permit, and local registration records are outside this source entry.",
+        "The free licensee-list page describes downloadable lists, but no OpenTrade adapter has validated a stable file shape yet.",
+        "Searches or downloads requiring protected interactive workflows are not automated by OpenTrade Registry."
+      ],
+      "evidence": {
+        "url": "https://tsbpe.texas.gov/license-types/",
+        "reviewedAt": "2026-07-01T00:00:00.000Z",
+        "note": "Official TSBPE page reviewed; it lists plumbing license types including Tradesman Plumber-Limited, Journeyman Plumber, Master Plumber, and Plumbing Inspector."
+      }
+    },
+    {
       "id": "us.ut.dopl.contractors",
       "jurisdiction": {
         "country": "US",

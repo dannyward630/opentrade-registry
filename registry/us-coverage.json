@@ -364,11 +364,12 @@
     },
     {
       "state": "TX",
-      "status": "network_opt_in_supported",
+      "status": "blocked",
       "sourceIds": [
-        "us.tx.tdlr.all_licenses"
+        "us.tx.tdlr.all_licenses",
+        "us.tx.tsbpe.plumbing"
       ],
-      "notes": "A terminal OpenTrade Registry adapter capability is implemented with offline tests and documented source caveats."
+      "notes": "TDLR has a terminal OpenTrade Registry adapter capability with offline tests and documented source caveats; TSBPE plumbing metadata is tracked separately and currently blocks full Texas source maturity pending file-shape review."
     },
     {
       "state": "UT",

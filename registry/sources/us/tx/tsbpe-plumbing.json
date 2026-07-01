@@ -1,0 +1,81 @@
+{
+  "id": "us.tx.tsbpe.plumbing",
+  "name": "Texas State Board of Plumbing Examiners License Search",
+  "jurisdiction": {
+    "country": "US",
+    "state": "TX"
+  },
+  "agency": {
+    "name": "Texas State Board of Plumbing Examiners",
+    "url": "https://tsbpe.texas.gov/"
+  },
+  "sourceType": "html_lookup",
+  "sourceUrl": "https://tsbpe.texas.gov/",
+  "documentationUrl": "https://tsbpe.texas.gov/license-types/",
+  "dataDictionaryUrl": null,
+  "termsUrl": "https://tsbpe.texas.gov/free-licensee-list/",
+  "updateFrequency": "unknown; the free licensee-list page states downloaded data are current as of the previous work day, but adapter freshness has not been implemented",
+  "tradeCoverage": [
+    "plumbing"
+  ],
+  "licenseTypesIncluded": [
+    "Texas plumbing licenses and registrations exposed through TSBPE public license search and licensee-list paths"
+  ],
+  "knownExclusions": [
+    "This source entry is scoped to plumbing licenses and registrations regulated by the Texas State Board of Plumbing Examiners.",
+    "Texas electrical, air conditioning and refrigeration, general contractor, local permit, and local registration records are outside this source entry.",
+    "The free licensee-list page describes downloadable lists, but no OpenTrade adapter has validated a stable file shape yet.",
+    "Searches or downloads requiring protected interactive workflows are not automated by OpenTrade Registry."
+  ],
+  "hasBulkDownload": true,
+  "hasLiveLookup": true,
+  "requiresJavaScript": "unknown",
+  "requiresCaptcha": "unknown",
+  "requiresAccount": "unknown",
+  "rateLimitNotes": "No adapter is implemented. Future access should use official public lists responsibly and stay explicit opt-in for network retrieval.",
+  "redistributionStatus": "unknown",
+  "publicRecordsNotes": "Official plumbing-license metadata only. Absence from this source is not proof that a plumbing authorization, local permit, or other trade authorization does not exist elsewhere.",
+  "adapterStatus": "blocked",
+  "sourceDiscoveryStatus": "blocked",
+  "adapterMaturity": "blocked",
+  "adapterQualityLevel": 0,
+  "coverageScope": "state_agency_partial",
+  "adapterPackage": null,
+  "testFixturePath": null,
+  "officialLookupUrl": "https://vo.licensing.hpc.texas.gov/datamart/selSearchType.do",
+  "officialBulkDownloadNotes": "The TSBPE free licensee-list page describes downloadable licensee lists, including journeyman, tradesman plumber-limited, apprentice, and plumbing inspector lists. File shape and terms require adapter review before support.",
+  "researchNotes": "Registry-only source for TSBPE plumbing licenses and registrations. This source should be evaluated as a future bulk/local-file adapter candidate only after file-shape, privacy, and redistribution review.",
+  "verificationReviewedAt": null,
+  "verificationCaveats": [
+    "This source covers Texas plumbing records, not TDLR electrical or air conditioning and refrigeration records.",
+    "No matching record means no match in this source at the checked time, not proof that a plumbing authorization, local permit, or other authorization does not exist elsewhere."
+  ],
+  "verificationNotes": "No supported sync or verification adapter is exposed while official file shape and reuse terms remain under review.",
+  "lastVerifiedAt": "2026-07-01T00:00:00.000Z",
+  "maintainerNotes": "Keep TSBPE plumbing records separate from TDLR all-license records and local permit data.",
+  "schemaVersion": "1.0",
+  "researchReviewedAt": "2026-07-01T00:00:00.000Z",
+  "nextReviewAt": "2027-01-01T00:00:00.000Z",
+  "researchEvidence": [
+    {
+      "url": "https://tsbpe.texas.gov/license-types/",
+      "checkedAt": "2026-07-01T00:00:00.000Z",
+      "note": "Official TSBPE page reviewed; it lists plumbing license types including Tradesman Plumber-Limited, Journeyman Plumber, Master Plumber, and Plumbing Inspector."
+    },
+    {
+      "url": "https://tsbpe.texas.gov/free-licensee-list/",
+      "checkedAt": "2026-07-01T00:00:00.000Z",
+      "note": "Official TSBPE free licensee-list page reviewed; it describes downloadable licensee lists and states downloaded data are current as of the previous work day."
+    }
+  ],
+  "sourceResearchOutcome": "blocked",
+  "blocker": {
+    "code": "technical_instability",
+    "summary": "Official lists and lookup paths exist, but no stable machine-readable file shape has been adapter-reviewed with offline fixtures yet.",
+    "evidenceUrls": [
+      "https://tsbpe.texas.gov/license-types/",
+      "https://tsbpe.texas.gov/free-licensee-list/",
+      "https://vo.licensing.hpc.texas.gov/datamart/selSearchType.do"
+    ]
+  }
+}
