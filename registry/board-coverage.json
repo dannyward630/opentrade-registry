@@ -158,7 +158,71 @@
     { "state": "CT", "decisions": {} },
     { "state": "DC", "decisions": {} },
     { "state": "DE", "decisions": {} },
-    { "state": "FL", "decisions": {} },
+    {
+      "state": "FL",
+      "decisions": {
+        "general_contracting": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.fl.dbpr.construction"],
+          "evidence": [{ "url": "https://www2.myfloridalicense.com/construction-industry/faqs/", "reviewedAt": "2026-07-01T05:30:00.000Z", "note": "Florida DBPR identifies general contracting as a Construction Industry Licensing Board registration or certification category." }]
+        },
+        "residential_contracting": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.fl.dbpr.construction"],
+          "evidence": [{ "url": "https://www2.myfloridalicense.com/construction-industry/faqs/", "reviewedAt": "2026-07-01T05:30:00.000Z", "note": "Florida DBPR identifies residential contracting as a Construction Industry Licensing Board registration or certification category." }]
+        },
+        "commercial_contracting": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.fl.dbpr.construction"],
+          "evidence": [{ "url": "https://www2.myfloridalicense.com/about-us/understanding-dbpr-codes/", "reviewedAt": "2026-07-01T05:30:00.000Z", "note": "Florida DBPR's construction code catalog includes certified and registered general and building contractor classifications used for commercial building work." }]
+        },
+        "plumbing": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.fl.dbpr.construction"],
+          "evidence": [{ "url": "https://www2.myfloridalicense.com/construction-industry/faqs/", "reviewedAt": "2026-07-01T05:30:00.000Z", "note": "Florida DBPR lists plumbing among the contractor categories requiring registration or certification." }]
+        },
+        "hvac": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.fl.dbpr.construction"],
+          "evidence": [{ "url": "https://www2.myfloridalicense.com/construction-industry/faqs/", "reviewedAt": "2026-07-01T05:30:00.000Z", "note": "Florida DBPR lists air-conditioning among the contractor categories requiring registration or certification." }]
+        },
+        "mechanical": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.fl.dbpr.construction"],
+          "evidence": [{ "url": "https://www2.myfloridalicense.com/construction-industry/faqs/", "reviewedAt": "2026-07-01T05:30:00.000Z", "note": "Florida DBPR lists mechanical contracting among the categories requiring registration or certification." }]
+        },
+        "roofing": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.fl.dbpr.construction"],
+          "evidence": [{ "url": "https://www2.myfloridalicense.com/construction-industry/faqs/", "reviewedAt": "2026-07-01T05:30:00.000Z", "note": "Florida DBPR lists roofing among the contractor categories requiring registration or certification." }]
+        },
+        "solar": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.fl.dbpr.construction"],
+          "evidence": [{ "url": "https://www2.myfloridalicense.com/construction-industry/faqs/", "reviewedAt": "2026-07-01T05:30:00.000Z", "note": "Florida DBPR lists solar among the contractor categories requiring registration or certification." }]
+        },
+        "pool_spa": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.fl.dbpr.construction"],
+          "evidence": [{ "url": "https://www2.myfloridalicense.com/construction-industry/faqs/", "reviewedAt": "2026-07-01T05:30:00.000Z", "note": "Florida DBPR lists swimming pool and spa categories and related statewide specialties under the construction board." }]
+        },
+        "sheet_metal": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.fl.dbpr.construction"],
+          "evidence": [{ "url": "https://www2.myfloridalicense.com/construction-industry/faqs/", "reviewedAt": "2026-07-01T05:30:00.000Z", "note": "Florida DBPR lists sheet metal among the contractor categories requiring registration or certification." }]
+        },
+        "underground_utility": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.fl.dbpr.construction"],
+          "evidence": [{ "url": "https://www2.myfloridalicense.com/construction-industry/faqs/", "reviewedAt": "2026-07-01T05:30:00.000Z", "note": "Florida DBPR lists underground utility and excavation among the contractor categories requiring registration or certification." }]
+        },
+        "home_improvement": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.fl.dbpr.construction"],
+          "evidence": [{ "url": "https://www2.myfloridalicense.com/construction-industry/board-information/", "reviewedAt": "2026-07-01T05:30:00.000Z", "note": "Florida DBPR defines a licensed construction contractor as a person who builds or improves a building or structure for compensation; local specialty credentials remain outside this source." }]
+        }
+      }
+    },
     { "state": "GA", "decisions": {} },
     { "state": "GU", "decisions": {} },
     { "state": "HI", "decisions": {} },

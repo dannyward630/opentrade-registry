@@ -15,8 +15,8 @@ describe("nationwide board trade coverage ledger", () => {
     expect(ledger.jurisdictions).toHaveLength(56);
     expect(new Set(ledger.jurisdictions.map((entry) => entry.state)).size).toBe(56);
     expect(expanded).toHaveLength(56 * BOARD_TRADE_DOMAINS.length);
-    expect(expanded.filter((decision) => decision.outcome === "needs_research")).toHaveLength(757);
-    expect(expanded.filter((decision) => decision.outcome === "covered_by_board")).toHaveLength(27);
+    expect(expanded.filter((decision) => decision.outcome === "needs_research")).toHaveLength(745);
+    expect(expanded.filter((decision) => decision.outcome === "covered_by_board")).toHaveLength(39);
   });
 
   it("records Arizona ROC coverage without claiming an asbestos credential source", async () => {
@@ -29,6 +29,18 @@ describe("nationwide board trade coverage ledger", () => {
     expect(rocDomains.every((decision) => decision.outcome === "covered_by_board")).toBe(true);
     expect(rocDomains.every((decision) => decision.boardIds.includes("us.az.roc.contractors"))).toBe(true);
     expect(asbestos?.outcome).toBe("needs_research");
+  });
+
+  it("records Florida construction-board coverage without folding in separate electrical or asbestos boards", async () => {
+    const ledger = boardTradeCoverageLedgerSchema.parse(await json("registry/board-coverage.json"));
+    const expanded = expandBoardTradeCoverageLedger(ledger).filter((decision) => decision.state === "FL");
+    const separateBoards = expanded.filter((decision) => ["electrical", "asbestos"].includes(decision.tradeDomain));
+    const constructionDomains = expanded.filter((decision) => !["electrical", "asbestos"].includes(decision.tradeDomain));
+
+    expect(constructionDomains).toHaveLength(12);
+    expect(constructionDomains.every((decision) => decision.outcome === "covered_by_board")).toBe(true);
+    expect(constructionDomains.every((decision) => decision.boardIds.includes("us.fl.dbpr.construction"))).toBe(true);
+    expect(separateBoards.every((decision) => decision.outcome === "needs_research")).toBe(true);
   });
 
   it("requires board references and evidence for terminal coverage decisions", () => {
