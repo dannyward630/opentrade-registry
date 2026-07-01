@@ -13,17 +13,17 @@ This is the human-readable snapshot for the released `v1.0.1` line and the v2 mi
 
 ## Coverage
 
-- `62` official source entries.
+- `64` official source entries.
 - All 50 states plus DC have researched coverage rows.
 - American Samoa, Guam, Northern Mariana Islands, Puerto Rico, and the U.S. Virgin Islands have researched territory rows.
 - `9` implemented adapters, all at quality Level 4.
 - `2` local-file adapter outcomes.
 - `7` explicit network opt-in outcomes.
-- `49` terminal blocked outcomes.
+- `55` terminal blocked outcomes.
 - `0` provisional outcomes.
 - `0` fixture-only terminal adapters.
 
-Four sources do not expose a standalone terms URL and American Samoa does not expose a confirmed contractor-specific lookup URL. Those absences are recorded with explicit review notes and blocker evidence; they are not interpreted as permission to automate or redistribute.
+Six sources do not expose a standalone terms URL and American Samoa does not expose a confirmed contractor-specific lookup URL. Those absences are recorded with explicit review notes and blocker evidence; they are not interpreted as permission to automate or redistribute.
 
 ## Implemented Adapters
 

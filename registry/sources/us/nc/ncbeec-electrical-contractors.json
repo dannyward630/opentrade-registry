@@ -1,0 +1,74 @@
+{
+  "id": "us.nc.ncbeec.electrical_contractors",
+  "name": "North Carolina Board of Examiners of Electrical Contractors Verify License Search",
+  "jurisdiction": {
+    "country": "US",
+    "state": "NC"
+  },
+  "agency": {
+    "name": "North Carolina State Board of Examiners of Electrical Contractors",
+    "url": "https://www.ncbeec.org/"
+  },
+  "sourceType": "html_lookup",
+  "sourceUrl": "https://arls-public.ncbeec.org/Public/Search",
+  "documentationUrl": "https://www.ncbeec.org/licensing/",
+  "dataDictionaryUrl": null,
+  "termsUrl": null,
+  "termsReviewNotes": "Official NCBEEC licensing and public-search pages were reviewed; no source-specific reuse terms page was confirmed in this phase.",
+  "updateFrequency": "unknown; verify against the official public search before relying on freshness assumptions",
+  "tradeCoverage": [
+    "electrical"
+  ],
+  "licenseTypesIncluded": [
+    "North Carolina electrical contractor licenses exposed by the NCBEEC public verify-license search"
+  ],
+  "knownExclusions": [
+    "This source is scoped to electrical contractor licenses regulated by the North Carolina State Board of Examiners of Electrical Contractors.",
+    "General contracting, plumbing, heating, fire sprinkler, local permits, and municipal registrations are outside this source entry.",
+    "The official source is lookup-oriented; no stable machine-readable bulk export has been confirmed for OpenTrade ingestion."
+  ],
+  "hasBulkDownload": "unknown",
+  "hasLiveLookup": true,
+  "requiresJavaScript": "unknown",
+  "requiresCaptcha": "unknown",
+  "requiresAccount": false,
+  "rateLimitNotes": "No adapter is implemented. Future access should respect the public-search workflow and prefer official bulk options if discovered.",
+  "redistributionStatus": "unknown",
+  "publicRecordsNotes": "Official electrical-contractor lookup metadata only. Absence from this source is not proof that an authorization, local permit, or other credential does not exist elsewhere.",
+  "adapterStatus": "blocked",
+  "sourceDiscoveryStatus": "blocked",
+  "adapterMaturity": "blocked",
+  "adapterQualityLevel": 0,
+  "coverageScope": "state_agency_partial",
+  "adapterPackage": null,
+  "testFixturePath": null,
+  "officialLookupUrl": "https://arls-public.ncbeec.org/Public/Search",
+  "officialBulkDownloadNotes": "No official NCBEEC bulk download has been confirmed in this phase.",
+  "researchNotes": "Registry-only source for North Carolina electrical contractor verification. The public search lists license classifications, but OpenTrade does not automate it without a separate access-control and terms review.",
+  "lastVerifiedAt": "2026-07-01T00:00:00.000Z",
+  "maintainerNotes": "Keep this source separate from the North Carolina general contractor and plumbing/heating board entries.",
+  "schemaVersion": "1.0",
+  "researchReviewedAt": "2026-07-01T00:00:00.000Z",
+  "nextReviewAt": "2027-01-01T00:00:00.000Z",
+  "researchEvidence": [
+    {
+      "url": "https://arls-public.ncbeec.org/Public/Search",
+      "checkedAt": "2026-07-01T00:00:00.000Z",
+      "note": "Official NCBEEC verify-license search reviewed; it exposes electrical contractor license classifications including limited, intermediate, unlimited, residential dwelling, and special restricted classifications."
+    },
+    {
+      "url": "https://www.ncbeec.org/licensing/",
+      "checkedAt": "2026-07-01T00:00:00.000Z",
+      "note": "Official NCBEEC licensing page reviewed for agency scope and electrical contractor licensing context."
+    }
+  ],
+  "sourceResearchOutcome": "blocked",
+  "blocker": {
+    "code": "technical_instability",
+    "summary": "An official lookup exists, but no stable, documented machine-readable source has been adapter-reviewed with offline fixtures.",
+    "evidenceUrls": [
+      "https://arls-public.ncbeec.org/Public/Search",
+      "https://www.ncbeec.org/licensing/"
+    ]
+  }
+}

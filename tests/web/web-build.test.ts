@@ -12,7 +12,7 @@ describe("web status build", () => {
 
     expect(result.status).toBe(0);
     expect(result.stderr).toBe("");
-    expect(result.stdout).toContain("Built OpenTrade web status page with 62 sources.");
+    expect(result.stdout).toContain("Built OpenTrade web status page with 64 sources.");
 
     const distDir = join(process.cwd(), "apps", "web", "dist");
     const sources = JSON.parse(await readFile(join(distDir, "sources.json"), "utf8")) as Array<{ id: string }>;
@@ -28,12 +28,12 @@ describe("web status build", () => {
     };
     const html = await readFile(join(distDir, "index.html"), "utf8");
 
-    expect(sources).toHaveLength(62);
+    expect(sources).toHaveLength(64);
     expect(sources.map((source) => source.id)).toContain("us.pr.daco.contractors");
-    expect(readiness.sourceCount).toBe(62);
+    expect(readiness.sourceCount).toBe(64);
     expect(readiness.registryOnlySourceCount).toBe(0);
-    expect(readiness.terminalSourceCount).toBe(62);
-    expect(readiness.blockedSourceCount).toBe(53);
+    expect(readiness.terminalSourceCount).toBe(64);
+    expect(readiness.blockedSourceCount).toBe(55);
     expect(readiness.implementedAdapterSources.map((source) => source.id)).toEqual([
       "us.az.roc.contractors",
       "us.ca.cslb.contractors",

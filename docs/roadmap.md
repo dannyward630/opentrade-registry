@@ -2,7 +2,7 @@
 
 ## Released v1.0.1
 
-The current v1 development line provides terminal research outcomes for 62 representative statewide and territory sources, nine Level 4 adapters, local/explicit-network ingestion, versioned SQLite caching, offline verification, hardened parsers/downloads, deterministic metadata artifacts, cross-platform CI, and 11 published packages.
+The current v1 development line provides terminal research outcomes for 64 representative statewide and territory sources, nine Level 4 adapters, local/explicit-network ingestion, versioned SQLite caching, offline verification, hardened parsers/downloads, deterministic metadata artifacts, cross-platform CI, and 11 published packages.
 
 V1 remains maintained for source-shape corrections, security updates, dependency updates, and compatibility fixes while v2 is built.
 

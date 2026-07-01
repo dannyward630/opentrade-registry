@@ -286,7 +286,9 @@
       "state": "NC",
       "status": "blocked",
       "sourceIds": [
-        "us.nc.nclbgc.general_contractors"
+        "us.nc.ncbeec.electrical_contractors",
+        "us.nc.nclbgc.general_contractors",
+        "us.nc.nclicensing.plumbing_heating_fire_sprinkler"
       ],
       "notes": "Official source metadata is retained, but automated ingestion is blocked by documented legal, access, scope, or technical constraints."
     },

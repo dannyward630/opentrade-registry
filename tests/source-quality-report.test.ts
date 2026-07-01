@@ -12,22 +12,22 @@ describe("source quality report", () => {
     expect(result.stderr).toBe("");
 
     const report = JSON.parse(result.stdout);
-    expect(report.sourceCount).toBe(62);
+    expect(report.sourceCount).toBe(64);
     expect(report.stateCount).toBe(51);
     expect(report.researchedStateCount).toBe(51);
     expect(report.territoryCount).toBe(5);
     expect(report.researchedTerritoryCount).toBe(5);
     expect(report.coverageByStatus.not_started ?? 0).toBe(0);
-    expect(report.terminalSourceCount).toBe(62);
-    expect(report.blockedSourceCount).toBe(53);
+    expect(report.terminalSourceCount).toBe(64);
+    expect(report.blockedSourceCount).toBe(55);
     expect(report.territoryCoverageByStatus.blocked).toBe(5);
-    expect(report.sourcesByMaturity.blocked).toBe(53);
+    expect(report.sourcesByMaturity.blocked).toBe(55);
     expect(report.sourcesByMaturity.local_file_adapter).toBe(2);
     expect(report.sourcesByMaturity.network_opt_in).toBe(7);
-    expect(report.sourcesByAdapterQualityLevel["0"]).toBe(53);
+    expect(report.sourcesByAdapterQualityLevel["0"]).toBe(55);
     expect(report.sourcesByAdapterQualityLevel["4"]).toBe(9);
     expect(report.sourcesByResearchOutcome).toEqual({
-      blocked: 53,
+      blocked: 55,
       deprecated: 0,
       local_file_adapter: 2,
       network_opt_in: 7,
@@ -51,6 +51,8 @@ describe("source quality report", () => {
       "us.as.doc.business_licenses",
       "us.mp.bpl.professional_licenses",
       "us.ms.msboc.contractors",
+      "us.nc.ncbeec.electrical_contractors",
+      "us.nc.nclicensing.plumbing_heating_fire_sprinkler",
       "us.vi.dlca.contractors_trades",
     ]);
     expect(report.metadataCompleteness.termsUrlUnreviewedSources).toEqual([]);
@@ -141,7 +143,7 @@ describe("source quality report", () => {
     expect(result.stdout).toContain("manual public-records-file sources:");
     expect(result.stdout).toContain("- us.as.doc.business_licenses (manual_public_records_file, blocked)");
     expect(result.stdout).toContain("sources by research outcome:");
-    expect(result.stdout).toContain("- blocked: 53");
+    expect(result.stdout).toContain("- blocked: 55");
     expect(result.stdout).toContain("metadata completeness:");
     expect(result.stdout).toContain("sources missing required metadata:");
     expect(result.stdout).toContain("- none");

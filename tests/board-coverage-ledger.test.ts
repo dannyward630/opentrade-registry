@@ -15,8 +15,8 @@ describe("nationwide board trade coverage ledger", () => {
     expect(ledger.jurisdictions).toHaveLength(56);
     expect(new Set(ledger.jurisdictions.map((entry) => entry.state)).size).toBe(56);
     expect(expanded).toHaveLength(56 * BOARD_TRADE_DOMAINS.length);
-    expect(expanded.filter((decision) => decision.outcome === "needs_research")).toHaveLength(717);
-    expect(expanded.filter((decision) => decision.outcome === "covered_by_board")).toHaveLength(61);
+    expect(expanded.filter((decision) => decision.outcome === "needs_research")).toHaveLength(714);
+    expect(expanded.filter((decision) => decision.outcome === "covered_by_board")).toHaveLength(64);
     expect(expanded.filter((decision) => decision.outcome === "not_state_regulated")).toHaveLength(1);
     expect(expanded.filter((decision) => decision.outcome === "local_only")).toHaveLength(5);
   });
@@ -99,6 +99,36 @@ describe("nationwide board trade coverage ledger", () => {
       outcome: "covered_by_board",
       boardIds: ["us.tx.tsbpe.plumbing"],
     });
+  });
+
+  it("records North Carolina electrical, plumbing, and HVAC board coverage without overclaiming broad construction domains", async () => {
+    const ledger = boardTradeCoverageLedgerSchema.parse(await json("registry/board-coverage.json"));
+    const expanded = expandBoardTradeCoverageLedger(ledger).filter((decision) => decision.state === "NC");
+    const unresolved = expanded.filter((decision) => decision.outcome === "needs_research");
+
+    expect(unresolved.map((decision) => decision.tradeDomain).sort()).toEqual([
+      "asbestos",
+      "commercial_contracting",
+      "general_contracting",
+      "home_improvement",
+      "mechanical",
+      "pool_spa",
+      "residential_contracting",
+      "roofing",
+      "sheet_metal",
+      "solar",
+      "underground_utility",
+    ]);
+    expect(expanded.find((decision) => decision.tradeDomain === "electrical")).toMatchObject({
+      outcome: "covered_by_board",
+      boardIds: ["us.nc.ncbeec.electrical_contractors"],
+    });
+    for (const domain of ["plumbing", "hvac"]) {
+      expect(expanded.find((decision) => decision.tradeDomain === domain)).toMatchObject({
+        outcome: "covered_by_board",
+        boardIds: ["us.nc.nclicensing.plumbing_heating_fire_sprinkler"],
+      });
+    }
   });
 
   it("records Colorado statewide trade boards and local-only construction boundaries", async () => {

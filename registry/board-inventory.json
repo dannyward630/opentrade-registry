@@ -1029,6 +1029,33 @@
       }
     },
     {
+      "id": "us.nc.ncbeec.electrical_contractors",
+      "jurisdiction": {
+        "country": "US",
+        "state": "NC"
+      },
+      "boardName": "North Carolina Board of Examiners of Electrical Contractors Verify License Search",
+      "agencyName": "North Carolina State Board of Examiners of Electrical Contractors",
+      "officialUrl": "https://arls-public.ncbeec.org/Public/Search",
+      "sourceIds": [
+        "us.nc.ncbeec.electrical_contractors"
+      ],
+      "trades": [
+        "electrical"
+      ],
+      "accessPath": "manual_handoff",
+      "coverageLimitations": [
+        "This source is scoped to electrical contractor licenses regulated by the North Carolina State Board of Examiners of Electrical Contractors.",
+        "General contracting, plumbing, heating, fire sprinkler, local permits, and municipal registrations are outside this source entry.",
+        "The official source is lookup-oriented; no stable machine-readable bulk export has been confirmed for OpenTrade ingestion."
+      ],
+      "evidence": {
+        "url": "https://arls-public.ncbeec.org/Public/Search",
+        "reviewedAt": "2026-07-01T00:00:00.000Z",
+        "note": "Official NCBEEC verify-license search reviewed; it exposes electrical contractor license classifications including limited, intermediate, unlimited, residential dwelling, and special restricted classifications."
+      }
+    },
+    {
       "id": "us.nc.nclbgc.general_contractors",
       "jurisdiction": {
         "country": "US",
@@ -1052,6 +1079,36 @@
         "url": "https://portal.nclbgc.org/Public/Search",
         "reviewedAt": "2026-06-27T00:00:00.000Z",
         "note": "Official public source, access shape, and current automation constraints reviewed."
+      }
+    },
+    {
+      "id": "us.nc.nclicensing.plumbing_heating_fire_sprinkler",
+      "jurisdiction": {
+        "country": "US",
+        "state": "NC"
+      },
+      "boardName": "North Carolina Plumbing, Heating and Fire Sprinkler Contractors Verify License Search",
+      "agencyName": "State Board of Examiners of Plumbing, Heating and Fire Sprinkler Contractors",
+      "officialUrl": "https://public.nclicensing.org/Public/Search",
+      "sourceIds": [
+        "us.nc.nclicensing.plumbing_heating_fire_sprinkler"
+      ],
+      "trades": [
+        "plumbing",
+        "hvac",
+        "fire_sprinkler",
+        "fuel_piping"
+      ],
+      "accessPath": "manual_handoff",
+      "coverageLimitations": [
+        "This source is scoped to licenses regulated by the State Board of Examiners of Plumbing, Heating and Fire Sprinkler Contractors.",
+        "General contracting, electrical contracting, local permits, and municipal registrations are outside this source entry.",
+        "The official source is lookup-oriented; no stable machine-readable bulk export has been confirmed for OpenTrade ingestion."
+      ],
+      "evidence": {
+        "url": "https://public.nclicensing.org/Public/Search",
+        "reviewedAt": "2026-07-01T00:00:00.000Z",
+        "note": "Official public verify-license search reviewed; it lists plumbing, heating, fuel piping, fire sprinkler, and related technician classifications."
       }
     },
     {
