@@ -3,6 +3,7 @@ import { createRecordApi, type RecordRepository, type StoredLicenseRecord } from
 import {
   recordApiLicenseResponseV2Schema,
   recordApiSearchResponseV2Schema,
+  recordApiSourceListResponseV2Schema,
   recordApiVerificationResponseV2Schema,
 } from "@opentrade-registry/core";
 
@@ -27,6 +28,17 @@ const record: StoredLicenseRecord = {
 };
 
 describe("v2 record API", () => {
+  it("returns source metadata through the frozen response contract", async () => {
+    const api = createRecordApi({ repository: fakeRepository(), sources: [source()], boardInventory: inventory() });
+    const response = await api(new Request("https://api.example.test/api/v2/sources"));
+    expect(response.status).toBe(200);
+    expect(recordApiSourceListResponseV2Schema.parse(await response.json())).toMatchObject({
+      apiVersion: "2.0",
+      count: 1,
+      sources: [{ id: "us.fl.dbpr.construction", accessPath: "network_opt_in" }],
+    });
+  });
+
   it("searches indexed records with source context", async () => {
     const repository = fakeRepository({ records: [record] });
     const api = createRecordApi({ repository, sources: [source()], boardInventory: inventory() });
