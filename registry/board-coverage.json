@@ -158,7 +158,51 @@
         }
       }
     },
-    { "state": "CO", "decisions": {} },
+    {
+      "state": "CO",
+      "decisions": {
+        "general_contracting": {
+          "outcome": "local_only",
+          "evidence": [{ "url": "https://dora.colorado.gov/consumer-protection-home-and-repair", "reviewedAt": "2026-07-01T08:10:00.000Z", "note": "DORA consumer guidance says not all home repair occupations are licensed statewide, including general contractors, and directs consumers to check city or county government for local rules." }],
+          "limitations": ["Municipal and county contractor licensing remains outside OpenTrade Registry v2 board-completion scope unless separately registered."]
+        },
+        "residential_contracting": {
+          "outcome": "local_only",
+          "evidence": [{ "url": "https://dora.colorado.gov/consumer-protection-home-and-repair", "reviewedAt": "2026-07-01T08:10:00.000Z", "note": "DORA's home repair and remodeling guidance points consumers to city or county government for occupations not licensed statewide." }],
+          "limitations": ["This decision does not cover statewide trade-specific licenses such as electrical, plumbing, or asbestos."]
+        },
+        "commercial_contracting": {
+          "outcome": "local_only",
+          "evidence": [{ "url": "https://dora.colorado.gov/consumer-protection-home-and-repair", "reviewedAt": "2026-07-01T08:10:00.000Z", "note": "DORA guidance identifies general contractors as an example of occupations not licensed statewide and warns local laws may still apply." }],
+          "limitations": ["Separate statewide trade boards may regulate work performed within commercial projects."]
+        },
+        "electrical": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.co.dora.trades"],
+          "evidence": [{ "url": "https://dpo.colorado.gov/Electrical/Applications", "reviewedAt": "2026-07-01T08:10:00.000Z", "note": "DPO states that performing electrical contracting in Colorado requires a licensed Electrical Contractor registered with the State of Colorado." }]
+        },
+        "plumbing": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.co.dora.trades"],
+          "evidence": [{ "url": "https://dpo.colorado.gov/Plumbing/Applications", "reviewedAt": "2026-07-01T08:10:00.000Z", "note": "DPO lists plumber and plumbing contractor applications and licensing requirements for Colorado." }]
+        },
+        "roofing": {
+          "outcome": "local_only",
+          "evidence": [{ "url": "https://dora.colorado.gov/consumer-protection-home-and-repair", "reviewedAt": "2026-07-01T08:10:00.000Z", "note": "DORA consumer guidance specifically names roofers among occupations that are not licensed statewide and may be governed locally." }],
+          "limitations": ["Local roofing registration or licensing is excluded unless separately registered as a source."]
+        },
+        "asbestos": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.co.cdphe.asbestos_contractors"],
+          "evidence": [{ "url": "https://cdphe.colorado.gov/apcd-asbestos-support", "reviewedAt": "2026-07-01T08:15:00.000Z", "note": "CDPHE states regulated asbestos abatement must be conducted by a Colorado-certified General Abatement Contractor and links to certified/registered lists." }]
+        },
+        "home_improvement": {
+          "outcome": "local_only",
+          "evidence": [{ "url": "https://dora.colorado.gov/consumer-protection-home-and-repair", "reviewedAt": "2026-07-01T08:10:00.000Z", "note": "DORA's home repair/remodeling guidance says not all occupations are licensed statewide and points consumers to local government for local protections." }],
+          "limitations": ["This does not negate statewide licensing for trade-specific work such as electrical or plumbing."]
+        }
+      }
+    },
     { "state": "CT", "decisions": {} },
     { "state": "DC", "decisions": {} },
     { "state": "DE", "decisions": {} },

@@ -57,6 +57,7 @@
       "state": "CO",
       "status": "blocked",
       "sourceIds": [
+        "us.co.cdphe.asbestos_contractors",
         "us.co.dora.trades"
       ],
       "notes": "Official source metadata is retained, but automated ingestion is blocked by documented legal, access, scope, or technical constraints."

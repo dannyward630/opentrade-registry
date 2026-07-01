@@ -1,0 +1,73 @@
+{
+  "id": "us.co.cdphe.asbestos_contractors",
+  "name": "Colorado CDPHE Certified General Abatement Contractors",
+  "jurisdiction": {
+    "country": "US",
+    "state": "CO"
+  },
+  "agency": {
+    "name": "Colorado Department of Public Health and Environment",
+    "url": "https://cdphe.colorado.gov/"
+  },
+  "sourceType": "html_lookup",
+  "sourceUrl": "https://cdphe.colorado.gov/apcd-asbestos-support",
+  "documentationUrl": "https://cdphe.colorado.gov/apcd-asbestos-support",
+  "dataDictionaryUrl": null,
+  "termsUrl": "https://www.colorado.gov/general-notices",
+  "updateFrequency": "unknown; verify against CDPHE asbestos support pages and certified-list dashboards before relying on freshness assumptions",
+  "tradeCoverage": [
+    "asbestos"
+  ],
+  "licenseTypesIncluded": [
+    "Colorado-certified General Abatement Contractors and related asbestos certification or registration lists referenced by CDPHE"
+  ],
+  "knownExclusions": [
+    "This entry is limited to CDPHE asbestos certification and registration material; it is not a general contractor source.",
+    "The public dashboard/list shape is not yet adapter-reviewed and may require manual use.",
+    "Local building, demolition, and renovation permits are outside this source entry."
+  ],
+  "hasBulkDownload": "unknown",
+  "hasLiveLookup": true,
+  "requiresJavaScript": true,
+  "requiresCaptcha": "unknown",
+  "requiresAccount": false,
+  "rateLimitNotes": "No adapter is implemented. Use the official CDPHE support page and linked certified-list dashboard manually until access rules and export options are reviewed.",
+  "redistributionStatus": "unknown",
+  "publicRecordsNotes": "Official source metadata only. Absence from this source is not proof that an asbestos credential, permit, or record does not exist elsewhere.",
+  "adapterStatus": "blocked",
+  "sourceDiscoveryStatus": "blocked",
+  "adapterMaturity": "blocked",
+  "coverageScope": "state_agency_partial",
+  "adapterPackage": null,
+  "testFixturePath": null,
+  "officialLookupUrl": "https://cohealthviz.dphe.state.co.us/#/site/EnvironmentalProgramsPublic/views/Tableau_Air_Asbestos-reports_16715594841490/Generalabatementcontractorsdashboard",
+  "officialBulkDownloadNotes": "CDPHE links to dashboard-style certified lists, but no stable documented bulk/export interface has been adapter-reviewed.",
+  "researchNotes": "Colorado CDPHE states that regulated asbestos abatement must be conducted by Colorado-certified General Abatement Contractors and links to certified/registered lists.",
+  "lastVerifiedAt": "2026-07-01T08:15:00.000Z",
+  "maintainerNotes": "Keep this source separate from DORA electrical/plumbing; asbestos certification is under CDPHE Air Pollution Control Division.",
+  "schemaVersion": "1.0",
+  "researchReviewedAt": "2026-07-01T08:15:00.000Z",
+  "nextReviewAt": "2027-01-01T08:15:00.000Z",
+  "researchEvidence": [
+    {
+      "url": "https://cdphe.colorado.gov/apcd-asbestos-support",
+      "checkedAt": "2026-07-01T08:15:00.000Z",
+      "note": "Official CDPHE asbestos support page states regulated abatement must be conducted by a Colorado-certified General Abatement Contractor and links to certified/registered lists."
+    },
+    {
+      "url": "https://www.colorado.gov/general-notices",
+      "checkedAt": "2026-07-01T08:15:00.000Z",
+      "note": "Colorado.gov general notices reviewed for privacy/public-records posture; redistribution rights remain unconfirmed."
+    }
+  ],
+  "sourceResearchOutcome": "blocked",
+  "adapterQualityLevel": 0,
+  "blocker": {
+    "code": "technical_instability",
+    "summary": "The official path is lookup/dashboard oriented and no stable, documented machine-readable interface has been adapter-reviewed.",
+    "evidenceUrls": [
+      "https://cdphe.colorado.gov/apcd-asbestos-support",
+      "https://cohealthviz.dphe.state.co.us/#/site/EnvironmentalProgramsPublic/views/Tableau_Air_Asbestos-reports_16715594841490/Generalabatementcontractorsdashboard"
+    ]
+  }
+}

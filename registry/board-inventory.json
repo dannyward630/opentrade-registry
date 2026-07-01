@@ -180,6 +180,33 @@
       }
     },
     {
+      "id": "us.co.cdphe.asbestos_contractors",
+      "jurisdiction": {
+        "country": "US",
+        "state": "CO"
+      },
+      "boardName": "Colorado CDPHE Certified General Abatement Contractors",
+      "agencyName": "Colorado Department of Public Health and Environment",
+      "officialUrl": "https://cohealthviz.dphe.state.co.us/#/site/EnvironmentalProgramsPublic/views/Tableau_Air_Asbestos-reports_16715594841490/Generalabatementcontractorsdashboard",
+      "sourceIds": [
+        "us.co.cdphe.asbestos_contractors"
+      ],
+      "trades": [
+        "asbestos"
+      ],
+      "accessPath": "manual_handoff",
+      "coverageLimitations": [
+        "This entry is limited to CDPHE asbestos certification and registration material; it is not a general contractor source.",
+        "The public dashboard/list shape is not yet adapter-reviewed and may require manual use.",
+        "Local building, demolition, and renovation permits are outside this source entry."
+      ],
+      "evidence": {
+        "url": "https://cdphe.colorado.gov/apcd-asbestos-support",
+        "reviewedAt": "2026-07-01T08:15:00.000Z",
+        "note": "Official CDPHE asbestos support page states regulated abatement must be conducted by a Colorado-certified General Abatement Contractor and links to certified/registered lists."
+      }
+    },
+    {
       "id": "us.co.dora.trades",
       "jurisdiction": {
         "country": "US",
@@ -193,18 +220,18 @@
       ],
       "trades": [
         "electrical",
-        "plumbing",
-        "other"
+        "plumbing"
       ],
       "accessPath": "manual_handoff",
       "coverageLimitations": [
         "Colorado does not have a single statewide general contractor source represented by this entry.",
+        "DORA consumer guidance says some occupations, including roofers and general contractors, are not licensed statewide and may be subject to city or county rules.",
         "Local contractor licenses, local permits, and non-DORA authorizations are outside this source entry.",
-        "Separate DPO boards and programs may require separate source entries before adapter work."
+        "CDPHE asbestos certification is tracked in a separate source entry."
       ],
       "evidence": {
         "url": "https://apps.colorado.gov/dora/licensing/Lookup/LicenseLookup.aspx",
-        "reviewedAt": "2026-06-27T00:00:00.000Z",
+        "reviewedAt": "2026-07-01T08:10:00.000Z",
         "note": "Official public source, access shape, and current automation constraints reviewed."
       }
     },
