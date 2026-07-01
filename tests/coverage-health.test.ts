@@ -13,7 +13,7 @@ describe("coverage health report", () => {
 
     const report = JSON.parse(result.stdout);
     expect(report.ok).toBe(true);
-    expect(report.sourceCount).toBe(59);
+    expect(report.sourceCount).toBe(61);
     expect(report.requiredStateCount).toBe(51);
     expect(report.stateCoverageRowCount).toBe(51);
     expect(report.researchedStateCount).toBe(51);
