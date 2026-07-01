@@ -8,6 +8,16 @@ The inventory currently has `completeness: "representative_source_baseline"`. It
 
 The inventory may change to `board_complete` only after every tracked jurisdiction has been reviewed for general contracting, residential, electrical, plumbing, HVAC, mechanical, roofing, solar, asbestos, pool/spa, home-improvement, and other independently regulated statewide trades. Each additional board needs official evidence and a terminal access path.
 
+`registry/board-coverage.json` is the completion ledger. It expands every state, DC, and tracked territory across 14 required trade domains. During research it may use a `needs_research` default; a `board_complete` ledger must remove that default and provide an explicit terminal decision for every jurisdiction/domain pair.
+
+Terminal coverage decisions are:
+
+- `covered_by_board`: one or more IDs in `board-inventory.json` regulate the domain;
+- `not_state_regulated`: official evidence shows no statewide regulator for the domain;
+- `local_only`: official evidence shows licensing is handled below the state or territory level and remains outside scope.
+
+Every terminal decision requires dated official evidence. Covered decisions must reference registered board IDs. The public [board coverage matrix](board-coverage-matrix.md) shows resolved and unresolved counts without inferring coverage from broad source names.
+
 Municipal and county licensing is explicitly excluded unless a source is separately registered.
 
 ## Access Paths
@@ -27,6 +37,9 @@ Regenerate the baseline after source metadata changes:
 ```bash
 corepack pnpm board:inventory:generate
 corepack pnpm board:inventory:check
+corepack pnpm board:coverage:check
+corepack pnpm board:coverage:matrix
+corepack pnpm board:coverage:require-complete
 ```
 
 The generator is intentionally conservative: a blocked source with an official lookup becomes a manual handoff, not an automated browser source. Browser automation requires a separate access-control and terms review under the v2 source contract.
