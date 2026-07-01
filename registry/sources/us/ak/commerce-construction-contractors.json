@@ -18,14 +18,24 @@
   "tradeCoverage": [
     "general_contracting",
     "residential_contracting",
+    "commercial_contracting",
+    "electrical",
+    "hvac",
+    "mechanical",
+    "plumbing",
     "roofing",
+    "asbestos",
+    "sheet_metal",
+    "underground_utility",
+    "home_improvement",
     "other"
   ],
   "licenseTypesIncluded": [
     "construction contractor professional license records exposed by Alaska CBPL search and download paths"
   ],
   "knownExclusions": [
-    "The Alaska professional licensing search spans many programs; this source entry is scoped to construction contractor records and related contractor endorsements only.",
+    "The Alaska professional licensing search spans many programs; this source entry is scoped to construction contractor records, specialty contractor records, and related contractor endorsements only.",
+    "Electrical and mechanical administrator credentials are tracked as separate Alaska CBPL source entries.",
     "Business licenses, corporations, local permits, and non-CBPL authorizations are outside this source entry.",
     "Disciplinary action history may require separate official reports or public records requests.",
     "The live search and download endpoints are protected by technical access controls that this project does not bypass."
