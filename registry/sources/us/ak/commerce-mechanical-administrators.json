@@ -19,6 +19,8 @@
     "hvac",
     "mechanical",
     "plumbing",
+    "pool_spa",
+    "solar",
     "sheet_metal"
   ],
   "licenseTypesIncluded": [
@@ -47,7 +49,7 @@
   "testFixturePath": null,
   "officialLookupUrl": "https://www.commerce.alaska.gov/cbp/main/Search/Professional",
   "officialBulkDownloadNotes": "No stable, lawful bulk export shape has been validated for this mechanical administrator source.",
-  "researchNotes": "The official program page lists heating, cooling, process piping, HVAC, plumbing, sheet metal, and refrigeration mechanical administrator categories, but automated lookup/download support remains blocked pending lawful source-shape validation.",
+  "researchNotes": "The official program page lists heating, cooling, process piping, HVAC, plumbing, sheet metal, and refrigeration categories. Alaska contractor regulations also define mechanical work by reference to the Uniform Swimming Pool, Spa, and Hot Tub Code and Uniform Solar Energy Code. Automated lookup/download support remains blocked pending lawful source-shape validation.",
   "verificationReviewedAt": null,
   "verificationCaveats": [
     "This source covers Alaska CBPL Mechanical Administrator records, not Department of Labor plumber credentials or local permits.",
@@ -64,6 +66,11 @@
       "url": "https://www.commerce.alaska.gov/web/cbpl/ProfessionalLicensing/MechanicalAdministrators",
       "checkedAt": "2026-07-01T00:00:00.000Z",
       "note": "Official CBPL program page reviewed; the page states the Mechanical Administrator program is staffed by CBPL and lists heating, cooling, process piping, residential HVAC, plumbing, HVAC/sheet metal, and refrigeration categories."
+    },
+    {
+      "url": "https://www.commerce.alaska.gov/web/portals/5/pub/contractorstatutes.pdf",
+      "checkedAt": "2026-07-01T00:00:00.000Z",
+      "note": "Official contractor statutes and regulations reviewed; the mechanical-contractor definition references the Uniform Swimming Pool, Spa, and Hot Tub Code and Uniform Solar Energy Code."
     }
   ],
   "sourceResearchOutcome": "blocked",
