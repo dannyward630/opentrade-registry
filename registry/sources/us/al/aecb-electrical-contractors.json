@@ -1,0 +1,75 @@
+{
+  "id": "us.al.aecb.electrical_contractors",
+  "name": "Alabama Board of Electrical Contractors Licensee Search",
+  "jurisdiction": {
+    "country": "US",
+    "state": "AL"
+  },
+  "agency": {
+    "name": "Alabama Board of Electrical Contractors",
+    "url": "https://aecb.alabama.gov/"
+  },
+  "sourceType": "html_lookup",
+  "sourceUrl": "https://alecb-search.kalmservices.net/",
+  "documentationUrl": "https://aecb.alabama.gov/about/",
+  "dataDictionaryUrl": null,
+  "termsUrl": null,
+  "termsReviewNotes": "The board's official site and linked public roster were reviewed; no source-specific reuse terms page was confirmed.",
+  "updateFrequency": "unknown; verify against the official roster before relying on freshness assumptions",
+  "tradeCoverage": [
+    "electrical",
+    "solar"
+  ],
+  "licenseTypesIncluded": [
+    "Alabama Electrical Contractor, Journeyman, and Provisional Electrical license records exposed by the public roster"
+  ],
+  "knownExclusions": [
+    "This source is scoped to credentials regulated by the Alabama Board of Electrical Contractors.",
+    "Residential home builder, general contractor, plumbing, HVAC, local permits, and municipal registrations are outside this source entry.",
+    "Solar coverage is limited to electrical work and does not replace the residential home builder requirements documented by HBLB."
+  ],
+  "hasBulkDownload": false,
+  "hasLiveLookup": true,
+  "requiresJavaScript": "unknown",
+  "requiresCaptcha": false,
+  "requiresAccount": false,
+  "rateLimitNotes": "No adapter is implemented. Future access must respect the vendor-hosted public roster and prefer an official export if one becomes available.",
+  "redistributionStatus": "unknown",
+  "publicRecordsNotes": "Official electrical-license lookup metadata only. Absence from this source is not proof that an authorization or other credential does not exist.",
+  "adapterStatus": "blocked",
+  "sourceDiscoveryStatus": "blocked",
+  "adapterMaturity": "blocked",
+  "adapterQualityLevel": 0,
+  "coverageScope": "state_agency_partial",
+  "adapterPackage": null,
+  "testFixturePath": null,
+  "officialLookupUrl": "https://alecb-search.kalmservices.net/",
+  "officialBulkDownloadNotes": "No official bulk download has been confirmed. The board links to a vendor-hosted interactive roster.",
+  "researchNotes": "The official board site describes a complete roster of electrical contractors, journeymen, and provisional licensees. Alabama general-contractor materials require the corresponding state electrical card for electrical classifications.",
+  "lastVerifiedAt": "2026-07-01T00:00:00.000Z",
+  "maintainerNotes": "Do not extend this source beyond electrical credentials or imply complete solar-contractor coverage.",
+  "schemaVersion": "1.0",
+  "researchReviewedAt": "2026-07-01T00:00:00.000Z",
+  "nextReviewAt": "2027-01-01T00:00:00.000Z",
+  "researchEvidence": [
+    {
+      "url": "https://aecb.alabama.gov/",
+      "checkedAt": "2026-07-01T00:00:00.000Z",
+      "note": "The official board site links a complete roster search for licensed Electrical Contractors, Journeymen, and Provisional Electrical Licensees."
+    },
+    {
+      "url": "https://alecb-search.kalmservices.net/",
+      "checkedAt": "2026-07-01T00:00:00.000Z",
+      "note": "The linked public search exposes license number, company, city, and license-type fields for electrical credentials."
+    }
+  ],
+  "sourceResearchOutcome": "blocked",
+  "blocker": {
+    "code": "technical_instability",
+    "summary": "An official vendor-hosted lookup exists, but no stable documented machine-readable interface or reuse terms have been adapter-reviewed.",
+    "evidenceUrls": [
+      "https://aecb.alabama.gov/",
+      "https://alecb-search.kalmservices.net/"
+    ]
+  }
+}

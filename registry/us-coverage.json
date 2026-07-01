@@ -17,6 +17,10 @@
       "state": "AL",
       "status": "blocked",
       "sourceIds": [
+        "us.al.aecb.electrical_contractors",
+        "us.al.hacr.contractors",
+        "us.al.hblb.home_builders",
+        "us.al.pgfb.plumbers_gas_fitters",
         "us.al.genconbd.general_contractors"
       ],
       "notes": "Official source metadata is retained, but automated ingestion is blocked by documented legal, access, scope, or technical constraints."

@@ -1,0 +1,77 @@
+{
+  "id": "us.al.hacr.contractors",
+  "name": "Alabama Heating, Air Conditioning and Refrigeration Contractors License Lookup",
+  "jurisdiction": {
+    "country": "US",
+    "state": "AL"
+  },
+  "agency": {
+    "name": "Alabama Board of Heating, Air Conditioning and Refrigeration Contractors",
+    "url": "https://hacr.alabama.gov/"
+  },
+  "sourceType": "html_lookup",
+  "sourceUrl": "https://hacr.igovsolution.net/online/Lookups/Individual_Lookup.aspx",
+  "documentationUrl": "https://hacr.alabama.gov/consumers/",
+  "dataDictionaryUrl": null,
+  "termsUrl": "https://www.i3verticals.com/privacy-policy/",
+  "termsReviewNotes": "The linked vendor privacy policy is not a grant of record-reuse rights; redistribution remains unknown.",
+  "updateFrequency": "unknown; verify against the official lookup before relying on freshness assumptions",
+  "tradeCoverage": [
+    "hvac",
+    "mechanical",
+    "sheet_metal"
+  ],
+  "licenseTypesIncluded": [
+    "Alabama HVAC, Refrigeration, Duct Air Tightness Testing, apprentice, and emergency credentials exposed by the board lookup"
+  ],
+  "knownExclusions": [
+    "Plumbing and gas-fitting credentials are regulated by the Alabama PGFB and tracked separately.",
+    "General contractor, electrical, local permit, and municipal registration records are outside this source entry.",
+    "Sheet-metal coverage is limited to work within the board's heating, air-conditioning, refrigeration, and duct scope.",
+    "The public lookup requires a verification code and is not approved for automation."
+  ],
+  "hasBulkDownload": false,
+  "hasLiveLookup": true,
+  "requiresJavaScript": "unknown",
+  "requiresCaptcha": true,
+  "requiresAccount": false,
+  "rateLimitNotes": "Manual use only. Do not bypass or automate the public verification-code control.",
+  "redistributionStatus": "unknown",
+  "publicRecordsNotes": "Official HVAC and refrigeration lookup metadata only. Absence from this source is not proof that a credential or authorization does not exist.",
+  "adapterStatus": "blocked",
+  "sourceDiscoveryStatus": "blocked",
+  "adapterMaturity": "blocked",
+  "adapterQualityLevel": 0,
+  "coverageScope": "state_agency_partial",
+  "adapterPackage": null,
+  "testFixturePath": null,
+  "officialLookupUrl": "https://hacr.igovsolution.net/online/Lookups/Individual_Lookup.aspx",
+  "officialBulkDownloadNotes": "No official bulk download has been confirmed; the public lookup is verification-code protected.",
+  "researchNotes": "The board's public lookup exposes HVAC, refrigeration, duct-testing, apprentice, and emergency credential types. Its consumer page links the lookup as the official path to find a licensed contractor.",
+  "lastVerifiedAt": "2026-07-01T00:00:00.000Z",
+  "maintainerNotes": "Keep this as a manual handoff. The verification-code control must not be bypassed.",
+  "schemaVersion": "1.0",
+  "researchReviewedAt": "2026-07-01T00:00:00.000Z",
+  "nextReviewAt": "2027-01-01T00:00:00.000Z",
+  "researchEvidence": [
+    {
+      "url": "https://hacr.alabama.gov/consumers/",
+      "checkedAt": "2026-07-01T00:00:00.000Z",
+      "note": "The official board consumer page links its Find a Licensed Contractor lookup and describes board jurisdiction over contractor complaints."
+    },
+    {
+      "url": "https://hacr.igovsolution.net/online/Lookups/Individual_Lookup.aspx",
+      "checkedAt": "2026-07-01T00:00:00.000Z",
+      "note": "The official linked portal lists HVAC, refrigeration, duct-testing, apprentice, and emergency license types and requires a verification-code image."
+    }
+  ],
+  "sourceResearchOutcome": "blocked",
+  "blocker": {
+    "code": "access_controls",
+    "summary": "The official public lookup requires a verification code; OpenTrade will not bypass or automate that technical control.",
+    "evidenceUrls": [
+      "https://hacr.alabama.gov/consumers/",
+      "https://hacr.igovsolution.net/online/Lookups/Individual_Lookup.aspx"
+    ]
+  }
+}
