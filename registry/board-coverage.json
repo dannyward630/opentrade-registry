@@ -176,6 +176,11 @@
           "boardIds": ["us.fl.dbpr.construction"],
           "evidence": [{ "url": "https://www2.myfloridalicense.com/about-us/understanding-dbpr-codes/", "reviewedAt": "2026-07-01T05:30:00.000Z", "note": "Florida DBPR's construction code catalog includes certified and registered general and building contractor classifications used for commercial building work." }]
         },
+        "electrical": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.fl.dbpr.electrical_contractors"],
+          "evidence": [{ "url": "https://www2.myfloridalicense.com/electrical-contractors/public-records/", "reviewedAt": "2026-07-01T05:35:00.000Z", "note": "Florida DBPR publishes a distinct Electrical Contractors' Licensing Board bulk file with occupation and license status fields." }]
+        },
         "plumbing": {
           "outcome": "covered_by_board",
           "boardIds": ["us.fl.dbpr.construction"],
@@ -205,6 +210,11 @@
           "outcome": "covered_by_board",
           "boardIds": ["us.fl.dbpr.construction"],
           "evidence": [{ "url": "https://www2.myfloridalicense.com/construction-industry/faqs/", "reviewedAt": "2026-07-01T05:30:00.000Z", "note": "Florida DBPR lists swimming pool and spa categories and related statewide specialties under the construction board." }]
+        },
+        "asbestos": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.fl.dbpr.asbestos_contractors"],
+          "evidence": [{ "url": "https://www2.myfloridalicense.com/asbestos-contractors-and-consultants/public-records/", "reviewedAt": "2026-07-01T05:35:00.000Z", "note": "Florida DBPR publishes a distinct Asbestos Licensing Unit bulk file covering asbestos contractor occupation codes." }]
         },
         "sheet_metal": {
           "outcome": "covered_by_board",
