@@ -12,25 +12,25 @@ describe("source quality report", () => {
     expect(result.stderr).toBe("");
 
     const report = JSON.parse(result.stdout);
-    expect(report.sourceCount).toBe(56);
+    expect(report.sourceCount).toBe(58);
     expect(report.stateCount).toBe(51);
     expect(report.researchedStateCount).toBe(51);
     expect(report.territoryCount).toBe(5);
     expect(report.researchedTerritoryCount).toBe(5);
     expect(report.coverageByStatus.not_started ?? 0).toBe(0);
-    expect(report.terminalSourceCount).toBe(56);
+    expect(report.terminalSourceCount).toBe(58);
     expect(report.blockedSourceCount).toBe(49);
     expect(report.territoryCoverageByStatus.blocked).toBe(5);
     expect(report.sourcesByMaturity.blocked).toBe(49);
     expect(report.sourcesByMaturity.local_file_adapter).toBe(2);
-    expect(report.sourcesByMaturity.network_opt_in).toBe(5);
+    expect(report.sourcesByMaturity.network_opt_in).toBe(7);
     expect(report.sourcesByAdapterQualityLevel["0"]).toBe(49);
-    expect(report.sourcesByAdapterQualityLevel["4"]).toBe(7);
+    expect(report.sourcesByAdapterQualityLevel["4"]).toBe(9);
     expect(report.sourcesByResearchOutcome).toEqual({
       blocked: 49,
       deprecated: 0,
       local_file_adapter: 2,
-      network_opt_in: 5,
+      network_opt_in: 7,
       production_ready: 0,
     });
     expect(report.metadataCompleteness.requiredFields).toEqual([
@@ -65,7 +65,9 @@ describe("source quality report", () => {
     expect(report.implementedAdapterSources.map((source: { id: string }) => source.id)).toEqual([
       "us.az.roc.contractors",
       "us.ca.cslb.contractors",
+      "us.fl.dbpr.asbestos_contractors",
       "us.fl.dbpr.construction",
+      "us.fl.dbpr.electrical_contractors",
       "us.mn.dli.licenses_registrations",
       "us.or.ccb.active_licenses",
       "us.tx.tdlr.all_licenses",

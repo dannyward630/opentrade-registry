@@ -1,0 +1,57 @@
+{
+  "id": "us.fl.dbpr.electrical_contractors",
+  "name": "Florida DBPR Electrical Contractor Licenses",
+  "jurisdiction": { "country": "US", "state": "FL" },
+  "agency": {
+    "name": "Florida Department of Business and Professional Regulation",
+    "url": "https://www2.myfloridalicense.com/"
+  },
+  "sourceType": "bulk_csv",
+  "sourceUrl": "https://www2.myfloridalicense.com/sto/file_download/extracts/lic08el.csv",
+  "documentationUrl": "https://www2.myfloridalicense.com/electrical-contractors/public-records/",
+  "dataDictionaryUrl": "https://www2.myfloridalicense.com/about-us/understanding-dbpr-codes/",
+  "termsUrl": "https://www2.myfloridalicense.com/privacy-statement/",
+  "updateFrequency": "DBPR states that public-record download data is refreshed weekly, subject to maintenance delays.",
+  "tradeCoverage": ["electrical"],
+  "licenseTypesIncluded": ["electrical contractor licenses in the DBPR board 08 public-records extract"],
+  "knownExclusions": [
+    "The download excludes null-and-void, delinquent, and involuntarily inactive records.",
+    "This source does not represent local permits, local registrations outside DBPR coverage, complaints, or discipline history."
+  ],
+  "hasBulkDownload": true,
+  "hasLiveLookup": true,
+  "requiresJavaScript": "unknown",
+  "requiresCaptcha": "unknown",
+  "requiresAccount": false,
+  "rateLimitNotes": "Use the official bulk file responsibly. CLI URL sync and URL verification are opt-in and require --allow-network.",
+  "redistributionStatus": "unknown",
+  "publicRecordsNotes": "Official public-record source for Florida DBPR electrical contractor data. Absence from this source is not proof that a license or local authorization does not exist.",
+  "adapterStatus": "implemented",
+  "sourceDiscoveryStatus": "researched",
+  "adapterMaturity": "network_opt_in",
+  "adapterQualityLevel": 4,
+  "coverageScope": "state_agency_partial",
+  "adapterPackage": "@opentrade-registry/adapter-fl-dbpr",
+  "testFixturePath": "packages/adapter-fl-dbpr/fixtures/electrical-license-sample.csv",
+  "officialLookupUrl": "https://www.myfloridalicense.com/wl11.asp",
+  "officialBulkDownloadNotes": "DBPR publishes a weekly quote/comma-delimited board 08 licensee file. Network access remains explicit and opt-in.",
+  "researchNotes": "The adapter shares the documented DBPR public-record layout while preserving the electrical board as a distinct source.",
+  "verificationReviewedAt": "2026-06-22T00:00:00.000Z",
+  "verificationCaveats": [
+    "Verification is limited to the checked DBPR electrical source file or opt-in URL snapshot.",
+    "The download excludes null-and-void, delinquent, and involuntarily inactive records.",
+    "No matching record is not proof that an electrical license or local authorization does not exist."
+  ],
+  "verificationNotes": "CLI verification returns matched, not_found, ambiguous, or missing_required_input without making licensing accusations.",
+  "lastVerifiedAt": "2026-06-27T00:00:00.000Z",
+  "schemaVersion": "1.0",
+  "sourceResearchOutcome": "network_opt_in",
+  "researchReviewedAt": "2026-06-27T00:00:00.000Z",
+  "nextReviewAt": "2026-12-27T00:00:00.000Z",
+  "researchEvidence": [{
+    "url": "https://www2.myfloridalicense.com/electrical-contractors/public-records/",
+    "checkedAt": "2026-07-01T05:35:00.000Z",
+    "note": "Official DBPR page documents the board 08 bulk file, layout, included statuses, and exclusions."
+  }],
+  "maintainerNotes": "Use source URL, fetched time, caveats, raw record, and fingerprint in downstream exports."
+}

@@ -30,7 +30,7 @@ describe("hosted API", () => {
     expect(response.body).toMatchObject({
       ok: true,
       service: "opentrade-registry",
-      fileRegistrySourceCount: 56,
+      fileRegistrySourceCount: 58,
       database: {
         configured: false,
         status: "not_configured"
@@ -47,7 +47,7 @@ describe("hosted API", () => {
     expect(response.headers["Access-Control-Allow-Origin"]).toBe("*");
     expect(response.headers["Cache-Control"]).toContain("stale-while-revalidate");
     expect(response.body.origin).toBe("registry_files");
-    expect(response.body.count).toBe(56);
+    expect(response.body.count).toBe(58);
     expect(response.body.sources.some((source: { id: string }) => source.id === "us.fl.dbpr.construction")).toBe(true);
   });
 
@@ -56,12 +56,14 @@ describe("hosted API", () => {
     await sourcesHandler({ query: { implemented: "true" } } as never, implemented as never);
 
     expect(implemented.statusCode).toBe(200);
-    expect(implemented.body.count).toBe(7);
+    expect(implemented.body.count).toBe(9);
     expect(implemented.body.filters.implemented).toBe(true);
     expect(implemented.body.sources.map((source: { id: string }) => source.id)).toEqual([
       "us.az.roc.contractors",
       "us.ca.cslb.contractors",
+      "us.fl.dbpr.asbestos_contractors",
       "us.fl.dbpr.construction",
+      "us.fl.dbpr.electrical_contractors",
       "us.mn.dli.licenses_registrations",
       "us.or.ccb.active_licenses",
       "us.tx.tdlr.all_licenses",
@@ -109,8 +111,8 @@ describe("hosted API", () => {
     expect(response.statusCode).toBe(200);
     expect(response.body).toMatchObject({
       origin: "registry_files",
-      sourceCount: 56,
-      terminalSourceCount: 56,
+      sourceCount: 58,
+      terminalSourceCount: 58,
       blockedSourceCount: 49,
       registryOnlySourceCount: 0,
       note: expect.stringContaining("terminal"),
@@ -118,7 +120,9 @@ describe("hosted API", () => {
     expect(response.body.implementedAdapterSources.map((source: { id: string }) => source.id)).toEqual([
       "us.az.roc.contractors",
       "us.ca.cslb.contractors",
+      "us.fl.dbpr.asbestos_contractors",
       "us.fl.dbpr.construction",
+      "us.fl.dbpr.electrical_contractors",
       "us.mn.dli.licenses_registrations",
       "us.or.ccb.active_licenses",
       "us.tx.tdlr.all_licenses",
@@ -255,7 +259,7 @@ describe("hosted API", () => {
 
     expect(result.origin).toBe("registry_files");
     expect(result.databaseError).toBe("database_unavailable");
-    expect(result.sources).toHaveLength(56);
+    expect(result.sources).toHaveLength(58);
   });
 
   it("returns file-backed readiness when database source loading fails", async () => {
@@ -267,7 +271,7 @@ describe("hosted API", () => {
 
     expect(result.origin).toBe("registry_files");
     expect(result.databaseError).toBe("database_unavailable");
-    expect(result.sourceCount).toBe(56);
+    expect(result.sourceCount).toBe(58);
     expect(result.unimplementedBulkAdapterCandidates).toHaveLength(0);
   });
 
@@ -282,11 +286,11 @@ describe("hosted API", () => {
     expect(health.statusCode).toBe(200);
     expect(health.body).toMatchObject({
       ok: true,
-      fileRegistrySourceCount: 56,
+      fileRegistrySourceCount: 58,
       database: {
         configured: true,
         status: "available",
-        registrySourceCount: 56,
+        registrySourceCount: 58,
         sourceCountMatchesFiles: true,
         sourceMetadataMatchesFiles: true,
         sourceMetadataMismatchCount: 0,
@@ -312,7 +316,7 @@ describe("hosted API", () => {
       database: {
         configured: true,
         status: "available",
-        registrySourceCount: 56,
+        registrySourceCount: 58,
         sourceCountMatchesFiles: true,
         sourceMetadataMatchesFiles: false,
         sourceMetadataMismatchCount: 1,
