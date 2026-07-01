@@ -367,7 +367,26 @@
     { "state": "MP", "decisions": {} },
     { "state": "MS", "decisions": {} },
     { "state": "MT", "decisions": {} },
-    { "state": "NC", "decisions": {} },
+    {
+      "state": "NC",
+      "decisions": {
+        "electrical": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.nc.ncbeec.electrical_contractors"],
+          "evidence": [{ "url": "https://arls-public.ncbeec.org/Public/Search", "reviewedAt": "2026-07-01T00:00:00.000Z", "note": "The official NCBEEC verify-license search lists North Carolina electrical contractor license classifications including limited, intermediate, unlimited, residential dwelling, and special restricted classifications." }]
+        },
+        "plumbing": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.nc.nclicensing.plumbing_heating_fire_sprinkler"],
+          "evidence": [{ "url": "https://public.nclicensing.org/Public/Search", "reviewedAt": "2026-07-01T00:00:00.000Z", "note": "The official plumbing/heating/fire-sprinkler board verify-license search lists plumbing contractor and technician classifications." }]
+        },
+        "hvac": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.nc.nclicensing.plumbing_heating_fire_sprinkler"],
+          "evidence": [{ "url": "https://public.nclicensing.org/Public/Search", "reviewedAt": "2026-07-01T00:00:00.000Z", "note": "The official plumbing/heating/fire-sprinkler board verify-license search lists heating contractor and technician classifications." }]
+        }
+      }
+    },
     { "state": "ND", "decisions": {} },
     { "state": "NE", "decisions": {} },
     { "state": "NH", "decisions": {} },

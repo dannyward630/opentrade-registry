@@ -20,12 +20,12 @@ V2 development is underway as a sequence of focused, compatibility-tested change
 
 ## v1 Coverage
 
-OpenTrade Registry currently tracks `62` official sources covering all 50 states, DC, and five major U.S. territories. Every source has a terminal, evidence-backed outcome:
+OpenTrade Registry currently tracks `64` official sources covering all 50 states, DC, and five major U.S. territories. Every source has a terminal, evidence-backed outcome:
 
 - `9` implemented adapters, all reviewed at adapter quality Level 4;
 - `2` local-file adapters;
 - `7` explicit network opt-in adapters;
-- `52` blocked sources with documented legal, technical, access-control, scope, or source-stability evidence;
+- `55` blocked sources with documented legal, technical, access-control, scope, or source-stability evidence;
 - `0` provisional research outcomes;
 - `0` default tests that contact agency systems.
 

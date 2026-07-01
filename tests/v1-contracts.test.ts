@@ -183,7 +183,7 @@ describe("v1 public contracts", () => {
       files.map(async (file) => sourceRegistryEntryV1Schema.parse(JSON.parse(await readFile(file, "utf8")))),
     );
 
-    expect(entries).toHaveLength(62);
+    expect(entries).toHaveLength(64);
     expect(entries.every((entry) => ["production_ready", "network_opt_in", "local_file_adapter", "blocked", "deprecated"].includes(entry.sourceResearchOutcome))).toBe(true);
     expect(entries.some((entry) => entry.adapterMaturity === "fixture_adapter" || entry.adapterMaturity === "registry_only")).toBe(false);
   });
