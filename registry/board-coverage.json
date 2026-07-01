@@ -9,7 +9,76 @@
     { "state": "AL", "decisions": {} },
     { "state": "AR", "decisions": {} },
     { "state": "AS", "decisions": {} },
-    { "state": "AZ", "decisions": {} },
+    {
+      "state": "AZ",
+      "decisions": {
+        "general_contracting": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.az.roc.contractors"],
+          "evidence": [{ "url": "https://roc.az.gov/license-classifications", "reviewedAt": "2026-07-01T05:25:00.000Z", "note": "Arizona ROC lists statewide General Engineering and General Commercial contractor classifications." }]
+        },
+        "residential_contracting": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.az.roc.contractors"],
+          "evidence": [{ "url": "https://roc.az.gov/license-classifications", "reviewedAt": "2026-07-01T05:25:00.000Z", "note": "Arizona ROC states that it issues separate residential licenses and lists General Residential classifications." }]
+        },
+        "commercial_contracting": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.az.roc.contractors"],
+          "evidence": [{ "url": "https://roc.az.gov/license-classifications", "reviewedAt": "2026-07-01T05:25:00.000Z", "note": "Arizona ROC defines commercial contracting and lists B-1 and B-2 General Commercial classifications." }]
+        },
+        "electrical": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.az.roc.contractors"],
+          "evidence": [{ "url": "https://roc.az.gov/license-classifications", "reviewedAt": "2026-07-01T05:25:00.000Z", "note": "Arizona ROC lists commercial, residential, and dual electrical contractor classifications, including C-11 and CR-11." }]
+        },
+        "plumbing": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.az.roc.contractors"],
+          "evidence": [{ "url": "https://roc.az.gov/license-classifications", "reviewedAt": "2026-07-01T05:25:00.000Z", "note": "Arizona ROC lists plumbing contractor classifications, including C-37 and C-77 Plumbing Including Solar." }]
+        },
+        "hvac": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.az.roc.contractors"],
+          "evidence": [{ "url": "https://roc.az.gov/license-classifications", "reviewedAt": "2026-07-01T05:25:00.000Z", "note": "Arizona ROC lists Air Conditioning and Refrigeration contractor classifications." }]
+        },
+        "mechanical": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.az.roc.contractors"],
+          "evidence": [{ "url": "https://roc.az.gov/license-classifications", "reviewedAt": "2026-07-01T05:25:00.000Z", "note": "Arizona ROC lists mechanical scopes including boilers, steamfitting, process piping, air conditioning, and refrigeration." }]
+        },
+        "roofing": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.az.roc.contractors"],
+          "evidence": [{ "url": "https://roc.az.gov/license-classifications", "reviewedAt": "2026-07-01T05:25:00.000Z", "note": "Arizona ROC lists statewide commercial, residential, and dual roofing classifications." }]
+        },
+        "solar": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.az.roc.contractors"],
+          "evidence": [{ "url": "https://roc.az.gov/license-classifications", "reviewedAt": "2026-07-01T05:25:00.000Z", "note": "Arizona ROC identifies solar-authorized pool, plumbing, electrical, and boiler classifications." }]
+        },
+        "pool_spa": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.az.roc.contractors"],
+          "evidence": [{ "url": "https://roc.az.gov/license-classifications", "reviewedAt": "2026-07-01T05:25:00.000Z", "note": "Arizona ROC lists General Swimming Pool, Swimming Pool Service and Repair, and spa classifications." }]
+        },
+        "sheet_metal": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.az.roc.contractors"],
+          "evidence": [{ "url": "https://roc.az.gov/license-classifications", "reviewedAt": "2026-07-01T05:25:00.000Z", "note": "Arizona ROC defines C-45 and R-45 Sheet Metal contractor classifications." }]
+        },
+        "underground_utility": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.az.roc.contractors"],
+          "evidence": [{ "url": "https://roc.az.gov/license-classifications", "reviewedAt": "2026-07-01T05:25:00.000Z", "note": "Arizona ROC lists engineering, waterworks, transmission-line, excavation, sewer, drain, and pipe-laying scopes covering underground utility work." }]
+        },
+        "home_improvement": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.az.roc.contractors"],
+          "evidence": [{ "url": "https://roc.az.gov/license-classifications", "reviewedAt": "2026-07-01T05:25:00.000Z", "note": "Arizona ROC lists remodeling, repair, and Minor Home Improvements contractor classifications." }]
+        }
+      }
+    },
     {
       "state": "CA",
       "decisions": {
