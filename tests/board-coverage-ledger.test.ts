@@ -15,7 +15,8 @@ describe("nationwide board trade coverage ledger", () => {
     expect(ledger.jurisdictions).toHaveLength(56);
     expect(new Set(ledger.jurisdictions.map((entry) => entry.state)).size).toBe(56);
     expect(expanded).toHaveLength(56 * BOARD_TRADE_DOMAINS.length);
-    expect(expanded.every((decision) => decision.outcome === "needs_research")).toBe(true);
+    expect(expanded.filter((decision) => decision.outcome === "needs_research")).toHaveLength(770);
+    expect(expanded.filter((decision) => decision.outcome === "covered_by_board")).toHaveLength(14);
   });
 
   it("requires board references and evidence for terminal coverage decisions", () => {
