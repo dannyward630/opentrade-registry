@@ -17,16 +17,16 @@
   "updateFrequency": "unknown; verify against the official DORA/DPO lookup before relying on freshness assumptions",
   "tradeCoverage": [
     "electrical",
-    "plumbing",
-    "other"
+    "plumbing"
   ],
   "licenseTypesIncluded": [
     "Colorado DPO electrical, plumbing, and related professional license records exposed by official lookup paths"
   ],
   "knownExclusions": [
     "Colorado does not have a single statewide general contractor source represented by this entry.",
+    "DORA consumer guidance says some occupations, including roofers and general contractors, are not licensed statewide and may be subject to city or county rules.",
     "Local contractor licenses, local permits, and non-DORA authorizations are outside this source entry.",
-    "Separate DPO boards and programs may require separate source entries before adapter work."
+    "CDPHE asbestos certification is tracked in a separate source entry."
   ],
   "hasBulkDownload": "unknown",
   "hasLiveLookup": true,
@@ -45,16 +45,31 @@
   "officialLookupUrl": "https://apps.colorado.gov/dora/licensing/Lookup/LicenseLookup.aspx",
   "officialBulkDownloadNotes": "DORA references license lookup paths, but no construction-specific official bulk download has been confirmed in this phase.",
   "researchNotes": "Registry-only source for Colorado DORA trade-license lookup. Future work should decide whether electrical, plumbing, and other DPO programs need separate entries.",
-  "lastVerifiedAt": "2026-06-27T00:00:00.000Z",
+  "lastVerifiedAt": "2026-07-01T08:10:00.000Z",
   "maintainerNotes": "Do not describe this as statewide contractor coverage; it is DORA/DPO trade-license metadata.",
   "schemaVersion": "1.0",
-  "researchReviewedAt": "2026-06-27T00:00:00.000Z",
-  "nextReviewAt": "2026-12-27T00:00:00.000Z",
+  "researchReviewedAt": "2026-07-01T08:10:00.000Z",
+  "nextReviewAt": "2027-01-01T08:10:00.000Z",
   "researchEvidence": [
     {
       "url": "https://apps.colorado.gov/dora/licensing/Lookup/LicenseLookup.aspx",
-      "checkedAt": "2026-06-27T00:00:00.000Z",
+      "checkedAt": "2026-07-01T08:10:00.000Z",
       "note": "Official public source, access shape, and current automation constraints reviewed."
+    },
+    {
+      "url": "https://dpo.colorado.gov/Electrical/Applications",
+      "checkedAt": "2026-07-01T08:10:00.000Z",
+      "note": "DPO states that performing electrical contracting in Colorado requires a licensed Electrical Contractor registered with the State of Colorado."
+    },
+    {
+      "url": "https://dpo.colorado.gov/Plumbing/Applications",
+      "checkedAt": "2026-07-01T08:10:00.000Z",
+      "note": "DPO lists plumber and plumbing contractor applications and licensing requirements for Colorado."
+    },
+    {
+      "url": "https://dora.colorado.gov/consumer-protection-home-and-repair",
+      "checkedAt": "2026-07-01T08:10:00.000Z",
+      "note": "DORA says not all home repair occupations are licensed statewide, including roofers and general contractors, and directs consumers to city or county governments where local rules may exist."
     }
   ],
   "sourceResearchOutcome": "blocked",

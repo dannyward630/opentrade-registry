@@ -15,9 +15,10 @@ describe("nationwide board trade coverage ledger", () => {
     expect(ledger.jurisdictions).toHaveLength(56);
     expect(new Set(ledger.jurisdictions.map((entry) => entry.state)).size).toBe(56);
     expect(expanded).toHaveLength(56 * BOARD_TRADE_DOMAINS.length);
-    expect(expanded.filter((decision) => decision.outcome === "needs_research")).toHaveLength(742);
-    expect(expanded.filter((decision) => decision.outcome === "covered_by_board")).toHaveLength(41);
+    expect(expanded.filter((decision) => decision.outcome === "needs_research")).toHaveLength(734);
+    expect(expanded.filter((decision) => decision.outcome === "covered_by_board")).toHaveLength(44);
     expect(expanded.filter((decision) => decision.outcome === "not_state_regulated")).toHaveLength(1);
+    expect(expanded.filter((decision) => decision.outcome === "local_only")).toHaveLength(5);
   });
 
   it("records Arizona ROC coverage and the documented asbestos training boundary", async () => {
@@ -46,6 +47,31 @@ describe("nationwide board trade coverage ledger", () => {
     expect(constructionDomains.every((decision) => decision.boardIds.includes("us.fl.dbpr.construction"))).toBe(true);
     expect(electrical).toMatchObject({ outcome: "covered_by_board", boardIds: ["us.fl.dbpr.electrical_contractors"] });
     expect(asbestos).toMatchObject({ outcome: "covered_by_board", boardIds: ["us.fl.dbpr.asbestos_contractors"] });
+  });
+
+  it("records Colorado statewide trade boards and local-only construction boundaries", async () => {
+    const ledger = boardTradeCoverageLedgerSchema.parse(await json("registry/board-coverage.json"));
+    const expanded = expandBoardTradeCoverageLedger(ledger).filter((decision) => decision.state === "CO");
+
+    expect(expanded.find((decision) => decision.tradeDomain === "electrical")).toMatchObject({
+      outcome: "covered_by_board",
+      boardIds: ["us.co.dora.trades"],
+    });
+    expect(expanded.find((decision) => decision.tradeDomain === "plumbing")).toMatchObject({
+      outcome: "covered_by_board",
+      boardIds: ["us.co.dora.trades"],
+    });
+    expect(expanded.find((decision) => decision.tradeDomain === "asbestos")).toMatchObject({
+      outcome: "covered_by_board",
+      boardIds: ["us.co.cdphe.asbestos_contractors"],
+    });
+
+    for (const domain of ["general_contracting", "residential_contracting", "commercial_contracting", "roofing", "home_improvement"]) {
+      const decision = expanded.find((entry) => entry.tradeDomain === domain);
+      expect(decision?.outcome, `${domain} should be documented as local-only in Colorado`).toBe("local_only");
+      expect(decision?.boardIds).toEqual([]);
+      expect(decision?.evidence[0]?.url).toBe("https://dora.colorado.gov/consumer-protection-home-and-repair");
+    }
   });
 
   it("requires board references and evidence for terminal coverage decisions", () => {
