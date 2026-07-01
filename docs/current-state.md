@@ -13,7 +13,7 @@ This is the human-readable snapshot for the released `v1.0.1` line and the v2 mi
 
 ## Coverage
 
-- `58` official source entries.
+- `59` official source entries.
 - All 50 states plus DC have researched coverage rows.
 - American Samoa, Guam, Northern Mariana Islands, Puerto Rico, and the U.S. Virgin Islands have researched territory rows.
 - `9` implemented adapters, all at quality Level 4.
