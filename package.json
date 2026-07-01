@@ -32,7 +32,7 @@
     }
   },
   "scripts": {
-    "verify": "corepack pnpm build && corepack pnpm typecheck && corepack pnpm api:typecheck && corepack pnpm test && corepack pnpm registry:validate && corepack pnpm coverage:health && corepack pnpm board:inventory:check && corepack pnpm db:seed:check && corepack pnpm source:matrix:check && corepack pnpm docs:check && corepack pnpm cleanliness:scan && corepack pnpm files:check",
+    "verify": "corepack pnpm build && corepack pnpm typecheck && corepack pnpm api:typecheck && corepack pnpm api:spec:check && corepack pnpm test && corepack pnpm registry:validate && corepack pnpm coverage:health && corepack pnpm board:inventory:check && corepack pnpm db:seed:check && corepack pnpm source:matrix:check && corepack pnpm docs:check && corepack pnpm cleanliness:scan && corepack pnpm files:check",
     "build": "corepack pnpm -r build",
     "test": "vitest run",
     "test:registry": "vitest run tests/source-registry.test.ts tests/source-quality-report.test.ts",
@@ -41,6 +41,8 @@
     "test:api": "vitest run tests/hosted-api.test.ts tests/network.test.ts",
     "typecheck": "corepack pnpm -r typecheck",
     "api:typecheck": "tsc -p tsconfig.api.json --noEmit",
+    "api:spec:generate": "node scripts/generate-openapi-v2.mjs",
+    "api:spec:check": "node scripts/generate-openapi-v2.mjs --check",
     "registry:validate": "vitest run tests/source-registry.test.ts",
     "coverage:health": "node scripts/coverage-health.mjs",
     "board:inventory:generate": "node scripts/generate-board-inventory.mjs",
@@ -80,6 +82,7 @@
     "tsx": "^4.19.2",
     "typescript": "^6.0.3",
     "vite": "^8.1.0",
-    "vitest": "^4.1.9"
+    "vitest": "^4.1.9",
+    "zod": "^4.4.3"
   }
 }
