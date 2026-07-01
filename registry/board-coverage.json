@@ -10,7 +10,81 @@
     { "state": "AR", "decisions": {} },
     { "state": "AS", "decisions": {} },
     { "state": "AZ", "decisions": {} },
-    { "state": "CA", "decisions": {} },
+    {
+      "state": "CA",
+      "decisions": {
+        "general_contracting": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.ca.cslb.contractors"],
+          "evidence": [{ "url": "https://www.cslb.ca.gov/About_Us/Library/Licensing_Classifications/", "reviewedAt": "2026-07-01T07:15:00.000Z", "note": "CSLB lists statewide A General Engineering and B General Building contractor classifications." }]
+        },
+        "residential_contracting": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.ca.cslb.contractors"],
+          "evidence": [{ "url": "https://www.cslb.ca.gov/OnlineServices/WebApplication/InteractivePDFs/ApplicationForOriginalContractorsLicense.aspx", "reviewedAt": "2026-07-01T07:15:00.000Z", "note": "The official application lists B General Building and B-2 Residential Remodeling classifications." }]
+        },
+        "commercial_contracting": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.ca.cslb.contractors"],
+          "evidence": [{ "url": "https://www.cslb.ca.gov/OnlineServices/WebApplication/InteractivePDFs/ApplicationForOriginalContractorsLicense.aspx", "reviewedAt": "2026-07-01T07:15:00.000Z", "note": "The official application lists statewide A and B contractor classifications covering engineering and building work." }]
+        },
+        "electrical": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.ca.cslb.contractors"],
+          "evidence": [{ "url": "https://www.cslb.ca.gov/about_us/library/licensing_classifications/Licensing_Classifications_Detail.aspx?Class=C-10", "reviewedAt": "2026-07-01T07:15:00.000Z", "note": "CSLB defines the statewide C-10 Electrical Contractor classification." }]
+        },
+        "plumbing": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.ca.cslb.contractors"],
+          "evidence": [{ "url": "https://www.cslb.ca.gov/about_us/library/licensing_classifications/Licensing_Classifications_Detail.aspx?Class=C-36", "reviewedAt": "2026-07-01T07:15:00.000Z", "note": "CSLB defines the statewide C-36 Plumbing Contractor classification." }]
+        },
+        "hvac": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.ca.cslb.contractors"],
+          "evidence": [{ "url": "https://www.cslb.ca.gov/Resources/GuidesAndPublications/DescriptionOfClassifications.pdf", "reviewedAt": "2026-07-01T07:15:00.000Z", "note": "The official classification guide includes C-20 Warm-Air Heating, Ventilating and Air-Conditioning." }]
+        },
+        "mechanical": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.ca.cslb.contractors"],
+          "evidence": [{ "url": "https://www.cslb.ca.gov/Resources/GuidesAndPublications/DescriptionOfClassifications.pdf", "reviewedAt": "2026-07-01T07:15:00.000Z", "note": "The official guide includes C-4 boiler, C-20 HVAC, and C-38 refrigeration contractor classifications." }]
+        },
+        "roofing": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.ca.cslb.contractors"],
+          "evidence": [{ "url": "https://www.cslb.ca.gov/Resources/GuidesAndPublications/DescriptionOfClassifications.pdf", "reviewedAt": "2026-07-01T07:15:00.000Z", "note": "The official classification guide defines C-39 Roofing Contractor." }]
+        },
+        "solar": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.ca.cslb.contractors"],
+          "evidence": [{ "url": "https://www.cslb.ca.gov/Resources/GuidesAndPublications/DescriptionOfClassifications.pdf", "reviewedAt": "2026-07-01T07:15:00.000Z", "note": "The official classification guide defines C-46 Solar Contractor and solar work within other named classifications." }]
+        },
+        "pool_spa": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.ca.cslb.contractors"],
+          "evidence": [{ "url": "https://www.cslb.ca.gov/about_us/library/licensing_classifications/Licensing_Classifications_Detail.aspx?Class=C-53", "reviewedAt": "2026-07-01T07:15:00.000Z", "note": "CSLB defines C-53 for swimming pool, spa, and hot-tub construction." }]
+        },
+        "asbestos": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.ca.cslb.contractors"],
+          "evidence": [{ "url": "https://www.cslb.ca.gov/About_Us/Library/Licensing_Classifications/", "reviewedAt": "2026-07-01T07:15:00.000Z", "note": "CSLB documents asbestos certification for qualifying contractor classifications." }]
+        },
+        "sheet_metal": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.ca.cslb.contractors"],
+          "evidence": [{ "url": "https://www.cslb.ca.gov/Resources/GuidesAndPublications/DescriptionOfClassifications.pdf", "reviewedAt": "2026-07-01T07:15:00.000Z", "note": "The official classification guide defines C-43 Sheet Metal Contractor." }]
+        },
+        "underground_utility": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.ca.cslb.contractors"],
+          "evidence": [{ "url": "https://www.cslb.ca.gov/Resources/GuidesAndPublications/DescriptionOfClassifications.pdf", "reviewedAt": "2026-07-01T07:15:00.000Z", "note": "The official guide covers pipeline work under C-34 and broader engineering work under classification A." }]
+        },
+        "home_improvement": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.ca.cslb.contractors"],
+          "evidence": [{ "url": "https://www.cslb.ca.gov/OnlineServices/WebApplication/InteractivePDFs/ApplicationForOriginalContractorsLicense.aspx", "reviewedAt": "2026-07-01T07:15:00.000Z", "note": "The official application includes B-2 Residential Remodeling for improvement projects involving existing structures." }]
+        }
+      }
+    },
     { "state": "CO", "decisions": {} },
     { "state": "CT", "decisions": {} },
     { "state": "DC", "decisions": {} },
