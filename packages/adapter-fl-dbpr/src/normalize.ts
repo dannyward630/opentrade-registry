@@ -32,6 +32,11 @@ export function normalizeDbprStatus(input: {
 
 export function mapOccupationToTradeCategory(occupationCode: string | null): TradeCategory {
   switch (occupationCode) {
+    case "CJC":
+      return "asbestos";
+    case "EC":
+    case "ER":
+      return "electrical";
     case "CGC":
     case "RG":
       return "general_contracting";

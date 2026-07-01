@@ -24,6 +24,16 @@ const implementedVerificationCases = [
     missingLicense: "CGC000000",
   },
   {
+    sourceId: "us.fl.dbpr.electrical_contractors",
+    fixturePath: "packages/adapter-fl-dbpr/fixtures/electrical-license-sample.csv",
+    missingLicense: "EC13009999",
+  },
+  {
+    sourceId: "us.fl.dbpr.asbestos_contractors",
+    fixturePath: "packages/adapter-fl-dbpr/fixtures/asbestos-license-sample.csv",
+    missingLicense: "CJC999999",
+  },
+  {
     sourceId: "us.mn.dli.licenses_registrations",
     fixturePath: "packages/adapter-mn-dli/fixtures/licenses-registrations-sample.csv",
     missingLicense: "MNDLI999999",

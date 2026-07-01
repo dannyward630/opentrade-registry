@@ -1,44 +1,60 @@
 import type { CanonicalTradeLicenseRecord, RawSourceRecord, SourceAvailability, TradeLicenseSourceAdapter } from "@opentrade-registry/core";
 import { canonicalTradeLicenseRecordSchema, normalizeLicenseNumber } from "@opentrade-registry/core";
-import { FL_DBPR_CONSTRUCTION_SOURCE_ID, FL_DBPR_CONSTRUCTION_SOURCE_URL, FL_DBPR_SOURCE_ENTRY } from "./constants.js";
+import {
+  FL_DBPR_ASBESTOS_SOURCE_ENTRY,
+  FL_DBPR_CONSTRUCTION_SOURCE_ID,
+  FL_DBPR_ELECTRICAL_SOURCE_ENTRY,
+  FL_DBPR_SOURCE_ENTRY,
+} from "./constants.js";
 import type { DbprConstructionRow } from "./map.js";
-import { streamConstructionCsvFile } from "./parse.js";
+import { streamDbprCsvFile } from "./parse.js";
 import { mapOccupationToTradeCategory, normalizeDbprStatus } from "./normalize.js";
 
-export const floridaDbprConstructionAdapter: TradeLicenseSourceAdapter = {
-  sourceId: FL_DBPR_CONSTRUCTION_SOURCE_ID,
-  async getSourceMetadata() {
-    return FL_DBPR_SOURCE_ENTRY;
-  },
-  async checkAvailability(): Promise<SourceAvailability> {
-    return {
-      ok: true,
-      checkedAt: new Date().toISOString(),
-      message: "Local-file adapter is available. Live source availability is checked only when callers explicitly opt into network sync.",
-    };
-  },
-  async *streamRawRecords(options) {
-    if (!options.filePath) {
-      throw new Error("The Florida DBPR adapter requires a local filePath for adapter streaming.");
-    }
+export const floridaDbprConstructionAdapter = createFloridaDbprAdapter(FL_DBPR_SOURCE_ENTRY);
+export const floridaDbprElectricalAdapter = createFloridaDbprAdapter(FL_DBPR_ELECTRICAL_SOURCE_ENTRY);
+export const floridaDbprAsbestosAdapter = createFloridaDbprAdapter(FL_DBPR_ASBESTOS_SOURCE_ENTRY);
 
-    yield* streamConstructionCsvFile({
-      filePath: options.filePath,
-      sourceUrl: options.sourceUrl,
-      fetchedAt: options.fetchedAt,
-      sourceLastModifiedAt: options.sourceLastModifiedAt,
-      limit: options.limit,
-      signal: options.signal,
-      startAfterRow: options.startAfterRow,
-      onError: options.onError,
-    });
-  },
-  async normalize(raw) {
-    return normalizeFloridaDbprConstructionRecord(raw);
-  },
-};
+function createFloridaDbprAdapter(sourceEntry: typeof FL_DBPR_SOURCE_ENTRY): TradeLicenseSourceAdapter {
+  return {
+    sourceId: sourceEntry.id,
+    async getSourceMetadata() {
+      return sourceEntry;
+    },
+    async checkAvailability(): Promise<SourceAvailability> {
+      return {
+        ok: true,
+        checkedAt: new Date().toISOString(),
+        message: "Local-file adapter is available. Live source availability is checked only when callers explicitly opt into network sync.",
+      };
+    },
+    async *streamRawRecords(options) {
+      if (!options.filePath) throw new Error("The Florida DBPR adapter requires a local filePath for adapter streaming.");
+      yield* streamDbprCsvFile({
+        sourceId: sourceEntry.id,
+        filePath: options.filePath,
+        sourceUrl: options.sourceUrl,
+        fetchedAt: options.fetchedAt,
+        sourceLastModifiedAt: options.sourceLastModifiedAt,
+        limit: options.limit,
+        signal: options.signal,
+        startAfterRow: options.startAfterRow,
+        onError: options.onError,
+      });
+    },
+    async normalize(raw) {
+      return normalizeFloridaDbprRecord(raw, sourceEntry);
+    },
+  };
+}
 
 export function normalizeFloridaDbprConstructionRecord(raw: RawSourceRecord): CanonicalTradeLicenseRecord {
+  return normalizeFloridaDbprRecord(raw, FL_DBPR_SOURCE_ENTRY);
+}
+
+function normalizeFloridaDbprRecord(
+  raw: RawSourceRecord,
+  sourceEntry: typeof FL_DBPR_SOURCE_ENTRY,
+): CanonicalTradeLicenseRecord {
   const row = raw.record as DbprConstructionRow;
   const status = normalizeDbprStatus({
     primaryStatusCode: row.primaryStatusCode,
@@ -51,19 +67,19 @@ export function normalizeFloridaDbprConstructionRecord(raw: RawSourceRecord): Ca
   const tradeCategory = mapOccupationToTradeCategory(row.occupationCode);
 
   const record: CanonicalTradeLicenseRecord = {
-    sourceId: FL_DBPR_CONSTRUCTION_SOURCE_ID,
+    sourceId: sourceEntry.id,
     jurisdiction: {
       country: "US",
       state: "FL",
       county: row.countyCode,
     },
-    agency: FL_DBPR_SOURCE_ENTRY.agency,
+    agency: sourceEntry.agency,
     source: {
-      sourceUrl: raw.sourceUrl ?? FL_DBPR_CONSTRUCTION_SOURCE_URL,
+      sourceUrl: raw.sourceUrl ?? sourceEntry.sourceUrl,
       sourceType: "bulk_csv",
       fetchedAt: raw.fetchedAt,
       sourceLastModifiedAt: raw.sourceLastModifiedAt ?? undefined,
-      redistributionStatus: FL_DBPR_SOURCE_ENTRY.redistributionStatus,
+      redistributionStatus: sourceEntry.redistributionStatus,
       caveats: [
         "Source coverage and exclusions must be verified against official documentation before generated datasets are redistributed.",
         "No matching record in this source is not proof that a license does not exist elsewhere.",
