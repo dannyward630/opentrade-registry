@@ -1,0 +1,75 @@
+{
+  "id": "us.ak.commerce.electrical_administrators",
+  "name": "Alaska CBPL Electrical Administrator License Search",
+  "jurisdiction": {
+    "country": "US",
+    "state": "AK"
+  },
+  "agency": {
+    "name": "Alaska Division of Corporations, Business and Professional Licensing",
+    "url": "https://www.commerce.alaska.gov/web/cbpl/"
+  },
+  "sourceType": "html_lookup",
+  "sourceUrl": "https://www.commerce.alaska.gov/web/cbpl/ProfessionalLicensing/ElectricalAdministrators",
+  "documentationUrl": "https://www.commerce.alaska.gov/web/cbpl/ProfessionalLicensing/ElectricalAdministrators",
+  "dataDictionaryUrl": null,
+  "termsUrl": "https://www.commerce.alaska.gov/web/cbpl/LicenseVerification",
+  "updateFrequency": "unknown; verify against the Alaska professional license search before relying on freshness assumptions",
+  "tradeCoverage": [
+    "electrical"
+  ],
+  "licenseTypesIncluded": [
+    "electrical administrator professional license records exposed by Alaska CBPL search paths"
+  ],
+  "knownExclusions": [
+    "The Electrical Administrator license is supervisory and does not itself authorize the holder to perform electrical work.",
+    "Electrician certificates of fitness are regulated by the Alaska Department of Labor, Labor Standards and Safety, and are outside this CBPL source entry.",
+    "Construction contractor registration records are tracked separately from this electrical administrator source entry.",
+    "The live search and verification endpoints may be protected by technical access controls that this project does not bypass."
+  ],
+  "hasBulkDownload": "unknown",
+  "hasLiveLookup": true,
+  "requiresJavaScript": "unknown",
+  "requiresCaptcha": "unknown",
+  "requiresAccount": false,
+  "rateLimitNotes": "Use only official public lookup paths. Do not bypass technical controls or account-gated license-verification workflows.",
+  "redistributionStatus": "unknown",
+  "publicRecordsNotes": "Official lookup metadata only. Absence from this source is not proof that an electrical contractor, administrator, worker certificate, or local authorization does not exist elsewhere.",
+  "adapterStatus": "blocked",
+  "sourceDiscoveryStatus": "blocked",
+  "adapterMaturity": "blocked",
+  "adapterQualityLevel": 0,
+  "coverageScope": "state_agency_partial",
+  "adapterPackage": null,
+  "testFixturePath": null,
+  "officialLookupUrl": "https://www.commerce.alaska.gov/cbp/main/Search/Professional",
+  "officialBulkDownloadNotes": "No stable, lawful bulk export shape has been validated for this electrical administrator source.",
+  "researchNotes": "The official program page states that electrical administrator licensing is required for at least one employee of a valid Alaska contractor performing NEC or NESC work, but automated lookup/download support remains blocked pending lawful source-shape validation.",
+  "verificationReviewedAt": null,
+  "verificationCaveats": [
+    "This source covers Alaska CBPL Electrical Administrator records, not electrician certificates of fitness or local permits.",
+    "No matching record means no match in this source at the checked time, not proof that an electrical authorization does not exist elsewhere."
+  ],
+  "verificationNotes": "No supported sync or verification adapter is exposed while official source access remains unresolved.",
+  "lastVerifiedAt": "2026-07-01T00:00:00.000Z",
+  "maintainerNotes": "Keep Electrical Administrator records separate from construction contractor registrations and Department of Labor worker certificates.",
+  "schemaVersion": "1.0",
+  "researchReviewedAt": "2026-07-01T00:00:00.000Z",
+  "nextReviewAt": "2027-01-01T00:00:00.000Z",
+  "researchEvidence": [
+    {
+      "url": "https://www.commerce.alaska.gov/web/cbpl/ProfessionalLicensing/ElectricalAdministrators",
+      "checkedAt": "2026-07-01T00:00:00.000Z",
+      "note": "Official CBPL program page reviewed; the page states the Electrical Administrator program is staffed by CBPL and describes the supervisory license requirement for Alaska contractors performing NEC or NESC work."
+    }
+  ],
+  "sourceResearchOutcome": "blocked",
+  "blocker": {
+    "code": "access_controls",
+    "summary": "Official lookup/download automation has not been validated against a stable lawful source shape, and protected workflows must not be bypassed.",
+    "evidenceUrls": [
+      "https://www.commerce.alaska.gov/cbp/main/Search/Professional",
+      "https://www.commerce.alaska.gov/web/cbpl/ProfessionalLicensing/ElectricalAdministrators"
+    ]
+  }
+}

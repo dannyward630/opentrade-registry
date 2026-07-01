@@ -12,22 +12,22 @@ describe("source quality report", () => {
     expect(result.stderr).toBe("");
 
     const report = JSON.parse(result.stdout);
-    expect(report.sourceCount).toBe(59);
+    expect(report.sourceCount).toBe(61);
     expect(report.stateCount).toBe(51);
     expect(report.researchedStateCount).toBe(51);
     expect(report.territoryCount).toBe(5);
     expect(report.researchedTerritoryCount).toBe(5);
     expect(report.coverageByStatus.not_started ?? 0).toBe(0);
-    expect(report.terminalSourceCount).toBe(59);
-    expect(report.blockedSourceCount).toBe(50);
+    expect(report.terminalSourceCount).toBe(61);
+    expect(report.blockedSourceCount).toBe(52);
     expect(report.territoryCoverageByStatus.blocked).toBe(5);
-    expect(report.sourcesByMaturity.blocked).toBe(50);
+    expect(report.sourcesByMaturity.blocked).toBe(52);
     expect(report.sourcesByMaturity.local_file_adapter).toBe(2);
     expect(report.sourcesByMaturity.network_opt_in).toBe(7);
-    expect(report.sourcesByAdapterQualityLevel["0"]).toBe(50);
+    expect(report.sourcesByAdapterQualityLevel["0"]).toBe(52);
     expect(report.sourcesByAdapterQualityLevel["4"]).toBe(9);
     expect(report.sourcesByResearchOutcome).toEqual({
-      blocked: 50,
+      blocked: 52,
       deprecated: 0,
       local_file_adapter: 2,
       network_opt_in: 7,
@@ -92,6 +92,8 @@ describe("source quality report", () => {
     expect(report.lookupOnlySources.map((source: { id: string }) => source.id)).toContain("us.ct.dcp.home_improvement_contractors");
     expect(report.lookupOnlySources.map((source: { id: string }) => source.id)).toContain("us.wv.labor.contractors");
     expect(report.lookupOnlySources.map((source: { id: string }) => source.id)).toContain("us.ak.commerce.construction_contractors");
+    expect(report.lookupOnlySources.map((source: { id: string }) => source.id)).toContain("us.ak.commerce.electrical_administrators");
+    expect(report.lookupOnlySources.map((source: { id: string }) => source.id)).toContain("us.ak.commerce.mechanical_administrators");
     expect(report.lookupOnlySources.map((source: { id: string }) => source.id)).toContain("us.de.labor.construction_contractors");
     expect(report.lookupOnlySources.map((source: { id: string }) => source.id)).toContain("us.dc.dlcp.contractors");
     expect(report.lookupOnlySources.map((source: { id: string }) => source.id)).toContain("us.id.dopl.contractors");
@@ -109,6 +111,8 @@ describe("source quality report", () => {
     expect(report.downloadResearchCandidates).toEqual([]);
     expect(report.lookupAutomationConstraintSources.map((source: { id: string }) => source.id)).toEqual([
       "us.ak.commerce.construction_contractors",
+      "us.ak.commerce.electrical_administrators",
+      "us.ak.commerce.mechanical_administrators",
       "us.ks.ag.roofing_registration",
       "us.mi.lara.residential_builders",
       "us.mo.pr.professional_licenses",
@@ -137,7 +141,7 @@ describe("source quality report", () => {
     expect(result.stdout).toContain("manual public-records-file sources:");
     expect(result.stdout).toContain("- us.as.doc.business_licenses (manual_public_records_file, blocked)");
     expect(result.stdout).toContain("sources by research outcome:");
-    expect(result.stdout).toContain("- blocked: 50");
+    expect(result.stdout).toContain("- blocked: 52");
     expect(result.stdout).toContain("metadata completeness:");
     expect(result.stdout).toContain("sources missing required metadata:");
     expect(result.stdout).toContain("- none");

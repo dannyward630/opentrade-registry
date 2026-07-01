@@ -25,7 +25,9 @@
       "state": "AK",
       "status": "blocked",
       "sourceIds": [
-        "us.ak.commerce.construction_contractors"
+        "us.ak.commerce.construction_contractors",
+        "us.ak.commerce.electrical_administrators",
+        "us.ak.commerce.mechanical_administrators"
       ],
       "notes": "Official search and download paths are protected by technical access controls; OpenTrade does not bypass them."
     },

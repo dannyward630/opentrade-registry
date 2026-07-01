@@ -1,0 +1,78 @@
+{
+  "id": "us.ak.commerce.mechanical_administrators",
+  "name": "Alaska CBPL Mechanical Administrator License Search",
+  "jurisdiction": {
+    "country": "US",
+    "state": "AK"
+  },
+  "agency": {
+    "name": "Alaska Division of Corporations, Business and Professional Licensing",
+    "url": "https://www.commerce.alaska.gov/web/cbpl/"
+  },
+  "sourceType": "html_lookup",
+  "sourceUrl": "https://www.commerce.alaska.gov/web/cbpl/ProfessionalLicensing/MechanicalAdministrators",
+  "documentationUrl": "https://www.commerce.alaska.gov/web/cbpl/ProfessionalLicensing/MechanicalAdministrators",
+  "dataDictionaryUrl": null,
+  "termsUrl": "https://www.commerce.alaska.gov/web/cbpl/LicenseVerification",
+  "updateFrequency": "unknown; verify against the Alaska professional license search before relying on freshness assumptions",
+  "tradeCoverage": [
+    "hvac",
+    "mechanical",
+    "plumbing",
+    "sheet_metal"
+  ],
+  "licenseTypesIncluded": [
+    "mechanical administrator professional license records exposed by Alaska CBPL search paths"
+  ],
+  "knownExclusions": [
+    "The Mechanical Administrator license is a supervisory credential and is not the same as a construction contractor registration.",
+    "Plumbers are regulated by the Alaska Department of Labor, Labor Standards and Safety, and those worker credentials are outside this CBPL source entry.",
+    "Construction contractor registration records are tracked separately from this mechanical administrator source entry.",
+    "The live search and verification endpoints may be protected by technical access controls that this project does not bypass."
+  ],
+  "hasBulkDownload": "unknown",
+  "hasLiveLookup": true,
+  "requiresJavaScript": "unknown",
+  "requiresCaptcha": "unknown",
+  "requiresAccount": false,
+  "rateLimitNotes": "Use only official public lookup paths. Do not bypass technical controls or account-gated license-verification workflows.",
+  "redistributionStatus": "unknown",
+  "publicRecordsNotes": "Official lookup metadata only. Absence from this source is not proof that a mechanical administrator, plumbing worker credential, contractor registration, or local authorization does not exist elsewhere.",
+  "adapterStatus": "blocked",
+  "sourceDiscoveryStatus": "blocked",
+  "adapterMaturity": "blocked",
+  "adapterQualityLevel": 0,
+  "coverageScope": "state_agency_partial",
+  "adapterPackage": null,
+  "testFixturePath": null,
+  "officialLookupUrl": "https://www.commerce.alaska.gov/cbp/main/Search/Professional",
+  "officialBulkDownloadNotes": "No stable, lawful bulk export shape has been validated for this mechanical administrator source.",
+  "researchNotes": "The official program page lists heating, cooling, process piping, HVAC, plumbing, sheet metal, and refrigeration mechanical administrator categories, but automated lookup/download support remains blocked pending lawful source-shape validation.",
+  "verificationReviewedAt": null,
+  "verificationCaveats": [
+    "This source covers Alaska CBPL Mechanical Administrator records, not Department of Labor plumber credentials or local permits.",
+    "No matching record means no match in this source at the checked time, not proof that a mechanical or plumbing authorization does not exist elsewhere."
+  ],
+  "verificationNotes": "No supported sync or verification adapter is exposed while official source access remains unresolved.",
+  "lastVerifiedAt": "2026-07-01T00:00:00.000Z",
+  "maintainerNotes": "Keep Mechanical Administrator records separate from construction contractor registrations and Department of Labor worker credentials.",
+  "schemaVersion": "1.0",
+  "researchReviewedAt": "2026-07-01T00:00:00.000Z",
+  "nextReviewAt": "2027-01-01T00:00:00.000Z",
+  "researchEvidence": [
+    {
+      "url": "https://www.commerce.alaska.gov/web/cbpl/ProfessionalLicensing/MechanicalAdministrators",
+      "checkedAt": "2026-07-01T00:00:00.000Z",
+      "note": "Official CBPL program page reviewed; the page states the Mechanical Administrator program is staffed by CBPL and lists heating, cooling, process piping, residential HVAC, plumbing, HVAC/sheet metal, and refrigeration categories."
+    }
+  ],
+  "sourceResearchOutcome": "blocked",
+  "blocker": {
+    "code": "access_controls",
+    "summary": "Official lookup/download automation has not been validated against a stable lawful source shape, and protected workflows must not be bypassed.",
+    "evidenceUrls": [
+      "https://www.commerce.alaska.gov/cbp/main/Search/Professional",
+      "https://www.commerce.alaska.gov/web/cbpl/ProfessionalLicensing/MechanicalAdministrators"
+    ]
+  }
+}

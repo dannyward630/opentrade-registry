@@ -25,12 +25,22 @@
       "trades": [
         "general_contracting",
         "residential_contracting",
+        "commercial_contracting",
+        "electrical",
+        "hvac",
+        "mechanical",
+        "plumbing",
         "roofing",
+        "asbestos",
+        "sheet_metal",
+        "underground_utility",
+        "home_improvement",
         "other"
       ],
       "accessPath": "manual_handoff",
       "coverageLimitations": [
-        "The Alaska professional licensing search spans many programs; this source entry is scoped to construction contractor records and related contractor endorsements only.",
+        "The Alaska professional licensing search spans many programs; this source entry is scoped to construction contractor records, specialty contractor records, and related contractor endorsements only.",
+        "Electrical and mechanical administrator credentials are tracked as separate Alaska CBPL source entries.",
         "Business licenses, corporations, local permits, and non-CBPL authorizations are outside this source entry.",
         "Disciplinary action history may require separate official reports or public records requests.",
         "The live search and download endpoints are protected by technical access controls that this project does not bypass."
@@ -39,6 +49,65 @@
         "url": "https://www.commerce.alaska.gov/cbp/main/Search/Professional",
         "reviewedAt": "2026-06-28T00:00:00.000Z",
         "note": "Official lookup and download path reviewed; automated access was blocked by DataDome."
+      }
+    },
+    {
+      "id": "us.ak.commerce.electrical_administrators",
+      "jurisdiction": {
+        "country": "US",
+        "state": "AK"
+      },
+      "boardName": "Alaska CBPL Electrical Administrator License Search",
+      "agencyName": "Alaska Division of Corporations, Business and Professional Licensing",
+      "officialUrl": "https://www.commerce.alaska.gov/cbp/main/Search/Professional",
+      "sourceIds": [
+        "us.ak.commerce.electrical_administrators"
+      ],
+      "trades": [
+        "electrical"
+      ],
+      "accessPath": "manual_handoff",
+      "coverageLimitations": [
+        "The Electrical Administrator license is supervisory and does not itself authorize the holder to perform electrical work.",
+        "Electrician certificates of fitness are regulated by the Alaska Department of Labor, Labor Standards and Safety, and are outside this CBPL source entry.",
+        "Construction contractor registration records are tracked separately from this electrical administrator source entry.",
+        "The live search and verification endpoints may be protected by technical access controls that this project does not bypass."
+      ],
+      "evidence": {
+        "url": "https://www.commerce.alaska.gov/web/cbpl/ProfessionalLicensing/ElectricalAdministrators",
+        "reviewedAt": "2026-07-01T00:00:00.000Z",
+        "note": "Official CBPL program page reviewed; the page states the Electrical Administrator program is staffed by CBPL and describes the supervisory license requirement for Alaska contractors performing NEC or NESC work."
+      }
+    },
+    {
+      "id": "us.ak.commerce.mechanical_administrators",
+      "jurisdiction": {
+        "country": "US",
+        "state": "AK"
+      },
+      "boardName": "Alaska CBPL Mechanical Administrator License Search",
+      "agencyName": "Alaska Division of Corporations, Business and Professional Licensing",
+      "officialUrl": "https://www.commerce.alaska.gov/cbp/main/Search/Professional",
+      "sourceIds": [
+        "us.ak.commerce.mechanical_administrators"
+      ],
+      "trades": [
+        "hvac",
+        "mechanical",
+        "plumbing",
+        "sheet_metal"
+      ],
+      "accessPath": "manual_handoff",
+      "coverageLimitations": [
+        "The Mechanical Administrator license is a supervisory credential and is not the same as a construction contractor registration.",
+        "Plumbers are regulated by the Alaska Department of Labor, Labor Standards and Safety, and those worker credentials are outside this CBPL source entry.",
+        "Construction contractor registration records are tracked separately from this mechanical administrator source entry.",
+        "The live search and verification endpoints may be protected by technical access controls that this project does not bypass."
+      ],
+      "evidence": {
+        "url": "https://www.commerce.alaska.gov/web/cbpl/ProfessionalLicensing/MechanicalAdministrators",
+        "reviewedAt": "2026-07-01T00:00:00.000Z",
+        "note": "Official CBPL program page reviewed; the page states the Mechanical Administrator program is staffed by CBPL and lists heating, cooling, process piping, residential HVAC, plumbing, HVAC/sheet metal, and refrigeration categories."
       }
     },
     {
