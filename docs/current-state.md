@@ -13,13 +13,13 @@ This is the human-readable snapshot for the released `v1.0.1` line and the v2 mi
 
 ## Coverage
 
-- `64` official source entries.
+- `68` official source entries.
 - All 50 states plus DC have researched coverage rows.
 - American Samoa, Guam, Northern Mariana Islands, Puerto Rico, and the U.S. Virgin Islands have researched territory rows.
 - `9` implemented adapters, all at quality Level 4.
 - `2` local-file adapter outcomes.
 - `7` explicit network opt-in outcomes.
-- `55` terminal blocked outcomes.
+- `59` terminal blocked outcomes.
 - `0` provisional outcomes.
 - `0` fixture-only terminal adapters.
 

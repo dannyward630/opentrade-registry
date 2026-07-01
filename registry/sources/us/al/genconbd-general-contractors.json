@@ -16,15 +16,25 @@
   "termsUrl": "https://licensesearch.alabama.gov/Home/Policies",
   "updateFrequency": "unknown; verify against the official license roster before relying on freshness assumptions",
   "tradeCoverage": [
-    "general contracting",
-    "commercial contracting"
+    "general_contracting",
+    "commercial_contracting",
+    "roofing",
+    "mechanical",
+    "pool_spa",
+    "sheet_metal",
+    "underground_utility",
+    "asbestos",
+    "solar"
   ],
   "licenseTypesIncluded": [
-    "Alabama general contractor license records exposed by the official license roster"
+    "Alabama prime and subcontractor license records exposed by the official license roster",
+    "Board classifications for building, municipal and utility, swimming pool, mechanical, environmental, electrical, and specialty construction"
   ],
   "knownExclusions": [
     "Residential home builder licensing is handled by the Alabama Home Builders Licensure Board and is outside this source entry.",
-    "Specialty trade boards, local permits, business registrations, and non-board authorizations are outside this source entry."
+    "Separate state-board credentials required for electrical, plumbing, heating and air-conditioning, and other regulated work are tracked in their own source entries.",
+    "Local permits, business registrations, and non-board authorizations are outside this source entry.",
+    "Trade coverage is subject to statutory project-value thresholds and the classifications printed on each license."
   ],
   "hasBulkDownload": "unknown",
   "hasLiveLookup": true,
@@ -42,17 +52,32 @@
   "testFixturePath": null,
   "officialLookupUrl": "https://licensesearch.alabama.gov/",
   "officialBulkDownloadNotes": "No official bulk download has been confirmed in this phase.",
-  "researchNotes": "Registry-only source for Alabama general contractor roster lookup. Future work should add separate entries for residential home builders and specialty trade boards if researched.",
-  "lastVerifiedAt": "2026-06-27T00:00:00.000Z",
-  "maintainerNotes": "Keep the general-contractor-board scope explicit; do not imply all Alabama construction or trade authorizations are covered.",
+  "researchNotes": "Registry-only source for Alabama prime and subcontractor roster lookup. Published board classifications include building construction, municipal and utility work, swimming pools, mechanical work, environmental abatement, roofing and sheet metal, underground utilities, and solar projects.",
+  "lastVerifiedAt": "2026-07-01T00:00:00.000Z",
+  "maintainerNotes": "Keep project-value thresholds and classification limits explicit. Separate certification cards from the relevant Alabama trade boards may also be required.",
   "schemaVersion": "1.0",
-  "researchReviewedAt": "2026-06-27T00:00:00.000Z",
-  "nextReviewAt": "2026-12-27T00:00:00.000Z",
+  "researchReviewedAt": "2026-07-01T00:00:00.000Z",
+  "nextReviewAt": "2027-01-01T00:00:00.000Z",
   "researchEvidence": [
     {
       "url": "https://licensesearch.alabama.gov/",
-      "checkedAt": "2026-06-27T00:00:00.000Z",
+      "checkedAt": "2026-07-01T00:00:00.000Z",
       "note": "Official public source, access shape, and current automation constraints reviewed."
+    },
+    {
+      "url": "https://genconbd.alabama.gov/about/law/",
+      "checkedAt": "2026-07-01T00:00:00.000Z",
+      "note": "The board's official law page defines statewide general-contractor scope and identifies the separate swimming-pool project threshold."
+    },
+    {
+      "url": "https://genconbd.alabama.gov/administrativecodes/230-X-1-.27.pdf",
+      "checkedAt": "2026-07-01T00:00:00.000Z",
+      "note": "The official classification rule covers building, municipal and utility, swimming pools, mechanical work, electrical work, environmental abatement, and other specialty construction."
+    },
+    {
+      "url": "https://genconbd.alabama.gov/wp-content/uploads/2025/05/2022-Prime-App-with-Citizenship.pdf",
+      "checkedAt": "2026-07-01T00:00:00.000Z",
+      "note": "The official application lists roofing and sheet metal, underground utilities, solar projects, and required companion certification cards from other Alabama boards."
     }
   ],
   "sourceResearchOutcome": "blocked",

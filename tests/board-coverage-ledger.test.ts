@@ -15,8 +15,8 @@ describe("nationwide board trade coverage ledger", () => {
     expect(ledger.jurisdictions).toHaveLength(56);
     expect(new Set(ledger.jurisdictions.map((entry) => entry.state)).size).toBe(56);
     expect(expanded).toHaveLength(56 * BOARD_TRADE_DOMAINS.length);
-    expect(expanded.filter((decision) => decision.outcome === "needs_research")).toHaveLength(712);
-    expect(expanded.filter((decision) => decision.outcome === "covered_by_board")).toHaveLength(66);
+    expect(expanded.filter((decision) => decision.outcome === "needs_research")).toHaveLength(698);
+    expect(expanded.filter((decision) => decision.outcome === "covered_by_board")).toHaveLength(80);
     expect(expanded.filter((decision) => decision.outcome === "not_state_regulated")).toHaveLength(1);
     expect(expanded.filter((decision) => decision.outcome === "local_only")).toHaveLength(5);
   });
@@ -62,6 +62,32 @@ describe("nationwide board trade coverage ledger", () => {
         outcome: "covered_by_board",
         boardIds: ["us.ak.commerce.construction_contractors", "us.ak.commerce.mechanical_administrators"],
       });
+    }
+  });
+
+  it("records complete Alabama board-specific trade coverage", async () => {
+    const ledger = boardTradeCoverageLedgerSchema.parse(await json("registry/board-coverage.json"));
+    const expanded = expandBoardTradeCoverageLedger(ledger).filter((decision) => decision.state === "AL");
+
+    expect(expanded.filter((decision) => decision.outcome === "needs_research")).toEqual([]);
+    expect(expanded.find((decision) => decision.tradeDomain === "residential_contracting")).toMatchObject({
+      outcome: "covered_by_board",
+      boardIds: ["us.al.hblb.home_builders"],
+    });
+    expect(expanded.find((decision) => decision.tradeDomain === "electrical")).toMatchObject({
+      outcome: "covered_by_board",
+      boardIds: ["us.al.aecb.electrical_contractors", "us.al.genconbd.general_contractors"],
+    });
+    expect(expanded.find((decision) => decision.tradeDomain === "plumbing")).toMatchObject({
+      outcome: "covered_by_board",
+      boardIds: ["us.al.pgfb.plumbers_gas_fitters", "us.al.genconbd.general_contractors"],
+    });
+    expect(expanded.find((decision) => decision.tradeDomain === "hvac")).toMatchObject({
+      outcome: "covered_by_board",
+      boardIds: ["us.al.hacr.contractors", "us.al.genconbd.general_contractors"],
+    });
+    for (const domain of ["general_contracting", "commercial_contracting", "pool_spa", "asbestos", "underground_utility"]) {
+      expect(expanded.find((decision) => decision.tradeDomain === domain)?.boardIds).toContain("us.al.genconbd.general_contractors");
     }
   });
 

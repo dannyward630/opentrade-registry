@@ -1,0 +1,76 @@
+{
+  "id": "us.al.hblb.home_builders",
+  "name": "Alabama Home Builders Licensure Board License Verification",
+  "jurisdiction": {
+    "country": "US",
+    "state": "AL"
+  },
+  "agency": {
+    "name": "Alabama Home Builders Licensure Board",
+    "url": "https://hblb.alabama.gov/"
+  },
+  "sourceType": "html_lookup",
+  "sourceUrl": "https://alhobv7prod.glsuite.us/GLSuiteWeb/Clients/ALHOB/Public/LicenseeSearch.aspx",
+  "documentationUrl": "https://hblb.alabama.gov/building-officials/",
+  "dataDictionaryUrl": null,
+  "termsUrl": "https://hblb.alabama.gov/disclaimer/",
+  "updateFrequency": "current as of the lookup time, subject to unprocessed information described by the board",
+  "tradeCoverage": [
+    "residential_contracting",
+    "roofing",
+    "home_improvement",
+    "solar"
+  ],
+  "licenseTypesIncluded": [
+    "Alabama residential home builder and roofing licenses issued to individuals and corporations"
+  ],
+  "knownExclusions": [
+    "Commercial and industrial general contractor licenses are tracked through the Alabama Licensing Board for General Contractors source.",
+    "Electrical, plumbing, HVAC, local permits, and municipal registrations are outside this source entry.",
+    "The board warns that lookup results may omit information received but not yet processed and are not official verification."
+  ],
+  "hasBulkDownload": false,
+  "hasLiveLookup": true,
+  "requiresJavaScript": "unknown",
+  "requiresCaptcha": "unknown",
+  "requiresAccount": false,
+  "rateLimitNotes": "No adapter is implemented. Use the official lookup manually and contact the board when its own no-match guidance calls for clarification.",
+  "redistributionStatus": "unknown",
+  "publicRecordsNotes": "The board says search results may be incomplete and directs users to contact it when a record is unclear or absent. A no-match must not be presented as proof that no license exists.",
+  "adapterStatus": "blocked",
+  "sourceDiscoveryStatus": "blocked",
+  "adapterMaturity": "blocked",
+  "adapterQualityLevel": 0,
+  "coverageScope": "state_agency_partial",
+  "adapterPackage": null,
+  "testFixturePath": null,
+  "officialLookupUrl": "https://alhobv7prod.glsuite.us/GLSuiteWeb/Clients/ALHOB/Public/LicenseeSearch.aspx",
+  "officialBulkDownloadNotes": "No official bulk download has been confirmed. The public path is a vendor-hosted interactive lookup.",
+  "researchNotes": "The board regulates residential construction and remodeling. Its official materials also identify roofing licenses and require an unlimited home builder license for qualifying residential solar-panel installations.",
+  "lastVerifiedAt": "2026-07-01T00:00:00.000Z",
+  "maintainerNotes": "Keep the board's explicit not-official and potentially incomplete lookup warning attached to every future handoff.",
+  "schemaVersion": "1.0",
+  "researchReviewedAt": "2026-07-01T00:00:00.000Z",
+  "nextReviewAt": "2027-01-01T00:00:00.000Z",
+  "researchEvidence": [
+    {
+      "url": "https://hblb.alabama.gov/https-alhobv7prod-glsuite-us-glsuiteweb-clients-alhob-public-licenseesearch-aspx/",
+      "checkedAt": "2026-07-01T00:00:00.000Z",
+      "note": "The official board page identifies its vendor-hosted search, states that home builder and roofing licenses are issued to individuals and corporations, and warns that results may be incomplete and are not official."
+    },
+    {
+      "url": "https://hblb.alabama.gov/building-officials/",
+      "checkedAt": "2026-07-01T00:00:00.000Z",
+      "note": "The board documents residential home builder enforcement and states that qualifying residential solar-panel installation requires an unlimited board license."
+    }
+  ],
+  "sourceResearchOutcome": "blocked",
+  "blocker": {
+    "code": "technical_instability",
+    "summary": "The source is a vendor-hosted interactive lookup whose own board describes results as potentially incomplete and not official; no stable machine-readable interface has been reviewed.",
+    "evidenceUrls": [
+      "https://hblb.alabama.gov/https-alhobv7prod-glsuite-us-glsuiteweb-clients-alhob-public-licenseesearch-aspx/",
+      "https://alhobv7prod.glsuite.us/GLSuiteWeb/Clients/ALHOB/Public/LicenseeSearch.aspx"
+    ]
+  }
+}

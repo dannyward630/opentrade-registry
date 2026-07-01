@@ -115,6 +115,34 @@
       }
     },
     {
+      "id": "us.al.aecb.electrical_contractors",
+      "jurisdiction": {
+        "country": "US",
+        "state": "AL"
+      },
+      "boardName": "Alabama Board of Electrical Contractors Licensee Search",
+      "agencyName": "Alabama Board of Electrical Contractors",
+      "officialUrl": "https://alecb-search.kalmservices.net/",
+      "sourceIds": [
+        "us.al.aecb.electrical_contractors"
+      ],
+      "trades": [
+        "electrical",
+        "solar"
+      ],
+      "accessPath": "manual_handoff",
+      "coverageLimitations": [
+        "This source is scoped to credentials regulated by the Alabama Board of Electrical Contractors.",
+        "Residential home builder, general contractor, plumbing, HVAC, local permits, and municipal registrations are outside this source entry.",
+        "Solar coverage is limited to electrical work and does not replace the residential home builder requirements documented by HBLB."
+      ],
+      "evidence": {
+        "url": "https://aecb.alabama.gov/",
+        "reviewedAt": "2026-07-01T00:00:00.000Z",
+        "note": "The official board site links a complete roster search for licensed Electrical Contractors, Journeymen, and Provisional Electrical Licensees."
+      }
+    },
+    {
       "id": "us.al.genconbd.general_contractors",
       "jurisdiction": {
         "country": "US",
@@ -127,18 +155,115 @@
         "us.al.genconbd.general_contractors"
       ],
       "trades": [
-        "general contracting",
-        "commercial contracting"
+        "general_contracting",
+        "commercial_contracting",
+        "roofing",
+        "mechanical",
+        "pool_spa",
+        "sheet_metal",
+        "underground_utility",
+        "asbestos",
+        "solar"
       ],
       "accessPath": "manual_handoff",
       "coverageLimitations": [
         "Residential home builder licensing is handled by the Alabama Home Builders Licensure Board and is outside this source entry.",
-        "Specialty trade boards, local permits, business registrations, and non-board authorizations are outside this source entry."
+        "Separate state-board credentials required for electrical, plumbing, heating and air-conditioning, and other regulated work are tracked in their own source entries.",
+        "Local permits, business registrations, and non-board authorizations are outside this source entry.",
+        "Trade coverage is subject to statutory project-value thresholds and the classifications printed on each license."
       ],
       "evidence": {
         "url": "https://licensesearch.alabama.gov/",
-        "reviewedAt": "2026-06-27T00:00:00.000Z",
+        "reviewedAt": "2026-07-01T00:00:00.000Z",
         "note": "Official public source, access shape, and current automation constraints reviewed."
+      }
+    },
+    {
+      "id": "us.al.hacr.contractors",
+      "jurisdiction": {
+        "country": "US",
+        "state": "AL"
+      },
+      "boardName": "Alabama Heating, Air Conditioning and Refrigeration Contractors License Lookup",
+      "agencyName": "Alabama Board of Heating, Air Conditioning and Refrigeration Contractors",
+      "officialUrl": "https://hacr.igovsolution.net/online/Lookups/Individual_Lookup.aspx",
+      "sourceIds": [
+        "us.al.hacr.contractors"
+      ],
+      "trades": [
+        "hvac",
+        "mechanical",
+        "sheet_metal"
+      ],
+      "accessPath": "manual_handoff",
+      "coverageLimitations": [
+        "Plumbing and gas-fitting credentials are regulated by the Alabama PGFB and tracked separately.",
+        "General contractor, electrical, local permit, and municipal registration records are outside this source entry.",
+        "Sheet-metal coverage is limited to work within the board's heating, air-conditioning, refrigeration, and duct scope.",
+        "The public lookup requires a verification code and is not approved for automation."
+      ],
+      "evidence": {
+        "url": "https://hacr.alabama.gov/consumers/",
+        "reviewedAt": "2026-07-01T00:00:00.000Z",
+        "note": "The official board consumer page links its Find a Licensed Contractor lookup and describes board jurisdiction over contractor complaints."
+      }
+    },
+    {
+      "id": "us.al.hblb.home_builders",
+      "jurisdiction": {
+        "country": "US",
+        "state": "AL"
+      },
+      "boardName": "Alabama Home Builders Licensure Board License Verification",
+      "agencyName": "Alabama Home Builders Licensure Board",
+      "officialUrl": "https://alhobv7prod.glsuite.us/GLSuiteWeb/Clients/ALHOB/Public/LicenseeSearch.aspx",
+      "sourceIds": [
+        "us.al.hblb.home_builders"
+      ],
+      "trades": [
+        "residential_contracting",
+        "roofing",
+        "home_improvement",
+        "solar"
+      ],
+      "accessPath": "manual_handoff",
+      "coverageLimitations": [
+        "Commercial and industrial general contractor licenses are tracked through the Alabama Licensing Board for General Contractors source.",
+        "Electrical, plumbing, HVAC, local permits, and municipal registrations are outside this source entry.",
+        "The board warns that lookup results may omit information received but not yet processed and are not official verification."
+      ],
+      "evidence": {
+        "url": "https://hblb.alabama.gov/https-alhobv7prod-glsuite-us-glsuiteweb-clients-alhob-public-licenseesearch-aspx/",
+        "reviewedAt": "2026-07-01T00:00:00.000Z",
+        "note": "The official board page identifies its vendor-hosted search, states that home builder and roofing licenses are issued to individuals and corporations, and warns that results may be incomplete and are not official."
+      }
+    },
+    {
+      "id": "us.al.pgfb.plumbers_gas_fitters",
+      "jurisdiction": {
+        "country": "US",
+        "state": "AL"
+      },
+      "boardName": "Alabama Plumbers and Gas Fitters Examining Board Licensee Search",
+      "agencyName": "Alabama Plumbers and Gas Fitters Examining Board",
+      "officialUrl": "https://alpgfb.igovsolution.net/online/Lookups/Individual.aspx",
+      "sourceIds": [
+        "us.al.pgfb.plumbers_gas_fitters"
+      ],
+      "trades": [
+        "plumbing",
+        "mechanical"
+      ],
+      "accessPath": "manual_handoff",
+      "coverageLimitations": [
+        "HVAC and refrigeration credentials are regulated by the Alabama HACR Board and tracked separately.",
+        "Private onsite wastewater systems, local permits, and municipal registrations are outside this source entry.",
+        "The public lookup requires a verification code and is not approved for automation."
+      ],
+      "evidence": {
+        "url": "https://pgfb.alabama.gov/applicants/how-do-i-become-licensed/",
+        "reviewedAt": "2026-07-01T00:00:00.000Z",
+        "note": "The official board page defines plumbing and gas-fitting credential levels and requires companies performing either trade to register with a principal master."
       }
     },
     {
