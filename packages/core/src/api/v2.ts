@@ -1,6 +1,7 @@
 import { z } from "zod";
 import { OPENTRADE_V2_API_VERSION } from "../contracts/version.js";
 import { recordSensitivityLevelSchema, tradeCategorySchema } from "../schema/canonical-license.js";
+import { boardAccessPathSchema } from "../schema/board-inventory.js";
 
 export const OPENTRADE_V2_ROUTES = Object.freeze({
   sources: "/api/v2/sources",
@@ -32,6 +33,22 @@ export const recordApiStoredLicenseRecordV2Schema = z.object({
   sourceUrl: z.string().url(),
   caveats: z.array(z.string()),
   canonicalRecord: z.unknown(),
+});
+
+export const recordApiPublicSourceV2Schema = z.object({
+  id: z.string().min(1),
+  name: z.string().min(1),
+  sourceUrl: z.string().url(),
+  officialLookupUrl: z.string().url().nullable().optional(),
+  verificationCaveats: z.array(z.string().min(1)).optional(),
+  accessPath: boardAccessPathSchema,
+});
+
+export const recordApiSourceListResponseV2Schema = z.object({
+  apiVersion: apiVersionSchema,
+  count: z.number().int().nonnegative(),
+  completeness: z.enum(["representative_source_baseline", "board_complete"]),
+  sources: z.array(recordApiPublicSourceV2Schema),
 });
 
 export const recordApiSearchResponseV2Schema = z.object({
