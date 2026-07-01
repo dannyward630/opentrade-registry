@@ -1,0 +1,77 @@
+{
+  "id": "us.nc.nclicensing.plumbing_heating_fire_sprinkler",
+  "name": "North Carolina Plumbing, Heating and Fire Sprinkler Contractors Verify License Search",
+  "jurisdiction": {
+    "country": "US",
+    "state": "NC"
+  },
+  "agency": {
+    "name": "State Board of Examiners of Plumbing, Heating and Fire Sprinkler Contractors",
+    "url": "https://nclicensing.org/"
+  },
+  "sourceType": "html_lookup",
+  "sourceUrl": "https://public.nclicensing.org/Public/Search",
+  "documentationUrl": "https://nclicensing.org/",
+  "dataDictionaryUrl": null,
+  "termsUrl": null,
+  "termsReviewNotes": "Official board and public-search pages were reviewed; no source-specific reuse terms page was confirmed in this phase.",
+  "updateFrequency": "unknown; verify against the official public search before relying on freshness assumptions",
+  "tradeCoverage": [
+    "plumbing",
+    "hvac",
+    "fire_sprinkler",
+    "fuel_piping"
+  ],
+  "licenseTypesIncluded": [
+    "North Carolina plumbing, heating, fuel piping, and fire sprinkler contractor and technician classifications exposed by the public verify-license search"
+  ],
+  "knownExclusions": [
+    "This source is scoped to licenses regulated by the State Board of Examiners of Plumbing, Heating and Fire Sprinkler Contractors.",
+    "General contracting, electrical contracting, local permits, and municipal registrations are outside this source entry.",
+    "The official source is lookup-oriented; no stable machine-readable bulk export has been confirmed for OpenTrade ingestion."
+  ],
+  "hasBulkDownload": "unknown",
+  "hasLiveLookup": true,
+  "requiresJavaScript": "unknown",
+  "requiresCaptcha": "unknown",
+  "requiresAccount": false,
+  "rateLimitNotes": "No adapter is implemented. Future access should respect the public-search workflow and prefer official bulk options if discovered.",
+  "redistributionStatus": "unknown",
+  "publicRecordsNotes": "Official plumbing, heating, fuel-piping, and fire-sprinkler lookup metadata only. Absence from this source is not proof that an authorization, local permit, or other credential does not exist elsewhere.",
+  "adapterStatus": "blocked",
+  "sourceDiscoveryStatus": "blocked",
+  "adapterMaturity": "blocked",
+  "adapterQualityLevel": 0,
+  "coverageScope": "state_agency_partial",
+  "adapterPackage": null,
+  "testFixturePath": null,
+  "officialLookupUrl": "https://public.nclicensing.org/Public/Search",
+  "officialBulkDownloadNotes": "No official bulk download has been confirmed in this phase.",
+  "researchNotes": "Registry-only source for North Carolina plumbing, heating, fuel-piping, and fire-sprinkler contractor verification. The public search lists many classifications, but OpenTrade does not automate it without a separate access-control and terms review.",
+  "lastVerifiedAt": "2026-07-01T00:00:00.000Z",
+  "maintainerNotes": "Keep this source separate from the North Carolina general contractor and electrical contractor board entries.",
+  "schemaVersion": "1.0",
+  "researchReviewedAt": "2026-07-01T00:00:00.000Z",
+  "nextReviewAt": "2027-01-01T00:00:00.000Z",
+  "researchEvidence": [
+    {
+      "url": "https://public.nclicensing.org/Public/Search",
+      "checkedAt": "2026-07-01T00:00:00.000Z",
+      "note": "Official public verify-license search reviewed; it lists plumbing, heating, fuel piping, fire sprinkler, and related technician classifications."
+    },
+    {
+      "url": "https://nclicensing.org/",
+      "checkedAt": "2026-07-01T00:00:00.000Z",
+      "note": "Official board homepage reviewed for agency scope covering plumbing, heating, fuel gas piping, and fire sprinkler trades."
+    }
+  ],
+  "sourceResearchOutcome": "blocked",
+  "blocker": {
+    "code": "technical_instability",
+    "summary": "An official lookup exists, but no stable, documented machine-readable source has been adapter-reviewed with offline fixtures.",
+    "evidenceUrls": [
+      "https://public.nclicensing.org/Public/Search",
+      "https://nclicensing.org/"
+    ]
+  }
+}
