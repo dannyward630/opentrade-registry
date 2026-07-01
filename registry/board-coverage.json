@@ -70,6 +70,18 @@
           "outcome": "covered_by_board",
           "boardIds": ["us.ak.commerce.construction_contractors"],
           "evidence": [{ "url": "https://www.commerce.alaska.gov/web/cbpl/ProfessionalLicensing/ConstructionContractors", "reviewedAt": "2026-07-01T09:00:00.000Z", "note": "Alaska CBPL covers residential remodel work under General Contractors and Residential Contractors and defines Handyman Contractors for small projects." }]
+        },
+        "pool_spa": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.ak.commerce.construction_contractors", "us.ak.commerce.mechanical_administrators"],
+          "evidence": [{ "url": "https://www.commerce.alaska.gov/web/portals/5/pub/contractorstatutes.pdf", "reviewedAt": "2026-07-01T00:00:00.000Z", "note": "Alaska's mechanical-contractor definition includes construction or installation work subject to the Uniform Swimming Pool, Spa, and Hot Tub Code." }],
+          "limitations": ["This decision covers the statewide contractor and mechanical-administrator path; local permits and inspections remain outside the registry."]
+        },
+        "solar": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.ak.commerce.construction_contractors", "us.ak.commerce.mechanical_administrators"],
+          "evidence": [{ "url": "https://www.commerce.alaska.gov/web/portals/5/pub/contractorstatutes.pdf", "reviewedAt": "2026-07-01T00:00:00.000Z", "note": "Alaska's mechanical-contractor definition includes construction or installation work subject to the Uniform Solar Energy Code." }],
+          "limitations": ["Electrical work associated with solar installations may also require the separate electrical-contractor and electrical-administrator path."]
         }
       }
     },

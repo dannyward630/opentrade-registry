@@ -23,7 +23,9 @@
     "hvac",
     "mechanical",
     "plumbing",
+    "pool_spa",
     "roofing",
+    "solar",
     "asbestos",
     "sheet_metal",
     "underground_utility",
@@ -57,7 +59,7 @@
   "testFixturePath": null,
   "officialLookupUrl": "https://www.commerce.alaska.gov/cbp/main/Search/Professional",
   "officialBulkDownloadNotes": "The Alaska site exposes professional license database-download paths, but live automated download is not implemented and command-line access was observed to be protected by DataDome.",
-  "researchNotes": "A historical hand-authored parser fixture does not establish compatibility with an official export. The source remains blocked while technical controls prevent lawful shape validation.",
+  "researchNotes": "Alaska statutes and regulations place pool/spa and solar-code mechanical work within the registered mechanical-contractor framework. A historical hand-authored parser fixture still does not establish compatibility with an official export, so the source remains blocked while technical controls prevent lawful shape validation.",
   "verificationReviewedAt": null,
   "verificationCaveats": [
     "Alaska CBPL fixture support is based on a tiny hand-authored sample, not a live CBPL export.",
@@ -65,16 +67,21 @@
     "No matching record means no match in this source at the checked time, not proof that a license, endorsement, registration, or local authorization does not exist elsewhere."
   ],
   "verificationNotes": "No supported sync or verification adapter is exposed while official source access is blocked.",
-  "lastVerifiedAt": "2026-06-28T00:00:00.000Z",
+  "lastVerifiedAt": "2026-07-01T00:00:00.000Z",
   "maintainerNotes": "Keep contractor program scope separate from Alaska business-license and corporation records. Do not automate protected endpoints.",
   "schemaVersion": "1.0",
-  "researchReviewedAt": "2026-06-28T00:00:00.000Z",
-  "nextReviewAt": "2026-12-28T00:00:00.000Z",
+  "researchReviewedAt": "2026-07-01T00:00:00.000Z",
+  "nextReviewAt": "2027-01-01T00:00:00.000Z",
   "researchEvidence": [
     {
       "url": "https://www.commerce.alaska.gov/cbp/main/Search/Professional",
       "checkedAt": "2026-06-28T00:00:00.000Z",
       "note": "Official lookup and download path reviewed; automated access was blocked by DataDome."
+    },
+    {
+      "url": "https://www.commerce.alaska.gov/web/portals/5/pub/contractorstatutes.pdf",
+      "checkedAt": "2026-07-01T00:00:00.000Z",
+      "note": "Official contractor statutes and regulations reviewed; the mechanical-contractor definition references the Uniform Swimming Pool, Spa, and Hot Tub Code and Uniform Solar Energy Code."
     }
   ],
   "sourceResearchOutcome": "blocked",

@@ -30,7 +30,9 @@
         "hvac",
         "mechanical",
         "plumbing",
+        "pool_spa",
         "roofing",
+        "solar",
         "asbestos",
         "sheet_metal",
         "underground_utility",
@@ -47,7 +49,7 @@
       ],
       "evidence": {
         "url": "https://www.commerce.alaska.gov/cbp/main/Search/Professional",
-        "reviewedAt": "2026-06-28T00:00:00.000Z",
+        "reviewedAt": "2026-07-01T00:00:00.000Z",
         "note": "Official lookup and download path reviewed; automated access was blocked by DataDome."
       }
     },
@@ -95,6 +97,8 @@
         "hvac",
         "mechanical",
         "plumbing",
+        "pool_spa",
+        "solar",
         "sheet_metal"
       ],
       "accessPath": "manual_handoff",
