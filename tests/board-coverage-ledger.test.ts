@@ -15,11 +15,12 @@ describe("nationwide board trade coverage ledger", () => {
     expect(ledger.jurisdictions).toHaveLength(56);
     expect(new Set(ledger.jurisdictions.map((entry) => entry.state)).size).toBe(56);
     expect(expanded).toHaveLength(56 * BOARD_TRADE_DOMAINS.length);
-    expect(expanded.filter((decision) => decision.outcome === "needs_research")).toHaveLength(743);
+    expect(expanded.filter((decision) => decision.outcome === "needs_research")).toHaveLength(742);
     expect(expanded.filter((decision) => decision.outcome === "covered_by_board")).toHaveLength(41);
+    expect(expanded.filter((decision) => decision.outcome === "not_state_regulated")).toHaveLength(1);
   });
 
-  it("records Arizona ROC coverage without claiming an asbestos credential source", async () => {
+  it("records Arizona ROC coverage and the documented asbestos training boundary", async () => {
     const ledger = boardTradeCoverageLedgerSchema.parse(await json("registry/board-coverage.json"));
     const expanded = expandBoardTradeCoverageLedger(ledger).filter((decision) => decision.state === "AZ");
     const asbestos = expanded.find((decision) => decision.tradeDomain === "asbestos");
@@ -28,7 +29,9 @@ describe("nationwide board trade coverage ledger", () => {
     expect(rocDomains).toHaveLength(13);
     expect(rocDomains.every((decision) => decision.outcome === "covered_by_board")).toBe(true);
     expect(rocDomains.every((decision) => decision.boardIds.includes("us.az.roc.contractors"))).toBe(true);
-    expect(asbestos?.outcome).toBe("needs_research");
+    expect(asbestos?.outcome).toBe("not_state_regulated");
+    expect(asbestos?.boardIds).toEqual([]);
+    expect(asbestos?.evidence[0]?.url).toBe("https://azdeq.gov/asbestos");
   });
 
   it("records complete Florida coverage against separate DBPR board sources", async () => {

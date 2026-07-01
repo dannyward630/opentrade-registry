@@ -62,6 +62,10 @@
           "boardIds": ["us.az.roc.contractors"],
           "evidence": [{ "url": "https://roc.az.gov/license-classifications", "reviewedAt": "2026-07-01T05:25:00.000Z", "note": "Arizona ROC lists General Swimming Pool, Swimming Pool Service and Repair, and spa classifications." }]
         },
+        "asbestos": {
+          "outcome": "not_state_regulated",
+          "evidence": [{ "url": "https://azdeq.gov/asbestos", "reviewedAt": "2026-07-01T05:50:00.000Z", "note": "Arizona ADEQ describes AHERA-certified asbestos professionals and states that Arizona does not provide the required training; it does not identify a statewide asbestos contractor license register." }]
+        },
         "sheet_metal": {
           "outcome": "covered_by_board",
           "boardIds": ["us.az.roc.contractors"],
