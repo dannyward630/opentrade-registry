@@ -5,7 +5,74 @@
     "outcome": "needs_research"
   },
   "jurisdictions": [
-    { "state": "AK", "decisions": {} },
+    {
+      "state": "AK",
+      "decisions": {
+        "general_contracting": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.ak.commerce.construction_contractors"],
+          "evidence": [{ "url": "https://www.commerce.alaska.gov/web/cbpl/ProfessionalLicensing/ConstructionContractors", "reviewedAt": "2026-07-01T09:00:00.000Z", "note": "Alaska CBPL states that the construction contractor program is staffed by the division and that General Contractors may perform new home construction, commercial work, and residential remodel work." }]
+        },
+        "residential_contracting": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.ak.commerce.construction_contractors"],
+          "evidence": [{ "url": "https://www.commerce.alaska.gov/web/cbpl/ProfessionalLicensing/ConstructionContractors", "reviewedAt": "2026-07-01T09:00:00.000Z", "note": "Alaska CBPL defines Residential Contractors and the Residential Contractor Endorsement for residential structures and substantial residential alteration work." }]
+        },
+        "commercial_contracting": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.ak.commerce.construction_contractors"],
+          "evidence": [{ "url": "https://www.commerce.alaska.gov/web/cbpl/ProfessionalLicensing/ConstructionContractors", "reviewedAt": "2026-07-01T09:00:00.000Z", "note": "Alaska CBPL says General Contractors may perform commercial work." }]
+        },
+        "electrical": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.ak.commerce.construction_contractors", "us.ak.commerce.electrical_administrators"],
+          "evidence": [{ "url": "https://www.commerce.alaska.gov/web/cbpl/ProfessionalLicensing/ElectricalAdministrators", "reviewedAt": "2026-07-01T09:00:00.000Z", "note": "Alaska CBPL states that an Electrical Administrator license is required for at least one employee of a valid Alaska contractor performing work covered by NEC or NESC codes." }],
+          "limitations": ["Electrician certificates of fitness are regulated by the Alaska Department of Labor and remain outside this CBPL source entry."]
+        },
+        "plumbing": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.ak.commerce.construction_contractors", "us.ak.commerce.mechanical_administrators"],
+          "evidence": [{ "url": "https://www.commerce.alaska.gov/web/cbpl/ProfessionalLicensing/MechanicalAdministrators", "reviewedAt": "2026-07-01T09:00:00.000Z", "note": "Alaska CBPL lists Residential Plumbing and Hydronic Heating and Unlimited Commercial and Industrial Plumbing under Mechanical Administrator regulated professions." }],
+          "limitations": ["Plumbers are regulated by the Alaska Department of Labor, Labor Standards and Safety; this decision tracks the CBPL administrator/contractor board path and not worker certificates."]
+        },
+        "hvac": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.ak.commerce.construction_contractors", "us.ak.commerce.mechanical_administrators"],
+          "evidence": [{ "url": "https://www.commerce.alaska.gov/web/cbpl/ProfessionalLicensing/MechanicalAdministrators", "reviewedAt": "2026-07-01T09:00:00.000Z", "note": "Alaska CBPL lists Heating, Cooling, and Process Piping, Residential HVAC, Unlimited HVAC/Sheet Metal, and Unlimited Refrigeration categories." }]
+        },
+        "mechanical": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.ak.commerce.construction_contractors", "us.ak.commerce.mechanical_administrators"],
+          "evidence": [{ "url": "https://www.commerce.alaska.gov/web/cbpl/ProfessionalLicensing/ConstructionContractors", "reviewedAt": "2026-07-01T09:00:00.000Z", "note": "Alaska CBPL states that Mechanical Contractors may perform mechanical disciplines allowed by their Mechanical Administrator license and that the administrator license is required in addition to the Mechanical Contractor license." }]
+        },
+        "roofing": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.ak.commerce.construction_contractors"],
+          "evidence": [{ "url": "https://www.commerce.alaska.gov/web/Portals/5/pub/con4818_specialty%20contractor%20trades%20list.pdf", "reviewedAt": "2026-07-01T09:00:00.000Z", "note": "The official Alaska specialty contractor trades list defines Roofing Contractor as a recognized specialty contractor trade." }]
+        },
+        "asbestos": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.ak.commerce.construction_contractors"],
+          "evidence": [{ "url": "https://www.commerce.alaska.gov/web/Portals/5/pub/con4818_specialty%20contractor%20trades%20list.pdf", "reviewedAt": "2026-07-01T09:00:00.000Z", "note": "The official Alaska specialty contractor trades list recognizes Asbestos Abatement Contractor and notes additional Department of Labor certification requirements." }],
+          "limitations": ["Additional Alaska Department of Labor asbestos certification evidence should be registered separately before implementing verification for asbestos-specific credentials."]
+        },
+        "sheet_metal": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.ak.commerce.construction_contractors", "us.ak.commerce.mechanical_administrators"],
+          "evidence": [{ "url": "https://www.commerce.alaska.gov/web/Portals/5/pub/con4818_specialty%20contractor%20trades%20list.pdf", "reviewedAt": "2026-07-01T09:00:00.000Z", "note": "The official Alaska specialty contractor trades list defines Sheet Metal Contractor and says HVAC ducting/equipment work is done by a mechanical or general contractor under a licensed mechanical administrator." }]
+        },
+        "underground_utility": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.ak.commerce.construction_contractors"],
+          "evidence": [{ "url": "https://www.commerce.alaska.gov/web/Portals/5/pub/con4818_specialty%20contractor%20trades%20list.pdf", "reviewedAt": "2026-07-01T09:00:00.000Z", "note": "The official Alaska specialty contractor trades list recognizes excavation, water and sewer, and water system contractor scopes involving trenches, underground cables or piping, water lines, septic tanks, sewer lines, and water wells." }]
+        },
+        "home_improvement": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.ak.commerce.construction_contractors"],
+          "evidence": [{ "url": "https://www.commerce.alaska.gov/web/cbpl/ProfessionalLicensing/ConstructionContractors", "reviewedAt": "2026-07-01T09:00:00.000Z", "note": "Alaska CBPL covers residential remodel work under General Contractors and Residential Contractors and defines Handyman Contractors for small projects." }]
+        }
+      }
+    },
     { "state": "AL", "decisions": {} },
     { "state": "AR", "decisions": {} },
     { "state": "AS", "decisions": {} },
