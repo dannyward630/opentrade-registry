@@ -168,7 +168,91 @@
         }
       }
     },
-    { "state": "AR", "decisions": {} },
+    {
+      "state": "AR",
+      "decisions": {
+        "general_contracting": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.ar.aclb.contractors"],
+          "evidence": [{ "url": "https://labor.arkansas.gov/wp-content/uploads/Commercial-Contractors-Law-revised-04.2026.pdf", "reviewedAt": "2026-07-02T00:00:00.000Z", "note": "17 CAR 255 defines major contractor classifications and authorizes a building-classification holder to enter general contracts for building construction." }],
+          "limitations": ["The applicable commercial or residential credential, classification, project threshold, and companion trade credential must be evaluated for the work."]
+        },
+        "residential_contracting": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.ar.aclb.contractors"],
+          "evidence": [{ "url": "https://labor.arkansas.gov/wp-content/uploads/Residential-Law-revised-August-2025.pdf", "reviewedAt": "2026-07-02T00:00:00.000Z", "note": "17 CAR 295 defines residential building contractor and residential remodeler classifications administered by the Residential Contractors Committee." }]
+        },
+        "commercial_contracting": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.ar.aclb.contractors"],
+          "evidence": [{ "url": "https://labor.arkansas.gov/licensing/arkansas-contractors-licensing-board/apply-for-contractors-license-registration/", "reviewedAt": "2026-07-02T00:00:00.000Z", "note": "The official application guide defines the commercial license path for qualifying non-single-family projects." }]
+        },
+        "electrical": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.ar.aclb.contractors"],
+          "evidence": [{ "url": "https://labor.arkansas.gov/wp-content/uploads/Commercial-Contractors-Law-revised-04.2026.pdf", "reviewedAt": "2026-07-02T00:00:00.000Z", "note": "17 CAR 255-307 defines electrical contracting and its specialty classes." }],
+          "limitations": ["The rules require at least one full-time employee holding an Arkansas master electrician license; the contractor classification does not replace that credential."]
+        },
+        "plumbing": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.ar.aclb.contractors"],
+          "evidence": [{ "url": "https://labor.arkansas.gov/wp-content/uploads/Commercial-Contractors-Law-revised-04.2026.pdf", "reviewedAt": "2026-07-02T00:00:00.000Z", "note": "17 CAR 255-306 includes plumbing in mechanical contracting and 17 CAR 255-308 lists plumbing as a specialty." }],
+          "limitations": ["The rules require an Arkansas master plumber for mechanical and specialty-plumbing classifications."]
+        },
+        "hvac": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.ar.aclb.contractors"],
+          "evidence": [{ "url": "https://labor.arkansas.gov/wp-content/uploads/Commercial-Contractors-Law-revised-04.2026.pdf", "reviewedAt": "2026-07-02T00:00:00.000Z", "note": "17 CAR 255-306 includes heating, ventilation, air conditioning, and refrigeration in mechanical contracting." }],
+          "limitations": ["The rules require a Class A or Class B HVACR credential for the contractor classification."]
+        },
+        "mechanical": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.ar.aclb.contractors"],
+          "evidence": [{ "url": "https://labor.arkansas.gov/wp-content/uploads/Commercial-Contractors-Law-revised-04.2026.pdf", "reviewedAt": "2026-07-02T00:00:00.000Z", "note": "17 CAR 255-306 defines mechanical contracting across HVACR, plumbing, piping, sheet metal, controls, and related systems." }],
+          "limitations": ["Mechanical classification holders must maintain the companion plumbing and HVACR credentials specified by the rules."]
+        },
+        "roofing": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.ar.aclb.contractors"],
+          "evidence": [{ "url": "https://labor.arkansas.gov/licensing/arkansas-contractors-licensing-board/apply-for-contractors-license-registration/", "reviewedAt": "2026-07-02T00:00:00.000Z", "note": "The board documents residential roofer registration for roofing, roof decks, and roofing sheet metal, while the commercial rules list the same specialty." }]
+        },
+        "solar": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.ar.aclb.contractors"],
+          "evidence": [{ "url": "https://labor.arkansas.gov/wp-content/uploads/Commercial-Contractors-Law-revised-04.2026.pdf", "reviewedAt": "2026-07-02T00:00:00.000Z", "note": "17 CAR 255-304 and 255-308 list solar systems within building and specialty classifications." }],
+          "limitations": ["Electrical or plumbing work within a solar installation may require the applicable companion trade credential."]
+        },
+        "pool_spa": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.ar.aclb.contractors"],
+          "evidence": [{ "url": "https://labor.arkansas.gov/wp-content/uploads/Commercial-Contractors-Law-revised-04.2026.pdf", "reviewedAt": "2026-07-02T00:00:00.000Z", "note": "17 CAR 255-304 and 255-308 list swimming pools and spas within building and specialty classifications." }]
+        },
+        "asbestos": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.ar.aclb.contractors"],
+          "evidence": [{ "url": "https://labor.arkansas.gov/wp-content/uploads/Commercial-Contractors-Law-revised-04.2026.pdf", "reviewedAt": "2026-07-02T00:00:00.000Z", "note": "17 CAR 255-308 lists asbestos as a contractor specialty classification." }],
+          "limitations": ["The classification expressly requires a separate trade certificate; contractor-board coverage alone is not sufficient evidence of asbestos authorization."]
+        },
+        "sheet_metal": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.ar.aclb.contractors"],
+          "evidence": [{ "url": "https://labor.arkansas.gov/wp-content/uploads/Commercial-Contractors-Law-revised-04.2026.pdf", "reviewedAt": "2026-07-02T00:00:00.000Z", "note": "17 CAR 255-306 includes sheet metal and duct work in mechanical contracting, and 255-308 lists sheet metal, ducts, and ventilation as a specialty." }],
+          "limitations": ["The specialty list marks a companion trade license as required."]
+        },
+        "underground_utility": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.ar.aclb.contractors"],
+          "evidence": [{ "url": "https://labor.arkansas.gov/wp-content/uploads/Commercial-Contractors-Law-revised-04.2026.pdf", "reviewedAt": "2026-07-02T00:00:00.000Z", "note": "17 CAR 255-303 and 255-308 cover underground piping, cable, trenching, boring, and water and sewer lines." }],
+          "limitations": ["Underground storage tanks and some related systems require separate certificates identified by the rules."]
+        },
+        "home_improvement": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.ar.aclb.contractors"],
+          "evidence": [{ "url": "https://labor.arkansas.gov/licensing/arkansas-contractors-licensing-board/apply-for-contractors-license-registration/", "reviewedAt": "2026-07-02T00:00:00.000Z", "note": "The official application guide defines home improvement licenses for specialty work on single-family residences above the statutory threshold." }],
+          "limitations": ["This credential does not authorize building a home or structural remodeling, which use separate residential classifications."]
+        }
+      }
+    },
     { "state": "AS", "decisions": {} },
     {
       "state": "AZ",
