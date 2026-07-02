@@ -660,7 +660,92 @@
     { "state": "RI", "decisions": {} },
     { "state": "SC", "decisions": {} },
     { "state": "SD", "decisions": {} },
-    { "state": "TN", "decisions": {} },
+    {
+      "state": "TN",
+      "decisions": {
+        "general_contracting": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.tn.commerce.contractors"],
+          "evidence": [{ "url": "https://www.tn.gov/commerce/regboards/contractors.html", "reviewedAt": "2026-07-02T00:00:00.000Z", "note": "The Tennessee Board for Licensing Contractors states that it regulates contractors under Title 62, Chapter 6." }],
+          "limitations": ["Licensing is tied to classification, monetary limit, and statutory project thresholds."]
+        },
+        "residential_contracting": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.tn.commerce.contractors"],
+          "evidence": [{ "url": "https://www.tn.gov/content/dam/tn/commerce/documents/regboards/contractors/posts/ClassificationOutlineWeb.pdf", "reviewedAt": "2026-07-02T00:00:00.000Z", "note": "The official classification outline defines Residential BC-A and Limited Residential BC-A/r contractor classifications for residential construction, remodeling, repair, and improvement." }],
+          "limitations": ["BC-A/r has a single-family and monetary-limit restriction; home-improvement coverage is county-specific."]
+        },
+        "commercial_contracting": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.tn.commerce.contractors"],
+          "evidence": [{ "url": "https://www.tn.gov/content/dam/tn/commerce/documents/regboards/contractors/posts/ClassificationOutlineWeb.pdf", "reviewedAt": "2026-07-02T00:00:00.000Z", "note": "The official classification outline defines Commercial BC-B, Small Commercial BC-b(sm), Industrial BC-C, and combined BC classifications." }],
+          "limitations": ["Commercial and industrial scopes depend on the classification and monetary limit printed on the license."]
+        },
+        "electrical": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.tn.commerce.contractors"],
+          "evidence": [{ "url": "https://www.tn.gov/content/dam/tn/commerce/documents/regboards/contractors/posts/ClassificationOutlineWeb.pdf", "reviewedAt": "2026-07-02T00:00:00.000Z", "note": "The official classification outline defines Electrical Contracting CE and says the CE designation covers all electrical categories for residential, commercial, and industrial projects." }],
+          "limitations": ["Limited Licensed Electrician records are also administered by the board; alarm-system work may require separate board treatment."]
+        },
+        "plumbing": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.tn.commerce.contractors"],
+          "evidence": [{ "url": "https://www.tn.gov/content/dam/tn/commerce/documents/regboards/contractors/posts/ClassificationOutlineWeb.pdf", "reviewedAt": "2026-07-02T00:00:00.000Z", "note": "The official classification outline defines Mechanical Contracting CMC-A for plumbing and gas piping, and the board page identifies Limited Licensed Plumbers." }],
+          "limitations": ["Local permits and inspections may still be required; contractor and limited-plumber paths should not be merged without preserving license type."]
+        },
+        "hvac": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.tn.commerce.contractors"],
+          "evidence": [{ "url": "https://www.tn.gov/content/dam/tn/commerce/documents/regboards/contractors/posts/ClassificationOutlineWeb.pdf", "reviewedAt": "2026-07-02T00:00:00.000Z", "note": "The official classification outline defines CMC-C HVAC, refrigeration, and gas piping, including Solar HVAC (Geothermal)." }],
+          "limitations": ["Geothermal well-driller requirements may involve TDEC and must be surfaced as companion requirements."]
+        },
+        "mechanical": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.tn.commerce.contractors"],
+          "evidence": [{ "url": "https://www.tn.gov/content/dam/tn/commerce/documents/regboards/contractors/posts/ClassificationOutlineWeb.pdf", "reviewedAt": "2026-07-02T00:00:00.000Z", "note": "The official classification outline defines Mechanical Contracting CMC and subcategories for plumbing, process piping, HVAC, sprinklers, insulation, pollution control, pneumatic tube systems, controls, boilers, and fuel gas." }],
+          "limitations": ["Fire-protection, boiler, and geothermal work may require companion agency permits or credentials."]
+        },
+        "roofing": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.tn.commerce.contractors"],
+          "evidence": [{ "url": "https://www.tn.gov/content/dam/tn/commerce/documents/regboards/contractors/posts/ClassificationOutlineWeb.pdf", "reviewedAt": "2026-07-02T00:00:00.000Z", "note": "The official classification outline lists Roofing BC-21 and notes roofing prime and subcontractors are required to be licensed at the stated threshold." }]
+        },
+        "solar": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.tn.commerce.contractors"],
+          "evidence": [{ "url": "https://www.tn.gov/content/dam/tn/commerce/documents/regboards/contractors/posts/ClassificationOutlineWeb.pdf", "reviewedAt": "2026-07-02T00:00:00.000Z", "note": "The official classification outline lists S-Solar Panel Installations and identifies Solar HVAC (Geothermal) under CMC-C." }],
+          "limitations": ["Electrical, HVAC, or other underlying classifications may determine the required license for a specific solar project."]
+        },
+        "pool_spa": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.tn.commerce.contractors"],
+          "evidence": [{ "url": "https://www.tn.gov/content/dam/tn/commerce/documents/regboards/contractors/posts/ClassificationOutlineWeb.pdf", "reviewedAt": "2026-07-02T00:00:00.000Z", "note": "The official classification outline lists Swimming Pools as BC-26 within the building categories." }]
+        },
+        "asbestos": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.tn.commerce.contractors"],
+          "evidence": [{ "url": "https://www.tn.gov/content/dam/tn/commerce/documents/regboards/contractors/posts/ClassificationOutlineWeb.pdf", "reviewedAt": "2026-07-02T00:00:00.000Z", "note": "The official classification outline lists Specialty/Environmental S-A Asbestos Material Handling/Removing." }],
+          "limitations": ["The outline directs users to TDEC for asbestos-related accreditation, training, or additional information; that companion source should be registered before adapter work."]
+        },
+        "sheet_metal": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.tn.commerce.contractors"],
+          "evidence": [{ "url": "https://www.tn.gov/content/dam/tn/commerce/documents/regboards/contractors/posts/ClassificationOutlineWeb.pdf", "reviewedAt": "2026-07-02T00:00:00.000Z", "note": "The official classification outline lists Sheet Metal BC-20 within the building categories." }]
+        },
+        "underground_utility": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.tn.commerce.contractors"],
+          "evidence": [{ "url": "https://www.tn.gov/content/dam/tn/commerce/documents/regboards/contractors/posts/ClassificationOutlineWeb.pdf", "reviewedAt": "2026-07-02T00:00:00.000Z", "note": "The official classification outline defines Municipal and Utility Construction MU, including underground piping for gas, sewer, waterlines, and underground conduit." }],
+          "limitations": ["Some utility and environmental work may also require TDOT, TDEC, or local permits."]
+        },
+        "home_improvement": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.tn.commerce.contractors"],
+          "evidence": [{ "url": "https://www.tn.gov/commerce/regboards/contractors.html", "reviewedAt": "2026-07-02T00:00:00.000Z", "note": "The official board page states that the board regulates Home Improvement Contractors." }],
+          "limitations": ["Tennessee home-improvement licensing has county-specific applicability and project-value thresholds that must be preserved in verification wording."]
+        }
+      }
+    },
     {
       "state": "TX",
       "decisions": {
