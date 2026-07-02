@@ -542,7 +542,88 @@
     { "state": "MN", "decisions": {} },
     { "state": "MO", "decisions": {} },
     { "state": "MP", "decisions": {} },
-    { "state": "MS", "decisions": {} },
+    {
+      "state": "MS",
+      "decisions": {
+        "general_contracting": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.ms.msboc.contractors"],
+          "evidence": [{ "url": "https://www.msboc.us/classifications/", "reviewedAt": "2026-07-02T00:00:00.000Z", "note": "MSBOC publishes Building Construction as a major classification and states that a major classification covers its listed specialties." }],
+          "limitations": ["A contractor may perform only work authorized by the classifications on its certificate, and other agency requirements may apply."]
+        },
+        "residential_contracting": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.ms.msboc.contractors"],
+          "evidence": [{ "url": "https://www.msboc.us/classifications/", "reviewedAt": "2026-07-02T00:00:00.000Z", "note": "MSBOC defines Residential Builder and Residential Construction Manager classifications for qualifying residential construction, remodeling, repair, and improvement." }],
+          "limitations": ["Residential Builder scope includes stated family-count, building-height, and commercial-square-foot limits."]
+        },
+        "commercial_contracting": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.ms.msboc.contractors"],
+          "evidence": [{ "url": "https://www.msboc.us/contractors/licenses/", "reviewedAt": "2026-07-02T00:00:00.000Z", "note": "The official licensing page identifies Building Construction and five other major commercial contractor classifications administered by MSBOC." }]
+        },
+        "electrical": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.ms.msboc.contractors"],
+          "evidence": [{ "url": "https://www.msboc.us/classifications/", "reviewedAt": "2026-07-02T00:00:00.000Z", "note": "MSBOC publishes Electrical as a major classification and Residential Electrical as a separate residential classification." }]
+        },
+        "plumbing": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.ms.msboc.contractors"],
+          "evidence": [{ "url": "https://www.msboc.us/classifications/", "reviewedAt": "2026-07-02T00:00:00.000Z", "note": "MSBOC publishes Plumbing under Mechanical for commercial and residential systems and a separate Residential Plumbing classification." }],
+          "limitations": ["The published plumbing classification excludes fuel-gas and boiler systems and identifies their applicable scopes separately."]
+        },
+        "hvac": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.ms.msboc.contractors"],
+          "evidence": [{ "url": "https://www.msboc.us/classifications/", "reviewedAt": "2026-07-02T00:00:00.000Z", "note": "MSBOC defines Heat, Ventilation, A/C - HVAC under Mechanical and a separate Residential HVAC classification." }]
+        },
+        "mechanical": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.ms.msboc.contractors"],
+          "evidence": [{ "url": "https://www.msboc.us/classifications/", "reviewedAt": "2026-07-02T00:00:00.000Z", "note": "MSBOC publishes Mechanical as a major classification covering heating, cooling, refrigeration, piping, ductwork, plumbing, boilers, pressure vessels, and related systems." }]
+        },
+        "roofing": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.ms.msboc.contractors"],
+          "evidence": [{ "url": "https://www.msboc.us/classifications/", "reviewedAt": "2026-07-02T00:00:00.000Z", "note": "MSBOC publishes Roofing, Sheet Metal and Siding and a dedicated Residential Roofer classification." }]
+        },
+        "solar": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.ms.msboc.contractors"],
+          "evidence": [{ "url": "https://www.msboc.us/classifications/", "reviewedAt": "2026-07-02T00:00:00.000Z", "note": "MSBOC publishes stand-alone Solar and Wind Construction and a separate Residential Solar classification." }],
+          "limitations": ["Contractors must also hold the appropriate electrical or mechanical classification for associated connections."]
+        },
+        "pool_spa": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.ms.msboc.contractors"],
+          "evidence": [{ "url": "https://www.msboc.us/classifications/", "reviewedAt": "2026-07-02T00:00:00.000Z", "note": "MSBOC's Swimming Pools specialty covers construction, repair, and servicing of swimming pools, hot tubs, and spas." }],
+          "limitations": ["The classification excludes direct sanitary-sewer, potable-water, and electrical connections and excludes solar pool heating."]
+        },
+        "asbestos": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.ms.msboc.contractors"],
+          "evidence": [{ "url": "https://www.msboc.us/classifications/", "reviewedAt": "2026-07-02T00:00:00.000Z", "note": "MSBOC's Hazardous Materials specialty explicitly includes asbestos abatement and directs contractors to the Mississippi Department of Environmental Quality for possible additional requirements." }],
+          "limitations": ["This contractor-board classification does not replace any Department of Environmental Quality credential or project requirement."]
+        },
+        "sheet_metal": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.ms.msboc.contractors"],
+          "evidence": [{ "url": "https://www.msboc.us/classifications/", "reviewedAt": "2026-07-02T00:00:00.000Z", "note": "MSBOC publishes both Roofing, Sheet Metal and Siding and a dedicated Sheetmetal specialty that includes fabrication, flashing, gutters, kitchen equipment, and ductwork." }]
+        },
+        "underground_utility": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.ms.msboc.contractors"],
+          "evidence": [{ "url": "https://www.msboc.us/classifications/", "reviewedAt": "2026-07-02T00:00:00.000Z", "note": "MSBOC publishes Underground Utilities for water, sewer, and gas pipelines plus excavation, grading, paving, boring, and trenchless technologies, and Municipal and Public Works as a related major classification." }]
+        },
+        "home_improvement": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.ms.msboc.contractors"],
+          "evidence": [{ "url": "https://www.msboc.us/classifications/", "reviewedAt": "2026-07-02T00:00:00.000Z", "note": "MSBOC defines Residential Remodeler for residential remodeling, repair, and improvement and includes improvement work within Residential Builder scope." }],
+          "limitations": ["The residential classifications carry explicit building-height and scope limits; local permits remain outside this decision."]
+        }
+      }
+    },
     { "state": "MT", "decisions": {} },
     {
       "state": "NC",
