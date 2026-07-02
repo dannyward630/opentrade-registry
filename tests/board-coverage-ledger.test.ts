@@ -15,8 +15,8 @@ describe("nationwide board trade coverage ledger", () => {
     expect(ledger.jurisdictions).toHaveLength(56);
     expect(new Set(ledger.jurisdictions.map((entry) => entry.state)).size).toBe(56);
     expect(expanded).toHaveLength(56 * BOARD_TRADE_DOMAINS.length);
-    expect(expanded.filter((decision) => decision.outcome === "needs_research")).toHaveLength(580);
-    expect(expanded.filter((decision) => decision.outcome === "covered_by_board")).toHaveLength(191);
+    expect(expanded.filter((decision) => decision.outcome === "needs_research")).toHaveLength(579);
+    expect(expanded.filter((decision) => decision.outcome === "covered_by_board")).toHaveLength(192);
     expect(expanded.filter((decision) => decision.outcome === "not_state_regulated")).toHaveLength(2);
     expect(expanded.filter((decision) => decision.outcome === "local_only")).toHaveLength(11);
   });
@@ -216,7 +216,6 @@ describe("nationwide board trade coverage ledger", () => {
     const unresolved = expanded.filter((decision) => decision.outcome === "needs_research");
 
     expect(unresolved.map((decision) => decision.tradeDomain).sort()).toEqual([
-      "asbestos",
       "commercial_contracting",
       "general_contracting",
       "home_improvement",
@@ -235,6 +234,10 @@ describe("nationwide board trade coverage ledger", () => {
     expect(expanded.find((decision) => decision.tradeDomain === "plumbing")).toMatchObject({
       outcome: "covered_by_board",
       boardIds: ["us.tx.tsbpe.plumbing"],
+    });
+    expect(expanded.find((decision) => decision.tradeDomain === "asbestos")).toMatchObject({
+      outcome: "covered_by_board",
+      boardIds: ["us.tx.dshs.asbestos"],
     });
   });
 

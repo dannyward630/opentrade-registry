@@ -1856,6 +1856,33 @@
       }
     },
     {
+      "id": "us.tx.dshs.asbestos",
+      "jurisdiction": {
+        "country": "US",
+        "state": "TX"
+      },
+      "boardName": "Texas DSHS Asbestos License Search",
+      "agencyName": "Texas Department of State Health Services",
+      "officialUrl": "https://vo.ras.dshs.state.tx.us/",
+      "sourceIds": [
+        "us.tx.dshs.asbestos"
+      ],
+      "trades": [
+        "asbestos"
+      ],
+      "accessPath": "manual_handoff",
+      "coverageLimitations": [
+        "This source is scoped to Texas DSHS asbestos-program licenses and registrations, especially asbestos-related activities in public buildings.",
+        "It is not a statewide general contractor, demolition-permit, local building-permit, or non-asbestos construction-license source.",
+        "The online search and roster paths have not been adapter-reviewed for stable machine-readable access, completeness, privacy fields, or redistribution terms."
+      ],
+      "evidence": {
+        "url": "https://www.dshs.texas.gov/asbestos-program/licensing-registration-requirements-asbestos-program",
+        "reviewedAt": "2026-07-02T00:00:00.000Z",
+        "note": "Official DSHS licensing page states persons and companies engaging in asbestos-related activities in Texas public buildings must be appropriately licensed or registered by DSHS."
+      }
+    },
+    {
       "id": "us.tx.tdlr.all_licenses",
       "jurisdiction": {
         "country": "US",
