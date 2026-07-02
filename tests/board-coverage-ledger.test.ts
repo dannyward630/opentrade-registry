@@ -15,10 +15,10 @@ describe("nationwide board trade coverage ledger", () => {
     expect(ledger.jurisdictions).toHaveLength(56);
     expect(new Set(ledger.jurisdictions.map((entry) => entry.state)).size).toBe(56);
     expect(expanded).toHaveLength(56 * BOARD_TRADE_DOMAINS.length);
-    expect(expanded.filter((decision) => decision.outcome === "needs_research")).toHaveLength(586);
+    expect(expanded.filter((decision) => decision.outcome === "needs_research")).toHaveLength(580);
     expect(expanded.filter((decision) => decision.outcome === "covered_by_board")).toHaveLength(191);
     expect(expanded.filter((decision) => decision.outcome === "not_state_regulated")).toHaveLength(2);
-    expect(expanded.filter((decision) => decision.outcome === "local_only")).toHaveLength(5);
+    expect(expanded.filter((decision) => decision.outcome === "local_only")).toHaveLength(11);
   });
 
   it("records Arizona ROC coverage and the documented asbestos training boundary", async () => {
@@ -272,6 +272,7 @@ describe("nationwide board trade coverage ledger", () => {
     const ledger = boardTradeCoverageLedgerSchema.parse(await json("registry/board-coverage.json"));
     const expanded = expandBoardTradeCoverageLedger(ledger).filter((decision) => decision.state === "CO");
 
+    expect(expanded.filter((decision) => decision.outcome === "needs_research")).toEqual([]);
     expect(expanded.find((decision) => decision.tradeDomain === "electrical")).toMatchObject({
       outcome: "covered_by_board",
       boardIds: ["us.co.dora.trades"],
@@ -285,7 +286,19 @@ describe("nationwide board trade coverage ledger", () => {
       boardIds: ["us.co.cdphe.asbestos_contractors"],
     });
 
-    for (const domain of ["general_contracting", "residential_contracting", "commercial_contracting", "roofing", "home_improvement"]) {
+    for (const domain of [
+      "general_contracting",
+      "residential_contracting",
+      "commercial_contracting",
+      "roofing",
+      "hvac",
+      "mechanical",
+      "solar",
+      "pool_spa",
+      "sheet_metal",
+      "underground_utility",
+      "home_improvement",
+    ]) {
       const decision = expanded.find((entry) => entry.tradeDomain === domain);
       expect(decision?.outcome, `${domain} should be documented as local-only in Colorado`).toBe("local_only");
       expect(decision?.boardIds).toEqual([]);

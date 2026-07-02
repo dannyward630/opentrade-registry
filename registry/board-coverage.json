@@ -431,15 +431,45 @@
           "boardIds": ["us.co.dora.trades"],
           "evidence": [{ "url": "https://dpo.colorado.gov/Plumbing/Applications", "reviewedAt": "2026-07-01T08:10:00.000Z", "note": "DPO lists plumber and plumbing contractor applications and licensing requirements for Colorado." }]
         },
+        "hvac": {
+          "outcome": "local_only",
+          "evidence": [{ "url": "https://dora.colorado.gov/consumer-protection-home-and-repair", "reviewedAt": "2026-07-02T00:00:00.000Z", "note": "DORA says not all home repair and remodeling occupations are licensed statewide and directs consumers to local city or county rules where protections may exist." }],
+          "limitations": ["Electrical and plumbing components of HVAC work may still require the separate statewide DPO electrical or plumbing credential paths."]
+        },
+        "mechanical": {
+          "outcome": "local_only",
+          "evidence": [{ "url": "https://dora.colorado.gov/consumer-protection-home-and-repair", "reviewedAt": "2026-07-02T00:00:00.000Z", "note": "DORA's home-repair guidance directs consumers to city or county governments for occupations not licensed statewide." }],
+          "limitations": ["This decision is scoped to the absence of a verified statewide mechanical contractor board in this registry slice; statewide electrical, plumbing, and asbestos paths remain separate."]
+        },
         "roofing": {
           "outcome": "local_only",
           "evidence": [{ "url": "https://dora.colorado.gov/consumer-protection-home-and-repair", "reviewedAt": "2026-07-01T08:10:00.000Z", "note": "DORA consumer guidance specifically names roofers among occupations that are not licensed statewide and may be governed locally." }],
           "limitations": ["Local roofing registration or licensing is excluded unless separately registered as a source."]
         },
+        "solar": {
+          "outcome": "local_only",
+          "evidence": [{ "url": "https://dora.colorado.gov/consumer-protection-home-and-repair", "reviewedAt": "2026-07-02T00:00:00.000Z", "note": "DORA says not all home repair and remodeling occupations are licensed statewide and points to DORA lookup only for professions under DORA jurisdiction." }],
+          "limitations": ["Electrical work associated with solar installations may require a statewide Colorado electrical contractor registration; this decision does not create a separate statewide solar contractor source."]
+        },
+        "pool_spa": {
+          "outcome": "local_only",
+          "evidence": [{ "url": "https://dora.colorado.gov/consumer-protection-home-and-repair", "reviewedAt": "2026-07-02T00:00:00.000Z", "note": "DORA directs consumers to city or county government for home repair and remodeling occupations that are not licensed statewide." }],
+          "limitations": ["Electrical or plumbing work connected to pool and spa projects may still require the relevant statewide DPO credential."]
+        },
         "asbestos": {
           "outcome": "covered_by_board",
           "boardIds": ["us.co.cdphe.asbestos_contractors"],
           "evidence": [{ "url": "https://cdphe.colorado.gov/apcd-asbestos-support", "reviewedAt": "2026-07-01T08:15:00.000Z", "note": "CDPHE states regulated asbestos abatement must be conducted by a Colorado-certified General Abatement Contractor and links to certified/registered lists." }]
+        },
+        "sheet_metal": {
+          "outcome": "local_only",
+          "evidence": [{ "url": "https://dora.colorado.gov/consumer-protection-home-and-repair", "reviewedAt": "2026-07-02T00:00:00.000Z", "note": "DORA's home repair and remodeling guidance says not all occupations are licensed statewide and local rules may provide consumer protections." }],
+          "limitations": ["Sheet-metal work tied to electrical, plumbing, asbestos, or permitted building work may trigger those separate statewide or local requirements."]
+        },
+        "underground_utility": {
+          "outcome": "local_only",
+          "evidence": [{ "url": "https://dora.colorado.gov/consumer-protection-home-and-repair", "reviewedAt": "2026-07-02T00:00:00.000Z", "note": "DORA directs consumers to city or county governments for local protections when a home repair occupation is not licensed statewide." }],
+          "limitations": ["This does not cover utility-regulator, public-right-of-way, excavation, plumbing, electrical, or local permit requirements that may apply to a specific project."]
         },
         "home_improvement": {
           "outcome": "local_only",
