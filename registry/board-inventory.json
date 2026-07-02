@@ -652,6 +652,7 @@
         "plumbing",
         "hvac",
         "mechanical",
+        "solar",
         "underground_utility"
       ],
       "accessPath": "manual_handoff",

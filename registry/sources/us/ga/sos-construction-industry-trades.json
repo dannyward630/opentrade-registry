@@ -20,6 +20,7 @@
     "plumbing",
     "hvac",
     "mechanical",
+    "solar",
     "underground_utility"
   ],
   "licenseTypesIncluded": [
@@ -79,6 +80,11 @@
       "url": "https://goals.sos.ga.gov/GASOSOneStop/s/licensee-search",
       "checkedAt": "2026-07-02T00:00:00.000Z",
       "note": "Official shared public license-search entry point reviewed for access shape and current automation constraints."
+    },
+    {
+      "url": "https://consumered.georgia.gov/ask-ed/2021-07-02/what-kind-licensing-solar-panel-installer-required-have",
+      "checkedAt": "2026-07-02T00:00:00.000Z",
+      "note": "Georgia Attorney General consumer guidance states a home solar-panel installer must be associated with a licensed Georgia electrical contractor and directs users to the SOS license search."
     }
   ],
   "sourceResearchOutcome": "blocked",

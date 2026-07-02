@@ -15,9 +15,9 @@ describe("nationwide board trade coverage ledger", () => {
     expect(ledger.jurisdictions).toHaveLength(56);
     expect(new Set(ledger.jurisdictions.map((entry) => entry.state)).size).toBe(56);
     expect(expanded).toHaveLength(56 * BOARD_TRADE_DOMAINS.length);
-    expect(expanded.filter((decision) => decision.outcome === "needs_research")).toHaveLength(539);
-    expect(expanded.filter((decision) => decision.outcome === "covered_by_board")).toHaveLength(226);
-    expect(expanded.filter((decision) => decision.outcome === "not_state_regulated")).toHaveLength(3);
+    expect(expanded.filter((decision) => decision.outcome === "needs_research")).toHaveLength(536);
+    expect(expanded.filter((decision) => decision.outcome === "covered_by_board")).toHaveLength(227);
+    expect(expanded.filter((decision) => decision.outcome === "not_state_regulated")).toHaveLength(5);
     expect(expanded.filter((decision) => decision.outcome === "local_only")).toHaveLength(16);
   });
 
@@ -256,12 +256,12 @@ describe("nationwide board trade coverage ledger", () => {
     expect(expanded.find((decision) => decision.tradeDomain === "home_improvement")?.limitations.join(" ")).toContain("not a separate");
   });
 
-  it("records Georgia board-specific coverage without overclaiming unresolved specialties", async () => {
+  it("records complete Georgia board and specialty-policy coverage", async () => {
     const ledger = boardTradeCoverageLedgerSchema.parse(await json("registry/board-coverage.json"));
     const expanded = expandBoardTradeCoverageLedger(ledger).filter((decision) => decision.state === "GA");
     const unresolved = expanded.filter((decision) => decision.outcome === "needs_research");
 
-    expect(unresolved.map((decision) => decision.tradeDomain).sort()).toEqual(["pool_spa", "sheet_metal", "solar"]);
+    expect(unresolved).toEqual([]);
     for (const domain of ["general_contracting", "residential_contracting", "commercial_contracting", "home_improvement"]) {
       expect(expanded.find((decision) => decision.tradeDomain === domain)?.boardIds).toEqual(["us.ga.sos.residential_general_contractors"]);
     }
@@ -270,6 +270,10 @@ describe("nationwide board trade coverage ledger", () => {
     }
     expect(expanded.find((decision) => decision.tradeDomain === "asbestos")?.boardIds).toEqual(["us.ga.epd.asbestos_contractors"]);
     expect(expanded.find((decision) => decision.tradeDomain === "roofing")).toMatchObject({ outcome: "not_state_regulated", boardIds: [] });
+    expect(expanded.find((decision) => decision.tradeDomain === "solar")?.boardIds).toEqual(["us.ga.sos.construction_industry_trades"]);
+    for (const domain of ["pool_spa", "sheet_metal"]) {
+      expect(expanded.find((decision) => decision.tradeDomain === domain)).toMatchObject({ outcome: "not_state_regulated", boardIds: [] });
+    }
   });
 
   it("records North Carolina board coverage while leaving sheet metal unresolved", async () => {
