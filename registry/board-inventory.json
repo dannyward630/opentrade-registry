@@ -1232,11 +1232,20 @@
         "us.nc.nclbgc.general_contractors"
       ],
       "trades": [
-        "general contracting"
+        "general_contracting",
+        "residential_contracting",
+        "commercial_contracting",
+        "roofing",
+        "pool_spa",
+        "asbestos",
+        "underground_utility",
+        "home_improvement"
       ],
       "accessPath": "manual_handoff",
       "coverageLimitations": [
         "This source is scoped to the North Carolina general contractors board and does not cover every construction-related license or local authorization in North Carolina.",
+        "Electrical, plumbing, heating, fire sprinkler, and refrigeration contractors are tracked through separate North Carolina board source entries.",
+        "Scope depends on the license classification, limitation, and qualifier shown by the official source.",
         "The official source is lookup-oriented; bulk file availability has not been confirmed."
       ],
       "evidence": {
@@ -1273,6 +1282,34 @@
         "url": "https://public.nclicensing.org/Public/Search",
         "reviewedAt": "2026-07-01T00:00:00.000Z",
         "note": "Official public verify-license search reviewed; it lists plumbing, heating, fuel piping, fire sprinkler, and related technician classifications."
+      }
+    },
+    {
+      "id": "us.nc.refrigerationboard.refrigeration_contractors",
+      "jurisdiction": {
+        "country": "US",
+        "state": "NC"
+      },
+      "boardName": "North Carolina State Board of Refrigeration Contractors Verify License Search",
+      "agencyName": "North Carolina State Board of Refrigeration Contractors",
+      "officialUrl": "https://ncrefrigerationboard.arlsys.com/Public/Search",
+      "sourceIds": [
+        "us.nc.refrigerationboard.refrigeration_contractors"
+      ],
+      "trades": [
+        "mechanical",
+        "hvac"
+      ],
+      "accessPath": "manual_handoff",
+      "coverageLimitations": [
+        "This source is scoped to refrigeration contractor licenses regulated by the North Carolina State Board of Refrigeration Contractors.",
+        "Heating, plumbing, fire sprinkler, electrical, general contractor, local permit, and municipal registration records are outside this source entry.",
+        "The official source is lookup-oriented; no stable machine-readable bulk export has been confirmed for OpenTrade ingestion."
+      ],
+      "evidence": {
+        "url": "https://ncrefrigerationboard.arlsys.com/Public/Search",
+        "reviewedAt": "2026-07-02T00:00:00.000Z",
+        "note": "Official public verify-license search reviewed; it lists commercial, industrial, service, and transport refrigeration contractor classification types."
       }
     },
     {

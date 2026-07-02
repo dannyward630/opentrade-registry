@@ -15,8 +15,8 @@ describe("nationwide board trade coverage ledger", () => {
     expect(ledger.jurisdictions).toHaveLength(56);
     expect(new Set(ledger.jurisdictions.map((entry) => entry.state)).size).toBe(56);
     expect(expanded).toHaveLength(56 * BOARD_TRADE_DOMAINS.length);
-    expect(expanded.filter((decision) => decision.outcome === "needs_research")).toHaveLength(579);
-    expect(expanded.filter((decision) => decision.outcome === "covered_by_board")).toHaveLength(192);
+    expect(expanded.filter((decision) => decision.outcome === "needs_research")).toHaveLength(570);
+    expect(expanded.filter((decision) => decision.outcome === "covered_by_board")).toHaveLength(201);
     expect(expanded.filter((decision) => decision.outcome === "not_state_regulated")).toHaveLength(2);
     expect(expanded.filter((decision) => decision.outcome === "local_only")).toHaveLength(11);
   });
@@ -241,24 +241,21 @@ describe("nationwide board trade coverage ledger", () => {
     });
   });
 
-  it("records North Carolina electrical, plumbing, and HVAC board coverage without overclaiming broad construction domains", async () => {
+  it("records North Carolina board coverage while leaving solar and sheet metal unresolved", async () => {
     const ledger = boardTradeCoverageLedgerSchema.parse(await json("registry/board-coverage.json"));
     const expanded = expandBoardTradeCoverageLedger(ledger).filter((decision) => decision.state === "NC");
     const unresolved = expanded.filter((decision) => decision.outcome === "needs_research");
 
     expect(unresolved.map((decision) => decision.tradeDomain).sort()).toEqual([
-      "asbestos",
-      "commercial_contracting",
-      "general_contracting",
-      "home_improvement",
-      "mechanical",
-      "pool_spa",
-      "residential_contracting",
-      "roofing",
       "sheet_metal",
       "solar",
-      "underground_utility",
     ]);
+    for (const domain of ["general_contracting", "residential_contracting", "commercial_contracting", "roofing", "pool_spa", "asbestos", "underground_utility", "home_improvement"]) {
+      expect(expanded.find((decision) => decision.tradeDomain === domain)).toMatchObject({
+        outcome: "covered_by_board",
+        boardIds: ["us.nc.nclbgc.general_contractors"],
+      });
+    }
     expect(expanded.find((decision) => decision.tradeDomain === "electrical")).toMatchObject({
       outcome: "covered_by_board",
       boardIds: ["us.nc.ncbeec.electrical_contractors"],
@@ -269,6 +266,10 @@ describe("nationwide board trade coverage ledger", () => {
         boardIds: ["us.nc.nclicensing.plumbing_heating_fire_sprinkler"],
       });
     }
+    expect(expanded.find((decision) => decision.tradeDomain === "mechanical")).toMatchObject({
+      outcome: "covered_by_board",
+      boardIds: ["us.nc.nclicensing.plumbing_heating_fire_sprinkler", "us.nc.refrigerationboard.refrigeration_contractors"],
+    });
   });
 
   it("records Colorado statewide trade boards and local-only construction boundaries", async () => {
