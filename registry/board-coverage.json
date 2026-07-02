@@ -650,7 +650,88 @@
     { "state": "NH", "decisions": {} },
     { "state": "NJ", "decisions": {} },
     { "state": "NM", "decisions": {} },
-    { "state": "NV", "decisions": {} },
+    {
+      "state": "NV",
+      "decisions": {
+        "general_contracting": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.nv.nscb.contractors"],
+          "evidence": [{ "url": "https://www.nvcontractorsboard.com/licensing/license-classifications/", "reviewedAt": "2026-07-02T00:00:00.000Z", "note": "The official NSCB classification page lists Class A General Engineering, Class B General Building, and Class AB contractor classifications." }],
+          "limitations": ["Scope depends on license classification, subclassification, and monetary limit."]
+        },
+        "residential_contracting": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.nv.nscb.contractors"],
+          "evidence": [{ "url": "https://www.nvcontractorsboard.com/licensing/license-classifications/", "reviewedAt": "2026-07-02T00:00:00.000Z", "note": "The official NSCB classification page lists B-2 Residential and Small Commercial and B-7 Residential Remodeling under General Building." }],
+          "limitations": ["Residential recovery-fund and disclosure requirements are not modeled as separate verification records in this source entry."]
+        },
+        "commercial_contracting": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.nv.nscb.contractors"],
+          "evidence": [{ "url": "https://www.nvcontractorsboard.com/licensing/license-classifications/", "reviewedAt": "2026-07-02T00:00:00.000Z", "note": "The official NSCB classification page lists General Building classifications including B-6 Commercial Remodeling and general engineering/building classes." }],
+          "limitations": ["The specific commercial scope must be read from the license classification and monetary limit."]
+        },
+        "electrical": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.nv.nscb.contractors"],
+          "evidence": [{ "url": "https://www.leg.state.nv.us/nac/nac-624.html", "reviewedAt": "2026-07-02T00:00:00.000Z", "note": "NAC Chapter 624 includes Classification C-2 for Electrical contracting and subclassifications." }]
+        },
+        "plumbing": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.nv.nscb.contractors"],
+          "evidence": [{ "url": "https://www.leg.state.nv.us/nac/nac-624.html", "reviewedAt": "2026-07-02T00:00:00.000Z", "note": "NAC Chapter 624 includes Classification C-1 for Plumbing and heating contracting and subclassifications." }]
+        },
+        "hvac": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.nv.nscb.contractors"],
+          "evidence": [{ "url": "https://www.leg.state.nv.us/nac/nac-624.html", "reviewedAt": "2026-07-02T00:00:00.000Z", "note": "NAC Chapter 624 includes Classification C-21 for Refrigeration and air-conditioning and subclassifications." }]
+        },
+        "mechanical": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.nv.nscb.contractors"],
+          "evidence": [{ "url": "https://www.leg.state.nv.us/nac/nac-624.html", "reviewedAt": "2026-07-02T00:00:00.000Z", "note": "NAC Chapter 624 includes mechanical-adjacent scopes such as C-1 plumbing/heating, C-21 refrigeration and air-conditioning, C-38 gas equipment, C-39 heaters, C-41 fire protection, and A-20 industrial piping." }],
+          "limitations": ["Mechanical coverage is represented through Nevada's separate contractor classifications rather than one unified mechanical license."]
+        },
+        "roofing": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.nv.nscb.contractors"],
+          "evidence": [{ "url": "https://www.leg.state.nv.us/nac/nac-624.html", "reviewedAt": "2026-07-02T00:00:00.000Z", "note": "NAC Chapter 624 includes Classification C-15 for Roofing and siding and subclassifications." }]
+        },
+        "solar": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.nv.nscb.contractors"],
+          "evidence": [{ "url": "https://www.leg.state.nv.us/nac/nac-624.html", "reviewedAt": "2026-07-02T00:00:00.000Z", "note": "NAC Chapter 624 includes Classification C-37 for Solar contracting and subclassifications." }],
+          "limitations": ["Electrical or mechanical companion classifications may apply depending on the solar installation scope."]
+        },
+        "pool_spa": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.nv.nscb.contractors"],
+          "evidence": [{ "url": "https://www.nvcontractorsboard.com/licensing/license-classifications/", "reviewedAt": "2026-07-02T00:00:00.000Z", "note": "The official NSCB classification page lists A-10 Commercial and Residential Pools and links consumer guidance for contracting for a pool or spa." }]
+        },
+        "asbestos": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.nv.nscb.contractors"],
+          "evidence": [{ "url": "https://www.nvcontractorsboard.com/licensing/license-classifications/", "reviewedAt": "2026-07-02T00:00:00.000Z", "note": "The official NSCB classification page lists A-23 Removal of Asbestos under General Engineering." }],
+          "limitations": ["Environmental, workplace-safety, or notification requirements may apply outside the contractor-board classification."]
+        },
+        "sheet_metal": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.nv.nscb.contractors"],
+          "evidence": [{ "url": "https://www.leg.state.nv.us/nac/nac-624.html", "reviewedAt": "2026-07-02T00:00:00.000Z", "note": "NAC Chapter 624 includes Classification C-13 for using sheet metal and C-21c sheet metal within refrigeration and air-conditioning." }]
+        },
+        "underground_utility": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.nv.nscb.contractors"],
+          "evidence": [{ "url": "https://www.nvcontractorsboard.com/licensing/license-classifications/", "reviewedAt": "2026-07-02T00:00:00.000Z", "note": "The official NSCB classification page lists A-15 sewers, drains and pipes, A-17 lines to transmit electricity, and A-19 pipeline and conduits." }]
+        },
+        "home_improvement": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.nv.nscb.contractors"],
+          "evidence": [{ "url": "https://www.nvcontractorsboard.com/licensing/license-classifications/", "reviewedAt": "2026-07-02T00:00:00.000Z", "note": "The official NSCB classification page lists B-7 Residential Remodeling and C-3 Carpentry, maintenance and minor repairs is included in NAC Chapter 624." }],
+          "limitations": ["Handyman exemptions, local permits, and disclosure requirements must be preserved as caveats; this is not a municipal-license decision."]
+        }
+      }
+    },
     { "state": "NY", "decisions": {} },
     { "state": "OH", "decisions": {} },
     { "state": "OK", "decisions": {} },
