@@ -16,11 +16,15 @@
   "termsUrl": "https://portal.ct.gov/policies",
   "updateFrequency": "unknown; verify against the Connecticut eLicense portal before relying on freshness assumptions",
   "tradeCoverage": [
+    "residential_contracting",
+    "roofing",
+    "pool_spa",
     "home_improvement",
     "other"
   ],
   "licenseTypesIncluded": [
-    "Connecticut licenses, permits, and registrations exposed by DCP/eLicense lookup, including home improvement contractor registrations where available"
+    "Connecticut home improvement contractor registrations",
+    "Connecticut new home construction contractor registrations"
   ],
   "knownExclusions": [
     "The eLicense portal covers many license and registration types and this source entry does not isolate every construction-relevant credential.",
@@ -43,7 +47,7 @@
   "testFixturePath": null,
   "officialLookupUrl": "https://www.elicense.ct.gov/Lookup/LicenseLookup.aspx",
   "officialBulkDownloadNotes": "The official DCP page links to eLicense roster generation, but no redistribution-safe bulk path is confirmed in this phase.",
-  "researchNotes": "Registry-only source for Connecticut DCP/eLicense lookup. Future work should narrow home improvement contractor fields and roster terms before adapter work.",
+  "researchNotes": "DCP requires home improvement contractor registration for covered residential work and a separate new home construction contractor registration for new homes. The shared eLicense lookup remains a manual handoff.",
   "lastVerifiedAt": "2026-06-27T00:00:00.000Z",
   "maintainerNotes": "Keep the broad eLicense scope explicit and avoid treating all eLicense professions as construction records.",
   "schemaVersion": "1.0",
@@ -54,6 +58,16 @@
       "url": "https://www.elicense.ct.gov/Lookup/LicenseLookup.aspx",
       "checkedAt": "2026-06-27T00:00:00.000Z",
       "note": "Official public source, access shape, and current automation constraints reviewed."
+    },
+    {
+      "url": "https://portal.ct.gov/dcp/home-improvement",
+      "checkedAt": "2026-07-02T00:00:00.000Z",
+      "note": "Official DCP page states that home improvement and new home construction contractors must be registered."
+    },
+    {
+      "url": "https://portal.ct.gov/dcp/license-services-division/all-license-applications/home-improvement-applications",
+      "checkedAt": "2026-07-02T00:00:00.000Z",
+      "note": "Official application page defines covered residential work and explicitly includes swimming pools and roofs."
     }
   ],
   "sourceResearchOutcome": "blocked",
