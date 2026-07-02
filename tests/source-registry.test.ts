@@ -45,7 +45,7 @@ type UsTerritoryCoverageIndex = {
 describe("source registry", () => {
   it("validates every source registry entry", async () => {
     const files = await listJsonFiles(join(process.cwd(), "registry", "sources"));
-    expect(files.length).toBeGreaterThanOrEqual(77);
+    expect(files.length).toBeGreaterThanOrEqual(80);
 
     const parsed = [];
     for (const file of files) {
@@ -72,6 +72,9 @@ describe("source registry", () => {
       "us.ct.dcp.occupational_trades",
       "us.ct.dph.asbestos_contractors",
       "us.dc.dlcp.contractors",
+      "us.de.dfm.asbestos_contractors",
+      "us.de.dpr.electrical_examiners",
+      "us.de.dpr.plumbing_hvacr",
       "us.de.labor.construction_contractors",
       "us.fl.dbpr.asbestos_contractors",
       "us.fl.dbpr.construction",
@@ -133,10 +136,10 @@ describe("source registry", () => {
     ]);
     expect(parsed.every((entry) => entry.redistributionStatus === "unknown")).toBe(true);
     expect(parsed.filter((entry) => entry.sourceDiscoveryStatus === "researched")).toHaveLength(9);
-    expect(parsed.filter((entry) => entry.sourceDiscoveryStatus === "blocked")).toHaveLength(68);
+    expect(parsed.filter((entry) => entry.sourceDiscoveryStatus === "blocked")).toHaveLength(71);
     expect(parsed.filter((entry) => entry.adapterMaturity === "network_opt_in")).toHaveLength(7);
     expect(parsed.filter((entry) => entry.adapterMaturity === "local_file_adapter")).toHaveLength(2);
-    expect(parsed.filter((entry) => entry.adapterMaturity === "blocked")).toHaveLength(68);
+    expect(parsed.filter((entry) => entry.adapterMaturity === "blocked")).toHaveLength(71);
     for (const implemented of parsed.filter((entry) => entry.adapterStatus === "implemented")) {
       expect(implemented.adapterQualityLevel, `${implemented.id} should have Level 4 verification quality`).toBe(4);
       expect(implemented.verificationReviewedAt, `${implemented.id} needs a verification review timestamp`).toMatch(/^\d{4}-\d{2}-\d{2}T/);
