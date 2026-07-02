@@ -55,8 +55,8 @@ try {
   const help = run(cliBinary, ["help"], smokeDirectory);
   if (!help.includes("OpenTrade Registry CLI")) throw new Error("Packed CLI smoke test did not return expected help output.");
   const sources = JSON.parse(run(cliBinary, ["sources", "list", "--json"], smokeDirectory));
-  if (!Array.isArray(sources) || sources.length !== 74) {
-    throw new Error(`Packed CLI source registry smoke test expected 74 entries, received ${Array.isArray(sources) ? sources.length : "invalid JSON"}.`);
+  if (!Array.isArray(sources) || sources.length !== 77) {
+    throw new Error(`Packed CLI source registry smoke test expected 77 entries, received ${Array.isArray(sources) ? sources.length : "invalid JSON"}.`);
   }
   const coverage = JSON.parse(run(cliBinary, ["sources", "coverage", "--json"], smokeDirectory));
   if (coverage.stateCount !== 51 || coverage.territoryCount !== 5) {

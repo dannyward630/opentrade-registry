@@ -457,6 +457,9 @@
         "us.ct.dcp.home_improvement_contractors"
       ],
       "trades": [
+        "residential_contracting",
+        "roofing",
+        "pool_spa",
         "home_improvement",
         "other"
       ],
@@ -470,6 +473,93 @@
         "url": "https://www.elicense.ct.gov/Lookup/LicenseLookup.aspx",
         "reviewedAt": "2026-06-27T00:00:00.000Z",
         "note": "Official public source, access shape, and current automation constraints reviewed."
+      }
+    },
+    {
+      "id": "us.ct.dcp.major_contractors",
+      "jurisdiction": {
+        "country": "US",
+        "state": "CT"
+      },
+      "boardName": "Connecticut DCP Major Contractor Lookup",
+      "agencyName": "Connecticut Department of Consumer Protection",
+      "officialUrl": "https://www.elicense.ct.gov/Lookup/LicenseLookup.aspx",
+      "sourceIds": [
+        "us.ct.dcp.major_contractors"
+      ],
+      "trades": [
+        "general_contracting",
+        "commercial_contracting",
+        "roofing"
+      ],
+      "accessPath": "manual_handoff",
+      "coverageLimitations": [
+        "The major-contractor definition is limited to work exceeding statutory threshold limits or affecting structural integrity; it is not a universal general-contractor license.",
+        "Residential home improvement, new-home construction, occupational trades, asbestos credentials, and local permits are covered separately."
+      ],
+      "evidence": {
+        "url": "https://portal.ct.gov/dcp/common-elements/consumer-facts-and-contacts/major-contractor",
+        "reviewedAt": "2026-07-02T00:00:00.000Z",
+        "note": "Official DCP page defines licensed major-contractor work and identifies roofing and structural work within scope."
+      }
+    },
+    {
+      "id": "us.ct.dcp.occupational_trades",
+      "jurisdiction": {
+        "country": "US",
+        "state": "CT"
+      },
+      "boardName": "Connecticut DCP Occupational Trades Lookup",
+      "agencyName": "Connecticut Department of Consumer Protection Occupational and Professional Licensing Division",
+      "officialUrl": "https://www.elicense.ct.gov/Lookup/LicenseLookup.aspx",
+      "sourceIds": [
+        "us.ct.dcp.occupational_trades"
+      ],
+      "trades": [
+        "electrical",
+        "plumbing",
+        "hvac",
+        "mechanical",
+        "solar",
+        "pool_spa",
+        "sheet_metal",
+        "underground_utility"
+      ],
+      "accessPath": "manual_handoff",
+      "coverageLimitations": [
+        "The shared eLicense portal covers many professions and credential levels; contractor and journeyperson records must not be conflated.",
+        "General construction, home improvement, new-home construction, asbestos work, and local permits are covered separately."
+      ],
+      "evidence": {
+        "url": "https://portal.ct.gov/dcp/occupational-and-professional-division/occupational-boards/electrical-work-examining-board",
+        "reviewedAt": "2026-07-02T00:00:00.000Z",
+        "note": "Official board page documents licensed electrical contractors and journeypersons."
+      }
+    },
+    {
+      "id": "us.ct.dph.asbestos_contractors",
+      "jurisdiction": {
+        "country": "US",
+        "state": "CT"
+      },
+      "boardName": "Connecticut DPH Asbestos Contractor Lookup",
+      "agencyName": "Connecticut Department of Public Health",
+      "officialUrl": "https://www.elicense.ct.gov/Lookup/LicenseLookup.aspx",
+      "sourceIds": [
+        "us.ct.dph.asbestos_contractors"
+      ],
+      "trades": [
+        "asbestos"
+      ],
+      "accessPath": "manual_handoff",
+      "coverageLimitations": [
+        "Contractor licenses and individual supervisor, worker, and consultant credentials have distinct scopes and renewal rules.",
+        "Federal, DEEP, OSHA, municipal, notification, and project-specific requirements are outside this source entry."
+      ],
+      "evidence": {
+        "url": "https://portal.ct.gov/dph/asbestos-program/asbestos-program/asbestos-licensure-of-contractors-and-consultants",
+        "reviewedAt": "2026-07-02T00:00:00.000Z",
+        "note": "Official DPH page states that asbestos contractors and consultants must be licensed and directs verification to eLicense."
       }
     },
     {
