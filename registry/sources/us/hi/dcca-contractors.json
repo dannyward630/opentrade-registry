@@ -21,17 +21,28 @@
     "commercial_contracting",
     "electrical",
     "plumbing",
-    "other"
+    "hvac",
+    "mechanical",
+    "roofing",
+    "solar",
+    "pool_spa",
+    "asbestos",
+    "sheet_metal",
+    "underground_utility",
+    "home_improvement"
   ],
   "licenseTypesIncluded": [
-    "Hawaii contractor license records exposed by DCCA PVL public license search"
+    "Hawaii A general engineering contractor licenses",
+    "Hawaii B general building contractor licenses",
+    "Hawaii C specialty contractor licenses and subclassifications exposed by DCCA PVL public license search"
   ],
   "knownExclusions": [
     "This source entry is scoped to professional and vocational licensing records and does not represent every business registration, local permit, or tax record in Hawaii.",
     "Business Check and complaint-history resources are separate public tools and are not modeled as normalized license records in this entry.",
-    "License classifications and personnel relationships need follow-up review before adapter work."
+    "County permits, business registrations, complaint history, and separately licensed individual electricians or plumbers are outside this contractor-source entry.",
+    "The official classification document describes contractor scope, but the public search shape and contractor-to-responsible-managing-employee relationships still require adapter review."
   ],
-  "hasBulkDownload": "unknown",
+  "hasBulkDownload": true,
   "hasLiveLookup": true,
   "requiresJavaScript": "unknown",
   "requiresCaptcha": "unknown",
@@ -46,18 +57,34 @@
   "adapterPackage": null,
   "testFixturePath": null,
   "officialLookupUrl": "https://mypvl.dcca.hawaii.gov/public-license-search/",
-  "officialBulkDownloadNotes": "No official bulk download has been confirmed in this phase.",
-  "researchNotes": "Registry-only source for Hawaii DCCA PVL contractor license search. Future work should research classification mapping and whether the public search exposes stable result fields.",
-  "lastVerifiedAt": "2026-06-27T00:00:00.000Z",
-  "maintainerNotes": "Keep DCCA PVL licensing separate from Hawaii business registration and complaint-history tools.",
+  "officialBulkDownloadNotes": "DCCA's hire-a-licensed-contractor page publishes a dated PDF list of licensed contractors and PVL offers list-purchase services. No stable machine-readable contractor export, schema, publication policy, or automated snapshot resolver has been reviewed.",
+  "researchNotes": "The Contractors License Board publishes A general engineering, B general building, and C specialty classifications covering every tracked statewide trade domain. Adapter work remains blocked until an official machine-readable file or a stable, permitted lookup contract is reviewed.",
+  "verificationReviewedAt": null,
+  "verificationCaveats": [
+    "Classification coverage does not replace checking the current license status, responsible managing employee, project scope, county permit, or separately required individual trade credential.",
+    "No matching record means no match in the checked DCCA source at that time, not proof that no license or authorization exists."
+  ],
+  "verificationNotes": "No supported sync or verification adapter is exposed while the public search and dated PDF list remain unreviewed for stable machine access.",
+  "lastVerifiedAt": "2026-07-02T00:00:00.000Z",
+  "maintainerNotes": "Keep DCCA contractor licensing separate from individual electrician/plumber licenses, business registration, complaint history, and county permits.",
   "schemaVersion": "1.0",
-  "researchReviewedAt": "2026-06-27T00:00:00.000Z",
-  "nextReviewAt": "2026-12-27T00:00:00.000Z",
+  "researchReviewedAt": "2026-07-02T00:00:00.000Z",
+  "nextReviewAt": "2027-01-02T00:00:00.000Z",
   "researchEvidence": [
     {
       "url": "https://mypvl.dcca.hawaii.gov/public-license-search/",
-      "checkedAt": "2026-06-27T00:00:00.000Z",
+      "checkedAt": "2026-07-02T00:00:00.000Z",
       "note": "Official public source, access shape, and current automation constraints reviewed."
+    },
+    {
+      "url": "https://cca.hawaii.gov/wp-content/uploads/2026/01/DescriptionofContractorLicenseClassifications-1-1.pdf",
+      "checkedAt": "2026-07-02T00:00:00.000Z",
+      "note": "Official board classification document reviewed; it defines A general engineering, B general building, and C specialty classifications across all tracked contractor trade domains."
+    },
+    {
+      "url": "https://cca.hawaii.gov/pvl/hire-a-licensed-contractor/",
+      "checkedAt": "2026-07-02T00:00:00.000Z",
+      "note": "Official consumer page reviewed; it links the public license search and a dated list of licensed contractors while emphasizing current-license verification."
     }
   ],
   "sourceResearchOutcome": "blocked",
@@ -67,6 +94,7 @@
     "summary": "No stable, documented machine-readable official interface is currently suitable for an offline-tested adapter.",
     "evidenceUrls": [
       "https://mypvl.dcca.hawaii.gov/public-license-search/",
+      "https://cca.hawaii.gov/pvl/hire-a-licensed-contractor/",
       "https://portal.ehawaii.gov/page/terms-of-use/"
     ]
   }

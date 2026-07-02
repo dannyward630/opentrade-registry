@@ -15,8 +15,8 @@ describe("nationwide board trade coverage ledger", () => {
     expect(ledger.jurisdictions).toHaveLength(56);
     expect(new Set(ledger.jurisdictions.map((entry) => entry.state)).size).toBe(56);
     expect(expanded).toHaveLength(56 * BOARD_TRADE_DOMAINS.length);
-    expect(expanded.filter((decision) => decision.outcome === "needs_research")).toHaveLength(564);
-    expect(expanded.filter((decision) => decision.outcome === "covered_by_board")).toHaveLength(202);
+    expect(expanded.filter((decision) => decision.outcome === "needs_research")).toHaveLength(550);
+    expect(expanded.filter((decision) => decision.outcome === "covered_by_board")).toHaveLength(216);
     expect(expanded.filter((decision) => decision.outcome === "not_state_regulated")).toHaveLength(2);
     expect(expanded.filter((decision) => decision.outcome === "local_only")).toHaveLength(16);
   });
@@ -240,6 +240,20 @@ describe("nationwide board trade coverage ledger", () => {
       outcome: "covered_by_board",
       boardIds: ["us.tx.dshs.asbestos"],
     });
+  });
+
+  it("records complete Hawaii contractor classification coverage", async () => {
+    const ledger = boardTradeCoverageLedgerSchema.parse(await json("registry/board-coverage.json"));
+    const expanded = expandBoardTradeCoverageLedger(ledger).filter((decision) => decision.state === "HI");
+
+    expect(expanded.filter((decision) => decision.outcome === "needs_research")).toEqual([]);
+    expect(expanded.every((decision) => decision.outcome === "covered_by_board")).toBe(true);
+    expect(expanded.every((decision) => decision.boardIds.includes("us.hi.dcca.contractors"))).toBe(true);
+    expect(expanded.find((decision) => decision.tradeDomain === "electrical")?.evidence[0]?.note).toContain("C-13");
+    expect(expanded.find((decision) => decision.tradeDomain === "pool_spa")?.evidence[0]?.note).toContain("C-49");
+    expect(expanded.find((decision) => decision.tradeDomain === "solar")?.evidence[0]?.note).toContain("C-60");
+    expect(expanded.find((decision) => decision.tradeDomain === "sheet_metal")?.evidence[0]?.note).toContain("C-44");
+    expect(expanded.find((decision) => decision.tradeDomain === "home_improvement")?.limitations.join(" ")).toContain("not a separate");
   });
 
   it("records North Carolina board coverage while leaving sheet metal unresolved", async () => {

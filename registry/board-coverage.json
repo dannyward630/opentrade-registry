@@ -558,7 +558,90 @@
     },
     { "state": "GA", "decisions": {} },
     { "state": "GU", "decisions": {} },
-    { "state": "HI", "decisions": {} },
+    {
+      "state": "HI",
+      "decisions": {
+        "general_contracting": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.hi.dcca.contractors"],
+          "evidence": [{ "url": "https://cca.hawaii.gov/wp-content/uploads/2026/01/DescriptionofContractorLicenseClassifications-1-1.pdf", "reviewedAt": "2026-07-02T00:00:00.000Z", "note": "The Contractors License Board classification document defines A General Engineering and B General Building contractor classifications." }],
+          "limitations": ["The applicable A, B, or C classification and any responsible-managing-employee requirements must be evaluated for the project scope."]
+        },
+        "residential_contracting": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.hi.dcca.contractors"],
+          "evidence": [{ "url": "https://cca.hawaii.gov/wp-content/uploads/2026/01/DescriptionofContractorLicenseClassifications-1-1.pdf", "reviewedAt": "2026-07-02T00:00:00.000Z", "note": "The official classification document defines B General Building for structures that shelter persons or property and includes remodeling and repair classifications." }],
+          "limitations": ["County permits and trade-specific contractor or individual credentials may still apply to residential projects."]
+        },
+        "commercial_contracting": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.hi.dcca.contractors"],
+          "evidence": [{ "url": "https://cca.hawaii.gov/wp-content/uploads/2026/01/DescriptionofContractorLicenseClassifications-1-1.pdf", "reviewedAt": "2026-07-02T00:00:00.000Z", "note": "The official classification document defines A General Engineering, B General Building, and C-25 Institutional and Commercial Equipment contractor scopes." }]
+        },
+        "electrical": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.hi.dcca.contractors"],
+          "evidence": [{ "url": "https://cca.hawaii.gov/wp-content/uploads/2026/01/DescriptionofContractorLicenseClassifications-1-1.pdf", "reviewedAt": "2026-07-02T00:00:00.000Z", "note": "The official classification document lists C-13 Electrical, C-62 Pole and Line, and C-63 High Voltage Electrical contractor classifications." }],
+          "limitations": ["DCCA states electrical contractors must employ licensed electricians to perform the electrical work; individual credentials are outside this contractor-source entry."]
+        },
+        "plumbing": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.hi.dcca.contractors"],
+          "evidence": [{ "url": "https://cca.hawaii.gov/wp-content/uploads/2026/01/DescriptionofContractorLicenseClassifications-1-1.pdf", "reviewedAt": "2026-07-02T00:00:00.000Z", "note": "The official classification document lists C-37 Plumbing and related C-37 sewer, irrigation, air-system, treatment, and fuel-dispensing subclasses." }],
+          "limitations": ["DCCA states plumbing contractors must employ licensed plumbers to perform plumbing work; individual credentials are outside this contractor-source entry."]
+        },
+        "hvac": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.hi.dcca.contractors"],
+          "evidence": [{ "url": "https://cca.hawaii.gov/wp-content/uploads/2026/01/DescriptionofContractorLicenseClassifications-1-1.pdf", "reviewedAt": "2026-07-02T00:00:00.000Z", "note": "The official classification document lists C-40 Refrigeration and C-52 Ventilating and Air Conditioning contractor classifications." }]
+        },
+        "mechanical": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.hi.dcca.contractors"],
+          "evidence": [{ "url": "https://cca.hawaii.gov/wp-content/uploads/2026/01/DescriptionofContractorLicenseClassifications-1-1.pdf", "reviewedAt": "2026-07-02T00:00:00.000Z", "note": "The official classification framework includes C-2 Mechanical Insulation, C-4 Boiler and Steam Fitting, C-37c Vacuum and Air Systems, C-40 Refrigeration, and C-52 Ventilating and Air Conditioning." }],
+          "limitations": ["Hawaii represents mechanical work through multiple specialty classifications rather than one unified mechanical license."]
+        },
+        "roofing": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.hi.dcca.contractors"],
+          "evidence": [{ "url": "https://cca.hawaii.gov/wp-content/uploads/2026/01/DescriptionofContractorLicenseClassifications-1-1.pdf", "reviewedAt": "2026-07-02T00:00:00.000Z", "note": "The official classification document lists C-42 Roofing and roofing subclasses for metal shingles, wood shingles and shakes, tile, urethane foam, and roof coatings." }]
+        },
+        "solar": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.hi.dcca.contractors"],
+          "evidence": [{ "url": "https://cca.hawaii.gov/wp-content/uploads/2026/01/DescriptionofContractorLicenseClassifications-1-1.pdf", "reviewedAt": "2026-07-02T00:00:00.000Z", "note": "The official classification document lists C-60 Solar Power Systems, C-61 Solar Energy Systems, C-61a Solar Hot Water, and C-61b Solar Heating and Cooling." }],
+          "limitations": ["Electrical, plumbing, roofing, or structural classifications may also apply depending on the installation scope."]
+        },
+        "pool_spa": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.hi.dcca.contractors"],
+          "evidence": [{ "url": "https://cca.hawaii.gov/wp-content/uploads/2026/01/DescriptionofContractorLicenseClassifications-1-1.pdf", "reviewedAt": "2026-07-02T00:00:00.000Z", "note": "The official classification document lists C-49 Swimming Pool, C-49a Swimming Pool Service, and C-49b Hot Tub and Pool contractor classifications." }]
+        },
+        "asbestos": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.hi.dcca.contractors"],
+          "evidence": [{ "url": "https://cca.hawaii.gov/wp-content/uploads/2026/01/DescriptionofContractorLicenseClassifications-1-1.pdf", "reviewedAt": "2026-07-02T00:00:00.000Z", "note": "The official classification document lists C-19 Asbestos contractor, and DCCA renewal guidance requires C-19 responsible managing employees to provide asbestos-training proof." }],
+          "limitations": ["Environmental notification, worker-safety, and training requirements may apply outside the contractor-license record."]
+        },
+        "sheet_metal": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.hi.dcca.contractors"],
+          "evidence": [{ "url": "https://cca.hawaii.gov/wp-content/uploads/2026/01/DescriptionofContractorLicenseClassifications-1-1.pdf", "reviewedAt": "2026-07-02T00:00:00.000Z", "note": "The official classification document lists C-44 Sheet Metal and subclasses for gutters, awnings, and patio covers." }]
+        },
+        "underground_utility": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.hi.dcca.contractors"],
+          "evidence": [{ "url": "https://cca.hawaii.gov/wp-content/uploads/2026/01/DescriptionofContractorLicenseClassifications-1-1.pdf", "reviewedAt": "2026-07-02T00:00:00.000Z", "note": "The official framework assigns pipelines and utility works to A General Engineering and lists C-43 Sewer, Sewage Disposal, Drain, and Pipe Laying plus C-43a Pipeline Repair." }],
+          "limitations": ["Utility-owner approvals, county permits, and other environmental or right-of-way requirements are outside the contractor license source."]
+        },
+        "home_improvement": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.hi.dcca.contractors"],
+          "evidence": [{ "url": "https://cca.hawaii.gov/wp-content/uploads/2026/01/DescriptionofContractorLicenseClassifications-1-1.pdf", "reviewedAt": "2026-07-02T00:00:00.000Z", "note": "The official classification document grants B General Building contractors C-5 Cabinet, Millwork, and Carpentry Remodeling and Repairs scope and separately lists C-5 as a specialty classification." }],
+          "limitations": ["The required classification depends on the trades and scope involved; this is not a separate Hawaii home-improvement registration program."]
+        }
+      }
+    },
     { "state": "IA", "decisions": {} },
     { "state": "ID", "decisions": {} },
     { "state": "IL", "decisions": {} },
