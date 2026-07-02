@@ -649,7 +649,85 @@
     { "state": "NE", "decisions": {} },
     { "state": "NH", "decisions": {} },
     { "state": "NJ", "decisions": {} },
-    { "state": "NM", "decisions": {} },
+    {
+      "state": "NM",
+      "decisions": {
+        "general_contracting": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.nm.rld.construction_industries"],
+          "evidence": [{ "url": "https://www.srca.nm.gov/parts/title14/14.006.0006.html", "reviewedAt": "2026-07-02T00:00:00.000Z", "note": "14.6.6 NMAC defines GB-98 General Building and fixed-works/general construction classifications issued by CID." }],
+          "limitations": ["The exact license classification and qualifying-party scope must be preserved for verification."]
+        },
+        "residential_contracting": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.nm.rld.construction_industries"],
+          "evidence": [{ "url": "https://www.srca.nm.gov/parts/title14/14.006.0006.html", "reviewedAt": "2026-07-02T00:00:00.000Z", "note": "14.6.6 NMAC defines GB-2 Residential and GB-98 General Building classifications." }]
+        },
+        "commercial_contracting": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.nm.rld.construction_industries"],
+          "evidence": [{ "url": "https://www.srca.nm.gov/parts/title14/14.006.0006.html", "reviewedAt": "2026-07-02T00:00:00.000Z", "note": "14.6.6 NMAC states GB-98 authorizes work on residential and commercial buildings and certain structures." }]
+        },
+        "electrical": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.nm.rld.construction_industries"],
+          "evidence": [{ "url": "https://www.srca.nm.gov/parts/title14/14.006.0006.html", "reviewedAt": "2026-07-02T00:00:00.000Z", "note": "14.6.6 NMAC defines EE-98 residential, commercial, and industrial electrical wiring classifications and related electrical specialties." }]
+        },
+        "plumbing": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.nm.rld.construction_industries"],
+          "evidence": [{ "url": "https://www.srca.nm.gov/parts/title14/14.006.0006.html", "reviewedAt": "2026-07-02T00:00:00.000Z", "note": "14.6.6 NMAC defines MM-1 Plumbing and MM-98 Mechanical classifications." }]
+        },
+        "hvac": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.nm.rld.construction_industries"],
+          "evidence": [{ "url": "https://www.srca.nm.gov/parts/title14/14.006.0006.html", "reviewedAt": "2026-07-02T00:00:00.000Z", "note": "14.6.6 NMAC defines MM-3 Heating, Ventilation & Air Conditioning and MM-98 Mechanical classifications." }]
+        },
+        "mechanical": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.nm.rld.construction_industries"],
+          "evidence": [{ "url": "https://www.rld.nm.gov/construction-industries/find-a-bureau/bureaus/", "reviewedAt": "2026-07-02T00:00:00.000Z", "note": "The official CID bureau page lists mechanical and plumbing among the statewide construction-industry licensing bureaus." }]
+        },
+        "roofing": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.nm.rld.construction_industries"],
+          "evidence": [{ "url": "https://www.srca.nm.gov/parts/title14/14.006.0006.html", "reviewedAt": "2026-07-02T00:00:00.000Z", "note": "14.6.6 NMAC defines GS-21 Roofing as a CID specialty classification." }]
+        },
+        "solar": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.nm.rld.construction_industries"],
+          "evidence": [{ "url": "https://www.srca.nm.gov/parts/title14/14.006.0006.html", "reviewedAt": "2026-07-02T00:00:00.000Z", "note": "14.6.6 NMAC includes solar thermal energy systems in MM-1 and MM-4 scopes, solar air handling applications in MM-3, and limited solar photovoltaic arrays in water-well pump electrical scopes." }],
+          "limitations": ["Future normalization must preserve whether solar work is photovoltaic, solar thermal, HVAC-related, plumbing-related, or incidental to another classification."]
+        },
+        "pool_spa": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.nm.rld.construction_industries"],
+          "evidence": [{ "url": "https://www.srca.nm.gov/parts/title14/14.006.0006.html", "reviewedAt": "2026-07-02T00:00:00.000Z", "note": "14.6.6 NMAC defines GS-25 Swimming Pools and includes swimming pools and spas in the MM-1 plumbing scope." }]
+        },
+        "asbestos": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.nm.rld.construction_industries"],
+          "evidence": [{ "url": "https://www.env.nm.gov/air-quality/asbestos/", "reviewedAt": "2026-07-02T00:00:00.000Z", "note": "The official NMED asbestos page states contractors who remove asbestos materials must be licensed by the New Mexico Construction Industries Division." }],
+          "limitations": ["Asbestos environmental compliance and notification requirements may involve NMED or local air-quality authorities in addition to CID licensing."]
+        },
+        "sheet_metal": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.nm.rld.construction_industries"],
+          "evidence": [{ "url": "https://www.srca.nm.gov/parts/title14/14.006.0006.html", "reviewedAt": "2026-07-02T00:00:00.000Z", "note": "14.6.6 NMAC defines GS-32 Miscellaneous Sheet Metal and a JSM journeyman sheet metal credential under mechanical/plumbing classifications." }]
+        },
+        "underground_utility": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.nm.rld.construction_industries"],
+          "evidence": [{ "url": "https://www.srca.nm.gov/parts/title14/14.006.0006.html", "reviewedAt": "2026-07-02T00:00:00.000Z", "note": "14.6.6 NMAC defines GF-9 Utility Lines and Systems for sewage, water, natural gas, and underground telephone cables." }]
+        },
+        "home_improvement": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.nm.rld.construction_industries"],
+          "evidence": [{ "url": "https://www.srca.nm.gov/parts/title14/14.006.0006.html", "reviewedAt": "2026-07-02T00:00:00.000Z", "note": "14.6.6 NMAC defines residential and general building classifications that include erecting, altering, repairing, and demolishing residential and commercial buildings." }],
+          "limitations": ["Local permits and business registrations remain outside this statewide CID source."]
+        }
+      }
+    },
     {
       "state": "NV",
       "decisions": {
