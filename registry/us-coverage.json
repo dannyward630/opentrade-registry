@@ -374,10 +374,11 @@
       "state": "TX",
       "status": "blocked",
       "sourceIds": [
+        "us.tx.dshs.asbestos",
         "us.tx.tdlr.all_licenses",
         "us.tx.tsbpe.plumbing"
       ],
-      "notes": "TDLR has a terminal OpenTrade Registry adapter capability with offline tests and documented source caveats; TSBPE plumbing metadata is tracked separately and currently blocks full Texas source maturity pending file-shape review."
+      "notes": "TDLR has a terminal OpenTrade Registry adapter capability with offline tests and documented source caveats; TSBPE plumbing and DSHS asbestos metadata are tracked separately and currently block full Texas source maturity pending file-shape, access, and reuse review."
     },
     {
       "state": "UT",

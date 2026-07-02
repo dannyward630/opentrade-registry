@@ -1,0 +1,90 @@
+{
+  "id": "us.tx.dshs.asbestos",
+  "name": "Texas DSHS Asbestos License Search",
+  "jurisdiction": {
+    "country": "US",
+    "state": "TX"
+  },
+  "agency": {
+    "name": "Texas Department of State Health Services",
+    "url": "https://www.dshs.texas.gov/"
+  },
+  "sourceType": "html_lookup",
+  "sourceUrl": "https://www.dshs.texas.gov/asbestos-program/licensing-registration-requirements-asbestos-program/find-a-licensee-asbestos",
+  "documentationUrl": "https://www.dshs.texas.gov/asbestos-program/licensing-registration-requirements-asbestos-program",
+  "dataDictionaryUrl": null,
+  "termsUrl": "https://www.dshs.texas.gov/site-policies",
+  "updateFrequency": "unknown; verify against the DSHS online licensing search and asbestos roster pages before relying on freshness assumptions",
+  "tradeCoverage": [
+    "asbestos"
+  ],
+  "licenseTypesIncluded": [
+    "Texas asbestos abatement contractor licenses and registrations exposed by DSHS online licensing paths",
+    "Other asbestos program license and registration categories exposed by DSHS search and roster pages"
+  ],
+  "knownExclusions": [
+    "This source is scoped to Texas DSHS asbestos-program licenses and registrations, especially asbestos-related activities in public buildings.",
+    "It is not a statewide general contractor, demolition-permit, local building-permit, or non-asbestos construction-license source.",
+    "The online search and roster paths have not been adapter-reviewed for stable machine-readable access, completeness, privacy fields, or redistribution terms."
+  ],
+  "hasBulkDownload": "unknown",
+  "hasLiveLookup": true,
+  "requiresJavaScript": "unknown",
+  "requiresCaptcha": "unknown",
+  "requiresAccount": false,
+  "rateLimitNotes": "No adapter is implemented. Use the official search and roster pages manually until a stable public export contract and access constraints are reviewed.",
+  "redistributionStatus": "unknown",
+  "publicRecordsNotes": "Official asbestos-program source metadata only. Absence from this source is not proof that an asbestos credential, notification, permit, or local authorization does not exist elsewhere.",
+  "adapterStatus": "blocked",
+  "sourceDiscoveryStatus": "blocked",
+  "adapterMaturity": "blocked",
+  "adapterQualityLevel": 0,
+  "coverageScope": "state_agency_partial",
+  "adapterPackage": null,
+  "testFixturePath": null,
+  "officialLookupUrl": "https://vo.ras.dshs.state.tx.us/",
+  "officialBulkDownloadNotes": "The DSHS asbestos find-a-licensee page references the online licensing database and PDF rosters. No stable machine-readable bulk contract has been adapter-reviewed.",
+  "researchNotes": "DSHS states that persons and companies engaging in asbestos-related activities in a public building in Texas must be licensed or registered by DSHS. This source remains a manual handoff until the lookup and roster paths are reviewed for stable, lawful automation.",
+  "verificationReviewedAt": null,
+  "verificationCaveats": [
+    "This source covers DSHS asbestos-program credentials, not general contractor or local permit records.",
+    "No matching record means no match in this source at the checked time, not proof that an asbestos credential, notification, permit, or local authorization does not exist elsewhere."
+  ],
+  "verificationNotes": "No supported sync or verification adapter is exposed while the official search and roster shapes remain under review.",
+  "lastVerifiedAt": "2026-07-02T00:00:00.000Z",
+  "maintainerNotes": "Keep public-building asbestos scope explicit. Do not publish roster/search records without source-specific privacy and redistribution review.",
+  "schemaVersion": "1.0",
+  "researchReviewedAt": "2026-07-02T00:00:00.000Z",
+  "nextReviewAt": "2027-01-02T00:00:00.000Z",
+  "researchEvidence": [
+    {
+      "url": "https://www.dshs.texas.gov/asbestos-program/licensing-registration-requirements-asbestos-program",
+      "checkedAt": "2026-07-02T00:00:00.000Z",
+      "note": "Official DSHS licensing page states persons and companies engaging in asbestos-related activities in Texas public buildings must be appropriately licensed or registered by DSHS."
+    },
+    {
+      "url": "https://www.dshs.texas.gov/asbestos-program/licensing-registration-requirements-asbestos-program/find-a-licensee-asbestos",
+      "checkedAt": "2026-07-02T00:00:00.000Z",
+      "note": "Official DSHS find-a-licensee page points users to the online licensing database and PDF rosters for asbestos professionals."
+    },
+    {
+      "url": "https://www.dshs.texas.gov/asbestos-program/licensing-registration-requirements-asbestos-program/online-licensing-asbestos-program",
+      "checkedAt": "2026-07-02T00:00:00.000Z",
+      "note": "Official DSHS online licensing page lists asbestos abatement contractor, worker, consultant agency, and related asbestos categories as eligible for online licensing paths."
+    },
+    {
+      "url": "https://www.dshs.texas.gov/site-policies",
+      "checkedAt": "2026-07-02T00:00:00.000Z",
+      "note": "Official DSHS site policies page reviewed for policy posture; redistribution rights remain unconfirmed."
+    }
+  ],
+  "sourceResearchOutcome": "blocked",
+  "blocker": {
+    "code": "technical_instability",
+    "summary": "The official path is lookup and roster oriented, and no stable machine-readable data contract, completeness statement, or reuse position has been adapter-reviewed.",
+    "evidenceUrls": [
+      "https://www.dshs.texas.gov/asbestos-program/licensing-registration-requirements-asbestos-program/find-a-licensee-asbestos",
+      "https://vo.ras.dshs.state.tx.us/"
+    ]
+  }
+}

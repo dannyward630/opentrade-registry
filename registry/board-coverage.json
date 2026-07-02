@@ -1132,6 +1132,12 @@
           "boardIds": ["us.tx.tdlr.all_licenses"],
           "evidence": [{ "url": "https://www.tdlr.texas.gov/media/pdf/Consumer%20Protection%20-%20Solar%20Panel.pdf", "reviewedAt": "2026-07-01T10:00:00.000Z", "note": "TDLR consumer guidance for solar panels says licensed electrical contractors perform solar installation work and must hold or employ a master electrician." }],
           "limitations": ["This decision covers solar installation through the electrical-contractor licensing path; residential solar retail sales registration is a separate future TDLR program and is not treated as active contractor-license coverage here."]
+        },
+        "asbestos": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.tx.dshs.asbestos"],
+          "evidence": [{ "url": "https://www.dshs.texas.gov/asbestos-program/licensing-registration-requirements-asbestos-program", "reviewedAt": "2026-07-02T00:00:00.000Z", "note": "DSHS states persons and companies engaging in asbestos-related activities in a public building in Texas must be appropriately licensed or registered by DSHS." }],
+          "limitations": ["DSHS asbestos scope is public-building asbestos-program licensing and registration; this is not a statewide general contractor, demolition-permit, or local building-permit source."]
         }
       }
     },
