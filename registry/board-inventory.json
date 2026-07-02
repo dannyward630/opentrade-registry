@@ -1720,19 +1720,31 @@
         "us.tn.commerce.contractors"
       ],
       "trades": [
-        "contractors",
-        "home improvement",
-        "limited licensed electricians",
-        "limited licensed plumbers"
+        "general_contracting",
+        "residential_contracting",
+        "commercial_contracting",
+        "electrical",
+        "plumbing",
+        "hvac",
+        "mechanical",
+        "roofing",
+        "solar",
+        "pool_spa",
+        "asbestos",
+        "sheet_metal",
+        "underground_utility",
+        "home_improvement"
       ],
       "accessPath": "manual_handoff",
       "coverageLimitations": [
-        "Tennessee licensing thresholds and county-specific home-improvement coverage require source-specific review before normalization.",
-        "Local permits, business registrations, and non-board authorizations are outside this source entry."
+        "Tennessee licensing thresholds, monetary limits, and county-specific home-improvement coverage must be preserved in any future normalized result.",
+        "The classification outline notes local permits, inspections, and companion requirements for some work, including TDEC, Fire Prevention, Department of Labor, and Alarm Systems Contractor Board references.",
+        "Local permits, business registrations, inspection records, and non-board authorizations are outside this source entry.",
+        "The official lookup is manual until access behavior, response stability, and reuse terms are adapter-reviewed."
       ],
       "evidence": {
         "url": "https://verify.tn.gov/",
-        "reviewedAt": "2026-06-27T00:00:00.000Z",
+        "reviewedAt": "2026-07-02T00:00:00.000Z",
         "note": "Official public source, access shape, and current automation constraints reviewed."
       }
     },

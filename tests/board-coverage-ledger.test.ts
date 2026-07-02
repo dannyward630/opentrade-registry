@@ -15,8 +15,8 @@ describe("nationwide board trade coverage ledger", () => {
     expect(ledger.jurisdictions).toHaveLength(56);
     expect(new Set(ledger.jurisdictions.map((entry) => entry.state)).size).toBe(56);
     expect(expanded).toHaveLength(56 * BOARD_TRADE_DOMAINS.length);
-    expect(expanded.filter((decision) => decision.outcome === "needs_research")).toHaveLength(670);
-    expect(expanded.filter((decision) => decision.outcome === "covered_by_board")).toHaveLength(108);
+    expect(expanded.filter((decision) => decision.outcome === "needs_research")).toHaveLength(656);
+    expect(expanded.filter((decision) => decision.outcome === "covered_by_board")).toHaveLength(122);
     expect(expanded.filter((decision) => decision.outcome === "not_state_regulated")).toHaveLength(1);
     expect(expanded.filter((decision) => decision.outcome === "local_only")).toHaveLength(5);
   });
@@ -113,6 +113,19 @@ describe("nationwide board trade coverage ledger", () => {
     expect(expanded.find((decision) => decision.tradeDomain === "solar")?.limitations.join(" ")).toContain("electrical or mechanical");
     expect(expanded.find((decision) => decision.tradeDomain === "asbestos")?.limitations.join(" ")).toContain("Environmental Quality");
     expect(expanded.find((decision) => decision.tradeDomain === "pool_spa")?.limitations.join(" ")).toContain("excludes");
+  });
+
+  it("records complete Tennessee contractor classification coverage", async () => {
+    const ledger = boardTradeCoverageLedgerSchema.parse(await json("registry/board-coverage.json"));
+    const expanded = expandBoardTradeCoverageLedger(ledger).filter((decision) => decision.state === "TN");
+
+    expect(expanded.filter((decision) => decision.outcome === "needs_research")).toEqual([]);
+    expect(expanded.every((decision) => decision.outcome === "covered_by_board")).toBe(true);
+    expect(expanded.every((decision) => decision.boardIds.includes("us.tn.commerce.contractors"))).toBe(true);
+    expect(expanded.find((decision) => decision.tradeDomain === "electrical")?.evidence[0]?.note).toContain("CE");
+    expect(expanded.find((decision) => decision.tradeDomain === "mechanical")?.evidence[0]?.note).toContain("CMC");
+    expect(expanded.find((decision) => decision.tradeDomain === "asbestos")?.limitations.join(" ")).toContain("TDEC");
+    expect(expanded.find((decision) => decision.tradeDomain === "home_improvement")?.limitations.join(" ")).toContain("county-specific");
   });
 
   it("records complete Florida coverage against separate DBPR board sources", async () => {
