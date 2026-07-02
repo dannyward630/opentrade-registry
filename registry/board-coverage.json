@@ -618,7 +618,124 @@
       }
     },
     { "state": "DC", "decisions": {} },
-    { "state": "DE", "decisions": {} },
+    {
+      "state": "DE",
+      "decisions": {
+        "general_contracting": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.de.labor.construction_contractors"],
+          "evidence": [{ "url": "https://delcode.delaware.gov/title19/c036/index.html", "reviewedAt": "2026-07-02T00:00:00.000Z", "note": "The Delaware Contractor Registration Act requires contractors to register before performing construction services or maintenance and defines construction services broadly across buildings, structures, improvements, utility work, excavating, and related work." }],
+          "limitations": ["The Delaware construction contractor registry is a registration/compliance source, not a substitute for trade-specific professional licenses, environmental credentials, local permits, or business licenses."]
+        },
+        "residential_contracting": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.de.labor.construction_contractors"],
+          "evidence": [{ "url": "https://delcode.delaware.gov/title19/c036/index.html", "reviewedAt": "2026-07-02T00:00:00.000Z", "note": "The Delaware Contractor Registration Act requires contractors to register before performing construction services or maintenance and defines construction services broadly across buildings, structures, improvements, utility work, excavating, and related work." }],
+          "limitations": ["The Delaware construction contractor registry is a registration/compliance source, not a substitute for trade-specific professional licenses, environmental credentials, local permits, or business licenses.", "Municipal permits and trade-specific credentials remain outside the contractor-registration source."]
+        },
+        "commercial_contracting": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.de.labor.construction_contractors"],
+          "evidence": [{ "url": "https://delcode.delaware.gov/title19/c036/index.html", "reviewedAt": "2026-07-02T00:00:00.000Z", "note": "The Delaware Contractor Registration Act requires contractors to register before performing construction services or maintenance and defines construction services broadly across buildings, structures, improvements, utility work, excavating, and related work." }],
+          "limitations": ["The Delaware construction contractor registry is a registration/compliance source, not a substitute for trade-specific professional licenses, environmental credentials, local permits, or business licenses.", "State public-works, local permitting, and trade-specific companion requirements may still apply."]
+        },
+        "electrical": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.de.labor.construction_contractors", "us.de.dpr.electrical_examiners"],
+          "evidence": [
+            { "url": "https://onestop.delaware.gov/Operate_Contractors", "reviewedAt": "2026-07-02T00:00:00.000Z", "note": "Official One Stop guidance lists construction-registration NAICS examples including electrical work." },
+            { "url": "https://dpr.delaware.gov/boards/electrician/", "reviewedAt": "2026-07-02T00:00:00.000Z", "note": "The Board of Electrical Examiners issues electrician licenses and licenses electrical inspection agencies through DPR/DELPROS." }
+          ],
+          "limitations": ["The Delaware construction contractor registry is a registration/compliance source, not a substitute for trade-specific professional licenses, environmental credentials, local permits, or business licenses.", "Electrical credential level and inspection-agency status must be preserved separately from contractor registration."]
+        },
+        "plumbing": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.de.labor.construction_contractors", "us.de.dpr.plumbing_hvacr"],
+          "evidence": [
+            { "url": "https://onestop.delaware.gov/Operate_Contractors", "reviewedAt": "2026-07-02T00:00:00.000Z", "note": "Official One Stop guidance lists construction-registration NAICS examples including plumbing work." },
+            { "url": "https://dpr.delaware.gov/boards/plumbers/", "reviewedAt": "2026-07-02T00:00:00.000Z", "note": "The Board of Plumbing, Heating, Ventilation, Air Conditioning and Refrigeration Examiners issues master plumber, master HVACR, and master restricted HVACR licenses." }
+          ],
+          "limitations": ["The Delaware construction contractor registry is a registration/compliance source, not a substitute for trade-specific professional licenses, environmental credentials, local permits, or business licenses.", "Master plumber credentials must be verified separately from contractor registration."]
+        },
+        "hvac": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.de.labor.construction_contractors", "us.de.dpr.plumbing_hvacr"],
+          "evidence": [
+            { "url": "https://onestop.delaware.gov/Operate_Contractors", "reviewedAt": "2026-07-02T00:00:00.000Z", "note": "Official One Stop guidance lists construction-registration NAICS examples including HVAC work." },
+            { "url": "https://dpr.delaware.gov/boards/plumbers/", "reviewedAt": "2026-07-02T00:00:00.000Z", "note": "The Board of Plumbing, Heating, Ventilation, Air Conditioning and Refrigeration Examiners issues master plumber, master HVACR, and master restricted HVACR licenses." },
+            { "url": "https://dpr.delaware.gov/boards/plumbers/hvacrlicensure/", "reviewedAt": "2026-07-02T00:00:00.000Z", "note": "The HVACR licensure page describes unrestricted and restricted HVACR scopes including ventilation, commercial hoods, refrigeration, air conditioning, and gas piping." }
+          ],
+          "limitations": ["The Delaware construction contractor registry is a registration/compliance source, not a substitute for trade-specific professional licenses, environmental credentials, local permits, or business licenses.", "Restricted HVACR credentials limit practice to specific specialties and must not be treated as unrestricted HVACR authorization."]
+        },
+        "mechanical": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.de.labor.construction_contractors", "us.de.dpr.plumbing_hvacr"],
+          "evidence": [
+            { "url": "https://onestop.delaware.gov/Operate_Contractors", "reviewedAt": "2026-07-02T00:00:00.000Z", "note": "Official One Stop guidance lists construction-registration NAICS examples including mechanical construction." },
+            { "url": "https://dpr.delaware.gov/boards/plumbers/hvacrlicensure/", "reviewedAt": "2026-07-02T00:00:00.000Z", "note": "The HVACR licensure page describes unrestricted and restricted HVACR scopes including ventilation, commercial hoods, refrigeration, air conditioning, and gas piping." }
+          ],
+          "limitations": ["The Delaware construction contractor registry is a registration/compliance source, not a substitute for trade-specific professional licenses, environmental credentials, local permits, or business licenses.", "Mechanical coverage is limited to construction-registration and HVACR-related scopes documented by Delaware; other mechanical work may have companion requirements."]
+        },
+        "roofing": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.de.labor.construction_contractors"],
+          "evidence": [{ "url": "https://onestop.delaware.gov/Operate_Contractors", "reviewedAt": "2026-07-02T00:00:00.000Z", "note": "Official One Stop guidance lists roofing as a construction-registration NAICS example." }],
+          "limitations": ["The Delaware construction contractor registry is a registration/compliance source, not a substitute for trade-specific professional licenses, environmental credentials, local permits, or business licenses.", "Roofing work involving asbestos-containing material must also be checked against DFM asbestos credentials."]
+        },
+        "solar": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.de.labor.construction_contractors", "us.de.dpr.electrical_examiners", "us.de.dpr.plumbing_hvacr"],
+          "evidence": [
+            { "url": "https://delcode.delaware.gov/title19/c036/index.html", "reviewedAt": "2026-07-02T00:00:00.000Z", "note": "The Delaware Contractor Registration Act requires contractors to register before performing construction services or maintenance." },
+            { "url": "https://dpr.delaware.gov/boards/electrician/", "reviewedAt": "2026-07-02T00:00:00.000Z", "note": "The Board of Electrical Examiners issues electrical credentials through DPR/DELPROS." },
+            { "url": "https://dpr.delaware.gov/boards/plumbers/hvacrlicensure/", "reviewedAt": "2026-07-02T00:00:00.000Z", "note": "The HVACR licensure page documents heating, ventilation, refrigeration, air conditioning, gas piping, and related scopes." }
+          ],
+          "limitations": ["The Delaware construction contractor registry is a registration/compliance source, not a substitute for trade-specific professional licenses, environmental credentials, local permits, or business licenses.", "Solar work may require electrical and/or HVACR/plumbing credentials depending on photovoltaic, thermal, gas piping, or mechanical scope."]
+        },
+        "pool_spa": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.de.labor.construction_contractors", "us.de.dpr.plumbing_hvacr"],
+          "evidence": [
+            { "url": "https://delcode.delaware.gov/title19/c036/index.html", "reviewedAt": "2026-07-02T00:00:00.000Z", "note": "The Delaware Contractor Registration Act requires contractors to register before performing construction services or maintenance." },
+            { "url": "https://dpr.delaware.gov/boards/plumbers/", "reviewedAt": "2026-07-02T00:00:00.000Z", "note": "The Board of Plumbing, Heating, Ventilation, Air Conditioning and Refrigeration Examiners issues plumbing and HVACR credentials." }
+          ],
+          "limitations": ["The Delaware construction contractor registry is a registration/compliance source, not a substitute for trade-specific professional licenses, environmental credentials, local permits, or business licenses.", "Pool/spa coverage is limited to construction-registration and plumbing/HVACR-related scopes; local permits remain excluded."]
+        },
+        "asbestos": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.de.labor.construction_contractors", "us.de.dfm.asbestos_contractors"],
+          "evidence": [
+            { "url": "https://onestop.delaware.gov/Operate_Contractors", "reviewedAt": "2026-07-02T00:00:00.000Z", "note": "Official One Stop guidance lists asbestos removal as a construction-registration NAICS example." },
+            { "url": "https://dfm.delaware.gov/envsrv/asbestos/requirements.shtml", "reviewedAt": "2026-07-02T00:00:00.000Z", "note": "DFM Asbestos Office requirements identify Class A Contractor, Class B Contractor, and Professional Service Firm applications reviewed and approved by the State of Delaware Asbestos Office." }
+          ],
+          "limitations": ["The Delaware construction contractor registry is a registration/compliance source, not a substitute for trade-specific professional licenses, environmental credentials, local permits, or business licenses.", "DFM asbestos credentials must be verified separately; DNREC, federal, disposal, notification, and project-specific requirements remain outside this source entry."]
+        },
+        "sheet_metal": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.de.labor.construction_contractors", "us.de.dpr.plumbing_hvacr"],
+          "evidence": [
+            { "url": "https://onestop.delaware.gov/Operate_Contractors", "reviewedAt": "2026-07-02T00:00:00.000Z", "note": "Official One Stop guidance lists sheet metal as a construction-registration NAICS example." },
+            { "url": "https://dpr.delaware.gov/boards/plumbers/hvacrlicensure/", "reviewedAt": "2026-07-02T00:00:00.000Z", "note": "The HVACR licensure page describes unrestricted and restricted HVACR scopes including ventilation and commercial hood systems." }
+          ],
+          "limitations": ["The Delaware construction contractor registry is a registration/compliance source, not a substitute for trade-specific professional licenses, environmental credentials, local permits, or business licenses.", "Sheet-metal coverage is limited to mechanical/ventilation/HVACR construction scopes documented by Delaware."]
+        },
+        "underground_utility": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.de.labor.construction_contractors"],
+          "evidence": [
+            { "url": "https://delcode.delaware.gov/title19/c036/index.html", "reviewedAt": "2026-07-02T00:00:00.000Z", "note": "The Delaware Contractor Registration Act defines construction services to include sewers, mains, power lines, pumping stations, excavating, canals, dredging, and related work." },
+            { "url": "https://onestop.delaware.gov/Operate_Contractors", "reviewedAt": "2026-07-02T00:00:00.000Z", "note": "Official One Stop guidance lists sewer piping and storm drains, pipeline construction, boring, excavation, and well drilling as construction-registration NAICS examples." }
+          ],
+          "limitations": ["The Delaware construction contractor registry is a registration/compliance source, not a substitute for trade-specific professional licenses, environmental credentials, local permits, or business licenses.", "Utility-owner requirements, transportation approvals, environmental permits, and local excavation permits remain excluded."]
+        },
+        "home_improvement": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.de.labor.construction_contractors"],
+          "evidence": [{ "url": "https://delcode.delaware.gov/title19/c036/index.html", "reviewedAt": "2026-07-02T00:00:00.000Z", "note": "The Delaware Contractor Registration Act requires contractors to register before performing construction services or maintenance." }],
+          "limitations": ["The Delaware construction contractor registry is a registration/compliance source, not a substitute for trade-specific professional licenses, environmental credentials, local permits, or business licenses.", "Home-improvement fraud and consumer-protection issues are not license-status fields in this source."]
+        }
+      }
+    },
     {
       "state": "FL",
       "decisions": {
