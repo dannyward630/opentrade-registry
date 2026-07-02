@@ -1205,12 +1205,13 @@
         "us.nc.ncbeec.electrical_contractors"
       ],
       "trades": [
-        "electrical"
+        "electrical",
+        "solar"
       ],
       "accessPath": "manual_handoff",
       "coverageLimitations": [
         "This source is scoped to electrical contractor licenses regulated by the North Carolina State Board of Examiners of Electrical Contractors.",
-        "General contracting, plumbing, heating, fire sprinkler, local permits, and municipal registrations are outside this source entry.",
+        "General contracting, plumbing, heating, fire sprinkler, building permits, local permits, and municipal registrations are outside this source entry.",
         "The official source is lookup-oriented; no stable machine-readable bulk export has been confirmed for OpenTrade ingestion."
       ],
       "evidence": {
@@ -1236,6 +1237,7 @@
         "residential_contracting",
         "commercial_contracting",
         "roofing",
+        "solar",
         "pool_spa",
         "asbestos",
         "underground_utility",

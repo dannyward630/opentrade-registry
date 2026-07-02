@@ -20,6 +20,7 @@
     "residential_contracting",
     "commercial_contracting",
     "roofing",
+    "solar",
     "pool_spa",
     "asbestos",
     "underground_utility",
@@ -54,7 +55,7 @@
   "testFixturePath": null,
   "officialLookupUrl": "https://portal.nclbgc.org/Public/Search",
   "officialBulkDownloadNotes": "No official bulk download has been confirmed in this phase.",
-  "researchNotes": "Useful source for general-contractor verification semantics, including building, residential, highway, public utilities, and specialty classifications. It is not broad enough to represent all North Carolina skilled trades.",
+  "researchNotes": "Useful source for general-contractor verification semantics, including building, residential, highway, public utilities, and specialty classifications. Official solar-panel guidance says SPVP installations are electrical work unless structural or other general-contractor work is included. This source is not broad enough to represent all North Carolina skilled trades.",
   "lastVerifiedAt": "2026-06-27T00:00:00.000Z",
   "maintainerNotes": "Keep the source scope visible in CLI and docs to avoid overbroad statewide claims.",
   "schemaVersion": "1.0",
@@ -70,6 +71,11 @@
       "url": "https://nclbgc.org/classifications-and-limitations/",
       "checkedAt": "2026-07-02T00:00:00.000Z",
       "note": "Official classifications page reviewed; it documents building, residential, highway, public utilities, and specialty classifications including roofing, swimming pools, asbestos, and utility-line scopes."
+    },
+    {
+      "url": "https://nclbgc.org/wp-content/uploads/2022/07/Solar-Panel-Installation-Licensing-Final.pdf",
+      "checkedAt": "2026-07-02T00:00:00.000Z",
+      "note": "Official solar-panel licensing guidance reviewed; it says SPVP installations are electrical work unless structural or other improvements involve work typically performed by licensed general contractors."
     }
   ],
   "sourceResearchOutcome": "blocked",
