@@ -15,8 +15,8 @@ describe("nationwide board trade coverage ledger", () => {
     expect(ledger.jurisdictions).toHaveLength(56);
     expect(new Set(ledger.jurisdictions.map((entry) => entry.state)).size).toBe(56);
     expect(expanded).toHaveLength(56 * BOARD_TRADE_DOMAINS.length);
-    expect(expanded.filter((decision) => decision.outcome === "needs_research")).toHaveLength(504);
-    expect(expanded.filter((decision) => decision.outcome === "covered_by_board")).toHaveLength(255);
+    expect(expanded.filter((decision) => decision.outcome === "needs_research")).toHaveLength(490);
+    expect(expanded.filter((decision) => decision.outcome === "covered_by_board")).toHaveLength(269);
     expect(expanded.filter((decision) => decision.outcome === "not_state_regulated")).toHaveLength(6);
     expect(expanded.filter((decision) => decision.outcome === "local_only")).toHaveLength(19);
   });
@@ -239,6 +239,21 @@ describe("nationwide board trade coverage ledger", () => {
     expect(expanded.find((decision) => decision.tradeDomain === "pool_spa")?.limitations.join(" ")).toContain("residential-appliance electrical credentials");
     expect(expanded.find((decision) => decision.tradeDomain === "sheet_metal")?.limitations.join(" ")).toContain("HVAC systems");
     expect(expanded.find((decision) => decision.tradeDomain === "underground_utility")?.limitations.join(" ")).toContain("TCEQ UST registration");
+  });
+
+  it("records complete Washington L&I contractor, trade, and asbestos coverage", async () => {
+    const ledger = boardTradeCoverageLedgerSchema.parse(await json("registry/board-coverage.json"));
+    const expanded = expandBoardTradeCoverageLedger(ledger).filter((decision) => decision.state === "WA");
+
+    expect(expanded.filter((decision) => decision.outcome === "needs_research")).toEqual([]);
+    expect(expanded.every((decision) => decision.outcome === "covered_by_board")).toBe(true);
+    expect(expanded.find((decision) => decision.tradeDomain === "general_contracting")?.boardIds).toEqual(["us.wa.lni.contractors"]);
+    expect(expanded.find((decision) => decision.tradeDomain === "electrical")?.boardIds).toEqual(["us.wa.lni.electrical_contractors", "us.wa.lni.contractors"]);
+    expect(expanded.find((decision) => decision.tradeDomain === "plumbing")?.boardIds).toEqual(["us.wa.lni.plumbing_contractors", "us.wa.lni.contractors"]);
+    expect(expanded.find((decision) => decision.tradeDomain === "asbestos")?.boardIds).toEqual(["us.wa.lni.asbestos_contractors", "us.wa.lni.contractors"]);
+    expect(expanded.find((decision) => decision.tradeDomain === "hvac")?.evidence[0]?.note).toContain("HVAC");
+    expect(expanded.find((decision) => decision.tradeDomain === "solar")?.limitations.join(" ")).toContain("utility interconnection");
+    expect(expanded.find((decision) => decision.tradeDomain === "pool_spa")?.limitations.join(" ")).toContain("pool/spa-only");
   });
 
   it("records complete Hawaii contractor classification coverage", async () => {

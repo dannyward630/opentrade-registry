@@ -415,11 +415,14 @@
     },
     {
       "state": "WA",
-      "status": "network_opt_in_supported",
+      "status": "blocked",
       "sourceIds": [
-        "us.wa.lni.contractors"
+        "us.wa.lni.asbestos_contractors",
+        "us.wa.lni.contractors",
+        "us.wa.lni.electrical_contractors",
+        "us.wa.lni.plumbing_contractors"
       ],
-      "notes": "A terminal OpenTrade Registry adapter capability is implemented with offline tests and documented source caveats."
+      "notes": "A terminal OpenTrade Registry adapter capability is implemented for L&I contractor registration. Separate L&I electrical, plumbing, and asbestos lookup entries are retained as blocked metadata until stable source shapes are reviewed."
     },
     {
       "state": "WV",

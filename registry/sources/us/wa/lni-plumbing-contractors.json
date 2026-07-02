@@ -1,0 +1,78 @@
+{
+  "id": "us.wa.lni.plumbing_contractors",
+  "name": "Washington L&I Plumbing Contractor License",
+  "jurisdiction": {
+    "country": "US",
+    "state": "WA"
+  },
+  "agency": {
+    "name": "Washington State Department of Labor & Industries",
+    "url": "https://www.lni.wa.gov/"
+  },
+  "sourceType": "html_lookup",
+  "sourceUrl": "https://lni.wa.gov/licensing-permits/plumbing/licensed-plumbing-contractor/",
+  "documentationUrl": "https://lni.wa.gov/licensing-permits/plumbing/licensed-plumbing-contractor/",
+  "dataDictionaryUrl": null,
+  "termsUrl": "https://data.wa.gov/stories/s/Open-Data-Policy/9n5e-k4ra/",
+  "updateFrequency": "unknown for the lookup; verify against the official L&I Verify tool before relying on freshness assumptions",
+  "tradeCoverage": [
+    "plumbing"
+  ],
+  "licenseTypesIncluded": [
+    "Washington L&I plumbing contractor licenses"
+  ],
+  "knownExclusions": [
+    "This entry is scoped to licensed plumbing contractors and L&I verification metadata.",
+    "Individual plumber certificates, local permits, inspections, water-system operator credentials, and non-plumbing construction credentials are outside this source entry.",
+    "Plumbing contractors may also need general contractor registration for non-plumbing work, depending on the scope."
+  ],
+  "hasBulkDownload": "unknown",
+  "hasLiveLookup": true,
+  "requiresJavaScript": true,
+  "requiresCaptcha": "unknown",
+  "requiresAccount": false,
+  "rateLimitNotes": "No adapter is implemented. Do not automate the L&I Verify lookup without a separate access-control, terms, and saved-fixture review.",
+  "redistributionStatus": "unknown",
+  "publicRecordsNotes": "Official L&I lookup metadata only. Absence from this source is not proof that a credential, permit, or local authorization does not exist elsewhere.",
+  "adapterStatus": "blocked",
+  "sourceDiscoveryStatus": "blocked",
+  "adapterMaturity": "blocked",
+  "adapterQualityLevel": 0,
+  "coverageScope": "state_agency_partial",
+  "adapterPackage": null,
+  "testFixturePath": null,
+  "officialLookupUrl": "https://secure.lni.wa.gov/verify/",
+  "officialBulkDownloadNotes": "No official plumbing-contractor-specific bulk download has been adapter-reviewed in this phase.",
+  "researchNotes": "Registry-only source for Washington L&I plumbing contractor verification. L&I states that a plumbing contractor license is required to advertise, offer, bid, or perform plumbing work.",
+  "lastVerifiedAt": "2026-07-02T00:00:00.000Z",
+  "maintainerNotes": "Keep this source separate from individual plumber certification and general contractor registration until source shapes are reviewed.",
+  "schemaVersion": "1.0",
+  "researchReviewedAt": "2026-07-02T00:00:00.000Z",
+  "nextReviewAt": "2027-01-02T00:00:00.000Z",
+  "researchEvidence": [
+    {
+      "url": "https://lni.wa.gov/licensing-permits/plumbing/licensed-plumbing-contractor/",
+      "checkedAt": "2026-07-02T00:00:00.000Z",
+      "note": "Official L&I page reviewed; it states that a plumbing contractor license is required to advertise, offer, bid, or perform plumbing work."
+    },
+    {
+      "url": "https://lni.wa.gov/licensing-permits/plumbing/licensed-plumbing-contractor/licensing-requirements",
+      "checkedAt": "2026-07-02T00:00:00.000Z",
+      "note": "Official L&I requirements reviewed; plumbing contractors must designate a certified plumber and may also register as general contractors for non-plumbing work."
+    },
+    {
+      "url": "https://secure.lni.wa.gov/verify/",
+      "checkedAt": "2026-07-02T00:00:00.000Z",
+      "note": "Official L&I Verify lookup reviewed as the public verification path for contractors, tradespeople, and businesses."
+    }
+  ],
+  "sourceResearchOutcome": "blocked",
+  "blocker": {
+    "code": "technical_instability",
+    "summary": "An official lookup exists, but no stable plumbing-contractor-specific bulk or saved-fixture browser path has been adapter-reviewed.",
+    "evidenceUrls": [
+      "https://lni.wa.gov/licensing-permits/plumbing/licensed-plumbing-contractor/",
+      "https://secure.lni.wa.gov/verify/"
+    ]
+  }
+}

@@ -2366,6 +2366,33 @@
       }
     },
     {
+      "id": "us.wa.lni.asbestos_contractors",
+      "jurisdiction": {
+        "country": "US",
+        "state": "WA"
+      },
+      "boardName": "Washington L&I Asbestos Abatement Contractor Certification",
+      "agencyName": "Washington State Department of Labor & Industries",
+      "officialUrl": "https://secure.lni.wa.gov/verify/",
+      "sourceIds": [
+        "us.wa.lni.asbestos_contractors"
+      ],
+      "trades": [
+        "asbestos"
+      ],
+      "accessPath": "manual_handoff",
+      "coverageLimitations": [
+        "This entry is scoped to asbestos abatement contractor certification and L&I verification metadata.",
+        "Individual asbestos worker and supervisor certifications, project notifications, local permits, and non-asbestos construction credentials are outside this source entry.",
+        "The official lookup path has not been adapter-reviewed for machine access."
+      ],
+      "evidence": {
+        "url": "https://www.lni.wa.gov/licensing-permits/other-licenses-permits/asbestos-certification",
+        "reviewedAt": "2026-07-02T00:00:00.000Z",
+        "note": "Official L&I asbestos certification page reviewed for asbestos worker, supervisor, and contractor certification context."
+      }
+    },
+    {
       "id": "us.wa.lni.contractors",
       "jurisdiction": {
         "country": "US",
@@ -2389,6 +2416,61 @@
         "url": "https://secure.lni.wa.gov/verify/",
         "reviewedAt": "2026-06-27T00:00:00.000Z",
         "note": "Official bulk source and opt-in network path reviewed."
+      }
+    },
+    {
+      "id": "us.wa.lni.electrical_contractors",
+      "jurisdiction": {
+        "country": "US",
+        "state": "WA"
+      },
+      "boardName": "Washington L&I Electrical Contractor License",
+      "agencyName": "Washington State Department of Labor & Industries",
+      "officialUrl": "https://secure.lni.wa.gov/verify/",
+      "sourceIds": [
+        "us.wa.lni.electrical_contractors"
+      ],
+      "trades": [
+        "electrical",
+        "solar"
+      ],
+      "accessPath": "manual_handoff",
+      "coverageLimitations": [
+        "This entry is scoped to electrical contractor licensing and related L&I verification metadata.",
+        "Individual electrician certifications, electrical permits, inspections, local permits, and utility-owned infrastructure are outside this source entry.",
+        "Solar projects may require electrical contractor credentials for electrical work plus other contractor registration or permit requirements depending on the scope."
+      ],
+      "evidence": {
+        "url": "https://lni.wa.gov/licensing-permits/electrical/electrical-licensing-exams-education/electrical-contractor",
+        "reviewedAt": "2026-07-02T00:00:00.000Z",
+        "note": "Official L&I page reviewed; it states that businesses must get an electrical contractor license to engage in the electrical construction trade and describes general and specialty electrical contractor scopes."
+      }
+    },
+    {
+      "id": "us.wa.lni.plumbing_contractors",
+      "jurisdiction": {
+        "country": "US",
+        "state": "WA"
+      },
+      "boardName": "Washington L&I Plumbing Contractor License",
+      "agencyName": "Washington State Department of Labor & Industries",
+      "officialUrl": "https://secure.lni.wa.gov/verify/",
+      "sourceIds": [
+        "us.wa.lni.plumbing_contractors"
+      ],
+      "trades": [
+        "plumbing"
+      ],
+      "accessPath": "manual_handoff",
+      "coverageLimitations": [
+        "This entry is scoped to licensed plumbing contractors and L&I verification metadata.",
+        "Individual plumber certificates, local permits, inspections, water-system operator credentials, and non-plumbing construction credentials are outside this source entry.",
+        "Plumbing contractors may also need general contractor registration for non-plumbing work, depending on the scope."
+      ],
+      "evidence": {
+        "url": "https://lni.wa.gov/licensing-permits/plumbing/licensed-plumbing-contractor/",
+        "reviewedAt": "2026-07-02T00:00:00.000Z",
+        "note": "Official L&I page reviewed; it states that a plumbing contractor license is required to advertise, offer, bid, or perform plumbing work."
       }
     },
     {

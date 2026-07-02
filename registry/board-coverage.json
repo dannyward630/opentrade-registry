@@ -1761,7 +1761,95 @@
     { "state": "VA", "decisions": {} },
     { "state": "VI", "decisions": {} },
     { "state": "VT", "decisions": {} },
-    { "state": "WA", "decisions": {} },
+    {
+      "state": "WA",
+      "decisions": {
+        "general_contracting": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.wa.lni.contractors"],
+          "evidence": [{ "url": "https://lni.wa.gov/licensing-permits/contractors/register-as-a-contractor/", "reviewedAt": "2026-07-02T00:00:00.000Z", "note": "Washington L&I says construction contractors must register, and that registered contractors can bid, advertise, and perform construction work including constructing, remodeling, repairing, and demolishing buildings, roads, and other real property." }],
+          "limitations": ["The L&I contractor-registration dataset does not replace trade-specific electrical, plumbing, asbestos, permit, inspection, or local authorization requirements."]
+        },
+        "residential_contracting": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.wa.lni.contractors"],
+          "evidence": [{ "url": "https://lni.wa.gov/licensing-permits/contractors/register-as-a-contractor/", "reviewedAt": "2026-07-02T00:00:00.000Z", "note": "Washington L&I describes construction contractor registration for construction, remodeling, repair, and demolition of buildings and other real property, including general and specialty contractor classifications." }],
+          "limitations": ["Local permits, inspections, business licensing, and trade-specific credentials may still apply depending on project scope."]
+        },
+        "commercial_contracting": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.wa.lni.contractors"],
+          "evidence": [{ "url": "https://lni.wa.gov/licensing-permits/contractors/register-as-a-contractor/", "reviewedAt": "2026-07-02T00:00:00.000Z", "note": "Washington L&I requires construction contractors to register and describes registered contractor work broadly enough to include commercial construction scopes." }],
+          "limitations": ["Specialty contractor limits, public-works rules, permits, and trade-specific licenses remain outside the base contractor-registration dataset."]
+        },
+        "roofing": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.wa.lni.contractors"],
+          "evidence": [{ "url": "https://lni.wa.gov/licensing-permits/contractors/register-as-a-contractor/", "reviewedAt": "2026-07-02T00:00:00.000Z", "note": "Washington L&I states that it regulates 63 specialties requiring contractor registration and identifies roofing as one of the specialties." }],
+          "limitations": ["Roofing is tracked here as a contractor-registration specialty; local permits and related trade requirements may still apply."]
+        },
+        "hvac": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.wa.lni.contractors", "us.wa.lni.electrical_contractors"],
+          "evidence": [{ "url": "https://lni.wa.gov/licensing-permits/contractors/register-as-a-contractor/", "reviewedAt": "2026-07-02T00:00:00.000Z", "note": "Washington L&I identifies HVAC as one of the contractor-registration specialties." }, { "url": "https://lni.wa.gov/licensing-permits/electrical/electrical-licensing-exams-education/electrical-contractor", "reviewedAt": "2026-07-02T00:00:00.000Z", "note": "L&I also requires electrical contractor licensing for electrical construction work, which may apply to HVAC electrical scopes." }],
+          "limitations": ["HVAC contractor-registration coverage does not by itself authorize electrical, plumbing, permit, or inspection work where separate credentials are required."]
+        },
+        "plumbing": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.wa.lni.plumbing_contractors", "us.wa.lni.contractors"],
+          "evidence": [{ "url": "https://lni.wa.gov/licensing-permits/plumbing/licensed-plumbing-contractor/", "reviewedAt": "2026-07-02T00:00:00.000Z", "note": "Washington L&I states that a plumbing contractor license is required to advertise, offer, bid, or perform plumbing work." }, { "url": "https://lni.wa.gov/licensing-permits/plumbing/licensed-plumbing-contractor/licensing-requirements", "reviewedAt": "2026-07-02T00:00:00.000Z", "note": "L&I says plumbing contractors must designate a certified plumber and may also register as general contractors for non-plumbing work." }],
+          "limitations": ["This decision covers the statewide plumbing contractor license path; individual plumber certificates, permits, inspections, and local requirements remain separate."]
+        },
+        "electrical": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.wa.lni.electrical_contractors", "us.wa.lni.contractors"],
+          "evidence": [{ "url": "https://lni.wa.gov/licensing-permits/electrical/electrical-licensing-exams-education/electrical-contractor", "reviewedAt": "2026-07-02T00:00:00.000Z", "note": "Washington L&I states that businesses must get an electrical contractor license to engage in the electrical construction trade, with general and specialty electrical contractor scopes." }],
+          "limitations": ["This decision covers statewide electrical contractor licensing; individual electrician certification, permits, inspections, and utility-owner exclusions remain separate."]
+        },
+        "mechanical": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.wa.lni.contractors", "us.wa.lni.electrical_contractors", "us.wa.lni.plumbing_contractors"],
+          "evidence": [{ "url": "https://lni.wa.gov/licensing-permits/contractors/register-as-a-contractor/", "reviewedAt": "2026-07-02T00:00:00.000Z", "note": "Washington L&I contractor registration covers construction contractor specialties, including HVAC, and broadly covers construction work on buildings, roads, and other real property." }, { "url": "https://www.lni.wa.gov/agency/small-business/business-requirements", "reviewedAt": "2026-07-02T00:00:00.000Z", "note": "L&I business requirements caution that contractors should only perform work requiring special licensing or certification if properly qualified." }],
+          "limitations": ["No separate statewide mechanical board source was verified in this phase; mechanical work may require contractor registration plus electrical, plumbing, permit, or inspection credentials depending on scope."]
+        },
+        "solar": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.wa.lni.electrical_contractors", "us.wa.lni.contractors"],
+          "evidence": [{ "url": "https://lni.wa.gov/licensing-permits/electrical/electrical-licensing-exams-education/electrical-contractor", "reviewedAt": "2026-07-02T00:00:00.000Z", "note": "Washington L&I electrical contractor licensing covers electrical construction work, including general and specialty electrical contractor scopes." }, { "url": "https://www.lni.wa.gov/agency/small-business/business-requirements", "reviewedAt": "2026-07-02T00:00:00.000Z", "note": "L&I cautions contractors to perform specially licensed or certified work only when properly qualified." }],
+          "limitations": ["Solar projects may involve electrical contractor credentials plus contractor registration, building permits, utility interconnection, and local inspection requirements; no solar-only statewide contractor board was verified."]
+        },
+        "pool_spa": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.wa.lni.contractors", "us.wa.lni.electrical_contractors", "us.wa.lni.plumbing_contractors"],
+          "evidence": [{ "url": "https://lni.wa.gov/licensing-permits/contractors/register-as-a-contractor/", "reviewedAt": "2026-07-02T00:00:00.000Z", "note": "Washington L&I requires construction contractor registration for construction, remodeling, repair, and demolition of buildings, roads, and other real property." }, { "url": "https://www.lni.wa.gov/agency/small-business/business-requirements", "reviewedAt": "2026-07-02T00:00:00.000Z", "note": "L&I cautions that contractors should only perform work requiring special licensing or certification if properly qualified." }],
+          "limitations": ["No pool/spa-only statewide contractor board was verified; pool/spa work may involve contractor registration plus electrical, plumbing, permits, inspections, and local health or building requirements."]
+        },
+        "underground_utility": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.wa.lni.contractors", "us.wa.lni.electrical_contractors", "us.wa.lni.plumbing_contractors"],
+          "evidence": [{ "url": "https://lni.wa.gov/licensing-permits/contractors/register-as-a-contractor/", "reviewedAt": "2026-07-02T00:00:00.000Z", "note": "Washington L&I describes registered contractor work as including roads and other real property, which supports statewide contractor-registration coverage for construction scopes such as utility-related work." }, { "url": "https://www.lni.wa.gov/agency/small-business/business-requirements", "reviewedAt": "2026-07-02T00:00:00.000Z", "note": "L&I cautions that contractors should only perform specially licensed or certified work if properly qualified." }],
+          "limitations": ["No full underground-utility-specific statewide board was verified; utility-owner rules, public-works requirements, environmental permits, plumbing, electrical, and local authorizations may apply."]
+        },
+        "sheet_metal": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.wa.lni.contractors", "us.wa.lni.electrical_contractors"],
+          "evidence": [{ "url": "https://lni.wa.gov/licensing-permits/contractors/register-as-a-contractor/", "reviewedAt": "2026-07-02T00:00:00.000Z", "note": "Washington L&I contractor registration covers general and specialty construction contractor classifications, and L&I identifies HVAC as a contractor-registration specialty." }],
+          "limitations": ["No standalone statewide sheet-metal board was verified; sheet-metal work tied to HVAC or mechanical scopes may require contractor registration and separate electrical, permit, or inspection credentials."]
+        },
+        "home_improvement": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.wa.lni.contractors"],
+          "evidence": [{ "url": "https://lni.wa.gov/licensing-permits/contractors/register-as-a-contractor/", "reviewedAt": "2026-07-02T00:00:00.000Z", "note": "Washington L&I says registered contractors can bid, advertise, and perform construction work including remodeling and repairing buildings and other real property." }],
+          "limitations": ["This decision covers contractor-registration requirements for home-improvement construction scopes; consumer-protection rules, permits, inspections, and local requirements remain separate."]
+        },
+        "asbestos": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.wa.lni.asbestos_contractors", "us.wa.lni.contractors"],
+          "evidence": [{ "url": "https://www.lni.wa.gov/safety-health/safety-topics/topics/asbestos", "reviewedAt": "2026-07-02T00:00:00.000Z", "note": "Washington L&I says contractors and workers must be trained and certified to work with asbestos." }, { "url": "https://www.lni.wa.gov/licensing-permits/other-licenses-permits/asbestos-certification", "reviewedAt": "2026-07-02T00:00:00.000Z", "note": "L&I maintains asbestos certification paths for workers, supervisors, and contractors." }],
+          "limitations": ["Asbestos contractor certification is separate from base contractor registration; worker/supervisor certifications, project notifications, permits, and local requirements remain separate."]
+        }
+      }
+    },
     { "state": "WI", "decisions": {} },
     { "state": "WV", "decisions": {} },
     { "state": "WY", "decisions": {} }

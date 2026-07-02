@@ -129,17 +129,20 @@ describe("source registry", () => {
       "us.va.dpor.contractors",
       "us.vi.dlca.contractors_trades",
       "us.vt.sos.residential_contractors",
+      "us.wa.lni.asbestos_contractors",
       "us.wa.lni.contractors",
+      "us.wa.lni.electrical_contractors",
+      "us.wa.lni.plumbing_contractors",
       "us.wi.dsps.dwelling_trades",
       "us.wv.labor.contractors",
       "us.wy.firemarshal.electrical",
     ]);
     expect(parsed.every((entry) => entry.redistributionStatus === "unknown")).toBe(true);
     expect(parsed.filter((entry) => entry.sourceDiscoveryStatus === "researched")).toHaveLength(9);
-    expect(parsed.filter((entry) => entry.sourceDiscoveryStatus === "blocked")).toHaveLength(71);
+    expect(parsed.filter((entry) => entry.sourceDiscoveryStatus === "blocked")).toHaveLength(74);
     expect(parsed.filter((entry) => entry.adapterMaturity === "network_opt_in")).toHaveLength(7);
     expect(parsed.filter((entry) => entry.adapterMaturity === "local_file_adapter")).toHaveLength(2);
-    expect(parsed.filter((entry) => entry.adapterMaturity === "blocked")).toHaveLength(71);
+    expect(parsed.filter((entry) => entry.adapterMaturity === "blocked")).toHaveLength(74);
     for (const implemented of parsed.filter((entry) => entry.adapterStatus === "implemented")) {
       expect(implemented.adapterQualityLevel, `${implemented.id} should have Level 4 verification quality`).toBe(4);
       expect(implemented.verificationReviewedAt, `${implemented.id} needs a verification review timestamp`).toMatch(/^\d{4}-\d{2}-\d{2}T/);
@@ -303,9 +306,9 @@ describe("source registry", () => {
       const coverageCode = coverageStatesBySourceId.get(source.id) ?? coverageTerritoriesBySourceId.get(source.id);
       expect(coverageCode, `${source.id} is missing from US coverage`).toBe(source.jurisdiction.state);
     }
-    expect(coverage.states.filter((entry) => entry.status === "blocked")).toHaveLength(45);
+    expect(coverage.states.filter((entry) => entry.status === "blocked")).toHaveLength(46);
     expect(coverage.states.filter((entry) => entry.status === "local_file_supported")).toHaveLength(2);
-    expect(coverage.states.filter((entry) => entry.status === "network_opt_in_supported")).toHaveLength(4);
+    expect(coverage.states.filter((entry) => entry.status === "network_opt_in_supported")).toHaveLength(3);
     expect(coverage.states.find((entry) => entry.state === "AZ")?.status).toBe("network_opt_in_supported");
     expect(coverage.states.find((entry) => entry.state === "FL")?.status).toBe("network_opt_in_supported");
     expect(coverage.states.find((entry) => entry.state === "AK")?.status).toBe("blocked");
