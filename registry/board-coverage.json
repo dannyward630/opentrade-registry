@@ -1224,6 +1224,15 @@
           "evidence": [{ "url": "https://nclbgc.org/classifications-and-limitations/", "reviewedAt": "2026-07-02T00:00:00.000Z", "note": "NCLBGC states the Building and Residential classifications cover work under the S(Asbestos) specialty classification." }],
           "limitations": ["Environmental notifications, training, or abatement rules may involve separate state or federal requirements outside the general-contractor board source."]
         },
+        "sheet_metal": {
+          "outcome": "not_state_regulated",
+          "boardIds": [],
+          "evidence": [
+            { "url": "https://nclbgc.org/classifications-and-limitations/", "reviewedAt": "2026-07-02T00:00:00.000Z", "note": "NCLBGC's official classification list includes S(Metal Erection) under Building Contractor scope but does not list a standalone sheet-metal contractor classification." },
+            { "url": "https://nclicensing.org/", "reviewedAt": "2026-07-02T00:00:00.000Z", "note": "The plumbing/heating/fire-sprinkler board describes its licensing mission as plumbing, HVAC, fuel gas piping, and fire sprinkler trades, not a separate sheet-metal contractor license." }
+          ],
+          "limitations": ["This is a statewide board-coverage decision, not a claim that sheet-metal work is unregulated in every code, permit, local, or project context."]
+        },
         "underground_utility": {
           "outcome": "covered_by_board",
           "boardIds": ["us.nc.nclbgc.general_contractors"],
