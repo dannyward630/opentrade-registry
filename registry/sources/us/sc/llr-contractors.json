@@ -16,13 +16,26 @@
   "termsUrl": "https://llr.sc.gov/",
   "updateFrequency": "unknown; verify against the official lookup before relying on freshness assumptions",
   "tradeCoverage": [
-    "contractors"
+    "general_contracting",
+    "commercial_contracting",
+    "electrical",
+    "plumbing",
+    "hvac",
+    "mechanical",
+    "roofing",
+    "solar",
+    "pool_spa",
+    "sheet_metal",
+    "underground_utility"
   ],
   "licenseTypesIncluded": [
-    "South Carolina Contractor's Licensing Board records exposed by the public lookup"
+    "South Carolina general contractor licenses",
+    "South Carolina mechanical contractor licenses",
+    "General and mechanical contractor classifications and subclassifications exposed by the public lookup"
   ],
   "knownExclusions": [
-    "South Carolina residential builder records use a separate LLR lookup path and are not included in this source entry.",
+    "South Carolina Residential Builders Commission credentials use a separate LLR lookup and source entry.",
+    "South Carolina DES asbestos contractor licenses use a separate environmental-program lookup and source entry.",
     "Local permits, business registrations, and non-LLR authorizations are outside this source entry."
   ],
   "hasBulkDownload": "unknown",
@@ -41,17 +54,27 @@
   "testFixturePath": null,
   "officialLookupUrl": "https://verify.llronline.com/LicLookup/Contractors/Contractor.aspx?div=69",
   "officialBulkDownloadNotes": "No official bulk download has been confirmed in this phase.",
-  "researchNotes": "Registry-only source for the Contractor's Licensing Board. Add a separate source entry if residential builders are modeled.",
-  "lastVerifiedAt": "2026-06-27T00:00:00.000Z",
-  "maintainerNotes": "South Carolina has multiple construction-related boards; keep source scope explicit.",
+  "researchNotes": "The current state code defines building, highway, public-utility, roofing, solar, swimming-pool, electrical, plumbing, HVAC, mechanical, and related classifications. The source remains a manual handoff because no stable machine-readable lookup contract or bulk export has been reviewed.",
+  "lastVerifiedAt": "2026-07-02T00:00:00.000Z",
+  "maintainerNotes": "Keep commercial contractor scope separate from Residential Builders Commission and DES asbestos credentials. Preserve classification and financial-group limitations in any future adapter.",
   "schemaVersion": "1.0",
-  "researchReviewedAt": "2026-06-27T00:00:00.000Z",
-  "nextReviewAt": "2026-12-27T00:00:00.000Z",
+  "researchReviewedAt": "2026-07-02T00:00:00.000Z",
+  "nextReviewAt": "2027-01-02T00:00:00.000Z",
   "researchEvidence": [
     {
       "url": "https://verify.llronline.com/LicLookup/Contractors/Contractor.aspx?div=69",
-      "checkedAt": "2026-06-27T00:00:00.000Z",
-      "note": "Official public source, access shape, and current automation constraints reviewed."
+      "checkedAt": "2026-07-02T00:00:00.000Z",
+      "note": "Official public contractor lookup and current access shape reviewed."
+    },
+    {
+      "url": "https://www.scstatehouse.gov/code/t40c011.php",
+      "checkedAt": "2026-07-02T00:00:00.000Z",
+      "note": "Current official Title 40 Chapter 11 classification and subclassification scopes reviewed."
+    },
+    {
+      "url": "https://llr.sc.gov/clb/clb_licensure.aspx",
+      "checkedAt": "2026-07-02T00:00:00.000Z",
+      "note": "Official board licensure page reviewed for current general and mechanical classifications requiring technical examinations."
     }
   ],
   "sourceResearchOutcome": "blocked",

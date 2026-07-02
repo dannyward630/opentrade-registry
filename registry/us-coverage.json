@@ -348,7 +348,9 @@
       "state": "SC",
       "status": "blocked",
       "sourceIds": [
-        "us.sc.llr.contractors"
+        "us.sc.des.asbestos",
+        "us.sc.llr.contractors",
+        "us.sc.llr.residential_builders"
       ],
       "notes": "Official source metadata is retained, but automated ingestion is blocked by documented legal, access, scope, or technical constraints."
     },

@@ -1,0 +1,89 @@
+{
+  "id": "us.sc.llr.residential_builders",
+  "name": "South Carolina Residential Builders Commission License Lookup",
+  "jurisdiction": {
+    "country": "US",
+    "state": "SC"
+  },
+  "agency": {
+    "name": "South Carolina Residential Builders Commission",
+    "url": "https://llr.sc.gov/res/"
+  },
+  "sourceType": "html_lookup",
+  "sourceUrl": "https://verify.llronline.com/LicLookup/Resbu/Resbu.aspx",
+  "documentationUrl": "https://llr.sc.gov/res/licensure.aspx",
+  "dataDictionaryUrl": null,
+  "termsUrl": "https://llr.sc.gov/",
+  "updateFrequency": "the official lookup states that it is updated nightly",
+  "tradeCoverage": [
+    "residential_contracting",
+    "electrical",
+    "plumbing",
+    "hvac",
+    "roofing",
+    "solar",
+    "home_improvement"
+  ],
+  "licenseTypesIncluded": [
+    "Residential Builder License (RBB)",
+    "Residential Specialty Contractor Electrical License (RBE)",
+    "Residential Specialty Heating and Air License (RBH)",
+    "Residential Specialty Plumbing License (RBP)",
+    "Residential Specialty Contractor Registration (RBS)",
+    "Residential business certificates of authorization"
+  ],
+  "knownExclusions": [
+    "Commercial general and mechanical contractor credentials use the separate Contractor's Licensing Board source.",
+    "Residential home inspector credentials are outside OpenTrade's contractor and skilled-trade focus.",
+    "Municipal permits, business registrations, and work below statutory thresholds are outside this source entry."
+  ],
+  "hasBulkDownload": false,
+  "hasLiveLookup": true,
+  "requiresJavaScript": "unknown",
+  "requiresCaptcha": "unknown",
+  "requiresAccount": false,
+  "rateLimitNotes": "No adapter is implemented. Use the official lookup manually and do not automate it without reviewing current access controls and terms.",
+  "redistributionStatus": "unknown",
+  "publicRecordsNotes": "The lookup explains active, approved, pending, inactive, lapsed, suspended, and cease-and-desist statuses and warns users to check the commercial contractor board when a residential search returns no record. No match in this source is not proof that no credential exists.",
+  "adapterStatus": "blocked",
+  "sourceDiscoveryStatus": "blocked",
+  "adapterMaturity": "blocked",
+  "adapterQualityLevel": 0,
+  "coverageScope": "state_agency_partial",
+  "adapterPackage": null,
+  "testFixturePath": null,
+  "officialLookupUrl": "https://verify.llronline.com/LicLookup/Resbu/Resbu.aspx",
+  "officialBulkDownloadNotes": "The commission offers a paid licensee-list request, but no public machine-readable bulk download has been confirmed.",
+  "researchNotes": "The commission separately regulates residential builders, residential electrical, HVAC and plumbing contractors, and specialty registrations including roofing and solar. The public lookup is a manual handoff pending a stable, reviewed machine-readable interface.",
+  "lastVerifiedAt": "2026-07-02T00:00:00.000Z",
+  "maintainerNotes": "Preserve the commission's explicit status definitions, nightly-update statement, statutory thresholds, and direction to check the commercial board when a residential search returns no record.",
+  "schemaVersion": "1.0",
+  "researchReviewedAt": "2026-07-02T00:00:00.000Z",
+  "nextReviewAt": "2027-01-02T00:00:00.000Z",
+  "researchEvidence": [
+    {
+      "url": "https://verify.llronline.com/LicLookup/Resbu/Resbu.aspx",
+      "checkedAt": "2026-07-02T00:00:00.000Z",
+      "note": "Official lookup reviewed for searchable fields, status meanings, nightly update cadence, and cross-board no-match guidance."
+    },
+    {
+      "url": "https://llr.sc.gov/res/licensure.aspx",
+      "checkedAt": "2026-07-02T00:00:00.000Z",
+      "note": "Official commission page reviewed for builder, electrical, HVAC, plumbing, and specialty credential types."
+    },
+    {
+      "url": "https://llr.sc.gov/res/pub.aspx",
+      "checkedAt": "2026-07-02T00:00:00.000Z",
+      "note": "Official applications page reviewed for roofing and solar specialty registration classifications."
+    }
+  ],
+  "sourceResearchOutcome": "blocked",
+  "blocker": {
+    "code": "technical_instability",
+    "summary": "The source is an interactive public lookup without a reviewed stable machine-readable contract; normal use remains an official manual handoff.",
+    "evidenceUrls": [
+      "https://verify.llronline.com/LicLookup/Resbu/Resbu.aspx",
+      "https://llr.sc.gov/res/"
+    ]
+  }
+}
