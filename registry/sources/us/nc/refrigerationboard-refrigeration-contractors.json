@@ -1,0 +1,75 @@
+{
+  "id": "us.nc.refrigerationboard.refrigeration_contractors",
+  "name": "North Carolina State Board of Refrigeration Contractors Verify License Search",
+  "jurisdiction": {
+    "country": "US",
+    "state": "NC"
+  },
+  "agency": {
+    "name": "North Carolina State Board of Refrigeration Contractors",
+    "url": "https://refrigerationboard.org/"
+  },
+  "sourceType": "html_lookup",
+  "sourceUrl": "https://ncrefrigerationboard.arlsys.com/Public/Search",
+  "documentationUrl": "https://refrigerationboard.org/",
+  "dataDictionaryUrl": null,
+  "termsUrl": null,
+  "termsReviewNotes": "Official board and ARL Systems public-search pages were reviewed; no source-specific reuse terms page was confirmed in this phase.",
+  "updateFrequency": "unknown; verify against the official public search before relying on freshness assumptions",
+  "tradeCoverage": ["mechanical", "hvac"],
+  "licenseTypesIncluded": [
+    "North Carolina commercial refrigeration contractor licenses",
+    "North Carolina industrial refrigeration contractor licenses",
+    "North Carolina service refrigeration contractor licenses",
+    "North Carolina transport refrigeration contractor licenses"
+  ],
+  "knownExclusions": [
+    "This source is scoped to refrigeration contractor licenses regulated by the North Carolina State Board of Refrigeration Contractors.",
+    "Heating, plumbing, fire sprinkler, electrical, general contractor, local permit, and municipal registration records are outside this source entry.",
+    "The official source is lookup-oriented; no stable machine-readable bulk export has been confirmed for OpenTrade ingestion."
+  ],
+  "hasBulkDownload": "unknown",
+  "hasLiveLookup": true,
+  "requiresJavaScript": "unknown",
+  "requiresCaptcha": "unknown",
+  "requiresAccount": false,
+  "rateLimitNotes": "No adapter is implemented. Future access should respect the public-search workflow and prefer official bulk options if discovered.",
+  "redistributionStatus": "unknown",
+  "publicRecordsNotes": "Official refrigeration-contractor lookup metadata only. Absence from this source is not proof that an authorization, local permit, or other credential does not exist elsewhere.",
+  "adapterStatus": "blocked",
+  "sourceDiscoveryStatus": "blocked",
+  "adapterMaturity": "blocked",
+  "adapterQualityLevel": 0,
+  "coverageScope": "state_agency_partial",
+  "adapterPackage": null,
+  "testFixturePath": null,
+  "officialLookupUrl": "https://ncrefrigerationboard.arlsys.com/Public/Search",
+  "officialBulkDownloadNotes": "No official refrigeration-board bulk download has been confirmed in this phase.",
+  "researchNotes": "Registry-only source for North Carolina refrigeration contractor verification. The public search exposes commercial, industrial, service, and transport refrigeration classifications, but OpenTrade does not automate it without a separate access-control and terms review.",
+  "lastVerifiedAt": "2026-07-02T00:00:00.000Z",
+  "maintainerNotes": "Keep this source separate from the plumbing/heating/fire-sprinkler board because the refrigeration board regulates distinct refrigeration contractor classifications.",
+  "schemaVersion": "1.0",
+  "researchReviewedAt": "2026-07-02T00:00:00.000Z",
+  "nextReviewAt": "2027-01-02T00:00:00.000Z",
+  "researchEvidence": [
+    {
+      "url": "https://ncrefrigerationboard.arlsys.com/Public/Search",
+      "checkedAt": "2026-07-02T00:00:00.000Z",
+      "note": "Official public verify-license search reviewed; it lists commercial, industrial, service, and transport refrigeration contractor classification types."
+    },
+    {
+      "url": "https://refrigerationboard.org/",
+      "checkedAt": "2026-07-02T00:00:00.000Z",
+      "note": "Official board site reviewed; public access presented a request-verification page during command-line review, so automation remains unsupported."
+    }
+  ],
+  "sourceResearchOutcome": "blocked",
+  "blocker": {
+    "code": "technical_instability",
+    "summary": "An official lookup exists, but no stable, documented machine-readable source has been adapter-reviewed with offline fixtures.",
+    "evidenceUrls": [
+      "https://ncrefrigerationboard.arlsys.com/Public/Search",
+      "https://refrigerationboard.org/"
+    ]
+  }
+}

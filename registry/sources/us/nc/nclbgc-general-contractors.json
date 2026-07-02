@@ -16,13 +16,26 @@
   "termsUrl": "https://www.nclbgc.org/privacy-policy/",
   "updateFrequency": "unknown; verify against the official search before relying on freshness assumptions",
   "tradeCoverage": [
-    "general contracting"
+    "general_contracting",
+    "residential_contracting",
+    "commercial_contracting",
+    "roofing",
+    "pool_spa",
+    "asbestos",
+    "underground_utility",
+    "home_improvement"
   ],
   "licenseTypesIncluded": [
-    "North Carolina general contractor licenses and qualifiers exposed by the public search"
+    "North Carolina building contractor licenses",
+    "North Carolina residential contractor licenses",
+    "North Carolina highway contractor licenses",
+    "North Carolina public utilities contractor licenses",
+    "North Carolina specialty contractor licenses and qualifiers exposed by the public search"
   ],
   "knownExclusions": [
     "This source is scoped to the North Carolina general contractors board and does not cover every construction-related license or local authorization in North Carolina.",
+    "Electrical, plumbing, heating, fire sprinkler, and refrigeration contractors are tracked through separate North Carolina board source entries.",
+    "Scope depends on the license classification, limitation, and qualifier shown by the official source.",
     "The official source is lookup-oriented; bulk file availability has not been confirmed."
   ],
   "hasBulkDownload": "unknown",
@@ -41,7 +54,7 @@
   "testFixturePath": null,
   "officialLookupUrl": "https://portal.nclbgc.org/Public/Search",
   "officialBulkDownloadNotes": "No official bulk download has been confirmed in this phase.",
-  "researchNotes": "Useful source for general-contractor verification semantics, but not broad enough to represent all North Carolina skilled trades.",
+  "researchNotes": "Useful source for general-contractor verification semantics, including building, residential, highway, public utilities, and specialty classifications. It is not broad enough to represent all North Carolina skilled trades.",
   "lastVerifiedAt": "2026-06-27T00:00:00.000Z",
   "maintainerNotes": "Keep the source scope visible in CLI and docs to avoid overbroad statewide claims.",
   "schemaVersion": "1.0",
@@ -52,6 +65,11 @@
       "url": "https://portal.nclbgc.org/Public/Search",
       "checkedAt": "2026-06-27T00:00:00.000Z",
       "note": "Official public source, access shape, and current automation constraints reviewed."
+    },
+    {
+      "url": "https://nclbgc.org/classifications-and-limitations/",
+      "checkedAt": "2026-07-02T00:00:00.000Z",
+      "note": "Official classifications page reviewed; it documents building, residential, highway, public utilities, and specialty classifications including roofing, swimming pools, asbestos, and utility-line scopes."
     }
   ],
   "sourceResearchOutcome": "blocked",

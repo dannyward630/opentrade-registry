@@ -292,9 +292,10 @@
       "sourceIds": [
         "us.nc.ncbeec.electrical_contractors",
         "us.nc.nclbgc.general_contractors",
-        "us.nc.nclicensing.plumbing_heating_fire_sprinkler"
+        "us.nc.nclicensing.plumbing_heating_fire_sprinkler",
+        "us.nc.refrigerationboard.refrigeration_contractors"
       ],
-      "notes": "Official source metadata is retained, but automated ingestion is blocked by documented legal, access, scope, or technical constraints."
+      "notes": "Official source metadata is retained for electrical, general-contracting, plumbing/heating/fire-sprinkler, and refrigeration board paths, but automated ingestion is blocked by documented legal, access, scope, or technical constraints."
     },
     {
       "state": "ND",

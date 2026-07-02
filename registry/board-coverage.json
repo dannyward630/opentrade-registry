@@ -742,6 +742,24 @@
     {
       "state": "NC",
       "decisions": {
+        "general_contracting": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.nc.nclbgc.general_contractors"],
+          "evidence": [{ "url": "https://www.nclbgc.org/", "reviewedAt": "2026-07-02T00:00:00.000Z", "note": "The official NCLBGC homepage states a general contractor must be licensed for projects valued at $40,000 or more and links the official contractor search." }],
+          "limitations": ["Scope depends on the license classification and limitation shown by the board."]
+        },
+        "residential_contracting": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.nc.nclbgc.general_contractors"],
+          "evidence": [{ "url": "https://nclbgc.org/classifications-and-limitations/", "reviewedAt": "2026-07-02T00:00:00.000Z", "note": "NCLBGC states the Residential Contractor classification covers construction and demolition activity for residential units and related ancillary site work." }],
+          "limitations": ["Residential scope is tied to units required to conform to the residential building code and to the license limitation."]
+        },
+        "commercial_contracting": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.nc.nclbgc.general_contractors"],
+          "evidence": [{ "url": "https://nclbgc.org/classifications-and-limitations/", "reviewedAt": "2026-07-02T00:00:00.000Z", "note": "NCLBGC states the Building Contractor classification covers commercial, industrial, institutional, and residential building construction and demolition." }],
+          "limitations": ["Commercial-building scope depends on classification and license limitation."]
+        },
         "electrical": {
           "outcome": "covered_by_board",
           "boardIds": ["us.nc.ncbeec.electrical_contractors"],
@@ -756,6 +774,41 @@
           "outcome": "covered_by_board",
           "boardIds": ["us.nc.nclicensing.plumbing_heating_fire_sprinkler"],
           "evidence": [{ "url": "https://public.nclicensing.org/Public/Search", "reviewedAt": "2026-07-01T00:00:00.000Z", "note": "The official plumbing/heating/fire-sprinkler board verify-license search lists heating contractor and technician classifications." }]
+        },
+        "mechanical": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.nc.nclicensing.plumbing_heating_fire_sprinkler", "us.nc.refrigerationboard.refrigeration_contractors"],
+          "evidence": [{ "url": "https://ncrefrigerationboard.arlsys.com/Public/Search", "reviewedAt": "2026-07-02T00:00:00.000Z", "note": "The official refrigeration-board verify-license search lists commercial, industrial, service, and transport refrigeration contractor classifications." }],
+          "limitations": ["This decision covers heating, fuel-piping, fire-sprinkler, and refrigeration-board mechanical-adjacent paths; unrelated mechanical scopes may require separate evidence."]
+        },
+        "roofing": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.nc.nclbgc.general_contractors"],
+          "evidence": [{ "url": "https://nclbgc.org/classifications-and-limitations/", "reviewedAt": "2026-07-02T00:00:00.000Z", "note": "NCLBGC states the Building and Residential classifications cover work under the S(Roofing) specialty classification." }],
+          "limitations": ["Roofing coverage is represented through NCLBGC classification scope, not a standalone North Carolina roofing board."]
+        },
+        "pool_spa": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.nc.nclbgc.general_contractors"],
+          "evidence": [{ "url": "https://nclbgc.org/classifications-and-limitations/", "reviewedAt": "2026-07-02T00:00:00.000Z", "note": "NCLBGC states Building, Residential, and Public Utilities contractor classifications cover work under the S(Swimming Pools) specialty classification." }]
+        },
+        "asbestos": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.nc.nclbgc.general_contractors"],
+          "evidence": [{ "url": "https://nclbgc.org/classifications-and-limitations/", "reviewedAt": "2026-07-02T00:00:00.000Z", "note": "NCLBGC states the Building and Residential classifications cover work under the S(Asbestos) specialty classification." }],
+          "limitations": ["Environmental notifications, training, or abatement rules may involve separate state or federal requirements outside the general-contractor board source."]
+        },
+        "underground_utility": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.nc.nclbgc.general_contractors"],
+          "evidence": [{ "url": "https://www.nclbgc.org/license-applicants/", "reviewedAt": "2026-07-02T00:00:00.000Z", "note": "NCLBGC states public utilities contractors cover water and sewer mains, service lines, treatment facilities, electrical power transmission and distribution ahead of delivery, communications distribution, and fuel-distribution facilities." }],
+          "limitations": ["Public-utilities scope depends on subclassification and does not replace local permits or utility-owner requirements."]
+        },
+        "home_improvement": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.nc.nclbgc.general_contractors"],
+          "evidence": [{ "url": "https://www.nclbgc.org/", "reviewedAt": "2026-07-02T00:00:00.000Z", "note": "NCLBGC consumer guidance states a general contractor license is required for projects valued at $40,000 or more and links guidance for building, remodeling, and improving homes." }],
+          "limitations": ["North Carolina home-improvement coverage is represented through general and residential contractor classifications and project-value thresholds, not a separate home-improvement contractor board."]
         }
       }
     },
