@@ -451,7 +451,90 @@
     { "state": "IN", "decisions": {} },
     { "state": "KS", "decisions": {} },
     { "state": "KY", "decisions": {} },
-    { "state": "LA", "decisions": {} },
+    {
+      "state": "LA",
+      "decisions": {
+        "general_contracting": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.la.lslbc.contractors"],
+          "evidence": [{ "url": "https://lslbc.louisiana.gov/exams-classifications/", "reviewedAt": "2026-07-02T00:00:00.000Z", "note": "LSLBC publishes Building Construction as a major classification covering construction, maintenance, repair, development, and demolition of structures and associated site work." }],
+          "limitations": ["The applicable license type, classification, and statutory project-value threshold must be evaluated for each project."]
+        },
+        "residential_contracting": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.la.lslbc.contractors"],
+          "evidence": [{ "url": "https://lslbc.louisiana.gov/exams-classifications/", "reviewedAt": "2026-07-02T00:00:00.000Z", "note": "LSLBC defines Residential Construction as a major classification for qualifying residential structures and higher-value home-improvement work." }],
+          "limitations": ["Manufactured housing mounted on a metal chassis and wheels is explicitly outside this classification."]
+        },
+        "commercial_contracting": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.la.lslbc.contractors"],
+          "evidence": [{ "url": "https://lslbc.louisiana.gov/types-of-licenses/", "reviewedAt": "2026-07-02T00:00:00.000Z", "note": "LSLBC documents a statewide commercial contractor license for qualifying commercial projects and specialty-trade subcontracts." }]
+        },
+        "electrical": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.la.lslbc.contractors"],
+          "evidence": [{ "url": "https://lslbc.louisiana.gov/exams-classifications/", "reviewedAt": "2026-07-02T00:00:00.000Z", "note": "LSLBC publishes Electrical as a major classification for qualifying electrical construction, installation, alteration, maintenance, and repair work." }],
+          "limitations": ["The board states a $10,000 project-value threshold for this classification."]
+        },
+        "plumbing": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.la.lslbc.contractors"],
+          "evidence": [{ "url": "https://lslbc.louisiana.gov/exams-classifications/", "reviewedAt": "2026-07-02T00:00:00.000Z", "note": "LSLBC publishes Plumbing as a credential classification and mechanical subclassification for qualifying potable, non-potable, and sewer-water systems within structures." }],
+          "limitations": ["A mechanical contractor performing plumbing above the stated threshold must also possess a master plumber license from the State Plumbing Board of Louisiana."]
+        },
+        "hvac": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.la.lslbc.contractors"],
+          "evidence": [{ "url": "https://lslbc.louisiana.gov/exams-classifications/", "reviewedAt": "2026-07-02T00:00:00.000Z", "note": "LSLBC defines Heat, Air Conditioning, Ventilation, Duct Work, and Refrigeration as a Mechanical subclassification." }],
+          "limitations": ["The board states a $10,000 project-value threshold for this work."]
+        },
+        "mechanical": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.la.lslbc.contractors"],
+          "evidence": [{ "url": "https://lslbc.louisiana.gov/exams-classifications/", "reviewedAt": "2026-07-02T00:00:00.000Z", "note": "LSLBC publishes Mechanical as a major classification covering HVAC, refrigeration, hydronic and steam systems, pressure vessels, plumbing, gas and process piping, and mechanical equipment." }]
+        },
+        "roofing": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.la.lslbc.contractors"],
+          "evidence": [{ "url": "https://lslbc.louisiana.gov/exams-classifications/", "reviewedAt": "2026-07-02T00:00:00.000Z", "note": "LSLBC publishes Roofing and Sheet Metal, Siding under Building Construction and a separate Residential Roofing subclassification." }]
+        },
+        "solar": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.la.lslbc.contractors"],
+          "evidence": [{ "url": "https://lslbc.louisiana.gov/exams-classifications/", "reviewedAt": "2026-07-02T00:00:00.000Z", "note": "LSLBC publishes Solar Energy Equipment for photovoltaic and thermal systems used for electricity or heating in houses, buildings, pools, and plumbing systems." }],
+          "limitations": ["The solar classification requires an underlying Building Construction, Electrical, Mechanical, or Residential Construction classification and applies above the stated threshold."]
+        },
+        "pool_spa": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.la.lslbc.contractors"],
+          "evidence": [{ "url": "https://lslbc.louisiana.gov/exams-classifications/", "reviewedAt": "2026-07-02T00:00:00.000Z", "note": "LSLBC publishes Swimming Pools under Building Construction and Residential Swimming Pools for pools, whirlpools, hot tubs, water features, and related components." }],
+          "limitations": ["Residential pool work has a separately stated $7,500 threshold and home-improvement registration alone does not authorize pool contracting."]
+        },
+        "asbestos": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.la.lslbc.contractors"],
+          "evidence": [{ "url": "https://lslbc.louisiana.gov/exams-classifications/", "reviewedAt": "2026-07-02T00:00:00.000Z", "note": "LSLBC publishes Asbestos Removal and Abatement under Hazardous Materials and requires Louisiana Department of Environmental Quality asbestos certification." }],
+          "limitations": ["The LSLBC classification is not a substitute for the required Department of Environmental Quality credential."]
+        },
+        "sheet_metal": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.la.lslbc.contractors"],
+          "evidence": [{ "url": "https://lslbc.louisiana.gov/exams-classifications/", "reviewedAt": "2026-07-02T00:00:00.000Z", "note": "LSLBC's Roofing and Sheet Metal, Siding subclassification includes general sheet metal, while its Mechanical HVAC subclassification includes duct work." }]
+        },
+        "underground_utility": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.la.lslbc.contractors"],
+          "evidence": [{ "url": "https://lslbc.gov/classifications_list/municipal-and-public-works-construction/", "reviewedAt": "2026-07-02T00:00:00.000Z", "note": "LSLBC defines Municipal and Public Works Construction for water, sewer, gas, storm-water, power-plant, transmission-line, and underground electrical-conduit infrastructure." }]
+        },
+        "home_improvement": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.la.lslbc.contractors"],
+          "evidence": [{ "url": "https://lslbc.louisiana.gov/types-of-licenses/", "reviewedAt": "2026-07-02T00:00:00.000Z", "note": "LSLBC documents home-improvement registration as one of its basic credential paths and reports active home-improvement registrants." }],
+          "limitations": ["Higher-value residential work moves into the Residential Construction license path, and home-improvement registration does not authorize residential pool work."]
+        }
+      }
+    },
     { "state": "MA", "decisions": {} },
     { "state": "MD", "decisions": {} },
     { "state": "ME", "decisions": {} },

@@ -16,17 +16,31 @@
   "termsUrl": "https://lslbc.gov/terms-of-use/",
   "updateFrequency": "unknown; the official search cautions that displayed information may not reflect recent changes",
   "tradeCoverage": [
-    "general contracting",
-    "residential contracting",
-    "commercial contracting",
-    "other"
+    "general_contracting",
+    "residential_contracting",
+    "commercial_contracting",
+    "electrical",
+    "plumbing",
+    "hvac",
+    "mechanical",
+    "roofing",
+    "solar",
+    "pool_spa",
+    "asbestos",
+    "sheet_metal",
+    "underground_utility",
+    "home_improvement"
   ],
   "licenseTypesIncluded": [
-    "Louisiana contractor licenses and registrations exposed by the official contractor search"
+    "Louisiana commercial and residential contractor licenses exposed by the official contractor search",
+    "Louisiana home improvement registrations and board classifications",
+    "Major, sub-, specialty, and credential classifications published by LSLBC"
   ],
   "knownExclusions": [
     "The official search states that only currently licensed or registered contractors appear in search results.",
-    "Local permits, business registrations, and sources outside LSLBC scope are not represented by this source entry."
+    "Local permits, business registrations, and sources outside LSLBC scope are not represented by this source entry.",
+    "Project-value thresholds vary by license type and classification, including lower thresholds for electrical, mechanical, plumbing, pools, and hazardous-material work.",
+    "Some classifications require companion credentials from another Louisiana agency, including master plumber and Department of Environmental Quality credentials."
   ],
   "hasBulkDownload": "unknown",
   "hasLiveLookup": true,
@@ -44,17 +58,27 @@
   "testFixturePath": null,
   "officialLookupUrl": "https://arlspublic.lslbc.louisiana.gov/Public/DetailedSearch/ByNumber",
   "officialBulkDownloadNotes": "No official bulk download has been confirmed in this phase.",
-  "researchNotes": "Registry-only source for Louisiana contractor verification. Future work should model search-result limitations and license-type coverage before adding fixtures.",
-  "lastVerifiedAt": "2026-06-27T00:00:00.000Z",
-  "maintainerNotes": "Preserve the official caveat that lookup results may not reflect recent changes or updates.",
+  "researchNotes": "Registry-only source for Louisiana contractor verification. LSLBC publishes a detailed classification catalog covering all tracked statewide trade domains, but its lookup remains manual until access behavior, response stability, and reuse terms are adapter-reviewed.",
+  "lastVerifiedAt": "2026-07-02T00:00:00.000Z",
+  "maintainerNotes": "Preserve the official caveat that lookup results may not reflect recent changes or updates, and expose the applicable project-value threshold and companion-credential caveats with any future result.",
   "schemaVersion": "1.0",
-  "researchReviewedAt": "2026-06-27T00:00:00.000Z",
-  "nextReviewAt": "2026-12-27T00:00:00.000Z",
+  "researchReviewedAt": "2026-07-02T00:00:00.000Z",
+  "nextReviewAt": "2027-01-02T00:00:00.000Z",
   "researchEvidence": [
     {
       "url": "https://arlspublic.lslbc.louisiana.gov/Public/DetailedSearch/ByNumber",
-      "checkedAt": "2026-06-27T00:00:00.000Z",
+      "checkedAt": "2026-07-02T00:00:00.000Z",
       "note": "Official public source, access shape, and current automation constraints reviewed."
+    },
+    {
+      "url": "https://lslbc.louisiana.gov/exams-classifications/",
+      "checkedAt": "2026-07-02T00:00:00.000Z",
+      "note": "The official classification catalog defines statewide commercial, residential, electrical, plumbing, mechanical, HVAC, roofing and sheet metal, swimming pool, solar, hazardous-material and asbestos, utility, and home-improvement scopes."
+    },
+    {
+      "url": "https://lslbc.louisiana.gov/types-of-licenses/",
+      "checkedAt": "2026-07-02T00:00:00.000Z",
+      "note": "The official license-type page documents commercial, residential, home-improvement, and mold-remediation paths and their project-value thresholds."
     }
   ],
   "sourceResearchOutcome": "blocked",
