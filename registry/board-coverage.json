@@ -603,11 +603,27 @@
           "evidence": [{ "url": "https://sos.ga.gov/page/traditional-specialty-contractors-policy-statements", "reviewedAt": "2026-07-02T00:00:00.000Z", "note": "The official board policy lists flat roofing, sheet-metal roofing, shingles and shakes, gutters, and related roofing scopes as traditional specialties that do not require the residential/general contractor license when performed within the specialty." }],
           "limitations": ["This decision concerns the statewide residential/general contractor license exemption; applicable codes, permits, separately regulated trade work, and local requirements still apply.", "Voluntary roofing credentials are not state licenses."]
         },
+        "solar": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.ga.sos.construction_industry_trades"],
+          "evidence": [{ "url": "https://consumered.georgia.gov/ask-ed/2021-07-02/what-kind-licensing-solar-panel-installer-required-have", "reviewedAt": "2026-07-02T00:00:00.000Z", "note": "Georgia Attorney General consumer guidance states home solar-panel installation is electrical contracting and the installer must be associated with a licensed Georgia electrical contractor." }],
+          "limitations": ["This decision covers photovoltaic installation through the electrical-contractor path; structural, roofing, plumbing, utility-interconnection, and local permit requirements may also apply."]
+        },
+        "pool_spa": {
+          "outcome": "not_state_regulated",
+          "evidence": [{ "url": "https://sos.ga.gov/page/limited-service-specialty-contractors-policy-statements", "reviewedAt": "2026-07-02T00:00:00.000Z", "note": "The official board policy defines Outdoor Environment (pools) as a limited-service specialty covering grading, excavation, pool electrical and plumbing components, concrete, liners, equipment, decks, landscaping, and related work." }],
+          "limitations": ["A project exceeding the limited-service scope may require a residential or general contractor license.", "Electrical, plumbing, local permit, code, and other separately regulated requirements still apply to pool and spa work."]
+        },
         "asbestos": {
           "outcome": "covered_by_board",
           "boardIds": ["us.ga.epd.asbestos_contractors"],
           "evidence": [{ "url": "https://epd.georgia.gov/asbestos-faqs", "reviewedAt": "2026-07-02T00:00:00.000Z", "note": "Georgia EPD states that it licenses asbestos abatement contractor firms and distinguishes those licenses from inspector training accreditation." }],
           "limitations": ["The official contractor roster is not updated regularly; current license proof and project-notification requirements must be checked separately."]
+        },
+        "sheet_metal": {
+          "outcome": "not_state_regulated",
+          "evidence": [{ "url": "https://sos.ga.gov/page/traditional-specialty-contractors-policy-statements", "reviewedAt": "2026-07-02T00:00:00.000Z", "note": "The official board policy lists cold-formed metal framing, cornice work, gutters and downspouts, light-gauge metal studs, sheet-metal roofing, and structural metal framing as traditional specialty work exempt from the residential/general contractor license." }],
+          "limitations": ["This decision concerns the statewide residential/general contractor license exemption; conditioned-air ductwork, electrical work, structural scope, permits, and local requirements may trigger separate credentials or approvals."]
         },
         "underground_utility": {
           "outcome": "covered_by_board",
