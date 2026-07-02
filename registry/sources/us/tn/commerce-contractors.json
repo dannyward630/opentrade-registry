@@ -16,17 +16,30 @@
   "termsUrl": "https://www.tn.gov/web-policies.html",
   "updateFrequency": "unknown; verify against the official license verification system before relying on freshness assumptions",
   "tradeCoverage": [
-    "contractors",
-    "home improvement",
-    "limited licensed electricians",
-    "limited licensed plumbers"
+    "general_contracting",
+    "residential_contracting",
+    "commercial_contracting",
+    "electrical",
+    "plumbing",
+    "hvac",
+    "mechanical",
+    "roofing",
+    "solar",
+    "pool_spa",
+    "asbestos",
+    "sheet_metal",
+    "underground_utility",
+    "home_improvement"
   ],
   "licenseTypesIncluded": [
-    "Contractor and related board license records exposed through Tennessee's official verification links"
+    "Tennessee contractor licenses and classifications exposed through the official Verify a License search",
+    "General, residential, commercial, industrial, electrical, mechanical, municipal utility, specialty, environmental, home-improvement, limited licensed electrician, and limited licensed plumber paths administered by the Board for Licensing Contractors"
   ],
   "knownExclusions": [
-    "Tennessee licensing thresholds and county-specific home-improvement coverage require source-specific review before normalization.",
-    "Local permits, business registrations, and non-board authorizations are outside this source entry."
+    "Tennessee licensing thresholds, monetary limits, and county-specific home-improvement coverage must be preserved in any future normalized result.",
+    "The classification outline notes local permits, inspections, and companion requirements for some work, including TDEC, Fire Prevention, Department of Labor, and Alarm Systems Contractor Board references.",
+    "Local permits, business registrations, inspection records, and non-board authorizations are outside this source entry.",
+    "The official lookup is manual until access behavior, response stability, and reuse terms are adapter-reviewed."
   ],
   "hasBulkDownload": "unknown",
   "hasLiveLookup": true,
@@ -44,17 +57,27 @@
   "testFixturePath": null,
   "officialLookupUrl": "https://verify.tn.gov/",
   "officialBulkDownloadNotes": "No official bulk download has been confirmed in this phase.",
-  "researchNotes": "Registry-only source for Tennessee contractor board verification. Future work should model license thresholds and county-specific home-improvement caveats.",
-  "lastVerifiedAt": "2026-06-27T00:00:00.000Z",
-  "maintainerNotes": "Do not flatten Tennessee license types without reviewing board scope and thresholds.",
+  "researchNotes": "Registry-only source for Tennessee contractor-board verification. The board's official classification outline covers every tracked statewide trade domain, but the lookup remains manual while access controls, response stability, and reuse terms are adapter-reviewed.",
+  "lastVerifiedAt": "2026-07-02T00:00:00.000Z",
+  "maintainerNotes": "Do not flatten Tennessee license types without preserving monetary limits, project thresholds, county home-improvement applicability, and companion-agency requirements.",
   "schemaVersion": "1.0",
-  "researchReviewedAt": "2026-06-27T00:00:00.000Z",
-  "nextReviewAt": "2026-12-27T00:00:00.000Z",
+  "researchReviewedAt": "2026-07-02T00:00:00.000Z",
+  "nextReviewAt": "2027-01-02T00:00:00.000Z",
   "researchEvidence": [
     {
       "url": "https://verify.tn.gov/",
-      "checkedAt": "2026-06-27T00:00:00.000Z",
+      "checkedAt": "2026-07-02T00:00:00.000Z",
       "note": "Official public source, access shape, and current automation constraints reviewed."
+    },
+    {
+      "url": "https://www.tn.gov/commerce/regboards/contractors.html",
+      "checkedAt": "2026-07-02T00:00:00.000Z",
+      "note": "The official board page states that the board regulates contractors, home improvement contractors, limited licensed electricians, and limited licensed plumbers."
+    },
+    {
+      "url": "https://www.tn.gov/content/dam/tn/commerce/documents/regboards/contractors/posts/ClassificationOutlineWeb.pdf",
+      "checkedAt": "2026-07-02T00:00:00.000Z",
+      "note": "The official classification outline defines BC, CE, CMC, municipal utility, specialty, environmental, roofing, sheet-metal, swimming-pool, solar, asbestos, and home-improvement-relevant scopes."
     }
   ],
   "sourceResearchOutcome": "blocked",
