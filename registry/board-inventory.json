@@ -880,19 +880,31 @@
         "us.la.lslbc.contractors"
       ],
       "trades": [
-        "general contracting",
-        "residential contracting",
-        "commercial contracting",
-        "other"
+        "general_contracting",
+        "residential_contracting",
+        "commercial_contracting",
+        "electrical",
+        "plumbing",
+        "hvac",
+        "mechanical",
+        "roofing",
+        "solar",
+        "pool_spa",
+        "asbestos",
+        "sheet_metal",
+        "underground_utility",
+        "home_improvement"
       ],
       "accessPath": "manual_handoff",
       "coverageLimitations": [
         "The official search states that only currently licensed or registered contractors appear in search results.",
-        "Local permits, business registrations, and sources outside LSLBC scope are not represented by this source entry."
+        "Local permits, business registrations, and sources outside LSLBC scope are not represented by this source entry.",
+        "Project-value thresholds vary by license type and classification, including lower thresholds for electrical, mechanical, plumbing, pools, and hazardous-material work.",
+        "Some classifications require companion credentials from another Louisiana agency, including master plumber and Department of Environmental Quality credentials."
       ],
       "evidence": {
         "url": "https://arlspublic.lslbc.louisiana.gov/Public/DetailedSearch/ByNumber",
-        "reviewedAt": "2026-06-27T00:00:00.000Z",
+        "reviewedAt": "2026-07-02T00:00:00.000Z",
         "note": "Official public source, access shape, and current automation constraints reviewed."
       }
     },
