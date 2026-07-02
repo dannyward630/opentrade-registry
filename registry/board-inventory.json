@@ -282,17 +282,28 @@
         "general_contracting",
         "residential_contracting",
         "commercial_contracting",
-        "other"
+        "electrical",
+        "plumbing",
+        "hvac",
+        "mechanical",
+        "roofing",
+        "solar",
+        "pool_spa",
+        "asbestos",
+        "sheet_metal",
+        "underground_utility",
+        "home_improvement"
       ],
       "accessPath": "manual_handoff",
       "coverageLimitations": [
         "This source is scoped to the Arkansas Contractors Licensing Board and does not represent every local permit, business registration, or trade credential in Arkansas.",
-        "Source-specific license classifications and inactive or historical coverage need further review before adapter work."
+        "Some contractor classifications require a separate Arkansas trade credential, including master electrician, master plumber, HVACR, asbestos, fire-protection, or underground-storage credentials; this source does not replace those issuing authorities.",
+        "The public lookup's inactive and historical coverage remains unverified, and no machine-readable export has been confirmed."
       ],
       "evidence": {
         "url": "https://labor.arkansas.gov/licensing/arkansas-contractors-licensing-board/find-a-licensed-contractor/",
-        "reviewedAt": "2026-06-27T00:00:00.000Z",
-        "note": "Official public source, access shape, and current automation constraints reviewed."
+        "reviewedAt": "2026-07-02T00:00:00.000Z",
+        "note": "Official public lookup and current access shape reviewed."
       }
     },
     {
