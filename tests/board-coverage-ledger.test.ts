@@ -15,8 +15,8 @@ describe("nationwide board trade coverage ledger", () => {
     expect(ledger.jurisdictions).toHaveLength(56);
     expect(new Set(ledger.jurisdictions.map((entry) => entry.state)).size).toBe(56);
     expect(expanded).toHaveLength(56 * BOARD_TRADE_DOMAINS.length);
-    expect(expanded.filter((decision) => decision.outcome === "needs_research")).toHaveLength(536);
-    expect(expanded.filter((decision) => decision.outcome === "covered_by_board")).toHaveLength(227);
+    expect(expanded.filter((decision) => decision.outcome === "needs_research")).toHaveLength(522);
+    expect(expanded.filter((decision) => decision.outcome === "covered_by_board")).toHaveLength(241);
     expect(expanded.filter((decision) => decision.outcome === "not_state_regulated")).toHaveLength(5);
     expect(expanded.filter((decision) => decision.outcome === "local_only")).toHaveLength(16);
   });
@@ -274,6 +274,30 @@ describe("nationwide board trade coverage ledger", () => {
     for (const domain of ["pool_spa", "sheet_metal"]) {
       expect(expanded.find((decision) => decision.tradeDomain === domain)).toMatchObject({ outcome: "not_state_regulated", boardIds: [] });
     }
+  });
+
+  it("records complete Connecticut contractor, occupational trade, and asbestos coverage", async () => {
+    const ledger = boardTradeCoverageLedgerSchema.parse(await json("registry/board-coverage.json"));
+    const expanded = expandBoardTradeCoverageLedger(ledger).filter((decision) => decision.state === "CT");
+
+    expect(expanded).toHaveLength(BOARD_TRADE_DOMAINS.length);
+    expect(expanded.filter((decision) => decision.outcome === "needs_research")).toEqual([]);
+    expect(expanded.find((decision) => decision.tradeDomain === "general_contracting")).toMatchObject({
+      outcome: "covered_by_board",
+      boardIds: ["us.ct.dcp.major_contractors"],
+    });
+    expect(expanded.find((decision) => decision.tradeDomain === "home_improvement")?.boardIds).toEqual([
+      "us.ct.dcp.home_improvement_contractors",
+    ]);
+    expect(expanded.find((decision) => decision.tradeDomain === "electrical")?.boardIds).toEqual([
+      "us.ct.dcp.occupational_trades",
+    ]);
+    expect(expanded.find((decision) => decision.tradeDomain === "asbestos")?.boardIds).toEqual([
+      "us.ct.dph.asbestos_contractors",
+    ]);
+    expect(expanded.find((decision) => decision.tradeDomain === "underground_utility")?.limitations).toContain(
+      "This decision covers regulated plumbing, piping, and well-drilling scopes, not every civil utility or excavation activity. Local permits and utility-owner requirements remain excluded.",
+    );
   });
 
   it("records North Carolina board coverage while leaving sheet metal unresolved", async () => {

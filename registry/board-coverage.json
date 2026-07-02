@@ -478,7 +478,145 @@
         }
       }
     },
-    { "state": "CT", "decisions": {} },
+    {
+      "state": "CT",
+      "decisions": {
+        "general_contracting": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.ct.dcp.major_contractors"],
+          "evidence": [{
+            "url": "https://portal.ct.gov/dcp/common-elements/consumer-facts-and-contacts/major-contractor",
+            "reviewedAt": "2026-07-02T00:00:00.000Z",
+            "note": "DCP licenses major contractors performing construction or structurally significant work above statutory threshold limits."
+          }],
+          "limitations": ["Connecticut's major-contractor license is threshold-limited and is not a universal statewide general-contractor license; residential and local requirements are tracked separately."]
+        },
+        "residential_contracting": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.ct.dcp.home_improvement_contractors"],
+          "evidence": [{
+            "url": "https://portal.ct.gov/dcp/common-elements/v3-pages/information-for-new-home-construction-contractors",
+            "reviewedAt": "2026-07-02T00:00:00.000Z",
+            "note": "DCP states that it registers all new home construction contractors doing business in Connecticut."
+          }],
+          "limitations": ["New-home registration has statutory exemptions and is separate from home-improvement registration and occupational trade licenses."]
+        },
+        "commercial_contracting": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.ct.dcp.major_contractors"],
+          "evidence": [{
+            "url": "https://portal.ct.gov/dcp/common-elements/consumer-facts-and-contacts/major-contractor",
+            "reviewedAt": "2026-07-02T00:00:00.000Z",
+            "note": "The official major-contractor definition covers qualifying construction, structural repair, alteration, dismantling, and demolition."
+          }],
+          "limitations": ["Coverage is limited by statutory threshold and structural-integrity criteria; local permits remain outside the registry."]
+        },
+        "electrical": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.ct.dcp.occupational_trades"],
+          "evidence": [{
+            "url": "https://portal.ct.gov/dcp/common-elements/consumer-facts-and-contacts/electrician",
+            "reviewedAt": "2026-07-02T00:00:00.000Z",
+            "note": "DCP states electricians must be licensed and distinguishes contractor credentials that can obtain permits and sign contracts."
+          }]
+        },
+        "plumbing": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.ct.dcp.occupational_trades"],
+          "evidence": [{
+            "url": "https://portal.ct.gov/dcp/occupational-and-professional-division/occupational-boards/plumbing-and-piping-work-examining-board",
+            "reviewedAt": "2026-07-02T00:00:00.000Z",
+            "note": "The official board page identifies contractor and journeyperson plumbing and piping credentials."
+          }]
+        },
+        "hvac": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.ct.dcp.occupational_trades"],
+          "evidence": [{
+            "url": "https://portal.ct.gov/dcp/common-elements/consumer-facts-and-contacts/heating-and-cooling",
+            "reviewedAt": "2026-07-02T00:00:00.000Z",
+            "note": "DCP states heating and cooling work is licensed through the Heating, Piping, Cooling and Sheet Metal Work Examining Board."
+          }]
+        },
+        "mechanical": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.ct.dcp.occupational_trades"],
+          "evidence": [{
+            "url": "https://portal.ct.gov/dcp/common-elements/consumer-facts-and-contacts/heating-and-cooling",
+            "reviewedAt": "2026-07-02T00:00:00.000Z",
+            "note": "DCP licenses heating, piping, cooling, and related mechanical scopes through its occupational board."
+          }]
+        },
+        "roofing": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.ct.dcp.home_improvement_contractors", "us.ct.dcp.major_contractors"],
+          "evidence": [{
+            "url": "https://portal.ct.gov/dcp/common-elements/consumer-facts-and-contacts/major-contractor",
+            "reviewedAt": "2026-07-02T00:00:00.000Z",
+            "note": "DCP expressly includes roofing in major-contractor structural work; residential roofing is included in home improvement."
+          }],
+          "limitations": ["The applicable credential depends on residential home-improvement scope, major-contractor thresholds, and any occupational trade work involved."]
+        },
+        "solar": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.ct.dcp.occupational_trades"],
+          "evidence": [{
+            "url": "https://portal.ct.gov/dcp/license-services-division/all-license-applications/solar-energy-work",
+            "reviewedAt": "2026-07-02T00:00:00.000Z",
+            "note": "DCP documents ST-1 solar thermal contractor and PV-1 limited solar electric contractor credentials."
+          }]
+        },
+        "pool_spa": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.ct.dcp.home_improvement_contractors", "us.ct.dcp.occupational_trades"],
+          "evidence": [{
+            "url": "https://portal.ct.gov/dcp/occupational-and-professional-division/occupational-boards/plumbing-and-piping-work-examining-board",
+            "reviewedAt": "2026-07-02T00:00:00.000Z",
+            "note": "The official plumbing board page links pool and spa maintenance and repair licensing; DCP separately includes swimming-pool construction in home improvement."
+          }]
+        },
+        "asbestos": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.ct.dph.asbestos_contractors"],
+          "evidence": [{
+            "url": "https://portal.ct.gov/dph/asbestos-program/asbestos-program/asbestos-licensure-of-contractors-and-consultants",
+            "reviewedAt": "2026-07-02T00:00:00.000Z",
+            "note": "DPH states that asbestos contractors and consultants must be licensed to perform abatement or consultation services."
+          }],
+          "limitations": ["Contractor licenses, consultant disciplines, and individual supervisor or worker credentials have different scopes and accreditation requirements."]
+        },
+        "sheet_metal": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.ct.dcp.occupational_trades"],
+          "evidence": [{
+            "url": "https://portal.ct.gov/dcp/common-elements/consumer-facts-and-contacts/heating-and-cooling",
+            "reviewedAt": "2026-07-02T00:00:00.000Z",
+            "note": "DCP states sheet-metal workers must be licensed through the Heating, Piping, Cooling and Sheet Metal Work Examining Board."
+          }]
+        },
+        "underground_utility": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.ct.dcp.occupational_trades"],
+          "evidence": [{
+            "url": "https://portal.ct.gov/dcp/occupational-and-professional-division/occupational-boards/plumbing-and-piping-work-examining-board",
+            "reviewedAt": "2026-07-02T00:00:00.000Z",
+            "note": "The official board covers plumbing, piping, and well-drilling contractor credentials relevant to regulated underground water and piping work."
+          }],
+          "limitations": ["This decision covers regulated plumbing, piping, and well-drilling scopes, not every civil utility or excavation activity. Local permits and utility-owner requirements remain excluded."]
+        },
+        "home_improvement": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.ct.dcp.home_improvement_contractors"],
+          "evidence": [{
+            "url": "https://portal.ct.gov/dcp/license-services-division/all-license-applications/home-improvement-applications",
+            "reviewedAt": "2026-07-02T00:00:00.000Z",
+            "note": "DCP requires registration for businesses or individuals contracting with consumers for covered residential-property improvements."
+          }],
+          "limitations": ["The statute excludes specified work, subcontracted work, commercial work, and work within a separately licensed trade scope."
+          ]
+        }
+      }
+    },
     { "state": "DC", "decisions": {} },
     { "state": "DE", "decisions": {} },
     {
