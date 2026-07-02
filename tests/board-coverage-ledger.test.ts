@@ -15,9 +15,9 @@ describe("nationwide board trade coverage ledger", () => {
     expect(ledger.jurisdictions).toHaveLength(56);
     expect(new Set(ledger.jurisdictions.map((entry) => entry.state)).size).toBe(56);
     expect(expanded).toHaveLength(56 * BOARD_TRADE_DOMAINS.length);
-    expect(expanded.filter((decision) => decision.outcome === "needs_research")).toHaveLength(642);
-    expect(expanded.filter((decision) => decision.outcome === "covered_by_board")).toHaveLength(136);
-    expect(expanded.filter((decision) => decision.outcome === "not_state_regulated")).toHaveLength(1);
+    expect(expanded.filter((decision) => decision.outcome === "needs_research")).toHaveLength(629);
+    expect(expanded.filter((decision) => decision.outcome === "covered_by_board")).toHaveLength(148);
+    expect(expanded.filter((decision) => decision.outcome === "not_state_regulated")).toHaveLength(2);
     expect(expanded.filter((decision) => decision.outcome === "local_only")).toHaveLength(5);
   });
 
@@ -139,6 +139,24 @@ describe("nationwide board trade coverage ledger", () => {
     expect(expanded.find((decision) => decision.tradeDomain === "electrical")?.evidence[0]?.note).toContain("C-2");
     expect(expanded.find((decision) => decision.tradeDomain === "hvac")?.evidence[0]?.note).toContain("C-21");
     expect(expanded.find((decision) => decision.tradeDomain === "solar")?.limitations.join(" ")).toContain("companion classifications");
+  });
+
+  it("records Utah DOPL coverage while leaving sheet metal unresolved", async () => {
+    const ledger = boardTradeCoverageLedgerSchema.parse(await json("registry/board-coverage.json"));
+    const expanded = expandBoardTradeCoverageLedger(ledger).filter((decision) => decision.state === "UT");
+    const unresolved = expanded.filter((decision) => decision.outcome === "needs_research");
+
+    expect(unresolved.map((decision) => decision.tradeDomain)).toEqual(["sheet_metal"]);
+    expect(expanded.find((decision) => decision.tradeDomain === "electrical")).toMatchObject({
+      outcome: "covered_by_board",
+      boardIds: ["us.ut.dopl.contractors"],
+    });
+    expect(expanded.find((decision) => decision.tradeDomain === "hvac")?.evidence[0]?.note).toContain("H100");
+    expect(expanded.find((decision) => decision.tradeDomain === "asbestos")).toMatchObject({
+      outcome: "not_state_regulated",
+      boardIds: [],
+    });
+    expect(expanded.find((decision) => decision.tradeDomain === "asbestos")?.limitations.join(" ")).toContain("DEQ");
   });
 
   it("records complete Florida coverage against separate DBPR board sources", async () => {
