@@ -19,14 +19,28 @@
     "general_contracting",
     "residential_contracting",
     "commercial_contracting",
-    "other"
+    "electrical",
+    "plumbing",
+    "hvac",
+    "mechanical",
+    "roofing",
+    "solar",
+    "pool_spa",
+    "asbestos",
+    "sheet_metal",
+    "underground_utility",
+    "home_improvement"
   ],
   "licenseTypesIncluded": [
-    "Arkansas contractor license and registration records exposed by the official board search"
+    "Commercial contractor licenses and subcontractor registrations",
+    "Residential builder and remodeler licenses",
+    "Residential specialty and home improvement licenses",
+    "Residential roofer registrations"
   ],
   "knownExclusions": [
     "This source is scoped to the Arkansas Contractors Licensing Board and does not represent every local permit, business registration, or trade credential in Arkansas.",
-    "Source-specific license classifications and inactive or historical coverage need further review before adapter work."
+    "Some contractor classifications require a separate Arkansas trade credential, including master electrician, master plumber, HVACR, asbestos, fire-protection, or underground-storage credentials; this source does not replace those issuing authorities.",
+    "The public lookup's inactive and historical coverage remains unverified, and no machine-readable export has been confirmed."
   ],
   "hasBulkDownload": "unknown",
   "hasLiveLookup": true,
@@ -44,17 +58,27 @@
   "testFixturePath": null,
   "officialLookupUrl": "https://labor.arkansas.gov/licensing/arkansas-contractors-licensing-board/find-a-licensed-contractor/",
   "officialBulkDownloadNotes": "No official bulk download has been confirmed in this phase.",
-  "researchNotes": "Registry-only source for Arkansas contractor licensing lookup. Future work should research search result fields, license classes, and whether any official export is available.",
-  "lastVerifiedAt": "2026-06-27T00:00:00.000Z",
-  "maintainerNotes": "Keep board scope explicit and do not imply all Arkansas skilled-trade or local contractor authorizations are covered.",
+  "researchNotes": "The board and its Residential Contractors Committee regulate commercial contractors, residential builders and remodelers, residential specialties, home improvement contractors, and residential roofer registrations. The April 2026 commercial rules enumerate broad and specialty classifications across all tracked trade domains. Companion trade credentials remain required where the rules say so, and lookup automation remains blocked pending a stable reviewed interface.",
+  "lastVerifiedAt": "2026-07-02T00:00:00.000Z",
+  "maintainerNotes": "Keep the contractor-board scope and companion trade-license limitations explicit. The classification evidence supports board coverage, not a claim that this lookup alone proves every credential required for the work.",
   "schemaVersion": "1.0",
-  "researchReviewedAt": "2026-06-27T00:00:00.000Z",
-  "nextReviewAt": "2026-12-27T00:00:00.000Z",
+  "researchReviewedAt": "2026-07-02T00:00:00.000Z",
+  "nextReviewAt": "2027-01-02T00:00:00.000Z",
   "researchEvidence": [
     {
       "url": "https://labor.arkansas.gov/licensing/arkansas-contractors-licensing-board/find-a-licensed-contractor/",
-      "checkedAt": "2026-06-27T00:00:00.000Z",
-      "note": "Official public source, access shape, and current automation constraints reviewed."
+      "checkedAt": "2026-07-02T00:00:00.000Z",
+      "note": "Official public lookup and current access shape reviewed."
+    },
+    {
+      "url": "https://labor.arkansas.gov/wp-content/uploads/Commercial-Contractors-Law-revised-04.2026.pdf",
+      "checkedAt": "2026-07-02T00:00:00.000Z",
+      "note": "Official April 2026 commercial law and rules reviewed for contractor classifications and companion credential requirements."
+    },
+    {
+      "url": "https://labor.arkansas.gov/wp-content/uploads/Residential-Law-revised-August-2025.pdf",
+      "checkedAt": "2026-07-02T00:00:00.000Z",
+      "note": "Official residential law and rules reviewed for builder, remodeler, specialty, and home improvement scope."
     }
   ],
   "sourceResearchOutcome": "blocked",
