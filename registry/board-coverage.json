@@ -781,6 +781,12 @@
           "evidence": [{ "url": "https://ncrefrigerationboard.arlsys.com/Public/Search", "reviewedAt": "2026-07-02T00:00:00.000Z", "note": "The official refrigeration-board verify-license search lists commercial, industrial, service, and transport refrigeration contractor classifications." }],
           "limitations": ["This decision covers heating, fuel-piping, fire-sprinkler, and refrigeration-board mechanical-adjacent paths; unrelated mechanical scopes may require separate evidence."]
         },
+        "solar": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.nc.ncbeec.electrical_contractors", "us.nc.nclbgc.general_contractors"],
+          "evidence": [{ "url": "https://nclbgc.org/wp-content/uploads/2022/07/Solar-Panel-Installation-Licensing-Final.pdf", "reviewedAt": "2026-07-02T00:00:00.000Z", "note": "Official NCLBGC solar-panel installation guidance says SPVP installations require an electrical contractor license and that NCLBGC scope may apply when structural or other general-contractor work is included." }],
+          "limitations": ["Solar coverage is represented through electrical-contractor licensing and conditional general-contractor scope, not a standalone North Carolina solar contractor board."]
+        },
         "roofing": {
           "outcome": "covered_by_board",
           "boardIds": ["us.nc.nclbgc.general_contractors"],

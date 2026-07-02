@@ -17,14 +17,16 @@
   "termsReviewNotes": "Official NCBEEC licensing and public-search pages were reviewed; no source-specific reuse terms page was confirmed in this phase.",
   "updateFrequency": "unknown; verify against the official public search before relying on freshness assumptions",
   "tradeCoverage": [
-    "electrical"
+    "electrical",
+    "solar"
   ],
   "licenseTypesIncluded": [
-    "North Carolina electrical contractor licenses exposed by the NCBEEC public verify-license search"
+    "North Carolina electrical contractor licenses exposed by the NCBEEC public verify-license search",
+    "North Carolina electrical contractor licenses used for solar photovoltaic electrical contracting where applicable"
   ],
   "knownExclusions": [
     "This source is scoped to electrical contractor licenses regulated by the North Carolina State Board of Examiners of Electrical Contractors.",
-    "General contracting, plumbing, heating, fire sprinkler, local permits, and municipal registrations are outside this source entry.",
+    "General contracting, plumbing, heating, fire sprinkler, building permits, local permits, and municipal registrations are outside this source entry.",
     "The official source is lookup-oriented; no stable machine-readable bulk export has been confirmed for OpenTrade ingestion."
   ],
   "hasBulkDownload": "unknown",
@@ -44,7 +46,7 @@
   "testFixturePath": null,
   "officialLookupUrl": "https://arls-public.ncbeec.org/Public/Search",
   "officialBulkDownloadNotes": "No official NCBEEC bulk download has been confirmed in this phase.",
-  "researchNotes": "Registry-only source for North Carolina electrical contractor verification. The public search lists license classifications, but OpenTrade does not automate it without a separate access-control and terms review.",
+  "researchNotes": "Registry-only source for North Carolina electrical contractor verification. The public search lists license classifications, and official NCLBGC solar-panel guidance says SPVP electrical work requires an electrical contractor license. OpenTrade does not automate the lookup without a separate access-control and terms review.",
   "lastVerifiedAt": "2026-07-01T00:00:00.000Z",
   "maintainerNotes": "Keep this source separate from the North Carolina general contractor and plumbing/heating board entries.",
   "schemaVersion": "1.0",
@@ -60,6 +62,11 @@
       "url": "https://www.ncbeec.org/licensing/",
       "checkedAt": "2026-07-01T00:00:00.000Z",
       "note": "Official NCBEEC licensing page reviewed for agency scope and electrical contractor licensing context."
+    },
+    {
+      "url": "https://nclbgc.org/wp-content/uploads/2022/07/Solar-Panel-Installation-Licensing-Final.pdf",
+      "checkedAt": "2026-07-02T00:00:00.000Z",
+      "note": "Official NCLBGC solar-panel licensing guidance reviewed; it states SPVP installations require electrical contractor licensing and identifies when general-contractor scope may also apply."
     }
   ],
   "sourceResearchOutcome": "blocked",
