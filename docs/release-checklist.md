@@ -7,7 +7,7 @@
 - [ ] Development and production dependency audits pass.
 - [ ] No high/critical Dependabot, CodeQL, or secret-scanning alert is unresolved.
 - [ ] Node 20/22/24 CI is green on Linux, macOS, and Windows.
-- [ ] All 80 sources have terminal outcomes.
+- [ ] All 83 sources have terminal outcomes.
 - [ ] All implemented adapters are Level 4 and none are fixture-only terminal outcomes.
 - [ ] CLI file, cache, and explicit-network behavior is covered offline.
 - [ ] No generated dataset, SQLite cache, credential, or bulk download is staged.
