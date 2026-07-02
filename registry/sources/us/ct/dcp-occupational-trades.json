@@ -1,0 +1,83 @@
+{
+  "id": "us.ct.dcp.occupational_trades",
+  "name": "Connecticut DCP Occupational Trades Lookup",
+  "jurisdiction": { "country": "US", "state": "CT" },
+  "agency": {
+    "name": "Connecticut Department of Consumer Protection Occupational and Professional Licensing Division",
+    "url": "https://portal.ct.gov/dcp/agency-administration/division-home-pages/occupational--professional-licensing-division"
+  },
+  "sourceType": "html_lookup",
+  "sourceUrl": "https://www.elicense.ct.gov/Lookup/LicenseLookup.aspx",
+  "documentationUrl": "https://portal.ct.gov/dcp/agency-administration/division-home-pages/occupational--professional-licensing-division",
+  "dataDictionaryUrl": null,
+  "termsUrl": "https://portal.ct.gov/policies",
+  "updateFrequency": "unknown; verify current credential status in Connecticut eLicense",
+  "tradeCoverage": ["electrical", "plumbing", "hvac", "mechanical", "solar", "pool_spa", "sheet_metal", "underground_utility"],
+  "licenseTypesIncluded": [
+    "Electrical contractor licenses",
+    "Plumbing, piping, well-drilling, and pool/spa contractor licenses",
+    "Heating, piping, cooling, and sheet-metal contractor licenses",
+    "Solar electric and solar thermal contractor licenses"
+  ],
+  "knownExclusions": [
+    "The shared eLicense portal covers many professions and credential levels; contractor and journeyperson records must not be conflated.",
+    "General construction, home improvement, new-home construction, asbestos work, and local permits are covered separately."
+  ],
+  "hasBulkDownload": "unknown",
+  "hasLiveLookup": true,
+  "requiresJavaScript": "unknown",
+  "requiresCaptcha": "unknown",
+  "requiresAccount": false,
+  "rateLimitNotes": "No adapter is implemented. Do not bypass or automate portal controls.",
+  "redistributionStatus": "unknown",
+  "publicRecordsNotes": "Official credential lookup metadata only. Absence from one license type is not proof that no other authorization exists.",
+  "adapterStatus": "blocked",
+  "sourceDiscoveryStatus": "blocked",
+  "adapterMaturity": "blocked",
+  "adapterQualityLevel": 0,
+  "coverageScope": "state_agency_partial",
+  "adapterPackage": null,
+  "testFixturePath": null,
+  "officialLookupUrl": "https://www.elicense.ct.gov/Lookup/LicenseLookup.aspx",
+  "officialBulkDownloadNotes": "DCP references roster generation, but no stable public export contract or redistribution position has been reviewed.",
+  "researchNotes": "DCP occupational boards license contractors and individuals across electrical, plumbing/piping, HVAC, sheet metal, pool/spa, and solar scopes. eLicense remains a manual handoff.",
+  "verificationReviewedAt": null,
+  "verificationCaveats": [
+    "Credential type and contractor-versus-journeyperson level must be preserved.",
+    "No match means no matching record in the selected source and credential type at the checked time."
+  ],
+  "verificationNotes": "No supported adapter is exposed while the shared portal lacks a reviewed stable machine interface.",
+  "lastVerifiedAt": "2026-07-02T00:00:00.000Z",
+  "maintainerNotes": "Future adapters must retain board, license class, and individual/business distinctions.",
+  "schemaVersion": "1.0",
+  "researchReviewedAt": "2026-07-02T00:00:00.000Z",
+  "nextReviewAt": "2027-01-02T00:00:00.000Z",
+  "researchEvidence": [
+    {
+      "url": "https://portal.ct.gov/dcp/occupational-and-professional-division/occupational-boards/electrical-work-examining-board",
+      "checkedAt": "2026-07-02T00:00:00.000Z",
+      "note": "Official board page documents licensed electrical contractors and journeypersons."
+    },
+    {
+      "url": "https://portal.ct.gov/dcp/occupational-and-professional-division/occupational-boards/plumbing-and-piping-work-examining-board",
+      "checkedAt": "2026-07-02T00:00:00.000Z",
+      "note": "Official board page documents plumbing, pipefitting, well-drilling, and pool/spa licensing."
+    },
+    {
+      "url": "https://portal.ct.gov/dcp/common-elements/consumer-facts-and-contacts/heating-and-cooling",
+      "checkedAt": "2026-07-02T00:00:00.000Z",
+      "note": "Official DCP page states heating, cooling, and sheet-metal workers must be licensed by DCP."
+    },
+    {
+      "url": "https://portal.ct.gov/dcp/license-services-division/all-license-applications/solar-energy-work",
+      "checkedAt": "2026-07-02T00:00:00.000Z",
+      "note": "Official DCP page documents ST-1 solar thermal and PV-1 solar electric contractor credentials."
+    }
+  ],
+  "sourceResearchOutcome": "blocked",
+  "blocker": {
+    "code": "technical_instability",
+    "summary": "The shared interactive lookup has no reviewed stable machine-readable contract for these credentials.",
+    "evidenceUrls": ["https://www.elicense.ct.gov/Lookup/LicenseLookup.aspx", "https://portal.ct.gov/policies"]
+  }
+}
