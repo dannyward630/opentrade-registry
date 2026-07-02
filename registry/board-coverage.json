@@ -901,7 +901,91 @@
     { "state": "PA", "decisions": {} },
     { "state": "PR", "decisions": {} },
     { "state": "RI", "decisions": {} },
-    { "state": "SC", "decisions": {} },
+    {
+      "state": "SC",
+      "decisions": {
+        "general_contracting": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.sc.llr.contractors"],
+          "evidence": [{ "url": "https://www.scstatehouse.gov/code/t40c011.php", "reviewedAt": "2026-07-02T00:00:00.000Z", "note": "Title 40 Chapter 11 defines general construction and the statewide General Contractors-Building classification." }],
+          "limitations": ["The exact classification, subclassification, license group, and statutory project-value threshold must be evaluated for each project."]
+        },
+        "residential_contracting": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.sc.llr.residential_builders"],
+          "evidence": [{ "url": "https://llr.sc.gov/res/resbuilder.aspx", "reviewedAt": "2026-07-02T00:00:00.000Z", "note": "The Residential Builders Commission defines its statewide builder license for qualifying residential construction, repair, improvement, and reimprovement." }],
+          "limitations": ["The residential builder scope is limited by building height, unit count, project value, and mechanical-trade qualifications described by the commission."]
+        },
+        "commercial_contracting": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.sc.llr.contractors"],
+          "evidence": [{ "url": "https://llr.sc.gov/clb/clb_general.aspx", "reviewedAt": "2026-07-02T00:00:00.000Z", "note": "The Contractor's Licensing Board states that regulated commercial general or mechanical construction above the statutory threshold requires its license." }]
+        },
+        "electrical": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.sc.llr.contractors", "us.sc.llr.residential_builders"],
+          "evidence": [{ "url": "https://www.scstatehouse.gov/code/t40c011.php", "reviewedAt": "2026-07-02T00:00:00.000Z", "note": "Section 40-11-410 defines the commercial mechanical-electrical subclassification, while the Residential Builders Commission separately licenses residential electrical contractors." }],
+          "limitations": ["Commercial and residential electrical credentials are maintained through separate board paths."]
+        },
+        "plumbing": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.sc.llr.contractors", "us.sc.llr.residential_builders"],
+          "evidence": [{ "url": "https://llr.sc.gov/res/licensure.aspx", "reviewedAt": "2026-07-02T00:00:00.000Z", "note": "The commission lists a Residential Specialty Plumbing License, while Title 40 Chapter 11 defines plumbing as a commercial mechanical subclassification." }],
+          "limitations": ["Commercial and residential plumbing credentials are maintained through separate board paths."]
+        },
+        "hvac": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.sc.llr.contractors", "us.sc.llr.residential_builders"],
+          "evidence": [{ "url": "https://llr.sc.gov/res/licensure.aspx", "reviewedAt": "2026-07-02T00:00:00.000Z", "note": "The commission lists a Residential Specialty Heating and Air License, while Title 40 Chapter 11 defines air-conditioning, heating, packaged-equipment, and refrigeration subclassifications." }],
+          "limitations": ["Commercial and residential HVAC credentials are maintained through separate board paths."]
+        },
+        "mechanical": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.sc.llr.contractors"],
+          "evidence": [{ "url": "https://www.scstatehouse.gov/code/t40c011.php", "reviewedAt": "2026-07-02T00:00:00.000Z", "note": "Title 40 Chapter 11 defines mechanical construction and its air-conditioning, heating, packaged-equipment, electrical, plumbing, piping, and refrigeration subclassifications." }]
+        },
+        "roofing": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.sc.llr.contractors", "us.sc.llr.residential_builders"],
+          "evidence": [{ "url": "https://www.scstatehouse.gov/code/t40c011.php", "reviewedAt": "2026-07-02T00:00:00.000Z", "note": "Section 40-11-410 defines the statewide commercial roofing subclassification; the Residential Builders Commission separately lists roofing specialty registration." }]
+        },
+        "solar": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.sc.llr.contractors", "us.sc.llr.residential_builders"],
+          "evidence": [{ "url": "https://www.scstatehouse.gov/code/t40c011.php", "reviewedAt": "2026-07-02T00:00:00.000Z", "note": "Section 40-11-410 assigns commercial solar component installation, roof mounting, structural upgrades, and wiring to specified general or mechanical classifications; the residential commission lists solar specialty registration." }],
+          "limitations": ["A solar project may require multiple classifications for mounting, structural work, and electrical connections."]
+        },
+        "pool_spa": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.sc.llr.contractors"],
+          "evidence": [{ "url": "https://www.scstatehouse.gov/code/t40c011.php", "reviewedAt": "2026-07-02T00:00:00.000Z", "note": "Section 40-11-410 defines Swimming Pools for residential, commercial, and institutional pools and spas and their integral equipment." }],
+          "limitations": ["South Carolina keeps swimming-pool contracting in the Contractor's Licensing Board path rather than the general residential-builder path."]
+        },
+        "asbestos": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.sc.des.asbestos"],
+          "evidence": [{ "url": "https://www.des.sc.gov/programs/bureau-air-quality/asbestos", "reviewedAt": "2026-07-02T00:00:00.000Z", "note": "The DES Asbestos Section states that it licenses contractors and individuals who handle regulated asbestos-containing material and publishes an official contractor search." }],
+          "limitations": ["DES asbestos licensing is separate from LLR contractor classifications and must be verified through the asbestos-specific source."]
+        },
+        "sheet_metal": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.sc.llr.contractors"],
+          "evidence": [{ "url": "https://www.scstatehouse.gov/code/t40c011.php", "reviewedAt": "2026-07-02T00:00:00.000Z", "note": "Section 40-11-410 includes ducts and ventilation work in mechanical subclassifications and sheet-metal valleys, flashings, gutters, and related work in roofing." }],
+          "limitations": ["Future normalization must distinguish HVAC duct work from roofing-related sheet metal and preserve the applicable subclassification."]
+        },
+        "underground_utility": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.sc.llr.contractors"],
+          "evidence": [{ "url": "https://www.scstatehouse.gov/code/t40c011.php", "reviewedAt": "2026-07-02T00:00:00.000Z", "note": "Section 40-11-410 defines public-utility classifications for pipelines, water and sewer plants and lines, boring and tunneling, and underground electrical systems." }]
+        },
+        "home_improvement": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.sc.llr.residential_builders"],
+          "evidence": [{ "url": "https://llr.sc.gov/res/resspecialty.aspx", "reviewedAt": "2026-07-02T00:00:00.000Z", "note": "The Residential Builders Commission defines specialty contracting for qualifying residential construction, repairs, improvement, and reimprovement and publishes the available trade registrations." }],
+          "limitations": ["Specialty registration is limited in classification count and scope and does not authorize work outside the registered trades."]
+        }
+      }
+    },
     { "state": "SD", "decisions": {} },
     {
       "state": "TN",

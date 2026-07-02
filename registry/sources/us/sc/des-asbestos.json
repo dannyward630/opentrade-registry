@@ -1,0 +1,79 @@
+{
+  "id": "us.sc.des.asbestos",
+  "name": "South Carolina DES Asbestos Contractors and Consultants Search",
+  "jurisdiction": {
+    "country": "US",
+    "state": "SC"
+  },
+  "agency": {
+    "name": "South Carolina Department of Environmental Services",
+    "url": "https://des.sc.gov/"
+  },
+  "sourceType": "html_lookup",
+  "sourceUrl": "https://apps.des.sc.gov/AsbestosContractorsAndConsultants/Index/CONTRACT/0",
+  "documentationUrl": "https://www.des.sc.gov/programs/bureau-air-quality/asbestos",
+  "dataDictionaryUrl": null,
+  "termsUrl": "https://www.des.sc.gov/website-accessibility-and-policies",
+  "updateFrequency": "unknown; verify against the official search and licensing program before relying on freshness assumptions",
+  "tradeCoverage": [
+    "asbestos"
+  ],
+  "licenseTypesIncluded": [
+    "South Carolina asbestos abatement contractor licenses",
+    "Asbestos personnel and consultant categories exposed by the official search"
+  ],
+  "knownExclusions": [
+    "The source includes multiple asbestos personnel and consultant categories; contractor verification must select the contractor category explicitly.",
+    "The published list is informational and does not imply DES endorsement.",
+    "Local permits and non-asbestos contractor credentials are outside this source entry."
+  ],
+  "hasBulkDownload": "unknown",
+  "hasLiveLookup": true,
+  "requiresJavaScript": "unknown",
+  "requiresCaptcha": false,
+  "requiresAccount": false,
+  "rateLimitNotes": "No adapter is implemented. The official interface exposes an Export Data action, but its format, completeness, stability, and reuse conditions require review before automated ingestion.",
+  "redistributionStatus": "unknown",
+  "publicRecordsNotes": "DES licenses asbestos contractors and individuals and publishes an official category-based search. Absence from one result category is not proof that no credential exists.",
+  "adapterStatus": "blocked",
+  "sourceDiscoveryStatus": "blocked",
+  "adapterMaturity": "blocked",
+  "adapterQualityLevel": 0,
+  "coverageScope": "state_agency_partial",
+  "adapterPackage": null,
+  "testFixturePath": null,
+  "officialLookupUrl": "https://apps.des.sc.gov/AsbestosContractorsAndConsultants/Index/CONTRACT/0",
+  "officialBulkDownloadNotes": "The lookup exposes an Export Data action, but no stable documented bulk contract or redistribution permission has been confirmed.",
+  "researchNotes": "DES is the asbestos licensing authority and publishes contractor and consultant search categories. This source remains a manual handoff until the export shape, completeness, privacy fields, and terms are reviewed for an adapter.",
+  "lastVerifiedAt": "2026-07-02T00:00:00.000Z",
+  "maintainerNotes": "Do not publish contact fields or exported records without source-specific privacy and redistribution review. Keep the category and checked time with every result.",
+  "schemaVersion": "1.0",
+  "researchReviewedAt": "2026-07-02T00:00:00.000Z",
+  "nextReviewAt": "2027-01-02T00:00:00.000Z",
+  "researchEvidence": [
+    {
+      "url": "https://www.des.sc.gov/programs/bureau-air-quality/asbestos",
+      "checkedAt": "2026-07-02T00:00:00.000Z",
+      "note": "Official program page states that DES licenses asbestos contractors and individuals and links the contractor/consultant search."
+    },
+    {
+      "url": "https://apps.des.sc.gov/AsbestosContractorsAndConsultants/Index/CONTRACT/0",
+      "checkedAt": "2026-07-02T00:00:00.000Z",
+      "note": "Official category-based search and Export Data control reviewed; the site states its lists are informational and not endorsements."
+    },
+    {
+      "url": "https://www.des.sc.gov/sites/des/files/Documents/BAQ/asbestos/R.61-86.1.pdf",
+      "checkedAt": "2026-07-02T00:00:00.000Z",
+      "note": "Official asbestos-project regulation reviewed as the licensing and operating-policy evidence source."
+    }
+  ],
+  "sourceResearchOutcome": "blocked",
+  "blocker": {
+    "code": "technical_instability",
+    "summary": "The interactive export lacks a reviewed stable data contract, completeness statement, and confirmed reuse terms; normal use remains an official manual handoff.",
+    "evidenceUrls": [
+      "https://apps.des.sc.gov/AsbestosContractorsAndConsultants/Index/CONTRACT/0",
+      "https://www.des.sc.gov/programs/bureau-air-quality/asbestos"
+    ]
+  }
+}

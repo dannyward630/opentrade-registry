@@ -15,8 +15,8 @@ describe("nationwide board trade coverage ledger", () => {
     expect(ledger.jurisdictions).toHaveLength(56);
     expect(new Set(ledger.jurisdictions.map((entry) => entry.state)).size).toBe(56);
     expect(expanded).toHaveLength(56 * BOARD_TRADE_DOMAINS.length);
-    expect(expanded.filter((decision) => decision.outcome === "needs_research")).toHaveLength(601);
-    expect(expanded.filter((decision) => decision.outcome === "covered_by_board")).toHaveLength(176);
+    expect(expanded.filter((decision) => decision.outcome === "needs_research")).toHaveLength(587);
+    expect(expanded.filter((decision) => decision.outcome === "covered_by_board")).toHaveLength(190);
     expect(expanded.filter((decision) => decision.outcome === "not_state_regulated")).toHaveLength(2);
     expect(expanded.filter((decision) => decision.outcome === "local_only")).toHaveLength(5);
   });
@@ -101,6 +101,18 @@ describe("nationwide board trade coverage ledger", () => {
     expect(expanded.find((decision) => decision.tradeDomain === "electrical")?.limitations.join(" ")).toContain("master electrician");
     expect(expanded.find((decision) => decision.tradeDomain === "asbestos")?.limitations.join(" ")).toContain("trade certificate");
     expect(expanded.find((decision) => decision.tradeDomain === "home_improvement")?.limitations.join(" ")).toContain("structural remodeling");
+  });
+
+  it("records complete South Carolina board-specific trade coverage", async () => {
+    const ledger = boardTradeCoverageLedgerSchema.parse(await json("registry/board-coverage.json"));
+    const expanded = expandBoardTradeCoverageLedger(ledger).filter((decision) => decision.state === "SC");
+
+    expect(expanded.filter((decision) => decision.outcome === "needs_research")).toEqual([]);
+    expect(expanded.every((decision) => decision.outcome === "covered_by_board")).toBe(true);
+    expect(expanded.find((decision) => decision.tradeDomain === "residential_contracting")?.boardIds).toEqual(["us.sc.llr.residential_builders"]);
+    expect(expanded.find((decision) => decision.tradeDomain === "asbestos")?.boardIds).toEqual(["us.sc.des.asbestos"]);
+    expect(expanded.find((decision) => decision.tradeDomain === "pool_spa")?.boardIds).toEqual(["us.sc.llr.contractors"]);
+    expect(expanded.find((decision) => decision.tradeDomain === "solar")?.limitations.join(" ")).toContain("multiple classifications");
   });
 
   it("records complete Louisiana contractor classification coverage", async () => {
