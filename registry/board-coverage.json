@@ -1641,11 +1641,35 @@
           "evidence": [{ "url": "https://www.tdlr.texas.gov/media/pdf/Consumer%20Protection%20-%20Solar%20Panel.pdf", "reviewedAt": "2026-07-01T10:00:00.000Z", "note": "TDLR consumer guidance for solar panels says licensed electrical contractors perform solar installation work and must hold or employ a master electrician." }],
           "limitations": ["This decision covers solar installation through the electrical-contractor licensing path; residential solar retail sales registration is a separate future TDLR program and is not treated as active contractor-license coverage here."]
         },
+        "pool_spa": {
+          "outcome": "local_only",
+          "evidence": [
+            { "url": "https://www.tdlr.texas.gov/electricians/apply/businesses/contractor-appliance.htm", "reviewedAt": "2026-07-02T00:00:00.000Z", "note": "TDLR licenses Residential Appliance Installation Contractors for residential appliance installation, including pool-related electrical installation and maintenance." },
+            { "url": "https://gov.texas.gov/uploads/files/business/smallbusinesshandbook.pdf", "reviewedAt": "2026-07-02T00:00:00.000Z", "note": "The Governor's Small Business Handbook directs general contracting, construction, and home-builder licensing or permitting questions to local or city requirements rather than a statewide construction board." }
+          ],
+          "limitations": ["Texas pool and spa work can trigger statewide electrical or residential-appliance electrical credentials, but OpenTrade has not verified a standalone statewide pool/spa construction contractor board.", "Local permits, inspections, and contractor registrations may apply and remain outside the statewide board-completion ledger."]
+        },
         "asbestos": {
           "outcome": "covered_by_board",
           "boardIds": ["us.tx.dshs.asbestos"],
           "evidence": [{ "url": "https://www.dshs.texas.gov/asbestos-program/licensing-registration-requirements-asbestos-program", "reviewedAt": "2026-07-02T00:00:00.000Z", "note": "DSHS states persons and companies engaging in asbestos-related activities in a public building in Texas must be appropriately licensed or registered by DSHS." }],
           "limitations": ["DSHS asbestos scope is public-building asbestos-program licensing and registration; this is not a statewide general contractor, demolition-permit, or local building-permit source."]
+        },
+        "sheet_metal": {
+          "outcome": "local_only",
+          "evidence": [
+            { "url": "https://www.tdlr.texas.gov/acr/", "reviewedAt": "2026-07-02T00:00:00.000Z", "note": "TDLR requires a license for contractors who install, repair, or maintain systems related to air conditioning, refrigeration, or heating." },
+            { "url": "https://gov.texas.gov/uploads/files/business/Texas_Licenses_Permits_Guide.pdf", "reviewedAt": "2026-07-02T00:00:00.000Z", "note": "The official Texas Business Licenses and Permits Guide lists state trade and environmental licensing paths but does not identify a standalone statewide sheet-metal contractor board." }
+          ],
+          "limitations": ["Sheet-metal work tied to HVAC systems may fall under TDLR air conditioning and refrigeration licensing; this decision only records that a separate statewide sheet-metal contractor board was not verified.", "Local permit and contractor-registration requirements may still apply."]
+        },
+        "underground_utility": {
+          "outcome": "local_only",
+          "evidence": [
+            { "url": "https://www.tceq.texas.gov/licensing/licenses/ust_lic.html", "reviewedAt": "2026-07-02T00:00:00.000Z", "note": "TCEQ requires registration for entities installing, repairing, or removing underground storage tanks and licenses supervisors for that UST work." },
+            { "url": "https://gov.texas.gov/uploads/files/business/smallbusinesshandbook.pdf", "reviewedAt": "2026-07-02T00:00:00.000Z", "note": "The Governor's Small Business Handbook directs general construction licensing, permitting, or bonding requirements to local or city authorities." }
+          ],
+          "limitations": ["This decision does not treat TCEQ UST registration as full statewide underground-utility contractor coverage.", "Electrical, plumbing, water-well, environmental, utility-owner, and local public-works requirements may apply to specific underground utility projects."]
         },
         "home_improvement": {
           "outcome": "local_only",
