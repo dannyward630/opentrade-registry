@@ -17,15 +17,28 @@
   "updateFrequency": "unknown; verify against the public lookup before relying on freshness assumptions",
   "tradeCoverage": [
     "general_contracting",
+    "residential_contracting",
+    "commercial_contracting",
+    "electrical",
+    "plumbing",
+    "hvac",
+    "mechanical",
+    "roofing",
+    "solar",
+    "pool_spa",
+    "asbestos",
+    "sheet_metal",
+    "underground_utility",
     "home_improvement",
     "other"
   ],
   "licenseTypesIncluded": [
-    "construction contractor registrations exposed by the Delaware public lookup"
+    "construction contractor registrations exposed by the Delaware public lookup",
+    "construction services and maintenance registrations under the Delaware Contractor Registration Act"
   ],
   "knownExclusions": [
-    "The public lookup is a construction contractor registry and does not represent every Delaware professional, trade, municipal, or business license.",
-    "Individual professional licenses are handled through separate Delaware professional licensing systems.",
+    "The public lookup is a construction contractor registry and does not replace Delaware professional, environmental, municipal, permit, or business-license requirements.",
+    "Electrical, plumbing, HVACR, and asbestos credentials are handled through separate Delaware licensing systems and must be preserved as companion sources.",
     "Contractors absent from the registry may be under review, removed, suspended, revoked, or outside the registry scope."
   ],
   "hasBulkDownload": false,
@@ -43,18 +56,28 @@
   "adapterPackage": null,
   "testFixturePath": null,
   "officialLookupUrl": "https://contractorregistry.delaware.gov/",
-  "officialBulkDownloadNotes": "The official page supports searches, including an all-contractors search, but no stable file or API export was exposed during the 2026-06-27 review.",
-  "researchNotes": "The source is contractor-specific. Its disclaimer says absent records may be under review, removed, suspended, revoked, or outside current registry status, so lookup results cannot be reduced to a binary licensing claim.",
-  "lastVerifiedAt": "2026-06-27T00:00:00.000Z",
-  "maintainerNotes": "Keep Delaware contractor registry scope separate from DELPROS professional-license records and Division of Revenue business licenses.",
+  "officialBulkDownloadNotes": "The official page supports searches, including an all-contractors search, but no stable file or API export was exposed during the 2026-07-02 review.",
+  "researchNotes": "The source is contractor-specific and backed by the Delaware Contractor Registration Act. It covers construction services broadly, but trade-specific professional credentials and environmental credentials remain separate companion sources.",
+  "lastVerifiedAt": "2026-07-02T00:00:00.000Z",
+  "maintainerNotes": "Keep Delaware contractor registry scope separate from DELPROS professional-license records, DFM asbestos credentials, local permits, and Division of Revenue business licenses.",
   "schemaVersion": "1.0",
-  "researchReviewedAt": "2026-06-27T00:00:00.000Z",
-  "nextReviewAt": "2026-12-27T00:00:00.000Z",
+  "researchReviewedAt": "2026-07-02T00:00:00.000Z",
+  "nextReviewAt": "2027-01-02T00:00:00.000Z",
   "researchEvidence": [
     {
       "url": "https://contractorregistry.delaware.gov/",
-      "checkedAt": "2026-06-27T00:00:00.000Z",
+      "checkedAt": "2026-07-02T00:00:00.000Z",
       "note": "Official search supports name, ZIP, certification number, NAICS, and all-contractors queries; no stable file or API contract was documented."
+    },
+    {
+      "url": "https://delcode.delaware.gov/title19/c036/index.html",
+      "checkedAt": "2026-07-02T00:00:00.000Z",
+      "note": "The Delaware Contractor Registration Act requires contractors to register before performing construction services or maintenance and defines construction services broadly across buildings, structures, utilities, excavating, and related work."
+    },
+    {
+      "url": "https://onestop.delaware.gov/Operate_Contractors",
+      "checkedAt": "2026-07-02T00:00:00.000Z",
+      "note": "Official One Stop guidance lists related NAICS examples including general construction, roofing, plumbing, HVAC, sheet metal, sewer piping and storm drains, pipeline construction, asbestos removal, electrical, and mechanical construction."
     }
   ],
   "sourceResearchOutcome": "blocked",

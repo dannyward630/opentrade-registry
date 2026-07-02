@@ -1,0 +1,87 @@
+{
+  "id": "us.de.dfm.asbestos_contractors",
+  "name": "Delaware DFM Asbestos Abatement Contractors",
+  "jurisdiction": {
+    "country": "US",
+    "state": "DE"
+  },
+  "agency": {
+    "name": "Delaware Division of Facilities Management Asbestos Office",
+    "url": "https://dfm.delaware.gov/"
+  },
+  "sourceType": "html_lookup",
+  "sourceUrl": "https://dfm.delaware.gov/envsrv/asbestos/",
+  "documentationUrl": "https://dfm.delaware.gov/envsrv/asbestos/requirements.shtml",
+  "dataDictionaryUrl": "https://data.delaware.gov/Licenses-and-Certifications/Certified-Asbestos-Vendors/f677-ahd9",
+  "termsUrl": "https://delaware.gov/privacy-policy/",
+  "updateFrequency": "unknown; verify against the DFM Asbestos Office and Delaware Open Data portal before relying on freshness assumptions",
+  "tradeCoverage": [
+    "asbestos"
+  ],
+  "licenseTypesIncluded": [
+    "Delaware Class A asbestos abatement contractor credentials",
+    "Delaware Class B asbestos abatement contractor credentials",
+    "Professional service firm asbestos credentials where applicable",
+    "Certified Asbestos Vendors open-data records where reviewed"
+  ],
+  "knownExclusions": [
+    "This entry covers asbestos abatement credentials only; general contractor registration, electrical, plumbing/HVACR, local permits, and business licenses are separate sources.",
+    "Open-data vendor records and DFM certification requirements must be reconciled before any adapter is promoted.",
+    "Project notifications, inspections, disposal requirements, and federal or DNREC obligations are outside this source entry."
+  ],
+  "hasBulkDownload": "unknown",
+  "hasLiveLookup": true,
+  "requiresJavaScript": "unknown",
+  "requiresCaptcha": "unknown",
+  "requiresAccount": false,
+  "rateLimitNotes": "No adapter is implemented. Use official DFM and Delaware Open Data pages manually until the current export shape, field meanings, and redistribution position are reviewed.",
+  "redistributionStatus": "unknown",
+  "publicRecordsNotes": "Official asbestos credential metadata only. Absence from one DFM or open-data page is not proof that no asbestos authorization exists.",
+  "adapterStatus": "blocked",
+  "sourceDiscoveryStatus": "blocked",
+  "adapterMaturity": "blocked",
+  "adapterQualityLevel": 0,
+  "coverageScope": "state_agency_partial",
+  "adapterPackage": null,
+  "testFixturePath": null,
+  "officialLookupUrl": "https://data.delaware.gov/Licenses-and-Certifications/Certified-Asbestos-Vendors/f677-ahd9",
+  "officialBulkDownloadNotes": "Delaware Open Data exposes a Certified Asbestos Vendors dataset page, but no OpenTrade adapter has reviewed the current Socrata export shape, terms, privacy fields, or completeness against DFM licensing requirements.",
+  "researchNotes": "DFM Asbestos Office requirements identify Class A and Class B contractor applications and annual review/approval. The open-data vendor page may become a future adapter candidate after field-shape and terms review.",
+  "verificationReviewedAt": null,
+  "verificationCaveats": [
+    "Preserve the asbestos credential class and source page when verifying records.",
+    "No match means no matching asbestos vendor or credential record was found in this source at the checked time, not that no authorization exists elsewhere."
+  ],
+  "verificationNotes": "No supported adapter is exposed while the DFM and open-data source relationship has not been reviewed for stable machine ingestion.",
+  "lastVerifiedAt": "2026-07-02T00:00:00.000Z",
+  "maintainerNotes": "Review the Delaware Open Data Socrata API and DFM asbestos requirements together before considering an adapter.",
+  "schemaVersion": "1.0",
+  "researchReviewedAt": "2026-07-02T00:00:00.000Z",
+  "nextReviewAt": "2027-01-02T00:00:00.000Z",
+  "researchEvidence": [
+    {
+      "url": "https://dfm.delaware.gov/envsrv/asbestos/requirements.shtml",
+      "checkedAt": "2026-07-02T00:00:00.000Z",
+      "note": "Official DFM requirements page states Class A Contractor, Class B Contractor, and Professional Service Firm applications are submitted annually for review and approval by the State of Delaware Asbestos Office."
+    },
+    {
+      "url": "https://data.delaware.gov/Licenses-and-Certifications/Certified-Asbestos-Vendors/f677-ahd9",
+      "checkedAt": "2026-07-02T00:00:00.000Z",
+      "note": "Official Delaware Open Data page identifies Certified Asbestos Vendors as a public licenses-and-certifications dataset."
+    },
+    {
+      "url": "https://delaware.gov/privacy-policy/",
+      "checkedAt": "2026-07-02T00:00:00.000Z",
+      "note": "Delaware.gov privacy and terms material reviewed; redistribution rights for normalized registry datasets remain unconfirmed."
+    }
+  ],
+  "sourceResearchOutcome": "blocked",
+  "blocker": {
+    "code": "technical_instability",
+    "summary": "The DFM asbestos licensing path and open-data vendor dataset have not been adapter-reviewed for stable field shape, completeness, privacy, and redistribution terms.",
+    "evidenceUrls": [
+      "https://dfm.delaware.gov/envsrv/asbestos/requirements.shtml",
+      "https://data.delaware.gov/Licenses-and-Certifications/Certified-Asbestos-Vendors/f677-ahd9"
+    ]
+  }
+}
