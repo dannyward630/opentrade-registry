@@ -1,0 +1,93 @@
+{
+  "id": "us.ga.sos.construction_industry_trades",
+  "name": "Georgia Construction Industry Licensed Trades Search",
+  "jurisdiction": {
+    "country": "US",
+    "state": "GA"
+  },
+  "agency": {
+    "name": "Georgia Secretary of State State Construction Industry Licensing Board",
+    "url": "https://sos.ga.gov/licensing-division-georgia-secretary-states-office"
+  },
+  "sourceType": "html_lookup",
+  "sourceUrl": "https://sos.ga.gov/page/about-board-conditioned-air-contractors",
+  "documentationUrl": "https://sos.ga.gov/page/board-conditioned-air-rules-and-regulations",
+  "dataDictionaryUrl": null,
+  "termsUrl": "https://sos.ga.gov/privacy-policy",
+  "updateFrequency": "unknown; verify against the official GOALS license search before relying on freshness assumptions",
+  "tradeCoverage": [
+    "electrical",
+    "plumbing",
+    "hvac",
+    "mechanical",
+    "underground_utility"
+  ],
+  "licenseTypesIncluded": [
+    "Georgia conditioned air contractor licenses",
+    "Georgia electrical contractor licenses",
+    "Georgia low-voltage contractor licenses",
+    "Georgia master and journeyman plumber licenses",
+    "Georgia utility contractor, utility manager, and utility foreman licenses exposed by the official search"
+  ],
+  "knownExclusions": [
+    "Residential and commercial general contractor licenses are governed by a separate Georgia board and source entry.",
+    "Asbestos abatement contractor firms are licensed by Georgia EPD and are outside this source entry.",
+    "Local permits, business registrations, and construction specialties not regulated under Title 43 Chapter 14 are outside this source entry.",
+    "The shared GOALS search covers many professions; verification must retain the selected board and license type."
+  ],
+  "hasBulkDownload": "unknown",
+  "hasLiveLookup": true,
+  "requiresJavaScript": true,
+  "requiresCaptcha": "unknown",
+  "requiresAccount": false,
+  "rateLimitNotes": "No adapter is implemented. Do not bypass portal controls; prefer an official roster or export if a stable public contract is documented.",
+  "redistributionStatus": "unknown",
+  "publicRecordsNotes": "Official licensed-trades metadata only. Absence from this shared search is not proof that no state trade credential, local permit, or other authorization exists.",
+  "adapterStatus": "blocked",
+  "sourceDiscoveryStatus": "blocked",
+  "adapterMaturity": "blocked",
+  "adapterQualityLevel": 0,
+  "coverageScope": "state_agency_partial",
+  "adapterPackage": null,
+  "testFixturePath": null,
+  "officialLookupUrl": "https://goals.sos.ga.gov/GASOSOneStop/s/licensee-search",
+  "officialBulkDownloadNotes": "Georgia SOS offers roster-request services, but no no-cost stable machine-readable export, schema, completeness statement, or redistribution position has been reviewed for these boards.",
+  "researchNotes": "The State Construction Industry Licensing Board consists of conditioned air, electrical, low voltage, plumbing, and utility divisions. The shared GOALS lookup remains a manual handoff until its access controls and result contract are reviewed.",
+  "verificationReviewedAt": null,
+  "verificationCaveats": [
+    "The board and credential type must be preserved because the shared search spans multiple licensed trades and professions.",
+    "No matching record means no match in the selected official source at the checked time, not proof that no authorization exists."
+  ],
+  "verificationNotes": "No supported sync or verification adapter is exposed while the shared interactive portal lacks a reviewed stable machine interface.",
+  "lastVerifiedAt": "2026-07-02T00:00:00.000Z",
+  "maintainerNotes": "Keep each board division and credential type visible in future canonical mappings. Never collapse individual and business credentials into one inferred contractor status.",
+  "schemaVersion": "1.0",
+  "researchReviewedAt": "2026-07-02T00:00:00.000Z",
+  "nextReviewAt": "2027-01-02T00:00:00.000Z",
+  "researchEvidence": [
+    {
+      "url": "https://sos.ga.gov/page/about-board-conditioned-air-contractors",
+      "checkedAt": "2026-07-02T00:00:00.000Z",
+      "note": "Official SOS page identifies the five State Construction Industry Licensing Board divisions and their contractor-licensing role."
+    },
+    {
+      "url": "https://sos.ga.gov/page/board-conditioned-air-rules-and-regulations",
+      "checkedAt": "2026-07-02T00:00:00.000Z",
+      "note": "Official rules page identifies statewide electrical, plumbing, conditioned-air, and low-voltage license rules under Title 43 Chapter 14."
+    },
+    {
+      "url": "https://goals.sos.ga.gov/GASOSOneStop/s/licensee-search",
+      "checkedAt": "2026-07-02T00:00:00.000Z",
+      "note": "Official shared public license-search entry point reviewed for access shape and current automation constraints."
+    }
+  ],
+  "sourceResearchOutcome": "blocked",
+  "blocker": {
+    "code": "technical_instability",
+    "summary": "The shared JavaScript portal has no reviewed stable public data contract or export suitable for an offline-tested adapter.",
+    "evidenceUrls": [
+      "https://goals.sos.ga.gov/GASOSOneStop/s/licensee-search",
+      "https://sos.ga.gov/privacy-policy"
+    ]
+  }
+}

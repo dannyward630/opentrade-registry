@@ -609,6 +609,65 @@
       }
     },
     {
+      "id": "us.ga.epd.asbestos_contractors",
+      "jurisdiction": {
+        "country": "US",
+        "state": "GA"
+      },
+      "boardName": "Georgia EPD Licensed Asbestos Abatement Contractors",
+      "agencyName": "Georgia Environmental Protection Division",
+      "officialUrl": "https://epd.georgia.gov/about-us/land-protection-branch/recovered-materials-and-abatement/asbestos/asbestos-contractors-and",
+      "sourceIds": [
+        "us.ga.epd.asbestos_contractors"
+      ],
+      "trades": [
+        "asbestos"
+      ],
+      "accessPath": "manual_handoff",
+      "coverageLimitations": [
+        "EPD does not license asbestos inspectors, although inspectors must hold current approved training.",
+        "The official roster page warns that lists are not updated regularly and instructs users to request proof of a current license.",
+        "Training providers, inspectors, project notifications, local permits, and non-asbestos contractor credentials are outside this source entry."
+      ],
+      "evidence": {
+        "url": "https://epd.georgia.gov/asbestos-faqs",
+        "reviewedAt": "2026-07-02T00:00:00.000Z",
+        "note": "Official EPD FAQ states that EPD licenses asbestos abatement contractor firms but does not license asbestos inspectors."
+      }
+    },
+    {
+      "id": "us.ga.sos.construction_industry_trades",
+      "jurisdiction": {
+        "country": "US",
+        "state": "GA"
+      },
+      "boardName": "Georgia Construction Industry Licensed Trades Search",
+      "agencyName": "Georgia Secretary of State State Construction Industry Licensing Board",
+      "officialUrl": "https://goals.sos.ga.gov/GASOSOneStop/s/licensee-search",
+      "sourceIds": [
+        "us.ga.sos.construction_industry_trades"
+      ],
+      "trades": [
+        "electrical",
+        "plumbing",
+        "hvac",
+        "mechanical",
+        "underground_utility"
+      ],
+      "accessPath": "manual_handoff",
+      "coverageLimitations": [
+        "Residential and commercial general contractor licenses are governed by a separate Georgia board and source entry.",
+        "Asbestos abatement contractor firms are licensed by Georgia EPD and are outside this source entry.",
+        "Local permits, business registrations, and construction specialties not regulated under Title 43 Chapter 14 are outside this source entry.",
+        "The shared GOALS search covers many professions; verification must retain the selected board and license type."
+      ],
+      "evidence": {
+        "url": "https://sos.ga.gov/page/about-board-conditioned-air-contractors",
+        "reviewedAt": "2026-07-02T00:00:00.000Z",
+        "note": "Official SOS page identifies the five State Construction Industry Licensing Board divisions and their contractor-licensing role."
+      }
+    },
+    {
       "id": "us.ga.sos.residential_general_contractors",
       "jurisdiction": {
         "country": "US",
@@ -621,17 +680,20 @@
         "us.ga.sos.residential_general_contractors"
       ],
       "trades": [
-        "general contracting",
-        "residential contracting"
+        "general_contracting",
+        "residential_contracting",
+        "commercial_contracting",
+        "home_improvement"
       ],
       "accessPath": "manual_handoff",
       "coverageLimitations": [
-        "Specialty occupations such as roofing, painting, drywall, and some repair work may not require this state license or may be outside this board's scope.",
-        "Local permits, business registrations, and other state construction-industry boards are not represented by this source entry."
+        "Traditional specialty work such as roofing, painting, drywall, and other listed scopes is exempt from this residential/general contractor license when performed within the specialty.",
+        "Electrical, plumbing, conditioned-air, low-voltage, and utility credentials are governed by the separate State Construction Industry Licensing Board.",
+        "Local permits, business registrations, asbestos credentials, and other state construction-industry boards are not represented by this source entry."
       ],
       "evidence": {
         "url": "https://goals.sos.ga.gov/GASOSOneStop/s/licensee-search",
-        "reviewedAt": "2026-06-27T00:00:00.000Z",
+        "reviewedAt": "2026-07-02T00:00:00.000Z",
         "note": "Official public source, access shape, and current automation constraints reviewed."
       }
     },

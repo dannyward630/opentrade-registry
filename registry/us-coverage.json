@@ -106,6 +106,8 @@
       "state": "GA",
       "status": "blocked",
       "sourceIds": [
+        "us.ga.epd.asbestos_contractors",
+        "us.ga.sos.construction_industry_trades",
         "us.ga.sos.residential_general_contractors"
       ],
       "notes": "Official source metadata is retained, but automated ingestion is blocked by documented legal, access, scope, or technical constraints."

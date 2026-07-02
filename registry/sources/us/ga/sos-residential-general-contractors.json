@@ -16,15 +16,19 @@
   "termsUrl": "https://sos.ga.gov/privacy-policy",
   "updateFrequency": "unknown; verify against the official licensing search before relying on freshness assumptions",
   "tradeCoverage": [
-    "general contracting",
-    "residential contracting"
+    "general_contracting",
+    "residential_contracting",
+    "commercial_contracting",
+    "home_improvement"
   ],
   "licenseTypesIncluded": [
-    "Georgia residential and general contractor licenses exposed by the official search"
+    "Georgia Residential Basic and Residential Light Commercial contractor licenses",
+    "Georgia Commercial General Contractor and Commercial General Contractor Limited Tier licenses exposed by the official search"
   ],
   "knownExclusions": [
-    "Specialty occupations such as roofing, painting, drywall, and some repair work may not require this state license or may be outside this board's scope.",
-    "Local permits, business registrations, and other state construction-industry boards are not represented by this source entry."
+    "Traditional specialty work such as roofing, painting, drywall, and other listed scopes is exempt from this residential/general contractor license when performed within the specialty.",
+    "Electrical, plumbing, conditioned-air, low-voltage, and utility credentials are governed by the separate State Construction Industry Licensing Board.",
+    "Local permits, business registrations, asbestos credentials, and other state construction-industry boards are not represented by this source entry."
   ],
   "hasBulkDownload": "unknown",
   "hasLiveLookup": true,
@@ -42,17 +46,33 @@
   "testFixturePath": null,
   "officialLookupUrl": "https://goals.sos.ga.gov/GASOSOneStop/s/licensee-search",
   "officialBulkDownloadNotes": "No official bulk download has been confirmed in this phase.",
-  "researchNotes": "Registry-only source for Georgia residential and general contractor licensing. Future work should research Georgia construction-industry specialty boards separately.",
-  "lastVerifiedAt": "2026-06-27T00:00:00.000Z",
-  "maintainerNotes": "Keep board scope clear; do not imply all Georgia contractor or trade work is covered.",
+  "researchNotes": "The board requires licenses for compensated residential and commercial general contractor services while recognizing statutory exemptions for traditional specialty work. The shared GOALS lookup remains a manual handoff until a stable machine interface is reviewed.",
+  "verificationReviewedAt": null,
+  "verificationCaveats": [
+    "A specialty contractor may lawfully operate within a recognized specialty without this residential/general contractor license, while separately regulated trades still require their own credentials.",
+    "No matching record means no match in the selected official source at the checked time, not proof that no license or lawful specialty authorization exists."
+  ],
+  "verificationNotes": "No supported sync or verification adapter is exposed while the shared interactive portal lacks a reviewed stable machine interface.",
+  "lastVerifiedAt": "2026-07-02T00:00:00.000Z",
+  "maintainerNotes": "Keep Residential Basic, Residential Light Commercial, Commercial General Contractor, and Limited Tier distinctions visible. Do not imply all Georgia specialty work requires this board license.",
   "schemaVersion": "1.0",
-  "researchReviewedAt": "2026-06-27T00:00:00.000Z",
-  "nextReviewAt": "2026-12-27T00:00:00.000Z",
+  "researchReviewedAt": "2026-07-02T00:00:00.000Z",
+  "nextReviewAt": "2027-01-02T00:00:00.000Z",
   "researchEvidence": [
     {
       "url": "https://goals.sos.ga.gov/GASOSOneStop/s/licensee-search",
-      "checkedAt": "2026-06-27T00:00:00.000Z",
+      "checkedAt": "2026-07-02T00:00:00.000Z",
       "note": "Official public source, access shape, and current automation constraints reviewed."
+    },
+    {
+      "url": "https://sos.ga.gov/page/residential-and-commercial-general-contractors-frequently-asked-questions",
+      "checkedAt": "2026-07-02T00:00:00.000Z",
+      "note": "Official FAQ states compensated residential and commercial general contractor services require a license and identifies the four license categories."
+    },
+    {
+      "url": "https://sos.ga.gov/page/traditional-specialty-contractors-policy-statements",
+      "checkedAt": "2026-07-02T00:00:00.000Z",
+      "note": "Official policy identifies traditional specialty work exempt from the residential/general contractor license while preserving separately regulated trade requirements."
     }
   ],
   "sourceResearchOutcome": "blocked",

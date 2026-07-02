@@ -1,0 +1,84 @@
+{
+  "id": "us.ga.epd.asbestos_contractors",
+  "name": "Georgia EPD Licensed Asbestos Abatement Contractors",
+  "jurisdiction": {
+    "country": "US",
+    "state": "GA"
+  },
+  "agency": {
+    "name": "Georgia Environmental Protection Division",
+    "url": "https://epd.georgia.gov/"
+  },
+  "sourceType": "manual_public_records_file",
+  "sourceUrl": "https://epd.georgia.gov/about-us/land-protection-branch/recovered-materials-and-abatement/asbestos/asbestos-contractors-and",
+  "documentationUrl": "https://epd.georgia.gov/asbestos-faqs",
+  "dataDictionaryUrl": null,
+  "termsUrl": "https://georgia.gov/terms-use",
+  "updateFrequency": "irregular; the official roster page warns that its lists are not updated on a regular basis",
+  "tradeCoverage": [
+    "asbestos"
+  ],
+  "licenseTypesIncluded": [
+    "Georgia-licensed asbestos abatement contractor firms listed by EPD"
+  ],
+  "knownExclusions": [
+    "EPD does not license asbestos inspectors, although inspectors must hold current approved training.",
+    "The official roster page warns that lists are not updated regularly and instructs users to request proof of a current license.",
+    "Training providers, inspectors, project notifications, local permits, and non-asbestos contractor credentials are outside this source entry."
+  ],
+  "hasBulkDownload": true,
+  "hasLiveLookup": false,
+  "requiresJavaScript": false,
+  "requiresCaptcha": false,
+  "requiresAccount": false,
+  "rateLimitNotes": "No adapter is implemented. Retrieve the small official roster manually and responsibly; do not infer current status from an old PDF without direct confirmation.",
+  "redistributionStatus": "unknown",
+  "publicRecordsNotes": "EPD publishes an informational PDF roster and explicitly cautions that it is not updated regularly. Absence or presence in a downloaded roster is not conclusive current-license proof.",
+  "adapterStatus": "blocked",
+  "sourceDiscoveryStatus": "blocked",
+  "adapterMaturity": "blocked",
+  "adapterQualityLevel": 0,
+  "coverageScope": "state_agency_partial",
+  "adapterPackage": null,
+  "testFixturePath": null,
+  "officialLookupUrl": "https://epd.georgia.gov/about-us/land-protection-branch/recovered-materials-and-abatement/asbestos/asbestos-contractors-and",
+  "officialBulkDownloadNotes": "The official page links a dated PDF roster of licensed asbestos abatement contractors. Its changing file URL, field shape, freshness, privacy posture, and redistribution terms require review before adapter support.",
+  "researchNotes": "Georgia EPD licenses asbestos abatement contractor firms and publishes a dated informational roster. The source remains a manual handoff because the agency says the list is not regularly updated and current proof should be requested.",
+  "verificationReviewedAt": null,
+  "verificationCaveats": [
+    "The published roster may be stale; request proof of the current EPD license before relying on a listed firm.",
+    "No matching record in the dated roster is not proof that a firm lacks a current license or that no other asbestos credential exists."
+  ],
+  "verificationNotes": "No supported sync or verification adapter is exposed until snapshot discovery, PDF shape, current-status semantics, and publication terms are reviewed.",
+  "lastVerifiedAt": "2026-07-02T00:00:00.000Z",
+  "maintainerNotes": "Always preserve the roster revision date and EPD stale-list warning. Do not present a roster row as a live license verification.",
+  "schemaVersion": "1.0",
+  "researchReviewedAt": "2026-07-02T00:00:00.000Z",
+  "nextReviewAt": "2027-01-02T00:00:00.000Z",
+  "researchEvidence": [
+    {
+      "url": "https://epd.georgia.gov/asbestos-faqs",
+      "checkedAt": "2026-07-02T00:00:00.000Z",
+      "note": "Official EPD FAQ states that EPD licenses asbestos abatement contractor firms but does not license asbestos inspectors."
+    },
+    {
+      "url": "https://epd.georgia.gov/about-us/land-protection-branch/recovered-materials-and-abatement/asbestos/asbestos-contractors-and",
+      "checkedAt": "2026-07-02T00:00:00.000Z",
+      "note": "Official roster page links licensed asbestos abatement contractors and warns its lists are not updated regularly."
+    },
+    {
+      "url": "https://epd.georgia.gov/document/document/becomegalicensedasbcontractorpdf/download",
+      "checkedAt": "2026-07-02T00:00:00.000Z",
+      "note": "Official licensing guide states qualifying abatement work requires a Georgia-licensed asbestos abatement contractor and project notification."
+    }
+  ],
+  "sourceResearchOutcome": "blocked",
+  "blocker": {
+    "code": "technical_instability",
+    "summary": "The only reviewed bulk path is an irregularly updated PDF that the agency says is not current proof; no stable machine contract or reuse position has been established.",
+    "evidenceUrls": [
+      "https://epd.georgia.gov/about-us/land-protection-branch/recovered-materials-and-abatement/asbestos/asbestos-contractors-and",
+      "https://georgia.gov/terms-use"
+    ]
+  }
+}
