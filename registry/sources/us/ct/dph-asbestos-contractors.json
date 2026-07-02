@@ -1,0 +1,63 @@
+{
+  "id": "us.ct.dph.asbestos_contractors",
+  "name": "Connecticut DPH Asbestos Contractor Lookup",
+  "jurisdiction": { "country": "US", "state": "CT" },
+  "agency": {
+    "name": "Connecticut Department of Public Health",
+    "url": "https://portal.ct.gov/dph"
+  },
+  "sourceType": "html_lookup",
+  "sourceUrl": "https://portal.ct.gov/dph/asbestos-program/asbestos-program/asbestos-licensure-of-contractors-and-consultants",
+  "documentationUrl": "https://portal.ct.gov/dph/asbestos-program/asbestos-program/asbestos-licensure-of-contractors-and-consultants",
+  "dataDictionaryUrl": null,
+  "termsUrl": "https://portal.ct.gov/policies",
+  "updateFrequency": "unknown; verify current license and accreditation status in eLicense",
+  "tradeCoverage": ["asbestos"],
+  "licenseTypesIncluded": ["Asbestos contractor licenses", "Asbestos consultant licenses and related individual certifications"],
+  "knownExclusions": [
+    "Contractor licenses and individual supervisor, worker, and consultant credentials have distinct scopes and renewal rules.",
+    "Federal, DEEP, OSHA, municipal, notification, and project-specific requirements are outside this source entry."
+  ],
+  "hasBulkDownload": "unknown",
+  "hasLiveLookup": true,
+  "requiresJavaScript": "unknown",
+  "requiresCaptcha": "unknown",
+  "requiresAccount": false,
+  "rateLimitNotes": "No adapter is implemented. Use the official lookup and roster instructions without bypassing controls.",
+  "redistributionStatus": "unknown",
+  "publicRecordsNotes": "Official asbestos-license metadata only. License status does not by itself establish project-specific compliance.",
+  "adapterStatus": "blocked",
+  "sourceDiscoveryStatus": "blocked",
+  "adapterMaturity": "blocked",
+  "adapterQualityLevel": 0,
+  "coverageScope": "state_agency_partial",
+  "adapterPackage": null,
+  "testFixturePath": null,
+  "officialLookupUrl": "https://www.elicense.ct.gov/Lookup/LicenseLookup.aspx",
+  "officialBulkDownloadNotes": "DPH publishes instructions for obtaining current listings, but no stable redistribution-reviewed machine interface is confirmed.",
+  "researchNotes": "DPH states that asbestos contractors and consultants must be licensed. The source remains a manual official handoff until roster/export terms and fields are reviewed.",
+  "verificationReviewedAt": null,
+  "verificationCaveats": [
+    "Contractor, consultant, supervisor, and worker credentials are not interchangeable.",
+    "A license record does not replace accreditation or project-notification checks."
+  ],
+  "verificationNotes": "No supported adapter is exposed for the shared eLicense path.",
+  "lastVerifiedAt": "2026-07-02T00:00:00.000Z",
+  "maintainerNotes": "Preserve credential discipline and accreditation caveats in future mappings.",
+  "schemaVersion": "1.0",
+  "researchReviewedAt": "2026-07-02T00:00:00.000Z",
+  "nextReviewAt": "2027-01-02T00:00:00.000Z",
+  "researchEvidence": [
+    {
+      "url": "https://portal.ct.gov/dph/asbestos-program/asbestos-program/asbestos-licensure-of-contractors-and-consultants",
+      "checkedAt": "2026-07-02T00:00:00.000Z",
+      "note": "Official DPH page states that asbestos contractors and consultants must be licensed and directs verification to eLicense."
+    }
+  ],
+  "sourceResearchOutcome": "blocked",
+  "blocker": {
+    "code": "technical_instability",
+    "summary": "No stable, redistribution-reviewed machine-readable roster or lookup contract has been confirmed.",
+    "evidenceUrls": ["https://www.elicense.ct.gov/Lookup/LicenseLookup.aspx", "https://portal.ct.gov/policies"]
+  }
+}
