@@ -15,8 +15,8 @@ describe("nationwide board trade coverage ledger", () => {
     expect(ledger.jurisdictions).toHaveLength(56);
     expect(new Set(ledger.jurisdictions.map((entry) => entry.state)).size).toBe(56);
     expect(expanded).toHaveLength(56 * BOARD_TRADE_DOMAINS.length);
-    expect(expanded.filter((decision) => decision.outcome === "needs_research")).toHaveLength(587);
-    expect(expanded.filter((decision) => decision.outcome === "covered_by_board")).toHaveLength(190);
+    expect(expanded.filter((decision) => decision.outcome === "needs_research")).toHaveLength(586);
+    expect(expanded.filter((decision) => decision.outcome === "covered_by_board")).toHaveLength(191);
     expect(expanded.filter((decision) => decision.outcome === "not_state_regulated")).toHaveLength(2);
     expect(expanded.filter((decision) => decision.outcome === "local_only")).toHaveLength(5);
   });
@@ -165,17 +165,18 @@ describe("nationwide board trade coverage ledger", () => {
     expect(expanded.find((decision) => decision.tradeDomain === "solar")?.limitations.join(" ")).toContain("companion classifications");
   });
 
-  it("records Utah DOPL coverage while leaving sheet metal unresolved", async () => {
+  it("records complete Utah DOPL contractor classification coverage", async () => {
     const ledger = boardTradeCoverageLedgerSchema.parse(await json("registry/board-coverage.json"));
     const expanded = expandBoardTradeCoverageLedger(ledger).filter((decision) => decision.state === "UT");
     const unresolved = expanded.filter((decision) => decision.outcome === "needs_research");
 
-    expect(unresolved.map((decision) => decision.tradeDomain)).toEqual(["sheet_metal"]);
+    expect(unresolved).toEqual([]);
     expect(expanded.find((decision) => decision.tradeDomain === "electrical")).toMatchObject({
       outcome: "covered_by_board",
       boardIds: ["us.ut.dopl.contractors"],
     });
     expect(expanded.find((decision) => decision.tradeDomain === "hvac")?.evidence[0]?.note).toContain("H100");
+    expect(expanded.find((decision) => decision.tradeDomain === "sheet_metal")?.evidence[0]?.note).toContain("S340");
     expect(expanded.find((decision) => decision.tradeDomain === "asbestos")).toMatchObject({
       outcome: "not_state_regulated",
       boardIds: [],

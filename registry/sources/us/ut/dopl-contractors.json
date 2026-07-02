@@ -27,6 +27,7 @@
     "solar",
     "pool_spa",
     "asbestos",
+    "sheet_metal",
     "underground_utility",
     "home_improvement"
   ],
@@ -37,8 +38,7 @@
   "knownExclusions": [
     "Local permits, business registrations, and non-DOPL authorizations are outside this source entry.",
     "Classification and qualifier details must be preserved before normalization.",
-    "Utah rules identify asbestos removal as regulated by the Department of Environmental Quality rather than requiring a DOPL contractor license.",
-    "Sheet-metal coverage remains unresolved in the board-coverage ledger until current official scope evidence is reviewed."
+    "Utah rules identify asbestos removal as regulated by the Department of Environmental Quality rather than requiring a DOPL contractor license."
   ],
   "hasBulkDownload": "unknown",
   "hasLiveLookup": true,
@@ -56,9 +56,9 @@
   "testFixturePath": null,
   "officialLookupUrl": "https://secure.utah.gov/llv/search/index.html",
   "officialBulkDownloadNotes": "No official bulk download has been confirmed in this phase.",
-  "researchNotes": "Registry-only source for Utah DOPL contractor lookup. DOPL pages and the Utah Construction Trades Licensing Act Rule identify statewide general, residential, commercial, electrical, plumbing, HVAC, mechanical, roofing, solar, pool/recreation, underground-utility, and home-improvement-relevant classifications. Sheet-metal-specific coverage remains unresolved.",
+  "researchNotes": "Registry-only source for Utah DOPL contractor lookup. DOPL pages, rules, and classification materials identify statewide general, residential, commercial, electrical, plumbing, HVAC, mechanical, roofing, solar, pool/recreation, underground-utility, sheet-metal, and home-improvement-relevant classifications.",
   "lastVerifiedAt": "2026-07-02T00:00:00.000Z",
-  "maintainerNotes": "Preserve the lookup page's freshness wording and keep asbestos and sheet-metal caveats visible if adapter work begins.",
+  "maintainerNotes": "Preserve the lookup page's freshness wording and keep asbestos caveats visible if adapter work begins.",
   "schemaVersion": "1.0",
   "researchReviewedAt": "2026-07-02T00:00:00.000Z",
   "nextReviewAt": "2027-01-02T00:00:00.000Z",
@@ -82,6 +82,11 @@
       "url": "https://adminrules.utah.gov/public/rule/R156-55a/Current%20Rules",
       "checkedAt": "2026-07-02T00:00:00.000Z",
       "note": "The official Utah Construction Trades Licensing Act Rule identifies specialty contractor classifications and notes asbestos removal is regulated by the Department of Environmental Quality."
+    },
+    {
+      "url": "https://commerce.utah.gov/wp-content/uploads/2022/09/classification-conversion-chart.pdf",
+      "checkedAt": "2026-07-02T00:00:00.000Z",
+      "note": "The official DOPL classification conversion chart identifies prior S340 Sheet Metal Contractor coverage and maps it into the current S220 Carpentry and Flooring Contractor classification."
     }
   ],
   "sourceResearchOutcome": "blocked",

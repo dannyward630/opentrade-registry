@@ -1933,6 +1933,7 @@
         "solar",
         "pool_spa",
         "asbestos",
+        "sheet_metal",
         "underground_utility",
         "home_improvement"
       ],
@@ -1940,8 +1941,7 @@
       "coverageLimitations": [
         "Local permits, business registrations, and non-DOPL authorizations are outside this source entry.",
         "Classification and qualifier details must be preserved before normalization.",
-        "Utah rules identify asbestos removal as regulated by the Department of Environmental Quality rather than requiring a DOPL contractor license.",
-        "Sheet-metal coverage remains unresolved in the board-coverage ledger until current official scope evidence is reviewed."
+        "Utah rules identify asbestos removal as regulated by the Department of Environmental Quality rather than requiring a DOPL contractor license."
       ],
       "evidence": {
         "url": "https://secure.utah.gov/llv/search/index.html",

@@ -1166,6 +1166,12 @@
           "evidence": [{ "url": "https://adminrules.utah.gov/public/rule/R156-55a/Current%20Rules", "reviewedAt": "2026-07-02T00:00:00.000Z", "note": "The Utah Construction Trades Licensing Act Rule states asbestos removal regulated by the Department of Environmental Quality does not require a contractor license under this rule." }],
           "limitations": ["This is not a no-regulation finding; DEQ-regulated asbestos evidence should be registered separately before adapter work."]
         },
+        "sheet_metal": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.ut.dopl.contractors"],
+          "evidence": [{ "url": "https://commerce.utah.gov/wp-content/uploads/2022/09/classification-conversion-chart.pdf", "reviewedAt": "2026-07-02T00:00:00.000Z", "note": "DOPL's official classification conversion chart identifies prior S340 Sheet Metal Contractor coverage and maps that classification into current S220 Carpentry and Flooring Contractor coverage." }],
+          "limitations": ["Sheet-metal verification must preserve the DOPL classification shown on the license record because current coverage may appear under the converted classification rather than a standalone sheet-metal code."]
+        },
         "underground_utility": {
           "outcome": "covered_by_board",
           "boardIds": ["us.ut.dopl.contractors"],
