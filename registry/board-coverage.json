@@ -859,7 +859,80 @@
         }
       }
     },
-    { "state": "UT", "decisions": {} },
+    {
+      "state": "UT",
+      "decisions": {
+        "general_contracting": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.ut.dopl.contractors"],
+          "evidence": [{ "url": "https://commerce.utah.gov/dopl/contracting/apply-for-a-license/general-contractor/", "reviewedAt": "2026-07-02T00:00:00.000Z", "note": "DOPL lists B100 General Contractor and E100 General Engineering Contractor among Utah general contractor classifications." }],
+          "limitations": ["The license classification and qualifier requirements determine what work a contractor may perform."]
+        },
+        "residential_contracting": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.ut.dopl.contractors"],
+          "evidence": [{ "url": "https://commerce.utah.gov/dopl/contracting/apply-for-a-license/general-contractor/", "reviewedAt": "2026-07-02T00:00:00.000Z", "note": "DOPL lists R100 Residential/Small Commercial Contractor among Utah general contractor classifications." }]
+        },
+        "commercial_contracting": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.ut.dopl.contractors"],
+          "evidence": [{ "url": "https://commerce.utah.gov/dopl/contracting/apply-for-a-license/general-contractor/", "reviewedAt": "2026-07-02T00:00:00.000Z", "note": "DOPL lists B100 General Contractor, R100 Residential/Small Commercial Contractor, and E100 General Engineering Contractor classifications." }]
+        },
+        "electrical": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.ut.dopl.contractors"],
+          "evidence": [{ "url": "https://commerce.utah.gov/dopl/contracting/apply-for-a-license/general-contractor/", "reviewedAt": "2026-07-02T00:00:00.000Z", "note": "DOPL lists E200 General Electrical Contractor and E201 Residential Electrical Contractor and states electrical contractors must have a Master Electrical qualifier." }]
+        },
+        "plumbing": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.ut.dopl.contractors"],
+          "evidence": [{ "url": "https://commerce.utah.gov/dopl/contracting/apply-for-a-license/general-contractor/", "reviewedAt": "2026-07-02T00:00:00.000Z", "note": "DOPL lists P200 General Plumbing Contractor and P201 Residential Plumbing Contractor and states plumbing contractors must have a Master Plumber qualifier." }]
+        },
+        "hvac": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.ut.dopl.contractors"],
+          "evidence": [{ "url": "https://commerce.utah.gov/dopl/contracting/", "reviewedAt": "2026-07-02T00:00:00.000Z", "note": "DOPL announces H100 HVAC Contractor licensing requirements, including the HVAC exam and HVAC-specific experience." }]
+        },
+        "mechanical": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.ut.dopl.contractors"],
+          "evidence": [{ "url": "https://adminrules.utah.gov/public/rule/R156-55a/Current%20Rules", "reviewedAt": "2026-07-02T00:00:00.000Z", "note": "The Utah Construction Trades Licensing Act Rule identifies mechanical-relevant classifications including HVAC and boiler, pipeline, wastewater, and water conditioner work." }],
+          "limitations": ["Utah mechanical coverage is represented through separate classifications rather than one unified mechanical license."]
+        },
+        "roofing": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.ut.dopl.contractors"],
+          "evidence": [{ "url": "https://commerce.utah.gov/wp-content/uploads/2022/09/classification-conversion-chart.pdf", "reviewedAt": "2026-07-02T00:00:00.000Z", "note": "DOPL's official classification conversion chart identifies S280 Roofing Contractor." }]
+        },
+        "solar": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.ut.dopl.contractors"],
+          "evidence": [{ "url": "https://commerce.utah.gov/wp-content/uploads/2022/09/classification-conversion-chart.pdf", "reviewedAt": "2026-07-02T00:00:00.000Z", "note": "DOPL's official classification conversion chart identifies S202 Solar Photovoltaic Contractor and solar-thermal work within the converted S410 classification." }],
+          "limitations": ["Electrical or plumbing/HVAC companion requirements may apply depending on the solar installation scope."]
+        },
+        "pool_spa": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.ut.dopl.contractors"],
+          "evidence": [{ "url": "https://commerce.utah.gov/wp-content/uploads/2022/09/classification-conversion-chart.pdf", "reviewedAt": "2026-07-02T00:00:00.000Z", "note": "DOPL's official classification conversion chart maps Swimming Pool and Spa Contractor work into the S330 Landscape and Recreation Contractor classification." }]
+        },
+        "asbestos": {
+          "outcome": "not_state_regulated",
+          "evidence": [{ "url": "https://adminrules.utah.gov/public/rule/R156-55a/Current%20Rules", "reviewedAt": "2026-07-02T00:00:00.000Z", "note": "The Utah Construction Trades Licensing Act Rule states asbestos removal regulated by the Department of Environmental Quality does not require a contractor license under this rule." }],
+          "limitations": ["This is not a no-regulation finding; DEQ-regulated asbestos evidence should be registered separately before adapter work."]
+        },
+        "underground_utility": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.ut.dopl.contractors"],
+          "evidence": [{ "url": "https://commerce.utah.gov/wp-content/uploads/2022/09/classification-conversion-chart.pdf", "reviewedAt": "2026-07-02T00:00:00.000Z", "note": "DOPL's official classification conversion chart identifies S410 Boiler, Pipeline, Waste Water, and Water Conditioner Contractor for pipeline, conduit, sewer, wastewater, and related work." }]
+        },
+        "home_improvement": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.ut.dopl.contractors"],
+          "evidence": [{ "url": "https://commerce.utah.gov/wp-content/uploads/2026/03/contractor-all-classifications.pdf", "reviewedAt": "2026-07-02T00:00:00.000Z", "note": "DOPL's contractor application identifies R101 Residential/Small Commercial Non-Structural Remodeling and Repair alongside R100 residential/small commercial classifications." }],
+          "limitations": ["Local permits and business licenses remain outside this statewide DOPL contractor source."]
+        }
+      }
+    },
     { "state": "VA", "decisions": {} },
     { "state": "VI", "decisions": {} },
     { "state": "VT", "decisions": {} },
