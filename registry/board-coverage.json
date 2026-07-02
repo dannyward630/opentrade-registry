@@ -556,7 +556,73 @@
         }
       }
     },
-    { "state": "GA", "decisions": {} },
+    {
+      "state": "GA",
+      "decisions": {
+        "general_contracting": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.ga.sos.residential_general_contractors"],
+          "evidence": [{ "url": "https://sos.ga.gov/page/residential-and-commercial-general-contractors-frequently-asked-questions", "reviewedAt": "2026-07-02T00:00:00.000Z", "note": "The official board FAQ states that compensated residential or commercial general contractor services in Georgia require licensure." }],
+          "limitations": ["Traditional specialty contractors working within a recognized specialty are exempt from the residential/general contractor license, and separately regulated trades retain their own requirements."]
+        },
+        "residential_contracting": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.ga.sos.residential_general_contractors"],
+          "evidence": [{ "url": "https://sos.ga.gov/page/residential-and-commercial-general-contractors-frequently-asked-questions", "reviewedAt": "2026-07-02T00:00:00.000Z", "note": "The official FAQ identifies Residential Basic and Residential Light Commercial license categories and states residential general contractor services require licensure." }],
+          "limitations": ["Owner-builder, specialty-trade, and local permit rules remain outside the board-source decision."]
+        },
+        "commercial_contracting": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.ga.sos.residential_general_contractors"],
+          "evidence": [{ "url": "https://sos.ga.gov/page/residential-and-commercial-general-contractors-frequently-asked-questions", "reviewedAt": "2026-07-02T00:00:00.000Z", "note": "The official FAQ identifies Commercial General Contractor and Commercial General Contractor Limited Tier licenses and requires licensure for commercial general contractor services." }]
+        },
+        "electrical": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.ga.sos.construction_industry_trades"],
+          "evidence": [{ "url": "https://sos.ga.gov/page/about-board-conditioned-air-contractors", "reviewedAt": "2026-07-02T00:00:00.000Z", "note": "Georgia SOS identifies Electrical Contractors as one of the five State Construction Industry Licensing Board divisions that licenses construction-industry contractors." }]
+        },
+        "plumbing": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.ga.sos.construction_industry_trades"],
+          "evidence": [{ "url": "https://sos.ga.gov/page/about-board-conditioned-air-contractors", "reviewedAt": "2026-07-02T00:00:00.000Z", "note": "Georgia SOS identifies the Division of Master and Journeyman Plumbers within the State Construction Industry Licensing Board." }],
+          "limitations": ["The source includes individual plumber credentials; future verification must not infer a business credential from an individual's license or vice versa."]
+        },
+        "hvac": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.ga.sos.construction_industry_trades"],
+          "evidence": [{ "url": "https://sos.ga.gov/page/about-board-conditioned-air-contractors", "reviewedAt": "2026-07-02T00:00:00.000Z", "note": "Georgia SOS identifies the Division of Conditioned Air Contractors as a State Construction Industry Licensing Board division." }]
+        },
+        "mechanical": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.ga.sos.construction_industry_trades"],
+          "evidence": [{ "url": "https://sos.ga.gov/page/board-conditioned-air-rules-and-regulations", "reviewedAt": "2026-07-02T00:00:00.000Z", "note": "The official rules page identifies statewide conditioned-air, electrical, plumbing, low-voltage, and utility license rules under the State Construction Industry Licensing Board." }],
+          "limitations": ["Georgia represents tracked mechanical work through conditioned-air, plumbing, electrical, and utility divisions rather than one unified mechanical contractor license."]
+        },
+        "roofing": {
+          "outcome": "not_state_regulated",
+          "evidence": [{ "url": "https://sos.ga.gov/page/traditional-specialty-contractors-policy-statements", "reviewedAt": "2026-07-02T00:00:00.000Z", "note": "The official board policy lists flat roofing, sheet-metal roofing, shingles and shakes, gutters, and related roofing scopes as traditional specialties that do not require the residential/general contractor license when performed within the specialty." }],
+          "limitations": ["This decision concerns the statewide residential/general contractor license exemption; applicable codes, permits, separately regulated trade work, and local requirements still apply.", "Voluntary roofing credentials are not state licenses."]
+        },
+        "asbestos": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.ga.epd.asbestos_contractors"],
+          "evidence": [{ "url": "https://epd.georgia.gov/asbestos-faqs", "reviewedAt": "2026-07-02T00:00:00.000Z", "note": "Georgia EPD states that it licenses asbestos abatement contractor firms and distinguishes those licenses from inspector training accreditation." }],
+          "limitations": ["The official contractor roster is not updated regularly; current license proof and project-notification requirements must be checked separately."]
+        },
+        "underground_utility": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.ga.sos.construction_industry_trades"],
+          "evidence": [{ "url": "https://sos.ga.gov/page/about-board-conditioned-air-contractors", "reviewedAt": "2026-07-02T00:00:00.000Z", "note": "Georgia SOS identifies Utility Contractors as one of the five State Construction Industry Licensing Board divisions." }],
+          "limitations": ["Utility contractor, utility manager, and utility foreman credentials must remain distinct, and project-specific utility-owner, right-of-way, environmental, and local permits remain outside the source."]
+        },
+        "home_improvement": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.ga.sos.residential_general_contractors"],
+          "evidence": [{ "url": "https://sos.ga.gov/page/residential-and-commercial-general-contractors-frequently-asked-questions", "reviewedAt": "2026-07-02T00:00:00.000Z", "note": "The official FAQ requires licensure for compensated residential general contractor services and identifies Residential Basic and Residential Light Commercial categories." }],
+          "limitations": ["Georgia has no separate home-improvement registration represented here; recognized specialty work may be exempt from the residential/general contractor license, and local permits may still apply."]
+        }
+      }
+    },
     { "state": "GU", "decisions": {} },
     {
       "state": "HI",
