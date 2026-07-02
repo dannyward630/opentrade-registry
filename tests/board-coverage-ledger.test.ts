@@ -15,8 +15,8 @@ describe("nationwide board trade coverage ledger", () => {
     expect(ledger.jurisdictions).toHaveLength(56);
     expect(new Set(ledger.jurisdictions.map((entry) => entry.state)).size).toBe(56);
     expect(expanded).toHaveLength(56 * BOARD_TRADE_DOMAINS.length);
-    expect(expanded.filter((decision) => decision.outcome === "needs_research")).toHaveLength(698);
-    expect(expanded.filter((decision) => decision.outcome === "covered_by_board")).toHaveLength(80);
+    expect(expanded.filter((decision) => decision.outcome === "needs_research")).toHaveLength(684);
+    expect(expanded.filter((decision) => decision.outcome === "covered_by_board")).toHaveLength(94);
     expect(expanded.filter((decision) => decision.outcome === "not_state_regulated")).toHaveLength(1);
     expect(expanded.filter((decision) => decision.outcome === "local_only")).toHaveLength(5);
   });
@@ -89,6 +89,18 @@ describe("nationwide board trade coverage ledger", () => {
     for (const domain of ["general_contracting", "commercial_contracting", "pool_spa", "asbestos", "underground_utility"]) {
       expect(expanded.find((decision) => decision.tradeDomain === domain)?.boardIds).toContain("us.al.genconbd.general_contractors");
     }
+  });
+
+  it("records complete Louisiana contractor classification coverage", async () => {
+    const ledger = boardTradeCoverageLedgerSchema.parse(await json("registry/board-coverage.json"));
+    const expanded = expandBoardTradeCoverageLedger(ledger).filter((decision) => decision.state === "LA");
+
+    expect(expanded.filter((decision) => decision.outcome === "needs_research")).toEqual([]);
+    expect(expanded.every((decision) => decision.outcome === "covered_by_board")).toBe(true);
+    expect(expanded.every((decision) => decision.boardIds.includes("us.la.lslbc.contractors"))).toBe(true);
+    expect(expanded.find((decision) => decision.tradeDomain === "plumbing")?.limitations.join(" ")).toContain("master plumber");
+    expect(expanded.find((decision) => decision.tradeDomain === "asbestos")?.limitations.join(" ")).toContain("Environmental Quality");
+    expect(expanded.find((decision) => decision.tradeDomain === "solar")?.limitations.join(" ")).toContain("underlying");
   });
 
   it("records complete Florida coverage against separate DBPR board sources", async () => {
