@@ -687,17 +687,26 @@
         "commercial_contracting",
         "electrical",
         "plumbing",
-        "other"
+        "hvac",
+        "mechanical",
+        "roofing",
+        "solar",
+        "pool_spa",
+        "asbestos",
+        "sheet_metal",
+        "underground_utility",
+        "home_improvement"
       ],
       "accessPath": "manual_handoff",
       "coverageLimitations": [
         "This source entry is scoped to professional and vocational licensing records and does not represent every business registration, local permit, or tax record in Hawaii.",
         "Business Check and complaint-history resources are separate public tools and are not modeled as normalized license records in this entry.",
-        "License classifications and personnel relationships need follow-up review before adapter work."
+        "County permits, business registrations, complaint history, and separately licensed individual electricians or plumbers are outside this contractor-source entry.",
+        "The official classification document describes contractor scope, but the public search shape and contractor-to-responsible-managing-employee relationships still require adapter review."
       ],
       "evidence": {
         "url": "https://mypvl.dcca.hawaii.gov/public-license-search/",
-        "reviewedAt": "2026-06-27T00:00:00.000Z",
+        "reviewedAt": "2026-07-02T00:00:00.000Z",
         "note": "Official public source, access shape, and current automation constraints reviewed."
       }
     },
