@@ -1427,16 +1427,31 @@
         "us.nv.nscb.contractors"
       ],
       "trades": [
-        "construction"
+        "general_contracting",
+        "residential_contracting",
+        "commercial_contracting",
+        "electrical",
+        "plumbing",
+        "hvac",
+        "mechanical",
+        "roofing",
+        "solar",
+        "pool_spa",
+        "asbestos",
+        "sheet_metal",
+        "underground_utility",
+        "home_improvement"
       ],
       "accessPath": "manual_handoff",
       "coverageLimitations": [
         "This registry entry is for an official lookup path, not a confirmed bulk download.",
-        "Local permits, business registrations, and other state or local authorizations may be outside NSCB scope."
+        "The official search disclaimer says displayed information may not reflect recent changes and completeness or accuracy is not guaranteed.",
+        "Local permits, business registrations, inspections, and non-NSCB authorizations are outside this source entry.",
+        "Trade coverage is limited to the classification and monetary limit printed on each license."
       ],
       "evidence": {
         "url": "https://app.nvcontractorsboard.com/Clients/NVSCB/Public/ContractorLicenseSearch/ContractorLicenseSearch.aspx",
-        "reviewedAt": "2026-06-27T00:00:00.000Z",
+        "reviewedAt": "2026-07-02T00:00:00.000Z",
         "note": "Official public source, access shape, and current automation constraints reviewed."
       }
     },

@@ -16,14 +16,31 @@
   "termsUrl": "https://www.nvcontractorsboard.com/",
   "updateFrequency": "unknown; verify against the official license search before relying on freshness assumptions",
   "tradeCoverage": [
-    "construction"
+    "general_contracting",
+    "residential_contracting",
+    "commercial_contracting",
+    "electrical",
+    "plumbing",
+    "hvac",
+    "mechanical",
+    "roofing",
+    "solar",
+    "pool_spa",
+    "asbestos",
+    "sheet_metal",
+    "underground_utility",
+    "home_improvement"
   ],
   "licenseTypesIncluded": [
-    "Nevada contractor licenses"
+    "Nevada State Contractors Board licenses exposed by the official license search",
+    "Class A general engineering, Class B general building, Class AB, and Class C specialty contractor classifications",
+    "NAC Chapter 624 classifications and subclassifications referenced by the official board classification page"
   ],
   "knownExclusions": [
     "This registry entry is for an official lookup path, not a confirmed bulk download.",
-    "Local permits, business registrations, and other state or local authorizations may be outside NSCB scope."
+    "The official search disclaimer says displayed information may not reflect recent changes and completeness or accuracy is not guaranteed.",
+    "Local permits, business registrations, inspections, and non-NSCB authorizations are outside this source entry.",
+    "Trade coverage is limited to the classification and monetary limit printed on each license."
   ],
   "hasBulkDownload": "unknown",
   "hasLiveLookup": true,
@@ -41,17 +58,27 @@
   "testFixturePath": null,
   "officialLookupUrl": "https://app.nvcontractorsboard.com/Clients/NVSCB/Public/ContractorLicenseSearch/ContractorLicenseSearch.aspx",
   "officialBulkDownloadNotes": "No official bulk download has been confirmed in this phase.",
-  "researchNotes": "Registry-only source for now because the official path is lookup-oriented.",
-  "lastVerifiedAt": "2026-06-27T00:00:00.000Z",
-  "maintainerNotes": "Future work should first look for a documented public export before considering portal automation.",
+  "researchNotes": "Registry-only source for Nevada contractor-board verification. The official NSCB classification page and NAC Chapter 624 references cover every tracked statewide trade domain, but the lookup remains manual while access behavior, response stability, and reuse terms are adapter-reviewed.",
+  "lastVerifiedAt": "2026-07-02T00:00:00.000Z",
+  "maintainerNotes": "Preserve classification, subclassification, monetary-limit, and official search disclaimer caveats in any future verification result.",
   "schemaVersion": "1.0",
-  "researchReviewedAt": "2026-06-27T00:00:00.000Z",
-  "nextReviewAt": "2026-12-27T00:00:00.000Z",
+  "researchReviewedAt": "2026-07-02T00:00:00.000Z",
+  "nextReviewAt": "2027-01-02T00:00:00.000Z",
   "researchEvidence": [
     {
       "url": "https://app.nvcontractorsboard.com/Clients/NVSCB/Public/ContractorLicenseSearch/ContractorLicenseSearch.aspx",
-      "checkedAt": "2026-06-27T00:00:00.000Z",
+      "checkedAt": "2026-07-02T00:00:00.000Z",
       "note": "Official public source, access shape, and current automation constraints reviewed."
+    },
+    {
+      "url": "https://www.nvcontractorsboard.com/licensing/license-classifications/",
+      "checkedAt": "2026-07-02T00:00:00.000Z",
+      "note": "The official NSCB classification page lists A general engineering, B general building, AB, and C specialty classification structures and points to NAC Chapter 624 for detailed subclassification scopes."
+    },
+    {
+      "url": "https://www.leg.state.nv.us/nac/nac-624.html",
+      "checkedAt": "2026-07-02T00:00:00.000Z",
+      "note": "NAC Chapter 624 contains the official contractor classification and subclassification provisions for plumbing, electrical, sheet metal, roofing, HVAC, solar, and related trades."
     }
   ],
   "sourceResearchOutcome": "blocked",
