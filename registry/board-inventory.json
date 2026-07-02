@@ -1689,6 +1689,33 @@
       }
     },
     {
+      "id": "us.sc.des.asbestos",
+      "jurisdiction": {
+        "country": "US",
+        "state": "SC"
+      },
+      "boardName": "South Carolina DES Asbestos Contractors and Consultants Search",
+      "agencyName": "South Carolina Department of Environmental Services",
+      "officialUrl": "https://apps.des.sc.gov/AsbestosContractorsAndConsultants/Index/CONTRACT/0",
+      "sourceIds": [
+        "us.sc.des.asbestos"
+      ],
+      "trades": [
+        "asbestos"
+      ],
+      "accessPath": "manual_handoff",
+      "coverageLimitations": [
+        "The source includes multiple asbestos personnel and consultant categories; contractor verification must select the contractor category explicitly.",
+        "The published list is informational and does not imply DES endorsement.",
+        "Local permits and non-asbestos contractor credentials are outside this source entry."
+      ],
+      "evidence": {
+        "url": "https://www.des.sc.gov/programs/bureau-air-quality/asbestos",
+        "reviewedAt": "2026-07-02T00:00:00.000Z",
+        "note": "Official program page states that DES licenses asbestos contractors and individuals and links the contractor/consultant search."
+      }
+    },
+    {
       "id": "us.sc.llr.contractors",
       "jurisdiction": {
         "country": "US",
@@ -1701,17 +1728,61 @@
         "us.sc.llr.contractors"
       ],
       "trades": [
-        "contractors"
+        "general_contracting",
+        "commercial_contracting",
+        "electrical",
+        "plumbing",
+        "hvac",
+        "mechanical",
+        "roofing",
+        "solar",
+        "pool_spa",
+        "sheet_metal",
+        "underground_utility"
       ],
       "accessPath": "manual_handoff",
       "coverageLimitations": [
-        "South Carolina residential builder records use a separate LLR lookup path and are not included in this source entry.",
+        "South Carolina Residential Builders Commission credentials use a separate LLR lookup and source entry.",
+        "South Carolina DES asbestos contractor licenses use a separate environmental-program lookup and source entry.",
         "Local permits, business registrations, and non-LLR authorizations are outside this source entry."
       ],
       "evidence": {
         "url": "https://verify.llronline.com/LicLookup/Contractors/Contractor.aspx?div=69",
-        "reviewedAt": "2026-06-27T00:00:00.000Z",
-        "note": "Official public source, access shape, and current automation constraints reviewed."
+        "reviewedAt": "2026-07-02T00:00:00.000Z",
+        "note": "Official public contractor lookup and current access shape reviewed."
+      }
+    },
+    {
+      "id": "us.sc.llr.residential_builders",
+      "jurisdiction": {
+        "country": "US",
+        "state": "SC"
+      },
+      "boardName": "South Carolina Residential Builders Commission License Lookup",
+      "agencyName": "South Carolina Residential Builders Commission",
+      "officialUrl": "https://verify.llronline.com/LicLookup/Resbu/Resbu.aspx",
+      "sourceIds": [
+        "us.sc.llr.residential_builders"
+      ],
+      "trades": [
+        "residential_contracting",
+        "electrical",
+        "plumbing",
+        "hvac",
+        "roofing",
+        "solar",
+        "home_improvement"
+      ],
+      "accessPath": "manual_handoff",
+      "coverageLimitations": [
+        "Commercial general and mechanical contractor credentials use the separate Contractor's Licensing Board source.",
+        "Residential home inspector credentials are outside OpenTrade's contractor and skilled-trade focus.",
+        "Municipal permits, business registrations, and work below statutory thresholds are outside this source entry."
+      ],
+      "evidence": {
+        "url": "https://verify.llronline.com/LicLookup/Resbu/Resbu.aspx",
+        "reviewedAt": "2026-07-02T00:00:00.000Z",
+        "note": "Official lookup reviewed for searchable fields, status meanings, nightly update cadence, and cross-board no-match guidance."
       }
     },
     {
