@@ -1165,6 +1165,21 @@
     {
       "state": "TX",
       "decisions": {
+        "general_contracting": {
+          "outcome": "local_only",
+          "evidence": [{ "url": "https://gov.texas.gov/uploads/files/business/smallbusinesshandbook.pdf", "reviewedAt": "2026-07-02T00:00:00.000Z", "note": "The Governor's Small Business Handbook says general contracting, construction, and home-builder licensing is generally handled at the local or city level and directs businesses to the relevant municipality." }],
+          "limitations": ["Texas still licenses specific trades such as electrical, air conditioning and refrigeration, plumbing, and asbestos through separate statewide agencies.", "Municipal and county contractor licensing remains outside OpenTrade Registry v2 board-completion scope unless separately registered."]
+        },
+        "residential_contracting": {
+          "outcome": "local_only",
+          "evidence": [{ "url": "https://gov.texas.gov/uploads/files/business/smallbusinesshandbook.pdf", "reviewedAt": "2026-07-02T00:00:00.000Z", "note": "The Governor's Small Business Handbook groups home builders with general contracting and construction and says licensing, permitting, or bonding requirements are generally local or municipal." }],
+          "limitations": ["This decision covers the absence of a verified statewide residential or home-builder contractor board; trade-specific state licenses and local permits may still apply."]
+        },
+        "commercial_contracting": {
+          "outcome": "local_only",
+          "evidence": [{ "url": "https://gov.texas.gov/uploads/files/business/Texas_Licenses_Permits_Guide.pdf", "reviewedAt": "2026-07-02T00:00:00.000Z", "note": "The official Texas Business Licenses and Permits Guide says general contractors are not required to obtain a state license and may instead be subject to county or city requirements." }],
+          "limitations": ["Separate statewide licenses remain necessary when commercial work includes a regulated trade or activity.", "This decision does not represent local commercial contractor registrations or project permits."]
+        },
         "electrical": {
           "outcome": "covered_by_board",
           "boardIds": ["us.tx.tdlr.all_licenses"],
@@ -1186,6 +1201,11 @@
           "evidence": [{ "url": "https://www.tdlr.texas.gov/acr/contractor-apply.htm", "reviewedAt": "2026-07-01T10:00:00.000Z", "note": "TDLR Air Conditioning and Refrigeration contractor licensing documentation says license class and endorsements determine the type of air conditioning and refrigeration work that may be performed." }],
           "limitations": ["This decision covers the TDLR ACR mechanical/HVAC path and does not resolve unrelated mechanical scopes outside TDLR ACR licensing."]
         },
+        "roofing": {
+          "outcome": "local_only",
+          "evidence": [{ "url": "https://gov.texas.gov/uploads/files/business/transcript_Basics_of-Business_Licensing.pdf", "reviewedAt": "2026-07-02T00:00:00.000Z", "note": "The official Governor's Small Business webinar transcript states that Texas does not have a statewide roofing license requirement." }],
+          "limitations": ["Local permits, registrations, insurance rules, and trade-specific licenses may still apply to roofing projects.", "Voluntary industry certifications are not treated as state licenses."]
+        },
         "solar": {
           "outcome": "covered_by_board",
           "boardIds": ["us.tx.tdlr.all_licenses"],
@@ -1197,6 +1217,11 @@
           "boardIds": ["us.tx.dshs.asbestos"],
           "evidence": [{ "url": "https://www.dshs.texas.gov/asbestos-program/licensing-registration-requirements-asbestos-program", "reviewedAt": "2026-07-02T00:00:00.000Z", "note": "DSHS states persons and companies engaging in asbestos-related activities in a public building in Texas must be appropriately licensed or registered by DSHS." }],
           "limitations": ["DSHS asbestos scope is public-building asbestos-program licensing and registration; this is not a statewide general contractor, demolition-permit, or local building-permit source."]
+        },
+        "home_improvement": {
+          "outcome": "local_only",
+          "evidence": [{ "url": "https://gov.texas.gov/uploads/files/business/smallbusinesshandbook.pdf", "reviewedAt": "2026-07-02T00:00:00.000Z", "note": "The Governor's Small Business Handbook directs general contracting, construction, and home-builder businesses to local or city licensing, permitting, and bonding requirements rather than a statewide contractor board." }],
+          "limitations": ["This decision concerns statewide contractor licensing and does not negate trade-specific state credentials, consumer-protection law, or local home-improvement requirements."]
         }
       }
     },

@@ -15,10 +15,10 @@ describe("nationwide board trade coverage ledger", () => {
     expect(ledger.jurisdictions).toHaveLength(56);
     expect(new Set(ledger.jurisdictions.map((entry) => entry.state)).size).toBe(56);
     expect(expanded).toHaveLength(56 * BOARD_TRADE_DOMAINS.length);
-    expect(expanded.filter((decision) => decision.outcome === "needs_research")).toHaveLength(569);
+    expect(expanded.filter((decision) => decision.outcome === "needs_research")).toHaveLength(564);
     expect(expanded.filter((decision) => decision.outcome === "covered_by_board")).toHaveLength(202);
     expect(expanded.filter((decision) => decision.outcome === "not_state_regulated")).toHaveLength(2);
-    expect(expanded.filter((decision) => decision.outcome === "local_only")).toHaveLength(11);
+    expect(expanded.filter((decision) => decision.outcome === "local_only")).toHaveLength(16);
   });
 
   it("records Arizona ROC coverage and the documented asbestos training boundary", async () => {
@@ -210,21 +210,22 @@ describe("nationwide board trade coverage ledger", () => {
     expect(asbestos).toMatchObject({ outcome: "covered_by_board", boardIds: ["us.fl.dbpr.asbestos_contractors"] });
   });
 
-  it("records Texas TDLR and TSBPE trade coverage without overclaiming broad construction domains", async () => {
+  it("records Texas statewide trade coverage and official local-only boundaries", async () => {
     const ledger = boardTradeCoverageLedgerSchema.parse(await json("registry/board-coverage.json"));
     const expanded = expandBoardTradeCoverageLedger(ledger).filter((decision) => decision.state === "TX");
     const unresolved = expanded.filter((decision) => decision.outcome === "needs_research");
 
     expect(unresolved.map((decision) => decision.tradeDomain).sort()).toEqual([
-      "commercial_contracting",
-      "general_contracting",
-      "home_improvement",
       "pool_spa",
-      "residential_contracting",
-      "roofing",
       "sheet_metal",
       "underground_utility",
     ]);
+    for (const domain of ["general_contracting", "residential_contracting", "commercial_contracting", "roofing", "home_improvement"]) {
+      expect(expanded.find((decision) => decision.tradeDomain === domain)).toMatchObject({
+        outcome: "local_only",
+        boardIds: [],
+      });
+    }
     for (const domain of ["electrical", "hvac", "mechanical", "solar"]) {
       expect(expanded.find((decision) => decision.tradeDomain === domain)).toMatchObject({
         outcome: "covered_by_board",
