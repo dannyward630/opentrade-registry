@@ -1,0 +1,68 @@
+{
+  "id": "us.ct.dcp.major_contractors",
+  "name": "Connecticut DCP Major Contractor Lookup",
+  "jurisdiction": { "country": "US", "state": "CT" },
+  "agency": {
+    "name": "Connecticut Department of Consumer Protection",
+    "url": "https://portal.ct.gov/dcp"
+  },
+  "sourceType": "html_lookup",
+  "sourceUrl": "https://portal.ct.gov/dcp/common-elements/consumer-facts-and-contacts/major-contractor",
+  "documentationUrl": "https://portal.ct.gov/dcp/common-elements/consumer-facts-and-contacts/major-contractor",
+  "dataDictionaryUrl": null,
+  "termsUrl": "https://portal.ct.gov/policies",
+  "updateFrequency": "unknown; verify current status in Connecticut eLicense",
+  "tradeCoverage": ["general_contracting", "commercial_contracting", "roofing"],
+  "licenseTypesIncluded": ["Connecticut major contractor licenses"],
+  "knownExclusions": [
+    "The major-contractor definition is limited to work exceeding statutory threshold limits or affecting structural integrity; it is not a universal general-contractor license.",
+    "Residential home improvement, new-home construction, occupational trades, asbestos credentials, and local permits are covered separately."
+  ],
+  "hasBulkDownload": "unknown",
+  "hasLiveLookup": true,
+  "requiresJavaScript": "unknown",
+  "requiresCaptcha": "unknown",
+  "requiresAccount": false,
+  "rateLimitNotes": "No adapter is implemented. Do not automate the shared portal until its controls and public contract are reviewed.",
+  "redistributionStatus": "unknown",
+  "publicRecordsNotes": "Official source metadata only. A missing result is not proof that a contractor lacks another state or local authorization.",
+  "adapterStatus": "blocked",
+  "sourceDiscoveryStatus": "blocked",
+  "adapterMaturity": "blocked",
+  "adapterQualityLevel": 0,
+  "coverageScope": "state_agency_partial",
+  "adapterPackage": null,
+  "testFixturePath": null,
+  "officialLookupUrl": "https://www.elicense.ct.gov/Lookup/LicenseLookup.aspx",
+  "officialBulkDownloadNotes": "No stable, documented machine-readable major-contractor export has been confirmed.",
+  "researchNotes": "DCP licenses major contractors for specified large or structurally significant work. The shared eLicense lookup remains a manual handoff.",
+  "verificationReviewedAt": null,
+  "verificationCaveats": [
+    "Major-contractor coverage is narrower than all general or commercial construction.",
+    "No match means no matching record in this source at the checked time."
+  ],
+  "verificationNotes": "No supported adapter is exposed for the shared interactive lookup.",
+  "lastVerifiedAt": "2026-07-02T00:00:00.000Z",
+  "maintainerNotes": "Preserve the statutory threshold limitation in all future verification output.",
+  "schemaVersion": "1.0",
+  "researchReviewedAt": "2026-07-02T00:00:00.000Z",
+  "nextReviewAt": "2027-01-02T00:00:00.000Z",
+  "researchEvidence": [
+    {
+      "url": "https://portal.ct.gov/dcp/common-elements/consumer-facts-and-contacts/major-contractor",
+      "checkedAt": "2026-07-02T00:00:00.000Z",
+      "note": "Official DCP page defines licensed major-contractor work and identifies roofing and structural work within scope."
+    },
+    {
+      "url": "https://www.elicense.ct.gov/Lookup/LicenseLookup.aspx",
+      "checkedAt": "2026-07-02T00:00:00.000Z",
+      "note": "Official shared public license lookup reviewed as the current verification handoff."
+    }
+  ],
+  "sourceResearchOutcome": "blocked",
+  "blocker": {
+    "code": "technical_instability",
+    "summary": "The shared interactive lookup has no reviewed stable machine-readable contract for this credential.",
+    "evidenceUrls": ["https://www.elicense.ct.gov/Lookup/LicenseLookup.aspx", "https://portal.ct.gov/policies"]
+  }
+}
