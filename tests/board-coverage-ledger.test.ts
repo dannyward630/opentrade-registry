@@ -15,10 +15,10 @@ describe("nationwide board trade coverage ledger", () => {
     expect(ledger.jurisdictions).toHaveLength(56);
     expect(new Set(ledger.jurisdictions.map((entry) => entry.state)).size).toBe(56);
     expect(expanded).toHaveLength(56 * BOARD_TRADE_DOMAINS.length);
-    expect(expanded.filter((decision) => decision.outcome === "needs_research")).toHaveLength(507);
+    expect(expanded.filter((decision) => decision.outcome === "needs_research")).toHaveLength(504);
     expect(expanded.filter((decision) => decision.outcome === "covered_by_board")).toHaveLength(255);
     expect(expanded.filter((decision) => decision.outcome === "not_state_regulated")).toHaveLength(6);
-    expect(expanded.filter((decision) => decision.outcome === "local_only")).toHaveLength(16);
+    expect(expanded.filter((decision) => decision.outcome === "local_only")).toHaveLength(19);
   });
 
   it("records Arizona ROC coverage and the documented asbestos training boundary", async () => {
@@ -215,12 +215,8 @@ describe("nationwide board trade coverage ledger", () => {
     const expanded = expandBoardTradeCoverageLedger(ledger).filter((decision) => decision.state === "TX");
     const unresolved = expanded.filter((decision) => decision.outcome === "needs_research");
 
-    expect(unresolved.map((decision) => decision.tradeDomain).sort()).toEqual([
-      "pool_spa",
-      "sheet_metal",
-      "underground_utility",
-    ]);
-    for (const domain of ["general_contracting", "residential_contracting", "commercial_contracting", "roofing", "home_improvement"]) {
+    expect(unresolved).toHaveLength(0);
+    for (const domain of ["general_contracting", "residential_contracting", "commercial_contracting", "roofing", "pool_spa", "sheet_metal", "underground_utility", "home_improvement"]) {
       expect(expanded.find((decision) => decision.tradeDomain === domain)).toMatchObject({
         outcome: "local_only",
         boardIds: [],
@@ -240,6 +236,9 @@ describe("nationwide board trade coverage ledger", () => {
       outcome: "covered_by_board",
       boardIds: ["us.tx.dshs.asbestos"],
     });
+    expect(expanded.find((decision) => decision.tradeDomain === "pool_spa")?.limitations.join(" ")).toContain("residential-appliance electrical credentials");
+    expect(expanded.find((decision) => decision.tradeDomain === "sheet_metal")?.limitations.join(" ")).toContain("HVAC systems");
+    expect(expanded.find((decision) => decision.tradeDomain === "underground_utility")?.limitations.join(" ")).toContain("TCEQ UST registration");
   });
 
   it("records complete Hawaii contractor classification coverage", async () => {
