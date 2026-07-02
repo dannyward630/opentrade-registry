@@ -1396,21 +1396,31 @@
       ],
       "trades": [
         "general_contracting",
+        "residential_contracting",
+        "commercial_contracting",
         "electrical",
         "plumbing",
         "mechanical",
         "hvac",
-        "other"
+        "roofing",
+        "solar",
+        "pool_spa",
+        "asbestos",
+        "sheet_metal",
+        "underground_utility",
+        "home_improvement"
       ],
       "accessPath": "manual_handoff",
       "coverageLimitations": [
         "The RLD verification page routes Construction Industries Division verification to an external PSI search path.",
         "Local permits, business registrations, and non-RLD authorizations are outside this source entry.",
-        "RLD boards and commissions license lookup is separate from the Construction Industries Division path and may need separate entries."
+        "RLD boards and commissions license lookup is separate from the Construction Industries Division path and may need separate entries.",
+        "Classification and qualifying-party details must be preserved before normalization.",
+        "Solar coverage appears through electrical, mechanical/plumbing, and specialty scopes; do not flatten photovoltaic and solar-thermal work into one undifferentiated category."
       ],
       "evidence": {
         "url": "https://public.psiexams.com/search.jsp",
-        "reviewedAt": "2026-06-27T00:00:00.000Z",
+        "reviewedAt": "2026-07-02T00:00:00.000Z",
         "note": "Official public source, access shape, and current automation constraints reviewed."
       }
     },

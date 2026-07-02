@@ -17,19 +17,30 @@
   "updateFrequency": "unknown; verify against the official Construction Industries verification path before relying on freshness assumptions",
   "tradeCoverage": [
     "general_contracting",
+    "residential_contracting",
+    "commercial_contracting",
     "electrical",
     "plumbing",
     "mechanical",
     "hvac",
-    "other"
+    "roofing",
+    "solar",
+    "pool_spa",
+    "asbestos",
+    "sheet_metal",
+    "underground_utility",
+    "home_improvement"
   ],
   "licenseTypesIncluded": [
-    "New Mexico Construction Industries Division license records exposed by the official verification path"
+    "New Mexico Construction Industries Division license records exposed by the official verification path",
+    "General construction, electrical, mechanical/plumbing, LP gas, and specialty classifications identified by CID bureau pages and 14.6.6 NMAC"
   ],
   "knownExclusions": [
     "The RLD verification page routes Construction Industries Division verification to an external PSI search path.",
     "Local permits, business registrations, and non-RLD authorizations are outside this source entry.",
-    "RLD boards and commissions license lookup is separate from the Construction Industries Division path and may need separate entries."
+    "RLD boards and commissions license lookup is separate from the Construction Industries Division path and may need separate entries.",
+    "Classification and qualifying-party details must be preserved before normalization.",
+    "Solar coverage appears through electrical, mechanical/plumbing, and specialty scopes; do not flatten photovoltaic and solar-thermal work into one undifferentiated category."
   ],
   "hasBulkDownload": "unknown",
   "hasLiveLookup": true,
@@ -47,17 +58,32 @@
   "testFixturePath": null,
   "officialLookupUrl": "https://public.psiexams.com/search.jsp",
   "officialBulkDownloadNotes": "No official bulk download has been confirmed in this phase.",
-  "researchNotes": "Registry-only source for New Mexico Construction Industries verification. Future work should review PSI search fields and whether a state-hosted export exists.",
-  "lastVerifiedAt": "2026-06-27T00:00:00.000Z",
-  "maintainerNotes": "Keep the RLD-versus-PSI lookup split visible in future docs and verification behavior.",
+  "researchNotes": "Registry-only source for New Mexico Construction Industries verification. CID pages and 14.6.6 NMAC identify statewide general building, residential, commercial, electrical, plumbing, HVAC, mechanical, roofing, pool/spa, sheet-metal, underground-utility, asbestos-removal, solar-relevant, and home-improvement-relevant classifications.",
+  "lastVerifiedAt": "2026-07-02T00:00:00.000Z",
+  "maintainerNotes": "Keep the RLD-versus-PSI lookup split visible in future docs and verification behavior. Preserve CID classification and qualifying-party context if adapter work begins.",
   "schemaVersion": "1.0",
-  "researchReviewedAt": "2026-06-27T00:00:00.000Z",
-  "nextReviewAt": "2026-12-27T00:00:00.000Z",
+  "researchReviewedAt": "2026-07-02T00:00:00.000Z",
+  "nextReviewAt": "2027-01-02T00:00:00.000Z",
   "researchEvidence": [
     {
       "url": "https://public.psiexams.com/search.jsp",
-      "checkedAt": "2026-06-27T00:00:00.000Z",
+      "checkedAt": "2026-07-02T00:00:00.000Z",
       "note": "Official public source, access shape, and current automation constraints reviewed."
+    },
+    {
+      "url": "https://www.rld.nm.gov/construction-industries/find-a-bureau/bureaus/",
+      "checkedAt": "2026-07-02T00:00:00.000Z",
+      "note": "Official CID bureau page states construction-related contracting in New Mexico must be licensed and lists general construction, electrical, LP gas, and mechanical plumbing bureaus."
+    },
+    {
+      "url": "https://www.srca.nm.gov/parts/title14/14.006.0006.html",
+      "checkedAt": "2026-07-02T00:00:00.000Z",
+      "note": "Official 14.6.6 NMAC classification rule defines CID general construction, electrical, mechanical/plumbing, and specialty classification scopes."
+    },
+    {
+      "url": "https://www.env.nm.gov/air-quality/asbestos/",
+      "checkedAt": "2026-07-02T00:00:00.000Z",
+      "note": "Official NMED asbestos page states contractors who remove asbestos materials must be licensed by the New Mexico Construction Industries Division."
     }
   ],
   "sourceResearchOutcome": "blocked",
