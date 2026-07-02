@@ -71,21 +71,24 @@
     {
       "state": "CT",
       "status": "blocked",
-  "sourceIds": [
-    "us.ct.dcp.home_improvement_contractors",
-    "us.ct.dcp.major_contractors",
-    "us.ct.dcp.occupational_trades",
-    "us.ct.dph.asbestos_contractors"
-  ],
+      "sourceIds": [
+        "us.ct.dcp.home_improvement_contractors",
+        "us.ct.dcp.major_contractors",
+        "us.ct.dcp.occupational_trades",
+        "us.ct.dph.asbestos_contractors"
+      ],
       "notes": "Official source metadata is retained, but automated ingestion is blocked by documented legal, access, scope, or technical constraints."
     },
     {
       "state": "DE",
       "status": "blocked",
       "sourceIds": [
+        "us.de.dfm.asbestos_contractors",
+        "us.de.dpr.electrical_examiners",
+        "us.de.dpr.plumbing_hvacr",
         "us.de.labor.construction_contractors"
       ],
-      "notes": "Official source metadata is retained, but automated ingestion is blocked by documented legal, access, scope, or technical constraints."
+      "notes": "Official source metadata is retained for Delaware contractor registration, DPR trade credentials, and DFM asbestos credentials, but automated ingestion is blocked by documented technical constraints."
     },
     {
       "state": "DC",

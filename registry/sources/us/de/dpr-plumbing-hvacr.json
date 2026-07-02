@@ -1,0 +1,97 @@
+{
+  "id": "us.de.dpr.plumbing_hvacr",
+  "name": "Delaware DPR Board of Plumbing and HVACR License Lookup",
+  "jurisdiction": {
+    "country": "US",
+    "state": "DE"
+  },
+  "agency": {
+    "name": "Delaware Division of Professional Regulation",
+    "url": "https://dpr.delaware.gov/"
+  },
+  "sourceType": "html_lookup",
+  "sourceUrl": "https://dpr.delaware.gov/boards/plumbers/",
+  "documentationUrl": "https://dpr.delaware.gov/boards/plumbers/",
+  "dataDictionaryUrl": null,
+  "termsUrl": "https://delaware.gov/privacy-policy/",
+  "updateFrequency": "unknown; verify current credential status through DELPROS before relying on freshness assumptions",
+  "tradeCoverage": [
+    "plumbing",
+    "hvac",
+    "mechanical",
+    "solar",
+    "pool_spa",
+    "sheet_metal"
+  ],
+  "licenseTypesIncluded": [
+    "Delaware master plumber licenses",
+    "Delaware master HVACR licenses",
+    "Delaware master restricted HVACR licenses",
+    "Temporary plumber or HVACR licenses where applicable"
+  ],
+  "knownExclusions": [
+    "This entry covers plumbing and HVACR credentials only; contractor registration, electrical, asbestos, local permits, and business licenses are separate sources.",
+    "Restricted HVACR credentials limit practice to listed specialties and must not be treated as an unrestricted HVACR authorization.",
+    "Pool/spa, solar, and sheet-metal coverage is limited to scopes that fall within plumbing, HVACR, gas piping, ventilation, commercial hoods, refrigeration, air conditioning, or related Delaware credential requirements."
+  ],
+  "hasBulkDownload": "unknown",
+  "hasLiveLookup": true,
+  "requiresJavaScript": "unknown",
+  "requiresCaptcha": "unknown",
+  "requiresAccount": false,
+  "rateLimitNotes": "No adapter is implemented. Use the official DELPROS lookup manually and do not automate portal traffic unless access controls and terms are reviewed.",
+  "redistributionStatus": "unknown",
+  "publicRecordsNotes": "Official credential lookup metadata only. Absence from one credential type is not proof that no other Delaware authorization exists.",
+  "adapterStatus": "blocked",
+  "sourceDiscoveryStatus": "blocked",
+  "adapterMaturity": "blocked",
+  "adapterQualityLevel": 0,
+  "coverageScope": "state_agency_partial",
+  "adapterPackage": null,
+  "testFixturePath": null,
+  "officialLookupUrl": "https://delpros.delaware.gov/OH_VerifyLicense",
+  "officialBulkDownloadNotes": "DPR offers online verification and roster requests, but no stable public bulk file or API contract has been reviewed for this board.",
+  "researchNotes": "The Board of Plumbing, Heating, Ventilation, Air Conditioning and Refrigeration Examiners issues master plumber, master HVACR, and restricted HVACR credentials through DPR and DELPROS. This source remains a manual handoff until a stable, permitted machine interface is reviewed.",
+  "verificationReviewedAt": null,
+  "verificationCaveats": [
+    "Preserve the credential type and restricted/unrestricted scope from DELPROS.",
+    "No match means no matching plumbing or HVACR credential record was found in this source at the checked time, not that no authorization exists elsewhere."
+  ],
+  "verificationNotes": "No supported adapter is exposed while the shared DELPROS portal lacks a reviewed stable machine-readable contract.",
+  "lastVerifiedAt": "2026-07-02T00:00:00.000Z",
+  "maintainerNotes": "Keep plumbing/HVACR credential records separate from Delaware contractor-registration, electrical, asbestos, and municipal permit records.",
+  "schemaVersion": "1.0",
+  "researchReviewedAt": "2026-07-02T00:00:00.000Z",
+  "nextReviewAt": "2027-01-02T00:00:00.000Z",
+  "researchEvidence": [
+    {
+      "url": "https://dpr.delaware.gov/boards/plumbers/",
+      "checkedAt": "2026-07-02T00:00:00.000Z",
+      "note": "Official board page states that the Board issues master plumber, master HVACR, and master restricted HVACR licenses."
+    },
+    {
+      "url": "https://dpr.delaware.gov/boards/plumbers/hvacrlicensure/",
+      "checkedAt": "2026-07-02T00:00:00.000Z",
+      "note": "Official HVACR licensure page describes unrestricted and restricted HVACR scopes including ventilation, commercial hood systems, refrigeration, air conditioning, and gas piping."
+    },
+    {
+      "url": "https://delpros.delaware.gov/OH_VerifyLicense",
+      "checkedAt": "2026-07-02T00:00:00.000Z",
+      "note": "Official DELPROS license lookup is the public verification path for Delaware professional licenses."
+    },
+    {
+      "url": "https://delaware.gov/privacy-policy/",
+      "checkedAt": "2026-07-02T00:00:00.000Z",
+      "note": "Delaware.gov privacy and terms material reviewed; redistribution rights for normalized registry datasets remain unconfirmed."
+    }
+  ],
+  "sourceResearchOutcome": "blocked",
+  "blocker": {
+    "code": "technical_instability",
+    "summary": "The shared DELPROS verification portal has no reviewed stable public machine-readable contract for plumbing and HVACR credentials.",
+    "evidenceUrls": [
+      "https://dpr.delaware.gov/boards/plumbers/",
+      "https://delpros.delaware.gov/OH_VerifyLicense"
+    ]
+  }
+}

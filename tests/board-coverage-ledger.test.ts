@@ -15,8 +15,8 @@ describe("nationwide board trade coverage ledger", () => {
     expect(ledger.jurisdictions).toHaveLength(56);
     expect(new Set(ledger.jurisdictions.map((entry) => entry.state)).size).toBe(56);
     expect(expanded).toHaveLength(56 * BOARD_TRADE_DOMAINS.length);
-    expect(expanded.filter((decision) => decision.outcome === "needs_research")).toHaveLength(522);
-    expect(expanded.filter((decision) => decision.outcome === "covered_by_board")).toHaveLength(241);
+    expect(expanded.filter((decision) => decision.outcome === "needs_research")).toHaveLength(508);
+    expect(expanded.filter((decision) => decision.outcome === "covered_by_board")).toHaveLength(255);
     expect(expanded.filter((decision) => decision.outcome === "not_state_regulated")).toHaveLength(5);
     expect(expanded.filter((decision) => decision.outcome === "local_only")).toHaveLength(16);
   });
@@ -298,6 +298,39 @@ describe("nationwide board trade coverage ledger", () => {
     expect(expanded.find((decision) => decision.tradeDomain === "underground_utility")?.limitations).toContain(
       "This decision covers regulated plumbing, piping, and well-drilling scopes, not every civil utility or excavation activity. Local permits and utility-owner requirements remain excluded.",
     );
+  });
+
+  it("records complete Delaware registration, professional trade, and asbestos coverage", async () => {
+    const ledger = boardTradeCoverageLedgerSchema.parse(await json("registry/board-coverage.json"));
+    const expanded = expandBoardTradeCoverageLedger(ledger).filter((decision) => decision.state === "DE");
+
+    expect(expanded).toHaveLength(BOARD_TRADE_DOMAINS.length);
+    expect(expanded.filter((decision) => decision.outcome === "needs_research")).toEqual([]);
+    for (const domain of ["general_contracting", "residential_contracting", "commercial_contracting", "roofing", "underground_utility", "home_improvement"]) {
+      expect(expanded.find((decision) => decision.tradeDomain === domain)?.boardIds).toEqual([
+        "us.de.labor.construction_contractors",
+      ]);
+    }
+    expect(expanded.find((decision) => decision.tradeDomain === "electrical")?.boardIds).toEqual([
+      "us.de.labor.construction_contractors",
+      "us.de.dpr.electrical_examiners",
+    ]);
+    for (const domain of ["plumbing", "hvac", "mechanical", "pool_spa", "sheet_metal"]) {
+      expect(expanded.find((decision) => decision.tradeDomain === domain)?.boardIds).toEqual([
+        "us.de.labor.construction_contractors",
+        "us.de.dpr.plumbing_hvacr",
+      ]);
+    }
+    expect(expanded.find((decision) => decision.tradeDomain === "solar")?.boardIds).toEqual([
+      "us.de.labor.construction_contractors",
+      "us.de.dpr.electrical_examiners",
+      "us.de.dpr.plumbing_hvacr",
+    ]);
+    expect(expanded.find((decision) => decision.tradeDomain === "asbestos")?.boardIds).toEqual([
+      "us.de.labor.construction_contractors",
+      "us.de.dfm.asbestos_contractors",
+    ]);
+    expect(expanded.find((decision) => decision.tradeDomain === "asbestos")?.limitations.join(" ")).toContain("DFM asbestos credentials");
   });
 
   it("records North Carolina board coverage while leaving sheet metal unresolved", async () => {

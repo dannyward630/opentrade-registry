@@ -592,6 +592,93 @@
       }
     },
     {
+      "id": "us.de.dfm.asbestos_contractors",
+      "jurisdiction": {
+        "country": "US",
+        "state": "DE"
+      },
+      "boardName": "Delaware DFM Asbestos Abatement Contractors",
+      "agencyName": "Delaware Division of Facilities Management Asbestos Office",
+      "officialUrl": "https://data.delaware.gov/Licenses-and-Certifications/Certified-Asbestos-Vendors/f677-ahd9",
+      "sourceIds": [
+        "us.de.dfm.asbestos_contractors"
+      ],
+      "trades": [
+        "asbestos"
+      ],
+      "accessPath": "manual_handoff",
+      "coverageLimitations": [
+        "This entry covers asbestos abatement credentials only; general contractor registration, electrical, plumbing/HVACR, local permits, and business licenses are separate sources.",
+        "Open-data vendor records and DFM certification requirements must be reconciled before any adapter is promoted.",
+        "Project notifications, inspections, disposal requirements, and federal or DNREC obligations are outside this source entry."
+      ],
+      "evidence": {
+        "url": "https://dfm.delaware.gov/envsrv/asbestos/requirements.shtml",
+        "reviewedAt": "2026-07-02T00:00:00.000Z",
+        "note": "Official DFM requirements page states Class A Contractor, Class B Contractor, and Professional Service Firm applications are submitted annually for review and approval by the State of Delaware Asbestos Office."
+      }
+    },
+    {
+      "id": "us.de.dpr.electrical_examiners",
+      "jurisdiction": {
+        "country": "US",
+        "state": "DE"
+      },
+      "boardName": "Delaware DPR Board of Electrical Examiners License Lookup",
+      "agencyName": "Delaware Division of Professional Regulation",
+      "officialUrl": "https://delpros.delaware.gov/OH_VerifyLicense",
+      "sourceIds": [
+        "us.de.dpr.electrical_examiners"
+      ],
+      "trades": [
+        "electrical",
+        "solar"
+      ],
+      "accessPath": "manual_handoff",
+      "coverageLimitations": [
+        "This entry covers electrical credentials only; contractor registration, plumbing/HVACR, asbestos, local permits, and business licenses are separate sources.",
+        "The shared DELPROS lookup covers many professions and credential levels; electrical contractor and individual records must not be conflated.",
+        "Solar coverage is limited to electrical work that falls within Delaware electrical licensure and inspection-agency requirements."
+      ],
+      "evidence": {
+        "url": "https://dpr.delaware.gov/boards/electrician/",
+        "reviewedAt": "2026-07-02T00:00:00.000Z",
+        "note": "Official board page states that the Board issues apprentice, journeyperson, master, master special, limited, and limited special electrician licenses and licenses electrical inspection agencies."
+      }
+    },
+    {
+      "id": "us.de.dpr.plumbing_hvacr",
+      "jurisdiction": {
+        "country": "US",
+        "state": "DE"
+      },
+      "boardName": "Delaware DPR Board of Plumbing and HVACR License Lookup",
+      "agencyName": "Delaware Division of Professional Regulation",
+      "officialUrl": "https://delpros.delaware.gov/OH_VerifyLicense",
+      "sourceIds": [
+        "us.de.dpr.plumbing_hvacr"
+      ],
+      "trades": [
+        "plumbing",
+        "hvac",
+        "mechanical",
+        "solar",
+        "pool_spa",
+        "sheet_metal"
+      ],
+      "accessPath": "manual_handoff",
+      "coverageLimitations": [
+        "This entry covers plumbing and HVACR credentials only; contractor registration, electrical, asbestos, local permits, and business licenses are separate sources.",
+        "Restricted HVACR credentials limit practice to listed specialties and must not be treated as an unrestricted HVACR authorization.",
+        "Pool/spa, solar, and sheet-metal coverage is limited to scopes that fall within plumbing, HVACR, gas piping, ventilation, commercial hoods, refrigeration, air conditioning, or related Delaware credential requirements."
+      ],
+      "evidence": {
+        "url": "https://dpr.delaware.gov/boards/plumbers/",
+        "reviewedAt": "2026-07-02T00:00:00.000Z",
+        "note": "Official board page states that the Board issues master plumber, master HVACR, and master restricted HVACR licenses."
+      }
+    },
+    {
       "id": "us.de.labor.construction_contractors",
       "jurisdiction": {
         "country": "US",
@@ -605,18 +692,30 @@
       ],
       "trades": [
         "general_contracting",
+        "residential_contracting",
+        "commercial_contracting",
+        "electrical",
+        "plumbing",
+        "hvac",
+        "mechanical",
+        "roofing",
+        "solar",
+        "pool_spa",
+        "asbestos",
+        "sheet_metal",
+        "underground_utility",
         "home_improvement",
         "other"
       ],
       "accessPath": "manual_handoff",
       "coverageLimitations": [
-        "The public lookup is a construction contractor registry and does not represent every Delaware professional, trade, municipal, or business license.",
-        "Individual professional licenses are handled through separate Delaware professional licensing systems.",
+        "The public lookup is a construction contractor registry and does not replace Delaware professional, environmental, municipal, permit, or business-license requirements.",
+        "Electrical, plumbing, HVACR, and asbestos credentials are handled through separate Delaware licensing systems and must be preserved as companion sources.",
         "Contractors absent from the registry may be under review, removed, suspended, revoked, or outside the registry scope."
       ],
       "evidence": {
         "url": "https://contractorregistry.delaware.gov/",
-        "reviewedAt": "2026-06-27T00:00:00.000Z",
+        "reviewedAt": "2026-07-02T00:00:00.000Z",
         "note": "Official search supports name, ZIP, certification number, NAICS, and all-contractors queries; no stable file or API contract was documented."
       }
     },

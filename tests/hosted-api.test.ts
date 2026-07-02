@@ -30,7 +30,7 @@ describe("hosted API", () => {
     expect(response.body).toMatchObject({
       ok: true,
       service: "opentrade-registry",
-      fileRegistrySourceCount: 77,
+      fileRegistrySourceCount: 80,
       database: {
         configured: false,
         status: "not_configured"
@@ -47,7 +47,7 @@ describe("hosted API", () => {
     expect(response.headers["Access-Control-Allow-Origin"]).toBe("*");
     expect(response.headers["Cache-Control"]).toContain("stale-while-revalidate");
     expect(response.body.origin).toBe("registry_files");
-    expect(response.body.count).toBe(77);
+    expect(response.body.count).toBe(80);
     expect(response.body.sources.some((source: { id: string }) => source.id === "us.fl.dbpr.construction")).toBe(true);
   });
 
@@ -86,7 +86,7 @@ describe("hosted API", () => {
     const blocked = createMockResponse();
     await sourcesHandler({ query: { researchOutcome: "blocked" } } as never, blocked as never);
     expect(blocked.statusCode).toBe(200);
-    expect(blocked.body.count).toBe(68);
+    expect(blocked.body.count).toBe(71);
     expect(blocked.body.filters.researchOutcome).toBe("blocked");
     expect(blocked.body.sources.map((source: { id: string }) => source.id)).toContain("us.pa.oag.home_improvement_contractors");
     expect(blocked.body.sources[0]).toHaveProperty("sourceResearchOutcome", "blocked");
@@ -111,9 +111,9 @@ describe("hosted API", () => {
     expect(response.statusCode).toBe(200);
     expect(response.body).toMatchObject({
       origin: "registry_files",
-      sourceCount: 77,
-      terminalSourceCount: 77,
-      blockedSourceCount: 68,
+      sourceCount: 80,
+      terminalSourceCount: 80,
+      blockedSourceCount: 71,
       registryOnlySourceCount: 0,
       note: expect.stringContaining("terminal"),
     });
@@ -131,7 +131,7 @@ describe("hosted API", () => {
     expect(response.body.unimplementedBulkAdapterCandidates.map((source: { id: string }) => source.id)).toEqual([]);
     expect(response.body.downloadResearchCandidates).toEqual([]);
     expect(response.body.lookupAutomationConstraintSources).toEqual([]);
-    expect(response.body.sourcesByResearchOutcome.blocked).toBe(68);
+    expect(response.body.sourcesByResearchOutcome.blocked).toBe(71);
   });
 
   it("returns a single source registry entry by id", async () => {
@@ -259,7 +259,7 @@ describe("hosted API", () => {
 
     expect(result.origin).toBe("registry_files");
     expect(result.databaseError).toBe("database_unavailable");
-    expect(result.sources).toHaveLength(77);
+    expect(result.sources).toHaveLength(80);
   });
 
   it("returns file-backed readiness when database source loading fails", async () => {
@@ -271,7 +271,7 @@ describe("hosted API", () => {
 
     expect(result.origin).toBe("registry_files");
     expect(result.databaseError).toBe("database_unavailable");
-    expect(result.sourceCount).toBe(77);
+    expect(result.sourceCount).toBe(80);
     expect(result.unimplementedBulkAdapterCandidates).toHaveLength(0);
   });
 
@@ -286,11 +286,11 @@ describe("hosted API", () => {
     expect(health.statusCode).toBe(200);
     expect(health.body).toMatchObject({
       ok: true,
-      fileRegistrySourceCount: 77,
+      fileRegistrySourceCount: 80,
       database: {
         configured: true,
         status: "available",
-        registrySourceCount: 77,
+        registrySourceCount: 80,
         sourceCountMatchesFiles: true,
         sourceMetadataMatchesFiles: true,
         sourceMetadataMismatchCount: 0,
@@ -316,7 +316,7 @@ describe("hosted API", () => {
       database: {
         configured: true,
         status: "available",
-        registrySourceCount: 77,
+        registrySourceCount: 80,
         sourceCountMatchesFiles: true,
         sourceMetadataMatchesFiles: false,
         sourceMetadataMismatchCount: 1,

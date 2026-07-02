@@ -1,0 +1,86 @@
+{
+  "id": "us.de.dpr.electrical_examiners",
+  "name": "Delaware DPR Board of Electrical Examiners License Lookup",
+  "jurisdiction": {
+    "country": "US",
+    "state": "DE"
+  },
+  "agency": {
+    "name": "Delaware Division of Professional Regulation",
+    "url": "https://dpr.delaware.gov/"
+  },
+  "sourceType": "html_lookup",
+  "sourceUrl": "https://dpr.delaware.gov/boards/electrician/",
+  "documentationUrl": "https://dpr.delaware.gov/boards/electrician/",
+  "dataDictionaryUrl": null,
+  "termsUrl": "https://delaware.gov/privacy-policy/",
+  "updateFrequency": "unknown; verify current credential status through DELPROS before relying on freshness assumptions",
+  "tradeCoverage": [
+    "electrical",
+    "solar"
+  ],
+  "licenseTypesIncluded": [
+    "Delaware apprentice, residential, journeyperson, master, master special, limited, and limited special electrician licenses",
+    "Delaware electrical inspection agency licenses"
+  ],
+  "knownExclusions": [
+    "This entry covers electrical credentials only; contractor registration, plumbing/HVACR, asbestos, local permits, and business licenses are separate sources.",
+    "The shared DELPROS lookup covers many professions and credential levels; electrical contractor and individual records must not be conflated.",
+    "Solar coverage is limited to electrical work that falls within Delaware electrical licensure and inspection-agency requirements."
+  ],
+  "hasBulkDownload": "unknown",
+  "hasLiveLookup": true,
+  "requiresJavaScript": "unknown",
+  "requiresCaptcha": "unknown",
+  "requiresAccount": false,
+  "rateLimitNotes": "No adapter is implemented. Use the official DELPROS lookup manually and do not automate portal traffic unless access controls and terms are reviewed.",
+  "redistributionStatus": "unknown",
+  "publicRecordsNotes": "Official credential lookup metadata only. Absence from one credential type is not proof that no other Delaware authorization exists.",
+  "adapterStatus": "blocked",
+  "sourceDiscoveryStatus": "blocked",
+  "adapterMaturity": "blocked",
+  "adapterQualityLevel": 0,
+  "coverageScope": "state_agency_partial",
+  "adapterPackage": null,
+  "testFixturePath": null,
+  "officialLookupUrl": "https://delpros.delaware.gov/OH_VerifyLicense",
+  "officialBulkDownloadNotes": "DPR offers online verification and roster requests, but no stable public bulk file or API contract has been reviewed for this board.",
+  "researchNotes": "The Board of Electrical Examiners issues electrical credentials through DPR and DELPROS. This source remains a manual handoff until a stable, permitted machine interface is reviewed.",
+  "verificationReviewedAt": null,
+  "verificationCaveats": [
+    "Preserve the credential type and individual/facility distinction from DELPROS.",
+    "No match means no matching electrical credential record was found in this source at the checked time, not that no authorization exists elsewhere."
+  ],
+  "verificationNotes": "No supported adapter is exposed while the shared DELPROS portal lacks a reviewed stable machine-readable contract.",
+  "lastVerifiedAt": "2026-07-02T00:00:00.000Z",
+  "maintainerNotes": "Keep electrical credential records separate from Delaware contractor-registration, plumbing/HVACR, asbestos, and municipal permit records.",
+  "schemaVersion": "1.0",
+  "researchReviewedAt": "2026-07-02T00:00:00.000Z",
+  "nextReviewAt": "2027-01-02T00:00:00.000Z",
+  "researchEvidence": [
+    {
+      "url": "https://dpr.delaware.gov/boards/electrician/",
+      "checkedAt": "2026-07-02T00:00:00.000Z",
+      "note": "Official board page states that the Board issues apprentice, journeyperson, master, master special, limited, and limited special electrician licenses and licenses electrical inspection agencies."
+    },
+    {
+      "url": "https://delpros.delaware.gov/OH_VerifyLicense",
+      "checkedAt": "2026-07-02T00:00:00.000Z",
+      "note": "Official DELPROS license lookup is the public verification path for Delaware professional licenses."
+    },
+    {
+      "url": "https://delaware.gov/privacy-policy/",
+      "checkedAt": "2026-07-02T00:00:00.000Z",
+      "note": "Delaware.gov privacy and terms material reviewed; redistribution rights for normalized registry datasets remain unconfirmed."
+    }
+  ],
+  "sourceResearchOutcome": "blocked",
+  "blocker": {
+    "code": "technical_instability",
+    "summary": "The shared DELPROS verification portal has no reviewed stable public machine-readable contract for electrical credentials.",
+    "evidenceUrls": [
+      "https://dpr.delaware.gov/boards/electrician/",
+      "https://delpros.delaware.gov/OH_VerifyLicense"
+    ]
+  }
+}
