@@ -17,18 +17,31 @@
   "termsReviewNotes": "No dedicated MSBOC access, reuse, or website terms page was found in the official board site or contractor-search navigation during the 2026-06-27 review. The search disclosure and agency guidance still govern interpretation; redistribution and automation status remain unknown.",
   "updateFrequency": "unknown; verify against the official MSBOC search before relying on freshness assumptions",
   "tradeCoverage": [
+    "general_contracting",
     "commercial_contracting",
     "residential_contracting",
+    "electrical",
+    "plumbing",
+    "hvac",
+    "mechanical",
     "roofing",
-    "other"
+    "solar",
+    "pool_spa",
+    "asbestos",
+    "sheet_metal",
+    "underground_utility",
+    "home_improvement"
   ],
   "licenseTypesIncluded": [
-    "Mississippi commercial contractor, residential contractor, remodeler, and roofer license records exposed by MSBOC search where available"
+    "Mississippi commercial contractor, residential contractor, remodeler, and roofer license records exposed by MSBOC search where available",
+    "Major, specialty, stand-alone, and residential classifications published by MSBOC"
   ],
   "knownExclusions": [
     "This source entry is scoped to Mississippi State Board of Contractors licensing and does not represent local permits, business registrations, or non-MSBOC authorizations.",
     "The official search includes a disclosure that information may have changed since publication and recommends contacting the office before making decisions based on the information.",
-    "Violator lists, complaint information, and enforcement data may require separate official sources or source-specific caveats."
+    "Violator lists, complaint information, and enforcement data may require separate official sources or source-specific caveats.",
+    "MSBOC warns that classifications may have additional requirements administered by other Mississippi agencies.",
+    "Municipal permits and local business registrations remain outside this statewide board source."
   ],
   "hasBulkDownload": "unknown",
   "hasLiveLookup": true,
@@ -46,17 +59,27 @@
   "testFixturePath": null,
   "officialLookupUrl": "https://search.msboc.us/",
   "officialBulkDownloadNotes": "No official bulk download has been confirmed in this phase.",
-  "researchNotes": "Registry-only source for Mississippi contractor license search. Future work should review classifications and any official disclosure text before implementing verification behavior.",
-  "lastVerifiedAt": "2026-06-27T00:00:00.000Z",
-  "maintainerNotes": "Keep MSBOC licensing scope separate from local permit, business, and enforcement sources.",
+  "researchNotes": "Registry-only source for Mississippi contractor license search. The current MSBOC classification catalog covers every tracked statewide trade domain, but the lookup remains manual while reuse terms and automation behavior are unconfirmed.",
+  "lastVerifiedAt": "2026-07-02T00:00:00.000Z",
+  "maintainerNotes": "Keep MSBOC licensing scope separate from local permit, business, and enforcement sources. Preserve classification-specific limits and companion-agency requirements in any future verification result.",
   "schemaVersion": "1.0",
-  "researchReviewedAt": "2026-06-27T00:00:00.000Z",
-  "nextReviewAt": "2026-12-27T00:00:00.000Z",
+  "researchReviewedAt": "2026-07-02T00:00:00.000Z",
+  "nextReviewAt": "2027-01-02T00:00:00.000Z",
   "researchEvidence": [
     {
       "url": "https://search.msboc.us/",
-      "checkedAt": "2026-06-27T00:00:00.000Z",
+      "checkedAt": "2026-07-02T00:00:00.000Z",
       "note": "Official public source, access shape, and current automation constraints reviewed."
+    },
+    {
+      "url": "https://www.msboc.us/classifications/",
+      "checkedAt": "2026-07-02T00:00:00.000Z",
+      "note": "The official MSBOC catalog defines statewide commercial, residential, electrical, plumbing, HVAC, mechanical, roofing, solar, pool, hazardous-material and asbestos, sheet-metal, underground-utility, remodeling, and builder classifications."
+    },
+    {
+      "url": "https://www.msboc.us/contractors/licenses/",
+      "checkedAt": "2026-07-02T00:00:00.000Z",
+      "note": "The official licensing page identifies Building, Heavy, Highway and Bridge, Mechanical, Electrical, and Municipal and Public Works as major contractor classifications."
     }
   ],
   "sourceResearchOutcome": "blocked",

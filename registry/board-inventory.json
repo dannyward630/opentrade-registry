@@ -1122,20 +1122,32 @@
         "us.ms.msboc.contractors"
       ],
       "trades": [
+        "general_contracting",
         "commercial_contracting",
         "residential_contracting",
+        "electrical",
+        "plumbing",
+        "hvac",
+        "mechanical",
         "roofing",
-        "other"
+        "solar",
+        "pool_spa",
+        "asbestos",
+        "sheet_metal",
+        "underground_utility",
+        "home_improvement"
       ],
       "accessPath": "manual_handoff",
       "coverageLimitations": [
         "This source entry is scoped to Mississippi State Board of Contractors licensing and does not represent local permits, business registrations, or non-MSBOC authorizations.",
         "The official search includes a disclosure that information may have changed since publication and recommends contacting the office before making decisions based on the information.",
-        "Violator lists, complaint information, and enforcement data may require separate official sources or source-specific caveats."
+        "Violator lists, complaint information, and enforcement data may require separate official sources or source-specific caveats.",
+        "MSBOC warns that classifications may have additional requirements administered by other Mississippi agencies.",
+        "Municipal permits and local business registrations remain outside this statewide board source."
       ],
       "evidence": {
         "url": "https://search.msboc.us/",
-        "reviewedAt": "2026-06-27T00:00:00.000Z",
+        "reviewedAt": "2026-07-02T00:00:00.000Z",
         "note": "Official public source, access shape, and current automation constraints reviewed."
       }
     },
