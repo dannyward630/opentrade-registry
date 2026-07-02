@@ -1830,16 +1830,30 @@
         "us.ut.dopl.contractors"
       ],
       "trades": [
-        "contracting"
+        "general_contracting",
+        "residential_contracting",
+        "commercial_contracting",
+        "electrical",
+        "plumbing",
+        "hvac",
+        "mechanical",
+        "roofing",
+        "solar",
+        "pool_spa",
+        "asbestos",
+        "underground_utility",
+        "home_improvement"
       ],
       "accessPath": "manual_handoff",
       "coverageLimitations": [
         "Local permits, business registrations, and non-DOPL authorizations are outside this source entry.",
-        "Classification and qualifier details require source-specific research before normalization."
+        "Classification and qualifier details must be preserved before normalization.",
+        "Utah rules identify asbestos removal as regulated by the Department of Environmental Quality rather than requiring a DOPL contractor license.",
+        "Sheet-metal coverage remains unresolved in the board-coverage ledger until current official scope evidence is reviewed."
       ],
       "evidence": {
         "url": "https://secure.utah.gov/llv/search/index.html",
-        "reviewedAt": "2026-06-27T00:00:00.000Z",
+        "reviewedAt": "2026-07-02T00:00:00.000Z",
         "note": "Official public source, access shape, and current automation constraints reviewed."
       }
     },

@@ -16,14 +16,29 @@
   "termsUrl": "https://www.utah.gov/policies/",
   "updateFrequency": "The official lookup page displays a current-as-of date; verify at lookup time before relying on freshness assumptions.",
   "tradeCoverage": [
-    "contracting"
+    "general_contracting",
+    "residential_contracting",
+    "commercial_contracting",
+    "electrical",
+    "plumbing",
+    "hvac",
+    "mechanical",
+    "roofing",
+    "solar",
+    "pool_spa",
+    "asbestos",
+    "underground_utility",
+    "home_improvement"
   ],
   "licenseTypesIncluded": [
-    "Utah DOPL contractor license records exposed by the Licensee Lookup & Verification System"
+    "Utah DOPL contractor license records exposed by the Licensee Lookup & Verification System",
+    "B100, R100, E100, H100, E200, E201, P200, P201, and specialty contractor classifications identified by DOPL contracting pages and rules"
   ],
   "knownExclusions": [
     "Local permits, business registrations, and non-DOPL authorizations are outside this source entry.",
-    "Classification and qualifier details require source-specific research before normalization."
+    "Classification and qualifier details must be preserved before normalization.",
+    "Utah rules identify asbestos removal as regulated by the Department of Environmental Quality rather than requiring a DOPL contractor license.",
+    "Sheet-metal coverage remains unresolved in the board-coverage ledger until current official scope evidence is reviewed."
   ],
   "hasBulkDownload": "unknown",
   "hasLiveLookup": true,
@@ -41,17 +56,32 @@
   "testFixturePath": null,
   "officialLookupUrl": "https://secure.utah.gov/llv/search/index.html",
   "officialBulkDownloadNotes": "No official bulk download has been confirmed in this phase.",
-  "researchNotes": "Registry-only source for Utah DOPL contractor lookup. Future work should research contractor classification coding.",
-  "lastVerifiedAt": "2026-06-27T00:00:00.000Z",
-  "maintainerNotes": "Preserve the lookup page's freshness wording if adapter work begins.",
+  "researchNotes": "Registry-only source for Utah DOPL contractor lookup. DOPL pages and the Utah Construction Trades Licensing Act Rule identify statewide general, residential, commercial, electrical, plumbing, HVAC, mechanical, roofing, solar, pool/recreation, underground-utility, and home-improvement-relevant classifications. Sheet-metal-specific coverage remains unresolved.",
+  "lastVerifiedAt": "2026-07-02T00:00:00.000Z",
+  "maintainerNotes": "Preserve the lookup page's freshness wording and keep asbestos and sheet-metal caveats visible if adapter work begins.",
   "schemaVersion": "1.0",
-  "researchReviewedAt": "2026-06-27T00:00:00.000Z",
-  "nextReviewAt": "2026-12-27T00:00:00.000Z",
+  "researchReviewedAt": "2026-07-02T00:00:00.000Z",
+  "nextReviewAt": "2027-01-02T00:00:00.000Z",
   "researchEvidence": [
     {
       "url": "https://secure.utah.gov/llv/search/index.html",
-      "checkedAt": "2026-06-27T00:00:00.000Z",
+      "checkedAt": "2026-07-02T00:00:00.000Z",
       "note": "Official public source, access shape, and current automation constraints reviewed."
+    },
+    {
+      "url": "https://commerce.utah.gov/dopl/contracting/apply-for-a-license/general-contractor/",
+      "checkedAt": "2026-07-02T00:00:00.000Z",
+      "note": "The official DOPL general-contractor page lists B100, R100, E100, P200, P201, E200, and E201 contractor classifications."
+    },
+    {
+      "url": "https://commerce.utah.gov/dopl/contracting/apply-for-a-license/specialty-contractor-license/",
+      "checkedAt": "2026-07-02T00:00:00.000Z",
+      "note": "The official DOPL specialty-contractor page directs applicants to Utah administrative rules for available specialty contractor classifications and scope of practice."
+    },
+    {
+      "url": "https://adminrules.utah.gov/public/rule/R156-55a/Current%20Rules",
+      "checkedAt": "2026-07-02T00:00:00.000Z",
+      "note": "The official Utah Construction Trades Licensing Act Rule identifies specialty contractor classifications and notes asbestos removal is regulated by the Department of Environmental Quality."
     }
   ],
   "sourceResearchOutcome": "blocked",
