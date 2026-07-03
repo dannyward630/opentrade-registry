@@ -1903,6 +1903,122 @@
       }
     },
     {
+      "id": "us.md.labor.electricians",
+      "jurisdiction": {
+        "country": "US",
+        "state": "MD"
+      },
+      "boardName": "Maryland State Board of Electricians License Search",
+      "agencyName": "Maryland Department of Labor State Board of Electricians",
+      "officialUrl": "https://labor.maryland.gov/pq/",
+      "sourceIds": [
+        "us.md.labor.electricians"
+      ],
+      "trades": [
+        "electrical",
+        "solar",
+        "other"
+      ],
+      "accessPath": "manual_handoff",
+      "coverageLimitations": [
+        "This source is scoped to Maryland statewide electrician licensing and does not represent local electrical registrations, permits, inspections, business registrations, or non-electrical contractor credentials.",
+        "Solar work may require electrical licensing plus building, roofing, utility interconnection, and local approvals.",
+        "Future adapter work must distinguish license classifications before treating a record as authorization to contract independently."
+      ],
+      "evidence": {
+        "url": "https://labor.maryland.gov/license/elec/",
+        "reviewedAt": "2026-07-03T00:00:00.000Z",
+        "note": "Official board page reviewed; it says all electrical work in Maryland must be performed by licensed electricians and points users to the electrician license search."
+      }
+    },
+    {
+      "id": "us.md.labor.hvacr_contractors",
+      "jurisdiction": {
+        "country": "US",
+        "state": "MD"
+      },
+      "boardName": "Maryland Board of HVACR Contractors License Search",
+      "agencyName": "Maryland Department of Labor Board of Heating, Ventilation, Air Conditioning and Refrigeration Contractors",
+      "officialUrl": "https://www.dllr.state.md.us/cgi-bin/ElectronicLicensing/OP_search/OP_search.cgi?calling_app=HVAC%3A%3AHVAC_qselect",
+      "sourceIds": [
+        "us.md.labor.hvacr_contractors"
+      ],
+      "trades": [
+        "hvac",
+        "mechanical",
+        "solar",
+        "other"
+      ],
+      "accessPath": "manual_handoff",
+      "coverageLimitations": [
+        "This source is scoped to Maryland HVACR licensing and does not represent local mechanical permits, refrigeration-specific federal credentials, business registrations, or unrelated contractor credentials.",
+        "Solar, hydronic, refrigeration, and mechanical work may require additional electrical, plumbing, building, utility, and local approvals.",
+        "Future adapter work must filter license classifications before treating a record as authorization to contract independently."
+      ],
+      "evidence": {
+        "url": "https://labor.maryland.gov/license/hvacr/",
+        "reviewedAt": "2026-07-03T00:00:00.000Z",
+        "note": "Official board page reviewed; it states the HVACR Contractors board licenses individuals who provide commercial and residential HVACR services."
+      }
+    },
+    {
+      "id": "us.md.labor.plumbing_gas",
+      "jurisdiction": {
+        "country": "US",
+        "state": "MD"
+      },
+      "boardName": "Maryland Board of Plumbing License Search",
+      "agencyName": "Maryland Department of Labor State Board of Plumbing",
+      "officialUrl": "https://www.dllr.state.md.us/cgi-bin/ElectronicLicensing/OP_search/OP_search.cgi?calling_app=PLM%3A%3APLM_qselect",
+      "sourceIds": [
+        "us.md.labor.plumbing_gas"
+      ],
+      "trades": [
+        "plumbing",
+        "mechanical",
+        "pool_spa",
+        "other"
+      ],
+      "accessPath": "manual_handoff",
+      "coverageLimitations": [
+        "This source is scoped to Maryland statewide plumbing and gas licenses and does not represent Baltimore County or WSSC plumbing licenses, local permits, inspections, or unrelated contractor credentials.",
+        "The board states its licenses are required statewide except Baltimore County and WSSC-served areas of Prince George's and Montgomery Counties.",
+        "Pool/spa and mechanical work may require additional electrical, HVACR, building, health, and local approvals."
+      ],
+      "evidence": {
+        "url": "https://labor.maryland.gov/license/pl/",
+        "reviewedAt": "2026-07-03T00:00:00.000Z",
+        "note": "Official board page reviewed; it states the State Board of Plumbing licenses and regulates individuals who provide or assist in providing plumbing and gas services in Maryland, with Baltimore County and WSSC area exclusions."
+      }
+    },
+    {
+      "id": "us.md.mde.asbestos_contractors",
+      "jurisdiction": {
+        "country": "US",
+        "state": "MD"
+      },
+      "boardName": "Maryland MDE Asbestos Contractor Licensing",
+      "agencyName": "Maryland Department of the Environment Asbestos Division",
+      "officialUrl": "https://mde.maryland.gov/programs/air/asbestos/pages/contractor.aspx",
+      "sourceIds": [
+        "us.md.mde.asbestos_contractors"
+      ],
+      "trades": [
+        "asbestos"
+      ],
+      "accessPath": "manual_handoff",
+      "coverageLimitations": [
+        "This source is limited to Maryland asbestos contractor licensing and program references.",
+        "It does not represent general contractor, home improvement, electrical, plumbing, HVACR, local permit, demolition, disposal, or business-registration records.",
+        "Future adapter work must review whether MDE publishes a stable current license list and which personal or business fields are appropriate to expose."
+      ],
+      "evidence": {
+        "url": "https://mde.maryland.gov/programs/air/asbestos/pages/contractor.aspx",
+        "reviewedAt": "2026-07-03T00:00:00.000Z",
+        "note": "Official MDE contractor page reviewed; it states asbestos abatement companies must have a state-issued license."
+      }
+    },
+    {
       "id": "us.me.pfr.professional_licenses",
       "jurisdiction": {
         "country": "US",
