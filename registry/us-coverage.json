@@ -220,9 +220,14 @@
       "state": "MA",
       "status": "blocked",
       "sourceIds": [
-        "us.ma.dol.opsi_construction_supervisors"
+        "us.ma.dcamm.public_building_contractors",
+        "us.ma.dls.asbestos_contractors",
+        "us.ma.dol.occupational_trades",
+        "us.ma.dol.opsi_construction_supervisors",
+        "us.ma.dol.opsi_pipefitters_refrigeration_sprinkler",
+        "us.ma.oca.home_improvement_contractors"
       ],
-      "notes": "Official source metadata is retained, but automated ingestion is blocked by documented legal, access, scope, or technical constraints."
+      "notes": "Massachusetts metadata covers OPSI construction supervisor licensing, HIC registration, DOL occupational trade boards, OPSI pipefitter/refrigeration/sprinkler credentials, DLS asbestos, and DCAMM public-building certification. Each source remains blocked for automation pending reviewed stable field shape, privacy handling, and reuse terms."
     },
     {
       "state": "MI",

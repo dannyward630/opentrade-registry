@@ -1,0 +1,79 @@
+{
+  "id": "us.ma.dls.asbestos_contractors",
+  "name": "Massachusetts DLS Licensed Asbestos Contractors",
+  "jurisdiction": { "country": "US", "state": "MA" },
+  "agency": { "name": "Massachusetts Department of Labor Standards", "url": "https://www.mass.gov/orgs/department-of-labor-standards" },
+  "sourceType": "html_lookup",
+  "sourceUrl": "https://www.mass.gov/info-details/licensed-asbestos-consultants-contractors-labs-training-providers",
+  "documentationUrl": "https://www.mass.gov/asbestos-safety-program",
+  "dataDictionaryUrl": null,
+  "termsUrl": "https://www.mass.gov/privacypolicy",
+  "termsReviewNotes": "Mass.gov privacy policy reviewed. Source-specific redistribution and publication approval for asbestos license fields has not been confirmed.",
+  "updateFrequency": "unknown; verify against the official DLS asbestos pages before relying on freshness",
+  "tradeCoverage": ["asbestos"],
+  "licenseTypesIncluded": [
+    "Massachusetts licensed asbestos contractors",
+    "Related asbestos consultants, labs, and training providers listed by DLS"
+  ],
+  "knownExclusions": [
+    "This source is limited to DLS asbestos licensing and related asbestos program lists.",
+    "Asbestos project notifications, MassDEP air-program records, enforcement records, and local permits may require separate official paths.",
+    "General contractor, HIC, construction supervisor, and other trade credentials are outside this source entry."
+  ],
+  "hasBulkDownload": "unknown",
+  "hasLiveLookup": true,
+  "requiresJavaScript": "unknown",
+  "requiresCaptcha": "unknown",
+  "requiresAccount": false,
+  "rateLimitNotes": "No adapter is implemented. Use the official DLS asbestos pages manually until access controls, field shape, privacy, and reuse are reviewed.",
+  "redistributionStatus": "unknown",
+  "publicRecordsNotes": "Official asbestos-program metadata only. Generated datasets should not be published until privacy and redistribution are approved. Absence from one list is not proof that another asbestos credential, notification, or authorization does not exist.",
+  "adapterStatus": "blocked",
+  "sourceDiscoveryStatus": "blocked",
+  "adapterMaturity": "blocked",
+  "adapterQualityLevel": 0,
+  "coverageScope": "state_agency_partial",
+  "adapterPackage": null,
+  "testFixturePath": null,
+  "officialLookupUrl": "https://www.mass.gov/info-details/licensed-asbestos-consultants-contractors-labs-training-providers",
+  "officialLookupReviewNotes": "DLS publishes a licensed asbestos consultants, contractors, labs, and training providers page.",
+  "officialBulkDownloadNotes": "No stable official bulk download or redistribution-safe export was confirmed during this review.",
+  "researchNotes": "This entry establishes the distinct Massachusetts asbestos contractor licensing path under DLS.",
+  "verificationReviewedAt": null,
+  "verificationCaveats": [
+    "This source covers DLS asbestos credentials only.",
+    "No matching record means no match in the checked DLS asbestos source at the checked time, not proof that another credential, notification, or authorization does not exist."
+  ],
+  "verificationNotes": "No supported adapter is exposed while the DLS asbestos source shape and allowed reuse remain under review.",
+  "lastVerifiedAt": "2026-07-03T00:00:00.000Z",
+  "maintainerNotes": "Future adapters must retain asbestos discipline, checked time, caveats, source URL, raw record, fingerprint, and privacy review.",
+  "schemaVersion": "1.0",
+  "researchReviewedAt": "2026-07-03T00:00:00.000Z",
+  "nextReviewAt": "2027-01-03T00:00:00.000Z",
+  "researchEvidence": [
+    {
+      "url": "https://www.mass.gov/asbestos-safety-program",
+      "checkedAt": "2026-07-03T00:00:00.000Z",
+      "note": "Official DLS asbestos safety program page reviewed as the statewide asbestos program source."
+    },
+    {
+      "url": "https://www.mass.gov/info-details/licensed-asbestos-consultants-contractors-labs-training-providers",
+      "checkedAt": "2026-07-03T00:00:00.000Z",
+      "note": "Official DLS page reviewed for licensed asbestos contractors and related asbestos entities."
+    },
+    {
+      "url": "https://www.mass.gov/info-details/asbestos-discipline-descriptions",
+      "checkedAt": "2026-07-03T00:00:00.000Z",
+      "note": "Official discipline page reviewed; it describes asbestos contractor licensure as authorization to enter into or engage in asbestos work."
+    }
+  ],
+  "sourceResearchOutcome": "blocked",
+  "blocker": {
+    "code": "technical_instability",
+    "summary": "The official asbestos list/source shape has not been adapter-reviewed for stable fields, privacy handling, update behavior, or confirmed reuse terms.",
+    "evidenceUrls": [
+      "https://www.mass.gov/info-details/licensed-asbestos-consultants-contractors-labs-training-providers",
+      "https://www.mass.gov/privacypolicy"
+    ]
+  }
+}

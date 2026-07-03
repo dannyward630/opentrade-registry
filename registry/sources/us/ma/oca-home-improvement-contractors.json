@@ -1,0 +1,78 @@
+{
+  "id": "us.ma.oca.home_improvement_contractors",
+  "name": "Massachusetts Home Improvement Contractor Registration Search",
+  "jurisdiction": { "country": "US", "state": "MA" },
+  "agency": { "name": "Massachusetts Office of Consumer Affairs and Business Regulation", "url": "https://www.mass.gov/orgs/office-of-consumer-affairs-and-business-regulation" },
+  "sourceType": "html_lookup",
+  "sourceUrl": "https://contractorhub.mass.gov/s/hic-contractor-search",
+  "documentationUrl": "https://www.mass.gov/home-improvement-contractor-program",
+  "dataDictionaryUrl": null,
+  "termsUrl": "https://www.mass.gov/privacypolicy",
+  "termsReviewNotes": "Mass.gov privacy policy reviewed. Source-specific redistribution and publication approval for Contractor Hub fields has not been confirmed.",
+  "updateFrequency": "unknown; verify against the official Contractor Hub search before relying on freshness",
+  "tradeCoverage": ["residential_contracting", "roofing", "pool_spa", "solar", "home_improvement"],
+  "licenseTypesIncluded": [
+    "Massachusetts Home Improvement Contractor registrations exposed by the MA Contractor Hub search"
+  ],
+  "knownExclusions": [
+    "This source is limited to Home Improvement Contractor registration and does not replace a Construction Supervisor License, trade license, building permit, or local authorization.",
+    "The official program states HIC registration is different from a Construction Supervisor License.",
+    "New construction, commercial work, public-building certification, electrical, plumbing, HVAC, sheet-metal, asbestos, and local permits require separate source paths."
+  ],
+  "hasBulkDownload": "unknown",
+  "hasLiveLookup": true,
+  "requiresJavaScript": "unknown",
+  "requiresCaptcha": "unknown",
+  "requiresAccount": false,
+  "rateLimitNotes": "No adapter is implemented. Use the official Contractor Hub search manually until access controls, field shape, privacy, and reuse are reviewed.",
+  "redistributionStatus": "unknown",
+  "publicRecordsNotes": "Official registration-search metadata only. Absence from this source is not proof that a license, registration, permit, or authorization does not exist elsewhere.",
+  "adapterStatus": "blocked",
+  "sourceDiscoveryStatus": "blocked",
+  "adapterMaturity": "blocked",
+  "adapterQualityLevel": 0,
+  "coverageScope": "state_agency_partial",
+  "adapterPackage": null,
+  "testFixturePath": null,
+  "officialLookupUrl": "https://contractorhub.mass.gov/s/hic-contractor-search",
+  "officialLookupReviewNotes": "The MA Contractor Hub exposes a public Home Improvement Contractor Registration and History Search.",
+  "officialBulkDownloadNotes": "No stable official bulk download or redistribution-safe export was confirmed during this review.",
+  "researchNotes": "This entry separates HIC registration from OPSI construction supervisor licensing and DOL trade licenses.",
+  "verificationReviewedAt": null,
+  "verificationCaveats": [
+    "HIC registration is not interchangeable with a Construction Supervisor License or trade license.",
+    "No matching record means no match in the checked Contractor Hub source at the checked time, not proof that another credential or local authorization does not exist."
+  ],
+  "verificationNotes": "No supported adapter is exposed while the Contractor Hub lookup shape and allowed reuse remain under review.",
+  "lastVerifiedAt": "2026-07-03T00:00:00.000Z",
+  "maintainerNotes": "Future adapters must preserve registration history, checked time, source URL, caveats, privacy review, and raw record fingerprint.",
+  "schemaVersion": "1.0",
+  "researchReviewedAt": "2026-07-03T00:00:00.000Z",
+  "nextReviewAt": "2027-01-03T00:00:00.000Z",
+  "researchEvidence": [
+    {
+      "url": "https://www.mass.gov/home-improvement-contractor-program",
+      "checkedAt": "2026-07-03T00:00:00.000Z",
+      "note": "Official program page reviewed; it states the HIC program requires home improvement contractors to register with the Commonwealth."
+    },
+    {
+      "url": "https://www.mass.gov/info-details/home-improvement-contractor-registration-and-renewal",
+      "checkedAt": "2026-07-03T00:00:00.000Z",
+      "note": "Official registration page reviewed; it states HIC registration is different from a Construction Supervisor License."
+    },
+    {
+      "url": "https://contractorhub.mass.gov/s/hic-contractor-search",
+      "checkedAt": "2026-07-03T00:00:00.000Z",
+      "note": "Official Contractor Hub registration and history search reviewed as the manual verification path."
+    }
+  ],
+  "sourceResearchOutcome": "blocked",
+  "blocker": {
+    "code": "technical_instability",
+    "summary": "The official Contractor Hub lookup has not been adapter-reviewed for stable fields, access controls, privacy handling, or confirmed reuse terms.",
+    "evidenceUrls": [
+      "https://contractorhub.mass.gov/s/hic-contractor-search",
+      "https://www.mass.gov/privacypolicy"
+    ]
+  }
+}

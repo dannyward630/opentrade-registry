@@ -44,7 +44,7 @@
   "testFixturePath": null,
   "officialLookupUrl": "https://madpl.mylicense.com/Verification/",
   "officialBulkDownloadNotes": "The official verification site says search results can be downloaded at no cost, but terms, fields, and redistribution permission require further review.",
-  "researchNotes": "Registry-only source for Massachusetts OPSI construction supervisor license verification. Future work should research companion home improvement contractor registration sources.",
+  "researchNotes": "Registry-only source for Massachusetts OPSI construction supervisor license verification. Board coverage pairs this source with HIC registration, DOL occupational boards, OPSI pipefitter/refrigeration/sprinkler credentials, DLS asbestos, and DCAMM public-building certification where applicable.",
   "lastVerifiedAt": "2026-06-27T00:00:00.000Z",
   "maintainerNotes": "Preserve the distinction between construction supervisor licensing, home improvement registration, trade licenses, and local permits.",
   "schemaVersion": "1.0",

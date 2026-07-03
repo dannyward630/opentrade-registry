@@ -1,0 +1,86 @@
+{
+  "id": "us.ma.dol.occupational_trades",
+  "name": "Massachusetts DOL Occupational Trade License Lookup",
+  "jurisdiction": { "country": "US", "state": "MA" },
+  "agency": { "name": "Massachusetts Division of Occupational Licensure", "url": "https://www.mass.gov/orgs/division-of-occupational-licensure" },
+  "sourceType": "html_lookup",
+  "sourceUrl": "https://www.mass.gov/info-details/division-of-occupational-licensure-check-a-license",
+  "documentationUrl": "https://www.mass.gov/topics/building-trades-licenses",
+  "dataDictionaryUrl": null,
+  "termsUrl": "https://www.mass.gov/privacypolicy",
+  "termsReviewNotes": "Mass.gov privacy policy reviewed. Source-specific redistribution and publication approval for occupational license fields has not been confirmed.",
+  "updateFrequency": "unknown; verify current status in the official DOL license-check portals",
+  "tradeCoverage": ["electrical", "plumbing", "hvac", "mechanical", "solar", "pool_spa", "sheet_metal", "underground_utility"],
+  "licenseTypesIncluded": [
+    "Electrical and systems contractor licenses",
+    "Plumbing, gas fitting, and LP installer licenses and certificates",
+    "Sheet metal worker and sheet metal business licenses",
+    "Related building-trades credentials exposed by DOL license-check portals"
+  ],
+  "knownExclusions": [
+    "The shared DOL portals include many professions and credential levels; contractor, business, master, journeyperson, and apprentice records must not be conflated.",
+    "Construction supervisor licensing, HIC registration, OPSI pipefitter/refrigeration/sprinkler credentials, asbestos, DCAMM certification, and local permits are separate source paths.",
+    "No stable export contract or redistribution permission has been confirmed."
+  ],
+  "hasBulkDownload": "unknown",
+  "hasLiveLookup": true,
+  "requiresJavaScript": "unknown",
+  "requiresCaptcha": "unknown",
+  "requiresAccount": false,
+  "rateLimitNotes": "No adapter is implemented. Use official DOL lookup portals manually and do not bypass portal controls.",
+  "redistributionStatus": "unknown",
+  "publicRecordsNotes": "Official credential-lookup metadata only. Absence from one profession or credential type is not proof that another authorization does not exist.",
+  "adapterStatus": "blocked",
+  "sourceDiscoveryStatus": "blocked",
+  "adapterMaturity": "blocked",
+  "adapterQualityLevel": 0,
+  "coverageScope": "state_agency_partial",
+  "adapterPackage": null,
+  "testFixturePath": null,
+  "officialLookupUrl": "https://www.mass.gov/how-to/check-an-occupational-board-license",
+  "officialLookupReviewNotes": "DOL's check-a-license page links official portals for occupational boards and OPSI credentials.",
+  "officialBulkDownloadNotes": "No stable official bulk download or redistribution-safe export was confirmed during this review.",
+  "researchNotes": "This source captures DOL occupational board trade credentials such as electricians, plumbers/gas fitters, and sheet-metal workers while keeping OPSI and HIC paths separate.",
+  "verificationReviewedAt": null,
+  "verificationCaveats": [
+    "Profession, board, credential type, and business-versus-individual status must be preserved.",
+    "No matching record means no match in the selected DOL source and credential type at the checked time."
+  ],
+  "verificationNotes": "No supported adapter is exposed while the shared DOL lookup portals lack a reviewed stable machine interface.",
+  "lastVerifiedAt": "2026-07-03T00:00:00.000Z",
+  "maintainerNotes": "Future adapters must retain board, license class, business/individual distinction, checked time, caveats, and privacy review.",
+  "schemaVersion": "1.0",
+  "researchReviewedAt": "2026-07-03T00:00:00.000Z",
+  "nextReviewAt": "2027-01-03T00:00:00.000Z",
+  "researchEvidence": [
+    {
+      "url": "https://www.mass.gov/info-details/division-of-occupational-licensure-check-a-license",
+      "checkedAt": "2026-07-03T00:00:00.000Z",
+      "note": "Official DOL page reviewed; it describes checking business or individual licenses and lists DOL and OPSI license-check portals."
+    },
+    {
+      "url": "https://www.mass.gov/orgs/board-of-state-examiners-of-electricians",
+      "checkedAt": "2026-07-03T00:00:00.000Z",
+      "note": "Official board page reviewed; it states the board licenses electricians."
+    },
+    {
+      "url": "https://www.mass.gov/orgs/board-of-state-examiners-of-plumbers-and-gas-fitters",
+      "checkedAt": "2026-07-03T00:00:00.000Z",
+      "note": "Official board page reviewed; it states the board issues journeyman and master plumber and gas fitter licenses and corporate and partnership certificates."
+    },
+    {
+      "url": "https://www.mass.gov/orgs/board-of-examiners-of-sheet-metal-workers",
+      "checkedAt": "2026-07-03T00:00:00.000Z",
+      "note": "Official board page reviewed; it states the board regulates sheet metal work in Massachusetts."
+    }
+  ],
+  "sourceResearchOutcome": "blocked",
+  "blocker": {
+    "code": "technical_instability",
+    "summary": "The shared interactive lookup portals lack a reviewed stable data contract, credential filter contract, privacy filter, and confirmed reuse terms.",
+    "evidenceUrls": [
+      "https://www.mass.gov/how-to/check-an-occupational-board-license",
+      "https://www.mass.gov/privacypolicy"
+    ]
+  }
+}

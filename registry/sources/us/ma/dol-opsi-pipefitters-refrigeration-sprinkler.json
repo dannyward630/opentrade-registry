@@ -1,0 +1,80 @@
+{
+  "id": "us.ma.dol.opsi_pipefitters_refrigeration_sprinkler",
+  "name": "Massachusetts OPSI Pipefitters Refrigeration and Sprinkler Fitters",
+  "jurisdiction": { "country": "US", "state": "MA" },
+  "agency": { "name": "Massachusetts Division of Occupational Licensure Office of Public Safety and Inspections", "url": "https://www.mass.gov/orgs/office-of-public-safety-and-inspections" },
+  "sourceType": "html_lookup",
+  "sourceUrl": "https://www.mass.gov/apply-for-or-renew-a-pipefitters-refrigeration-technician-or-sprinkler-fitters-license",
+  "documentationUrl": "https://www.mass.gov/orgs/bureau-of-pipefitters-refrigeration-technicians-and-sprinkler-fitters",
+  "dataDictionaryUrl": null,
+  "termsUrl": "https://www.mass.gov/privacypolicy",
+  "termsReviewNotes": "Mass.gov privacy policy reviewed. Source-specific redistribution and publication approval for OPSI credential fields has not been confirmed.",
+  "updateFrequency": "unknown; verify current status in the official OPSI license-check portal",
+  "tradeCoverage": ["hvac", "mechanical", "plumbing", "pool_spa", "sheet_metal", "underground_utility"],
+  "licenseTypesIncluded": [
+    "Massachusetts pipefitter licenses",
+    "Massachusetts refrigeration technician and refrigeration contractor licenses",
+    "Massachusetts sprinkler fitter and fire protection sprinkler fitter contractor licenses"
+  ],
+  "knownExclusions": [
+    "This source is limited to OPSI pipefitter, refrigeration, and sprinkler fitter credentials.",
+    "Electrical, plumbing/gas, sheet metal, construction supervisor, HIC, asbestos, DCAMM, and local permits are separate source paths.",
+    "Credential type, contractor status, and individual-versus-business roles require careful filtering."
+  ],
+  "hasBulkDownload": "unknown",
+  "hasLiveLookup": true,
+  "requiresJavaScript": "unknown",
+  "requiresCaptcha": "unknown",
+  "requiresAccount": false,
+  "rateLimitNotes": "No adapter is implemented. Use the official OPSI lookup manually until access controls, field shape, privacy, and reuse are reviewed.",
+  "redistributionStatus": "unknown",
+  "publicRecordsNotes": "Official credential metadata only. Absence from one OPSI credential path is not proof that another credential, permit, or authorization does not exist.",
+  "adapterStatus": "blocked",
+  "sourceDiscoveryStatus": "blocked",
+  "adapterMaturity": "blocked",
+  "adapterQualityLevel": 0,
+  "coverageScope": "state_agency_partial",
+  "adapterPackage": null,
+  "testFixturePath": null,
+  "officialLookupUrl": "https://madpl.mylicense.com/Verification/",
+  "officialLookupReviewNotes": "DOL's license-check page lists OPSI licenses and links the official OPSI verification portal.",
+  "officialBulkDownloadNotes": "No stable official bulk download or redistribution-safe export was confirmed during this review.",
+  "researchNotes": "This source covers OPSI-regulated pipefitter, refrigeration, and sprinkler fitter credentials and complements the broader DOL occupational-trades source.",
+  "verificationReviewedAt": null,
+  "verificationCaveats": [
+    "Credential type and contractor-versus-individual status must be preserved.",
+    "No matching record means no match in the checked OPSI source and credential type at the checked time."
+  ],
+  "verificationNotes": "No supported adapter is exposed while the OPSI lookup shape and allowed reuse remain under review.",
+  "lastVerifiedAt": "2026-07-03T00:00:00.000Z",
+  "maintainerNotes": "Do not flatten pipefitter, refrigeration, and sprinkler fitter credentials into one generic mechanical status.",
+  "schemaVersion": "1.0",
+  "researchReviewedAt": "2026-07-03T00:00:00.000Z",
+  "nextReviewAt": "2027-01-03T00:00:00.000Z",
+  "researchEvidence": [
+    {
+      "url": "https://www.mass.gov/orgs/bureau-of-pipefitters-refrigeration-technicians-and-sprinkler-fitters",
+      "checkedAt": "2026-07-03T00:00:00.000Z",
+      "note": "Official bureau page reviewed; it states the bureau examines candidates for licensure as pipefitters, refrigeration technicians, and sprinkler fitters."
+    },
+    {
+      "url": "https://www.mass.gov/apply-for-or-renew-a-pipefitters-refrigeration-technician-or-sprinkler-fitters-license",
+      "checkedAt": "2026-07-03T00:00:00.000Z",
+      "note": "Official licensing page reviewed; it lists pipefitter, refrigeration, and sprinkler fitter application paths."
+    },
+    {
+      "url": "https://www.mass.gov/how-to/apply-for-a-refrigeration-contractor-license",
+      "checkedAt": "2026-07-03T00:00:00.000Z",
+      "note": "Official refrigeration contractor page reviewed; it states the license allows a regular place of business and employment of duly licensed people to perform refrigeration work."
+    }
+  ],
+  "sourceResearchOutcome": "blocked",
+  "blocker": {
+    "code": "technical_instability",
+    "summary": "The official OPSI verification portal has not been adapter-reviewed for stable credential filters, field shape, privacy handling, or confirmed reuse terms.",
+    "evidenceUrls": [
+      "https://madpl.mylicense.com/Verification/",
+      "https://www.mass.gov/privacypolicy"
+    ]
+  }
+}
