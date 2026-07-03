@@ -1,0 +1,80 @@
+{
+  "id": "us.id.deq.asbestos_compliance",
+  "name": "Idaho DEQ Asbestos Renovation and Demolition Compliance",
+  "jurisdiction": {
+    "country": "US",
+    "state": "ID"
+  },
+  "agency": {
+    "name": "Idaho Department of Environmental Quality",
+    "url": "https://www.deq.idaho.gov/"
+  },
+  "sourceType": "manual_public_records_file",
+  "sourceUrl": "https://www.deq.idaho.gov/air-quality/compliance-assistance/",
+  "documentationUrl": "https://www.deq.idaho.gov/air-quality/compliance-assistance/",
+  "dataDictionaryUrl": null,
+  "termsUrl": "https://www.idaho.gov/legal-notices/",
+  "updateFrequency": "unknown; asbestos notification and compliance records should be reviewed with DEQ or EPA Region 10 before relying on source freshness assumptions",
+  "tradeCoverage": [
+    "asbestos"
+  ],
+  "licenseTypesIncluded": [
+    "Idaho asbestos renovation and demolition notification and compliance handoff metadata; no statewide asbestos contractor license roster has been confirmed"
+  ],
+  "knownExclusions": [
+    "This source is not a state contractor-license roster and should not be used as proof of licensed asbestos-contractor status.",
+    "DEQ states that EPA Region 10 has jurisdiction over asbestos activities at nonmajor facilities; those federal records are outside this state source entry.",
+    "Asbestos worker, inspector, supervisor, training-provider, and out-of-state accreditation records are not normalized by this source entry."
+  ],
+  "hasBulkDownload": "unknown",
+  "hasLiveLookup": false,
+  "requiresJavaScript": false,
+  "requiresCaptcha": false,
+  "requiresAccount": false,
+  "rateLimitNotes": "No adapter is implemented. Use official DEQ and EPA contacts manually for asbestos notification and compliance questions.",
+  "redistributionStatus": "unknown",
+  "publicRecordsNotes": "Official compliance handoff metadata only. Absence from this source is not proof that asbestos training, accreditation, notification, enforcement, or federal records do not exist elsewhere.",
+  "adapterStatus": "blocked",
+  "sourceDiscoveryStatus": "blocked",
+  "adapterMaturity": "blocked",
+  "adapterQualityLevel": 0,
+  "coverageScope": "state_agency_partial",
+  "adapterPackage": null,
+  "testFixturePath": null,
+  "officialLookupUrl": null,
+  "officialLookupReviewNotes": "No statewide asbestos contractor-license lookup was confirmed; DEQ provides asbestos compliance assistance and notification contacts.",
+  "officialBulkDownloadNotes": "No official statewide asbestos contractor-license bulk download has been confirmed in this phase.",
+  "researchNotes": "This entry documents the official Idaho asbestos compliance handoff and keeps it separate from contractor licensing because DEQ/EPA oversight is not equivalent to a state contractor roster.",
+  "verificationReviewedAt": null,
+  "verificationCaveats": [
+    "This source is a compliance handoff, not a license-verification adapter.",
+    "No matching record means no match in this source at the checked time, not proof that asbestos training, accreditation, notification, enforcement, or federal records do not exist elsewhere."
+  ],
+  "verificationNotes": "No supported sync or verification adapter is exposed because no stable statewide asbestos contractor-license roster has been confirmed.",
+  "lastVerifiedAt": "2026-07-03T00:00:00.000Z",
+  "maintainerNotes": "Future research should check whether EPA Region 10 or Idaho DEQ publishes any stable contractor-specific asbestos roster before changing this from a manual handoff.",
+  "schemaVersion": "1.0",
+  "researchReviewedAt": "2026-07-03T00:00:00.000Z",
+  "nextReviewAt": "2027-01-03T00:00:00.000Z",
+  "researchEvidence": [
+    {
+      "url": "https://www.deq.idaho.gov/air-quality/compliance-assistance/",
+      "checkedAt": "2026-07-03T00:00:00.000Z",
+      "note": "Official DEQ compliance assistance page reviewed; it provides asbestos renovation/demolition notification guidance and directs nonmajor-facility asbestos activities to EPA Region 10."
+    },
+    {
+      "url": "https://www.deq.idaho.gov/information-for-the-public/",
+      "checkedAt": "2026-07-03T00:00:00.000Z",
+      "note": "Official DEQ public-information page reviewed; it describes DEQ oversight for Tier 1 major-facility asbestos abatement/disposal and EPA Region 10 jurisdiction for nonmajor facilities."
+    }
+  ],
+  "sourceResearchOutcome": "blocked",
+  "blocker": {
+    "code": "scope_mismatch",
+    "summary": "The official state path documents asbestos notification and compliance assistance, but no statewide asbestos contractor-license roster or stable verification interface was confirmed.",
+    "evidenceUrls": [
+      "https://www.deq.idaho.gov/air-quality/compliance-assistance/",
+      "https://www.deq.idaho.gov/information-for-the-public/"
+    ]
+  }
+}

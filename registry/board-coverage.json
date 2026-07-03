@@ -1068,7 +1068,91 @@
         }
       }
     },
-    { "state": "ID", "decisions": {} },
+    {
+      "state": "ID",
+      "decisions": {
+        "general_contracting": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.id.dopl.contractors", "us.id.dopl.public_works_contractors"],
+          "evidence": [{ "url": "https://dopl.idaho.gov/con/con-faq/", "reviewedAt": "2026-07-03T00:00:00.000Z", "note": "DOPL's contractor FAQ states that Idaho requires contractor registration for construction jobs exceeding $2,000 unless an exemption applies, and that the Act requires registration rather than licensure." }],
+          "limitations": ["Public works contracting is licensed separately for covered public projects; private contractor registration is not the same as a trade-specific license."]
+        },
+        "residential_contracting": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.id.dopl.contractors"],
+          "evidence": [{ "url": "https://dopl.idaho.gov/con/con-faq/", "reviewedAt": "2026-07-03T00:00:00.000Z", "note": "DOPL says persons engaging in construction jobs above the statutory dollar amount must register unless exempt, and the FAQ lists owner and employee exemptions." }],
+          "limitations": ["Local permits, code enforcement, and work exempt from state contractor registration remain outside this board decision."]
+        },
+        "commercial_contracting": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.id.dopl.contractors", "us.id.dopl.public_works_contractors"],
+          "evidence": [{ "url": "https://dopl.idaho.gov/pwc/", "reviewedAt": "2026-07-03T00:00:00.000Z", "note": "The Public Works Contractors License Board page links an official license search and lists public works contractor classes and construction manager licensing." }],
+          "limitations": ["Commercial building owners maintaining their own buildings may be exempt from contractor registration; private and public-project rules differ."]
+        },
+        "electrical": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.id.dopl.electrical"],
+          "evidence": [{ "url": "https://dopl.idaho.gov/ele/", "reviewedAt": "2026-07-03T00:00:00.000Z", "note": "The Idaho Electrical Board page links an official DOPL license search and lists Contractor, Limited Contractor, Journeyman, Master, and related electrical classes." }]
+        },
+        "plumbing": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.id.dopl.plumbing"],
+          "evidence": [{ "url": "https://dopl.idaho.gov/plb/", "reviewedAt": "2026-07-03T00:00:00.000Z", "note": "The State Plumbing Board page links an official DOPL license search and lists Contractor, Specialty Contractor, Journeyman, Specialty Journeyman, and apprentice classes." }]
+        },
+        "hvac": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.id.dopl.hvac"],
+          "evidence": [{ "url": "https://dopl.idaho.gov/hvac/", "reviewedAt": "2026-07-03T00:00:00.000Z", "note": "The HVAC Board page links an official DOPL license search and lists Contractor, Specialty Contractor, Journeyman, Specialty Journeyman, and apprentice classes." }]
+        },
+        "mechanical": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.id.dopl.hvac", "us.id.dopl.plumbing"],
+          "evidence": [{ "url": "https://dopl.idaho.gov/hvac/", "reviewedAt": "2026-07-03T00:00:00.000Z", "note": "The HVAC Board page identifies HVAC licensing and current mechanical-code context, while plumbing mechanical/piping work is handled by the State Plumbing Board." }],
+          "limitations": ["Mechanical work may require a combination of HVAC, plumbing, electrical, public works, contractor registration, and local permit paths depending on scope."]
+        },
+        "roofing": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.id.dopl.contractors"],
+          "evidence": [{ "url": "https://dopl.idaho.gov/con/con-faq/", "reviewedAt": "2026-07-03T00:00:00.000Z", "note": "DOPL's contractor FAQ describes registration for construction work above the statutory dollar amount and does not identify a separate statewide roofing board." }],
+          "limitations": ["This decision tracks the statewide contractor-registration path; local permits and specialty project rules may still apply."]
+        },
+        "solar": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.id.dopl.contractors", "us.id.dopl.electrical"],
+          "evidence": [{ "url": "https://dopl.idaho.gov/ele/", "reviewedAt": "2026-07-03T00:00:00.000Z", "note": "The Electrical Board source covers electrical contractor and installer classes relevant to photovoltaic electrical work; non-electrical construction remains under contractor registration where applicable." }],
+          "limitations": ["No standalone Idaho solar-contractor board was confirmed; electrical, contractor-registration, utility, and local-permit requirements may all be relevant."]
+        },
+        "pool_spa": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.id.dopl.contractors", "us.id.dopl.plumbing", "us.id.dopl.electrical"],
+          "evidence": [{ "url": "https://dopl.idaho.gov/con/con-faq/", "reviewedAt": "2026-07-03T00:00:00.000Z", "note": "DOPL's contractor registration requirement applies broadly to construction jobs above the statutory dollar amount; pool and spa projects may also implicate plumbing and electrical board work." }],
+          "limitations": ["No standalone Idaho pool/spa contractor board was confirmed; local health, building, plumbing, and electrical permits may apply."]
+        },
+        "asbestos": {
+          "outcome": "not_state_regulated",
+          "evidence": [{ "url": "https://www.deq.idaho.gov/air-quality/compliance-assistance/", "reviewedAt": "2026-07-03T00:00:00.000Z", "note": "Idaho DEQ provides asbestos renovation/demolition notification and compliance contacts and says EPA Region 10 has jurisdiction over asbestos activities at nonmajor facilities." }],
+          "limitations": ["This is not a claim that asbestos activity is unregulated; it documents that no statewide Idaho asbestos contractor-license roster was confirmed for OpenTrade adapter work."]
+        },
+        "sheet_metal": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.id.dopl.hvac"],
+          "evidence": [{ "url": "https://dopl.idaho.gov/hvac/", "reviewedAt": "2026-07-03T00:00:00.000Z", "note": "The HVAC Board page identifies HVAC licensing and current mechanical-code context that can include duct and sheet-metal work within HVAC scope." }],
+          "limitations": ["No standalone statewide sheet-metal contractor board was confirmed; this decision is limited to sheet-metal work within HVAC/mechanical scope."]
+        },
+        "underground_utility": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.id.dopl.contractors", "us.id.dopl.public_works_contractors"],
+          "evidence": [{ "url": "https://dopl.idaho.gov/pwc/", "reviewedAt": "2026-07-03T00:00:00.000Z", "note": "The Public Works Contractors License Board page documents public works contractor licensing and class types for covered public construction work." }],
+          "limitations": ["Private utility work may fall under contractor registration, trade-specific plumbing/electrical credentials, local permits, or utility rules depending on scope."]
+        },
+        "home_improvement": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.id.dopl.contractors"],
+          "evidence": [{ "url": "https://dopl.idaho.gov/con/con-faq/", "reviewedAt": "2026-07-03T00:00:00.000Z", "note": "DOPL's contractor FAQ states that Idaho contractor registration applies to construction jobs above the statutory dollar amount unless an exemption applies." }],
+          "limitations": ["Owner work, employees, suppliers, commercial-owner maintenance, local permits, and exempt scopes remain outside this statewide contractor-registration decision."]
+        }
+      }
+    },
     { "state": "IL", "decisions": {} },
     { "state": "IN", "decisions": {} },
     { "state": "KS", "decisions": {} },

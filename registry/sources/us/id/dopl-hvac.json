@@ -1,0 +1,77 @@
+{
+  "id": "us.id.dopl.hvac",
+  "name": "Idaho DOPL HVAC Board License Search",
+  "jurisdiction": {
+    "country": "US",
+    "state": "ID"
+  },
+  "agency": {
+    "name": "Idaho Division of Occupational and Professional Licenses",
+    "url": "https://dopl.idaho.gov/"
+  },
+  "sourceType": "html_lookup",
+  "sourceUrl": "https://dopl.idaho.gov/hvac/",
+  "documentationUrl": "https://dopl.idaho.gov/hvac/",
+  "dataDictionaryUrl": null,
+  "termsUrl": "https://dopl.idaho.gov/privacy-policy/",
+  "updateFrequency": "unknown; verify against DOPL online services before relying on freshness assumptions",
+  "tradeCoverage": [
+    "hvac",
+    "mechanical",
+    "sheet_metal"
+  ],
+  "licenseTypesIncluded": [
+    "Idaho HVAC Board contractor, specialty contractor, journeyman, specialty journeyman, apprentice, and related HVAC license classes exposed by DOPL online services"
+  ],
+  "knownExclusions": [
+    "This source is limited to Idaho HVAC Board records and does not represent contractor registration, electrical, plumbing, public works, asbestos, local permits, or business-registration records.",
+    "Sheet-metal coverage is limited to work that falls within HVAC or mechanical code/licensing context; no standalone statewide sheet-metal contractor source has been confirmed.",
+    "The lookup is hosted in DOPL online services; adapter work must review public search controls before automation."
+  ],
+  "hasBulkDownload": "unknown",
+  "hasLiveLookup": true,
+  "requiresJavaScript": "unknown",
+  "requiresCaptcha": "unknown",
+  "requiresAccount": "unknown",
+  "rateLimitNotes": "No adapter is implemented. Do not automate DOPL online-services pages unless official terms, result limits, and technical controls are reviewed.",
+  "redistributionStatus": "unknown",
+  "publicRecordsNotes": "Official lookup metadata only. Absence from this source is not proof that an HVAC, mechanical, sheet-metal, permit, local authorization, or related contractor registration record does not exist elsewhere.",
+  "adapterStatus": "blocked",
+  "sourceDiscoveryStatus": "blocked",
+  "adapterMaturity": "blocked",
+  "adapterQualityLevel": 0,
+  "coverageScope": "state_agency_partial",
+  "adapterPackage": null,
+  "testFixturePath": null,
+  "officialLookupUrl": "https://edopl.idaho.gov/OnlineServices/?link=PubSearch",
+  "officialLookupReviewNotes": "The official Idaho HVAC Board page links a DOPL online-services license search for HVAC records.",
+  "officialBulkDownloadNotes": "No official stable bulk download has been confirmed for Idaho HVAC licenses in this phase.",
+  "researchNotes": "Keep this source separate from DOPL contractor registration because HVAC contractor and specialty credentials are regulated through a distinct DOPL board.",
+  "verificationReviewedAt": null,
+  "verificationCaveats": [
+    "This source covers Idaho HVAC Board records, not every Idaho mechanical, sheet-metal, local permit, or business-registration record.",
+    "No matching record means no match in this source at the checked time, not proof that an authorization does not exist elsewhere."
+  ],
+  "verificationNotes": "No supported sync or verification adapter is exposed while official lookup behavior and allowed automation remain under review.",
+  "lastVerifiedAt": "2026-07-03T00:00:00.000Z",
+  "maintainerNotes": "Future adapter research should distinguish HVAC contractor, specialty contractor, journeyman, specialty journeyman, and permit-related records.",
+  "schemaVersion": "1.0",
+  "researchReviewedAt": "2026-07-03T00:00:00.000Z",
+  "nextReviewAt": "2027-01-03T00:00:00.000Z",
+  "researchEvidence": [
+    {
+      "url": "https://dopl.idaho.gov/hvac/",
+      "checkedAt": "2026-07-03T00:00:00.000Z",
+      "note": "Official Idaho HVAC Board page reviewed; it links DOPL online-services license search and lists HVAC contractor, specialty contractor, journeyman, specialty journeyman, and apprentice fee classes."
+    }
+  ],
+  "sourceResearchOutcome": "blocked",
+  "blocker": {
+    "code": "technical_instability",
+    "summary": "The official path is lookup-oriented and no stable, documented machine-readable interface has been adapter-reviewed with offline fixtures.",
+    "evidenceUrls": [
+      "https://dopl.idaho.gov/hvac/",
+      "https://edopl.idaho.gov/OnlineServices/?link=PubSearch"
+    ]
+  }
+}
