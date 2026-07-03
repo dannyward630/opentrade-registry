@@ -15,8 +15,8 @@ describe("nationwide board trade coverage ledger", () => {
     expect(ledger.jurisdictions).toHaveLength(56);
     expect(new Set(ledger.jurisdictions.map((entry) => entry.state)).size).toBe(56);
     expect(expanded).toHaveLength(56 * BOARD_TRADE_DOMAINS.length);
-    expect(expanded.filter((decision) => decision.outcome === "needs_research")).toHaveLength(378);
-    expect(expanded.filter((decision) => decision.outcome === "covered_by_board")).toHaveLength(342);
+    expect(expanded.filter((decision) => decision.outcome === "needs_research")).toHaveLength(364);
+    expect(expanded.filter((decision) => decision.outcome === "covered_by_board")).toHaveLength(356);
     expect(expanded.filter((decision) => decision.outcome === "not_state_regulated")).toHaveLength(7);
     expect(expanded.filter((decision) => decision.outcome === "local_only")).toHaveLength(57);
   });
@@ -217,6 +217,25 @@ describe("nationwide board trade coverage ledger", () => {
     expect(expanded.find((decision) => decision.tradeDomain === "mechanical")?.evidence[0]?.note).toContain("CMC");
     expect(expanded.find((decision) => decision.tradeDomain === "asbestos")?.limitations.join(" ")).toContain("TDEC");
     expect(expanded.find((decision) => decision.tradeDomain === "home_improvement")?.limitations.join(" ")).toContain("county-specific");
+  });
+
+  it("records complete Massachusetts CSL, HIC, trade board, asbestos, and public-building coverage", async () => {
+    const ledger = boardTradeCoverageLedgerSchema.parse(await json("registry/board-coverage.json"));
+    const expanded = expandBoardTradeCoverageLedger(ledger).filter((decision) => decision.state === "MA");
+
+    expect(expanded.filter((decision) => decision.outcome === "needs_research")).toEqual([]);
+    expect(expanded.find((decision) => decision.tradeDomain === "general_contracting")?.boardIds).toEqual([
+      "us.ma.dol.opsi_construction_supervisors",
+      "us.ma.dcamm.public_building_contractors",
+    ]);
+    expect(expanded.find((decision) => decision.tradeDomain === "electrical")?.boardIds).toContain("us.ma.dol.occupational_trades");
+    expect(expanded.find((decision) => decision.tradeDomain === "hvac")?.boardIds).toContain("us.ma.dol.opsi_pipefitters_refrigeration_sprinkler");
+    expect(expanded.find((decision) => decision.tradeDomain === "asbestos")?.boardIds).toEqual(["us.ma.dls.asbestos_contractors"]);
+    expect(expanded.find((decision) => decision.tradeDomain === "home_improvement")?.boardIds).toEqual([
+      "us.ma.oca.home_improvement_contractors",
+      "us.ma.dol.opsi_construction_supervisors",
+    ]);
+    expect(expanded.find((decision) => decision.tradeDomain === "roofing")?.limitations.join(" ")).toContain("no separate statewide roofing-only board");
   });
 
   it("records complete Nevada contractor classification coverage", async () => {
