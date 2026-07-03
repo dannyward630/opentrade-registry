@@ -143,9 +143,13 @@
       "state": "IL",
       "status": "blocked",
       "sourceIds": [
-        "us.il.idfpr.roofing_contractors"
+        "us.il.icc.distributed_generation_installers",
+        "us.il.idfpr.roofing_contractors",
+        "us.il.idph.asbestos_contractors",
+        "us.il.idph.plumbing",
+        "us.il.sfm.fire_sprinkler_contractors"
       ],
-      "notes": "No stable public IDFPR bulk file shape has been validated for an offline adapter."
+      "notes": "Official Illinois source metadata is retained for IDFPR roofing, IDPH plumbing, IDPH asbestos, ICC distributed generation installer, and OSFM fire sprinkler licensing paths. Automated ingestion remains blocked pending adapter-reviewed source shapes, terms, and privacy handling."
     },
     {
       "state": "IN",

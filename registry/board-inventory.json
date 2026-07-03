@@ -1251,6 +1251,34 @@
       }
     },
     {
+      "id": "us.il.icc.distributed_generation_installers",
+      "jurisdiction": {
+        "country": "US",
+        "state": "IL"
+      },
+      "boardName": "Illinois ICC Distributed Generation Installer Certification",
+      "agencyName": "Illinois Commerce Commission",
+      "officialUrl": "https://icc.illinois.gov/authority/distributed-generation-installer",
+      "sourceIds": [
+        "us.il.icc.distributed_generation_installers"
+      ],
+      "trades": [
+        "solar",
+        "electrical"
+      ],
+      "accessPath": "manual_handoff",
+      "coverageLimitations": [
+        "This source is limited to ICC distributed generation installer certification and does not represent a general statewide solar contractor license.",
+        "Electrical permits, local licensing, utility interconnection, roofing, structural work, and non-grid-connected solar work may require separate authorization.",
+        "The public list path has not been adapter-reviewed for stable machine-readable export behavior."
+      ],
+      "evidence": {
+        "url": "https://icc.illinois.gov/authority/distributed-generation-installer",
+        "reviewedAt": "2026-07-03T00:00:00.000Z",
+        "note": "Official ICC authority page reviewed; it states entities installing distributed generation facilities must be certified by the Commission and links the certified installer list."
+      }
+    },
+    {
       "id": "us.il.idfpr.roofing_contractors",
       "jurisdiction": {
         "country": "US",
@@ -1275,6 +1303,89 @@
         "url": "https://online-dfpr.micropact.com/Lookup/LicenseLookup.aspx",
         "reviewedAt": "2026-06-28T00:00:00.000Z",
         "note": "Official lookup documentation reviewed; no stable public file shape was available for validation."
+      }
+    },
+    {
+      "id": "us.il.idph.asbestos_contractors",
+      "jurisdiction": {
+        "country": "US",
+        "state": "IL"
+      },
+      "boardName": "Illinois IDPH Asbestos Licensed Contractors",
+      "agencyName": "Illinois Department of Public Health",
+      "officialUrl": "https://data.illinois.gov/Health-and-Human-Services/IDPH-Asbestos-Licensed-Contractors/kt5u-9dcu",
+      "sourceIds": [
+        "us.il.idph.asbestos_contractors"
+      ],
+      "trades": [
+        "asbestos"
+      ],
+      "accessPath": "manual_handoff",
+      "coverageLimitations": [
+        "This source is limited to IDPH asbestos licensed contractors and does not represent general contractor, roofing, plumbing, electrical, local permit, or non-asbestos records.",
+        "The open-data dataset shape, privacy handling, and redistribution position have not yet been adapter-reviewed.",
+        "Other asbestos worker, professional, project-notification, enforcement, or training records may require separate official sources."
+      ],
+      "evidence": {
+        "url": "https://data.illinois.gov/Health-and-Human-Services/IDPH-Asbestos-Licensed-Contractors/kt5u-9dcu",
+        "reviewedAt": "2026-07-03T00:00:00.000Z",
+        "note": "Official Illinois Open Data Portal dataset reviewed; it identifies IDPH asbestos licensed contractors."
+      }
+    },
+    {
+      "id": "us.il.idph.plumbing",
+      "jurisdiction": {
+        "country": "US",
+        "state": "IL"
+      },
+      "boardName": "Illinois IDPH Plumbing License Verification",
+      "agencyName": "Illinois Department of Public Health",
+      "officialUrl": "https://dph.illinois.gov/topics-services/environmental-health-protection/plumbing.html",
+      "sourceIds": [
+        "us.il.idph.plumbing"
+      ],
+      "trades": [
+        "plumbing"
+      ],
+      "accessPath": "manual_handoff",
+      "coverageLimitations": [
+        "This source is limited to Illinois IDPH plumbing and irrigation credential paths and does not represent roofing, electrical, general contractor, HVAC, local permit, or business-registration records.",
+        "The IDPH page links a public verification path, but no stable machine-readable response contract has been adapter-reviewed.",
+        "Local plumbing inspection authority requirements and project permits may still apply."
+      ],
+      "evidence": {
+        "url": "https://dph.illinois.gov/topics-services/environmental-health-protection/plumbing.html",
+        "reviewedAt": "2026-07-03T00:00:00.000Z",
+        "note": "Official IDPH plumbing page reviewed; it states that IDPH licenses plumbers, plumbing contractors, plumber apprentices, irrigation contractors, and retired plumbers, and links Plumbing License Verification."
+      }
+    },
+    {
+      "id": "us.il.sfm.fire_sprinkler_contractors",
+      "jurisdiction": {
+        "country": "US",
+        "state": "IL"
+      },
+      "boardName": "Illinois OSFM Fire Sprinkler Contractor Licensing",
+      "agencyName": "Office of the Illinois State Fire Marshal",
+      "officialUrl": "https://sfm.illinois.gov/content/dam/soi/en/web/sfm/sfmdocuments/documents/firepreventiondocs/fp-licensedfiresprinklercontractors.pdf",
+      "sourceIds": [
+        "us.il.sfm.fire_sprinkler_contractors"
+      ],
+      "trades": [
+        "mechanical",
+        "plumbing",
+        "other"
+      ],
+      "accessPath": "manual_handoff",
+      "coverageLimitations": [
+        "This source is limited to OSFM fire sprinkler contractor and inspector licensing and does not represent all Illinois mechanical, plumbing, HVAC, local permit, or fire-code records.",
+        "The public license detail report is a PDF-oriented official file and has not been adapter-reviewed for stable parsing or privacy handling.",
+        "Local fire, building, inspection, and permit requirements may still apply."
+      ],
+      "evidence": {
+        "url": "https://sfm.illinois.gov/iam/business/fire-sprinkler-contractor-information.html",
+        "reviewedAt": "2026-07-03T00:00:00.000Z",
+        "note": "Official OSFM page reviewed; it states the license regulates persons engaged in planning, selling, installing, maintaining, or servicing fire protection sprinkler systems and links the licensed-contractor report."
       }
     },
     {

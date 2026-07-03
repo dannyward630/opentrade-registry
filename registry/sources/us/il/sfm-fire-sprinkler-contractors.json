@@ -1,0 +1,83 @@
+{
+  "id": "us.il.sfm.fire_sprinkler_contractors",
+  "name": "Illinois OSFM Fire Sprinkler Contractor Licensing",
+  "jurisdiction": {
+    "country": "US",
+    "state": "IL"
+  },
+  "agency": {
+    "name": "Office of the Illinois State Fire Marshal",
+    "url": "https://sfm.illinois.gov/"
+  },
+  "sourceType": "manual_public_records_file",
+  "sourceUrl": "https://sfm.illinois.gov/iam/business/fire-sprinkler-contractor-information.html",
+  "documentationUrl": "https://sfm.illinois.gov/iam/business/fire-sprinkler-contractor-information.html",
+  "dataDictionaryUrl": null,
+  "termsUrl": "https://www.illinois.gov/about/policies.html",
+  "updateFrequency": "unknown; verify against the OSFM licensed fire sprinkler contractor report before relying on freshness assumptions",
+  "tradeCoverage": [
+    "mechanical",
+    "plumbing",
+    "other"
+  ],
+  "licenseTypesIncluded": [
+    "Illinois fire sprinkler contractor licenses",
+    "Illinois fire sprinkler inspector licenses exposed by OSFM public report paths"
+  ],
+  "knownExclusions": [
+    "This source is limited to OSFM fire sprinkler contractor and inspector licensing and does not represent all Illinois mechanical, plumbing, HVAC, local permit, or fire-code records.",
+    "The public license detail report is a PDF-oriented official file and has not been adapter-reviewed for stable parsing or privacy handling.",
+    "Local fire, building, inspection, and permit requirements may still apply."
+  ],
+  "hasBulkDownload": true,
+  "hasLiveLookup": true,
+  "requiresJavaScript": "unknown",
+  "requiresCaptcha": false,
+  "requiresAccount": false,
+  "rateLimitNotes": "No adapter is implemented. Do not automate OSFM online services or PDF report retrieval until terms, report stability, and privacy handling are reviewed.",
+  "redistributionStatus": "unknown",
+  "publicRecordsNotes": "Official report metadata only. Generated datasets should not be published unless redistribution and privacy handling are reviewed.",
+  "adapterStatus": "blocked",
+  "sourceDiscoveryStatus": "blocked",
+  "adapterMaturity": "blocked",
+  "adapterQualityLevel": 0,
+  "coverageScope": "state_agency_partial",
+  "adapterPackage": null,
+  "testFixturePath": null,
+  "officialLookupUrl": "https://sfm.illinois.gov/content/dam/soi/en/web/sfm/sfmdocuments/documents/firepreventiondocs/fp-licensedfiresprinklercontractors.pdf",
+  "officialLookupReviewNotes": "The OSFM fire sprinkler contractor page links a list of licensed fire sprinkler contractors and inspectors.",
+  "officialBulkDownloadNotes": "A public PDF report is available, but OpenTrade has not reviewed parsing stability, update behavior, privacy handling, or reuse constraints.",
+  "researchNotes": "This source covers a specific fire-protection licensing program and should not be generalized to all Illinois mechanical or plumbing work.",
+  "verificationReviewedAt": null,
+  "verificationCaveats": [
+    "This source covers OSFM fire sprinkler contractor and inspector licensing only.",
+    "No matching record means no match in this source at the checked time, not proof that another mechanical, plumbing, fire, or local authorization does not exist."
+  ],
+  "verificationNotes": "No supported sync or verification adapter is exposed while report stability, privacy handling, and allowed reuse remain under review.",
+  "lastVerifiedAt": "2026-07-03T00:00:00.000Z",
+  "maintainerNotes": "A future adapter would need PDF-specific parsing controls, privacy review, and saved fixtures before any public sync support.",
+  "schemaVersion": "1.0",
+  "researchReviewedAt": "2026-07-03T00:00:00.000Z",
+  "nextReviewAt": "2027-01-03T00:00:00.000Z",
+  "researchEvidence": [
+    {
+      "url": "https://sfm.illinois.gov/iam/business/fire-sprinkler-contractor-information.html",
+      "checkedAt": "2026-07-03T00:00:00.000Z",
+      "note": "Official OSFM page reviewed; it states the license regulates persons engaged in planning, selling, installing, maintaining, or servicing fire protection sprinkler systems and links the licensed-contractor report."
+    },
+    {
+      "url": "https://sfm.illinois.gov/content/dam/soi/en/web/sfm/sfmdocuments/documents/firepreventiondocs/fp-licensedfiresprinklercontractors.pdf",
+      "checkedAt": "2026-07-03T00:00:00.000Z",
+      "note": "Official OSFM license detail report reviewed; it lists active fire sprinkler contractor and inspector license records."
+    }
+  ],
+  "sourceResearchOutcome": "blocked",
+  "blocker": {
+    "code": "technical_instability",
+    "summary": "The official report is PDF-oriented and no stable parser, privacy handling, or offline fixture mapping has been adapter-reviewed.",
+    "evidenceUrls": [
+      "https://sfm.illinois.gov/iam/business/fire-sprinkler-contractor-information.html",
+      "https://sfm.illinois.gov/content/dam/soi/en/web/sfm/sfmdocuments/documents/firepreventiondocs/fp-licensedfiresprinklercontractors.pdf"
+    ]
+  }
+}
