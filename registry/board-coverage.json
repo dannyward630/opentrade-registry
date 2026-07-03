@@ -1153,7 +1153,85 @@
         }
       }
     },
-    { "state": "IL", "decisions": {} },
+    {
+      "state": "IL",
+      "decisions": {
+        "general_contracting": {
+          "outcome": "local_only",
+          "evidence": [{ "url": "https://cdb.illinois.gov/business/codes/buildingcodesregulations.html", "reviewedAt": "2026-07-03T00:00:00.000Z", "note": "The Capital Development Board provides local building-code directories and construction-related statute directories, indicating project requirements may be local or source-specific rather than a single statewide general contractor board." }],
+          "limitations": ["Illinois statewide sources are tracked separately for roofing, plumbing, asbestos, fire sprinkler, and distributed generation installer certification; municipal general-contractor licensing remains outside the statewide scope."]
+        },
+        "residential_contracting": {
+          "outcome": "local_only",
+          "evidence": [{ "url": "https://illinoisattorneygeneral.gov/consumer-protection/home-repair/", "reviewedAt": "2026-07-03T00:00:00.000Z", "note": "The Attorney General's home-repair guidance focuses on consumer protections, contracts, and local building-code compliance rather than a statewide residential contractor license board." }],
+          "limitations": ["Home repair and remodeling protections are not a statewide license registry; roofing, plumbing, asbestos, fire sprinkler, and local requirements may still apply."]
+        },
+        "commercial_contracting": {
+          "outcome": "local_only",
+          "evidence": [{ "url": "https://cdb.illinois.gov/business/codes/buildingcodesregulations.html", "reviewedAt": "2026-07-03T00:00:00.000Z", "note": "CDB directs users to local building-code information and a construction-related statutes directory rather than a single statewide commercial general-contractor license registry." }],
+          "limitations": ["Public procurement, design-professional rules, state facility requirements, trade boards, and local permits may still apply to specific commercial projects."]
+        },
+        "electrical": {
+          "outcome": "local_only",
+          "evidence": [{ "url": "https://cdb.illinois.gov/business/codes/buildingcodesregulations.html", "reviewedAt": "2026-07-03T00:00:00.000Z", "note": "CDB's local building-code directory and construction-related statute directory are the documented statewide starting points for local code requirements; no standalone statewide electrical contractor board source was confirmed in this slice." }],
+          "limitations": ["ICC distributed generation installer certification covers a specific electrical interconnection scope, and local electrical licensing or permit requirements may apply."]
+        },
+        "plumbing": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.il.idph.plumbing"],
+          "evidence": [{ "url": "https://dph.illinois.gov/topics-services/environmental-health-protection/plumbing.html", "reviewedAt": "2026-07-03T00:00:00.000Z", "note": "IDPH states that the Department licenses plumbers, plumbing contractors, plumber apprentices, irrigation contractors, and retired plumbers." }],
+          "limitations": ["Local plumbing inspection authority requirements and project permits may still apply."]
+        },
+        "hvac": {
+          "outcome": "local_only",
+          "evidence": [{ "url": "https://cdb.illinois.gov/business/codes/buildingcodesregulations.html", "reviewedAt": "2026-07-03T00:00:00.000Z", "note": "CDB provides local building-code and construction-related statute directories; no standalone statewide HVAC contractor board source was confirmed in this slice." }],
+          "limitations": ["Plumbing, fire sprinkler, electrical, refrigeration, local mechanical-code, and permit requirements may apply depending on project scope."]
+        },
+        "mechanical": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.il.idph.plumbing", "us.il.sfm.fire_sprinkler_contractors"],
+          "evidence": [{ "url": "https://sfm.illinois.gov/iam/business/fire-sprinkler-contractor-information.html", "reviewedAt": "2026-07-03T00:00:00.000Z", "note": "OSFM states fire sprinkler contractor licensing regulates persons engaged in planning, selling, installing, maintaining, or servicing fire protection sprinkler systems." }],
+          "limitations": ["This decision covers plumbing and fire-sprinkler subsets of mechanical work only; broader HVAC, sheet-metal, and local mechanical contractor requirements may be local or separately regulated."]
+        },
+        "roofing": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.il.idfpr.roofing_contractors"],
+          "evidence": [{ "url": "https://idfpr.illinois.gov/profs/roof.html", "reviewedAt": "2026-07-03T00:00:00.000Z", "note": "IDFPR maintains the Illinois roofing contractor licensing program and public license lookup path." }]
+        },
+        "solar": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.il.icc.distributed_generation_installers"],
+          "evidence": [{ "url": "https://icc.illinois.gov/authority/distributed-generation-installer", "reviewedAt": "2026-07-03T00:00:00.000Z", "note": "ICC states that, after December 31, 2013 and except for self-installers, entities installing distributed generation facilities must be certified by the Commission." }],
+          "limitations": ["This covers distributed generation installer certification only; local electrical permits, utility interconnection, roofing, structural, and non-grid-connected solar requirements may still apply."]
+        },
+        "pool_spa": {
+          "outcome": "local_only",
+          "evidence": [{ "url": "https://cdb.illinois.gov/business/codes/buildingcodesregulations.html", "reviewedAt": "2026-07-03T00:00:00.000Z", "note": "CDB provides local building-code directories and construction-related statute references; no standalone statewide pool or spa contractor board source was confirmed in this slice." }],
+          "limitations": ["Electrical, plumbing, public-health, and local permit requirements may still apply to pool and spa work."]
+        },
+        "asbestos": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.il.idph.asbestos_contractors"],
+          "evidence": [{ "url": "https://data.illinois.gov/Health-and-Human-Services/IDPH-Asbestos-Licensed-Contractors/kt5u-9dcu", "reviewedAt": "2026-07-03T00:00:00.000Z", "note": "The Illinois Open Data Portal identifies an IDPH dataset for asbestos licensed contractors." }],
+          "limitations": ["Other asbestos workers, professionals, projects, enforcement records, and training-provider records may require separate official sources."]
+        },
+        "sheet_metal": {
+          "outcome": "local_only",
+          "evidence": [{ "url": "https://cdb.illinois.gov/business/codes/buildingcodesregulations.html", "reviewedAt": "2026-07-03T00:00:00.000Z", "note": "CDB provides local building-code directories and construction-related statute references; no standalone statewide sheet-metal contractor board source was confirmed in this slice." }],
+          "limitations": ["Sheet-metal work tied to HVAC, fire sprinkler, plumbing, roofing, electrical, or local mechanical-code permits may require those separate credentials or local approvals."]
+        },
+        "underground_utility": {
+          "outcome": "local_only",
+          "evidence": [{ "url": "https://cdb.illinois.gov/business/codes/buildingcodesregulations.html", "reviewedAt": "2026-07-03T00:00:00.000Z", "note": "CDB provides local building-code directories and construction-related statute references; no broad statewide underground utility contractor board source was confirmed in this slice." }],
+          "limitations": ["Plumbing, water well, pipeline, utility, right-of-way, excavation, environmental, and local permit requirements may still apply to specific projects."]
+        },
+        "home_improvement": {
+          "outcome": "local_only",
+          "evidence": [{ "url": "https://illinoisattorneygeneral.gov/consumer-protection/home-repair/", "reviewedAt": "2026-07-03T00:00:00.000Z", "note": "The Attorney General's home-repair guidance documents consumer-protection concerns and local building-code compliance rather than a statewide home-improvement license registry." }],
+          "limitations": ["Home repair consumer protections are not a statewide license registry; trade-specific state credentials and local permits may still apply."]
+        }
+      }
+    },
     { "state": "IN", "decisions": {} },
     { "state": "KS", "decisions": {} },
     { "state": "KY", "decisions": {} },

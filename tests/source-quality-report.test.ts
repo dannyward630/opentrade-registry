@@ -12,22 +12,22 @@ describe("source quality report", () => {
     expect(result.stderr).toBe("");
 
     const report = JSON.parse(result.stdout);
-    expect(report.sourceCount).toBe(94);
+    expect(report.sourceCount).toBe(98);
     expect(report.stateCount).toBe(51);
     expect(report.researchedStateCount).toBe(51);
     expect(report.territoryCount).toBe(5);
     expect(report.researchedTerritoryCount).toBe(5);
     expect(report.coverageByStatus.not_started ?? 0).toBe(0);
-    expect(report.terminalSourceCount).toBe(94);
-    expect(report.blockedSourceCount).toBe(85);
+    expect(report.terminalSourceCount).toBe(98);
+    expect(report.blockedSourceCount).toBe(89);
     expect(report.territoryCoverageByStatus.blocked).toBe(5);
-    expect(report.sourcesByMaturity.blocked).toBe(85);
+    expect(report.sourcesByMaturity.blocked).toBe(89);
     expect(report.sourcesByMaturity.local_file_adapter).toBe(2);
     expect(report.sourcesByMaturity.network_opt_in).toBe(7);
-    expect(report.sourcesByAdapterQualityLevel["0"]).toBe(85);
+    expect(report.sourcesByAdapterQualityLevel["0"]).toBe(89);
     expect(report.sourcesByAdapterQualityLevel["4"]).toBe(9);
     expect(report.sourcesByResearchOutcome).toEqual({
-      blocked: 85,
+      blocked: 89,
       deprecated: 0,
       local_file_adapter: 2,
       network_opt_in: 7,
@@ -102,6 +102,11 @@ describe("source quality report", () => {
         adapterMaturity: "blocked",
       }),
       expect.objectContaining({
+        id: "us.il.sfm.fire_sprinkler_contractors",
+        sourceType: "manual_public_records_file",
+        adapterMaturity: "blocked",
+      }),
+      expect.objectContaining({
         id: "us.or.deq.asbestos_contractors",
         sourceType: "manual_public_records_file",
         adapterMaturity: "blocked",
@@ -122,7 +127,9 @@ describe("source quality report", () => {
     expect(report.lookupOnlySources.map((source: { id: string }) => source.id)).toContain("us.id.dopl.plumbing");
     expect(report.lookupOnlySources.map((source: { id: string }) => source.id)).toContain("us.id.dopl.public_works_contractors");
     expect(report.lookupOnlySources.map((source: { id: string }) => source.id)).toContain("us.ri.crlb.contractors");
+    expect(report.lookupOnlySources.map((source: { id: string }) => source.id)).toContain("us.il.icc.distributed_generation_installers");
     expect(report.lookupOnlySources.map((source: { id: string }) => source.id)).toContain("us.il.idfpr.roofing_contractors");
+    expect(report.lookupOnlySources.map((source: { id: string }) => source.id)).toContain("us.il.idph.plumbing");
     expect(report.lookupOnlySources.map((source: { id: string }) => source.id)).toContain("us.in.pla.professional_licenses");
     expect(report.lookupOnlySources.map((source: { id: string }) => source.id)).toContain("us.ks.ag.roofing_registration");
     expect(report.lookupOnlySources.map((source: { id: string }) => source.id)).toContain("us.ky.dhbc.trades");
@@ -168,8 +175,9 @@ describe("source quality report", () => {
     expect(result.stdout).toContain("manual public-records-file sources:");
     expect(result.stdout).toContain("- us.as.doc.business_licenses (manual_public_records_file, blocked)");
     expect(result.stdout).toContain("- us.id.deq.asbestos_compliance (manual_public_records_file, blocked)");
+    expect(result.stdout).toContain("- us.il.sfm.fire_sprinkler_contractors (manual_public_records_file, blocked)");
     expect(result.stdout).toContain("sources by research outcome:");
-    expect(result.stdout).toContain("- blocked: 85");
+    expect(result.stdout).toContain("- blocked: 89");
     expect(result.stdout).toContain("metadata completeness:");
     expect(result.stdout).toContain("sources missing required metadata:");
     expect(result.stdout).toContain("- none");

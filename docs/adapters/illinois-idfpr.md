@@ -1,4 +1,4 @@
-# Illinois IDFPR Adapter Notes
+# Illinois Source And Adapter Notes
 
 Source ID: `us.il.idfpr.roofing_contractors`
 
@@ -13,6 +13,15 @@ Quality level: 0
 The repository retains parser research shaped around Illinois Department of Financial and Professional Regulation roofing-contractor lookup concepts. Its tiny hand-authored fixture does not establish compatibility with an official file or lookup response.
 
 No stable public downloadable file shape was validated during the v1 review. The CLI does not register this parser and the package is not published.
+
+The statewide board ledger also tracks these Illinois source entries as blocked metadata/manual-handoff paths:
+
+- `us.il.idph.plumbing` for IDPH plumbing and irrigation credential paths;
+- `us.il.idph.asbestos_contractors` for the IDPH asbestos licensed-contractor open-data path;
+- `us.il.icc.distributed_generation_installers` for ICC distributed generation installer certification;
+- `us.il.sfm.fire_sprinkler_contractors` for OSFM fire sprinkler contractor and inspector licensing.
+
+Those entries support board coverage decisions, but none expose a supported OpenTrade adapter yet. Future work must review field shape, terms, technical controls, privacy handling, fixtures, and neutral verification semantics before any sync or verify command is enabled.
 
 ## Fixture Behavior
 
@@ -38,5 +47,7 @@ Do not imply that a missing Illinois IDFPR fixture match proves no state license
 ## Reconsideration Criteria
 
 - Verify whether IDFPR exposes a roofing-specific export shape that can be used lawfully.
-- Decide whether other Illinois trade or construction sources need separate source entries.
+- Review whether the IDPH asbestos open-data path can support a privacy-reviewed Socrata adapter.
+- Review whether OSFM's fire sprinkler PDF report can be parsed safely without over-publishing personal data.
+- Review whether IDPH plumbing and ICC distributed generation installer paths expose stable public interfaces.
 - Keep live lookup and bulk lookup automation out of default tests and require explicit network opt-in if it is ever implemented.

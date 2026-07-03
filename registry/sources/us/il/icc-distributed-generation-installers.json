@@ -1,0 +1,75 @@
+{
+  "id": "us.il.icc.distributed_generation_installers",
+  "name": "Illinois ICC Distributed Generation Installer Certification",
+  "jurisdiction": {
+    "country": "US",
+    "state": "IL"
+  },
+  "agency": {
+    "name": "Illinois Commerce Commission",
+    "url": "https://icc.illinois.gov/"
+  },
+  "sourceType": "html_lookup",
+  "sourceUrl": "https://icc.illinois.gov/authority/distributed-generation-installer",
+  "documentationUrl": "https://icc.illinois.gov/authority/distributed-generation-installer",
+  "dataDictionaryUrl": null,
+  "termsUrl": "https://www.illinois.gov/about/policies.html",
+  "updateFrequency": "unknown; verify against ICC authority-list metadata before relying on freshness assumptions",
+  "tradeCoverage": [
+    "solar",
+    "electrical"
+  ],
+  "licenseTypesIncluded": [
+    "Illinois ICC certified distributed generation installers"
+  ],
+  "knownExclusions": [
+    "This source is limited to ICC distributed generation installer certification and does not represent a general statewide solar contractor license.",
+    "Electrical permits, local licensing, utility interconnection, roofing, structural work, and non-grid-connected solar work may require separate authorization.",
+    "The public list path has not been adapter-reviewed for stable machine-readable export behavior."
+  ],
+  "hasBulkDownload": "unknown",
+  "hasLiveLookup": true,
+  "requiresJavaScript": "unknown",
+  "requiresCaptcha": false,
+  "requiresAccount": false,
+  "rateLimitNotes": "No adapter is implemented. Do not automate ICC authority pages until result shape, terms, and technical controls are reviewed.",
+  "redistributionStatus": "unknown",
+  "publicRecordsNotes": "Official lookup/list metadata only. Absence from this source is not proof that an electrical, solar, utility, or local authorization does not exist elsewhere.",
+  "adapterStatus": "blocked",
+  "sourceDiscoveryStatus": "blocked",
+  "adapterMaturity": "blocked",
+  "adapterQualityLevel": 0,
+  "coverageScope": "state_agency_partial",
+  "adapterPackage": null,
+  "testFixturePath": null,
+  "officialLookupUrl": "https://icc.illinois.gov/authority/distributed-generation-installer",
+  "officialLookupReviewNotes": "The ICC authority page links a list of certified distributed generation installers and the certification rule.",
+  "officialBulkDownloadNotes": "No official stable bulk download has been confirmed for distributed generation installer certification in this phase.",
+  "researchNotes": "Use this source only for distributed generation installer certification; do not treat it as statewide solar contractor coverage beyond that authority.",
+  "verificationReviewedAt": null,
+  "verificationCaveats": [
+    "This source covers Illinois ICC distributed generation installer certification only.",
+    "No matching record means no match in this source at the checked time, not proof that another electrical, solar, utility, or local authorization does not exist."
+  ],
+  "verificationNotes": "No supported sync or verification adapter is exposed while source shape and allowed automation remain under review.",
+  "lastVerifiedAt": "2026-07-03T00:00:00.000Z",
+  "maintainerNotes": "Future adapter research should verify the certified-list link behavior and distinguish certification from local electrical licensing or utility interconnection approval.",
+  "schemaVersion": "1.0",
+  "researchReviewedAt": "2026-07-03T00:00:00.000Z",
+  "nextReviewAt": "2027-01-03T00:00:00.000Z",
+  "researchEvidence": [
+    {
+      "url": "https://icc.illinois.gov/authority/distributed-generation-installer",
+      "checkedAt": "2026-07-03T00:00:00.000Z",
+      "note": "Official ICC authority page reviewed; it states entities installing distributed generation facilities must be certified by the Commission and links the certified installer list."
+    }
+  ],
+  "sourceResearchOutcome": "blocked",
+  "blocker": {
+    "code": "technical_instability",
+    "summary": "The official path is list/lookup-oriented and no stable, documented machine-readable interface has been adapter-reviewed with offline fixtures.",
+    "evidenceUrls": [
+      "https://icc.illinois.gov/authority/distributed-generation-installer"
+    ]
+  }
+}

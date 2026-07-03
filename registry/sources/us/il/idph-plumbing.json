@@ -1,0 +1,78 @@
+{
+  "id": "us.il.idph.plumbing",
+  "name": "Illinois IDPH Plumbing License Verification",
+  "jurisdiction": {
+    "country": "US",
+    "state": "IL"
+  },
+  "agency": {
+    "name": "Illinois Department of Public Health",
+    "url": "https://dph.illinois.gov/"
+  },
+  "sourceType": "html_lookup",
+  "sourceUrl": "https://dph.illinois.gov/topics-services/environmental-health-protection/plumbing.html",
+  "documentationUrl": "https://dph.illinois.gov/topics-services/environmental-health-protection/plumbing.html",
+  "dataDictionaryUrl": null,
+  "termsUrl": "https://www.illinois.gov/about/policies.html",
+  "updateFrequency": "unknown; verify against the IDPH plumbing verification path before relying on freshness assumptions",
+  "tradeCoverage": [
+    "plumbing"
+  ],
+  "licenseTypesIncluded": [
+    "Illinois plumbers",
+    "Illinois plumbing contractors",
+    "Illinois plumber apprentices",
+    "Illinois irrigation contractors",
+    "Illinois retired plumbers"
+  ],
+  "knownExclusions": [
+    "This source is limited to Illinois IDPH plumbing and irrigation credential paths and does not represent roofing, electrical, general contractor, HVAC, local permit, or business-registration records.",
+    "The IDPH page links a public verification path, but no stable machine-readable response contract has been adapter-reviewed.",
+    "Local plumbing inspection authority requirements and project permits may still apply."
+  ],
+  "hasBulkDownload": "unknown",
+  "hasLiveLookup": true,
+  "requiresJavaScript": "unknown",
+  "requiresCaptcha": "unknown",
+  "requiresAccount": "unknown",
+  "rateLimitNotes": "No adapter is implemented. Do not automate the IDPH plumbing verification path unless terms, controls, result limits, and response fields are reviewed.",
+  "redistributionStatus": "unknown",
+  "publicRecordsNotes": "Official lookup metadata only. Absence from this source is not proof that a plumbing credential, local authorization, or related permit does not exist elsewhere.",
+  "adapterStatus": "blocked",
+  "sourceDiscoveryStatus": "blocked",
+  "adapterMaturity": "blocked",
+  "adapterQualityLevel": 0,
+  "coverageScope": "state_agency_partial",
+  "adapterPackage": null,
+  "testFixturePath": null,
+  "officialLookupUrl": "https://dph.illinois.gov/topics-services/environmental-health-protection/plumbing.html",
+  "officialLookupReviewNotes": "The official IDPH plumbing page links Plumbing License Verification among its resources.",
+  "officialBulkDownloadNotes": "No official stable bulk download has been confirmed for Illinois plumbing credentials in this phase.",
+  "researchNotes": "Keep this source separate from IDFPR roofing and other Illinois construction-related sources because IDPH regulates plumbing under a distinct program.",
+  "verificationReviewedAt": null,
+  "verificationCaveats": [
+    "This source covers Illinois IDPH plumbing and irrigation credential paths, not every Illinois construction, local permit, or business-registration record.",
+    "No matching record means no match in this source at the checked time, not proof that an authorization does not exist elsewhere."
+  ],
+  "verificationNotes": "No supported sync or verification adapter is exposed while official lookup behavior and allowed automation remain under review.",
+  "lastVerifiedAt": "2026-07-03T00:00:00.000Z",
+  "maintainerNotes": "Future adapter research should distinguish plumbers, plumbing contractors, apprentices, irrigation contractors, and local inspection authority records.",
+  "schemaVersion": "1.0",
+  "researchReviewedAt": "2026-07-03T00:00:00.000Z",
+  "nextReviewAt": "2027-01-03T00:00:00.000Z",
+  "researchEvidence": [
+    {
+      "url": "https://dph.illinois.gov/topics-services/environmental-health-protection/plumbing.html",
+      "checkedAt": "2026-07-03T00:00:00.000Z",
+      "note": "Official IDPH plumbing page reviewed; it states that IDPH licenses plumbers, plumbing contractors, plumber apprentices, irrigation contractors, and retired plumbers, and links Plumbing License Verification."
+    }
+  ],
+  "sourceResearchOutcome": "blocked",
+  "blocker": {
+    "code": "technical_instability",
+    "summary": "The official path is lookup-oriented and no stable, documented machine-readable interface has been adapter-reviewed with offline fixtures.",
+    "evidenceUrls": [
+      "https://dph.illinois.gov/topics-services/environmental-health-protection/plumbing.html"
+    ]
+  }
+}
