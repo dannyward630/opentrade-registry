@@ -306,9 +306,19 @@
       "state": "NJ",
       "status": "blocked",
       "sourceIds": [
-        "us.nj.dca.home_improvement_contractors"
+        "us.nj.dca.electrical_contractors",
+        "us.nj.dca.fire_alarm_locksmith",
+        "us.nj.dca.fire_protection_equipment_contractors",
+        "us.nj.dca.home_elevation_contractors",
+        "us.nj.dca.home_improvement_contractors",
+        "us.nj.dca.hvacr_contractors",
+        "us.nj.dca.master_hearth_specialists",
+        "us.nj.dca.master_plumbers",
+        "us.nj.dca.new_home_builders",
+        "us.nj.dol.asbestos_contractors",
+        "us.nj.dol.public_works_contractors"
       ],
-      "notes": "Official source metadata is retained, but automated ingestion is blocked by documented legal, access, scope, or technical constraints."
+      "notes": "New Jersey metadata separates home improvement, home elevation, new-home building, public works, electrical, plumbing, HVACR, hearth, alarm, fire-protection equipment, and asbestos paths. Consumer Affairs standard files are confirmed adapter candidates; other paths remain manual or technically constrained."
     },
     {
       "state": "NM",
