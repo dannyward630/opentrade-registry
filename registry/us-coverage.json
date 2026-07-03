@@ -237,9 +237,13 @@
       "state": "MI",
       "status": "blocked",
       "sourceIds": [
-        "us.mi.lara.residential_builders"
+        "us.mi.lara.bcc_electrical_contractors",
+        "us.mi.lara.bcc_mechanical_contractors",
+        "us.mi.lara.bcc_plumbing_contractors",
+        "us.mi.lara.residential_builders",
+        "us.mi.leo.miosha_asbestos_contractors"
       ],
-      "notes": "Official source metadata is retained, but automated ingestion is blocked by documented legal, access, scope, or technical constraints."
+      "notes": "Michigan metadata covers BCC residential-builder, electrical, mechanical, and plumbing credentials plus the separate MIOSHA asbestos-abatement contractor search. Automation remains blocked pending lawful stable source contracts, privacy review, and confirmed reuse terms."
     },
     {
       "state": "MN",
