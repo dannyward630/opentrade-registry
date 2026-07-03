@@ -4,9 +4,9 @@
 
 ## Current Completeness
 
-The inventory currently has `completeness: "representative_source_baseline"`. Its 113 rows migrate every existing state, DC, and major-territory source into the board model. This proves source linkage and terminal access-path handling, but it does not yet claim every material statewide trade board has been identified.
+The inventory currently has `completeness: "representative_source_baseline"`. Its 117 rows migrate every existing state, DC, and major-territory source into the board model. This proves source linkage and terminal access-path handling, but it does not yet claim every material statewide trade board has been identified.
 
-The board-coverage ledger currently resolves `434` of `784` jurisdiction/domain decisions, leaving `350` for research. Indiana, Kansas, Kentucky, and Massachusetts are fully resolved in the ledger. Massachusetts coverage separates OPSI construction supervisors, HIC registration, DOL occupational trades, OPSI pipefitter/refrigeration/sprinkler credentials, DLS asbestos, and DCAMM public-building certification.
+The board-coverage ledger currently resolves `448` of `784` jurisdiction/domain decisions, leaving `336` for research. Michigan is fully resolved with separate residential-builder, electrical, mechanical, plumbing, and asbestos paths plus explicit commercial and general-contracting boundaries. Municipal licensing remains excluded.
 
 The inventory may change to `board_complete` only after every tracked jurisdiction has been reviewed for general contracting, residential, electrical, plumbing, HVAC, mechanical, roofing, solar, asbestos, pool/spa, home-improvement, and other independently regulated statewide trades. Each additional board needs official evidence and a terminal access path.
 
