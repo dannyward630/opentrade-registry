@@ -1,0 +1,80 @@
+{
+  "id": "us.ma.dcamm.public_building_contractors",
+  "name": "Massachusetts DCAMM Public Building Contractor Certification",
+  "jurisdiction": { "country": "US", "state": "MA" },
+  "agency": { "name": "Massachusetts Division of Capital Asset Management and Maintenance", "url": "https://www.mass.gov/orgs/division-of-capital-asset-management-and-maintenance" },
+  "sourceType": "html_lookup",
+  "sourceUrl": "https://www.mass.gov/dcamm-contractor-certification",
+  "documentationUrl": "https://www.mass.gov/dcamm-contractor-certification",
+  "dataDictionaryUrl": null,
+  "termsUrl": "https://www.mass.gov/privacypolicy",
+  "termsReviewNotes": "Mass.gov privacy policy reviewed. Source-specific redistribution and publication approval for DCAMM certification fields has not been confirmed.",
+  "updateFrequency": "unknown; verify against official DCAMM standing lists before relying on freshness",
+  "tradeCoverage": ["general_contracting", "commercial_contracting", "roofing", "hvac", "mechanical", "plumbing", "electrical", "underground_utility", "other"],
+  "licenseTypesIncluded": [
+    "DCAMM-certified prime contractors",
+    "DCAMM-certified filed sub-bidders and categories of work",
+    "DCAMM standing lists for certified, decertified, denied-renewal, suspended, or debarred contractors"
+  ],
+  "knownExclusions": [
+    "DCAMM certification is scoped to public building construction and does not replace CSL, HIC, occupational trade licenses, asbestos credentials, local permits, or private-market authorization.",
+    "The categories and standing lists are not adapter-reviewed for stable fields, update behavior, privacy, or redistribution.",
+    "Municipal procurement, local prequalification, and project-specific bid requirements may require separate official records."
+  ],
+  "hasBulkDownload": "unknown",
+  "hasLiveLookup": true,
+  "requiresJavaScript": "unknown",
+  "requiresCaptcha": "unknown",
+  "requiresAccount": false,
+  "rateLimitNotes": "No adapter is implemented. Use official DCAMM standing lists manually until field shape, privacy, and reuse are reviewed.",
+  "redistributionStatus": "unknown",
+  "publicRecordsNotes": "Official certification metadata only. Absence from a DCAMM standing list is not proof that another license, registration, or project authorization does not exist.",
+  "adapterStatus": "blocked",
+  "sourceDiscoveryStatus": "blocked",
+  "adapterMaturity": "blocked",
+  "adapterQualityLevel": 0,
+  "coverageScope": "state_agency_partial",
+  "adapterPackage": null,
+  "testFixturePath": null,
+  "officialLookupUrl": "https://www.mass.gov/lists/contractors-standing-with-dcamm",
+  "officialLookupReviewNotes": "DCAMM publishes contractor standing lists for certification and disciplinary states.",
+  "officialBulkDownloadNotes": "No stable official bulk download or redistribution-safe export was confirmed during this review.",
+  "researchNotes": "This source covers public building contractor certification and filed-sub-bidder categories separately from general occupational licenses and private residential registration.",
+  "verificationReviewedAt": null,
+  "verificationCaveats": [
+    "DCAMM certification is public-construction specific and does not replace trade licenses or local permits.",
+    "No matching record means no match in the checked DCAMM source at the checked time, not proof that another credential or project authorization does not exist."
+  ],
+  "verificationNotes": "No supported adapter is exposed while DCAMM list shape and allowed reuse remain under review.",
+  "lastVerifiedAt": "2026-07-03T00:00:00.000Z",
+  "maintainerNotes": "Future adapters must retain category of work, standing-list category, checked time, source URL, caveats, raw record, fingerprint, and privacy review.",
+  "schemaVersion": "1.0",
+  "researchReviewedAt": "2026-07-03T00:00:00.000Z",
+  "nextReviewAt": "2027-01-03T00:00:00.000Z",
+  "researchEvidence": [
+    {
+      "url": "https://www.mass.gov/dcamm-contractor-certification",
+      "checkedAt": "2026-07-03T00:00:00.000Z",
+      "note": "Official DCAMM contractor-certification page reviewed as the public building contractor certification source."
+    },
+    {
+      "url": "https://www.mass.gov/lists/contractors-standing-with-dcamm",
+      "checkedAt": "2026-07-03T00:00:00.000Z",
+      "note": "Official DCAMM contractor standing lists reviewed for certified and restricted contractor states."
+    },
+    {
+      "url": "https://www.mass.gov/how-to/how-to-become-a-filed-sub-bidder-certified-contractor",
+      "checkedAt": "2026-07-03T00:00:00.000Z",
+      "note": "Official DCAMM filed-sub-bidder page reviewed; it states DCAMM certifies filed-sub-bidder categories of work in vertical building public construction."
+    }
+  ],
+  "sourceResearchOutcome": "blocked",
+  "blocker": {
+    "code": "technical_instability",
+    "summary": "The DCAMM standing-list source shape has not been adapter-reviewed for stable fields, category filters, privacy handling, update behavior, or confirmed reuse terms.",
+    "evidenceUrls": [
+      "https://www.mass.gov/lists/contractors-standing-with-dcamm",
+      "https://www.mass.gov/privacypolicy"
+    ]
+  }
+}

@@ -1554,7 +1554,131 @@
         }
       }
     },
-    { "state": "MA", "decisions": {} },
+    {
+      "state": "MA",
+      "decisions": {
+        "general_contracting": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.ma.dol.opsi_construction_supervisors", "us.ma.dcamm.public_building_contractors"],
+          "evidence": [
+            { "url": "https://www.mass.gov/construction-supervisor-licensing", "reviewedAt": "2026-07-03T00:00:00.000Z", "note": "Mass.gov states certain construction projects require oversight from a licensed construction supervisor." },
+            { "url": "https://www.mass.gov/dcamm-contractor-certification", "reviewedAt": "2026-07-03T00:00:00.000Z", "note": "DCAMM publishes contractor certification for public building construction." }
+          ],
+          "limitations": ["CSL supervision, DCAMM public-construction certification, HIC registration, local permits, and separate trade licenses may each apply depending on project type."]
+        },
+        "residential_contracting": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.ma.dol.opsi_construction_supervisors", "us.ma.oca.home_improvement_contractors"],
+          "evidence": [
+            { "url": "https://www.mass.gov/info-details/when-is-a-construction-supervisor-license-required", "reviewedAt": "2026-07-03T00:00:00.000Z", "note": "Mass.gov states a licensed construction supervisor or registered design professional must oversee construction for most existing one-to-four-family owner-occupied homes." },
+            { "url": "https://www.mass.gov/home-improvement-contractor-program", "reviewedAt": "2026-07-03T00:00:00.000Z", "note": "Mass.gov states the HIC program requires home improvement contractors to register with the Commonwealth." }
+          ],
+          "limitations": ["HIC registration is different from CSL, and local building permits plus trade licenses may still apply."]
+        },
+        "commercial_contracting": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.ma.dol.opsi_construction_supervisors", "us.ma.dcamm.public_building_contractors"],
+          "evidence": [
+            { "url": "https://www.mass.gov/construction-supervisor-licensing", "reviewedAt": "2026-07-03T00:00:00.000Z", "note": "Mass.gov documents Construction Supervisor Licensing for certain construction projects." },
+            { "url": "https://www.mass.gov/info-details/certification-guidelines-and-procedures-for-prime-contractors", "reviewedAt": "2026-07-03T00:00:00.000Z", "note": "DCAMM guidelines identify General Building Construction and Sewage and Water Treatment Plants as prime contractor certification categories." }
+          ],
+          "limitations": ["DCAMM certification is public-building specific; private commercial projects may rely on CSL, trade licenses, local permits, and other project-specific approvals."]
+        },
+        "electrical": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.ma.dol.occupational_trades", "us.ma.dcamm.public_building_contractors"],
+          "evidence": [
+            { "url": "https://www.mass.gov/orgs/board-of-state-examiners-of-electricians", "reviewedAt": "2026-07-03T00:00:00.000Z", "note": "The Board of State Examiners of Electricians licenses electricians." },
+            { "url": "https://www.mass.gov/how-to/apply-for-an-electricalsystems-business-license", "reviewedAt": "2026-07-03T00:00:00.000Z", "note": "Mass.gov documents electrical and systems business license applications." }
+          ],
+          "limitations": ["Electrical permits, inspections, public-construction certification, utility requirements, and local approvals may still apply."]
+        },
+        "plumbing": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.ma.dol.occupational_trades", "us.ma.dol.opsi_pipefitters_refrigeration_sprinkler", "us.ma.dcamm.public_building_contractors"],
+          "evidence": [
+            { "url": "https://www.mass.gov/orgs/board-of-state-examiners-of-plumbers-and-gas-fitters", "reviewedAt": "2026-07-03T00:00:00.000Z", "note": "The Board of State Examiners of Plumbers and Gas Fitters issues journeyman and master licenses and corporate and partnership certificates for plumbing and gas." },
+            { "url": "https://www.mass.gov/apply-for-or-renew-a-pipefitters-refrigeration-technician-or-sprinkler-fitters-license", "reviewedAt": "2026-07-03T00:00:00.000Z", "note": "OPSI publishes pipefitter and sprinkler fitter licensing paths." }
+          ],
+          "limitations": ["Plumbing, gas, pipefitter, sprinkler, local permits, inspections, and public-construction certification are distinct requirements."]
+        },
+        "hvac": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.ma.dol.opsi_pipefitters_refrigeration_sprinkler", "us.ma.dol.occupational_trades", "us.ma.dcamm.public_building_contractors"],
+          "evidence": [
+            { "url": "https://www.mass.gov/how-to/apply-for-a-refrigeration-contractor-license", "reviewedAt": "2026-07-03T00:00:00.000Z", "note": "Mass.gov states a refrigeration contractor license allows a regular place of business and employment of licensed people to perform refrigeration work." },
+            { "url": "https://www.mass.gov/orgs/board-of-examiners-of-sheet-metal-workers", "reviewedAt": "2026-07-03T00:00:00.000Z", "note": "The Board of Examiners of Sheet Metal Workers regulates sheet metal work in Massachusetts." }
+          ],
+          "limitations": ["Massachusetts HVAC work may involve refrigeration, pipefitter, sheet-metal, electrical, plumbing/gas, CSL, DCAMM, local permit, and inspection requirements."]
+        },
+        "mechanical": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.ma.dol.opsi_pipefitters_refrigeration_sprinkler", "us.ma.dol.occupational_trades", "us.ma.dcamm.public_building_contractors"],
+          "evidence": [
+            { "url": "https://www.mass.gov/orgs/bureau-of-pipefitters-refrigeration-technicians-and-sprinkler-fitters", "reviewedAt": "2026-07-03T00:00:00.000Z", "note": "OPSI's Bureau of Pipefitters, Refrigeration Technicians, and Sprinkler Fitters examines candidates for licensure in those mechanical-adjacent trades." },
+            { "url": "https://www.mass.gov/info-details/certification-crossover-categories-of-work", "reviewedAt": "2026-07-03T00:00:00.000Z", "note": "DCAMM crossover categories include HVAC, fire protection sprinkler systems, electrical, and plumbing." }
+          ],
+          "limitations": ["This decision covers multiple statewide mechanical-adjacent programs rather than a single generic mechanical contractor board."]
+        },
+        "roofing": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.ma.oca.home_improvement_contractors", "us.ma.dol.opsi_construction_supervisors", "us.ma.dcamm.public_building_contractors"],
+          "evidence": [
+            { "url": "https://www.mass.gov/home-improvement-contractor-program", "reviewedAt": "2026-07-03T00:00:00.000Z", "note": "HIC registration covers home-improvement contractor registration for residential work." },
+            { "url": "https://www.mass.gov/info-details/certification-crossover-categories-of-work", "reviewedAt": "2026-07-03T00:00:00.000Z", "note": "DCAMM crossover categories include Roofing." }
+          ],
+          "limitations": ["There is no separate statewide roofing-only board confirmed here; roofing coverage is through HIC/CSL for residential work and DCAMM for public construction."]
+        },
+        "solar": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.ma.dol.occupational_trades", "us.ma.oca.home_improvement_contractors", "us.ma.dol.opsi_construction_supervisors"],
+          "evidence": [{ "url": "https://www.mass.gov/orgs/board-of-state-examiners-of-electricians", "reviewedAt": "2026-07-03T00:00:00.000Z", "note": "The Board of State Examiners of Electricians licenses electricians, which is the confirmed statewide trade path for electrical portions of solar work." }],
+          "limitations": ["This decision covers electrical and building/home-improvement paths only. Utility interconnection, roofing, structural, local permitting, and incentive-program requirements may apply."]
+        },
+        "pool_spa": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.ma.oca.home_improvement_contractors", "us.ma.dol.occupational_trades", "us.ma.dol.opsi_construction_supervisors"],
+          "evidence": [
+            { "url": "https://www.mass.gov/home-improvement-contractor-program", "reviewedAt": "2026-07-03T00:00:00.000Z", "note": "HIC registration covers residential home-improvement contractor registration." },
+            { "url": "https://www.mass.gov/orgs/board-of-state-examiners-of-plumbers-and-gas-fitters", "reviewedAt": "2026-07-03T00:00:00.000Z", "note": "The plumbing/gas board issues statewide plumbing and gas fitting licenses and certificates." }
+          ],
+          "limitations": ["Pool/spa work may involve HIC registration, CSL oversight, plumbing/gas, electrical, health, local permit, and inspection requirements."]
+        },
+        "asbestos": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.ma.dls.asbestos_contractors"],
+          "evidence": [{ "url": "https://www.mass.gov/info-details/asbestos-discipline-descriptions", "reviewedAt": "2026-07-03T00:00:00.000Z", "note": "Mass.gov states asbestos contractor licensure allows a person, firm, corporation, or other entity to enter into or engage in asbestos work." }],
+          "limitations": ["Asbestos notifications, MassDEP air-program rules, enforcement records, training providers, consultants, labs, and local requirements may require separate official paths."]
+        },
+        "sheet_metal": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.ma.dol.occupational_trades", "us.ma.dcamm.public_building_contractors"],
+          "evidence": [
+            { "url": "https://www.mass.gov/orgs/board-of-examiners-of-sheet-metal-workers", "reviewedAt": "2026-07-03T00:00:00.000Z", "note": "The Board of Examiners of Sheet Metal Workers regulates sheet metal work in Massachusetts." },
+            { "url": "https://www.mass.gov/how-to/sheet-metal-business-license-application", "reviewedAt": "2026-07-03T00:00:00.000Z", "note": "Mass.gov states all business entities performing sheet metal work in Massachusetts must be licensed by the board." }
+          ],
+          "limitations": ["Local permits, HVAC/refrigeration, electrical, plumbing, CSL, and DCAMM requirements may also apply."]
+        },
+        "underground_utility": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.ma.dcamm.public_building_contractors", "us.ma.dol.opsi_pipefitters_refrigeration_sprinkler", "us.ma.dol.occupational_trades"],
+          "evidence": [
+            { "url": "https://www.mass.gov/info-details/certification-guidelines-and-procedures-for-prime-contractors", "reviewedAt": "2026-07-03T00:00:00.000Z", "note": "DCAMM prime-contractor guidelines identify Sewage and Water Treatment Plants as a certification category." },
+            { "url": "https://www.mass.gov/doc/trench-permit-rider-form/download", "reviewedAt": "2026-07-03T00:00:00.000Z", "note": "Mass.gov trench permit material states excavators must obtain a permit before construction-related trench excavation." }
+          ],
+          "limitations": ["This decision covers public-construction certification and related trade/permit paths only; utility, environmental, right-of-way, trench, excavation, and local permits remain project-specific."]
+        },
+        "home_improvement": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.ma.oca.home_improvement_contractors", "us.ma.dol.opsi_construction_supervisors"],
+          "evidence": [
+            { "url": "https://www.mass.gov/home-improvement-contractor-program", "reviewedAt": "2026-07-03T00:00:00.000Z", "note": "Mass.gov states the HIC program requires home improvement contractors to register with the Commonwealth." },
+            { "url": "https://www.mass.gov/info-details/home-improvement-contractor-registration-and-renewal", "reviewedAt": "2026-07-03T00:00:00.000Z", "note": "Mass.gov states HIC registration is different from a Construction Supervisor License." }
+          ],
+          "limitations": ["HIC registration, CSL, trade licenses, permits, inspections, and local requirements are not interchangeable."]
+        }
+      }
+    },
     { "state": "MD", "decisions": {} },
     { "state": "ME", "decisions": {} },
     { "state": "MI", "decisions": {} },

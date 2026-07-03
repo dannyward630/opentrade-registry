@@ -1685,6 +1685,102 @@
       }
     },
     {
+      "id": "us.ma.dcamm.public_building_contractors",
+      "jurisdiction": {
+        "country": "US",
+        "state": "MA"
+      },
+      "boardName": "Massachusetts DCAMM Public Building Contractor Certification",
+      "agencyName": "Massachusetts Division of Capital Asset Management and Maintenance",
+      "officialUrl": "https://www.mass.gov/lists/contractors-standing-with-dcamm",
+      "sourceIds": [
+        "us.ma.dcamm.public_building_contractors"
+      ],
+      "trades": [
+        "general_contracting",
+        "commercial_contracting",
+        "roofing",
+        "hvac",
+        "mechanical",
+        "plumbing",
+        "electrical",
+        "underground_utility",
+        "other"
+      ],
+      "accessPath": "manual_handoff",
+      "coverageLimitations": [
+        "DCAMM certification is scoped to public building construction and does not replace CSL, HIC, occupational trade licenses, asbestos credentials, local permits, or private-market authorization.",
+        "The categories and standing lists are not adapter-reviewed for stable fields, update behavior, privacy, or redistribution.",
+        "Municipal procurement, local prequalification, and project-specific bid requirements may require separate official records."
+      ],
+      "evidence": {
+        "url": "https://www.mass.gov/dcamm-contractor-certification",
+        "reviewedAt": "2026-07-03T00:00:00.000Z",
+        "note": "Official DCAMM contractor-certification page reviewed as the public building contractor certification source."
+      }
+    },
+    {
+      "id": "us.ma.dls.asbestos_contractors",
+      "jurisdiction": {
+        "country": "US",
+        "state": "MA"
+      },
+      "boardName": "Massachusetts DLS Licensed Asbestos Contractors",
+      "agencyName": "Massachusetts Department of Labor Standards",
+      "officialUrl": "https://www.mass.gov/info-details/licensed-asbestos-consultants-contractors-labs-training-providers",
+      "sourceIds": [
+        "us.ma.dls.asbestos_contractors"
+      ],
+      "trades": [
+        "asbestos"
+      ],
+      "accessPath": "manual_handoff",
+      "coverageLimitations": [
+        "This source is limited to DLS asbestos licensing and related asbestos program lists.",
+        "Asbestos project notifications, MassDEP air-program records, enforcement records, and local permits may require separate official paths.",
+        "General contractor, HIC, construction supervisor, and other trade credentials are outside this source entry."
+      ],
+      "evidence": {
+        "url": "https://www.mass.gov/asbestos-safety-program",
+        "reviewedAt": "2026-07-03T00:00:00.000Z",
+        "note": "Official DLS asbestos safety program page reviewed as the statewide asbestos program source."
+      }
+    },
+    {
+      "id": "us.ma.dol.occupational_trades",
+      "jurisdiction": {
+        "country": "US",
+        "state": "MA"
+      },
+      "boardName": "Massachusetts DOL Occupational Trade License Lookup",
+      "agencyName": "Massachusetts Division of Occupational Licensure",
+      "officialUrl": "https://www.mass.gov/how-to/check-an-occupational-board-license",
+      "sourceIds": [
+        "us.ma.dol.occupational_trades"
+      ],
+      "trades": [
+        "electrical",
+        "plumbing",
+        "hvac",
+        "mechanical",
+        "solar",
+        "pool_spa",
+        "sheet_metal",
+        "underground_utility"
+      ],
+      "accessPath": "manual_handoff",
+      "coverageLimitations": [
+        "The shared DOL portals include many professions and credential levels; contractor, business, master, journeyperson, and apprentice records must not be conflated.",
+        "Construction supervisor licensing, HIC registration, OPSI pipefitter/refrigeration/sprinkler credentials, asbestos, DCAMM certification, and local permits are separate source paths.",
+        "No stable export contract or redistribution permission has been confirmed."
+      ],
+      "evidence": {
+        "url": "https://www.mass.gov/info-details/division-of-occupational-licensure-check-a-license",
+        "reviewedAt": "2026-07-03T00:00:00.000Z",
+        "note": "Official DOL page reviewed; it describes checking business or individual licenses and lists DOL and OPSI license-check portals."
+      }
+    },
+    {
       "id": "us.ma.dol.opsi_construction_supervisors",
       "jurisdiction": {
         "country": "US",
@@ -1711,6 +1807,69 @@
         "url": "https://madpl.mylicense.com/Verification/",
         "reviewedAt": "2026-06-27T00:00:00.000Z",
         "note": "Official public source, access shape, and current automation constraints reviewed."
+      }
+    },
+    {
+      "id": "us.ma.dol.opsi_pipefitters_refrigeration_sprinkler",
+      "jurisdiction": {
+        "country": "US",
+        "state": "MA"
+      },
+      "boardName": "Massachusetts OPSI Pipefitters Refrigeration and Sprinkler Fitters",
+      "agencyName": "Massachusetts Division of Occupational Licensure Office of Public Safety and Inspections",
+      "officialUrl": "https://madpl.mylicense.com/Verification/",
+      "sourceIds": [
+        "us.ma.dol.opsi_pipefitters_refrigeration_sprinkler"
+      ],
+      "trades": [
+        "hvac",
+        "mechanical",
+        "plumbing",
+        "pool_spa",
+        "sheet_metal",
+        "underground_utility"
+      ],
+      "accessPath": "manual_handoff",
+      "coverageLimitations": [
+        "This source is limited to OPSI pipefitter, refrigeration, and sprinkler fitter credentials.",
+        "Electrical, plumbing/gas, sheet metal, construction supervisor, HIC, asbestos, DCAMM, and local permits are separate source paths.",
+        "Credential type, contractor status, and individual-versus-business roles require careful filtering."
+      ],
+      "evidence": {
+        "url": "https://www.mass.gov/orgs/bureau-of-pipefitters-refrigeration-technicians-and-sprinkler-fitters",
+        "reviewedAt": "2026-07-03T00:00:00.000Z",
+        "note": "Official bureau page reviewed; it states the bureau examines candidates for licensure as pipefitters, refrigeration technicians, and sprinkler fitters."
+      }
+    },
+    {
+      "id": "us.ma.oca.home_improvement_contractors",
+      "jurisdiction": {
+        "country": "US",
+        "state": "MA"
+      },
+      "boardName": "Massachusetts Home Improvement Contractor Registration Search",
+      "agencyName": "Massachusetts Office of Consumer Affairs and Business Regulation",
+      "officialUrl": "https://contractorhub.mass.gov/s/hic-contractor-search",
+      "sourceIds": [
+        "us.ma.oca.home_improvement_contractors"
+      ],
+      "trades": [
+        "residential_contracting",
+        "roofing",
+        "pool_spa",
+        "solar",
+        "home_improvement"
+      ],
+      "accessPath": "manual_handoff",
+      "coverageLimitations": [
+        "This source is limited to Home Improvement Contractor registration and does not replace a Construction Supervisor License, trade license, building permit, or local authorization.",
+        "The official program states HIC registration is different from a Construction Supervisor License.",
+        "New construction, commercial work, public-building certification, electrical, plumbing, HVAC, sheet-metal, asbestos, and local permits require separate source paths."
+      ],
+      "evidence": {
+        "url": "https://www.mass.gov/home-improvement-contractor-program",
+        "reviewedAt": "2026-07-03T00:00:00.000Z",
+        "note": "Official program page reviewed; it states the HIC program requires home improvement contractors to register with the Commonwealth."
       }
     },
     {
