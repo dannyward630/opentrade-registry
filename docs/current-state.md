@@ -13,13 +13,13 @@ This is the human-readable snapshot for the released `v1.0.1` line and the v2 mi
 
 ## Coverage
 
-- `100` official source entries.
+- `103` official source entries.
 - All 50 states plus DC have researched coverage rows.
 - American Samoa, Guam, Northern Mariana Islands, Puerto Rico, and the U.S. Virgin Islands have researched territory rows.
 - `9` implemented adapters, all at quality Level 4.
 - `2` local-file adapter outcomes.
 - `7` explicit network opt-in outcomes.
-- `91` terminal blocked outcomes.
+- `94` terminal blocked outcomes.
 - `0` provisional outcomes.
 - `0` fixture-only terminal adapters.
 
@@ -41,6 +41,8 @@ The source-quality gate currently reports no undocumented required-metadata or t
 Level 4 means verification language, status behavior, and source-specific caveats have been reviewed. It does not mean a source is complete, real-time, or authoritative beyond the agency record and checked time.
 
 Alaska, Illinois, and Indiana retain private parser-research packages for historical test evidence, but the public registry marks them blocked and the CLI does not register them. Alaska access is technically controlled and Illinois lacks a validated stable public file shape. Indiana now has separate board-specific metadata for Plumbing Commission credentials and IDEM asbestos licensing: PLA bulk files remain agreement- and payment-gated, IDEM has no confirmed stable public roster, and the statewide ledger records other tracked construction domains as local-only based on official state guidance.
+
+Kansas now has separate source metadata for Attorney General roofing registration, KDHE asbestos contractors, State Fire Marshal fire-protection company registration, and KDHE water-well contractors. The state construction guide assigns general, residential, commercial, electrical, plumbing, HVAC, and related contractor licensing to cities and counties; those municipal records remain outside the statewide scope.
 
 ## Core And Orchestration
 
