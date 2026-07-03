@@ -2587,6 +2587,118 @@
       }
     },
     {
+      "id": "us.nj.dca.electrical_contractors",
+      "jurisdiction": {
+        "country": "US",
+        "state": "NJ"
+      },
+      "boardName": "New Jersey Electrical Contractor License Verification",
+      "agencyName": "New Jersey Division of Consumer Affairs Board of Examiners of Electrical Contractors",
+      "officialUrl": "https://newjersey.mylicense.com/verification/Search.aspx",
+      "sourceIds": [
+        "us.nj.dca.electrical_contractors"
+      ],
+      "trades": [
+        "electrical",
+        "solar",
+        "other"
+      ],
+      "accessPath": "manual_handoff",
+      "coverageLimitations": [
+        "Local permits and inspections remain separate.",
+        "Alarm, locksmith, fire-protection equipment, and other contractor credentials use separate official paths."
+      ],
+      "evidence": {
+        "url": "https://www.njconsumeraffairs.gov/elec",
+        "reviewedAt": "2026-07-03T00:00:00.000Z",
+        "note": "Official board page states it licenses electrical contractors and requires a valid business permit."
+      }
+    },
+    {
+      "id": "us.nj.dca.fire_alarm_locksmith",
+      "jurisdiction": {
+        "country": "US",
+        "state": "NJ"
+      },
+      "boardName": "New Jersey Fire Alarm, Burglar Alarm, and Locksmith License Verification",
+      "agencyName": "New Jersey Division of Consumer Affairs Fire Alarm, Burglar Alarm and Locksmith Advisory Committee",
+      "officialUrl": "https://newjersey.mylicense.com/verification/Search.aspx",
+      "sourceIds": [
+        "us.nj.dca.fire_alarm_locksmith"
+      ],
+      "trades": [
+        "electrical",
+        "other"
+      ],
+      "accessPath": "manual_handoff",
+      "coverageLimitations": [
+        "General electrical contracting and Division of Fire Safety fire-protection equipment certification remain separate.",
+        "Classification and business-qualifier relationships must be preserved."
+      ],
+      "evidence": {
+        "url": "https://www.njconsumeraffairs.gov/fbl",
+        "reviewedAt": "2026-07-03T00:00:00.000Z",
+        "note": "Official committee page states it licenses individual installers, locksmiths, and alarm or locksmith businesses."
+      }
+    },
+    {
+      "id": "us.nj.dca.fire_protection_equipment_contractors",
+      "jurisdiction": {
+        "country": "US",
+        "state": "NJ"
+      },
+      "boardName": "New Jersey Fire Protection Equipment Contractor Certification",
+      "agencyName": "New Jersey Department of Community Affairs Division of Fire Safety Contractor Certification Unit",
+      "officialUrl": "https://www.nj.gov/dca/dfs/forms/",
+      "sourceIds": [
+        "us.nj.dca.fire_protection_equipment_contractors"
+      ],
+      "trades": [
+        "electrical",
+        "plumbing",
+        "mechanical",
+        "other"
+      ],
+      "accessPath": "manual_handoff",
+      "coverageLimitations": [
+        "Consumer Affairs alarm licenses, general electrical and plumbing credentials, permits, inspections, and local fire-code enforcement remain separate.",
+        "Individual certifications and business permits must be distinguished."
+      ],
+      "evidence": {
+        "url": "https://www.nj.gov/dca/dfs/offices/",
+        "reviewedAt": "2026-07-03T00:00:00.000Z",
+        "note": "Official DCA page states the unit licenses businesses and individuals installing, servicing, and maintaining fire-protection equipment."
+      }
+    },
+    {
+      "id": "us.nj.dca.home_elevation_contractors",
+      "jurisdiction": {
+        "country": "US",
+        "state": "NJ"
+      },
+      "boardName": "New Jersey Home Elevation Contractor Registration",
+      "agencyName": "New Jersey Division of Consumer Affairs Regulated Business Section",
+      "officialUrl": "https://newjersey.mylicense.com/verification/Search.aspx?facility=Y",
+      "sourceIds": [
+        "us.nj.dca.home_elevation_contractors"
+      ],
+      "trades": [
+        "residential contracting",
+        "home_improvement",
+        "other"
+      ],
+      "accessPath": "manual_handoff",
+      "coverageLimitations": [
+        "This source covers elevation of residential or noncommercial structures, not general construction.",
+        "Home improvement registration, new-home builder registration, trade licenses, permits, and inspections remain separate."
+      ],
+      "evidence": {
+        "url": "https://www.njconsumeraffairs.gov/hec",
+        "reviewedAt": "2026-07-03T00:00:00.000Z",
+        "note": "Official page states businesses offering home elevation must register and documents experience and insurance requirements."
+      }
+    },
+    {
       "id": "us.nj.dca.home_improvement_contractors",
       "jurisdiction": {
         "country": "US",
@@ -2612,6 +2724,172 @@
         "url": "https://newjersey.mylicense.com/verification/Search.aspx?facility=Y",
         "reviewedAt": "2026-06-27T00:00:00.000Z",
         "note": "Official public source, access shape, and current automation constraints reviewed."
+      }
+    },
+    {
+      "id": "us.nj.dca.hvacr_contractors",
+      "jurisdiction": {
+        "country": "US",
+        "state": "NJ"
+      },
+      "boardName": "New Jersey Master HVACR Contractor License Verification",
+      "agencyName": "New Jersey Division of Consumer Affairs State Board of Examiners of HVACR Contractors",
+      "officialUrl": "https://newjersey.mylicense.com/verification/Search.aspx",
+      "sourceIds": [
+        "us.nj.dca.hvacr_contractors"
+      ],
+      "trades": [
+        "hvac",
+        "mechanical",
+        "solar",
+        "sheet_metal",
+        "other"
+      ],
+      "accessPath": "manual_handoff",
+      "coverageLimitations": [
+        "Electrical, plumbing, fire-protection, hearth-specialist, permit, inspection, and local requirements remain separate.",
+        "Business authorization and bona-fide-representative status require classification-aware interpretation."
+      ],
+      "evidence": {
+        "url": "https://www.njconsumeraffairs.gov/hvacr",
+        "reviewedAt": "2026-07-03T00:00:00.000Z",
+        "note": "Official board page states it licenses and regulates HVACR contractors statewide."
+      }
+    },
+    {
+      "id": "us.nj.dca.master_hearth_specialists",
+      "jurisdiction": {
+        "country": "US",
+        "state": "NJ"
+      },
+      "boardName": "New Jersey Licensed Master Hearth Specialist Verification",
+      "agencyName": "New Jersey Division of Consumer Affairs Master Hearth Specialists Advisory Committee",
+      "officialUrl": "https://newjersey.mylicense.com/verification/Search.aspx",
+      "sourceIds": [
+        "us.nj.dca.master_hearth_specialists"
+      ],
+      "trades": [
+        "hvac",
+        "mechanical",
+        "other"
+      ],
+      "accessPath": "manual_handoff",
+      "coverageLimitations": [
+        "General HVACR, plumbing, electrical, fire-protection, and chimney or building permits remain separate.",
+        "This source is limited to the statutory hearth-specialist scope."
+      ],
+      "evidence": {
+        "url": "https://www.njconsumeraffairs.gov/mhs",
+        "reviewedAt": "2026-07-03T00:00:00.000Z",
+        "note": "Official committee page states Master Hearth Specialists are licensed and regulated under the HVACR board."
+      }
+    },
+    {
+      "id": "us.nj.dca.master_plumbers",
+      "jurisdiction": {
+        "country": "US",
+        "state": "NJ"
+      },
+      "boardName": "New Jersey Master Plumber License Verification",
+      "agencyName": "New Jersey Division of Consumer Affairs State Board of Examiners of Master Plumbers",
+      "officialUrl": "https://newjersey.mylicense.com/verification/Search.aspx",
+      "sourceIds": [
+        "us.nj.dca.master_plumbers"
+      ],
+      "trades": [
+        "plumbing"
+      ],
+      "accessPath": "manual_handoff",
+      "coverageLimitations": [
+        "Apprenticeship, local permits, inspections, sewer and water authority approvals, and non-plumbing credentials remain separate.",
+        "Business authorization depends on a licensed master plumber and official scope rules."
+      ],
+      "evidence": {
+        "url": "https://www.njconsumeraffairs.gov/plu",
+        "reviewedAt": "2026-07-03T00:00:00.000Z",
+        "note": "Official board page states it licenses and regulates master plumbers statewide."
+      }
+    },
+    {
+      "id": "us.nj.dca.new_home_builders",
+      "jurisdiction": {
+        "country": "US",
+        "state": "NJ"
+      },
+      "boardName": "New Jersey New Home Builder Registration",
+      "agencyName": "New Jersey Department of Community Affairs Bureau of Homeowner Protection",
+      "officialUrl": "https://serviceportal.dca.nj.gov/ultra-bhp-home/",
+      "sourceIds": [
+        "us.nj.dca.new_home_builders"
+      ],
+      "trades": [
+        "residential contracting",
+        "general contracting",
+        "other"
+      ],
+      "accessPath": "manual_handoff",
+      "coverageLimitations": [
+        "Home improvement, commercial-only construction, trade licenses, permits, inspections, and warranty enrollment are separate.",
+        "Registration exceptions and project-specific warranty rules require official interpretation."
+      ],
+      "evidence": {
+        "url": "https://www.nj.gov/dca/codes/offices/nhw_for_builders.html",
+        "reviewedAt": "2026-07-03T00:00:00.000Z",
+        "note": "Official DCA guidance states builders must register before constructing new homes and describes covered builder entities."
+      }
+    },
+    {
+      "id": "us.nj.dol.asbestos_contractors",
+      "jurisdiction": {
+        "country": "US",
+        "state": "NJ"
+      },
+      "boardName": "New Jersey Asbestos Abatement Contractor Licensing",
+      "agencyName": "New Jersey Department of Labor and Workforce Development Office of Asbestos Control and Licensing",
+      "officialUrl": "https://nj.gov/labor/safetyandhealth/programs-services/asbestos/index.shtml",
+      "sourceIds": [
+        "us.nj.dol.asbestos_contractors"
+      ],
+      "trades": [
+        "asbestos"
+      ],
+      "accessPath": "manual_handoff",
+      "coverageLimitations": [
+        "Worker and supervisor permits, monitoring firms, project notifications, training, disposal, and local requirements are separate.",
+        "Statutory employer exclusions and license conditions require official interpretation."
+      ],
+      "evidence": {
+        "url": "https://nj.gov/labor/safetyandhealth/programs-services/asbestos/index.shtml",
+        "reviewedAt": "2026-07-03T00:00:00.000Z",
+        "note": "Official program page states asbestos abatement companies require state-issued licenses."
+      }
+    },
+    {
+      "id": "us.nj.dol.public_works_contractors",
+      "jurisdiction": {
+        "country": "US",
+        "state": "NJ"
+      },
+      "boardName": "New Jersey Public Works Contractor Registration",
+      "agencyName": "New Jersey Department of Labor and Workforce Development Wage and Hour Compliance",
+      "officialUrl": "https://app.powerbigov.us/",
+      "sourceIds": [
+        "us.nj.dol.public_works_contractors"
+      ],
+      "trades": [
+        "general contracting",
+        "commercial contracting",
+        "other"
+      ],
+      "accessPath": "manual_handoff",
+      "coverageLimitations": [
+        "This registration applies to contractors and subcontractors bidding on or performing public works, not private commercial construction generally.",
+        "Trade licenses, debarment, prevailing-wage compliance, permits, and local requirements remain separate."
+      ],
+      "evidence": {
+        "url": "https://www.nj.gov/labor/wageandhour/registration-permits/register/publicworksregistration.shtml",
+        "reviewedAt": "2026-07-03T00:00:00.000Z",
+        "note": "Official page states all contractors and subcontractors on construction-related public works must register and links the public list."
       }
     },
     {
