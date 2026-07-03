@@ -1,0 +1,83 @@
+{
+  "id": "us.mi.lara.bcc_mechanical_contractors",
+  "name": "Michigan LARA BCC Mechanical Contractor License Search",
+  "jurisdiction": { "country": "US", "state": "MI" },
+  "agency": {
+    "name": "Michigan Department of Licensing and Regulatory Affairs Bureau of Construction Codes",
+    "url": "https://www.michigan.gov/lara/bureau-list/bcc"
+  },
+  "sourceType": "html_lookup",
+  "sourceUrl": "https://www.michigan.gov/lara/bureau-list/bcc/sections/licensing-section/exam-lic/mechanical-examination-licensing-registration-application-information",
+  "documentationUrl": "https://www.michigan.gov/lara/bureau-list/bcc/sections/licensing-section/exam-lic/mechanical-examination-licensing-registration-application-information",
+  "dataDictionaryUrl": null,
+  "termsUrl": "https://www.michigan.gov/som/footer/policies",
+  "termsReviewNotes": "Michigan.gov policies were reviewed. Source-specific redistribution approval for Accela license-search fields has not been confirmed.",
+  "updateFrequency": "unknown; verify against the official BCC license lookup before relying on freshness",
+  "tradeCoverage": ["hvac", "mechanical", "solar", "sheet_metal", "other"],
+  "licenseTypesIncluded": [
+    "Mechanical Contractor",
+    "HVAC equipment, ductwork, refrigeration, heating, fire suppression, solar heating and cooling, fuel-gas, and related mechanical classifications"
+  ],
+  "knownExclusions": [
+    "This source is scoped to Michigan BCC mechanical contractor classifications.",
+    "Electrical, plumbing, residential builder, asbestos, local permit, inspection, and business-registration requirements remain separate.",
+    "A credential must be evaluated against its specific work classifications rather than treated as unrestricted mechanical authorization."
+  ],
+  "hasBulkDownload": "unknown",
+  "hasLiveLookup": true,
+  "requiresJavaScript": true,
+  "requiresCaptcha": "unknown",
+  "requiresAccount": false,
+  "rateLimitNotes": "No automated path is implemented. Use the official lookup manually and do not bypass portal controls.",
+  "redistributionStatus": "unknown",
+  "publicRecordsNotes": "Official source metadata only. Absence from this source is not proof that another credential, registration, permit, or authorization does not exist.",
+  "adapterStatus": "blocked",
+  "sourceDiscoveryStatus": "blocked",
+  "adapterMaturity": "blocked",
+  "adapterQualityLevel": 0,
+  "coverageScope": "state_agency_partial",
+  "adapterPackage": null,
+  "testFixturePath": null,
+  "officialLookupUrl": "https://aca3.accela.com/LARA/GeneralProperty/PropertyLookUp.aspx?TabName=APO&isLicensee=Y",
+  "officialLookupReviewNotes": "The BCC site links this Accela property/licensee search as Find / Verify a BCC Licensed Professional or Business.",
+  "officialBulkDownloadNotes": "No official stable bulk export was confirmed during this review.",
+  "researchNotes": "Registry-only source for Michigan mechanical contractor credentials and work classifications.",
+  "verificationReviewedAt": null,
+  "verificationCaveats": [
+    "This source covers Michigan BCC mechanical contractor classifications only.",
+    "No matching record means no match in the checked source at the checked time, not proof that another credential or authorization does not exist."
+  ],
+  "verificationNotes": "No supported adapter is exposed while the Accela data contract, classification behavior, privacy fields, and reuse position remain unreviewed.",
+  "lastVerifiedAt": "2026-07-03T00:00:00.000Z",
+  "maintainerNotes": "Preserve every mechanical work classification, source URL, checked time, caveats, raw record, and fingerprint in any future adapter.",
+  "schemaVersion": "1.0",
+  "researchReviewedAt": "2026-07-03T00:00:00.000Z",
+  "nextReviewAt": "2027-01-03T00:00:00.000Z",
+  "researchEvidence": [
+    {
+      "url": "https://www.michigan.gov/lara/bureau-list/bcc/sections/licensing-section/exam-lic/mechanical-examination-licensing-registration-application-information",
+      "checkedAt": "2026-07-03T00:00:00.000Z",
+      "note": "Official BCC page reviewed; it states licensed mechanical contractors perform installations, alterations, servicing, and permitting across enumerated work classifications."
+    },
+    {
+      "url": "https://www.michigan.gov/lara/bureau-list/bcc/sections/licensing-section",
+      "checkedAt": "2026-07-03T00:00:00.000Z",
+      "note": "Official BCC licensing page identifies mechanical contractor licensure and links the BCC verification portal."
+    },
+    {
+      "url": "https://www.michigan.gov/som/footer/policies",
+      "checkedAt": "2026-07-03T00:00:00.000Z",
+      "note": "Michigan.gov policies reviewed; source-specific redistribution approval remains outstanding."
+    }
+  ],
+  "sourceResearchOutcome": "blocked",
+  "blocker": {
+    "code": "access_controls",
+    "summary": "The official Accela lookup is interactive and returned access-control responses during non-browser review; OpenTrade Registry will not bypass technical controls.",
+    "evidenceUrls": [
+      "https://aca3.accela.com/LARA/GeneralProperty/PropertyLookUp.aspx?TabName=APO&isLicensee=Y",
+      "https://www.michigan.gov/lara/bureau-list/bcc/sections/licensing-section/exam-lic/mechanical-examination-licensing-registration-application-information",
+      "https://www.michigan.gov/som/footer/policies"
+    ]
+  }
+}

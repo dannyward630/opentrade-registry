@@ -1969,7 +1969,209 @@
       }
     },
     { "state": "ME", "decisions": {} },
-    { "state": "MI", "decisions": {} },
+    {
+      "state": "MI",
+      "decisions": {
+        "general_contracting": {
+          "outcome": "local_only",
+          "boardIds": [],
+          "evidence": [
+            {
+              "url": "https://www.michigan.gov/lara/-/media/Project/Websites/lara/bcc-media/Licensing/Residential-Builders/Builders-FAQ.pdf",
+              "reviewedAt": "2026-07-03T00:00:00.000Z",
+              "note": "The official BCC builders FAQ states Michigan requires licensing of residential builders, not commercial builders, and notes that municipalities may impose additional requirements."
+            },
+            {
+              "url": "https://www.michigan.gov/lara/bureau-list/bcc/sections/licensing-section",
+              "reviewedAt": "2026-07-03T00:00:00.000Z",
+              "note": "The BCC licensing section identifies specific residential-builder and skilled-trade credentials rather than a generic statewide general-contractor license."
+            }
+          ],
+          "limitations": ["General contracting outside residential-builder scope may require local permits, local credentials, trade licenses, business registration, or project-specific approvals."]
+        },
+        "residential_contracting": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.mi.lara.residential_builders"],
+          "evidence": [
+            {
+              "url": "https://www.michigan.gov/lara/bureau-list/bcc/boards-commissions/residential-builder-and-maintenance-and-alteration-contractor-board",
+              "reviewedAt": "2026-07-03T00:00:00.000Z",
+              "note": "The official board page states the board licenses and regulates people constructing residential or combination residential-commercial structures and people performing compensated residential improvements."
+            }
+          ],
+          "limitations": ["Credential type and listed M&A trades are material; electrical, plumbing, mechanical, asbestos, permits, and local requirements remain separate."]
+        },
+        "commercial_contracting": {
+          "outcome": "local_only",
+          "boardIds": [],
+          "evidence": [
+            {
+              "url": "https://www.michigan.gov/lara/-/media/Project/Websites/lara/bcc-media/Licensing/Residential-Builders/Builders-FAQ.pdf",
+              "reviewedAt": "2026-07-03T00:00:00.000Z",
+              "note": "The official builders FAQ expressly states BCC requires licensing of residential builders, not commercial builders."
+            }
+          ],
+          "limitations": ["Commercial projects may require trade credentials, local permits or registrations, design-professional involvement, and project-specific approvals."]
+        },
+        "electrical": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.mi.lara.bcc_electrical_contractors"],
+          "evidence": [
+            {
+              "url": "https://www.michigan.gov/lara/bureau-list/bcc/sections/licensing-section/exam-lic/electrical-examination-licensing-registration-application-information",
+              "reviewedAt": "2026-07-03T00:00:00.000Z",
+              "note": "BCC documents electrical contractor, fire-alarm contractor, sign specialty contractor, master, journeyperson, and related electrical credential paths."
+            },
+            {
+              "url": "https://www.michigan.gov/lara/bureau-list/bcc/sections/licensing-section/license-registration-renewals",
+              "reviewedAt": "2026-07-03T00:00:00.000Z",
+              "note": "Official renewal guidance confirms contractor credentials require an appropriate qualifying master or specialty license."
+            }
+          ],
+          "limitations": ["Classification, qualifying-license status, Detroit/local registration, permits, and inspections may affect authorization for a particular job."]
+        },
+        "plumbing": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.mi.lara.bcc_plumbing_contractors"],
+          "evidence": [
+            {
+              "url": "https://www.michigan.gov/lara/bureau-list/bcc/sections/licensing-section/exam-lic/plumbing-examination-licensing-registration-application-information",
+              "reviewedAt": "2026-07-03T00:00:00.000Z",
+              "note": "BCC documents apprentice, journey, master, and plumbing-contractor credential paths."
+            },
+            {
+              "url": "https://www.michigan.gov/lara/bureau-list/bcc/sections/permit-section/permits/plumbing-permit-information",
+              "reviewedAt": "2026-07-03T00:00:00.000Z",
+              "note": "Official permit guidance requires a licensed plumbing contractor and designated master plumber for contractor permit work."
+            }
+          ],
+          "limitations": ["Local code-enforcement jurisdiction, permits, inspections, and sewer or water authority approvals remain separate."]
+        },
+        "hvac": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.mi.lara.bcc_mechanical_contractors"],
+          "evidence": [
+            {
+              "url": "https://www.michigan.gov/lara/bureau-list/bcc/sections/licensing-section/exam-lic/mechanical-examination-licensing-registration-application-information",
+              "reviewedAt": "2026-07-03T00:00:00.000Z",
+              "note": "BCC lists HVAC equipment, heating service, refrigeration, and air-conditioning service among mechanical-contractor work classifications."
+            }
+          ],
+          "limitations": ["A mechanical credential must contain the applicable work classification; electrical, plumbing, gas, permits, and inspections may also apply."]
+        },
+        "mechanical": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.mi.lara.bcc_mechanical_contractors"],
+          "evidence": [
+            {
+              "url": "https://www.michigan.gov/lara/bureau-list/bcc/sections/licensing-section/exam-lic/mechanical-examination-licensing-registration-application-information",
+              "reviewedAt": "2026-07-03T00:00:00.000Z",
+              "note": "BCC states licensed mechanical contractors perform installations, alterations, servicing, and permitting across enumerated mechanical classifications."
+            }
+          ],
+          "limitations": ["Authorization is classification-specific and does not replace electrical, plumbing, residential-builder, asbestos, permit, or local requirements."]
+        },
+        "roofing": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.mi.lara.residential_builders"],
+          "evidence": [
+            {
+              "url": "https://www.michigan.gov/lara/bureau-list/bcc/sections/licensing-section/residential-builders/lic-info/maintenance-alteration-contractor-license-information",
+              "reviewedAt": "2026-07-03T00:00:00.000Z",
+              "note": "BCC lists roofing as a residential Maintenance & Alteration contractor trade and states qualified trades appear on the license."
+            }
+          ],
+          "limitations": ["This decision covers residential roofing within builder or listed M&A scope; commercial roofing and local permit requirements are not represented by a statewide roofing-only board."]
+        },
+        "solar": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.mi.lara.bcc_electrical_contractors", "us.mi.lara.bcc_mechanical_contractors", "us.mi.lara.residential_builders"],
+          "evidence": [
+            {
+              "url": "https://www.michigan.gov/lara/bureau-list/bcc/sections/licensing-section/exam-lic/mechanical-examination-licensing-registration-application-information",
+              "reviewedAt": "2026-07-03T00:00:00.000Z",
+              "note": "BCC lists solar heating and cooling as a mechanical-contractor work classification."
+            },
+            {
+              "url": "https://www.michigan.gov/lara/bureau-list/bcc/sections/licensing-section/exam-lic/electrical-examination-licensing-registration-application-information/large-scale-solar-photovoltaic-projects",
+              "reviewedAt": "2026-07-03T00:00:00.000Z",
+              "note": "BCC publishes electrical-code guidance for large-scale photovoltaic work, confirming the separate electrical path."
+            }
+          ],
+          "limitations": ["Solar projects may require electrical, mechanical, builder/roofing, structural, utility-interconnection, zoning, permit, and inspection approvals depending on scope."]
+        },
+        "pool_spa": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.mi.lara.residential_builders", "us.mi.lara.bcc_plumbing_contractors", "us.mi.lara.bcc_electrical_contractors"],
+          "evidence": [
+            {
+              "url": "https://www.michigan.gov/lara/bureau-list/bcc/sections/licensing-section/residential-builders/lic-info/maintenance-alteration-contractor-license-information",
+              "reviewedAt": "2026-07-03T00:00:00.000Z",
+              "note": "BCC lists swimming pools as a residential Maintenance & Alteration contractor trade."
+            }
+          ],
+          "limitations": ["The M&A license must list swimming pools; plumbing, electrical, mechanical, health, zoning, local permit, and inspection requirements may also apply."]
+        },
+        "asbestos": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.mi.leo.miosha_asbestos_contractors"],
+          "evidence": [
+            {
+              "url": "https://www.michigan.gov/leo/bureaus-agencies/miosha/divisions/construction-safety-and-health-division/asbestos-program/asbestos-abatement-contractor-licensing",
+              "reviewedAt": "2026-07-03T00:00:00.000Z",
+              "note": "MIOSHA states covered companies must obtain an asbestos-abatement contractor license before performing abatement and links its contractor search."
+            }
+          ],
+          "limitations": ["Worker and supervisor accreditation, project notification, disposal, training, statutory incidental-work exceptions, and local requirements are separate."]
+        },
+        "sheet_metal": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.mi.lara.bcc_mechanical_contractors"],
+          "evidence": [
+            {
+              "url": "https://www.michigan.gov/lara/bureau-list/bcc/sections/licensing-section/exam-lic/mechanical-examination-licensing-registration-application-information",
+              "reviewedAt": "2026-07-03T00:00:00.000Z",
+              "note": "BCC lists ductwork as a mechanical-contractor classification and includes air-distribution work in mechanical licensing."
+            }
+          ],
+          "limitations": ["This is the confirmed statewide path for mechanical ductwork, not a separate sheet-metal-only board; classification, permits, and local requirements still apply."]
+        },
+        "underground_utility": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.mi.lara.residential_builders", "us.mi.lara.bcc_plumbing_contractors"],
+          "evidence": [
+            {
+              "url": "https://www.michigan.gov/lara/bureau-list/bcc/sections/licensing-section/residential-builders/lic-info/maintenance-alteration-contractor-license-information",
+              "reviewedAt": "2026-07-03T00:00:00.000Z",
+              "note": "BCC lists excavation as a residential Maintenance & Alteration contractor trade."
+            },
+            {
+              "url": "https://www.michigan.gov/lara/bureau-list/bcc/sections/permit-section/permits/plumbing-permit-information",
+              "reviewedAt": "2026-07-03T00:00:00.000Z",
+              "note": "BCC plumbing guidance addresses building sewer, private sewer, and water-service work while directing users to local enforcing agencies for local requirements."
+            }
+          ],
+          "limitations": ["Coverage is limited to residential excavation and plumbing-related sewer/water scopes; utility-owner, right-of-way, environmental, MISS DIG, local permit, and project-specific approvals remain separate."]
+        },
+        "home_improvement": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.mi.lara.residential_builders"],
+          "evidence": [
+            {
+              "url": "https://www.michigan.gov/lara/bureau-list/bcc/boards-commissions/residential-builder-and-maintenance-and-alteration-contractor-board",
+              "reviewedAt": "2026-07-03T00:00:00.000Z",
+              "note": "The official board page states it regulates people performing compensated repair, alteration, addition, subtraction, or improvement of residential structures."
+            },
+            {
+              "url": "https://www.michigan.gov/lara/bureau-list/bcc/sections/licensing-section/residential-builders/lic-info/helpful-information-for-homeowners",
+              "reviewedAt": "2026-07-03T00:00:00.000Z",
+              "note": "BCC explains that residential-builder licenses include remodeling and that M&A credentials authorize only the trades listed on the license."
+            }
+          ],
+          "limitations": ["Residential builder and M&A credentials are not interchangeable with trade licenses, permits, inspections, insurance checks, or business registration."]
+        }
+      }
+    },
     {
       "state": "MN",
       "decisions": {

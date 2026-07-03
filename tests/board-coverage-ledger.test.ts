@@ -15,10 +15,10 @@ describe("nationwide board trade coverage ledger", () => {
     expect(ledger.jurisdictions).toHaveLength(56);
     expect(new Set(ledger.jurisdictions.map((entry) => entry.state)).size).toBe(56);
     expect(expanded).toHaveLength(56 * BOARD_TRADE_DOMAINS.length);
-    expect(expanded.filter((decision) => decision.outcome === "needs_research")).toHaveLength(350);
-    expect(expanded.filter((decision) => decision.outcome === "covered_by_board")).toHaveLength(367);
+    expect(expanded.filter((decision) => decision.outcome === "needs_research")).toHaveLength(336);
+    expect(expanded.filter((decision) => decision.outcome === "covered_by_board")).toHaveLength(379);
     expect(expanded.filter((decision) => decision.outcome === "not_state_regulated")).toHaveLength(7);
-    expect(expanded.filter((decision) => decision.outcome === "local_only")).toHaveLength(60);
+    expect(expanded.filter((decision) => decision.outcome === "local_only")).toHaveLength(62);
   });
 
   it("records complete Oregon contractor, BCD trade, and DEQ asbestos coverage", async () => {
@@ -254,6 +254,36 @@ describe("nationwide board trade coverage ledger", () => {
     expect(expanded.find((decision) => decision.tradeDomain === "hvac")?.boardIds).toEqual(["us.md.labor.hvacr_contractors"]);
     expect(expanded.find((decision) => decision.tradeDomain === "asbestos")?.boardIds).toEqual(["us.md.mde.asbestos_contractors"]);
     expect(expanded.find((decision) => decision.tradeDomain === "solar")?.limitations.join(" ")).toContain("utility interconnection");
+  });
+
+  it("records Michigan residential, skilled-trade, asbestos, and commercial boundaries", async () => {
+    const ledger = boardTradeCoverageLedgerSchema.parse(await json("registry/board-coverage.json"));
+    const expanded = expandBoardTradeCoverageLedger(ledger).filter((decision) => decision.state === "MI");
+
+    expect(expanded.filter((decision) => decision.outcome === "needs_research")).toEqual([]);
+    expect(expanded.find((decision) => decision.tradeDomain === "general_contracting")?.outcome).toBe("local_only");
+    expect(expanded.find((decision) => decision.tradeDomain === "commercial_contracting")?.outcome).toBe("local_only");
+    expect(expanded.find((decision) => decision.tradeDomain === "residential_contracting")?.boardIds).toEqual([
+      "us.mi.lara.residential_builders",
+    ]);
+    expect(expanded.find((decision) => decision.tradeDomain === "electrical")?.boardIds).toEqual([
+      "us.mi.lara.bcc_electrical_contractors",
+    ]);
+    expect(expanded.find((decision) => decision.tradeDomain === "plumbing")?.boardIds).toEqual([
+      "us.mi.lara.bcc_plumbing_contractors",
+    ]);
+    expect(expanded.find((decision) => decision.tradeDomain === "hvac")?.boardIds).toEqual([
+      "us.mi.lara.bcc_mechanical_contractors",
+    ]);
+    expect(expanded.find((decision) => decision.tradeDomain === "asbestos")?.boardIds).toEqual([
+      "us.mi.leo.miosha_asbestos_contractors",
+    ]);
+    expect(expanded.find((decision) => decision.tradeDomain === "roofing")?.limitations.join(" ")).toContain(
+      "residential roofing",
+    );
+    expect(expanded.find((decision) => decision.tradeDomain === "underground_utility")?.limitations.join(" ")).toContain(
+      "project-specific approvals",
+    );
   });
 
   it("records complete Nevada contractor classification coverage", async () => {

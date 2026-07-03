@@ -1,0 +1,80 @@
+{
+  "id": "us.mi.leo.miosha_asbestos_contractors",
+  "name": "Michigan LEO MIOSHA Asbestos Abatement Contractor Search",
+  "jurisdiction": { "country": "US", "state": "MI" },
+  "agency": {
+    "name": "Michigan Department of Labor and Economic Opportunity MIOSHA Asbestos Program",
+    "url": "https://www.michigan.gov/leo/bureaus-agencies/miosha/divisions/construction-safety-and-health-division/asbestos-program"
+  },
+  "sourceType": "html_lookup",
+  "sourceUrl": "https://asbestosprogram.apps.lara.state.mi.us/Contractor/ContractorSearch",
+  "documentationUrl": "https://www.michigan.gov/leo/bureaus-agencies/miosha/divisions/construction-safety-and-health-division/asbestos-program/asbestos-abatement-contractor-licensing",
+  "dataDictionaryUrl": null,
+  "termsUrl": "https://www.michigan.gov/som/footer/policies",
+  "termsReviewNotes": "Michigan.gov policies were reviewed. Source-specific redistribution approval for asbestos lookup fields has not been confirmed.",
+  "updateFrequency": "unknown; verify against the official MIOSHA asbestos contractor search before relying on freshness",
+  "tradeCoverage": ["asbestos"],
+  "licenseTypesIncluded": ["Type I asbestos abatement contractor", "Type II asbestos abatement contractor"],
+  "knownExclusions": [
+    "This source is limited to Michigan asbestos abatement contractor licenses.",
+    "Worker and supervisor accreditations, training providers, project notifications, general construction credentials, and local permits are separate records.",
+    "Specified licensed trade groups may have limited statutory exceptions for incidental asbestos work; those exceptions are not asbestos contractor licenses."
+  ],
+  "hasBulkDownload": false,
+  "hasLiveLookup": true,
+  "requiresJavaScript": true,
+  "requiresCaptcha": "unknown",
+  "requiresAccount": false,
+  "rateLimitNotes": "No automated path is implemented. Use the official search manually and do not bypass technical controls.",
+  "redistributionStatus": "unknown",
+  "publicRecordsNotes": "Official source metadata only. Absence from this source is not proof that another credential, exception, notification, permit, or authorization does not exist.",
+  "adapterStatus": "blocked",
+  "sourceDiscoveryStatus": "blocked",
+  "adapterMaturity": "blocked",
+  "adapterQualityLevel": 0,
+  "coverageScope": "state_agency_partial",
+  "adapterPackage": null,
+  "testFixturePath": null,
+  "officialLookupUrl": "https://asbestosprogram.apps.lara.state.mi.us/Contractor/ContractorSearch",
+  "officialLookupReviewNotes": "The official MIOSHA licensing page links this JavaScript contractor search, which exposes name, license type, license number, city, and state search fields.",
+  "officialBulkDownloadNotes": "The official path reviewed is a JavaScript lookup; no stable bulk export was confirmed.",
+  "researchNotes": "Registry-only source for Michigan asbestos abatement contractor licenses.",
+  "verificationReviewedAt": null,
+  "verificationCaveats": [
+    "This source covers Michigan asbestos abatement contractor licenses only.",
+    "No matching record means no match in the checked source at the checked time, not proof that another credential, exception, notification, permit, or authorization does not exist."
+  ],
+  "verificationNotes": "No supported adapter is exposed while the JavaScript application contract, access controls, privacy fields, and reuse position remain unreviewed.",
+  "lastVerifiedAt": "2026-07-03T00:00:00.000Z",
+  "maintainerNotes": "A future permitted lookup adapter must preserve license type, source URL, checked time, caveats, raw record, and fingerprint.",
+  "schemaVersion": "1.0",
+  "researchReviewedAt": "2026-07-03T00:00:00.000Z",
+  "nextReviewAt": "2027-01-03T00:00:00.000Z",
+  "researchEvidence": [
+    {
+      "url": "https://www.michigan.gov/leo/bureaus-agencies/miosha/divisions/construction-safety-and-health-division/asbestos-program/asbestos-abatement-contractor-licensing",
+      "checkedAt": "2026-07-03T00:00:00.000Z",
+      "note": "Official MIOSHA page reviewed; it states covered companies must be licensed before asbestos abatement and links the contractor search."
+    },
+    {
+      "url": "https://asbestosprogram.apps.lara.state.mi.us/Contractor/ContractorSearch",
+      "checkedAt": "2026-07-03T00:00:00.000Z",
+      "note": "Official JavaScript search reviewed; it exposes contractor name, Type I or II, license number, city, and state filters."
+    },
+    {
+      "url": "https://www.michigan.gov/som/footer/policies",
+      "checkedAt": "2026-07-03T00:00:00.000Z",
+      "note": "Michigan.gov policies reviewed; source-specific redistribution approval remains outstanding."
+    }
+  ],
+  "sourceResearchOutcome": "blocked",
+  "blocker": {
+    "code": "technical_instability",
+    "summary": "The official search is a JavaScript application without a reviewed stable public data contract or confirmed redistribution position.",
+    "evidenceUrls": [
+      "https://asbestosprogram.apps.lara.state.mi.us/Contractor/ContractorSearch",
+      "https://www.michigan.gov/leo/bureaus-agencies/miosha/divisions/construction-safety-and-health-division/asbestos-program/asbestos-abatement-contractor-licensing",
+      "https://www.michigan.gov/som/footer/policies"
+    ]
+  }
+}

@@ -2049,6 +2049,94 @@
       }
     },
     {
+      "id": "us.mi.lara.bcc_electrical_contractors",
+      "jurisdiction": {
+        "country": "US",
+        "state": "MI"
+      },
+      "boardName": "Michigan LARA BCC Electrical Contractor License Search",
+      "agencyName": "Michigan Department of Licensing and Regulatory Affairs Bureau of Construction Codes",
+      "officialUrl": "https://aca3.accela.com/LARA/GeneralProperty/PropertyLookUp.aspx?TabName=APO&isLicensee=Y",
+      "sourceIds": [
+        "us.mi.lara.bcc_electrical_contractors"
+      ],
+      "trades": [
+        "electrical",
+        "solar",
+        "other"
+      ],
+      "accessPath": "manual_handoff",
+      "coverageLimitations": [
+        "This source is scoped to Michigan BCC electrical and related specialty credentials.",
+        "Detroit-issued credentials, local registrations, permits, inspections, utility approvals, and non-electrical contractor credentials may require separate official paths.",
+        "Future adapter work must distinguish contractor, master, journeyperson, apprentice, fire-alarm, and sign classifications."
+      ],
+      "evidence": {
+        "url": "https://www.michigan.gov/lara/bureau-list/bcc/sections/licensing-section",
+        "reviewedAt": "2026-07-03T00:00:00.000Z",
+        "note": "Official BCC licensing page reviewed; it identifies electrical, fire-alarm, and sign contractor licensing and links the BCC verification portal."
+      }
+    },
+    {
+      "id": "us.mi.lara.bcc_mechanical_contractors",
+      "jurisdiction": {
+        "country": "US",
+        "state": "MI"
+      },
+      "boardName": "Michigan LARA BCC Mechanical Contractor License Search",
+      "agencyName": "Michigan Department of Licensing and Regulatory Affairs Bureau of Construction Codes",
+      "officialUrl": "https://aca3.accela.com/LARA/GeneralProperty/PropertyLookUp.aspx?TabName=APO&isLicensee=Y",
+      "sourceIds": [
+        "us.mi.lara.bcc_mechanical_contractors"
+      ],
+      "trades": [
+        "hvac",
+        "mechanical",
+        "solar",
+        "sheet_metal",
+        "other"
+      ],
+      "accessPath": "manual_handoff",
+      "coverageLimitations": [
+        "This source is scoped to Michigan BCC mechanical contractor classifications.",
+        "Electrical, plumbing, residential builder, asbestos, local permit, inspection, and business-registration requirements remain separate.",
+        "A credential must be evaluated against its specific work classifications rather than treated as unrestricted mechanical authorization."
+      ],
+      "evidence": {
+        "url": "https://www.michigan.gov/lara/bureau-list/bcc/sections/licensing-section/exam-lic/mechanical-examination-licensing-registration-application-information",
+        "reviewedAt": "2026-07-03T00:00:00.000Z",
+        "note": "Official BCC page reviewed; it states licensed mechanical contractors perform installations, alterations, servicing, and permitting across enumerated work classifications."
+      }
+    },
+    {
+      "id": "us.mi.lara.bcc_plumbing_contractors",
+      "jurisdiction": {
+        "country": "US",
+        "state": "MI"
+      },
+      "boardName": "Michigan LARA BCC Plumbing Contractor License Search",
+      "agencyName": "Michigan Department of Licensing and Regulatory Affairs Bureau of Construction Codes",
+      "officialUrl": "https://aca3.accela.com/LARA/GeneralProperty/PropertyLookUp.aspx?TabName=APO&isLicensee=Y",
+      "sourceIds": [
+        "us.mi.lara.bcc_plumbing_contractors"
+      ],
+      "trades": [
+        "plumbing",
+        "other"
+      ],
+      "accessPath": "manual_handoff",
+      "coverageLimitations": [
+        "This source is scoped to Michigan BCC plumbing credentials.",
+        "Local permits, inspections, sewer or water authority approvals, mechanical credentials, and non-plumbing contractor credentials remain separate.",
+        "Future adapter work must distinguish contractor, master, journey, and apprentice classifications."
+      ],
+      "evidence": {
+        "url": "https://www.michigan.gov/lara/bureau-list/bcc/sections/licensing-section/exam-lic/plumbing-examination-licensing-registration-application-information",
+        "reviewedAt": "2026-07-03T00:00:00.000Z",
+        "note": "Official BCC plumbing licensing page reviewed for apprentice, journey, master, and plumbing contractor credential paths."
+      }
+    },
+    {
       "id": "us.mi.lara.residential_builders",
       "jurisdiction": {
         "country": "US",
@@ -2074,6 +2162,33 @@
         "url": "https://aca-prod.accela.com/LARA/GeneralProperty/PropertyLookUp.aspx?TabName=APO&isLicensee=Y",
         "reviewedAt": "2026-06-27T00:00:00.000Z",
         "note": "Official public source, access shape, and current automation constraints reviewed."
+      }
+    },
+    {
+      "id": "us.mi.leo.miosha_asbestos_contractors",
+      "jurisdiction": {
+        "country": "US",
+        "state": "MI"
+      },
+      "boardName": "Michigan LEO MIOSHA Asbestos Abatement Contractor Search",
+      "agencyName": "Michigan Department of Labor and Economic Opportunity MIOSHA Asbestos Program",
+      "officialUrl": "https://asbestosprogram.apps.lara.state.mi.us/Contractor/ContractorSearch",
+      "sourceIds": [
+        "us.mi.leo.miosha_asbestos_contractors"
+      ],
+      "trades": [
+        "asbestos"
+      ],
+      "accessPath": "manual_handoff",
+      "coverageLimitations": [
+        "This source is limited to Michigan asbestos abatement contractor licenses.",
+        "Worker and supervisor accreditations, training providers, project notifications, general construction credentials, and local permits are separate records.",
+        "Specified licensed trade groups may have limited statutory exceptions for incidental asbestos work; those exceptions are not asbestos contractor licenses."
+      ],
+      "evidence": {
+        "url": "https://www.michigan.gov/leo/bureaus-agencies/miosha/divisions/construction-safety-and-health-division/asbestos-program/asbestos-abatement-contractor-licensing",
+        "reviewedAt": "2026-07-03T00:00:00.000Z",
+        "note": "Official MIOSHA page reviewed; it states covered companies must be licensed before asbestos abatement and links the contractor search."
       }
     },
     {
