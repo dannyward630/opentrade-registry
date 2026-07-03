@@ -4,9 +4,9 @@
 
 ## Current Completeness
 
-The inventory currently has `completeness: "representative_source_baseline"`. Its 103 rows migrate every existing state, DC, and major-territory source into the board model. This proves source linkage and terminal access-path handling, but it does not yet claim every material statewide trade board has been identified.
+The inventory currently has `completeness: "representative_source_baseline"`. Its 104 rows migrate every existing state, DC, and major-territory source into the board model. This proves source linkage and terminal access-path handling, but it does not yet claim every material statewide trade board has been identified.
 
-The board-coverage ledger currently resolves `392` of `784` jurisdiction/domain decisions, leaving `392` for research. Indiana and Kansas are fully resolved in the ledger. Kansas roofing, asbestos, fire-protection, and water-well programs point to separate statewide sources; its remaining tracked construction domains carry official local-only evidence.
+The board-coverage ledger currently resolves `406` of `784` jurisdiction/domain decisions, leaving `378` for research. Indiana, Kansas, and Kentucky are fully resolved in the ledger. Kentucky electrical, plumbing, HVAC, mechanical-adjacent, solar electrical, sheet-metal HVAC, and asbestos paths point to statewide sources; its remaining tracked construction domains carry official local-only evidence.
 
 The inventory may change to `board_complete` only after every tracked jurisdiction has been reviewed for general contracting, residential, electrical, plumbing, HVAC, mechanical, roofing, solar, asbestos, pool/spa, home-improvement, and other independently regulated statewide trades. Each additional board needs official evidence and a terminal access path.
 

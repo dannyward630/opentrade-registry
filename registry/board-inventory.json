@@ -1600,6 +1600,8 @@
         "hvac",
         "plumbing",
         "mechanical",
+        "solar",
+        "sheet_metal",
         "other"
       ],
       "accessPath": "manual_handoff",
@@ -1612,6 +1614,33 @@
         "url": "https://dhbc.ky.gov/Search/HBC_List_Licensees.aspx",
         "reviewedAt": "2026-06-27T00:00:00.000Z",
         "note": "Official public source, access shape, and current automation constraints reviewed."
+      }
+    },
+    {
+      "id": "us.ky.eec.asbestos_contractors",
+      "jurisdiction": {
+        "country": "US",
+        "state": "KY"
+      },
+      "boardName": "Kentucky EEC Asbestos Abatement Contractors",
+      "agencyName": "Kentucky Energy and Environment Cabinet",
+      "officialUrl": "https://eec.ky.gov/Environmental-Protection/Air/asbestos/Pages/default.aspx",
+      "sourceIds": [
+        "us.ky.eec.asbestos_contractors"
+      ],
+      "trades": [
+        "asbestos"
+      ],
+      "accessPath": "manual_handoff",
+      "coverageLimitations": [
+        "This source is limited to Kentucky asbestos abatement company certification and related asbestos accreditation references.",
+        "It does not represent general contractor, roofing, electrical, plumbing, HVAC, local permit, or business-registration records.",
+        "The EEC page points users to separate active-company and manage-a-license search paths; adapter work must review category filters, field shape, privacy, and reuse before ingestion."
+      ],
+      "evidence": {
+        "url": "https://eec.ky.gov/Environmental-Protection/Air/asbestos/Pages/default.aspx",
+        "reviewedAt": "2026-07-03T00:00:00.000Z",
+        "note": "Official EEC asbestos page reviewed; it links active companies and manage-a-license search paths for asbestos abatement professionals and certified companies."
       }
     },
     {
