@@ -18,7 +18,7 @@ describe("source readiness helpers", () => {
     const sources = await loadRegistrySources();
     const readiness = buildSourceReadiness(sources);
 
-    expect(readiness.sourceCount).toBe(98);
+    expect(readiness.sourceCount).toBe(100);
     expect(readiness.implementedAdapterSources.map((source) => source.id)).toEqual([
       "us.az.roc.contractors",
       "us.ca.cslb.contractors",
@@ -34,15 +34,15 @@ describe("source readiness helpers", () => {
     expect(readiness.downloadResearchCandidates).toEqual([]);
     expect(readiness.lookupAutomationConstraintSources).toEqual([]);
     expect(readiness.sourcesByResearchOutcome).toEqual({
-      blocked: 89,
+      blocked: 91,
       deprecated: 0,
       local_file_adapter: 2,
       network_opt_in: 7,
       production_ready: 0,
     });
     expect(readiness.registryOnlySourceCount).toBe(0);
-    expect(readiness.blockedSourceCount).toBe(89);
-    expect(readiness.terminalSourceCount).toBe(98);
+    expect(readiness.blockedSourceCount).toBe(91);
+    expect(readiness.terminalSourceCount).toBe(100);
     expect(readiness.note).toContain("terminal");
   });
 

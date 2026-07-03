@@ -15,10 +15,10 @@ describe("nationwide board trade coverage ledger", () => {
     expect(ledger.jurisdictions).toHaveLength(56);
     expect(new Set(ledger.jurisdictions.map((entry) => entry.state)).size).toBe(56);
     expect(expanded).toHaveLength(56 * BOARD_TRADE_DOMAINS.length);
-    expect(expanded.filter((decision) => decision.outcome === "needs_research")).toHaveLength(420);
-    expect(expanded.filter((decision) => decision.outcome === "covered_by_board")).toHaveLength(329);
+    expect(expanded.filter((decision) => decision.outcome === "needs_research")).toHaveLength(406);
+    expect(expanded.filter((decision) => decision.outcome === "covered_by_board")).toHaveLength(331);
     expect(expanded.filter((decision) => decision.outcome === "not_state_regulated")).toHaveLength(7);
-    expect(expanded.filter((decision) => decision.outcome === "local_only")).toHaveLength(28);
+    expect(expanded.filter((decision) => decision.outcome === "local_only")).toHaveLength(40);
   });
 
   it("records complete Oregon contractor, BCD trade, and DEQ asbestos coverage", async () => {
@@ -84,6 +84,24 @@ describe("nationwide board trade coverage ledger", () => {
         boardIds: ["us.ak.commerce.construction_contractors", "us.ak.commerce.mechanical_administrators"],
       });
     }
+  });
+
+  it("records Indiana statewide plumbing and asbestos boundaries", async () => {
+    const ledger = boardTradeCoverageLedgerSchema.parse(await json("registry/board-coverage.json"));
+    const expanded = expandBoardTradeCoverageLedger(ledger).filter((decision) => decision.state === "IN");
+
+    expect(expanded.filter((decision) => decision.outcome === "needs_research")).toEqual([]);
+    expect(expanded.find((decision) => decision.tradeDomain === "plumbing")).toMatchObject({
+      outcome: "covered_by_board",
+      boardIds: ["us.in.pla.plumbing"],
+    });
+    expect(expanded.find((decision) => decision.tradeDomain === "asbestos")).toMatchObject({
+      outcome: "covered_by_board",
+      boardIds: ["us.in.idem.asbestos_licensing"],
+    });
+    expect(expanded.find((decision) => decision.tradeDomain === "general_contracting")?.outcome).toBe("local_only");
+    expect(expanded.find((decision) => decision.tradeDomain === "electrical")?.outcome).toBe("local_only");
+    expect(expanded.find((decision) => decision.tradeDomain === "home_improvement")?.outcome).toBe("local_only");
   });
 
   it("records complete Alabama board-specific trade coverage", async () => {
