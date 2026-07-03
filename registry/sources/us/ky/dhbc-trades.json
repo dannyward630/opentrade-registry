@@ -20,6 +20,8 @@
     "hvac",
     "plumbing",
     "mechanical",
+    "solar",
+    "sheet_metal",
     "other"
   ],
   "licenseTypesIncluded": [
@@ -46,7 +48,7 @@
   "testFixturePath": null,
   "officialLookupUrl": "https://dhbc.ky.gov/Search/HBC_List_Licensees.aspx",
   "officialBulkDownloadNotes": "No official bulk download has been confirmed in this phase.",
-  "researchNotes": "Registry-only source for Kentucky DHBC trade licensee search. Future work should decide whether electrical, HVAC, plumbing, fire, and manufactured-housing records need separate source entries or filters.",
+  "researchNotes": "Registry-only source for Kentucky DHBC trade licensee search. Board coverage currently uses this source for electrical, plumbing, HVAC, mechanical-adjacent fire/sprinkler/boiler programs, and electrical portions of solar work; adapters must filter DHBC license types carefully.",
   "lastVerifiedAt": "2026-06-27T00:00:00.000Z",
   "maintainerNotes": "Do not flatten all DHBC license types into contractor records without source-specific type mapping.",
   "schemaVersion": "1.0",
