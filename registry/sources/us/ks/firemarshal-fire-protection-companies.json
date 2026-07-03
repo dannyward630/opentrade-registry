@@ -1,0 +1,65 @@
+{
+  "id": "us.ks.firemarshal.fire_protection_companies",
+  "name": "Kansas State Fire Marshal Fire Protection Company Registration",
+  "jurisdiction": { "country": "US", "state": "KS" },
+  "agency": { "name": "Kansas State Fire Marshal", "url": "https://www.firemarshal.ks.gov/" },
+  "sourceType": "manual_public_records_file",
+  "sourceUrl": "https://www.firemarshal.ks.gov/185/Licensing",
+  "documentationUrl": "https://www.firemarshal.ks.gov/185/Licensing",
+  "dataDictionaryUrl": null,
+  "termsUrl": "https://www.firemarshal.ks.gov/257/Terms-of-Use",
+  "termsReviewNotes": "The Fire Marshal terms disclaim currency and require users to obtain permission where copyright restrictions apply. No generated dataset publication is approved.",
+  "updateFrequency": "unknown; registration information is maintained by the Fire Marshal and may be available only by public request",
+  "tradeCoverage": ["mechanical", "plumbing", "other"],
+  "licenseTypesIncluded": [
+    "Kansas fire alarm company registrations",
+    "Kansas fire sprinkler company registrations",
+    "Kansas certified fire-extinguisher and fixed-extinguishing-system firms"
+  ],
+  "knownExclusions": [
+    "This source covers fire alarm, sprinkler, extinguisher, and fixed extinguishing system programs only, not every mechanical, plumbing, electrical, local permit, or contractor credential.",
+    "The Fire Marshal states fire alarm and sprinkler companies are registered rather than licensed.",
+    "No stable public roster, API, or bulk export was confirmed during this review."
+  ],
+  "hasBulkDownload": false,
+  "hasLiveLookup": false,
+  "requiresJavaScript": "unknown",
+  "requiresCaptcha": "unknown",
+  "requiresAccount": "unknown",
+  "rateLimitNotes": "No automated source path is implemented. Use the official registration guidance and agency public-request path manually.",
+  "redistributionStatus": "unknown",
+  "publicRecordsNotes": "Official program metadata only. Registration information may be available by request; absence from an automated result is not proof of no registration or authorization.",
+  "adapterStatus": "blocked",
+  "sourceDiscoveryStatus": "blocked",
+  "adapterMaturity": "blocked",
+  "adapterQualityLevel": 0,
+  "coverageScope": "state_agency_partial",
+  "adapterPackage": null,
+  "testFixturePath": null,
+  "officialLookupUrl": null,
+  "officialLookupReviewNotes": "The Fire Marshal documents registration requirements but no stable public company roster or lookup was confirmed.",
+  "officialBulkDownloadNotes": "No official stable bulk download was confirmed for fire alarm, sprinkler, extinguisher, or fixed-system company registrations.",
+  "researchNotes": "Treat registration, certification, and local permitting as distinct concepts. This entry is an official manual handoff, not an automated verification source.",
+  "verificationReviewedAt": null,
+  "verificationCaveats": [
+    "This source covers Kansas State Fire Marshal fire-protection company programs only.",
+    "The absence of a public roster or automated result must not be interpreted as a no-match finding."
+  ],
+  "verificationNotes": "Use the official licensing page, registration form, and agency contact path as a manual handoff.",
+  "lastVerifiedAt": "2026-07-03T00:00:00.000Z",
+  "maintainerNotes": "Re-review for a stable official roster or export; do not infer licensing where the agency uses registration terminology.",
+  "schemaVersion": "1.0",
+  "researchReviewedAt": "2026-07-03T00:00:00.000Z",
+  "nextReviewAt": "2027-01-03T00:00:00.000Z",
+  "researchEvidence": [
+    { "url": "https://www.firemarshal.ks.gov/185/Licensing", "checkedAt": "2026-07-03T00:00:00.000Z", "note": "The Fire Marshal states Kansas does not license fire alarm or sprinkler companies but requires office registration." },
+    { "url": "https://www.firemarshal.ks.gov/187/Fire-Extinguishers", "checkedAt": "2026-07-03T00:00:00.000Z", "note": "The Fire Marshal documents certified-firm registration for servicing, inspecting, or installing extinguishers and fixed extinguishing systems." },
+    { "url": "https://www.firemarshal.ks.gov/257/Terms-of-Use", "checkedAt": "2026-07-03T00:00:00.000Z", "note": "Official terms reviewed; they disclaim currency and place responsibility for copyright permission on users." }
+  ],
+  "sourceResearchOutcome": "blocked",
+  "blocker": {
+    "code": "no_stable_source",
+    "summary": "The agency documents registration and manual request paths, but no stable public roster, lookup response, API, or bulk export was confirmed.",
+    "evidenceUrls": ["https://www.firemarshal.ks.gov/185/Licensing", "https://www.firemarshal.ks.gov/257/Terms-of-Use"]
+  }
+}
