@@ -15,8 +15,8 @@ describe("nationwide board trade coverage ledger", () => {
     expect(ledger.jurisdictions).toHaveLength(56);
     expect(new Set(ledger.jurisdictions.map((entry) => entry.state)).size).toBe(56);
     expect(expanded).toHaveLength(56 * BOARD_TRADE_DOMAINS.length);
-    expect(expanded.filter((decision) => decision.outcome === "needs_research")).toHaveLength(336);
-    expect(expanded.filter((decision) => decision.outcome === "covered_by_board")).toHaveLength(379);
+    expect(expanded.filter((decision) => decision.outcome === "needs_research")).toHaveLength(322);
+    expect(expanded.filter((decision) => decision.outcome === "covered_by_board")).toHaveLength(393);
     expect(expanded.filter((decision) => decision.outcome === "not_state_regulated")).toHaveLength(7);
     expect(expanded.filter((decision) => decision.outcome === "local_only")).toHaveLength(62);
   });
@@ -283,6 +283,37 @@ describe("nationwide board trade coverage ledger", () => {
     );
     expect(expanded.find((decision) => decision.tradeDomain === "underground_utility")?.limitations.join(" ")).toContain(
       "project-specific approvals",
+    );
+  });
+
+  it("records New Jersey builder, public-works, trade, fire-safety, and asbestos coverage", async () => {
+    const ledger = boardTradeCoverageLedgerSchema.parse(await json("registry/board-coverage.json"));
+    const expanded = expandBoardTradeCoverageLedger(ledger).filter((decision) => decision.state === "NJ");
+
+    expect(expanded.filter((decision) => decision.outcome === "needs_research")).toEqual([]);
+    expect(expanded.every((decision) => decision.outcome === "covered_by_board")).toBe(true);
+    expect(expanded.find((decision) => decision.tradeDomain === "residential_contracting")?.boardIds).toEqual([
+      "us.nj.dca.new_home_builders",
+      "us.nj.dca.home_improvement_contractors",
+      "us.nj.dca.home_elevation_contractors",
+    ]);
+    expect(expanded.find((decision) => decision.tradeDomain === "electrical")?.boardIds).toContain(
+      "us.nj.dca.fire_protection_equipment_contractors",
+    );
+    expect(expanded.find((decision) => decision.tradeDomain === "plumbing")?.boardIds).toContain(
+      "us.nj.dca.master_plumbers",
+    );
+    expect(expanded.find((decision) => decision.tradeDomain === "hvac")?.boardIds).toContain(
+      "us.nj.dca.hvacr_contractors",
+    );
+    expect(expanded.find((decision) => decision.tradeDomain === "asbestos")?.boardIds).toEqual([
+      "us.nj.dol.asbestos_contractors",
+    ]);
+    expect(expanded.find((decision) => decision.tradeDomain === "commercial_contracting")?.limitations.join(" ")).toContain(
+      "private commercial construction",
+    );
+    expect(expanded.find((decision) => decision.tradeDomain === "underground_utility")?.limitations.join(" ")).toContain(
+      "private-project requirements",
     );
   });
 

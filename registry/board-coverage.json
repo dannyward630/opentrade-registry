@@ -2449,7 +2449,138 @@
     { "state": "ND", "decisions": {} },
     { "state": "NE", "decisions": {} },
     { "state": "NH", "decisions": {} },
-    { "state": "NJ", "decisions": {} },
+    {
+      "state": "NJ",
+      "decisions": {
+        "general_contracting": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.nj.dca.new_home_builders", "us.nj.dol.public_works_contractors"],
+          "evidence": [
+            { "url": "https://www.nj.gov/dca/codes/offices/nhw_for_builders.html", "reviewedAt": "2026-07-03T00:00:00.000Z", "note": "DCA requires registration for businesses constructing covered new homes." },
+            { "url": "https://www.nj.gov/labor/wageandhour/registration-permits/register/publicworksregistration.shtml", "reviewedAt": "2026-07-03T00:00:00.000Z", "note": "NJDOL requires contractors and subcontractors on construction-related public works to register." }
+          ],
+          "limitations": ["These statewide paths cover new-home building and public works, not a universal private general-contractor license; trade credentials, permits, and local requirements remain separate."]
+        },
+        "residential_contracting": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.nj.dca.new_home_builders", "us.nj.dca.home_improvement_contractors", "us.nj.dca.home_elevation_contractors"],
+          "evidence": [
+            { "url": "https://www.nj.gov/dca/codes/offices/nhw_for_builders.html", "reviewedAt": "2026-07-03T00:00:00.000Z", "note": "DCA states all covered new-home building businesses must register separately." },
+            { "url": "https://www.njconsumeraffairs.gov/hic/Pages/FAQ.aspx", "reviewedAt": "2026-07-03T00:00:00.000Z", "note": "Consumer Affairs requires annual HIC business registration for existing residential-property improvements." },
+            { "url": "https://www.njconsumeraffairs.gov/hec", "reviewedAt": "2026-07-03T00:00:00.000Z", "note": "Consumer Affairs separately requires home-elevation contractor registration." }
+          ],
+          "limitations": ["New construction, improvements, and elevation are distinct registrations; trade licenses, warranties, permits, inspections, and exemptions must be checked separately."]
+        },
+        "commercial_contracting": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.nj.dol.public_works_contractors"],
+          "evidence": [
+            { "url": "https://www.nj.gov/labor/wageandhour/registration-permits/register/publicworksregistration.shtml", "reviewedAt": "2026-07-03T00:00:00.000Z", "note": "NJDOL requires statewide registration for contractors and subcontractors bidding on or performing public works." },
+            { "url": "https://www.njconsumeraffairs.gov/hic/Pages/FAQ.aspx", "reviewedAt": "2026-07-03T00:00:00.000Z", "note": "The HIC FAQ says registration does not apply to properties used for commercial purposes." }
+          ],
+          "limitations": ["PWCR covers public works only; private commercial construction may require trade credentials, business registration, permits, and local or project-specific approvals rather than a generic statewide license."]
+        },
+        "electrical": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.nj.dca.electrical_contractors", "us.nj.dca.fire_alarm_locksmith", "us.nj.dca.fire_protection_equipment_contractors"],
+          "evidence": [
+            { "url": "https://www.njconsumeraffairs.gov/elec", "reviewedAt": "2026-07-03T00:00:00.000Z", "note": "The electrical board licenses contractors and requires a valid business permit." },
+            { "url": "https://www.njconsumeraffairs.gov/fbl", "reviewedAt": "2026-07-03T00:00:00.000Z", "note": "The alarm committee separately licenses fire and burglar alarm installers and businesses." },
+            { "url": "https://www.nj.gov/dca/dfs/offices/", "reviewedAt": "2026-07-03T00:00:00.000Z", "note": "DCA separately licenses fire-protection equipment businesses and individuals, including fire alarm systems." }
+          ],
+          "limitations": ["Electrical contractor, alarm, and fire-protection credentials are not interchangeable; classification, business permit, qualifier, local permit, and inspection status remain material."]
+        },
+        "plumbing": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.nj.dca.master_plumbers", "us.nj.dca.fire_protection_equipment_contractors"],
+          "evidence": [
+            { "url": "https://www.njconsumeraffairs.gov/plu", "reviewedAt": "2026-07-03T00:00:00.000Z", "note": "The State Board licenses and regulates master plumbers statewide." },
+            { "url": "https://www.nj.gov/dca/dfs/offices/", "reviewedAt": "2026-07-03T00:00:00.000Z", "note": "The Contractor Certification Unit separately covers fire-sprinkler and suppression equipment work." }
+          ],
+          "limitations": ["Master-plumber authority, plumbing business relationships, fire-sprinkler certification, permits, inspections, and utility approvals must be checked separately."]
+        },
+        "hvac": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.nj.dca.hvacr_contractors", "us.nj.dca.master_hearth_specialists"],
+          "evidence": [
+            { "url": "https://www.njconsumeraffairs.gov/hvacr", "reviewedAt": "2026-07-03T00:00:00.000Z", "note": "The HVACR board licenses and regulates heating, ventilation, air-conditioning, and refrigeration contractors." },
+            { "url": "https://www.njconsumeraffairs.gov/mhs", "reviewedAt": "2026-07-03T00:00:00.000Z", "note": "The Master Hearth Specialists committee regulates a distinct hearth-work scope under the HVACR board." }
+          ],
+          "limitations": ["Master HVACR and hearth-specialist scopes differ; electrical, plumbing, gas, fire-protection, permit, and inspection requirements may also apply."]
+        },
+        "mechanical": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.nj.dca.hvacr_contractors", "us.nj.dca.master_hearth_specialists", "us.nj.dca.fire_protection_equipment_contractors"],
+          "evidence": [
+            { "url": "https://www.njconsumeraffairs.gov/hvacr/Pages/FAQ.aspx", "reviewedAt": "2026-07-03T00:00:00.000Z", "note": "The official FAQ documents Master HVACR contractor licensing and business-representative responsibilities." },
+            { "url": "https://www.nj.gov/dca/dfs/offices/", "reviewedAt": "2026-07-03T00:00:00.000Z", "note": "DCA separately certifies businesses and individuals working on suppression and fire-protection equipment." }
+          ],
+          "limitations": ["New Jersey uses multiple specialized credentials rather than one unrestricted mechanical-contractor license; project scope determines the required combination."]
+        },
+        "roofing": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.nj.dca.home_improvement_contractors", "us.nj.dca.new_home_builders"],
+          "evidence": [
+            { "url": "https://www.njconsumeraffairs.gov/ocp/Pages/hic.aspx", "reviewedAt": "2026-07-03T00:00:00.000Z", "note": "Consumer Affairs expressly includes residential roofing and siding within home-improvement contractor work." },
+            { "url": "https://www.nj.gov/dca/codes/offices/nhw_for_consumers.shtml", "reviewedAt": "2026-07-03T00:00:00.000Z", "note": "DCA identifies roofing among new-home workmanship covered through registered builders and warranty requirements." }
+          ],
+          "limitations": ["This covers residential improvements and new homes; private commercial roofing, trade coordination, permits, and local requirements may follow other paths."]
+        },
+        "solar": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.nj.dca.electrical_contractors", "us.nj.dca.home_improvement_contractors", "us.nj.dca.hvacr_contractors"],
+          "evidence": [
+            { "url": "https://www.njconsumeraffairs.gov/ocp/Pages/hic.aspx", "reviewedAt": "2026-07-03T00:00:00.000Z", "note": "Consumer Affairs includes solar heating or water systems in home-improvement scope." },
+            { "url": "https://www.njconsumeraffairs.gov/elec", "reviewedAt": "2026-07-03T00:00:00.000Z", "note": "Electrical portions fall within the statewide electrical contractor licensing path." }
+          ],
+          "limitations": ["Solar projects may require electrical, HIC, HVACR, roofing, structural, utility-interconnection, incentive-program, zoning, permit, and inspection approvals."]
+        },
+        "pool_spa": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.nj.dca.home_improvement_contractors", "us.nj.dca.master_plumbers", "us.nj.dca.electrical_contractors"],
+          "evidence": [
+            { "url": "https://www.njconsumeraffairs.gov/ocp/Pages/hic.aspx", "reviewedAt": "2026-07-03T00:00:00.000Z", "note": "Consumer Affairs expressly includes residential swimming pools within home-improvement contractor work." },
+            { "url": "https://www.njconsumeraffairs.gov/plu/Pages/FAQ.aspx", "reviewedAt": "2026-07-03T00:00:00.000Z", "note": "Plumbing work must be performed through the licensed master-plumber or authorized plumbing-contractor path." }
+          ],
+          "limitations": ["Pool and spa projects may require HIC registration plus plumbing, electrical, HVACR, health, zoning, permit, and inspection approvals depending on scope."]
+        },
+        "asbestos": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.nj.dol.asbestos_contractors"],
+          "evidence": [
+            { "url": "https://nj.gov/labor/safetyandhealth/programs-services/asbestos/index.shtml", "reviewedAt": "2026-07-03T00:00:00.000Z", "note": "NJDOL states asbestos abatement companies require state-issued licenses and workers and supervisors require permits." },
+            { "url": "https://www.nj.gov/labor/safetyandhealth/resources-support/laws-regulations/asbestosact.shtml", "reviewedAt": "2026-07-03T00:00:00.000Z", "note": "The official law and rule page documents Class A and Class B employer licenses." }
+          ],
+          "limitations": ["Company licenses, individual permits, monitoring firms, training, project notifications, disposal, statutory exclusions, and local requirements are separate."]
+        },
+        "sheet_metal": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.nj.dca.hvacr_contractors"],
+          "evidence": [
+            { "url": "https://www.njconsumeraffairs.gov/hvacr", "reviewedAt": "2026-07-03T00:00:00.000Z", "note": "The HVACR board is the confirmed statewide licensing path for ventilation and air-distribution contracting scope." }
+          ],
+          "limitations": ["No separate statewide sheet-metal-only board was identified; HVACR scope, welding, fire protection, permits, and local requirements may apply to a project."]
+        },
+        "underground_utility": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.nj.dol.public_works_contractors", "us.nj.dca.master_plumbers"],
+          "evidence": [
+            { "url": "https://www.nj.gov/labor/wageandhour/registration-permits/register/publicworksregistration.shtml", "reviewedAt": "2026-07-03T00:00:00.000Z", "note": "Public-works contractors and subcontractors must register with NJDOL." },
+            { "url": "https://www.njconsumeraffairs.gov/plu", "reviewedAt": "2026-07-03T00:00:00.000Z", "note": "Plumbing-related utility scopes use the statewide master-plumber path." }
+          ],
+          "limitations": ["Coverage is limited to public works and regulated plumbing scope; utility-owner, right-of-way, environmental, excavation-safety, local permit, and private-project requirements remain separate."]
+        },
+        "home_improvement": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.nj.dca.home_improvement_contractors", "us.nj.dca.home_elevation_contractors"],
+          "evidence": [
+            { "url": "https://www.njconsumeraffairs.gov/hic/Pages/FAQ.aspx", "reviewedAt": "2026-07-03T00:00:00.000Z", "note": "Consumer Affairs requires HIC businesses and subcontractors making existing residential-property improvements to register annually unless exempt." },
+            { "url": "https://www.njconsumeraffairs.gov/hec", "reviewedAt": "2026-07-03T00:00:00.000Z", "note": "Home elevation is separately registered with additional experience and insurance requirements." }
+          ],
+          "limitations": ["HIC and home-elevation registrations do not replace new-home builder registration, professional trade licenses, permits, inspections, insurance checks, or exemption analysis."]
+        }
+      }
+    },
     {
       "state": "NM",
       "decisions": {
