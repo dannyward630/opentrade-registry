@@ -1415,7 +1415,95 @@
     { "state": "NY", "decisions": {} },
     { "state": "OH", "decisions": {} },
     { "state": "OK", "decisions": {} },
-    { "state": "OR", "decisions": {} },
+    {
+      "state": "OR",
+      "decisions": {
+        "general_contracting": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.or.ccb.active_licenses"],
+          "evidence": [{ "url": "https://www.oregon.gov/ccb/Pages/CCB%20License.aspx", "reviewedAt": "2026-07-03T00:00:00.000Z", "note": "Oregon CCB states that compensated construction activity involving improvements to real property generally requires a CCB license and defines residential and commercial general contractor endorsements." }],
+          "limitations": ["Project-specific endorsements, exemptions, permits, and separately regulated trade credentials must be checked in addition to the CCB record."]
+        },
+        "residential_contracting": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.or.ccb.active_licenses"],
+          "evidence": [{ "url": "https://www.oregon.gov/ccb/Pages/Licensing.aspx", "reviewedAt": "2026-07-03T00:00:00.000Z", "note": "The official CCB licensing page identifies residential general, specialty, limited, developer, restoration, and other residential endorsements." }],
+          "limitations": ["The active-license dataset does not establish that a license carries the endorsement required for a particular residential project without inspecting the source record."]
+        },
+        "commercial_contracting": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.or.ccb.active_licenses"],
+          "evidence": [{ "url": "https://www.oregon.gov/ccb/Pages/Licensing.aspx", "reviewedAt": "2026-07-03T00:00:00.000Z", "note": "The official CCB licensing page identifies commercial general and specialty contractor endorsement levels." }],
+          "limitations": ["Commercial endorsement level, bond, insurance, and project-specific requirements remain source-record and project questions."]
+        },
+        "electrical": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.or.ccb.active_licenses", "us.or.bcd.trade_contractors"],
+          "evidence": [{ "url": "https://www.oregon.gov/bcd/lbdd/Pages/licensed-work.aspx", "reviewedAt": "2026-07-03T00:00:00.000Z", "note": "Oregon BCD states that electrical contractors require both a CCB license and the appropriate BCD electrical contractor license." }],
+          "limitations": ["Individual electrician credentials, permits, utility requirements, and local inspection records are outside these contractor source entries."]
+        },
+        "plumbing": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.or.ccb.active_licenses", "us.or.bcd.trade_contractors"],
+          "evidence": [{ "url": "https://www.oregon.gov/bcd/lbdd/Pages/licensed-work.aspx", "reviewedAt": "2026-07-03T00:00:00.000Z", "note": "Oregon BCD states that plumbing contractors require both a CCB license and the appropriate BCD plumbing contractor license." }],
+          "limitations": ["Individual plumber credentials, permits, and local inspection records are outside these contractor source entries."]
+        },
+        "hvac": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.or.ccb.active_licenses", "us.or.bcd.trade_contractors"],
+          "evidence": [{ "url": "https://www.oregon.gov/bcd/licensing/Pages/contract-apply.aspx", "reviewedAt": "2026-07-03T00:00:00.000Z", "note": "BCD's contractor application guidance identifies limited maintenance specialty HVAC/R licenses, while CCB identifies heating and air-conditioning as construction work requiring contractor licensing." }],
+          "limitations": ["Required BCD electrical or specialty credentials depend on the HVAC/R work scope; this decision does not replace project-specific credential review."]
+        },
+        "mechanical": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.or.ccb.active_licenses", "us.or.bcd.trade_contractors"],
+          "evidence": [{ "url": "https://www.oregon.gov/bcd/licensing/pages/index.aspx", "reviewedAt": "2026-07-03T00:00:00.000Z", "note": "BCD issues boiler, electrical, plumbing, and related business licenses, while CCB covers compensated construction improvements to real property." }],
+          "limitations": ["Mechanical scopes may require multiple CCB, BCD, individual, permit, or inspection paths depending on the equipment and work performed."]
+        },
+        "roofing": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.or.ccb.active_licenses"],
+          "evidence": [{ "url": "https://www.oregon.gov/ccb/Pages/CCB%20License.aspx", "reviewedAt": "2026-07-03T00:00:00.000Z", "note": "The official CCB licensing page expressly lists roofing as work requiring a contractor license." }],
+          "limitations": ["The CCB active-license source does not by itself prove a contractor's endorsement is appropriate for every roofing project."]
+        },
+        "asbestos": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.or.ccb.active_licenses", "us.or.deq.asbestos_contractors"],
+          "evidence": [{ "url": "https://www.oregon.gov/deq/hazards-and-cleanup/pages/asbestos-for-businesses.aspx", "reviewedAt": "2026-07-03T00:00:00.000Z", "note": "Oregon DEQ licenses asbestos abatement contractors and requires CCB registration, business registration, training, experience, and certified supervisors." }],
+          "limitations": ["Friable and nonfriable work follow different requirements; individual worker, supervisor, inspector, notification, and project records are not represented by these contractor sources."]
+        },
+        "sheet_metal": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.or.ccb.active_licenses", "us.or.bcd.trade_contractors"],
+          "evidence": [{ "url": "https://www.oregon.gov/ccb/Pages/CCB%20License.aspx", "reviewedAt": "2026-07-03T00:00:00.000Z", "note": "Oregon's broad CCB construction-license requirement covers compensated improvements to real property, with BCD credentials additionally relevant when sheet-metal work includes regulated HVAC/R or electrical scope." }],
+          "limitations": ["Oregon does not expose a single sheet-metal-only statewide contractor source in this registry; verify CCB endorsement and any BCD credentials required by the actual scope."]
+        },
+        "underground_utility": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.or.ccb.active_licenses"],
+          "evidence": [{ "url": "https://www.oregon.gov/ccb/Pages/CCB%20License.aspx", "reviewedAt": "2026-07-03T00:00:00.000Z", "note": "Oregon's CCB license requirement applies broadly to compensated construction activity involving improvements to real property." }],
+          "limitations": ["Public works, utility-owner, environmental, plumbing, electrical, excavation, and local permit requirements may add separate credentials or approvals."]
+        },
+        "home_improvement": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.or.ccb.active_licenses"],
+          "evidence": [{ "url": "https://www.oregon.gov/bcd/lbdd/Pages/licensed-work.aspx", "reviewedAt": "2026-07-03T00:00:00.000Z", "note": "Oregon BCD states that nearly all home improvements performed by a contractor require contractor licenses and directs consumers to the CCB and BCD license searches." }],
+          "limitations": ["Exemptions, endorsement scope, local permits, and separately regulated electrical, plumbing, or manufactured-dwelling work must be checked independently."]
+        },
+        "pool_spa": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.or.ccb.active_licenses", "us.or.bcd.trade_contractors"],
+          "evidence": [{ "url": "https://www.oregon.gov/ccb/Pages/CCB%20License.aspx", "reviewedAt": "2026-07-03T00:00:00.000Z", "note": "Pool and spa construction falls within Oregon's broad CCB licensing rule for compensated improvements to real property." }],
+          "limitations": ["Electrical, plumbing, mechanical, public-health, and local permit requirements can apply in addition to CCB licensing; no pool-only statewide source is represented."]
+        },
+        "solar": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.or.ccb.active_licenses", "us.or.bcd.trade_contractors"],
+          "evidence": [{ "url": "https://www.oregon.gov/bcd/lbdd/Pages/licensed-work.aspx", "reviewedAt": "2026-07-03T00:00:00.000Z", "note": "Oregon requires CCB contractor licensing for construction improvements and the appropriate BCD electrical contractor license for regulated electrical work, which together form the statewide contractor path for photovoltaic installation scope." }],
+          "limitations": ["Solar thermal, photovoltaic, roofing, structural, utility interconnection, incentive-program, and permit requirements can require different credentials or approvals."]
+        }
+      }
+    },
     { "state": "PA", "decisions": {} },
     { "state": "PR", "decisions": {} },
     { "state": "RI", "decisions": {} },

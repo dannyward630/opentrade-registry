@@ -331,11 +331,13 @@
     },
     {
       "state": "OR",
-      "status": "network_opt_in_supported",
+      "status": "blocked",
       "sourceIds": [
-        "us.or.ccb.active_licenses"
+        "us.or.bcd.trade_contractors",
+        "us.or.ccb.active_licenses",
+        "us.or.deq.asbestos_contractors"
       ],
-      "notes": "A terminal OpenTrade Registry adapter capability is implemented with offline tests and documented source caveats."
+      "notes": "The CCB active-license source is network opt-in. Separate BCD trade and DEQ asbestos sources are documented with terminal blockers pending adapter and privacy review."
     },
     {
       "state": "PA",
