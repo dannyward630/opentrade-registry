@@ -1,0 +1,87 @@
+{
+  "id": "us.or.bcd.trade_contractors",
+  "name": "Oregon BCD Trade Contractor and Business Licenses",
+  "jurisdiction": {
+    "country": "US",
+    "state": "OR"
+  },
+  "agency": {
+    "name": "Oregon Building Codes Division",
+    "url": "https://www.oregon.gov/bcd/"
+  },
+  "sourceType": "bulk_csv",
+  "sourceUrl": "https://www4.cbs.state.or.us/exs/all/mylicsearch/index.cfm?fuseaction=search.show_download&group_id=30",
+  "documentationUrl": "https://www.oregon.gov/bcd/licensing/Pages/search.aspx",
+  "dataDictionaryUrl": "https://www4.cbs.state.or.us/exs/all/mylicsearch/index.cfm?fuseaction=search.show_download&group_id=30",
+  "termsUrl": "https://www.oregon.gov/pages/terms-and-conditions.aspx",
+  "termsReviewNotes": "The statewide privacy/terms page and the BCD download page were reviewed. Redistribution and publication of generated datasets remain unapproved pending a source-specific review.",
+  "updateFrequency": "daily at 4:30 a.m., according to the official BCD download page",
+  "tradeCoverage": [
+    "electrical",
+    "plumbing",
+    "hvac",
+    "mechanical"
+  ],
+  "licenseTypesIncluded": [
+    "active Oregon BCD electrical licenses",
+    "active Oregon BCD plumbing licenses",
+    "active Oregon BCD boiler and combination licenses",
+    "active Oregon BCD limited maintenance specialty HVAC/R licenses",
+    "other active BCD business and individual credentials in the all-licenses file"
+  ],
+  "knownExclusions": [
+    "The official active file excludes expired and renewable licenses, which are offered through a separate download action.",
+    "A BCD credential does not replace the Oregon Construction Contractors Board license required for covered contractor work.",
+    "Local permits, inspections, municipal business requirements, and credentials issued by agencies other than BCD are outside this source entry."
+  ],
+  "hasBulkDownload": true,
+  "hasLiveLookup": true,
+  "requiresJavaScript": false,
+  "requiresCaptcha": false,
+  "requiresAccount": false,
+  "rateLimitNotes": "The public download page documents daily files. No automated adapter is registered yet; use the official page manually until POST download behavior, record boundaries, and operational limits are covered by offline tests.",
+  "redistributionStatus": "unknown",
+  "publicRecordsNotes": "The official file is tab-delimited despite the generic bulk_csv source type. Absence from the active file is not proof that no expired, renewable, local, or separately regulated credential exists.",
+  "adapterStatus": "blocked",
+  "sourceDiscoveryStatus": "blocked",
+  "adapterMaturity": "blocked",
+  "adapterQualityLevel": 0,
+  "coverageScope": "state_agency_partial",
+  "adapterPackage": null,
+  "testFixturePath": null,
+  "officialLookupUrl": "https://www4.cbs.state.or.us/exs/all/mylicsearch/index.cfm?fuseaction=search.show_search_name&group_id=30",
+  "officialLookupReviewNotes": "The official lookup supports license number, individual name, and business name and can include expired and inactive credentials.",
+  "officialBulkDownloadNotes": "BCD documents an active-license tab-delimited ASCII file, updated daily, with license number, profession, description, name, DBA, location, status, and expiration fields. Download submission uses an official POST action and still needs a bounded adapter implementation.",
+  "researchNotes": "This board-specific entry preserves the credential boundary between CCB contractor licensing and BCD electrical, plumbing, boiler, combination, and related trade credentials.",
+  "lastVerifiedAt": "2026-07-03T00:00:00.000Z",
+  "maintainerNotes": "Prioritize a fixture-first tab-delimited adapter and explicit POST snapshot resolver. Do not publish downloaded records until terms and privacy review permits it.",
+  "schemaVersion": "1.0",
+  "researchReviewedAt": "2026-07-03T00:00:00.000Z",
+  "nextReviewAt": "2027-01-03T00:00:00.000Z",
+  "researchEvidence": [
+    {
+      "url": "https://www.oregon.gov/bcd/licensing/Pages/search.aspx",
+      "checkedAt": "2026-07-03T00:00:00.000Z",
+      "note": "Official BCD page reviewed; it provides business and individual lookup paths plus an all-licenses data download."
+    },
+    {
+      "url": "https://www4.cbs.state.or.us/exs/all/mylicsearch/index.cfm?fuseaction=search.show_download&group_id=30",
+      "checkedAt": "2026-07-03T00:00:00.000Z",
+      "note": "Official download page reviewed; it documents a daily tab-delimited active-license file and its field layout."
+    },
+    {
+      "url": "https://www.oregon.gov/bcd/licensing/pages/contractor-licenses.aspx",
+      "checkedAt": "2026-07-03T00:00:00.000Z",
+      "note": "Official BCD contractor-license page reviewed for the electrical, plumbing, boiler, combination, and specialty business credential boundary."
+    }
+  ],
+  "sourceResearchOutcome": "blocked",
+  "blocker": {
+    "code": "technical_instability",
+    "summary": "A stable official daily export is documented, but its POST download flow and tab-delimited record shape do not yet have a bounded, conformance-tested OpenTrade adapter.",
+    "evidenceUrls": [
+      "https://www.oregon.gov/bcd/licensing/Pages/search.aspx",
+      "https://www4.cbs.state.or.us/exs/all/mylicsearch/index.cfm?fuseaction=search.show_download&group_id=30"
+    ]
+  }
+}

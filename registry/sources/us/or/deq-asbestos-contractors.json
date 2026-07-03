@@ -1,0 +1,76 @@
+{
+  "id": "us.or.deq.asbestos_contractors",
+  "name": "Oregon DEQ Licensed Asbestos Abatement Contractors",
+  "jurisdiction": {
+    "country": "US",
+    "state": "OR"
+  },
+  "agency": {
+    "name": "Oregon Department of Environmental Quality",
+    "url": "https://www.oregon.gov/deq/"
+  },
+  "sourceType": "manual_public_records_file",
+  "sourceUrl": "https://www.oregon.gov/deq/FilterDocs/asb-contr.pdf",
+  "documentationUrl": "https://www.oregon.gov/deq/hazards-and-cleanup/pages/asbestos-for-businesses.aspx",
+  "dataDictionaryUrl": null,
+  "termsUrl": "https://www.oregon.gov/pages/terms-and-conditions.aspx",
+  "termsReviewNotes": "The statewide privacy/terms page was reviewed. The contractor list contains contact details, so publication remains withheld pending a source-specific privacy and redistribution review.",
+  "updateFrequency": "unknown; verify the publication date shown in the official PDF before relying on freshness",
+  "tradeCoverage": [
+    "asbestos"
+  ],
+  "licenseTypesIncluded": [
+    "Oregon DEQ licensed asbestos abatement contractors listed in the official PDF"
+  ],
+  "knownExclusions": [
+    "The list is contractor-specific and does not represent individual asbestos worker, supervisor, or inspector certification records.",
+    "Nonfriable work may follow different requirements, including CCB licensing and DEQ notification obligations.",
+    "The PDF is a current-list publication rather than a historical license dataset and may contain business or personal contact information."
+  ],
+  "hasBulkDownload": true,
+  "hasLiveLookup": false,
+  "requiresJavaScript": false,
+  "requiresCaptcha": false,
+  "requiresAccount": false,
+  "rateLimitNotes": "Use the official PDF manually. Do not poll, parse, or republish it until a stable saved-fixture parser and contact-data privacy review are complete.",
+  "redistributionStatus": "unknown",
+  "publicRecordsNotes": "DEQ states that friable asbestos abatement requires a DEQ-licensed contractor. Absence from one downloaded PDF is not proof of no license; verify freshness and consult DEQ.",
+  "adapterStatus": "blocked",
+  "sourceDiscoveryStatus": "blocked",
+  "adapterMaturity": "blocked",
+  "adapterQualityLevel": 0,
+  "coverageScope": "state_agency_partial",
+  "adapterPackage": null,
+  "testFixturePath": null,
+  "officialLookupUrl": "https://www.oregon.gov/deq/hazards-and-cleanup/pages/asbestos-for-businesses.aspx",
+  "officialLookupReviewNotes": "DEQ links the current contractor PDF from its official asbestos information page; no record-level interactive lookup was identified.",
+  "officialBulkDownloadNotes": "The official PDF is a small current contractor list, not a structured bulk dataset. It includes names and contact details and therefore needs privacy review before any normalized publication.",
+  "researchNotes": "This source is separate from CCB because DEQ licenses contractors for friable asbestos abatement and requires CCB and business registration as prerequisites.",
+  "lastVerifiedAt": "2026-07-03T00:00:00.000Z",
+  "maintainerNotes": "Treat this as an official manual handoff until PDF shape, freshness, privacy handling, and redistribution are reviewed together.",
+  "schemaVersion": "1.0",
+  "researchReviewedAt": "2026-07-03T00:00:00.000Z",
+  "nextReviewAt": "2027-01-03T00:00:00.000Z",
+  "researchEvidence": [
+    {
+      "url": "https://www.oregon.gov/deq/hazards-and-cleanup/pages/asbestos-for-businesses.aspx",
+      "checkedAt": "2026-07-03T00:00:00.000Z",
+      "note": "Official DEQ page reviewed; it describes asbestos abatement contractor licensing and links the current contractor list."
+    },
+    {
+      "url": "https://www.oregon.gov/deq/FilterDocs/asb-contr.pdf",
+      "checkedAt": "2026-07-03T00:00:00.000Z",
+      "note": "Official DEQ licensed asbestos abatement contractor PDF reviewed for source shape, scope, and contact-data caveats."
+    }
+  ],
+  "sourceResearchOutcome": "blocked",
+  "blocker": {
+    "code": "terms",
+    "summary": "The official PDF is available, but structured reuse and publication of its contact-bearing records have not received source-specific terms and privacy approval.",
+    "evidenceUrls": [
+      "https://www.oregon.gov/deq/hazards-and-cleanup/pages/asbestos-for-businesses.aspx",
+      "https://www.oregon.gov/deq/FilterDocs/asb-contr.pdf",
+      "https://www.oregon.gov/pages/terms-and-conditions.aspx"
+    ]
+  }
+}

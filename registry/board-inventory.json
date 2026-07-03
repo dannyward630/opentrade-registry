@@ -1866,6 +1866,36 @@
       }
     },
     {
+      "id": "us.or.bcd.trade_contractors",
+      "jurisdiction": {
+        "country": "US",
+        "state": "OR"
+      },
+      "boardName": "Oregon BCD Trade Contractor and Business Licenses",
+      "agencyName": "Oregon Building Codes Division",
+      "officialUrl": "https://www4.cbs.state.or.us/exs/all/mylicsearch/index.cfm?fuseaction=search.show_search_name&group_id=30",
+      "sourceIds": [
+        "us.or.bcd.trade_contractors"
+      ],
+      "trades": [
+        "electrical",
+        "plumbing",
+        "hvac",
+        "mechanical"
+      ],
+      "accessPath": "manual_handoff",
+      "coverageLimitations": [
+        "The official active file excludes expired and renewable licenses, which are offered through a separate download action.",
+        "A BCD credential does not replace the Oregon Construction Contractors Board license required for covered contractor work.",
+        "Local permits, inspections, municipal business requirements, and credentials issued by agencies other than BCD are outside this source entry."
+      ],
+      "evidence": {
+        "url": "https://www.oregon.gov/bcd/licensing/Pages/search.aspx",
+        "reviewedAt": "2026-07-03T00:00:00.000Z",
+        "note": "Official BCD page reviewed; it provides business and individual lookup paths plus an all-licenses data download."
+      }
+    },
+    {
       "id": "us.or.ccb.active_licenses",
       "jurisdiction": {
         "country": "US",
@@ -1889,6 +1919,33 @@
         "url": "https://search.ccb.state.or.us/search/",
         "reviewedAt": "2026-06-27T00:00:00.000Z",
         "note": "Official bulk source and opt-in network path reviewed."
+      }
+    },
+    {
+      "id": "us.or.deq.asbestos_contractors",
+      "jurisdiction": {
+        "country": "US",
+        "state": "OR"
+      },
+      "boardName": "Oregon DEQ Licensed Asbestos Abatement Contractors",
+      "agencyName": "Oregon Department of Environmental Quality",
+      "officialUrl": "https://www.oregon.gov/deq/hazards-and-cleanup/pages/asbestos-for-businesses.aspx",
+      "sourceIds": [
+        "us.or.deq.asbestos_contractors"
+      ],
+      "trades": [
+        "asbestos"
+      ],
+      "accessPath": "manual_handoff",
+      "coverageLimitations": [
+        "The list is contractor-specific and does not represent individual asbestos worker, supervisor, or inspector certification records.",
+        "Nonfriable work may follow different requirements, including CCB licensing and DEQ notification obligations.",
+        "The PDF is a current-list publication rather than a historical license dataset and may contain business or personal contact information."
+      ],
+      "evidence": {
+        "url": "https://www.oregon.gov/deq/hazards-and-cleanup/pages/asbestos-for-businesses.aspx",
+        "reviewedAt": "2026-07-03T00:00:00.000Z",
+        "note": "Official DEQ page reviewed; it describes asbestos abatement contractor licensing and links the current contractor list."
       }
     },
     {

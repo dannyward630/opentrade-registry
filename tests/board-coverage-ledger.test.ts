@@ -15,10 +15,31 @@ describe("nationwide board trade coverage ledger", () => {
     expect(ledger.jurisdictions).toHaveLength(56);
     expect(new Set(ledger.jurisdictions.map((entry) => entry.state)).size).toBe(56);
     expect(expanded).toHaveLength(56 * BOARD_TRADE_DOMAINS.length);
-    expect(expanded.filter((decision) => decision.outcome === "needs_research")).toHaveLength(490);
-    expect(expanded.filter((decision) => decision.outcome === "covered_by_board")).toHaveLength(269);
+    expect(expanded.filter((decision) => decision.outcome === "needs_research")).toHaveLength(476);
+    expect(expanded.filter((decision) => decision.outcome === "covered_by_board")).toHaveLength(283);
     expect(expanded.filter((decision) => decision.outcome === "not_state_regulated")).toHaveLength(6);
     expect(expanded.filter((decision) => decision.outcome === "local_only")).toHaveLength(19);
+  });
+
+  it("records complete Oregon contractor, BCD trade, and DEQ asbestos coverage", async () => {
+    const ledger = boardTradeCoverageLedgerSchema.parse(await json("registry/board-coverage.json"));
+    const expanded = expandBoardTradeCoverageLedger(ledger).filter((decision) => decision.state === "OR");
+
+    expect(expanded.filter((decision) => decision.outcome === "needs_research")).toEqual([]);
+    expect(expanded.every((decision) => decision.outcome === "covered_by_board")).toBe(true);
+    expect(expanded.find((decision) => decision.tradeDomain === "electrical")?.boardIds).toEqual([
+      "us.or.ccb.active_licenses",
+      "us.or.bcd.trade_contractors",
+    ]);
+    expect(expanded.find((decision) => decision.tradeDomain === "plumbing")?.boardIds).toEqual([
+      "us.or.ccb.active_licenses",
+      "us.or.bcd.trade_contractors",
+    ]);
+    expect(expanded.find((decision) => decision.tradeDomain === "asbestos")?.boardIds).toEqual([
+      "us.or.ccb.active_licenses",
+      "us.or.deq.asbestos_contractors",
+    ]);
+    expect(expanded.find((decision) => decision.tradeDomain === "solar")?.limitations.join(" ")).toContain("utility interconnection");
   });
 
   it("records Arizona ROC coverage and the documented asbestos training boundary", async () => {
