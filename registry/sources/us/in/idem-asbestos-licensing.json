@@ -1,0 +1,73 @@
+{
+  "id": "us.in.idem.asbestos_licensing",
+  "name": "Indiana IDEM Asbestos Licensing",
+  "jurisdiction": { "country": "US", "state": "IN" },
+  "agency": { "name": "Indiana Department of Environmental Management", "url": "https://www.in.gov/idem/" },
+  "sourceType": "html_lookup",
+  "sourceUrl": "https://www.in.gov/idem/asbestos/training-and-licensing/",
+  "documentationUrl": "https://www.in.gov/idem/asbestos/training-and-licensing/",
+  "dataDictionaryUrl": null,
+  "termsUrl": "https://www.in.gov/core/privacy.html",
+  "updateFrequency": "unknown; no stable public roster or export was confirmed during this review",
+  "tradeCoverage": ["asbestos"],
+  "licenseTypesIncluded": [
+    "Indiana asbestos contractor licenses",
+    "Related Indiana asbestos professional and worker license disciplines described by IDEM"
+  ],
+  "knownExclusions": [
+    "This source is limited to IDEM asbestos licensing and does not represent general contractor, plumbing, electrical, HVAC, roofing, local permit, or business-registration records.",
+    "A stable public contractor roster, lookup response, API, or bulk export was not confirmed during this review.",
+    "Project notifications, enforcement records, training-provider approvals, and other asbestos records may require separate official sources."
+  ],
+  "hasBulkDownload": false,
+  "hasLiveLookup": false,
+  "requiresJavaScript": "unknown",
+  "requiresCaptcha": "unknown",
+  "requiresAccount": "unknown",
+  "rateLimitNotes": "No automated source path is implemented. Use IDEM's official licensing instructions and contact paths manually.",
+  "redistributionStatus": "unknown",
+  "publicRecordsNotes": "Official program metadata only. Absence from this source is not proof that an asbestos license, project authorization, or related credential does not exist.",
+  "adapterStatus": "blocked",
+  "sourceDiscoveryStatus": "blocked",
+  "adapterMaturity": "blocked",
+  "adapterQualityLevel": 0,
+  "coverageScope": "state_agency_partial",
+  "adapterPackage": null,
+  "testFixturePath": null,
+  "officialLookupUrl": null,
+  "officialLookupReviewNotes": "IDEM documents required asbestos license disciplines, but no stable public contractor roster or lookup was confirmed.",
+  "officialBulkDownloadNotes": "No official stable bulk download was confirmed for Indiana asbestos contractor licenses during this review.",
+  "researchNotes": "This entry establishes the distinct statewide asbestos licensing program and an evidence-backed no-stable-source blocker.",
+  "verificationReviewedAt": null,
+  "verificationCaveats": [
+    "This source documents Indiana IDEM asbestos licensing requirements but does not expose a supported automated lookup or file source.",
+    "No matching record must not be inferred from the absence of a public roster or automated result."
+  ],
+  "verificationNotes": "Use the official IDEM licensing instructions and agency contact paths as a manual handoff.",
+  "lastVerifiedAt": "2026-07-03T00:00:00.000Z",
+  "maintainerNotes": "Re-review for a stable official roster or export before proposing an adapter.",
+  "schemaVersion": "1.0",
+  "researchReviewedAt": "2026-07-03T00:00:00.000Z",
+  "nextReviewAt": "2027-01-03T00:00:00.000Z",
+  "researchEvidence": [
+    {
+      "url": "https://www.in.gov/idem/asbestos/training-and-licensing/",
+      "checkedAt": "2026-07-03T00:00:00.000Z",
+      "note": "Official IDEM page reviewed; it states individuals and companies working with asbestos must be licensed and identifies contractor as a license discipline."
+    },
+    {
+      "url": "https://www.in.gov/idem/asbestos/training-and-licensing/license-fees-and-application-processing-times/",
+      "checkedAt": "2026-07-03T00:00:00.000Z",
+      "note": "Official IDEM fee page reviewed; it lists an asbestos contractor license fee and processing information."
+    }
+  ],
+  "sourceResearchOutcome": "blocked",
+  "blocker": {
+    "code": "no_stable_source",
+    "summary": "IDEM documents the licensing program, but no stable public contractor roster, lookup response, API, or bulk export was confirmed.",
+    "evidenceUrls": [
+      "https://www.in.gov/idem/asbestos/training-and-licensing/",
+      "https://www.in.gov/idem/asbestos/training-and-licensing/license-fees-and-application-processing-times/"
+    ]
+  }
+}

@@ -155,9 +155,11 @@
       "state": "IN",
       "status": "blocked",
       "sourceIds": [
+        "us.in.idem.asbestos_licensing",
+        "us.in.pla.plumbing",
         "us.in.pla.professional_licenses"
       ],
-      "notes": "Official bulk license downloads require accepting conditions and payment, so they are not a supported adapter path."
+      "notes": "Indiana licenses plumbing and asbestos through distinct statewide programs. PLA bulk downloads remain agreement- and payment-gated, IDEM has no confirmed stable public asbestos roster, and most construction licensing is local."
     },
     {
       "state": "IA",
