@@ -1679,7 +1679,295 @@
         }
       }
     },
-    { "state": "MD", "decisions": {} },
+    {
+      "state": "MD",
+      "decisions": {
+        "general_contracting": {
+          "outcome": "local_only",
+          "boardIds": [],
+          "evidence": [
+            {
+              "url": "https://labor.maryland.gov/license/mhic/",
+              "reviewedAt": "2026-07-03T00:00:00.000Z",
+              "note": "Maryland Labor identifies MHIC scope as home improvement contractors and salespersons, not a generic statewide general contractor license."
+            },
+            {
+              "url": "https://labor.maryland.gov/pq/",
+              "reviewedAt": "2026-07-03T00:00:00.000Z",
+              "note": "Maryland Labor's licensing query portal lists specific occupational and professional boards rather than a statewide general contractor board."
+            }
+          ],
+          "limitations": [
+            "General contracting outside MHIC home-improvement scope may require local permits, local registration, trade licenses, business registration, or project-specific approvals."
+          ]
+        },
+        "residential_contracting": {
+          "outcome": "covered_by_board",
+          "boardIds": [
+            "us.md.dllr.home_improvement_contractors"
+          ],
+          "evidence": [
+            {
+              "url": "https://labor.maryland.gov/license/mhic/",
+              "reviewedAt": "2026-07-03T00:00:00.000Z",
+              "note": "Maryland Labor states MHIC licenses and regulates home improvement contractors and salespersons."
+            },
+            {
+              "url": "https://onestop.md.gov/licenses/home-improvement-license-5d15409d54f24d03e9997ba5",
+              "reviewedAt": "2026-07-03T00:00:00.000Z",
+              "note": "Maryland OneStop describes the home improvement license as a statewide license issued by the Department of Labor, Licensing and Regulation."
+            }
+          ],
+          "limitations": [
+            "This covers Maryland home-improvement contracting only; new residential construction, local permits, trade work, and business licensing may require separate official paths."
+          ]
+        },
+        "commercial_contracting": {
+          "outcome": "local_only",
+          "boardIds": [],
+          "evidence": [
+            {
+              "url": "https://labor.maryland.gov/license/mhic/",
+              "reviewedAt": "2026-07-03T00:00:00.000Z",
+              "note": "MHIC scope is residential home improvement and excludes buildings containing four or more single-family units and common condominium areas."
+            },
+            {
+              "url": "https://labor.maryland.gov/pq/",
+              "reviewedAt": "2026-07-03T00:00:00.000Z",
+              "note": "The official Maryland Labor licensing query page exposes specific boards such as electricians, plumbing, HVACR, and MHIC rather than a statewide commercial general contractor board."
+            }
+          ],
+          "limitations": [
+            "Commercial construction may require local permits, local registrations, trade licenses, business licensing, and project-specific approvals; no separate statewide commercial general contractor board is registered here."
+          ]
+        },
+        "electrical": {
+          "outcome": "covered_by_board",
+          "boardIds": [
+            "us.md.labor.electricians"
+          ],
+          "evidence": [
+            {
+              "url": "https://labor.maryland.gov/license/elec/",
+              "reviewedAt": "2026-07-03T00:00:00.000Z",
+              "note": "Maryland Labor states all electrical work in Maryland must be performed by a licensed master, journeyperson, or apprentice electrician."
+            },
+            {
+              "url": "https://labor.maryland.gov/license/elec/elecreq.shtml",
+              "reviewedAt": "2026-07-03T00:00:00.000Z",
+              "note": "Maryland Labor documents master and journeyperson electrician license requirements."
+            }
+          ],
+          "limitations": [
+            "Local registrations, permits, inspections, qualified-agent classification, and insurance status may still affect whether a person or business may perform or contract electrical work."
+          ]
+        },
+        "plumbing": {
+          "outcome": "covered_by_board",
+          "boardIds": [
+            "us.md.labor.plumbing_gas"
+          ],
+          "evidence": [
+            {
+              "url": "https://labor.maryland.gov/license/pl/",
+              "reviewedAt": "2026-07-03T00:00:00.000Z",
+              "note": "Maryland Labor states the State Board of Plumbing licenses and regulates individuals who provide or assist in providing plumbing and gas services in Maryland."
+            },
+            {
+              "url": "https://www.labor.maryland.gov/license/pl/pllic.shtml",
+              "reviewedAt": "2026-07-03T00:00:00.000Z",
+              "note": "Maryland Labor's plumbing licensing page documents licensing, insurance, original-license, and reciprocal-license paths."
+            }
+          ],
+          "limitations": [
+            "The official board page identifies Baltimore County and WSSC-served areas as exceptions with their own licenses and codes; local permits and inspections may also apply."
+          ]
+        },
+        "hvac": {
+          "outcome": "covered_by_board",
+          "boardIds": [
+            "us.md.labor.hvacr_contractors"
+          ],
+          "evidence": [
+            {
+              "url": "https://labor.maryland.gov/license/hvacr/",
+              "reviewedAt": "2026-07-03T00:00:00.000Z",
+              "note": "Maryland Labor states the HVACR Contractors board licenses and regulates individuals who provide commercial and residential HVACR services."
+            },
+            {
+              "url": "https://www.labor.maryland.gov/license/hvacr/hvacrlicreq.shtml",
+              "reviewedAt": "2026-07-03T00:00:00.000Z",
+              "note": "Maryland Labor documents HVACR license classifications and requirements."
+            }
+          ],
+          "limitations": [
+            "HVACR classification, insurance, permits, electrical work, plumbing or gas work, and local inspection requirements remain distinct."
+          ]
+        },
+        "mechanical": {
+          "outcome": "covered_by_board",
+          "boardIds": [
+            "us.md.labor.hvacr_contractors",
+            "us.md.labor.plumbing_gas"
+          ],
+          "evidence": [
+            {
+              "url": "https://labor.maryland.gov/license/hvacr/",
+              "reviewedAt": "2026-07-03T00:00:00.000Z",
+              "note": "Maryland Labor states the HVACR board regulates installation, alteration, remodeling, maintenance, and repair of heating, ventilation, air conditioning, and refrigeration systems."
+            },
+            {
+              "url": "https://labor.maryland.gov/license/pl/",
+              "reviewedAt": "2026-07-03T00:00:00.000Z",
+              "note": "The State Board of Plumbing covers plumbing and gas services, which may overlap mechanical project scopes."
+            }
+          ],
+          "limitations": [
+            "This decision covers statewide HVACR and plumbing/gas paths rather than a single generic mechanical contractor board."
+          ]
+        },
+        "roofing": {
+          "outcome": "covered_by_board",
+          "boardIds": [
+            "us.md.dllr.home_improvement_contractors"
+          ],
+          "evidence": [
+            {
+              "url": "https://labor.maryland.gov/license/mhic/",
+              "reviewedAt": "2026-07-03T00:00:00.000Z",
+              "note": "Maryland Labor defines home improvement as alteration, remodeling, repair, or replacement of a residential building or part of a residential building."
+            }
+          ],
+          "limitations": [
+            "Roofing is covered here only when it falls within MHIC home-improvement scope; commercial roofing, new construction, local permits, and trade-specific requirements may require separate official paths."
+          ]
+        },
+        "solar": {
+          "outcome": "covered_by_board",
+          "boardIds": [
+            "us.md.labor.electricians",
+            "us.md.dllr.home_improvement_contractors",
+            "us.md.labor.hvacr_contractors"
+          ],
+          "evidence": [
+            {
+              "url": "https://labor.maryland.gov/license/elec/",
+              "reviewedAt": "2026-07-03T00:00:00.000Z",
+              "note": "Electrical portions of solar work fall under the Maryland State Board of Electricians licensing path."
+            },
+            {
+              "url": "https://labor.maryland.gov/license/mhic/",
+              "reviewedAt": "2026-07-03T00:00:00.000Z",
+              "note": "Residential alteration, repair, replacement, and remodeling portions may fall within MHIC home-improvement scope."
+            }
+          ],
+          "limitations": [
+            "Solar work may also involve roofing, structural, utility interconnection, incentive-program, local permit, and inspection requirements not represented by a single statewide solar contractor board."
+          ]
+        },
+        "pool_spa": {
+          "outcome": "covered_by_board",
+          "boardIds": [
+            "us.md.dllr.home_improvement_contractors",
+            "us.md.labor.plumbing_gas",
+            "us.md.labor.electricians",
+            "us.md.labor.hvacr_contractors"
+          ],
+          "evidence": [
+            {
+              "url": "https://labor.maryland.gov/license/mhic/",
+              "reviewedAt": "2026-07-03T00:00:00.000Z",
+              "note": "Residential alteration, remodeling, repair, or replacement work may fall under MHIC home-improvement scope."
+            },
+            {
+              "url": "https://labor.maryland.gov/license/pl/",
+              "reviewedAt": "2026-07-03T00:00:00.000Z",
+              "note": "Plumbing and gas portions are covered by the Maryland State Board of Plumbing."
+            }
+          ],
+          "limitations": [
+            "Pool and spa work may require MHIC, plumbing/gas, electrical, HVACR, health, zoning, local permit, and inspection approvals depending on project scope."
+          ]
+        },
+        "asbestos": {
+          "outcome": "covered_by_board",
+          "boardIds": [
+            "us.md.mde.asbestos_contractors"
+          ],
+          "evidence": [
+            {
+              "url": "https://mde.maryland.gov/programs/air/asbestos/pages/contractor.aspx",
+              "reviewedAt": "2026-07-03T00:00:00.000Z",
+              "note": "MDE states asbestos abatement companies that remove, repair, or contain asbestos materials must have a state-issued license."
+            },
+            {
+              "url": "https://mde.maryland.gov/programs/air/asbestos/pages/index.aspx",
+              "reviewedAt": "2026-07-03T00:00:00.000Z",
+              "note": "MDE states its Air and Radiation Administration licenses asbestos contractors and oversees related training."
+            }
+          ],
+          "limitations": [
+            "Asbestos notifications, disposal, demolition, consultants, labs, training providers, enforcement records, and local requirements may require separate official paths."
+          ]
+        },
+        "sheet_metal": {
+          "outcome": "covered_by_board",
+          "boardIds": [
+            "us.md.labor.hvacr_contractors"
+          ],
+          "evidence": [
+            {
+              "url": "https://labor.maryland.gov/license/hvacr/",
+              "reviewedAt": "2026-07-03T00:00:00.000Z",
+              "note": "Maryland's HVACR board regulates ventilation and related HVACR systems, the confirmed statewide path for sheet-metal-adjacent mechanical work in this review."
+            }
+          ],
+          "limitations": [
+            "No separate statewide sheet-metal contractor board is registered here; sheet-metal work may also require HVACR classification review, building permits, electrical/plumbing coordination, or local approvals."
+          ]
+        },
+        "underground_utility": {
+          "outcome": "local_only",
+          "boardIds": [],
+          "evidence": [
+            {
+              "url": "https://labor.maryland.gov/license/pl/",
+              "reviewedAt": "2026-07-03T00:00:00.000Z",
+              "note": "Maryland statewide plumbing and gas licensing covers plumbing and gas services but is not a general underground utility contractor board."
+            },
+            {
+              "url": "https://labor.maryland.gov/pq/",
+              "reviewedAt": "2026-07-03T00:00:00.000Z",
+              "note": "The Maryland Labor licensing query portal does not identify a statewide underground utility contractor board in this review."
+            }
+          ],
+          "limitations": [
+            "Underground utility projects may require local permits, right-of-way approvals, utility owner approvals, environmental permits, plumbing/gas licenses, excavation safety compliance, and project-specific authorizations."
+          ]
+        },
+        "home_improvement": {
+          "outcome": "covered_by_board",
+          "boardIds": [
+            "us.md.dllr.home_improvement_contractors"
+          ],
+          "evidence": [
+            {
+              "url": "https://labor.maryland.gov/license/mhic/",
+              "reviewedAt": "2026-07-03T00:00:00.000Z",
+              "note": "Maryland Labor states MHIC licenses and regulates home improvement contractors and salespersons."
+            },
+            {
+              "url": "https://labor.maryland.gov/license/mhic/mhiclic.shtml",
+              "reviewedAt": "2026-07-03T00:00:00.000Z",
+              "note": "Maryland Labor publishes MHIC licensing categories, requirements, applications, renewal, and electronic licensing information."
+            }
+          ],
+          "limitations": [
+            "MHIC registration does not replace trade licenses, local permits, insurance checks, complaint review, business registration, or project-specific approvals."
+          ]
+        }
+      }
+    },
     { "state": "ME", "decisions": {} },
     { "state": "MI", "decisions": {} },
     {

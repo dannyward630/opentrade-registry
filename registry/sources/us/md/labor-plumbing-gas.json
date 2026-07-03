@@ -1,0 +1,83 @@
+{
+  "id": "us.md.labor.plumbing_gas",
+  "name": "Maryland Board of Plumbing License Search",
+  "jurisdiction": { "country": "US", "state": "MD" },
+  "agency": {
+    "name": "Maryland Department of Labor State Board of Plumbing",
+    "url": "https://labor.maryland.gov/license/pl/"
+  },
+  "sourceType": "html_lookup",
+  "sourceUrl": "https://labor.maryland.gov/license/pl/",
+  "documentationUrl": "https://labor.maryland.gov/license/pl/",
+  "dataDictionaryUrl": null,
+  "termsUrl": "https://www.maryland.gov/pages/privacy_security.aspx",
+  "termsReviewNotes": "Maryland statewide privacy and security policy was reviewed. Source-specific redistribution approval for license-search result fields has not been confirmed.",
+  "updateFrequency": "unknown; verify against the official plumbers public query before relying on freshness",
+  "tradeCoverage": ["plumbing", "mechanical", "pool_spa", "other"],
+  "licenseTypesIncluded": [
+    "Maryland plumbing and gas license records exposed by the official plumbers public query",
+    "Master, journeyperson, apprentice, natural gas fitter, propane gas fitter, and plumbing inspector classifications referenced by the board"
+  ],
+  "knownExclusions": [
+    "This source is scoped to Maryland statewide plumbing and gas licenses and does not represent Baltimore County or WSSC plumbing licenses, local permits, inspections, or unrelated contractor credentials.",
+    "The board states its licenses are required statewide except Baltimore County and WSSC-served areas of Prince George's and Montgomery Counties.",
+    "Pool/spa and mechanical work may require additional electrical, HVACR, building, health, and local approvals."
+  ],
+  "hasBulkDownload": "unknown",
+  "hasLiveLookup": true,
+  "requiresJavaScript": "unknown",
+  "requiresCaptcha": "unknown",
+  "requiresAccount": false,
+  "rateLimitNotes": "No automated source path is implemented. Use the official plumbers public query manually until access rules, fields, and stability are reviewed.",
+  "redistributionStatus": "unknown",
+  "publicRecordsNotes": "Official board metadata only. Generated datasets should not be published until privacy and redistribution are approved. Absence from this source is not proof that another credential, local registration, permit, or authorization does not exist.",
+  "adapterStatus": "blocked",
+  "sourceDiscoveryStatus": "blocked",
+  "adapterMaturity": "blocked",
+  "adapterQualityLevel": 0,
+  "coverageScope": "state_agency_partial",
+  "adapterPackage": null,
+  "testFixturePath": null,
+  "officialLookupUrl": "https://www.dllr.state.md.us/cgi-bin/ElectronicLicensing/OP_search/OP_search.cgi?calling_app=PLM%3A%3APLM_qselect",
+  "officialLookupReviewNotes": "The official plumbers public query supports manual search by name, location, and license registration number.",
+  "officialBulkDownloadNotes": "No official stable bulk download was confirmed for Maryland plumbing and gas license records during this review.",
+  "researchNotes": "Registry-only source for Maryland plumbing and gas license verification. Board coverage uses this source for plumbing and related gas/mechanical/pool-spa boundaries.",
+  "verificationReviewedAt": null,
+  "verificationCaveats": [
+    "This source covers Maryland statewide plumbing and gas licensing only and excludes Baltimore County and WSSC-served areas identified by the board.",
+    "No matching record means no match in the checked official plumbing source at the checked time, not proof that another credential, local license, permit, or authorization does not exist."
+  ],
+  "verificationNotes": "No supported sync or verification adapter is exposed while the official lookup shape and allowed reuse remain under review.",
+  "lastVerifiedAt": "2026-07-03T00:00:00.000Z",
+  "maintainerNotes": "A future adapter must retain license classification, local-scope caveats, source URL, checked time, raw record, fingerprint, and privacy review before exposing records.",
+  "schemaVersion": "1.0",
+  "researchReviewedAt": "2026-07-03T00:00:00.000Z",
+  "nextReviewAt": "2027-01-03T00:00:00.000Z",
+  "researchEvidence": [
+    {
+      "url": "https://labor.maryland.gov/license/pl/",
+      "checkedAt": "2026-07-03T00:00:00.000Z",
+      "note": "Official board page reviewed; it states the State Board of Plumbing licenses and regulates individuals who provide or assist in providing plumbing and gas services in Maryland, with Baltimore County and WSSC area exclusions."
+    },
+    {
+      "url": "https://www.labor.maryland.gov/license/pl/pllic.shtml",
+      "checkedAt": "2026-07-03T00:00:00.000Z",
+      "note": "Official licensing page reviewed for plumbing license, insurance, and electronic licensing paths."
+    },
+    {
+      "url": "https://www.maryland.gov/pages/privacy_security.aspx",
+      "checkedAt": "2026-07-03T00:00:00.000Z",
+      "note": "Maryland privacy and security policy reviewed; source-specific redistribution approval remains outstanding."
+    }
+  ],
+  "sourceResearchOutcome": "blocked",
+  "blocker": {
+    "code": "technical_instability",
+    "summary": "The official lookup has not been adapter-reviewed for a stable data contract, local-scope filters, privacy fields, update behavior, or confirmed reuse terms.",
+    "evidenceUrls": [
+      "https://labor.maryland.gov/license/pl/",
+      "https://www.dllr.state.md.us/cgi-bin/ElectronicLicensing/OP_search/OP_search.cgi?calling_app=PLM%3A%3APLM_qselect",
+      "https://www.maryland.gov/pages/privacy_security.aspx"
+    ]
+  }
+}

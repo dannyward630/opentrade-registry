@@ -1,0 +1,83 @@
+{
+  "id": "us.md.mde.asbestos_contractors",
+  "name": "Maryland MDE Asbestos Contractor Licensing",
+  "jurisdiction": { "country": "US", "state": "MD" },
+  "agency": {
+    "name": "Maryland Department of the Environment Asbestos Division",
+    "url": "https://mde.maryland.gov/programs/air/asbestos/pages/index.aspx"
+  },
+  "sourceType": "html_lookup",
+  "sourceUrl": "https://mde.maryland.gov/programs/air/asbestos/pages/contractor.aspx",
+  "documentationUrl": "https://mde.maryland.gov/programs/air/asbestos/pages/contractor.aspx",
+  "dataDictionaryUrl": null,
+  "termsUrl": "https://mde.maryland.gov/Pages/privacy.aspx",
+  "termsReviewNotes": "MDE privacy information was reviewed. Source-specific redistribution approval for asbestos contractor fields has not been confirmed.",
+  "updateFrequency": "unknown; verify against official MDE asbestos pages and any linked license files before relying on freshness",
+  "tradeCoverage": ["asbestos"],
+  "licenseTypesIncluded": [
+    "Maryland asbestos contractor licensing records and program references exposed by MDE asbestos pages",
+    "Asbestos abatement companies that remove, repair, or contain asbestos materials as described by MDE"
+  ],
+  "knownExclusions": [
+    "This source is limited to Maryland asbestos contractor licensing and program references.",
+    "It does not represent general contractor, home improvement, electrical, plumbing, HVACR, local permit, demolition, disposal, or business-registration records.",
+    "Future adapter work must review whether MDE publishes a stable current license list and which personal or business fields are appropriate to expose."
+  ],
+  "hasBulkDownload": "unknown",
+  "hasLiveLookup": true,
+  "requiresJavaScript": "unknown",
+  "requiresCaptcha": "unknown",
+  "requiresAccount": false,
+  "rateLimitNotes": "No automated source path is implemented. Use official MDE asbestos pages manually until file shape, access rules, fields, and stability are reviewed.",
+  "redistributionStatus": "unknown",
+  "publicRecordsNotes": "Official program metadata only. Generated datasets should not be published until privacy and redistribution are approved. Absence from this source is not proof that another asbestos credential, notification, permit, or authorization does not exist.",
+  "adapterStatus": "blocked",
+  "sourceDiscoveryStatus": "blocked",
+  "adapterMaturity": "blocked",
+  "adapterQualityLevel": 0,
+  "coverageScope": "state_agency_partial",
+  "adapterPackage": null,
+  "testFixturePath": null,
+  "officialLookupUrl": "https://mde.maryland.gov/programs/air/asbestos/pages/contractor.aspx",
+  "officialLookupReviewNotes": "The official MDE contractor page states licensing requirements for asbestos abatement companies and is the current manual handoff path.",
+  "officialBulkDownloadNotes": "No official stable bulk download was confirmed for Maryland asbestos contractor records during this review.",
+  "researchNotes": "Registry-only source for Maryland MDE asbestos contractor licensing. Board coverage uses this source for the asbestos domain only.",
+  "verificationReviewedAt": null,
+  "verificationCaveats": [
+    "This source covers Maryland asbestos contractor licensing only.",
+    "No matching record means no match in the checked official asbestos source at the checked time, not proof that another credential, notification, permit, or authorization does not exist."
+  ],
+  "verificationNotes": "No supported sync or verification adapter is exposed while the official source shape and allowed reuse remain under review.",
+  "lastVerifiedAt": "2026-07-03T00:00:00.000Z",
+  "maintainerNotes": "A future adapter must retain MDE category, source URL, checked time, caveats, raw record, fingerprint, and privacy review before exposing records.",
+  "schemaVersion": "1.0",
+  "researchReviewedAt": "2026-07-03T00:00:00.000Z",
+  "nextReviewAt": "2027-01-03T00:00:00.000Z",
+  "researchEvidence": [
+    {
+      "url": "https://mde.maryland.gov/programs/air/asbestos/pages/contractor.aspx",
+      "checkedAt": "2026-07-03T00:00:00.000Z",
+      "note": "Official MDE contractor page reviewed; it states asbestos abatement companies must have a state-issued license."
+    },
+    {
+      "url": "https://mde.maryland.gov/programs/air/asbestos/pages/index.aspx",
+      "checkedAt": "2026-07-03T00:00:00.000Z",
+      "note": "Official MDE asbestos home page reviewed; it identifies the Air and Radiation Administration role in asbestos contractor licensing and training oversight."
+    },
+    {
+      "url": "https://mde.maryland.gov/Pages/privacy.aspx",
+      "checkedAt": "2026-07-03T00:00:00.000Z",
+      "note": "MDE privacy page reviewed; source-specific redistribution approval remains outstanding."
+    }
+  ],
+  "sourceResearchOutcome": "blocked",
+  "blocker": {
+    "code": "technical_instability",
+    "summary": "A stable machine-readable license list or data contract has not been confirmed, and privacy/reuse treatment for any asbestos contractor fields needs review.",
+    "evidenceUrls": [
+      "https://mde.maryland.gov/programs/air/asbestos/pages/contractor.aspx",
+      "https://mde.maryland.gov/programs/air/asbestos/pages/index.aspx",
+      "https://mde.maryland.gov/Pages/privacy.aspx"
+    ]
+  }
+}

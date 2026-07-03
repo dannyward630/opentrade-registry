@@ -1,0 +1,83 @@
+{
+  "id": "us.md.labor.hvacr_contractors",
+  "name": "Maryland Board of HVACR Contractors License Search",
+  "jurisdiction": { "country": "US", "state": "MD" },
+  "agency": {
+    "name": "Maryland Department of Labor Board of Heating, Ventilation, Air Conditioning and Refrigeration Contractors",
+    "url": "https://labor.maryland.gov/license/hvacr/"
+  },
+  "sourceType": "html_lookup",
+  "sourceUrl": "https://labor.maryland.gov/license/hvacr/",
+  "documentationUrl": "https://labor.maryland.gov/license/hvacr/",
+  "dataDictionaryUrl": null,
+  "termsUrl": "https://www.maryland.gov/pages/privacy_security.aspx",
+  "termsReviewNotes": "Maryland statewide privacy and security policy was reviewed. Source-specific redistribution approval for license-search result fields has not been confirmed.",
+  "updateFrequency": "unknown; verify against the official HVACR license search before relying on freshness",
+  "tradeCoverage": ["hvac", "mechanical", "solar", "other"],
+  "licenseTypesIncluded": [
+    "Maryland HVACR contractor license records exposed by the official HVACR public query",
+    "Master, master restricted, limited contractor, journeyperson, and related HVACR classifications referenced by the board"
+  ],
+  "knownExclusions": [
+    "This source is scoped to Maryland HVACR licensing and does not represent local mechanical permits, refrigeration-specific federal credentials, business registrations, or unrelated contractor credentials.",
+    "Solar, hydronic, refrigeration, and mechanical work may require additional electrical, plumbing, building, utility, and local approvals.",
+    "Future adapter work must filter license classifications before treating a record as authorization to contract independently."
+  ],
+  "hasBulkDownload": "unknown",
+  "hasLiveLookup": true,
+  "requiresJavaScript": "unknown",
+  "requiresCaptcha": "unknown",
+  "requiresAccount": false,
+  "rateLimitNotes": "No automated source path is implemented. Use the official HVACR public query manually until access rules, fields, and stability are reviewed.",
+  "redistributionStatus": "unknown",
+  "publicRecordsNotes": "Official board metadata only. Generated datasets should not be published until privacy and redistribution are approved. Absence from this source is not proof that another credential, local registration, permit, or authorization does not exist.",
+  "adapterStatus": "blocked",
+  "sourceDiscoveryStatus": "blocked",
+  "adapterMaturity": "blocked",
+  "adapterQualityLevel": 0,
+  "coverageScope": "state_agency_partial",
+  "adapterPackage": null,
+  "testFixturePath": null,
+  "officialLookupUrl": "https://www.dllr.state.md.us/cgi-bin/ElectronicLicensing/OP_search/OP_search.cgi?calling_app=HVAC%3A%3AHVAC_qselect",
+  "officialLookupReviewNotes": "The official HVACR public query supports manual search by name, location, and license registration number.",
+  "officialBulkDownloadNotes": "No official stable bulk download was confirmed for Maryland HVACR license records during this review.",
+  "researchNotes": "Registry-only source for Maryland HVACR contractor verification. Board coverage uses this source for HVAC and mechanical domains and parts of solar where HVACR systems are involved.",
+  "verificationReviewedAt": null,
+  "verificationCaveats": [
+    "This source covers Maryland HVACR licensing only.",
+    "No matching record means no match in the checked official HVACR source at the checked time, not proof that another credential, local permit, or authorization does not exist."
+  ],
+  "verificationNotes": "No supported sync or verification adapter is exposed while the official lookup shape and allowed reuse remain under review.",
+  "lastVerifiedAt": "2026-07-03T00:00:00.000Z",
+  "maintainerNotes": "A future adapter must retain HVACR classification, source URL, checked time, caveats, raw record, fingerprint, and privacy review before exposing records.",
+  "schemaVersion": "1.0",
+  "researchReviewedAt": "2026-07-03T00:00:00.000Z",
+  "nextReviewAt": "2027-01-03T00:00:00.000Z",
+  "researchEvidence": [
+    {
+      "url": "https://labor.maryland.gov/license/hvacr/",
+      "checkedAt": "2026-07-03T00:00:00.000Z",
+      "note": "Official board page reviewed; it states the HVACR Contractors board licenses individuals who provide commercial and residential HVACR services."
+    },
+    {
+      "url": "https://www.labor.maryland.gov/license/hvacr/hvacrlicreq.shtml",
+      "checkedAt": "2026-07-03T00:00:00.000Z",
+      "note": "Official license requirements page reviewed for limited, journeyperson, and related HVACR license classifications."
+    },
+    {
+      "url": "https://www.maryland.gov/pages/privacy_security.aspx",
+      "checkedAt": "2026-07-03T00:00:00.000Z",
+      "note": "Maryland privacy and security policy reviewed; source-specific redistribution approval remains outstanding."
+    }
+  ],
+  "sourceResearchOutcome": "blocked",
+  "blocker": {
+    "code": "technical_instability",
+    "summary": "The official lookup has not been adapter-reviewed for a stable data contract, classification filters, privacy fields, update behavior, or confirmed reuse terms.",
+    "evidenceUrls": [
+      "https://labor.maryland.gov/license/hvacr/",
+      "https://www.dllr.state.md.us/cgi-bin/ElectronicLicensing/OP_search/OP_search.cgi?calling_app=HVAC%3A%3AHVAC_qselect",
+      "https://www.maryland.gov/pages/privacy_security.aspx"
+    ]
+  }
+}

@@ -212,7 +212,11 @@
       "state": "MD",
       "status": "blocked",
       "sourceIds": [
-        "us.md.dllr.home_improvement_contractors"
+        "us.md.dllr.home_improvement_contractors",
+        "us.md.labor.electricians",
+        "us.md.labor.hvacr_contractors",
+        "us.md.labor.plumbing_gas",
+        "us.md.mde.asbestos_contractors"
       ],
       "notes": "Official source metadata is retained, but automated ingestion is blocked by documented legal, access, scope, or technical constraints."
     },

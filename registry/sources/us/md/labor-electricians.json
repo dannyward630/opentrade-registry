@@ -1,0 +1,83 @@
+{
+  "id": "us.md.labor.electricians",
+  "name": "Maryland State Board of Electricians License Search",
+  "jurisdiction": { "country": "US", "state": "MD" },
+  "agency": {
+    "name": "Maryland Department of Labor State Board of Electricians",
+    "url": "https://labor.maryland.gov/license/elec/"
+  },
+  "sourceType": "html_lookup",
+  "sourceUrl": "https://labor.maryland.gov/license/elec/",
+  "documentationUrl": "https://labor.maryland.gov/license/elec/",
+  "dataDictionaryUrl": null,
+  "termsUrl": "https://www.maryland.gov/pages/privacy_security.aspx",
+  "termsReviewNotes": "Maryland statewide privacy and security policy was reviewed. Source-specific redistribution approval for license-search result fields has not been confirmed.",
+  "updateFrequency": "unknown; verify against the official Maryland electricians license search before relying on freshness",
+  "tradeCoverage": ["electrical", "solar", "other"],
+  "licenseTypesIncluded": [
+    "Maryland State Board of Electricians license records exposed by the official license-search path",
+    "Statewide master, journeyperson, apprentice, and related electrician classifications referenced by the board"
+  ],
+  "knownExclusions": [
+    "This source is scoped to Maryland statewide electrician licensing and does not represent local electrical registrations, permits, inspections, business registrations, or non-electrical contractor credentials.",
+    "Solar work may require electrical licensing plus building, roofing, utility interconnection, and local approvals.",
+    "Future adapter work must distinguish license classifications before treating a record as authorization to contract independently."
+  ],
+  "hasBulkDownload": "unknown",
+  "hasLiveLookup": true,
+  "requiresJavaScript": "unknown",
+  "requiresCaptcha": "unknown",
+  "requiresAccount": false,
+  "rateLimitNotes": "No automated source path is implemented. Use the official license search manually until access rules, fields, and stability are reviewed.",
+  "redistributionStatus": "unknown",
+  "publicRecordsNotes": "Official board metadata only. Generated datasets should not be published until privacy and redistribution are approved. Absence from this source is not proof that another credential, local registration, permit, or authorization does not exist.",
+  "adapterStatus": "blocked",
+  "sourceDiscoveryStatus": "blocked",
+  "adapterMaturity": "blocked",
+  "adapterQualityLevel": 0,
+  "coverageScope": "state_agency_partial",
+  "adapterPackage": null,
+  "testFixturePath": null,
+  "officialLookupUrl": "https://labor.maryland.gov/pq/",
+  "officialLookupReviewNotes": "The Maryland Department of Labor licensing queries page links to official occupational and professional license searches, including electricians.",
+  "officialBulkDownloadNotes": "No official stable bulk download was confirmed for Maryland electrician licenses during this review.",
+  "researchNotes": "Registry-only source for Maryland electrician license verification. Board coverage uses this source for electrical work and electrical portions of solar work.",
+  "verificationReviewedAt": null,
+  "verificationCaveats": [
+    "This source covers Maryland statewide electrician licensing only.",
+    "No matching record means no match in the checked official electrician source at the checked time, not proof that another credential, local registration, permit, or authorization does not exist."
+  ],
+  "verificationNotes": "No supported sync or verification adapter is exposed while the official lookup shape and allowed reuse remain under review.",
+  "lastVerifiedAt": "2026-07-03T00:00:00.000Z",
+  "maintainerNotes": "A future adapter must retain license classification, source URL, checked time, caveats, raw record, fingerprint, and privacy review before exposing records.",
+  "schemaVersion": "1.0",
+  "researchReviewedAt": "2026-07-03T00:00:00.000Z",
+  "nextReviewAt": "2027-01-03T00:00:00.000Z",
+  "researchEvidence": [
+    {
+      "url": "https://labor.maryland.gov/license/elec/",
+      "checkedAt": "2026-07-03T00:00:00.000Z",
+      "note": "Official board page reviewed; it says all electrical work in Maryland must be performed by licensed electricians and points users to the electrician license search."
+    },
+    {
+      "url": "https://labor.maryland.gov/license/elec/elecreq.shtml",
+      "checkedAt": "2026-07-03T00:00:00.000Z",
+      "note": "Official requirements page reviewed for master and journeyperson electrician classifications."
+    },
+    {
+      "url": "https://www.maryland.gov/pages/privacy_security.aspx",
+      "checkedAt": "2026-07-03T00:00:00.000Z",
+      "note": "Maryland privacy and security policy reviewed; source-specific redistribution approval remains outstanding."
+    }
+  ],
+  "sourceResearchOutcome": "blocked",
+  "blocker": {
+    "code": "technical_instability",
+    "summary": "The official lookup has not been adapter-reviewed for a stable data contract, classification filters, privacy fields, update behavior, or confirmed reuse terms.",
+    "evidenceUrls": [
+      "https://labor.maryland.gov/license/elec/",
+      "https://labor.maryland.gov/pq/",
+      "https://www.maryland.gov/pages/privacy_security.aspx"
+    ]
+  }
+}
