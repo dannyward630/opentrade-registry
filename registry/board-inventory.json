@@ -1324,6 +1324,33 @@
       }
     },
     {
+      "id": "us.mn.mdh.asbestos_contractors",
+      "jurisdiction": {
+        "country": "US",
+        "state": "MN"
+      },
+      "boardName": "Minnesota MDH Asbestos Contractor Licensing",
+      "agencyName": "Minnesota Department of Health",
+      "officialUrl": "https://www.health.state.mn.us/communities/environment/asbestos/asbcontrlookup.html",
+      "sourceIds": [
+        "us.mn.mdh.asbestos_contractors"
+      ],
+      "trades": [
+        "asbestos"
+      ],
+      "accessPath": "manual_handoff",
+      "coverageLimitations": [
+        "This entry is limited to MDH asbestos contractor licensing and does not cover DLI construction, electrical, plumbing, or mechanical credentials.",
+        "Individual asbestos certifications, project notifications, training providers, MPCA demolition or disposal requirements, and local permits are outside this source entry.",
+        "The official lookup path has not been adapter-reviewed for stable machine access, field shape, or publication terms."
+      ],
+      "evidence": {
+        "url": "https://mn.gov/elicense/a-z/index.jsp?id=1083-231554",
+        "reviewedAt": "2026-07-03T00:00:00.000Z",
+        "note": "License Minnesota states that contractors must be licensed by MDH to perform asbestos-related work and identifies the MDH Asbestos Unit."
+      }
+    },
+    {
       "id": "us.mo.pr.professional_licenses",
       "jurisdiction": {
         "country": "US",

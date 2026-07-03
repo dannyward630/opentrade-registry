@@ -1073,7 +1073,107 @@
     { "state": "MD", "decisions": {} },
     { "state": "ME", "decisions": {} },
     { "state": "MI", "decisions": {} },
-    { "state": "MN", "decisions": {} },
+    {
+      "state": "MN",
+      "decisions": {
+        "general_contracting": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.mn.dli.licenses_registrations"],
+          "evidence": [
+            { "url": "https://www.dli.mn.gov/business/residential-contractors/residential-contractor-licensing", "reviewedAt": "2026-07-03T00:00:00.000Z", "note": "DLI states that residential building contractor and remodeler licenses are required for work directly with owners of one-to-four-unit residential real estate involving more than one special skill." },
+            { "url": "https://www.dli.mn.gov/business/construction-contractor-registration", "reviewedAt": "2026-07-03T00:00:00.000Z", "note": "DLI states that commercial contractors who do not hold a separate required license must register through the Construction Contractor Registration Program." }
+          ],
+          "limitations": ["Minnesota does not use one statewide commercial general-contractor board for every construction project; this decision combines residential licensing with DLI construction registration and excludes local permits."]
+        },
+        "residential_contracting": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.mn.dli.licenses_registrations"],
+          "evidence": [{ "url": "https://www.dli.mn.gov/business/residential-contractors/residential-contractor-licensing", "reviewedAt": "2026-07-03T00:00:00.000Z", "note": "DLI says residential building contractor or residential remodeler licensing is required for covered one-to-four-unit residential work involving more than one special skill." }],
+          "limitations": ["Specialty contractors performing only one special skill may be exempt except for residential roofers, and contractors below the stated receipt threshold may qualify for exemption."]
+        },
+        "commercial_contracting": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.mn.dli.licenses_registrations"],
+          "evidence": [{ "url": "https://www.dli.mn.gov/business/construction-contractor-registration", "reviewedAt": "2026-07-03T00:00:00.000Z", "note": "DLI describes construction contractor registration as applying to all commercial projects when the contractor does not hold a separate residential contractor license." }],
+          "limitations": ["Registration is not a substitute for trade-specific DLI licenses, bonds, or registrations where electrical, plumbing, elevator, high-pressure piping, boiler, or other separate credentials are required."]
+        },
+        "electrical": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.mn.dli.licenses_registrations"],
+          "evidence": [{ "url": "https://www.dli.mn.gov/business/electrical-contractors/electrical-contractor-licensing-basics", "reviewedAt": "2026-07-03T00:00:00.000Z", "note": "DLI states that businesses and individuals contracting to perform electrical work in Minnesota must have an electrical contractor license." }],
+          "limitations": ["General contractors using licensed electrical subcontractors may not need their own electrical contractor license; worker licenses and registrations are distinct from contractor licensing."]
+        },
+        "plumbing": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.mn.dli.licenses_registrations"],
+          "evidence": [{ "url": "https://www.dli.mn.gov/business/plumbing-and-mechanical-contractors", "reviewedAt": "2026-07-03T00:00:00.000Z", "note": "DLI states that businesses contracting to provide plumbing services must have a plumbing contractor license and provides license and bond verification." }],
+          "limitations": ["Plumbing plan review, inspections, individual plumber credentials, water conditioning, medical gas, and pipe-layer bonds may require separate review."]
+        },
+        "hvac": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.mn.dli.licenses_registrations"],
+          "evidence": [{ "url": "https://www.dli.mn.gov/business/plumbing-and-mechanical-contractors", "reviewedAt": "2026-07-03T00:00:00.000Z", "note": "DLI's plumbing and mechanical contractor page identifies the Mechanical Contractor Bond (HVAC) path and lets users verify a license or bond." }],
+          "limitations": ["DLI describes a bond filing path rather than a standalone HVAC contractor license; HVAC work may also involve electrical, plumbing, high-pressure piping, or local permit requirements."]
+        },
+        "mechanical": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.mn.dli.licenses_registrations"],
+          "evidence": [
+            { "url": "https://www.dli.mn.gov/business/plumbing-and-mechanical-contractors", "reviewedAt": "2026-07-03T00:00:00.000Z", "note": "DLI identifies mechanical contractor bond requirements under its plumbing and mechanical contractor program." },
+            { "url": "https://www.dli.mn.gov/business/high-pressure-piping-contractors", "reviewedAt": "2026-07-03T00:00:00.000Z", "note": "DLI states that high-pressure piping contractors must employ a master pipefitter and apply for a Minnesota high-pressure piping contractor license." }
+          ],
+          "limitations": ["Mechanical coverage is split across bond filing, plumbing-related credentials, high-pressure piping, inspections, and permits rather than one single mechanical contractor license."]
+        },
+        "roofing": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.mn.dli.licenses_registrations"],
+          "evidence": [{ "url": "https://www.dli.mn.gov/business/residential-contractors/residential-contractor-licensing", "reviewedAt": "2026-07-03T00:00:00.000Z", "note": "DLI states that any individual or company contracting directly with a covered residential owner to provide just roofing work must hold a residential building contractor, remodeler, or roofer license." }],
+          "limitations": ["The residential roofer license is limited to roofing and does not authorize gutters, downspouts, soffit, fascia, or other residential work."]
+        },
+        "solar": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.mn.dli.licenses_registrations"],
+          "evidence": [{ "url": "https://www.dli.mn.gov/business/residential-contractors/residential-contractor-licensing", "reviewedAt": "2026-07-03T00:00:00.000Z", "note": "DLI states that residential solar PV companies must be licensed as a residential building contractor or remodeler and that actual solar PV installation must be performed by a Minnesota-licensed electrical contractor." }],
+          "limitations": ["This decision covers residential solar PV contractor and electrical-contractor requirements; utility interconnection, incentives, and local permitting are outside this registry decision."]
+        },
+        "pool_spa": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.mn.dli.licenses_registrations"],
+          "evidence": [{ "url": "https://www.dli.mn.gov/business/residential-contractors/residential-contractor-licensing", "reviewedAt": "2026-07-03T00:00:00.000Z", "note": "DLI lists pools, spas, and hot tubs under residential general installation specialties and requires residential contractor or remodeler licensing when more than one special skill is provided." }],
+          "limitations": ["Public pool or spa facility licensing, plan review, health requirements, electrical bonding, plumbing, and local permits may involve separate MDH, DLI, or local processes."]
+        },
+        "asbestos": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.mn.mdh.asbestos_contractors"],
+          "evidence": [
+            { "url": "https://mn.gov/elicense/a-z/index.jsp?id=1083-231554", "reviewedAt": "2026-07-03T00:00:00.000Z", "note": "License Minnesota states that contractors must be licensed by MDH to perform asbestos-related work." },
+            { "url": "https://www.pca.state.mn.us/business-with-us/asbestos-in-demolition-or-renovations", "reviewedAt": "2026-07-03T00:00:00.000Z", "note": "MPCA states that MDH licenses contractors trained in proper handling of asbestos materials while MPCA regulates related handling, transport, and disposal requirements." }
+          ],
+          "limitations": ["The asbestos source remains a blocked manual handoff until lookup behavior, freshness, publication rules, and field shape are adapter-reviewed."]
+        },
+        "sheet_metal": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.mn.dli.licenses_registrations"],
+          "evidence": [{ "url": "https://www.dli.mn.gov/business/plumbing-and-mechanical-contractors", "reviewedAt": "2026-07-03T00:00:00.000Z", "note": "DLI regulates mechanical contractor bond filings for HVAC work under the plumbing and mechanical contractor program." }],
+          "limitations": ["No separate statewide sheet-metal contractor license was identified in this pass; sheet-metal work is treated through mechanical/HVAC, residential contractor, registration, or local-code channels depending on the project."]
+        },
+        "underground_utility": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.mn.dli.licenses_registrations"],
+          "evidence": [
+            { "url": "https://www.dli.mn.gov/business/residential-contractors/residential-contractor-licensing", "reviewedAt": "2026-07-03T00:00:00.000Z", "note": "DLI lists excavation, trenching, grading, drain systems, and related scopes in residential special skill areas." },
+            { "url": "https://www.dli.mn.gov/business/construction-contractor-registration", "reviewedAt": "2026-07-03T00:00:00.000Z", "note": "DLI construction contractor registration applies to single-specialty residential and commercial construction where no separate trade license is required." }
+          ],
+          "limitations": ["Utility work may also require plumbing, water-conditioning, electrical, high-pressure-piping, environmental, public-right-of-way, or local permits outside this decision."]
+        },
+        "home_improvement": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.mn.dli.licenses_registrations"],
+          "evidence": [{ "url": "https://www.dli.mn.gov/business/residential-contractors/residential-contractor-licensing", "reviewedAt": "2026-07-03T00:00:00.000Z", "note": "DLI states that covered residential remodeler work requires a residential remodeler or residential building contractor license, while single-specialty contractors may fall under registration or exemption rules." }],
+          "limitations": ["This decision does not include local rental licensing, local building permits, consumer complaints, or non-DLI business filings."]
+        }
+      }
+    },
     { "state": "MO", "decisions": {} },
     { "state": "MP", "decisions": {} },
     {
