@@ -15,8 +15,8 @@ describe("nationwide board trade coverage ledger", () => {
     expect(ledger.jurisdictions).toHaveLength(56);
     expect(new Set(ledger.jurisdictions.map((entry) => entry.state)).size).toBe(56);
     expect(expanded).toHaveLength(56 * BOARD_TRADE_DOMAINS.length);
-    expect(expanded.filter((decision) => decision.outcome === "needs_research")).toHaveLength(462);
-    expect(expanded.filter((decision) => decision.outcome === "covered_by_board")).toHaveLength(297);
+    expect(expanded.filter((decision) => decision.outcome === "needs_research")).toHaveLength(448);
+    expect(expanded.filter((decision) => decision.outcome === "covered_by_board")).toHaveLength(311);
     expect(expanded.filter((decision) => decision.outcome === "not_state_regulated")).toHaveLength(6);
     expect(expanded.filter((decision) => decision.outcome === "local_only")).toHaveLength(19);
   });
@@ -249,6 +249,33 @@ describe("nationwide board trade coverage ledger", () => {
     expect(expanded.find((decision) => decision.tradeDomain === "hvac")?.limitations.join(" ")).toContain("bond filing");
     expect(expanded.find((decision) => decision.tradeDomain === "solar")?.evidence[0]?.note).toContain("solar PV");
     expect(expanded.find((decision) => decision.tradeDomain === "asbestos")?.limitations.join(" ")).toContain("blocked manual handoff");
+  });
+
+  it("records complete Iowa DIAL registration and trade-board coverage", async () => {
+    const ledger = boardTradeCoverageLedgerSchema.parse(await json("registry/board-coverage.json"));
+    const expanded = expandBoardTradeCoverageLedger(ledger).filter((decision) => decision.state === "IA");
+
+    expect(expanded).toHaveLength(BOARD_TRADE_DOMAINS.length);
+    expect(expanded.filter((decision) => decision.outcome === "needs_research")).toEqual([]);
+    expect(expanded.every((decision) => decision.outcome === "covered_by_board")).toBe(true);
+    expect(expanded.find((decision) => decision.tradeDomain === "electrical")?.boardIds).toEqual([
+      "us.ia.dial.electrical_licensing",
+      "us.ia.dial.contractor_registration",
+    ]);
+    for (const domain of ["plumbing", "hvac", "mechanical", "sheet_metal"]) {
+      expect(expanded.find((decision) => decision.tradeDomain === domain)?.boardIds).toContain(
+        "us.ia.dial.plumbing_mechanical",
+      );
+    }
+    expect(expanded.find((decision) => decision.tradeDomain === "asbestos")?.boardIds).toEqual([
+      "us.ia.dial.asbestos_licenses",
+    ]);
+    expect(expanded.find((decision) => decision.tradeDomain === "general_contracting")?.limitations.join(" ")).toContain(
+      "registration and compliance program",
+    );
+    expect(expanded.find((decision) => decision.tradeDomain === "pool_spa")?.limitations.join(" ")).toContain(
+      "facility plan-review",
+    );
   });
 
   it("records Texas statewide trade coverage and official local-only boundaries", async () => {
