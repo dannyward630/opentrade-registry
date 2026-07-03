@@ -15,10 +15,10 @@ describe("nationwide board trade coverage ledger", () => {
     expect(ledger.jurisdictions).toHaveLength(56);
     expect(new Set(ledger.jurisdictions.map((entry) => entry.state)).size).toBe(56);
     expect(expanded).toHaveLength(56 * BOARD_TRADE_DOMAINS.length);
-    expect(expanded.filter((decision) => decision.outcome === "needs_research")).toHaveLength(434);
-    expect(expanded.filter((decision) => decision.outcome === "covered_by_board")).toHaveLength(324);
+    expect(expanded.filter((decision) => decision.outcome === "needs_research")).toHaveLength(420);
+    expect(expanded.filter((decision) => decision.outcome === "covered_by_board")).toHaveLength(329);
     expect(expanded.filter((decision) => decision.outcome === "not_state_regulated")).toHaveLength(7);
-    expect(expanded.filter((decision) => decision.outcome === "local_only")).toHaveLength(19);
+    expect(expanded.filter((decision) => decision.outcome === "local_only")).toHaveLength(28);
   });
 
   it("records complete Oregon contractor, BCD trade, and DEQ asbestos coverage", async () => {
@@ -488,6 +488,51 @@ describe("nationwide board trade coverage ledger", () => {
       expect(decision?.boardIds).toEqual([]);
       expect(decision?.evidence[0]?.url).toBe("https://dora.colorado.gov/consumer-protection-home-and-repair");
     }
+  });
+
+  it("records complete Illinois board and local-only coverage boundaries", async () => {
+    const ledger = boardTradeCoverageLedgerSchema.parse(await json("registry/board-coverage.json"));
+    const expanded = expandBoardTradeCoverageLedger(ledger).filter((decision) => decision.state === "IL");
+
+    expect(expanded).toHaveLength(BOARD_TRADE_DOMAINS.length);
+    expect(expanded.filter((decision) => decision.outcome === "needs_research")).toEqual([]);
+    expect(expanded.find((decision) => decision.tradeDomain === "roofing")).toMatchObject({
+      outcome: "covered_by_board",
+      boardIds: ["us.il.idfpr.roofing_contractors"],
+    });
+    expect(expanded.find((decision) => decision.tradeDomain === "plumbing")).toMatchObject({
+      outcome: "covered_by_board",
+      boardIds: ["us.il.idph.plumbing"],
+    });
+    expect(expanded.find((decision) => decision.tradeDomain === "asbestos")).toMatchObject({
+      outcome: "covered_by_board",
+      boardIds: ["us.il.idph.asbestos_contractors"],
+    });
+    expect(expanded.find((decision) => decision.tradeDomain === "solar")).toMatchObject({
+      outcome: "covered_by_board",
+      boardIds: ["us.il.icc.distributed_generation_installers"],
+    });
+    expect(expanded.find((decision) => decision.tradeDomain === "mechanical")?.boardIds).toEqual([
+      "us.il.idph.plumbing",
+      "us.il.sfm.fire_sprinkler_contractors",
+    ]);
+    for (const domain of [
+      "general_contracting",
+      "residential_contracting",
+      "commercial_contracting",
+      "electrical",
+      "hvac",
+      "pool_spa",
+      "sheet_metal",
+      "underground_utility",
+      "home_improvement",
+    ]) {
+      expect(expanded.find((decision) => decision.tradeDomain === domain)?.outcome, `${domain} should be local-only`).toBe(
+        "local_only",
+      );
+    }
+    expect(expanded.find((decision) => decision.tradeDomain === "solar")?.limitations.join(" ")).toContain("utility interconnection");
+    expect(expanded.find((decision) => decision.tradeDomain === "mechanical")?.limitations.join(" ")).toContain("broader HVAC");
   });
 
   it("requires board references and evidence for terminal coverage decisions", () => {
