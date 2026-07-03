@@ -41,7 +41,7 @@
   "verificationReviewedAt": null,
   "verificationCaveats": [
     "This source documents Indiana IDEM asbestos licensing requirements but does not expose a supported automated lookup or file source.",
-    "No matching record must not be inferred from the absence of a public roster or automated result."
+    "The absence of a public roster or automated result must not be interpreted as a no-match finding."
   ],
   "verificationNotes": "Use the official IDEM licensing instructions and agency contact paths as a manual handoff.",
   "lastVerifiedAt": "2026-07-03T00:00:00.000Z",
