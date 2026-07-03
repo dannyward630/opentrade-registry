@@ -1,0 +1,80 @@
+{
+  "id": "us.ky.eec.asbestos_contractors",
+  "name": "Kentucky EEC Asbestos Abatement Contractors",
+  "jurisdiction": { "country": "US", "state": "KY" },
+  "agency": { "name": "Kentucky Energy and Environment Cabinet", "url": "https://eec.ky.gov/" },
+  "sourceType": "html_lookup",
+  "sourceUrl": "https://eec.ky.gov/Environmental-Protection/Air/asbestos/Pages/default.aspx",
+  "documentationUrl": "https://eec.ky.gov/Environmental-Protection/Air/asbestos/Pages/Company-Certification.aspx",
+  "dataDictionaryUrl": null,
+  "termsUrl": "https://kentucky.gov/policies/Pages/default.aspx",
+  "termsReviewNotes": "Kentucky.gov policies were reviewed as the statewide policy page. Source-specific redistribution and publication approval for asbestos company fields has not been confirmed.",
+  "updateFrequency": "unknown; verify against the official EEC asbestos pages and linked searches before relying on freshness",
+  "tradeCoverage": ["asbestos"],
+  "licenseTypesIncluded": [
+    "Kentucky-certified asbestos abatement companies",
+    "Related asbestos accreditation categories referenced by the official EEC asbestos program"
+  ],
+  "knownExclusions": [
+    "This source is limited to Kentucky asbestos abatement company certification and related asbestos accreditation references.",
+    "It does not represent general contractor, roofing, electrical, plumbing, HVAC, local permit, or business-registration records.",
+    "The EEC page points users to separate active-company and manage-a-license search paths; adapter work must review category filters, field shape, privacy, and reuse before ingestion."
+  ],
+  "hasBulkDownload": "unknown",
+  "hasLiveLookup": true,
+  "requiresJavaScript": "unknown",
+  "requiresCaptcha": "unknown",
+  "requiresAccount": false,
+  "rateLimitNotes": "No automated source path is implemented. Use the official EEC asbestos pages and linked searches manually until the lookup shape and reuse position are reviewed.",
+  "redistributionStatus": "unknown",
+  "publicRecordsNotes": "Official program metadata only. Generated datasets should not be published until privacy and redistribution are approved. Absence from one search is not proof that an asbestos credential, company certification, or project authorization does not exist.",
+  "adapterStatus": "blocked",
+  "sourceDiscoveryStatus": "blocked",
+  "adapterMaturity": "blocked",
+  "adapterQualityLevel": 0,
+  "coverageScope": "state_agency_partial",
+  "adapterPackage": null,
+  "testFixturePath": null,
+  "officialLookupUrl": "https://eec.ky.gov/Environmental-Protection/Air/asbestos/Pages/default.aspx",
+  "officialLookupReviewNotes": "EEC's asbestos program page links users to active company and license-management search paths for asbestos professionals and certified companies.",
+  "officialBulkDownloadNotes": "No official stable bulk download was confirmed for Kentucky asbestos abatement company certification during this review.",
+  "researchNotes": "This entry establishes the distinct statewide asbestos program and a manual handoff until the EEC lookup shape, privacy fields, update behavior, and reuse conditions are reviewed.",
+  "verificationReviewedAt": null,
+  "verificationCaveats": [
+    "This source covers Kentucky asbestos abatement company certification and related accreditation paths only.",
+    "No matching record means no match in the checked official asbestos source at the checked time, not proof that another credential, company authorization, project notification, or local requirement does not exist."
+  ],
+  "verificationNotes": "No supported sync or verification adapter is exposed while the official lookup shape and allowed reuse remain under review.",
+  "lastVerifiedAt": "2026-07-03T00:00:00.000Z",
+  "maintainerNotes": "A future adapter must retain source category, checked time, source URL, caveats, raw record, fingerprint, and privacy review before exposing records.",
+  "schemaVersion": "1.0",
+  "researchReviewedAt": "2026-07-03T00:00:00.000Z",
+  "nextReviewAt": "2027-01-03T00:00:00.000Z",
+  "researchEvidence": [
+    {
+      "url": "https://eec.ky.gov/Environmental-Protection/Air/asbestos/Pages/default.aspx",
+      "checkedAt": "2026-07-03T00:00:00.000Z",
+      "note": "Official EEC asbestos page reviewed; it links active companies and manage-a-license search paths for asbestos abatement professionals and certified companies."
+    },
+    {
+      "url": "https://eec.ky.gov/Environmental-Protection/Air/asbestos/Pages/Company-Certification.aspx",
+      "checkedAt": "2026-07-03T00:00:00.000Z",
+      "note": "Official company-certification page reviewed; it states companies doing regulated asbestos abatement work are required to become certified by the Division for Air Quality."
+    },
+    {
+      "url": "https://kentucky.gov/policies/Pages/default.aspx",
+      "checkedAt": "2026-07-03T00:00:00.000Z",
+      "note": "Kentucky.gov policy page reviewed; source-specific redistribution approval remains outstanding."
+    }
+  ],
+  "sourceResearchOutcome": "blocked",
+  "blocker": {
+    "code": "technical_instability",
+    "summary": "The official search paths have not been adapter-reviewed for a stable data contract, category filters, privacy fields, update behavior, or confirmed reuse terms.",
+    "evidenceUrls": [
+      "https://eec.ky.gov/Environmental-Protection/Air/asbestos/Pages/default.aspx",
+      "https://eec.ky.gov/Environmental-Protection/Air/asbestos/Pages/Company-Certification.aspx",
+      "https://kentucky.gov/policies/Pages/default.aspx"
+    ]
+  }
+}

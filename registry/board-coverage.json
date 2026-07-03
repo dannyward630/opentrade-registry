@@ -1388,7 +1388,88 @@
         }
       }
     },
-    { "state": "KY", "decisions": {} },
+    {
+      "state": "KY",
+      "decisions": {
+        "general_contracting": {
+          "outcome": "local_only",
+          "evidence": [{ "url": "https://onestop.ky.gov/start/Pages/localrequirements.aspx", "reviewedAt": "2026-07-03T00:00:00.000Z", "note": "Kentucky Business One Stop directs businesses to city and county governments for local licenses and occupational requirements." }],
+          "limitations": ["State DHBC trade licenses, building-code review, permits, inspections, environmental approvals, business registration, and local contractor rules may still apply."]
+        },
+        "residential_contracting": {
+          "outcome": "local_only",
+          "evidence": [{ "url": "https://onestop.ky.gov/start/Pages/buildingzoning.aspx", "reviewedAt": "2026-07-03T00:00:00.000Z", "note": "Kentucky Business One Stop states zoning and local building requirements vary by local jurisdiction and directs users to local county, city, or planning offices." }],
+          "limitations": ["State residential building codes, inspections, DHBC trade licenses, manufactured-housing rules, local permits, and local business licenses may apply."]
+        },
+        "commercial_contracting": {
+          "outcome": "local_only",
+          "evidence": [{ "url": "https://onestop.ky.gov/start/Pages/buildingzoning.aspx", "reviewedAt": "2026-07-03T00:00:00.000Z", "note": "Kentucky Business One Stop directs businesses to local building and zoning offices for local requirements." }],
+          "limitations": ["Kentucky has statewide building-code administration and DHBC trade licensing, but no separate statewide commercial contractor board was confirmed in this review."]
+        },
+        "electrical": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.ky.dhbc.trades"],
+          "evidence": [{ "url": "https://dhbc.ky.gov/newstatic_info.aspx?static_id=344", "reviewedAt": "2026-07-03T00:00:00.000Z", "note": "DHBC's Electrical Division is responsible for licensing electricians and electrical contractors." }],
+          "limitations": ["Electrical permits, inspections, local business licenses, utility requirements, and project-specific code review may still apply."]
+        },
+        "plumbing": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.ky.dhbc.trades"],
+          "evidence": [{ "url": "https://dhbc.ky.gov/newstatic_info.aspx?static_id=337", "reviewedAt": "2026-07-03T00:00:00.000Z", "note": "DHBC's Plumbing Division states plumbing work must be performed by licensed journeyman plumbers under licensed master plumber supervision, outside homeowner-permit exceptions." }],
+          "limitations": ["Plumbing permits, inspections, local business licenses, and project-specific code review may still apply."]
+        },
+        "hvac": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.ky.dhbc.trades"],
+          "evidence": [{ "url": "https://dhbc.ky.gov/newstatic_info.aspx?static_id=335", "reviewedAt": "2026-07-03T00:00:00.000Z", "note": "DHBC's Division of HVAC states Kentucky has required heating and air-conditioning contractors to be licensed by the division since July 1995." }],
+          "limitations": ["HVAC permits, inspections, electrical work, plumbing work, local business licenses, and project-specific code review may still apply."]
+        },
+        "mechanical": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.ky.dhbc.trades"],
+          "evidence": [{ "url": "https://dhbc.ky.gov/", "reviewedAt": "2026-07-03T00:00:00.000Z", "note": "DHBC states it licenses or certifies plumbers, electricians, boiler contractors, sprinkler and fire-alarm contractors, and building inspectors." }],
+          "limitations": ["This decision covers DHBC-regulated mechanical-adjacent programs such as HVAC, boilers, sprinkler/fire alarm, electrical, and plumbing; broader local mechanical permits or specialty credentials may apply."]
+        },
+        "roofing": {
+          "outcome": "local_only",
+          "evidence": [{ "url": "https://onestop.ky.gov/start/Pages/buildingzoning.aspx", "reviewedAt": "2026-07-03T00:00:00.000Z", "note": "Kentucky Business One Stop directs users to local county, city, and planning offices for local building and zoning requirements." }],
+          "limitations": ["No separate statewide roofing contractor board was confirmed in this review. Local permits, business licenses, building-code review, and electrical or solar trade credentials may apply."]
+        },
+        "solar": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.ky.dhbc.trades"],
+          "evidence": [{ "url": "https://dhbc.ky.gov/newstatic_info.aspx?static_id=344", "reviewedAt": "2026-07-03T00:00:00.000Z", "note": "DHBC's Electrical Division licenses electrical contractors and electricians, which is the confirmed statewide trade path for electrical portions of solar work." }],
+          "limitations": ["This decision covers electrical trade licensing only. Roofing, structural, utility interconnection, local permits, and other solar-project requirements may apply."]
+        },
+        "pool_spa": {
+          "outcome": "local_only",
+          "evidence": [{ "url": "https://onestop.ky.gov/start/Pages/buildingzoning.aspx", "reviewedAt": "2026-07-03T00:00:00.000Z", "note": "Kentucky Business One Stop directs users to local building and zoning offices for local requirements." }],
+          "limitations": ["No separate statewide pool or spa contractor board was confirmed in this review. DHBC plumbing, electrical, HVAC, building-code, health, local permit, and local business requirements may apply."]
+        },
+        "asbestos": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.ky.eec.asbestos_contractors"],
+          "evidence": [{ "url": "https://eec.ky.gov/Environmental-Protection/Air/asbestos/Pages/Company-Certification.aspx", "reviewedAt": "2026-07-03T00:00:00.000Z", "note": "Kentucky EEC states companies doing regulated asbestos abatement work are required to become certified by the Division for Air Quality." }],
+          "limitations": ["Individual accreditations, active-company search filters, project notifications, demolition requirements, local air programs, and enforcement records may require separate official paths."]
+        },
+        "sheet_metal": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.ky.dhbc.trades"],
+          "evidence": [{ "url": "https://dhbc.ky.gov/newstatic_info.aspx?static_id=335", "reviewedAt": "2026-07-03T00:00:00.000Z", "note": "DHBC's Division of HVAC administers statewide HVAC contractor licensing and permitting for residential and commercial construction." }],
+          "limitations": ["This decision covers sheet-metal work when it is part of DHBC-regulated HVAC work. Separate local permits, non-HVAC sheet-metal work, and business licenses may apply."]
+        },
+        "underground_utility": {
+          "outcome": "local_only",
+          "evidence": [{ "url": "https://onestop.ky.gov/start/Pages/buildingzoning.aspx", "reviewedAt": "2026-07-03T00:00:00.000Z", "note": "Kentucky Business One Stop directs users to local county, city, or planning offices for local building and zoning requirements." }],
+          "limitations": ["DHBC plumbing permits, environmental permits, utility approvals, excavation rules, right-of-way permissions, and local contractor credentials may apply."]
+        },
+        "home_improvement": {
+          "outcome": "local_only",
+          "evidence": [{ "url": "https://onestop.ky.gov/start/Pages/localrequirements.aspx", "reviewedAt": "2026-07-03T00:00:00.000Z", "note": "Kentucky Business One Stop states many cities and counties require local business licenses or occupational taxes and directs businesses to local governments." }],
+          "limitations": ["No separate statewide home-improvement contractor board was confirmed in this review. DHBC trade licenses, permits, consumer-protection law, local registration, and local business licenses may apply."]
+        }
+      }
+    },
     {
       "state": "LA",
       "decisions": {

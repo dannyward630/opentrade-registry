@@ -187,9 +187,10 @@
       "state": "KY",
       "status": "blocked",
       "sourceIds": [
-        "us.ky.dhbc.trades"
+        "us.ky.dhbc.trades",
+        "us.ky.eec.asbestos_contractors"
       ],
-      "notes": "Official source metadata is retained, but automated ingestion is blocked by documented legal, access, scope, or technical constraints."
+      "notes": "Kentucky metadata covers DHBC electrical, HVAC, plumbing, fire, and related trade license search records plus EEC asbestos abatement company certification. Other tracked construction and trade domains remain local, permit-based, or outside a confirmed statewide board."
     },
     {
       "state": "LA",

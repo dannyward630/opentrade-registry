@@ -15,10 +15,10 @@ describe("nationwide board trade coverage ledger", () => {
     expect(ledger.jurisdictions).toHaveLength(56);
     expect(new Set(ledger.jurisdictions.map((entry) => entry.state)).size).toBe(56);
     expect(expanded).toHaveLength(56 * BOARD_TRADE_DOMAINS.length);
-    expect(expanded.filter((decision) => decision.outcome === "needs_research")).toHaveLength(392);
-    expect(expanded.filter((decision) => decision.outcome === "covered_by_board")).toHaveLength(335);
+    expect(expanded.filter((decision) => decision.outcome === "needs_research")).toHaveLength(378);
+    expect(expanded.filter((decision) => decision.outcome === "covered_by_board")).toHaveLength(342);
     expect(expanded.filter((decision) => decision.outcome === "not_state_regulated")).toHaveLength(7);
-    expect(expanded.filter((decision) => decision.outcome === "local_only")).toHaveLength(50);
+    expect(expanded.filter((decision) => decision.outcome === "local_only")).toHaveLength(57);
   });
 
   it("records complete Oregon contractor, BCD trade, and DEQ asbestos coverage", async () => {
@@ -115,6 +115,21 @@ describe("nationwide board trade coverage ledger", () => {
     expect(expanded.find((decision) => decision.tradeDomain === "underground_utility")?.boardIds).toEqual(["us.ks.kdhe.water_well_contractors"]);
     expect(expanded.find((decision) => decision.tradeDomain === "general_contracting")?.outcome).toBe("local_only");
     expect(expanded.find((decision) => decision.tradeDomain === "electrical")?.outcome).toBe("local_only");
+  });
+
+  it("records Kentucky DHBC trade coverage, EEC asbestos, and local contractor boundaries", async () => {
+    const ledger = boardTradeCoverageLedgerSchema.parse(await json("registry/board-coverage.json"));
+    const expanded = expandBoardTradeCoverageLedger(ledger).filter((decision) => decision.state === "KY");
+
+    expect(expanded.filter((decision) => decision.outcome === "needs_research")).toEqual([]);
+    expect(expanded.find((decision) => decision.tradeDomain === "electrical")?.boardIds).toEqual(["us.ky.dhbc.trades"]);
+    expect(expanded.find((decision) => decision.tradeDomain === "plumbing")?.boardIds).toEqual(["us.ky.dhbc.trades"]);
+    expect(expanded.find((decision) => decision.tradeDomain === "hvac")?.boardIds).toEqual(["us.ky.dhbc.trades"]);
+    expect(expanded.find((decision) => decision.tradeDomain === "asbestos")?.boardIds).toEqual(["us.ky.eec.asbestos_contractors"]);
+    expect(expanded.find((decision) => decision.tradeDomain === "solar")?.limitations.join(" ")).toContain("electrical trade licensing only");
+    expect(expanded.find((decision) => decision.tradeDomain === "general_contracting")?.outcome).toBe("local_only");
+    expect(expanded.find((decision) => decision.tradeDomain === "roofing")?.outcome).toBe("local_only");
+    expect(expanded.find((decision) => decision.tradeDomain === "home_improvement")?.outcome).toBe("local_only");
   });
 
   it("records complete Alabama board-specific trade coverage", async () => {
