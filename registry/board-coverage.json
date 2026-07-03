@@ -979,7 +979,95 @@
         }
       }
     },
-    { "state": "IA", "decisions": {} },
+    {
+      "state": "IA",
+      "decisions": {
+        "general_contracting": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.ia.dial.contractor_registration"],
+          "evidence": [{ "url": "https://dial.iowa.gov/licenses/building/contractors", "reviewedAt": "2026-07-03T00:00:00.000Z", "note": "DIAL states Iowa law requires construction contractors and businesses performing construction work to register when they earn at least $2,000 a year from construction work." }],
+          "limitations": ["Iowa contractor registration is a registration and compliance program, not a statewide general-contractor competency license. Local permits and separately licensed trades must be checked for each project."]
+        },
+        "residential_contracting": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.ia.dial.contractor_registration"],
+          "evidence": [{ "url": "https://dial.iowa.gov/licenses/building/contractors", "reviewedAt": "2026-07-03T00:00:00.000Z", "note": "DIAL states all individual and business construction contractors performing construction work above the annual threshold must register, with a broad definition of construction." }],
+          "limitations": ["The statewide path is contractor registration rather than a residential-builder license; local residential licensing, permits, and inspections remain outside OpenTrade's statewide scope."]
+        },
+        "commercial_contracting": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.ia.dial.contractor_registration"],
+          "evidence": [{ "url": "https://dial.iowa.gov/licenses/building/contractors", "reviewedAt": "2026-07-03T00:00:00.000Z", "note": "DIAL states construction contractors and businesses performing construction work must register and that the construction definition is broad." }],
+          "limitations": ["This does not represent a statewide commercial general-contractor license classification; project-specific permits, design-professional rules, and local requirements may apply."]
+        },
+        "electrical": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.ia.dial.electrical_licensing", "us.ia.dial.contractor_registration"],
+          "evidence": [{ "url": "https://iowaelectrical.gov/", "reviewedAt": "2026-07-03T00:00:00.000Z", "note": "The official Iowa Electrical Examining Board site provides electrical licensing, permit, inspection, and license-search paths and lists electrical contractor license types in the public search." }],
+          "limitations": ["Electrical contractors may also need DIAL contractor registration and local permit/inspection compliance depending on the work."]
+        },
+        "plumbing": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.ia.dial.plumbing_mechanical", "us.ia.dial.contractor_registration"],
+          "evidence": [{ "url": "https://dial.iowa.gov/licenses/building/plumbing-mechanical/plumbing-licensure/contractor-license", "reviewedAt": "2026-07-03T00:00:00.000Z", "note": "DIAL states Iowa law requires plumbing and mechanical contractors to be licensed with the Plumbing and Mechanical Systems Board and also registered with DIAL." }],
+          "limitations": ["The required contractor license, contractor registration, master-of-record association, and local permits must be evaluated together."]
+        },
+        "hvac": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.ia.dial.plumbing_mechanical", "us.ia.dial.contractor_registration"],
+          "evidence": [{ "url": "https://dial.iowa.gov/about-dial/boards-and-commissions/pmsb-board", "reviewedAt": "2026-07-03T00:00:00.000Z", "note": "DIAL states the Plumbing and Mechanical Systems Board licenses and regulates HVAC, refrigeration, hydronic, sheet metal, plumbing, and mechanical systems trades." }],
+          "limitations": ["HVAC work is handled within PMSB plumbing and mechanical systems licensing rather than a separate Iowa HVAC contractor board."]
+        },
+        "mechanical": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.ia.dial.plumbing_mechanical", "us.ia.dial.contractor_registration"],
+          "evidence": [{ "url": "https://dial.iowa.gov/about-dial/boards-and-commissions/pmsb-board", "reviewedAt": "2026-07-03T00:00:00.000Z", "note": "DIAL defines mechanical systems as HVAC, refrigeration, sheet metal, and hydronic systems and states anyone contracting for services in these trades is required to be licensed by the board." }],
+          "limitations": ["PMSB contractor licensing does not replace DIAL contractor registration or local permit obligations."]
+        },
+        "roofing": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.ia.dial.contractor_registration"],
+          "evidence": [{ "url": "https://dial.iowa.gov/licenses/building/contractors", "reviewedAt": "2026-07-03T00:00:00.000Z", "note": "DIAL states the construction definition is broad and specifically includes roofers among the trades that must register." }],
+          "limitations": ["Iowa does not show a separate statewide roofing contractor license in this evidence; local roofing registration, permits, and inspections may apply."]
+        },
+        "solar": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.ia.dial.contractor_registration", "us.ia.dial.electrical_licensing"],
+          "evidence": [{ "url": "https://dial.iowa.gov/licenses/building/contractors", "reviewedAt": "2026-07-03T00:00:00.000Z", "note": "DIAL requires construction contractors performing broad construction work to register and separately points contractors to DIAL electrical licensing where electrical work is involved." }],
+          "limitations": ["Solar installation may require contractor registration, electrical licensing, utility interconnection, local permits, and other trade credentials depending on the scope."]
+        },
+        "pool_spa": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.ia.dial.contractor_registration"],
+          "evidence": [{ "url": "https://dial.iowa.gov/licenses/swimming-pools-spas/construction", "reviewedAt": "2026-07-03T00:00:00.000Z", "note": "DIAL's public pool/spa construction page states public swimming pools and spas must comply with state code and that construction contractors must register with DIAL under Iowa's contractor law." }],
+          "limitations": ["The public pool/spa program is a facility plan-review and construction-permit path, not a separate statewide pool-contractor license. Private residential pools and local permitting are outside this statewide decision."]
+        },
+        "asbestos": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.ia.dial.asbestos_licenses"],
+          "evidence": [{ "url": "https://dial.iowa.gov/licenses/building/asbestos/license", "reviewedAt": "2026-07-03T00:00:00.000Z", "note": "DIAL states asbestos workers, contractors, and supervisors must obtain licenses and links current permitted-contractor and licensed-professional lists." }],
+          "limitations": ["The Data Hub license dataset includes individual professionals as well as contractor/supervisor records; future adapter work must filter and document publication/privacy handling."]
+        },
+        "sheet_metal": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.ia.dial.plumbing_mechanical", "us.ia.dial.contractor_registration"],
+          "evidence": [{ "url": "https://dial.iowa.gov/about-dial/boards-and-commissions/pmsb-board", "reviewedAt": "2026-07-03T00:00:00.000Z", "note": "DIAL states PMSB licenses and regulates sheet metal as part of the plumbing and mechanical systems trades." }],
+          "limitations": ["Sheet-metal work appears under PMSB mechanical-system licensing rather than a separate statewide sheet-metal contractor board."]
+        },
+        "underground_utility": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.ia.dial.contractor_registration", "us.ia.dial.plumbing_mechanical"],
+          "evidence": [{ "url": "https://dial.iowa.gov/licenses/building/contractors", "reviewedAt": "2026-07-03T00:00:00.000Z", "note": "DIAL states construction contractor registration applies broadly to construction work and that contractors may also need PMSB licensing when plumbing or mechanical systems work is involved." }],
+          "limitations": ["No separate statewide underground-utility contractor license was identified in this slice; utility-owner approvals, environmental permits, local permits, and PMSB plumbing/mechanical scope may apply."]
+        },
+        "home_improvement": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.ia.dial.contractor_registration"],
+          "evidence": [{ "url": "https://dial.iowa.gov/licenses/building/contractors", "reviewedAt": "2026-07-03T00:00:00.000Z", "note": "DIAL states construction contractors performing construction work above the annual threshold must register and that the definition of construction is broad." }],
+          "limitations": ["Iowa does not show a separate statewide home-improvement contractor license in this evidence; local registration and project permits may apply."]
+        }
+      }
+    },
     { "state": "ID", "decisions": {} },
     { "state": "IL", "decisions": {} },
     { "state": "IN", "decisions": {} },

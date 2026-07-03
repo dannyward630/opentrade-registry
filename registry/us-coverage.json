@@ -154,9 +154,12 @@
       "state": "IA",
       "status": "blocked",
       "sourceIds": [
-        "us.ia.dial.contractor_registration"
+        "us.ia.dial.asbestos_licenses",
+        "us.ia.dial.contractor_registration",
+        "us.ia.dial.electrical_licensing",
+        "us.ia.dial.plumbing_mechanical"
       ],
-      "notes": "Official source metadata is retained, but automated ingestion is blocked by documented legal, access, scope, or technical constraints."
+      "notes": "Official DIAL source metadata is retained for contractor registration, electrical licensing, plumbing/mechanical systems, and asbestos licensing, but automated ingestion remains blocked pending adapter-reviewed source shapes and privacy handling."
     },
     {
       "state": "KS",

@@ -1,0 +1,82 @@
+{
+  "id": "us.ia.dial.asbestos_licenses",
+  "name": "Iowa DIAL Asbestos Licenses and Permits",
+  "jurisdiction": {
+    "country": "US",
+    "state": "IA"
+  },
+  "agency": {
+    "name": "Iowa Department of Inspections, Appeals, and Licensing",
+    "url": "https://dial.iowa.gov/"
+  },
+  "sourceType": "bulk_json",
+  "sourceUrl": "https://data.iowa.gov/catalog/dataset/560",
+  "documentationUrl": "https://dial.iowa.gov/licenses/building/asbestos/license",
+  "dataDictionaryUrl": "https://data.iowa.gov/catalog/dataset/560",
+  "termsUrl": "https://www.iowa.gov/policies",
+  "termsReviewNotes": "The Data Hub page lists CC BY, but normalized publication still needs source-specific privacy review because asbestos records can include individuals as well as businesses.",
+  "updateFrequency": "weekly according to the Iowa Data Hub catalog page reviewed on 2026-07-03",
+  "tradeCoverage": [
+    "asbestos"
+  ],
+  "licenseTypesIncluded": [
+    "Iowa asbestos licenses listed in the Iowa Data Hub catalog",
+    "Iowa asbestos contractor/supervisor license discipline where present in the licensed-professional dataset"
+  ],
+  "knownExclusions": [
+    "The cataloged license dataset includes individual asbestos professionals and is not limited to contractor businesses.",
+    "The related asbestos permits dataset is a separate Iowa Data Hub dataset and should be reviewed before contractor-permit normalization.",
+    "This source is limited to Iowa asbestos licensing and permitting; it is not a general contractor, electrical, plumbing, or mechanical source."
+  ],
+  "hasBulkDownload": true,
+  "hasLiveLookup": false,
+  "requiresJavaScript": false,
+  "requiresCaptcha": false,
+  "requiresAccount": false,
+  "rateLimitNotes": "No adapter is implemented. Prefer saved fixtures and Data Hub export metadata review before any opt-in network sync.",
+  "redistributionStatus": "unknown",
+  "publicRecordsNotes": "DIAL links public lists of current permitted contractors and current licensed professionals. Absence from one downloaded snapshot is not proof that an asbestos credential or permit does not exist elsewhere.",
+  "adapterStatus": "blocked",
+  "sourceDiscoveryStatus": "blocked",
+  "adapterMaturity": "blocked",
+  "coverageScope": "state_agency_partial",
+  "adapterPackage": null,
+  "testFixturePath": null,
+  "officialLookupUrl": "https://dial.iowa.gov/licenses/building/asbestos/license",
+  "officialLookupReviewNotes": "The official DIAL asbestos license page links current permitted-contractor and licensed-professional Iowa Data Hub datasets.",
+  "officialBulkDownloadNotes": "Iowa Data Hub exposes catalog pages for current asbestos licenses and permits with weekly update metadata; adapter work must still review API/export shape and privacy handling.",
+  "researchNotes": "This source is intentionally separate from construction contractor registration because DIAL asbestos licensing and permitting are administered as a distinct asbestos program.",
+  "lastVerifiedAt": "2026-07-03T00:00:00.000Z",
+  "maintainerNotes": "Future adapter work should decide whether the normalized source is licenses, permits, or a paired source family before exposing records.",
+  "schemaVersion": "1.0",
+  "researchReviewedAt": "2026-07-03T00:00:00.000Z",
+  "nextReviewAt": "2027-01-03T00:00:00.000Z",
+  "researchEvidence": [
+    {
+      "url": "https://dial.iowa.gov/licenses/building/asbestos/license",
+      "checkedAt": "2026-07-03T00:00:00.000Z",
+      "note": "Official DIAL asbestos license page reviewed; it states asbestos workers, contractors, and supervisors must obtain licenses and links current permitted-contractor and licensed-professional lists."
+    },
+    {
+      "url": "https://data.iowa.gov/catalog/dataset/560",
+      "checkedAt": "2026-07-03T00:00:00.000Z",
+      "note": "Iowa Data Hub catalog page reviewed; it describes Iowa Asbestos Licenses, weekly update cadence, and public license metadata."
+    },
+    {
+      "url": "https://data.iowa.gov/catalog/dataset/561",
+      "checkedAt": "2026-07-03T00:00:00.000Z",
+      "note": "Iowa Data Hub catalog page reviewed; it describes Iowa Asbestos Permits, weekly update cadence, and permit dataset metadata."
+    }
+  ],
+  "sourceResearchOutcome": "blocked",
+  "adapterQualityLevel": 0,
+  "blocker": {
+    "code": "technical_instability",
+    "summary": "The official Data Hub path appears exportable, but no adapter-reviewed API/export shape, privacy filter, or fixture-backed parser has been implemented yet.",
+    "evidenceUrls": [
+      "https://dial.iowa.gov/licenses/building/asbestos/license",
+      "https://data.iowa.gov/catalog/dataset/560",
+      "https://data.iowa.gov/catalog/dataset/561"
+    ]
+  }
+}

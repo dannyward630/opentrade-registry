@@ -963,6 +963,33 @@
       }
     },
     {
+      "id": "us.ia.dial.asbestos_licenses",
+      "jurisdiction": {
+        "country": "US",
+        "state": "IA"
+      },
+      "boardName": "Iowa DIAL Asbestos Licenses and Permits",
+      "agencyName": "Iowa Department of Inspections, Appeals, and Licensing",
+      "officialUrl": "https://dial.iowa.gov/licenses/building/asbestos/license",
+      "sourceIds": [
+        "us.ia.dial.asbestos_licenses"
+      ],
+      "trades": [
+        "asbestos"
+      ],
+      "accessPath": "manual_handoff",
+      "coverageLimitations": [
+        "The cataloged license dataset includes individual asbestos professionals and is not limited to contractor businesses.",
+        "The related asbestos permits dataset is a separate Iowa Data Hub dataset and should be reviewed before contractor-permit normalization.",
+        "This source is limited to Iowa asbestos licensing and permitting; it is not a general contractor, electrical, plumbing, or mechanical source."
+      ],
+      "evidence": {
+        "url": "https://dial.iowa.gov/licenses/building/asbestos/license",
+        "reviewedAt": "2026-07-03T00:00:00.000Z",
+        "note": "Official DIAL asbestos license page reviewed; it states asbestos workers, contractors, and supervisors must obtain licenses and links current permitted-contractor and licensed-professional lists."
+      }
+    },
+    {
       "id": "us.ia.dial.contractor_registration",
       "jurisdiction": {
         "country": "US",
@@ -993,6 +1020,63 @@
         "url": "https://dial.iowa.gov/i-need/records",
         "reviewedAt": "2026-06-27T00:00:00.000Z",
         "note": "Official public source, access shape, and current automation constraints reviewed."
+      }
+    },
+    {
+      "id": "us.ia.dial.electrical_licensing",
+      "jurisdiction": {
+        "country": "US",
+        "state": "IA"
+      },
+      "boardName": "Iowa Electrical Examining Board Licensing",
+      "agencyName": "Iowa Department of Inspections, Appeals, and Licensing",
+      "officialUrl": "https://dps-eeb.my.site.com/LicenseSearchPage",
+      "sourceIds": [
+        "us.ia.dial.electrical_licensing"
+      ],
+      "trades": [
+        "electrical"
+      ],
+      "accessPath": "manual_handoff",
+      "coverageLimitations": [
+        "This source is limited to Iowa electrical licensing and does not represent general contractor registration, plumbing, mechanical, HVAC, asbestos, or local permit records.",
+        "Electrical permits and inspections are separate from license records.",
+        "The public lookup is search-oriented and may return capped results when broad search filters are used."
+      ],
+      "evidence": {
+        "url": "https://iowaelectrical.gov/",
+        "reviewedAt": "2026-07-03T00:00:00.000Z",
+        "note": "Official Iowa Electrical Examining Board page reviewed; it links license, course, and permit search paths and describes electrical licensing and inspection services."
+      }
+    },
+    {
+      "id": "us.ia.dial.plumbing_mechanical",
+      "jurisdiction": {
+        "country": "US",
+        "state": "IA"
+      },
+      "boardName": "Iowa Plumbing and Mechanical Systems Board Licensing",
+      "agencyName": "Iowa Department of Inspections, Appeals, and Licensing",
+      "officialUrl": "https://dphregprograms.iowa.gov/PublicPortal/Iowa/IDPH/common/index.jsp",
+      "sourceIds": [
+        "us.ia.dial.plumbing_mechanical"
+      ],
+      "trades": [
+        "plumbing",
+        "mechanical",
+        "hvac",
+        "sheet_metal"
+      ],
+      "accessPath": "manual_handoff",
+      "coverageLimitations": [
+        "This source is limited to Iowa Plumbing and Mechanical Systems Board credentials and does not represent electrical licensing, general contractor registration, asbestos, or local permits.",
+        "The contractor license and DIAL contractor registration are separate requirements, though a joint application can cover both.",
+        "Medical gas piping and individual apprentice, journey, and master credentials may need separate adapter treatment from contractor records."
+      ],
+      "evidence": {
+        "url": "https://dial.iowa.gov/about-dial/boards-and-commissions/pmsb-board",
+        "reviewedAt": "2026-07-03T00:00:00.000Z",
+        "note": "Official PMSB page reviewed; it states the board licenses and regulates plumbing, mechanical, hydronic, HVAC, refrigeration, sheet metal trades and issues contractor licenses."
       }
     },
     {

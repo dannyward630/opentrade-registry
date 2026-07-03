@@ -1,0 +1,78 @@
+{
+  "id": "us.ia.dial.plumbing_mechanical",
+  "name": "Iowa Plumbing and Mechanical Systems Board Licensing",
+  "jurisdiction": {
+    "country": "US",
+    "state": "IA"
+  },
+  "agency": {
+    "name": "Iowa Department of Inspections, Appeals, and Licensing",
+    "url": "https://dial.iowa.gov/"
+  },
+  "sourceType": "html_lookup",
+  "sourceUrl": "https://dial.iowa.gov/licenses/building/plumbing-mechanical/plumbing-licensure/contractor-license",
+  "documentationUrl": "https://dial.iowa.gov/about-dial/boards-and-commissions/pmsb-board",
+  "dataDictionaryUrl": null,
+  "termsUrl": "https://www.iowa.gov/policies",
+  "updateFrequency": "unknown; verify against the official plumbing and mechanical public portal before relying on freshness assumptions",
+  "tradeCoverage": [
+    "plumbing",
+    "mechanical",
+    "hvac",
+    "sheet_metal"
+  ],
+  "licenseTypesIncluded": [
+    "Plumbing and Mechanical Systems Board contractor licenses",
+    "Plumbing, mechanical, HVAC, refrigeration, sheet metal, and hydronic systems credentials"
+  ],
+  "knownExclusions": [
+    "This source is limited to Iowa Plumbing and Mechanical Systems Board credentials and does not represent electrical licensing, general contractor registration, asbestos, or local permits.",
+    "The contractor license and DIAL contractor registration are separate requirements, though a joint application can cover both.",
+    "Medical gas piping and individual apprentice, journey, and master credentials may need separate adapter treatment from contractor records."
+  ],
+  "hasBulkDownload": "unknown",
+  "hasLiveLookup": true,
+  "requiresJavaScript": "unknown",
+  "requiresCaptcha": "unknown",
+  "requiresAccount": false,
+  "rateLimitNotes": "No adapter is implemented. Use the official public portal manually until access behavior, allowed automation, and result shape are reviewed.",
+  "redistributionStatus": "unknown",
+  "publicRecordsNotes": "Official lookup metadata only. Absence from this source is not proof that a plumbing, mechanical, HVAC, refrigeration, hydronic, sheet-metal, or registration record does not exist elsewhere.",
+  "adapterStatus": "blocked",
+  "sourceDiscoveryStatus": "blocked",
+  "adapterMaturity": "blocked",
+  "coverageScope": "state_agency_partial",
+  "adapterPackage": null,
+  "testFixturePath": null,
+  "officialLookupUrl": "https://dphregprograms.iowa.gov/PublicPortal/Iowa/IDPH/common/index.jsp",
+  "officialLookupReviewNotes": "The official contractor-license page links a public portal to search or verify Iowa plumbing and mechanical contractors.",
+  "officialBulkDownloadNotes": "No official stable bulk download has been confirmed for PMSB contractor licenses in this phase.",
+  "researchNotes": "This source is separate from DIAL contractor registration because PMSB contractor licensure is a distinct board requirement for plumbing and mechanical systems work.",
+  "lastVerifiedAt": "2026-07-03T00:00:00.000Z",
+  "maintainerNotes": "Future adapter work should distinguish contractor licenses from individual apprentice, journey, master, and specialty credentials.",
+  "schemaVersion": "1.0",
+  "researchReviewedAt": "2026-07-03T00:00:00.000Z",
+  "nextReviewAt": "2027-01-03T00:00:00.000Z",
+  "researchEvidence": [
+    {
+      "url": "https://dial.iowa.gov/about-dial/boards-and-commissions/pmsb-board",
+      "checkedAt": "2026-07-03T00:00:00.000Z",
+      "note": "Official PMSB page reviewed; it states the board licenses and regulates plumbing, mechanical, hydronic, HVAC, refrigeration, sheet metal trades and issues contractor licenses."
+    },
+    {
+      "url": "https://dial.iowa.gov/licenses/building/plumbing-mechanical/plumbing-licensure/contractor-license",
+      "checkedAt": "2026-07-03T00:00:00.000Z",
+      "note": "Official contractor-license page reviewed; Iowa law requires plumbing and mechanical contractors to be licensed with the board and registered with DIAL."
+    }
+  ],
+  "sourceResearchOutcome": "blocked",
+  "adapterQualityLevel": 0,
+  "blocker": {
+    "code": "technical_instability",
+    "summary": "The official path is lookup-oriented and no stable, documented bulk or API interface has been adapter-reviewed.",
+    "evidenceUrls": [
+      "https://dial.iowa.gov/about-dial/boards-and-commissions/pmsb-board",
+      "https://dial.iowa.gov/licenses/building/plumbing-mechanical/plumbing-licensure/contractor-license"
+    ]
+  }
+}

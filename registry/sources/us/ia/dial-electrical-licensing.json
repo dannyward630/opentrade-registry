@@ -1,0 +1,77 @@
+{
+  "id": "us.ia.dial.electrical_licensing",
+  "name": "Iowa Electrical Examining Board Licensing",
+  "jurisdiction": {
+    "country": "US",
+    "state": "IA"
+  },
+  "agency": {
+    "name": "Iowa Department of Inspections, Appeals, and Licensing",
+    "url": "https://dial.iowa.gov/"
+  },
+  "sourceType": "html_lookup",
+  "sourceUrl": "https://iowaelectrical.gov/",
+  "documentationUrl": "https://dial.iowa.gov/licenses/building/electrical-licensing",
+  "dataDictionaryUrl": null,
+  "termsUrl": "https://www.iowa.gov/policies",
+  "updateFrequency": "unknown; verify against the official electrical license search before relying on freshness assumptions",
+  "tradeCoverage": [
+    "electrical"
+  ],
+  "licenseTypesIncluded": [
+    "Electrical Contractor",
+    "Residential Electrical Contractor",
+    "Master and journeyman electrician license classes",
+    "Special Electrician and related electrical credentials"
+  ],
+  "knownExclusions": [
+    "This source is limited to Iowa electrical licensing and does not represent general contractor registration, plumbing, mechanical, HVAC, asbestos, or local permit records.",
+    "Electrical permits and inspections are separate from license records.",
+    "The public lookup is search-oriented and may return capped results when broad search filters are used."
+  ],
+  "hasBulkDownload": "unknown",
+  "hasLiveLookup": true,
+  "requiresJavaScript": true,
+  "requiresCaptcha": false,
+  "requiresAccount": false,
+  "rateLimitNotes": "No adapter is implemented. Use the official license search manually until access behavior, result caps, and allowed automation are reviewed.",
+  "redistributionStatus": "unknown",
+  "publicRecordsNotes": "Official lookup metadata only. Absence from this source is not proof that an electrical credential, permit, or record does not exist elsewhere.",
+  "adapterStatus": "blocked",
+  "sourceDiscoveryStatus": "blocked",
+  "adapterMaturity": "blocked",
+  "coverageScope": "state_agency_partial",
+  "adapterPackage": null,
+  "testFixturePath": null,
+  "officialLookupUrl": "https://dps-eeb.my.site.com/LicenseSearchPage",
+  "officialLookupReviewNotes": "The official Iowa Electrical Examining Board site links a public license search with business, status, location, type, and license-number filters.",
+  "officialBulkDownloadNotes": "No official stable bulk download has been confirmed for electrical licenses in this phase.",
+  "researchNotes": "Keep this source separate from DIAL contractor registration because electrical contractors have a distinct state license path and lookup.",
+  "lastVerifiedAt": "2026-07-03T00:00:00.000Z",
+  "maintainerNotes": "Do not automate the Salesforce-backed lookup until terms, result limits, and a saved fixture shape are reviewed.",
+  "schemaVersion": "1.0",
+  "researchReviewedAt": "2026-07-03T00:00:00.000Z",
+  "nextReviewAt": "2027-01-03T00:00:00.000Z",
+  "researchEvidence": [
+    {
+      "url": "https://iowaelectrical.gov/",
+      "checkedAt": "2026-07-03T00:00:00.000Z",
+      "note": "Official Iowa Electrical Examining Board page reviewed; it links license, course, and permit search paths and describes electrical licensing and inspection services."
+    },
+    {
+      "url": "https://dps-eeb.my.site.com/LicenseSearchPage",
+      "checkedAt": "2026-07-03T00:00:00.000Z",
+      "note": "Official public license search reviewed; it includes Electrical Contractor and Residential Electrical Contractor license types."
+    }
+  ],
+  "sourceResearchOutcome": "blocked",
+  "adapterQualityLevel": 0,
+  "blocker": {
+    "code": "technical_instability",
+    "summary": "The official source is lookup-oriented and no stable, documented bulk or API interface has been adapter-reviewed.",
+    "evidenceUrls": [
+      "https://iowaelectrical.gov/",
+      "https://dps-eeb.my.site.com/LicenseSearchPage"
+    ]
+  }
+}

@@ -66,6 +66,9 @@ describe("opentrade CLI", () => {
     expect(list).toContain("us.de.labor.construction_contractors");
     expect(list).toContain("us.dc.dlcp.contractors");
     expect(list).toContain("us.id.dopl.contractors");
+    expect(list).toContain("us.ia.dial.asbestos_licenses");
+    expect(list).toContain("us.ia.dial.electrical_licensing");
+    expect(list).toContain("us.ia.dial.plumbing_mechanical");
     expect(list).toContain("us.il.idfpr.roofing_contractors");
     expect(list).toContain("us.in.pla.professional_licenses");
     expect(list).toContain("us.ks.ag.roofing_registration");
@@ -156,7 +159,16 @@ describe("opentrade CLI", () => {
     const oregonDeq = runCli(["sources", "show", "us.or.deq.asbestos_contractors"]).stdout;
     expect(oregonDeq).toContain("Oregon DEQ Licensed Asbestos Abatement Contractors");
     expect(oregonDeq).toContain("maturity: blocked");
-    expect(runCli(["sources", "validate"]).stdout).toContain("Validated 86 source registry entries.");
+    const iowaPmsb = runCli(["sources", "show", "us.ia.dial.plumbing_mechanical"]).stdout;
+    expect(iowaPmsb).toContain("Iowa Plumbing and Mechanical Systems Board Licensing");
+    expect(iowaPmsb).toContain("maturity: blocked");
+    expect(iowaPmsb).toContain("plumbing");
+    expect(iowaPmsb).toContain("sheet-metal");
+    const iowaAsbestos = runCli(["sources", "show", "us.ia.dial.asbestos_licenses"]).stdout;
+    expect(iowaAsbestos).toContain("Iowa DIAL Asbestos Licenses and Permits");
+    expect(iowaAsbestos).toContain("bulk_json");
+    expect(iowaAsbestos).toContain("weekly");
+    expect(runCli(["sources", "validate"]).stdout).toContain("Validated 89 source registry entries.");
   }, CLI_SMOKE_TIMEOUT_MS);
 
   it("filters source listings for discovery workflows", () => {
@@ -184,7 +196,7 @@ describe("opentrade CLI", () => {
     expect(bulkCandidatesJson.map((source: { id: string }) => source.id)).toEqual([]);
 
     const blockedJson = JSON.parse(runCli(["sources", "list", "--research-outcome", "blocked", "--json"]).stdout);
-    expect(blockedJson).toHaveLength(77);
+    expect(blockedJson).toHaveLength(80);
     expect(blockedJson.map((source: { id: string }) => source.id)).toContain("us.pa.oag.home_improvement_contractors");
 
     const level4Json = JSON.parse(runCli(["sources", "list", "--quality-level", "4", "--json"]).stdout);
@@ -213,10 +225,10 @@ describe("opentrade CLI", () => {
   it("summarizes terminal source readiness", () => {
     const readiness = runCli(["sources", "readiness"]).stdout;
     expect(readiness).toContain("OpenTrade source readiness");
-    expect(readiness).toContain("sources: 86");
+    expect(readiness).toContain("sources: 89");
     expect(readiness).toContain("implemented adapter sources: 9");
-    expect(readiness).toContain("terminal source decisions: 86");
-    expect(readiness).toContain("blocked sources: 77");
+    expect(readiness).toContain("terminal source decisions: 89");
+    expect(readiness).toContain("blocked sources: 80");
     expect(readiness).toContain("- us.az.roc.contractors (bulk_csv, network_opt_in, level_4)");
     expect(readiness).toContain("- us.ca.cslb.contractors (bulk_csv, local_file_adapter, level_4)");
     expect(readiness).toContain("- us.fl.dbpr.asbestos_contractors (bulk_csv, network_opt_in, level_4)");
@@ -228,13 +240,13 @@ describe("opentrade CLI", () => {
     expect(readiness).toContain("- us.wa.lni.contractors (bulk_csv, network_opt_in, level_4)");
     expect(readiness).toContain("unimplemented bulk-shaped candidates: 0");
     expect(readiness).toContain("research outcomes:");
-    expect(readiness).toContain("- blocked: 77");
+    expect(readiness).toContain("- blocked: 80");
     expect(readiness).toContain("download/export research candidates: 0");
     expect(readiness).toContain("lookup automation constraint sources: 0");
     expect(readiness).toContain("terminal implementation or blocker outcome");
 
     const json = JSON.parse(runCli(["sources", "readiness", "--json"]).stdout);
-    expect(json.sourceCount).toBe(86);
+    expect(json.sourceCount).toBe(89);
     expect(json.implementedAdapterSources.map((source: { id: string }) => source.id)).toEqual([
       "us.az.roc.contractors",
       "us.ca.cslb.contractors",
@@ -249,7 +261,7 @@ describe("opentrade CLI", () => {
     expect(json.unimplementedBulkAdapterCandidates.map((source: { id: string }) => source.id)).toEqual([]);
     expect(json.downloadResearchCandidates).toEqual([]);
     expect(json.lookupAutomationConstraintSources).toEqual([]);
-    expect(json.sourcesByResearchOutcome.blocked).toBe(77);
+    expect(json.sourcesByResearchOutcome.blocked).toBe(80);
     expect(json.registryOnlySourceCount).toBe(0);
   }, CLI_SMOKE_TIMEOUT_MS);
 
