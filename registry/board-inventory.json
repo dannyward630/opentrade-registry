@@ -1080,6 +1080,33 @@
       }
     },
     {
+      "id": "us.id.deq.asbestos_compliance",
+      "jurisdiction": {
+        "country": "US",
+        "state": "ID"
+      },
+      "boardName": "Idaho DEQ Asbestos Renovation and Demolition Compliance",
+      "agencyName": "Idaho Department of Environmental Quality",
+      "officialUrl": "https://www.deq.idaho.gov/air-quality/compliance-assistance/",
+      "sourceIds": [
+        "us.id.deq.asbestos_compliance"
+      ],
+      "trades": [
+        "asbestos"
+      ],
+      "accessPath": "blocked",
+      "coverageLimitations": [
+        "This source is not a state contractor-license roster and should not be used as proof of licensed asbestos-contractor status.",
+        "DEQ states that EPA Region 10 has jurisdiction over asbestos activities at nonmajor facilities; those federal records are outside this state source entry.",
+        "Asbestos worker, inspector, supervisor, training-provider, and out-of-state accreditation records are not normalized by this source entry."
+      ],
+      "evidence": {
+        "url": "https://www.deq.idaho.gov/air-quality/compliance-assistance/",
+        "reviewedAt": "2026-07-03T00:00:00.000Z",
+        "note": "Official DEQ compliance assistance page reviewed; it provides asbestos renovation/demolition notification guidance and directs nonmajor-facility asbestos activities to EPA Region 10."
+      }
+    },
+    {
       "id": "us.id.dopl.contractors",
       "jurisdiction": {
         "country": "US",
@@ -1106,6 +1133,121 @@
         "url": "https://edopl.idaho.gov/OnlineServices/?link=PubSearch",
         "reviewedAt": "2026-06-27T00:00:00.000Z",
         "note": "Official public source, access shape, and current automation constraints reviewed."
+      }
+    },
+    {
+      "id": "us.id.dopl.electrical",
+      "jurisdiction": {
+        "country": "US",
+        "state": "ID"
+      },
+      "boardName": "Idaho DOPL Electrical Board License Search",
+      "agencyName": "Idaho Division of Occupational and Professional Licenses",
+      "officialUrl": "https://edopl.idaho.gov/OnlineServices/?link=PubSearch",
+      "sourceIds": [
+        "us.id.dopl.electrical"
+      ],
+      "trades": [
+        "electrical",
+        "solar"
+      ],
+      "accessPath": "manual_handoff",
+      "coverageLimitations": [
+        "This source is limited to Idaho Electrical Board records and does not represent contractor registration, plumbing, HVAC, public works, asbestos, local permits, or business-registration records.",
+        "Solar coverage is limited to electrical work that falls within Idaho electrical licensing; non-electrical solar construction may require contractor registration or other authorization.",
+        "The lookup is hosted in DOPL online services; adapter work must review public search controls before automation."
+      ],
+      "evidence": {
+        "url": "https://dopl.idaho.gov/ele/",
+        "reviewedAt": "2026-07-03T00:00:00.000Z",
+        "note": "Official Idaho Electrical Board page reviewed; it links DOPL online-services license search and lists contractor, limited contractor, journeyman, master, and related electrical license classes."
+      }
+    },
+    {
+      "id": "us.id.dopl.hvac",
+      "jurisdiction": {
+        "country": "US",
+        "state": "ID"
+      },
+      "boardName": "Idaho DOPL HVAC Board License Search",
+      "agencyName": "Idaho Division of Occupational and Professional Licenses",
+      "officialUrl": "https://edopl.idaho.gov/OnlineServices/?link=PubSearch",
+      "sourceIds": [
+        "us.id.dopl.hvac"
+      ],
+      "trades": [
+        "hvac",
+        "mechanical",
+        "sheet_metal"
+      ],
+      "accessPath": "manual_handoff",
+      "coverageLimitations": [
+        "This source is limited to Idaho HVAC Board records and does not represent contractor registration, electrical, plumbing, public works, asbestos, local permits, or business-registration records.",
+        "Sheet-metal coverage is limited to work that falls within HVAC or mechanical code/licensing context; no standalone statewide sheet-metal contractor source has been confirmed.",
+        "The lookup is hosted in DOPL online services; adapter work must review public search controls before automation."
+      ],
+      "evidence": {
+        "url": "https://dopl.idaho.gov/hvac/",
+        "reviewedAt": "2026-07-03T00:00:00.000Z",
+        "note": "Official Idaho HVAC Board page reviewed; it links DOPL online-services license search and lists HVAC contractor, specialty contractor, journeyman, specialty journeyman, and apprentice fee classes."
+      }
+    },
+    {
+      "id": "us.id.dopl.plumbing",
+      "jurisdiction": {
+        "country": "US",
+        "state": "ID"
+      },
+      "boardName": "Idaho DOPL State Plumbing Board License Search",
+      "agencyName": "Idaho Division of Occupational and Professional Licenses",
+      "officialUrl": "https://edopl.idaho.gov/OnlineServices/?link=PubSearch",
+      "sourceIds": [
+        "us.id.dopl.plumbing"
+      ],
+      "trades": [
+        "plumbing",
+        "mechanical"
+      ],
+      "accessPath": "manual_handoff",
+      "coverageLimitations": [
+        "This source is limited to Idaho State Plumbing Board records and does not represent contractor registration, electrical, HVAC, public works, asbestos, local permits, or business-registration records.",
+        "Mechanical coverage is limited to plumbing and piping work that falls within the plumbing board's license classes and code context.",
+        "The lookup is hosted in DOPL online services; adapter work must review public search controls before automation."
+      ],
+      "evidence": {
+        "url": "https://dopl.idaho.gov/plb/",
+        "reviewedAt": "2026-07-03T00:00:00.000Z",
+        "note": "Official Idaho State Plumbing Board page reviewed; it links DOPL online-services license search and lists contractor, specialty contractor, journeyman, specialty journeyman, and apprentice fee classes."
+      }
+    },
+    {
+      "id": "us.id.dopl.public_works_contractors",
+      "jurisdiction": {
+        "country": "US",
+        "state": "ID"
+      },
+      "boardName": "Idaho DOPL Public Works Contractors License Board Search",
+      "agencyName": "Idaho Division of Occupational and Professional Licenses",
+      "officialUrl": "https://edopl.idaho.gov/OnlineServices/?link=PubSearch",
+      "sourceIds": [
+        "us.id.dopl.public_works_contractors"
+      ],
+      "trades": [
+        "general_contracting",
+        "commercial_contracting",
+        "underground_utility",
+        "other"
+      ],
+      "accessPath": "manual_handoff",
+      "coverageLimitations": [
+        "This source is limited to public works contractor and construction manager licensing and does not represent private contractor registration, electrical, HVAC, plumbing, asbestos, local permits, or business-registration records.",
+        "Private residential and private commercial contractor registration is tracked separately in us.id.dopl.contractors.",
+        "The lookup is hosted in DOPL online services; adapter work must review public search controls before automation."
+      ],
+      "evidence": {
+        "url": "https://dopl.idaho.gov/pwc/",
+        "reviewedAt": "2026-07-03T00:00:00.000Z",
+        "note": "Official Idaho Public Works Contractors License Board page reviewed; it links DOPL online-services license search and lists public works contractor class types and construction manager licensing."
       }
     },
     {

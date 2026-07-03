@@ -130,9 +130,14 @@
       "state": "ID",
       "status": "blocked",
       "sourceIds": [
-        "us.id.dopl.contractors"
+        "us.id.deq.asbestos_compliance",
+        "us.id.dopl.contractors",
+        "us.id.dopl.electrical",
+        "us.id.dopl.hvac",
+        "us.id.dopl.plumbing",
+        "us.id.dopl.public_works_contractors"
       ],
-      "notes": "Official source metadata is retained, but automated ingestion is blocked by documented legal, access, scope, or technical constraints."
+      "notes": "Official DOPL source metadata is retained for contractor registration, electrical, HVAC, plumbing, and public works boards, with a separate DEQ asbestos compliance handoff. Automated ingestion remains blocked pending adapter-reviewed source shapes and privacy handling."
     },
     {
       "state": "IL",

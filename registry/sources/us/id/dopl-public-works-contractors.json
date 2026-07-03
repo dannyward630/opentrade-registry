@@ -1,0 +1,78 @@
+{
+  "id": "us.id.dopl.public_works_contractors",
+  "name": "Idaho DOPL Public Works Contractors License Board Search",
+  "jurisdiction": {
+    "country": "US",
+    "state": "ID"
+  },
+  "agency": {
+    "name": "Idaho Division of Occupational and Professional Licenses",
+    "url": "https://dopl.idaho.gov/"
+  },
+  "sourceType": "html_lookup",
+  "sourceUrl": "https://dopl.idaho.gov/pwc/",
+  "documentationUrl": "https://dopl.idaho.gov/pwc/",
+  "dataDictionaryUrl": null,
+  "termsUrl": "https://dopl.idaho.gov/privacy-policy/",
+  "updateFrequency": "unknown; verify against DOPL online services before relying on freshness assumptions",
+  "tradeCoverage": [
+    "general_contracting",
+    "commercial_contracting",
+    "underground_utility",
+    "other"
+  ],
+  "licenseTypesIncluded": [
+    "Idaho public works contractor and construction manager license classes exposed by DOPL online services"
+  ],
+  "knownExclusions": [
+    "This source is limited to public works contractor and construction manager licensing and does not represent private contractor registration, electrical, HVAC, plumbing, asbestos, local permits, or business-registration records.",
+    "Private residential and private commercial contractor registration is tracked separately in us.id.dopl.contractors.",
+    "The lookup is hosted in DOPL online services; adapter work must review public search controls before automation."
+  ],
+  "hasBulkDownload": "unknown",
+  "hasLiveLookup": true,
+  "requiresJavaScript": "unknown",
+  "requiresCaptcha": "unknown",
+  "requiresAccount": "unknown",
+  "rateLimitNotes": "No adapter is implemented. Do not automate DOPL online-services pages unless official terms, result limits, and technical controls are reviewed.",
+  "redistributionStatus": "unknown",
+  "publicRecordsNotes": "Official lookup metadata only. Absence from this source is not proof that a public works authorization, private contractor registration, local permit, or business-registration record does not exist elsewhere.",
+  "adapterStatus": "blocked",
+  "sourceDiscoveryStatus": "blocked",
+  "adapterMaturity": "blocked",
+  "adapterQualityLevel": 0,
+  "coverageScope": "state_agency_partial",
+  "adapterPackage": null,
+  "testFixturePath": null,
+  "officialLookupUrl": "https://edopl.idaho.gov/OnlineServices/?link=PubSearch",
+  "officialLookupReviewNotes": "The official Idaho Public Works Contractors License Board page links a DOPL online-services license search for public works contractor records.",
+  "officialBulkDownloadNotes": "No official stable bulk download has been confirmed for Idaho public works contractor licenses in this phase.",
+  "researchNotes": "Keep this source separate from contractor registration because public works contractors and construction managers are a distinct DOPL license board.",
+  "verificationReviewedAt": null,
+  "verificationCaveats": [
+    "This source covers Idaho public works contractor and construction manager records, not every Idaho private construction, trade, local permit, or business-registration record.",
+    "No matching record means no match in this source at the checked time, not proof that an authorization does not exist elsewhere."
+  ],
+  "verificationNotes": "No supported sync or verification adapter is exposed while official lookup behavior and allowed automation remain under review.",
+  "lastVerifiedAt": "2026-07-03T00:00:00.000Z",
+  "maintainerNotes": "Future adapter research should distinguish public works contractor classes from general private contractor registrations.",
+  "schemaVersion": "1.0",
+  "researchReviewedAt": "2026-07-03T00:00:00.000Z",
+  "nextReviewAt": "2027-01-03T00:00:00.000Z",
+  "researchEvidence": [
+    {
+      "url": "https://dopl.idaho.gov/pwc/",
+      "checkedAt": "2026-07-03T00:00:00.000Z",
+      "note": "Official Idaho Public Works Contractors License Board page reviewed; it links DOPL online-services license search and lists public works contractor class types and construction manager licensing."
+    }
+  ],
+  "sourceResearchOutcome": "blocked",
+  "blocker": {
+    "code": "technical_instability",
+    "summary": "The official path is lookup-oriented and no stable, documented machine-readable interface has been adapter-reviewed with offline fixtures.",
+    "evidenceUrls": [
+      "https://dopl.idaho.gov/pwc/",
+      "https://edopl.idaho.gov/OnlineServices/?link=PubSearch"
+    ]
+  }
+}
