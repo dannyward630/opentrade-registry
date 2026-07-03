@@ -1232,7 +1232,83 @@
         }
       }
     },
-    { "state": "IN", "decisions": {} },
+    {
+      "state": "IN",
+      "decisions": {
+        "general_contracting": {
+          "outcome": "local_only",
+          "evidence": [{ "url": "https://www.in.gov/core/business_guide.html", "reviewedAt": "2026-07-03T00:00:00.000Z", "note": "Indiana's official business guide directs construction users to local building officials and states that plumbers are the only construction contractors licensed by the state." }],
+          "limitations": ["Trade-specific state programs, local contractor registration, project permits, and public-works requirements may still apply."]
+        },
+        "residential_contracting": {
+          "outcome": "local_only",
+          "evidence": [{ "url": "https://www.in.gov/core/business_guide.html", "reviewedAt": "2026-07-03T00:00:00.000Z", "note": "Indiana's official business guide directs construction licensing questions to local building officials and identifies plumbing as the only state-licensed construction contractor field." }],
+          "limitations": ["Local residential contractor registrations, home-improvement rules, trade credentials, and project permits may apply."]
+        },
+        "commercial_contracting": {
+          "outcome": "local_only",
+          "evidence": [{ "url": "https://www.in.gov/core/business_guide.html", "reviewedAt": "2026-07-03T00:00:00.000Z", "note": "Indiana's official business guide points construction users to local building officials rather than a statewide commercial general-contractor board." }],
+          "limitations": ["Public procurement, trade-specific state credentials, local registration, and project permits may still apply."]
+        },
+        "electrical": {
+          "outcome": "local_only",
+          "evidence": [{ "url": "https://www.in.gov/core/business_guide.html", "reviewedAt": "2026-07-03T00:00:00.000Z", "note": "Indiana's official business guide states that plumbers are the only construction contractors licensed by the state and directs other construction users to local building officials." }],
+          "limitations": ["Local electrical licensing, inspection, permits, utility requirements, and separately regulated work may apply."]
+        },
+        "plumbing": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.in.pla.plumbing"],
+          "evidence": [{ "url": "https://www.in.gov/pla/professions/plumbing-home/plumbing-board/", "reviewedAt": "2026-07-03T00:00:00.000Z", "note": "The Indiana Plumbing Commission lists apprentice plumber, journeyman plumber, plumbing contractor, and temporary plumbing contractor licenses." }],
+          "limitations": ["Local registration, inspection, permits, and other project requirements may still apply."]
+        },
+        "hvac": {
+          "outcome": "local_only",
+          "evidence": [{ "url": "https://www.in.gov/core/business_guide.html", "reviewedAt": "2026-07-03T00:00:00.000Z", "note": "Indiana's official business guide identifies plumbing as the only state-licensed construction contractor field and directs other construction users to local officials." }],
+          "limitations": ["Local HVAC or mechanical licensing, permits, refrigerant rules, electrical work, and plumbing requirements may apply."]
+        },
+        "mechanical": {
+          "outcome": "local_only",
+          "evidence": [{ "url": "https://www.in.gov/core/business_guide.html", "reviewedAt": "2026-07-03T00:00:00.000Z", "note": "Indiana's official business guide identifies plumbing as the only state-licensed construction contractor field and directs other construction users to local officials." }],
+          "limitations": ["State plumbing credentials and local mechanical, fire-protection, inspection, and permit requirements may apply to specific work."]
+        },
+        "roofing": {
+          "outcome": "local_only",
+          "evidence": [{ "url": "https://www.in.gov/core/business_guide.html", "reviewedAt": "2026-07-03T00:00:00.000Z", "note": "Indiana's official business guide identifies plumbing as the only state-licensed construction contractor field and directs other construction users to local officials." }],
+          "limitations": ["Local contractor registration, building permits, and insurance or consumer-protection requirements may apply."]
+        },
+        "solar": {
+          "outcome": "local_only",
+          "evidence": [{ "url": "https://www.in.gov/core/business_guide.html", "reviewedAt": "2026-07-03T00:00:00.000Z", "note": "Indiana's official business guide identifies plumbing as the only state-licensed construction contractor field and directs other construction users to local officials." }],
+          "limitations": ["Local electrical and building permits, utility interconnection, roofing, and structural requirements may apply."]
+        },
+        "pool_spa": {
+          "outcome": "local_only",
+          "evidence": [{ "url": "https://www.in.gov/core/business_guide.html", "reviewedAt": "2026-07-03T00:00:00.000Z", "note": "Indiana's official business guide identifies plumbing as the only state-licensed construction contractor field and directs other construction users to local officials." }],
+          "limitations": ["State plumbing credentials and local electrical, health, building, and permit requirements may apply."]
+        },
+        "asbestos": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.in.idem.asbestos_licensing"],
+          "evidence": [{ "url": "https://www.in.gov/idem/asbestos/training-and-licensing/", "reviewedAt": "2026-07-03T00:00:00.000Z", "note": "IDEM states that individuals and companies working with asbestos must be licensed and identifies contractor as a regulated license discipline." }],
+          "limitations": ["Other asbestos workers, professionals, projects, notifications, training providers, and enforcement records may require separate official sources."]
+        },
+        "sheet_metal": {
+          "outcome": "local_only",
+          "evidence": [{ "url": "https://www.in.gov/core/business_guide.html", "reviewedAt": "2026-07-03T00:00:00.000Z", "note": "Indiana's official business guide identifies plumbing as the only state-licensed construction contractor field and directs other construction users to local officials." }],
+          "limitations": ["Local HVAC, mechanical, fire-protection, building, and permit requirements may apply."]
+        },
+        "underground_utility": {
+          "outcome": "local_only",
+          "evidence": [{ "url": "https://www.in.gov/core/business_guide.html", "reviewedAt": "2026-07-03T00:00:00.000Z", "note": "Indiana's official business guide identifies plumbing as the only state-licensed construction contractor field and directs other construction users to local officials." }],
+          "limitations": ["State plumbing, environmental, utility, excavation, right-of-way, and local permit requirements may apply to specific work."]
+        },
+        "home_improvement": {
+          "outcome": "local_only",
+          "evidence": [{ "url": "https://www.in.gov/core/business_guide.html", "reviewedAt": "2026-07-03T00:00:00.000Z", "note": "Indiana's official business guide identifies plumbing as the only state-licensed construction contractor field and directs other construction users to local officials." }],
+          "limitations": ["Local registration, consumer-protection rules, trade credentials, and project permits may apply."]
+        }
+      }
+    },
     { "state": "KS", "decisions": {} },
     { "state": "KY", "decisions": {} },
     {

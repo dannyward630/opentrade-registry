@@ -27,7 +27,7 @@
 - [California CSLB](adapters/california-cslb.md)
 - [Florida DBPR Network Sync](florida-dbpr-url-sync.md)
 - [Illinois IDFPR](adapters/illinois-idfpr.md)
-- [Indiana PLA](adapters/indiana-pla.md)
+- [Indiana source research](adapters/indiana-pla.md)
 - [Minnesota DLI](adapters/minnesota-dli.md)
 - [Oregon CCB](adapters/oregon-ccb.md)
 - [Texas TDLR](adapters/texas-tdlr.md)

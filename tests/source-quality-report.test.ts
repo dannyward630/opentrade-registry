@@ -12,22 +12,22 @@ describe("source quality report", () => {
     expect(result.stderr).toBe("");
 
     const report = JSON.parse(result.stdout);
-    expect(report.sourceCount).toBe(98);
+    expect(report.sourceCount).toBe(100);
     expect(report.stateCount).toBe(51);
     expect(report.researchedStateCount).toBe(51);
     expect(report.territoryCount).toBe(5);
     expect(report.researchedTerritoryCount).toBe(5);
     expect(report.coverageByStatus.not_started ?? 0).toBe(0);
-    expect(report.terminalSourceCount).toBe(98);
-    expect(report.blockedSourceCount).toBe(89);
+    expect(report.terminalSourceCount).toBe(100);
+    expect(report.blockedSourceCount).toBe(91);
     expect(report.territoryCoverageByStatus.blocked).toBe(5);
-    expect(report.sourcesByMaturity.blocked).toBe(89);
+    expect(report.sourcesByMaturity.blocked).toBe(91);
     expect(report.sourcesByMaturity.local_file_adapter).toBe(2);
     expect(report.sourcesByMaturity.network_opt_in).toBe(7);
-    expect(report.sourcesByAdapterQualityLevel["0"]).toBe(89);
+    expect(report.sourcesByAdapterQualityLevel["0"]).toBe(91);
     expect(report.sourcesByAdapterQualityLevel["4"]).toBe(9);
     expect(report.sourcesByResearchOutcome).toEqual({
-      blocked: 89,
+      blocked: 91,
       deprecated: 0,
       local_file_adapter: 2,
       network_opt_in: 7,
@@ -61,6 +61,7 @@ describe("source quality report", () => {
     expect(report.metadataCompleteness.officialLookupUrlMissingSources.map((source: { id: string }) => source.id)).toEqual([
       "us.as.doc.business_licenses",
       "us.id.deq.asbestos_compliance",
+      "us.in.idem.asbestos_licensing",
     ]);
     expect(report.metadataCompleteness.officialLookupUrlUnreviewedSources).toEqual([]);
     expect(report.metadataCompleteness.implementedVerificationCaveatsMissingSources).toEqual([]);
@@ -177,7 +178,7 @@ describe("source quality report", () => {
     expect(result.stdout).toContain("- us.id.deq.asbestos_compliance (manual_public_records_file, blocked)");
     expect(result.stdout).toContain("- us.il.sfm.fire_sprinkler_contractors (manual_public_records_file, blocked)");
     expect(result.stdout).toContain("sources by research outcome:");
-    expect(result.stdout).toContain("- blocked: 89");
+    expect(result.stdout).toContain("- blocked: 91");
     expect(result.stdout).toContain("metadata completeness:");
     expect(result.stdout).toContain("sources missing required metadata:");
     expect(result.stdout).toContain("- none");

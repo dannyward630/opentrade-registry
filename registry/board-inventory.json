@@ -1389,6 +1389,60 @@
       }
     },
     {
+      "id": "us.in.idem.asbestos_licensing",
+      "jurisdiction": {
+        "country": "US",
+        "state": "IN"
+      },
+      "boardName": "Indiana IDEM Asbestos Licensing",
+      "agencyName": "Indiana Department of Environmental Management",
+      "officialUrl": "https://www.in.gov/idem/asbestos/training-and-licensing/",
+      "sourceIds": [
+        "us.in.idem.asbestos_licensing"
+      ],
+      "trades": [
+        "asbestos"
+      ],
+      "accessPath": "blocked",
+      "coverageLimitations": [
+        "This source is limited to IDEM asbestos licensing and does not represent general contractor, plumbing, electrical, HVAC, roofing, local permit, or business-registration records.",
+        "A stable public contractor roster, lookup response, API, or bulk export was not confirmed during this review.",
+        "Project notifications, enforcement records, training-provider approvals, and other asbestos records may require separate official sources."
+      ],
+      "evidence": {
+        "url": "https://www.in.gov/idem/asbestos/training-and-licensing/",
+        "reviewedAt": "2026-07-03T00:00:00.000Z",
+        "note": "Official IDEM page reviewed; it states individuals and companies working with asbestos must be licensed and identifies contractor as a license discipline."
+      }
+    },
+    {
+      "id": "us.in.pla.plumbing",
+      "jurisdiction": {
+        "country": "US",
+        "state": "IN"
+      },
+      "boardName": "Indiana Plumbing Commission License Verification",
+      "agencyName": "Indiana Professional Licensing Agency",
+      "officialUrl": "https://mylicense.in.gov/everification/",
+      "sourceIds": [
+        "us.in.pla.plumbing"
+      ],
+      "trades": [
+        "plumbing"
+      ],
+      "accessPath": "manual_handoff",
+      "coverageLimitations": [
+        "This source is limited to Indiana Plumbing Commission credentials and does not represent general, electrical, HVAC, roofing, asbestos, local permit, or business-registration records.",
+        "Indiana local contractor registrations and project permits may still apply.",
+        "The paid PLA download path and MyLicense lookup response have not been adapter-reviewed as stable machine-readable sources."
+      ],
+      "evidence": {
+        "url": "https://www.in.gov/pla/professions/plumbing-home/plumbing-board/",
+        "reviewedAt": "2026-07-03T00:00:00.000Z",
+        "note": "Official Plumbing Commission page reviewed; it lists apprentice plumber, journeyman plumber, plumbing contractor, and temporary plumbing contractor license types and links verification services."
+      }
+    },
+    {
       "id": "us.in.pla.professional_licenses",
       "jurisdiction": {
         "country": "US",

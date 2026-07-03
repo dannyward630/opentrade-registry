@@ -1,0 +1,80 @@
+{
+  "id": "us.in.pla.plumbing",
+  "name": "Indiana Plumbing Commission License Verification",
+  "jurisdiction": { "country": "US", "state": "IN" },
+  "agency": { "name": "Indiana Professional Licensing Agency", "url": "https://www.in.gov/pla/" },
+  "sourceType": "html_lookup",
+  "sourceUrl": "https://www.in.gov/pla/professions/plumbing-home/plumbing-board/",
+  "documentationUrl": "https://www.in.gov/pla/professions/plumbing-home/plumbing-licensing-information/",
+  "dataDictionaryUrl": null,
+  "termsUrl": "https://www.in.gov/core/privacy.html",
+  "updateFrequency": "unknown; verify against the MyLicense verification service before relying on freshness assumptions",
+  "tradeCoverage": ["plumbing"],
+  "licenseTypesIncluded": [
+    "Indiana apprentice plumber licenses",
+    "Indiana journeyman plumber licenses",
+    "Indiana plumbing contractor licenses",
+    "Indiana temporary plumbing contractor licenses"
+  ],
+  "knownExclusions": [
+    "This source is limited to Indiana Plumbing Commission credentials and does not represent general, electrical, HVAC, roofing, asbestos, local permit, or business-registration records.",
+    "Indiana local contractor registrations and project permits may still apply.",
+    "The paid PLA download path and MyLicense lookup response have not been adapter-reviewed as stable machine-readable sources."
+  ],
+  "hasBulkDownload": true,
+  "hasLiveLookup": true,
+  "requiresJavaScript": "unknown",
+  "requiresCaptcha": "unknown",
+  "requiresAccount": "unknown",
+  "rateLimitNotes": "PLA bulk files require accepting official conditions and payment. Do not automate MyLicense until terms, controls, result limits, and response fields are reviewed.",
+  "redistributionStatus": "unknown",
+  "publicRecordsNotes": "Official board and lookup metadata only. Absence from this source is not proof that a plumbing license, local registration, permit, or other authorization does not exist elsewhere.",
+  "adapterStatus": "blocked",
+  "sourceDiscoveryStatus": "blocked",
+  "adapterMaturity": "blocked",
+  "adapterQualityLevel": 0,
+  "coverageScope": "state_agency_partial",
+  "adapterPackage": null,
+  "testFixturePath": null,
+  "officialLookupUrl": "https://mylicense.in.gov/everification/",
+  "officialLookupReviewNotes": "The official Plumbing Commission page links MyLicense license verification and official verification services.",
+  "officialBulkDownloadNotes": "Indiana offers professional-license downloads under user conditions and paid pricing. That gated path is not a supported adapter source.",
+  "researchNotes": "Keep this board-specific source separate from the broad PLA entry. It establishes statewide plumbing credential scope but not a supported automated data path.",
+  "verificationReviewedAt": null,
+  "verificationCaveats": [
+    "This source covers Indiana Plumbing Commission credentials only.",
+    "No matching record means no match in this source at the checked time, not proof that a plumbing credential, local registration, permit, or other authorization does not exist elsewhere."
+  ],
+  "verificationNotes": "No supported sync or verification adapter is exposed for the gated download or unreviewed lookup path.",
+  "lastVerifiedAt": "2026-07-03T00:00:00.000Z",
+  "maintainerNotes": "Future adapter research must review MyLicense controls and the gated download terms before implementing automated access.",
+  "schemaVersion": "1.0",
+  "researchReviewedAt": "2026-07-03T00:00:00.000Z",
+  "nextReviewAt": "2027-01-03T00:00:00.000Z",
+  "researchEvidence": [
+    {
+      "url": "https://www.in.gov/pla/professions/plumbing-home/plumbing-board/",
+      "checkedAt": "2026-07-03T00:00:00.000Z",
+      "note": "Official Plumbing Commission page reviewed; it lists apprentice plumber, journeyman plumber, plumbing contractor, and temporary plumbing contractor license types and links verification services."
+    },
+    {
+      "url": "https://www.in.gov/pla/professions/plumbing-home/plumbing-licensing-information/",
+      "checkedAt": "2026-07-03T00:00:00.000Z",
+      "note": "Official licensing-information page reviewed; it documents the plumbing contractor application path."
+    },
+    {
+      "url": "https://www.in.gov/pla/license/download-license-files/",
+      "checkedAt": "2026-07-03T00:00:00.000Z",
+      "note": "Official PLA download page reviewed; bulk files require acceptance of conditions and payment."
+    }
+  ],
+  "sourceResearchOutcome": "blocked",
+  "blocker": {
+    "code": "terms",
+    "summary": "The bulk source is agreement- and payment-gated, and the public lookup has not received a separate automation and response-shape review.",
+    "evidenceUrls": [
+      "https://www.in.gov/pla/professions/plumbing-home/plumbing-board/",
+      "https://www.in.gov/pla/license/download-license-files/"
+    ]
+  }
+}
