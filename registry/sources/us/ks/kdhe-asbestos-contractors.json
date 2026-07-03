@@ -1,0 +1,61 @@
+{
+  "id": "us.ks.kdhe.asbestos_contractors",
+  "name": "Kansas KDHE Licensed Asbestos Abatement Contractors",
+  "jurisdiction": { "country": "US", "state": "KS" },
+  "agency": { "name": "Kansas Department of Health and Environment", "url": "https://www.kdhe.ks.gov/" },
+  "sourceType": "manual_public_records_file",
+  "sourceUrl": "https://www.kdhe.ks.gov/240/Asbestos-Resources-Forms",
+  "documentationUrl": "https://www.kdhe.ks.gov/235/About-Asbestos",
+  "dataDictionaryUrl": null,
+  "termsUrl": "https://www.kdhe.ks.gov/1555/Privacy-Notice",
+  "termsReviewNotes": "KDHE's privacy notice and applicable-law statement were reviewed. Publication and redistribution of the contractor-list fields remain unapproved pending source-specific review.",
+  "updateFrequency": "unknown; verify the date and scope of the official contractor list before relying on freshness",
+  "tradeCoverage": ["asbestos"],
+  "licenseTypesIncluded": ["Kansas licensed asbestos abatement contractor businesses"],
+  "knownExclusions": [
+    "This source is limited to KDHE asbestos abatement contractor businesses and does not represent general contractor, roofing, electrical, plumbing, HVAC, local permit, or business-registration records.",
+    "Worker certifications, consultant services, training providers, project notifications, violations, and demolition records may require separate official sources.",
+    "The PDF-oriented contractor list has not been adapter-reviewed for stable fields, update behavior, privacy, or redistribution."
+  ],
+  "hasBulkDownload": true,
+  "hasLiveLookup": true,
+  "requiresJavaScript": false,
+  "requiresCaptcha": false,
+  "requiresAccount": false,
+  "rateLimitNotes": "No adapter is implemented. Use the official resources page manually until the linked file shape, update behavior, and reuse position are reviewed.",
+  "redistributionStatus": "unknown",
+  "publicRecordsNotes": "Official program and list metadata only. Generated datasets should not be published until privacy and redistribution are approved. Absence from a list is not proof that a license or authorization does not exist.",
+  "adapterStatus": "blocked",
+  "sourceDiscoveryStatus": "blocked",
+  "adapterMaturity": "blocked",
+  "adapterQualityLevel": 0,
+  "coverageScope": "state_agency_partial",
+  "adapterPackage": null,
+  "testFixturePath": null,
+  "officialLookupUrl": "https://www.kdhe.ks.gov/240/Asbestos-Resources-Forms",
+  "officialLookupReviewNotes": "KDHE's resources page links a current Kansas Licensed Asbestos Abatement Contractors PDF.",
+  "officialBulkDownloadNotes": "A public PDF list is linked, but no stable parser contract, privacy filter, or redistribution approval has been established.",
+  "researchNotes": "This is a future PDF/manual-file adapter candidate after field-shape, update, privacy, and reuse review.",
+  "verificationReviewedAt": null,
+  "verificationCaveats": [
+    "This source covers KDHE asbestos abatement contractor businesses only.",
+    "No matching record means no match in the checked source at the checked time, not proof that another asbestos credential, project authorization, or record does not exist."
+  ],
+  "verificationNotes": "No supported sync or verification adapter is exposed while the official file contract and allowed reuse remain under review.",
+  "lastVerifiedAt": "2026-07-03T00:00:00.000Z",
+  "maintainerNotes": "A future adapter must retain source date, PDF checksum, caveats, and privacy review before exposing records.",
+  "schemaVersion": "1.0",
+  "researchReviewedAt": "2026-07-03T00:00:00.000Z",
+  "nextReviewAt": "2027-01-03T00:00:00.000Z",
+  "researchEvidence": [
+    { "url": "https://www.kdhe.ks.gov/235/About-Asbestos", "checkedAt": "2026-07-03T00:00:00.000Z", "note": "KDHE states that companies completing asbestos abatement must be licensed and workers certified." },
+    { "url": "https://www.kdhe.ks.gov/240/Asbestos-Resources-Forms", "checkedAt": "2026-07-03T00:00:00.000Z", "note": "KDHE's official resources page links the Kansas Licensed Asbestos Abatement Contractors list." },
+    { "url": "https://www.kdhe.ks.gov/1555/Privacy-Notice", "checkedAt": "2026-07-03T00:00:00.000Z", "note": "KDHE privacy and applicable-law statements reviewed; source-specific publication approval remains outstanding." }
+  ],
+  "sourceResearchOutcome": "blocked",
+  "blocker": {
+    "code": "technical_instability",
+    "summary": "The official contractor list is PDF-oriented and no stable parser, privacy filter, update contract, or redistribution approval has been completed.",
+    "evidenceUrls": ["https://www.kdhe.ks.gov/240/Asbestos-Resources-Forms", "https://www.kdhe.ks.gov/1555/Privacy-Notice"]
+  }
+}

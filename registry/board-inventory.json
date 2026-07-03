@@ -1500,6 +1500,90 @@
       }
     },
     {
+      "id": "us.ks.firemarshal.fire_protection_companies",
+      "jurisdiction": {
+        "country": "US",
+        "state": "KS"
+      },
+      "boardName": "Kansas State Fire Marshal Fire Protection Company Registration",
+      "agencyName": "Kansas State Fire Marshal",
+      "officialUrl": "https://www.firemarshal.ks.gov/185/Licensing",
+      "sourceIds": [
+        "us.ks.firemarshal.fire_protection_companies"
+      ],
+      "trades": [
+        "mechanical",
+        "plumbing",
+        "other"
+      ],
+      "accessPath": "blocked",
+      "coverageLimitations": [
+        "This source covers fire alarm, sprinkler, extinguisher, and fixed extinguishing system programs only, not every mechanical, plumbing, electrical, local permit, or contractor credential.",
+        "The Fire Marshal states fire alarm and sprinkler companies are registered rather than licensed.",
+        "No stable public roster, API, or bulk export was confirmed during this review."
+      ],
+      "evidence": {
+        "url": "https://www.firemarshal.ks.gov/185/Licensing",
+        "reviewedAt": "2026-07-03T00:00:00.000Z",
+        "note": "The Fire Marshal states Kansas does not license fire alarm or sprinkler companies but requires office registration."
+      }
+    },
+    {
+      "id": "us.ks.kdhe.asbestos_contractors",
+      "jurisdiction": {
+        "country": "US",
+        "state": "KS"
+      },
+      "boardName": "Kansas KDHE Licensed Asbestos Abatement Contractors",
+      "agencyName": "Kansas Department of Health and Environment",
+      "officialUrl": "https://www.kdhe.ks.gov/240/Asbestos-Resources-Forms",
+      "sourceIds": [
+        "us.ks.kdhe.asbestos_contractors"
+      ],
+      "trades": [
+        "asbestos"
+      ],
+      "accessPath": "manual_handoff",
+      "coverageLimitations": [
+        "This source is limited to KDHE asbestos abatement contractor businesses and does not represent general contractor, roofing, electrical, plumbing, HVAC, local permit, or business-registration records.",
+        "Worker certifications, consultant services, training providers, project notifications, violations, and demolition records may require separate official sources.",
+        "The PDF-oriented contractor list has not been adapter-reviewed for stable fields, update behavior, privacy, or redistribution."
+      ],
+      "evidence": {
+        "url": "https://www.kdhe.ks.gov/235/About-Asbestos",
+        "reviewedAt": "2026-07-03T00:00:00.000Z",
+        "note": "KDHE states that companies completing asbestos abatement must be licensed and workers certified."
+      }
+    },
+    {
+      "id": "us.ks.kdhe.water_well_contractors",
+      "jurisdiction": {
+        "country": "US",
+        "state": "KS"
+      },
+      "boardName": "Kansas KDHE Licensed Water Well Contractors",
+      "agencyName": "Kansas Department of Health and Environment",
+      "officialUrl": "https://www.kdhe.ks.gov/1790/Guidance-Documents-for-Well-Owners",
+      "sourceIds": [
+        "us.ks.kdhe.water_well_contractors"
+      ],
+      "trades": [
+        "underground_utility",
+        "other"
+      ],
+      "accessPath": "manual_handoff",
+      "coverageLimitations": [
+        "This source covers water well contractors only and does not represent every underground utility, plumbing, excavation, environmental, local permit, or general contractor credential.",
+        "Well records, pump installers, water-system operators, environmental remediation, and right-of-way authorizations may require separate official sources.",
+        "The linked XLS field shape, update behavior, privacy, and redistribution position have not been adapter-reviewed."
+      ],
+      "evidence": {
+        "url": "https://www.kdhe.ks.gov/347/Water-Well-Program",
+        "reviewedAt": "2026-07-03T00:00:00.000Z",
+        "note": "KDHE states the program licenses and regulates water well contractors and documents annual license renewal requirements."
+      }
+    },
+    {
       "id": "us.ky.dhbc.trades",
       "jurisdiction": {
         "country": "US",

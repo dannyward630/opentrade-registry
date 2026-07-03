@@ -1309,7 +1309,85 @@
         }
       }
     },
-    { "state": "KS", "decisions": {} },
+    {
+      "state": "KS",
+      "decisions": {
+        "general_contracting": {
+          "outcome": "local_only",
+          "evidence": [{ "url": "https://ksbiz.kansas.gov/business-starter-kit/construction/", "reviewedAt": "2026-07-03T00:00:00.000Z", "note": "Kansas Business Center One Stop states that cities and counties set licensing requirements for construction and contracting businesses." }],
+          "limitations": ["State roofing, asbestos, fire-protection, and water-well programs plus local registrations and project permits may still apply."]
+        },
+        "residential_contracting": {
+          "outcome": "local_only",
+          "evidence": [{ "url": "https://ksbiz.kansas.gov/business-starter-kit/construction/", "reviewedAt": "2026-07-03T00:00:00.000Z", "note": "The official Kansas construction starter kit says cities and counties may use different license types for residential and commercial construction." }],
+          "limitations": ["State roofing registration, local home-improvement or contractor rules, trade credentials, and permits may apply."]
+        },
+        "commercial_contracting": {
+          "outcome": "local_only",
+          "evidence": [{ "url": "https://ksbiz.kansas.gov/business-starter-kit/construction/", "reviewedAt": "2026-07-03T00:00:00.000Z", "note": "The official Kansas construction starter kit says cities and counties may use different license types for commercial and residential construction." }],
+          "limitations": ["State specialty programs, public procurement requirements, local licensing, and project permits may apply."]
+        },
+        "electrical": {
+          "outcome": "local_only",
+          "evidence": [{ "url": "https://ksbiz.kansas.gov/business-starter-kit/construction/", "reviewedAt": "2026-07-03T00:00:00.000Z", "note": "Kansas Business Center One Stop states that specific electrical licenses may be required by cities and counties." }],
+          "limitations": ["Fire alarm registration, utility requirements, inspections, and local electrical permits may apply."]
+        },
+        "plumbing": {
+          "outcome": "local_only",
+          "evidence": [{ "url": "https://ksbiz.kansas.gov/business-starter-kit/construction/", "reviewedAt": "2026-07-03T00:00:00.000Z", "note": "Kansas Business Center One Stop states that specific plumbing licenses may be required by cities and counties." }],
+          "limitations": ["Fire sprinkler registration, water-well licensing, inspections, and local plumbing permits may apply."]
+        },
+        "hvac": {
+          "outcome": "local_only",
+          "evidence": [{ "url": "https://ksbiz.kansas.gov/business-starter-kit/construction/", "reviewedAt": "2026-07-03T00:00:00.000Z", "note": "Kansas Business Center One Stop states that specific HVAC licenses may be required by cities and counties." }],
+          "limitations": ["Refrigerant, electrical, plumbing, fire-protection, inspection, and local permit requirements may apply."]
+        },
+        "mechanical": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.ks.firemarshal.fire_protection_companies"],
+          "evidence": [{ "url": "https://www.firemarshal.ks.gov/185/Licensing", "reviewedAt": "2026-07-03T00:00:00.000Z", "note": "The Kansas State Fire Marshal requires fire alarm and sprinkler companies to register with the office." }],
+          "limitations": ["This decision covers the statewide fire-sprinkler subset only; broader mechanical and HVAC contractor licensing remains local."]
+        },
+        "roofing": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.ks.ag.roofing_registration"],
+          "evidence": [{ "url": "https://www.ag.ks.gov/divisions/civil/licensing-inspections/roofing-registration", "reviewedAt": "2026-07-03T00:00:00.000Z", "note": "The Kansas Attorney General states every covered roofing contractor must obtain a registration certificate to provide commercial or residential roofing services for a fee." }],
+          "limitations": ["The law contains exemptions, and local permits or contractor credentials may still apply."]
+        },
+        "solar": {
+          "outcome": "local_only",
+          "evidence": [{ "url": "https://ksbiz.kansas.gov/business-starter-kit/construction/", "reviewedAt": "2026-07-03T00:00:00.000Z", "note": "Kansas assigns construction and trade licensing requirements to cities and counties; no separate statewide solar contractor board was confirmed." }],
+          "limitations": ["Local electrical and building permits, utility interconnection, roofing, and structural requirements may apply."]
+        },
+        "pool_spa": {
+          "outcome": "local_only",
+          "evidence": [{ "url": "https://ksbiz.kansas.gov/business-starter-kit/construction/", "reviewedAt": "2026-07-03T00:00:00.000Z", "note": "Kansas assigns construction and specific trade licensing requirements to cities and counties; no separate statewide pool or spa contractor board was confirmed." }],
+          "limitations": ["Local building, electrical, plumbing, health, and permit requirements may apply."]
+        },
+        "asbestos": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.ks.kdhe.asbestos_contractors"],
+          "evidence": [{ "url": "https://www.kdhe.ks.gov/235/About-Asbestos", "reviewedAt": "2026-07-03T00:00:00.000Z", "note": "KDHE states companies completing asbestos abatement are required to be licensed and workers certified." }],
+          "limitations": ["Worker certifications, consultants, training providers, notifications, violations, and demolition records may require separate official sources."]
+        },
+        "sheet_metal": {
+          "outcome": "local_only",
+          "evidence": [{ "url": "https://ksbiz.kansas.gov/business-starter-kit/construction/", "reviewedAt": "2026-07-03T00:00:00.000Z", "note": "Kansas assigns construction and specific trade licensing requirements to cities and counties; no separate statewide sheet-metal contractor board was confirmed." }],
+          "limitations": ["Local HVAC, mechanical, fire-protection, building, and permit requirements may apply."]
+        },
+        "underground_utility": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.ks.kdhe.water_well_contractors"],
+          "evidence": [{ "url": "https://www.kdhe.ks.gov/347/Water-Well-Program", "reviewedAt": "2026-07-03T00:00:00.000Z", "note": "KDHE states the Water Well Program licenses and regulates water well contractors in Kansas." }],
+          "limitations": ["This decision covers water-well construction only; other underground utility, excavation, right-of-way, pipeline, environmental, and local permits remain separate."]
+        },
+        "home_improvement": {
+          "outcome": "local_only",
+          "evidence": [{ "url": "https://ksbiz.kansas.gov/business-starter-kit/construction/", "reviewedAt": "2026-07-03T00:00:00.000Z", "note": "Kansas Business Center One Stop assigns construction licensing requirements to cities and counties rather than a single statewide home-improvement board." }],
+          "limitations": ["State roofing registration, consumer-protection law, local registration, trade credentials, and project permits may apply."]
+        }
+      }
+    },
     { "state": "KY", "decisions": {} },
     {
       "state": "LA",

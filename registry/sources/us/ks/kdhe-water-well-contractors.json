@@ -1,0 +1,61 @@
+{
+  "id": "us.ks.kdhe.water_well_contractors",
+  "name": "Kansas KDHE Licensed Water Well Contractors",
+  "jurisdiction": { "country": "US", "state": "KS" },
+  "agency": { "name": "Kansas Department of Health and Environment", "url": "https://www.kdhe.ks.gov/" },
+  "sourceType": "bulk_xlsx",
+  "sourceUrl": "https://www.kdhe.ks.gov/1790/Guidance-Documents-for-Well-Owners",
+  "documentationUrl": "https://www.kdhe.ks.gov/347/Water-Well-Program",
+  "dataDictionaryUrl": null,
+  "termsUrl": "https://www.kdhe.ks.gov/1555/Privacy-Notice",
+  "termsReviewNotes": "KDHE's privacy notice and applicable-law statement were reviewed. Source-specific redistribution and publication approval for the XLS records remains outstanding.",
+  "updateFrequency": "unknown; verify the linked XLS metadata and contractor-license renewal cycle before relying on freshness",
+  "tradeCoverage": ["underground_utility", "other"],
+  "licenseTypesIncluded": ["Kansas licensed water well contractors"],
+  "knownExclusions": [
+    "This source covers water well contractors only and does not represent every underground utility, plumbing, excavation, environmental, local permit, or general contractor credential.",
+    "Well records, pump installers, water-system operators, environmental remediation, and right-of-way authorizations may require separate official sources.",
+    "The linked XLS field shape, update behavior, privacy, and redistribution position have not been adapter-reviewed."
+  ],
+  "hasBulkDownload": true,
+  "hasLiveLookup": true,
+  "requiresJavaScript": false,
+  "requiresCaptcha": false,
+  "requiresAccount": false,
+  "rateLimitNotes": "No adapter is implemented. Download manually from the official guidance page only after reviewing current file metadata and terms.",
+  "redistributionStatus": "unknown",
+  "publicRecordsNotes": "Official program and downloadable-list metadata only. Generated datasets should not be published until privacy and redistribution are approved.",
+  "adapterStatus": "blocked",
+  "sourceDiscoveryStatus": "blocked",
+  "adapterMaturity": "blocked",
+  "adapterQualityLevel": 0,
+  "coverageScope": "state_agency_partial",
+  "adapterPackage": null,
+  "testFixturePath": null,
+  "officialLookupUrl": "https://www.kdhe.ks.gov/1790/Guidance-Documents-for-Well-Owners",
+  "officialLookupReviewNotes": "KDHE's guidance page links an XLS list of licensed water well contractors.",
+  "officialBulkDownloadNotes": "An official XLS list is linked, but no fixture-backed parser, field contract, privacy filter, or redistribution approval has been completed.",
+  "researchNotes": "This is a future local-file adapter candidate after a tiny hand-authored fixture and source-specific privacy and terms review.",
+  "verificationReviewedAt": null,
+  "verificationCaveats": [
+    "This source covers Kansas licensed water well contractors only.",
+    "No matching record means no match in the checked list at the checked time, not proof that another utility, excavation, environmental, plumbing, or local authorization does not exist."
+  ],
+  "verificationNotes": "No supported sync or verification adapter is exposed while the XLS contract and allowed reuse remain under review.",
+  "lastVerifiedAt": "2026-07-03T00:00:00.000Z",
+  "maintainerNotes": "Prioritize local-file fixture research; retain source checksum, modification metadata, caveats, and publication restrictions.",
+  "schemaVersion": "1.0",
+  "researchReviewedAt": "2026-07-03T00:00:00.000Z",
+  "nextReviewAt": "2027-01-03T00:00:00.000Z",
+  "researchEvidence": [
+    { "url": "https://www.kdhe.ks.gov/347/Water-Well-Program", "checkedAt": "2026-07-03T00:00:00.000Z", "note": "KDHE states the program licenses and regulates water well contractors and documents annual license renewal requirements." },
+    { "url": "https://www.kdhe.ks.gov/1790/Guidance-Documents-for-Well-Owners", "checkedAt": "2026-07-03T00:00:00.000Z", "note": "KDHE's official guidance page links an XLS list of licensed water well contractors." },
+    { "url": "https://www.kdhe.ks.gov/1555/Privacy-Notice", "checkedAt": "2026-07-03T00:00:00.000Z", "note": "KDHE privacy and applicable-law statements reviewed; source-specific publication approval remains outstanding." }
+  ],
+  "sourceResearchOutcome": "blocked",
+  "blocker": {
+    "code": "technical_instability",
+    "summary": "The official XLS is promising, but its field contract, update behavior, privacy handling, fixture mapping, and redistribution position have not been adapter-reviewed.",
+    "evidenceUrls": ["https://www.kdhe.ks.gov/1790/Guidance-Documents-for-Well-Owners", "https://www.kdhe.ks.gov/1555/Privacy-Notice"]
+  }
+}

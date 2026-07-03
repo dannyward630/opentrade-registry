@@ -176,9 +176,12 @@
       "state": "KS",
       "status": "blocked",
       "sourceIds": [
-        "us.ks.ag.roofing_registration"
+        "us.ks.ag.roofing_registration",
+        "us.ks.firemarshal.fire_protection_companies",
+        "us.ks.kdhe.asbestos_contractors",
+        "us.ks.kdhe.water_well_contractors"
       ],
-      "notes": "Official source metadata is retained, but automated ingestion is blocked by documented legal, access, scope, or technical constraints."
+      "notes": "Kansas statewide metadata covers roofing registration, fire-protection company registration, asbestos contractors, and water well contractors. Other tracked construction and trade licensing is assigned to cities and counties by official state guidance."
     },
     {
       "state": "KY",
