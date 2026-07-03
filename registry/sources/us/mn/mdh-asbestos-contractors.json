@@ -1,0 +1,84 @@
+{
+  "id": "us.mn.mdh.asbestos_contractors",
+  "name": "Minnesota MDH Asbestos Contractor Licensing",
+  "jurisdiction": {
+    "country": "US",
+    "state": "MN"
+  },
+  "agency": {
+    "name": "Minnesota Department of Health",
+    "url": "https://www.health.state.mn.us/"
+  },
+  "sourceType": "html_lookup",
+  "sourceUrl": "https://www.health.state.mn.us/communities/environment/asbestos/asbcontrlookup.html",
+  "documentationUrl": "https://www.health.state.mn.us/communities/environment/asbestos/prof/license.html",
+  "dataDictionaryUrl": null,
+  "termsUrl": "https://mn.gov/portal/policies/",
+  "updateFrequency": "unknown; verify against the official MDH asbestos contractor lookup and licensing pages before relying on freshness assumptions",
+  "tradeCoverage": [
+    "asbestos"
+  ],
+  "licenseTypesIncluded": [
+    "Minnesota Department of Health asbestos contractor licenses"
+  ],
+  "knownExclusions": [
+    "This entry is limited to MDH asbestos contractor licensing and does not cover DLI construction, electrical, plumbing, or mechanical credentials.",
+    "Individual asbestos certifications, project notifications, training providers, MPCA demolition or disposal requirements, and local permits are outside this source entry.",
+    "The official lookup path has not been adapter-reviewed for stable machine access, field shape, or publication terms."
+  ],
+  "hasBulkDownload": false,
+  "hasLiveLookup": true,
+  "requiresJavaScript": "unknown",
+  "requiresCaptcha": "unknown",
+  "requiresAccount": false,
+  "rateLimitNotes": "No adapter is implemented. Use the official MDH lookup manually until access rules, search semantics, and output shape are reviewed.",
+  "redistributionStatus": "unknown",
+  "publicRecordsNotes": "Official source metadata only. Absence from this source is not proof that an asbestos contractor license, certification, notification, or other public record does not exist elsewhere.",
+  "adapterStatus": "blocked",
+  "sourceDiscoveryStatus": "blocked",
+  "adapterMaturity": "blocked",
+  "adapterQualityLevel": 0,
+  "coverageScope": "state_agency_partial",
+  "adapterPackage": null,
+  "testFixturePath": null,
+  "officialLookupUrl": "https://www.health.state.mn.us/communities/environment/asbestos/asbcontrlookup.html",
+  "officialBulkDownloadNotes": "No official bulk or API path has been identified. The reviewed path is a lookup/manual source.",
+  "researchNotes": "MDH licenses asbestos contractors and provides a public lookup path, but no stable machine-readable export has been reviewed. MPCA also documents MDH's contractor licensing role for asbestos handling.",
+  "verificationReviewedAt": null,
+  "verificationCaveats": [
+    "No supported sync or verification adapter exists for this source.",
+    "No matching record in one MDH lookup attempt is not proof that no asbestos credential, certification, notification, or related record exists."
+  ],
+  "verificationNotes": "This source is a manual handoff until lookup behavior, source freshness, and publication rules are reviewed.",
+  "lastVerifiedAt": "2026-07-03T00:00:00.000Z",
+  "maintainerNotes": "Keep MDH asbestos licensing separate from DLI construction-code credentials and MPCA asbestos demolition or disposal requirements.",
+  "schemaVersion": "1.0",
+  "researchReviewedAt": "2026-07-03T00:00:00.000Z",
+  "nextReviewAt": "2027-01-03T00:00:00.000Z",
+  "researchEvidence": [
+    {
+      "url": "https://mn.gov/elicense/a-z/index.jsp?id=1083-231554",
+      "checkedAt": "2026-07-03T00:00:00.000Z",
+      "note": "License Minnesota states that contractors must be licensed by MDH to perform asbestos-related work and identifies the MDH Asbestos Unit."
+    },
+    {
+      "url": "https://www.health.state.mn.us/communities/environment/asbestos/prof/license.html",
+      "checkedAt": "2026-07-03T00:00:00.000Z",
+      "note": "Official MDH asbestos contractor licensing page reviewed for source scope and licensing role."
+    },
+    {
+      "url": "https://www.pca.state.mn.us/business-with-us/asbestos-in-demolition-or-renovations",
+      "checkedAt": "2026-07-03T00:00:00.000Z",
+      "note": "Official MPCA page states that MDH licenses contractors trained in proper handling of asbestos materials while MPCA regulates related demolition and disposal requirements."
+    }
+  ],
+  "sourceResearchOutcome": "blocked",
+  "blocker": {
+    "code": "technical_instability",
+    "summary": "The reviewed official path is lookup-oriented and no stable machine-readable export, field contract, freshness semantics, or reuse position has been adapter-reviewed.",
+    "evidenceUrls": [
+      "https://www.health.state.mn.us/communities/environment/asbestos/asbcontrlookup.html",
+      "https://mn.gov/portal/policies/"
+    ]
+  }
+}

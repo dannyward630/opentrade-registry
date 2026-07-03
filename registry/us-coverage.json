@@ -216,11 +216,12 @@
     },
     {
       "state": "MN",
-      "status": "local_file_supported",
+      "status": "blocked",
       "sourceIds": [
-        "us.mn.dli.licenses_registrations"
+        "us.mn.dli.licenses_registrations",
+        "us.mn.mdh.asbestos_contractors"
       ],
-      "notes": "A terminal OpenTrade Registry adapter capability is implemented with offline tests and documented source caveats."
+      "notes": "Minnesota includes a supported DLI local-file adapter plus a separate blocked MDH asbestos lookup source, so statewide board coverage is not fully automated."
     },
     {
       "state": "MS",
