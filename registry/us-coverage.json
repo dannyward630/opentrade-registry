@@ -359,7 +359,8 @@
       "state": "OH",
       "status": "blocked",
       "sourceIds": [
-        "us.oh.commerce.ocilb_contractors"
+        "us.oh.commerce.ocilb_contractors",
+        "us.oh.epa.asbestos_licenses"
       ],
       "notes": "Official source metadata is retained, but automated ingestion is blocked by documented legal, access, scope, or technical constraints."
     },

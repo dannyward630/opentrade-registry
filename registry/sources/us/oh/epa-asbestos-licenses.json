@@ -1,0 +1,88 @@
+{
+  "id": "us.oh.epa.asbestos_licenses",
+  "name": "Ohio EPA Asbestos Certification and Licensing",
+  "jurisdiction": {
+    "country": "US",
+    "state": "OH"
+  },
+  "agency": {
+    "name": "Ohio Environmental Protection Agency",
+    "url": "https://epa.ohio.gov/"
+  },
+  "sourceType": "html_lookup",
+  "sourceUrl": "https://epa.ohio.gov/divisions-and-offices/air-pollution-control/asbestos-abatement-and-demolition/asbestos-abatement-demolition",
+  "documentationUrl": "https://epa.ohio.gov/divisions-and-offices/air-pollution-control/asbestos-abatement-and-demolition/certification-and-licenses",
+  "dataDictionaryUrl": null,
+  "termsUrl": "https://epa.ohio.gov/help-center/privacy-notice",
+  "termsReviewNotes": "Ohio EPA privacy and terms pages were identified, but source-specific publication and redistribution approval has not been completed.",
+  "updateFrequency": "unknown; verify against Ohio EPA asbestos licensing services before relying on freshness assumptions",
+  "tradeCoverage": [
+    "asbestos"
+  ],
+  "licenseTypesIncluded": [
+    "Ohio EPA asbestos hazard abatement contractor licenses and related asbestos certifications where exposed by official Ohio EPA services"
+  ],
+  "knownExclusions": [
+    "This source is limited to Ohio EPA asbestos certification and licensing services and does not represent general contractor, electrical, plumbing, HVAC, roofing, permit, or local registration records.",
+    "Ohio EPA asbestos services use the eBusiness Center and may require an OH|ID account for application or account-data access.",
+    "No stable bulk export, parser contract, privacy filter, or redistribution approval has been confirmed."
+  ],
+  "hasBulkDownload": "unknown",
+  "hasLiveLookup": true,
+  "requiresJavaScript": "unknown",
+  "requiresCaptcha": "unknown",
+  "requiresAccount": true,
+  "rateLimitNotes": "No adapter is implemented. Use official Ohio EPA asbestos pages and eBusiness services manually until access rules, field shape, and reuse are reviewed.",
+  "redistributionStatus": "unknown",
+  "publicRecordsNotes": "Official source metadata only. Generated datasets should not be published until privacy and redistribution are approved. Absence from this source is not proof that another asbestos credential, project authorization, local license, or related record does not exist.",
+  "adapterStatus": "blocked",
+  "sourceDiscoveryStatus": "blocked",
+  "adapterMaturity": "blocked",
+  "adapterQualityLevel": 0,
+  "coverageScope": "state_agency_partial",
+  "adapterPackage": null,
+  "testFixturePath": null,
+  "officialLookupUrl": "https://ebiz.epa.ohio.gov/",
+  "officialLookupReviewNotes": "Ohio EPA states that asbestos certification, licensing, training applications, and asbestos abatement notifications are handled through the eBusiness Center.",
+  "officialBulkDownloadNotes": "No stable public bulk export has been confirmed in this phase.",
+  "researchNotes": "Registry-only blocked source for Ohio EPA asbestos licensing. Future adapter work must confirm whether any public license-holder view exists outside account-gated eBusiness workflows.",
+  "verificationReviewedAt": null,
+  "verificationCaveats": [
+    "This source covers Ohio EPA asbestos certification and licensing services only.",
+    "No matching record means no match in the checked source at the checked time, not proof that another asbestos credential, contractor license, project authorization, local license, or related record does not exist."
+  ],
+  "verificationNotes": "No supported sync or verification adapter is exposed while the official lookup contract and allowed reuse remain under review.",
+  "lastVerifiedAt": "2026-07-04T00:00:00.000Z",
+  "maintainerNotes": "A future adapter must preserve source URL, checked time, caveats, raw lookup evidence, and asbestos-specific filtering before exposing records.",
+  "schemaVersion": "1.0",
+  "researchReviewedAt": "2026-07-04T00:00:00.000Z",
+  "nextReviewAt": "2027-01-04T00:00:00.000Z",
+  "researchEvidence": [
+    {
+      "url": "https://epa.ohio.gov/divisions-and-offices/air-pollution-control/asbestos-abatement-and-demolition/asbestos-abatement-demolition",
+      "checkedAt": "2026-07-04T00:00:00.000Z",
+      "note": "Ohio EPA describes the asbestos program as licensing and certifying companies and persons directly involved with the asbestos abatement industry."
+    },
+    {
+      "url": "https://epa.ohio.gov/divisions-and-offices/air-pollution-control/asbestos-abatement-and-demolition/certification-and-licenses",
+      "checkedAt": "2026-07-04T00:00:00.000Z",
+      "note": "Ohio EPA directs asbestos licensing and certification workflows to the Asbestos Services database."
+    },
+    {
+      "url": "https://ebiz.epa.ohio.gov/",
+      "checkedAt": "2026-07-04T00:00:00.000Z",
+      "note": "Ohio EPA eBusiness Center lists asbestos certification, licensing, training applications, and asbestos abatement notifications as available services and requires OH|ID/eBiz account access for account data."
+    }
+  ],
+  "sourceResearchOutcome": "blocked",
+  "blocker": {
+    "code": "access_controls",
+    "summary": "The official asbestos licensing service is tied to Ohio EPA eBusiness account workflows, and OpenTrade Registry will not bypass login or technical controls.",
+    "evidenceUrls": [
+      "https://epa.ohio.gov/divisions-and-offices/air-pollution-control/asbestos-abatement-and-demolition/asbestos-abatement-demolition",
+      "https://epa.ohio.gov/divisions-and-offices/air-pollution-control/asbestos-abatement-and-demolition/certification-and-licenses",
+      "https://ebiz.epa.ohio.gov/",
+      "https://epa.ohio.gov/help-center/privacy-notice"
+    ]
+  }
+}

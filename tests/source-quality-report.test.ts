@@ -12,22 +12,22 @@ describe("source quality report", () => {
     expect(result.stderr).toBe("");
 
     const report = JSON.parse(result.stdout);
-    expect(report.sourceCount).toBe(130);
+    expect(report.sourceCount).toBe(131);
     expect(report.stateCount).toBe(51);
     expect(report.researchedStateCount).toBe(51);
     expect(report.territoryCount).toBe(5);
     expect(report.researchedTerritoryCount).toBe(5);
     expect(report.coverageByStatus.not_started ?? 0).toBe(0);
-    expect(report.terminalSourceCount).toBe(130);
-    expect(report.blockedSourceCount).toBe(121);
+    expect(report.terminalSourceCount).toBe(131);
+    expect(report.blockedSourceCount).toBe(122);
     expect(report.territoryCoverageByStatus.blocked).toBe(5);
-    expect(report.sourcesByMaturity.blocked).toBe(121);
+    expect(report.sourcesByMaturity.blocked).toBe(122);
     expect(report.sourcesByMaturity.local_file_adapter).toBe(2);
     expect(report.sourcesByMaturity.network_opt_in).toBe(7);
-    expect(report.sourcesByAdapterQualityLevel["0"]).toBe(121);
+    expect(report.sourcesByAdapterQualityLevel["0"]).toBe(122);
     expect(report.sourcesByAdapterQualityLevel["4"]).toBe(9);
     expect(report.sourcesByResearchOutcome).toEqual({
-      blocked: 121,
+      blocked: 122,
       deprecated: 0,
       local_file_adapter: 2,
       network_opt_in: 7,
@@ -180,6 +180,7 @@ describe("source quality report", () => {
       "us.mo.pr.professional_licenses",
       "us.nd.sos.contractors",
       "us.oh.commerce.ocilb_contractors",
+      "us.oh.epa.asbestos_licenses",
       "us.pa.oag.home_improvement_contractors",
       "us.vt.sos.residential_contractors",
       "us.wi.dsps.dwelling_trades",
@@ -207,7 +208,7 @@ describe("source quality report", () => {
     expect(result.stdout).toContain("- us.ks.firemarshal.fire_protection_companies (manual_public_records_file, blocked)");
     expect(result.stdout).toContain("- us.ks.kdhe.asbestos_contractors (manual_public_records_file, blocked)");
     expect(result.stdout).toContain("sources by research outcome:");
-    expect(result.stdout).toContain("- blocked: 121");
+    expect(result.stdout).toContain("- blocked: 122");
     expect(result.stdout).toContain("metadata completeness:");
     expect(result.stdout).toContain("sources missing required metadata:");
     expect(result.stdout).toContain("- none");

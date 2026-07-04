@@ -2743,7 +2743,86 @@
       }
     },
     { "state": "NY", "decisions": {} },
-    { "state": "OH", "decisions": {} },
+    {
+      "state": "OH",
+      "decisions": {
+        "general_contracting": {
+          "outcome": "local_only",
+          "evidence": [{ "url": "https://com.ohio.gov/divisions-and-programs/industrial-compliance/boards/ohio-construction-industry-licensing-board/contractors-and-contracting-companies", "reviewedAt": "2026-07-04T00:00:00.000Z", "note": "Ohio OCILB states that it issues state licenses to commercial contractors for specified trade categories, not a statewide general-contractor license." }],
+          "limitations": ["General contractor licensing and registration in Ohio is handled locally where required; municipal licensing remains outside OpenTrade Registry's statewide scope."]
+        },
+        "residential_contracting": {
+          "outcome": "local_only",
+          "evidence": [{ "url": "https://com.ohio.gov/divisions-and-programs/industrial-compliance/boards/ohio-construction-industry-licensing-board/contractors-and-contracting-companies", "reviewedAt": "2026-07-04T00:00:00.000Z", "note": "The identified statewide OCILB source covers selected commercial trade contractor licenses rather than a statewide residential-contractor board." }],
+          "limitations": ["Residential contractor and home-improvement licensing may exist at municipal or county level and is outside this statewide board ledger."]
+        },
+        "commercial_contracting": {
+          "outcome": "local_only",
+          "evidence": [{ "url": "https://com.ohio.gov/divisions-and-programs/industrial-compliance/boards/ohio-construction-industry-licensing-board/contractors-and-contracting-companies", "reviewedAt": "2026-07-04T00:00:00.000Z", "note": "OCILB's statewide commercial contractor path is trade-specific for electrical, HVAC, hydronics, plumbing, and refrigeration contractors." }],
+          "limitations": ["This decision does not represent a statewide commercial general-contractor license; local registration and permits remain outside scope."]
+        },
+        "electrical": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.oh.commerce.ocilb_contractors"],
+          "evidence": [{ "url": "https://elicense4.com.ohio.gov/lookup/licenselookup.aspx", "reviewedAt": "2026-07-04T00:00:00.000Z", "note": "The official Ohio eLicense lookup lists EL - Electrical Contractors as an OCILB license type." }],
+          "limitations": ["OCILB coverage is for commercial electrical contractor licensing; local permits and registrations may still apply."]
+        },
+        "plumbing": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.oh.commerce.ocilb_contractors"],
+          "evidence": [{ "url": "https://elicense4.com.ohio.gov/lookup/licenselookup.aspx", "reviewedAt": "2026-07-04T00:00:00.000Z", "note": "The official Ohio eLicense lookup lists PL - Plumbing Contractors as an OCILB license type." }],
+          "limitations": ["OCILB coverage is for commercial plumbing contractor licensing; local permits and registrations may still apply."]
+        },
+        "hvac": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.oh.commerce.ocilb_contractors"],
+          "evidence": [{ "url": "https://elicense4.com.ohio.gov/lookup/licenselookup.aspx", "reviewedAt": "2026-07-04T00:00:00.000Z", "note": "The official Ohio eLicense lookup lists HV - HVAC Contractors as an OCILB license type." }],
+          "limitations": ["OCILB coverage is for commercial HVAC contractor licensing; local permits and registrations may still apply."]
+        },
+        "mechanical": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.oh.commerce.ocilb_contractors"],
+          "evidence": [{ "url": "https://elicense4.com.ohio.gov/lookup/licenselookup.aspx", "reviewedAt": "2026-07-04T00:00:00.000Z", "note": "The official Ohio eLicense lookup lists HVAC, Hydronics, Plumbing, and Refrigeration contractor license types, which cover the identified statewide mechanical trade path." }],
+          "limitations": ["Mechanical coverage is limited to OCILB's listed commercial trade contractor categories and does not imply a general mechanical-contractor license for every local scope."]
+        },
+        "roofing": {
+          "outcome": "local_only",
+          "evidence": [{ "url": "https://com.ohio.gov/divisions-and-programs/industrial-compliance/boards/ohio-construction-industry-licensing-board/contractors-and-contracting-companies", "reviewedAt": "2026-07-04T00:00:00.000Z", "note": "OCILB identifies statewide commercial contractor licenses for electrical, HVAC, hydronics, plumbing, and refrigeration, and roofing is not part of that identified statewide OCILB path." }],
+          "limitations": ["Roofing registration or licensing may be local; municipal licensing remains outside the statewide registry scope."]
+        },
+        "solar": {
+          "outcome": "local_only",
+          "evidence": [{ "url": "https://elicense4.com.ohio.gov/lookup/licenselookup.aspx", "reviewedAt": "2026-07-04T00:00:00.000Z", "note": "The official Ohio eLicense lookup identifies electrical contractor licensing but does not list a solar contractor license type." }],
+          "limitations": ["Electrical portions of solar work may require OCILB electrical contractor licensing; solar-specific contractor registration may be local or otherwise outside this source."]
+        },
+        "pool_spa": {
+          "outcome": "local_only",
+          "evidence": [{ "url": "https://com.ohio.gov/divisions-and-programs/industrial-compliance/boards/ohio-construction-industry-licensing-board/contractors-and-contracting-companies", "reviewedAt": "2026-07-04T00:00:00.000Z", "note": "The identified statewide OCILB source covers selected commercial trade contractor licenses and does not identify a pool or spa contractor license type." }],
+          "limitations": ["Pool/spa contractor registration, permits, and inspections may be handled locally and remain outside this statewide board ledger."]
+        },
+        "asbestos": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.oh.epa.asbestos_licenses"],
+          "evidence": [{ "url": "https://epa.ohio.gov/divisions-and-offices/air-pollution-control/asbestos-abatement-and-demolition/asbestos-abatement-demolition", "reviewedAt": "2026-07-04T00:00:00.000Z", "note": "Ohio EPA describes the asbestos program as licensing and certifying companies and persons directly involved with the asbestos abatement industry." }],
+          "limitations": ["The official asbestos workflows are tied to Ohio EPA eBusiness services; no automated adapter is exposed while account access and reuse limits remain under review."]
+        },
+        "sheet_metal": {
+          "outcome": "local_only",
+          "evidence": [{ "url": "https://elicense4.com.ohio.gov/lookup/licenselookup.aspx", "reviewedAt": "2026-07-04T00:00:00.000Z", "note": "The official Ohio eLicense lookup identifies HVAC contractor licensing but does not list a standalone sheet-metal contractor license type." }],
+          "limitations": ["Sheet-metal or duct work may fall under HVAC or local permit requirements depending on scope; no standalone statewide sheet-metal contractor source is represented here."]
+        },
+        "underground_utility": {
+          "outcome": "local_only",
+          "evidence": [{ "url": "https://com.ohio.gov/divisions-and-programs/industrial-compliance/boards/ohio-construction-industry-licensing-board/contractors-and-contracting-companies", "reviewedAt": "2026-07-04T00:00:00.000Z", "note": "The identified statewide OCILB source covers selected commercial trade contractor licenses and does not identify an underground utility contractor license type." }],
+          "limitations": ["Utility contractor registrations, permits, and right-of-way approvals may be local or utility-specific and remain outside this statewide board ledger."]
+        },
+        "home_improvement": {
+          "outcome": "local_only",
+          "evidence": [{ "url": "https://com.ohio.gov/divisions-and-programs/industrial-compliance/boards/ohio-construction-industry-licensing-board/contractors-and-contracting-companies", "reviewedAt": "2026-07-04T00:00:00.000Z", "note": "The identified statewide OCILB source covers selected commercial trade contractor licenses rather than a statewide home-improvement contractor board." }],
+          "limitations": ["Home-improvement contractor registration may be local; municipal licensing remains outside OpenTrade Registry's statewide scope."]
+        }
+      }
+    },
     { "state": "OK", "decisions": {} },
     {
       "state": "OR",
