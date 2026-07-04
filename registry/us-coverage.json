@@ -474,6 +474,7 @@
       "state": "WV",
       "status": "blocked",
       "sourceIds": [
+        "us.wv.health.asbestos_licenses",
         "us.wv.labor.contractors"
       ],
       "notes": "Official source metadata is retained, but automated ingestion is blocked by documented legal, access, scope, or technical constraints."

@@ -1,0 +1,88 @@
+{
+  "id": "us.wv.health.asbestos_licenses",
+  "name": "West Virginia OEHS Asbestos License Holders",
+  "jurisdiction": {
+    "country": "US",
+    "state": "WV"
+  },
+  "agency": {
+    "name": "West Virginia Department of Health, Office of Environmental Health Services",
+    "url": "https://oehs.wvdhhr.org/"
+  },
+  "sourceType": "html_lookup",
+  "sourceUrl": "https://oehs.wvdhhr.org/rtia/licensing/",
+  "documentationUrl": "https://oehs.wvdhhr.org/rtia/asbestos/",
+  "dataDictionaryUrl": null,
+  "termsUrl": "https://www.wv.gov/Pages/policies.aspx",
+  "termsReviewNotes": "WV.gov policy pages were identified, but source-specific publication and redistribution approval has not been completed.",
+  "updateFrequency": "unknown; verify against OEHS license-holder lookup behavior before relying on freshness assumptions",
+  "tradeCoverage": [
+    "asbestos"
+  ],
+  "licenseTypesIncluded": [
+    "West Virginia asbestos license-holder records exposed by the OEHS licensing program, including businesses and professionals where available"
+  ],
+  "knownExclusions": [
+    "This source is limited to OEHS asbestos and related environmental health license-holder records and does not represent general contractor, HVAC, plumbing, roofing, permit, or business-registration records.",
+    "The lookup covers asbestos, lead, radon, and clandestine drug laboratory remediation license-holder programs; future adapters must filter to asbestos credentials.",
+    "No stable bulk export, parser contract, privacy filter, or redistribution approval has been confirmed."
+  ],
+  "hasBulkDownload": "unknown",
+  "hasLiveLookup": true,
+  "requiresJavaScript": "unknown",
+  "requiresCaptcha": "unknown",
+  "requiresAccount": false,
+  "rateLimitNotes": "No adapter is implemented. Use the official OEHS lookup manually until access rules, field shape, and reuse are reviewed.",
+  "redistributionStatus": "unknown",
+  "publicRecordsNotes": "Official lookup source metadata only. Generated datasets should not be published until privacy and redistribution are approved. Absence from this source is not proof that another asbestos credential, project authorization, or related record does not exist.",
+  "adapterStatus": "blocked",
+  "sourceDiscoveryStatus": "blocked",
+  "adapterMaturity": "blocked",
+  "adapterQualityLevel": 0,
+  "coverageScope": "state_agency_partial",
+  "adapterPackage": null,
+  "testFixturePath": null,
+  "officialLookupUrl": "https://oehs.wvdhhr.org/rtia/licensing/",
+  "officialLookupReviewNotes": "OEHS states that complete listings of professionals licensed for asbestos, lead, radon, and remediation activities are available, including individuals, businesses, and laboratories.",
+  "officialBulkDownloadNotes": "No stable bulk export has been confirmed in this phase.",
+  "researchNotes": "Registry-only blocked source for West Virginia asbestos license-holder lookup. Future adapter work must filter asbestos records from broader OEHS license-holder lists.",
+  "verificationReviewedAt": null,
+  "verificationCaveats": [
+    "This source covers OEHS asbestos license-holder records exposed by the official lookup and related program pages.",
+    "No matching record means no match in the checked source at the checked time, not proof that another asbestos credential, contractor license, project authorization, or related record does not exist."
+  ],
+  "verificationNotes": "No supported sync or verification adapter is exposed while the official lookup contract and allowed reuse remain under review.",
+  "lastVerifiedAt": "2026-07-04T00:00:00.000Z",
+  "maintainerNotes": "A future adapter must preserve source URL, checked time, caveats, raw lookup evidence, and asbestos-specific filtering before exposing records.",
+  "schemaVersion": "1.0",
+  "researchReviewedAt": "2026-07-04T00:00:00.000Z",
+  "nextReviewAt": "2027-01-04T00:00:00.000Z",
+  "researchEvidence": [
+    {
+      "url": "https://oehs.wvdhhr.org/rtia/licensing/",
+      "checkedAt": "2026-07-04T00:00:00.000Z",
+      "note": "OEHS says complete listings of professionals licensed for asbestos, lead, radon, and remediation activities in West Virginia are available and include individuals, businesses, and laboratories."
+    },
+    {
+      "url": "https://oehs.wvdhhr.org/rtia/asbestos/",
+      "checkedAt": "2026-07-04T00:00:00.000Z",
+      "note": "OEHS describes the asbestos compliance program as processing asbestos notifications and conducting onsite inspections to confirm workers are licensed and work follows state asbestos law and rule."
+    },
+    {
+      "url": "https://code.wvlegislature.gov/16-32-6/",
+      "checkedAt": "2026-07-04T00:00:00.000Z",
+      "note": "West Virginia Code states that no person without a valid asbestos contractor license may contract for an asbestos abatement project."
+    }
+  ],
+  "sourceResearchOutcome": "blocked",
+  "blocker": {
+    "code": "technical_instability",
+    "summary": "No stable, documented machine-readable official interface is currently suitable for an offline-tested adapter.",
+    "evidenceUrls": [
+      "https://oehs.wvdhhr.org/rtia/licensing/",
+      "https://oehs.wvdhhr.org/rtia/asbestos/",
+      "https://code.wvlegislature.gov/16-32-6/",
+      "https://www.wv.gov/Pages/policies.aspx"
+    ]
+  }
+}
