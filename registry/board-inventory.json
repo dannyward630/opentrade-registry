@@ -2019,6 +2019,33 @@
       }
     },
     {
+      "id": "us.me.dep.asbestos_contractors",
+      "jurisdiction": {
+        "country": "US",
+        "state": "ME"
+      },
+      "boardName": "Maine DEP Licensed Asbestos Abatement Contractors",
+      "agencyName": "Maine Department of Environmental Protection",
+      "officialUrl": "https://www.maine.gov/dep/waste/asbestos/asbestoscontractors.html",
+      "sourceIds": [
+        "us.me.dep.asbestos_contractors"
+      ],
+      "trades": [
+        "asbestos"
+      ],
+      "accessPath": "manual_handoff",
+      "coverageLimitations": [
+        "This source is limited to Maine DEP asbestos abatement contractor licensing and does not represent general contractor, electrical, plumbing, HVAC, roofing, permit, or local registration records.",
+        "Asbestos consultants, professionals, training providers, project notifications, and other environmental records may be listed separately from contractor businesses.",
+        "No stable bulk export, parser contract, privacy filter, or redistribution approval has been confirmed."
+      ],
+      "evidence": {
+        "url": "https://www.maine.gov/dep/waste/asbestos/asbestoscontractors.html",
+        "reviewedAt": "2026-07-04T00:00:00.000Z",
+        "note": "Official Maine DEP asbestos page reviewed; it describes licensed asbestos abatement contractor businesses engaged in removal, repair, or encapsulation."
+      }
+    },
+    {
       "id": "us.me.pfr.professional_licenses",
       "jurisdiction": {
         "country": "US",
@@ -2034,17 +2061,20 @@
         "electrical",
         "plumbing",
         "hvac",
+        "mechanical",
+        "home_improvement",
         "other"
       ],
       "accessPath": "manual_handoff",
       "coverageLimitations": [
         "Maine does not have a single statewide general-contractor source represented by this entry.",
         "This broad licensee search spans many boards and professions; construction-relevant records require source-specific filtering.",
+        "Maine DEP asbestos contractor licensing and Maine State Fire Marshal sprinkler endorsements are separate source paths and are not represented by this PFR source entry.",
         "Local permits, municipal contractor rules, business registrations, and non-PFR authorizations are outside this source entry."
       ],
       "evidence": {
         "url": "https://www.maine.gov/pfr/consumer/licensee-search",
-        "reviewedAt": "2026-06-27T00:00:00.000Z",
+        "reviewedAt": "2026-07-04T00:00:00.000Z",
         "note": "Official documentation and live search confirmed filtered comma-delimited downloads, separate entity paths, source disclaimers, and construction-relevant regulator choices."
       }
     },

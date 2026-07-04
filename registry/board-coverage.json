@@ -1968,7 +1968,84 @@
         }
       }
     },
-    { "state": "ME", "decisions": {} },
+    {
+      "state": "ME",
+      "decisions": {
+        "general_contracting": {
+          "outcome": "local_only",
+          "evidence": [{ "url": "https://www.maine.gov/ag/consumer-protection/consumer-help-topics/housing/home-construction-and-repair", "reviewedAt": "2026-07-04T00:00:00.000Z", "note": "The Maine Attorney General states that general contractors and trades such as roofing and framing are not licensed or regulated by the state for home construction and repair." }],
+          "limitations": ["This decision covers the absence of a statewide general home-contractor license; trade-specific credentials, DEP asbestos credentials, State Fire Marshal sprinkler endorsements, public procurement rules, and municipal requirements may still apply."]
+        },
+        "residential_contracting": {
+          "outcome": "local_only",
+          "evidence": [{ "url": "https://www.maine.gov/ag/consumer-protection/consumer-help-topics/housing/home-construction-contracts", "reviewedAt": "2026-07-04T00:00:00.000Z", "note": "The Maine Attorney General's required home-construction contract addendum says Maine does not license or regulate home contractors." }],
+          "limitations": ["Maine law still requires written contracts for covered home construction and improvement work, and future statutory changes should be reviewed during the next evidence cycle."]
+        },
+        "commercial_contracting": {
+          "outcome": "local_only",
+          "evidence": [{ "url": "https://www.maine.gov/pfr/consumer/licensee-search", "reviewedAt": "2026-07-04T00:00:00.000Z", "note": "The official PFR licensee search provides board-specific professional and occupational credentials, but no single statewide commercial general-contractor board is represented in the current source registry." }],
+          "limitations": ["State procurement qualification, trade-specific licenses, DEP asbestos credentials, State Fire Marshal sprinkler endorsements, and local permits are separate from a statewide commercial general-contractor license."]
+        },
+        "electrical": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.me.pfr.professional_licenses"],
+          "evidence": [{ "url": "https://www.maine.gov/pfr/professionallicensing/professions/electricians", "reviewedAt": "2026-07-04T00:00:00.000Z", "note": "Maine's Electricians' Examining Board issues electrician licenses and permits and is exposed through the official PFR licensee search path." }]
+        },
+        "plumbing": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.me.pfr.professional_licenses"],
+          "evidence": [{ "url": "https://www.maine.gov/pfr/professionallicensing/professions/plumbers-examining-board/licensing/individual-licenses", "reviewedAt": "2026-07-04T00:00:00.000Z", "note": "The Plumbers' Examining Board licensing page defines master, journeyman, trainee, and journeyman-in-training plumber credentials." }]
+        },
+        "hvac": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.me.pfr.professional_licenses"],
+          "evidence": [{ "url": "https://www.maine.gov/pfr/professionallicensing/professions/maine-fuel-board", "reviewedAt": "2026-07-04T00:00:00.000Z", "note": "The Maine Fuel Board regulates propane and natural gas, oil and solid fuel burner technicians, and related equipment." }],
+          "limitations": ["This is fuel/heating-equipment coverage, not a general HVAC contractor license for every heating, ventilation, air-conditioning, or refrigeration scope."]
+        },
+        "mechanical": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.me.pfr.professional_licenses"],
+          "evidence": [{ "url": "https://www.maine.gov/pfr/professionallicensing/professions/maine-fuel-board", "reviewedAt": "2026-07-04T00:00:00.000Z", "note": "The Maine Fuel Board regulates fuel-burning technicians and related equipment, with official memoranda addressing heating systems and water heaters." }],
+          "limitations": ["Mechanical scope is partial and may require PFR fuel, plumbing, electrical, or separate State Fire Marshal sprinkler credentials depending on the work."]
+        },
+        "roofing": {
+          "outcome": "local_only",
+          "evidence": [{ "url": "https://www.maine.gov/ag/consumer-protection/consumer-help-topics/housing/home-construction-and-repair", "reviewedAt": "2026-07-04T00:00:00.000Z", "note": "The Maine Attorney General explicitly includes roofing among trades that are not licensed or regulated by the state for home construction and repair." }],
+          "limitations": ["Roofing involving asbestos or other regulated materials may trigger separate DEP or environmental requirements."]
+        },
+        "solar": {
+          "outcome": "local_only",
+          "evidence": [{ "url": "https://www.maine.gov/ag/consumer-protection/consumer-help-topics/housing", "reviewedAt": "2026-07-04T00:00:00.000Z", "note": "The Maine Attorney General's housing guidance treats solar power systems as a consumer-help topic rather than identifying a statewide solar contractor board." }],
+          "limitations": ["Electrical, plumbing, structural, utility, incentive, or municipal requirements may still apply to solar projects."]
+        },
+        "pool_spa": {
+          "outcome": "local_only",
+          "evidence": [{ "url": "https://www.maine.gov/pfr/consumer/licensee-search", "reviewedAt": "2026-07-04T00:00:00.000Z", "note": "The official PFR licensee search exposes professional and occupational regulator filters, but no statewide pool or spa contractor board was confirmed in this source review." }],
+          "limitations": ["Electrical, plumbing, fuel, local permit, or public-pool health requirements may apply to specific work."]
+        },
+        "asbestos": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.me.dep.asbestos_contractors"],
+          "evidence": [{ "url": "https://www.maine.gov/dep/waste/asbestos/asbestoscontractors.html", "reviewedAt": "2026-07-04T00:00:00.000Z", "note": "Maine DEP lists licensed asbestos abatement contractors and describes abatement activities such as removal, repair, or encapsulation." }]
+        },
+        "sheet_metal": {
+          "outcome": "local_only",
+          "evidence": [{ "url": "https://www.maine.gov/ag/consumer-protection/consumer-help-topics/housing/home-construction-and-repair", "reviewedAt": "2026-07-04T00:00:00.000Z", "note": "The Maine Attorney General says general contractors and related home-construction trades are not licensed or regulated by the state." }],
+          "limitations": ["Sheet-metal work associated with fuel, heating, plumbing, electrical, or fire-sprinkler systems may require those separate statewide credentials."]
+        },
+        "underground_utility": {
+          "outcome": "local_only",
+          "evidence": [{ "url": "https://www.maine.gov/pfr/consumer/licensee-search", "reviewedAt": "2026-07-04T00:00:00.000Z", "note": "The official PFR licensee search does not identify a statewide underground-utility contractor board in this source review." }],
+          "limitations": ["Dig Safe, utility-owner, public works, plumbing, environmental, and municipal requirements may still apply to particular underground utility work."]
+        },
+        "home_improvement": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.me.pfr.professional_licenses"],
+          "evidence": [{ "url": "https://www.maine.gov/pfr/professionallicensing/professions/door-to-door-home-repair-sellers/licensing/door-to-door-home-repair-seller", "reviewedAt": "2026-07-04T00:00:00.000Z", "note": "Maine requires a Door-to-Door Home Repair Seller license before door-to-door sales of home repair services to fix, replace, alter, improve, or add to residential real property." }],
+          "limitations": ["This is a transient-sales credential, not a comprehensive statewide home-improvement contractor license; Maine's home-construction contract law and local requirements remain separate."]
+        }
+      }
+    },
     {
       "state": "MI",
       "decisions": {

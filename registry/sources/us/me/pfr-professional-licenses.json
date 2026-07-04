@@ -19,14 +19,22 @@
     "electrical",
     "plumbing",
     "hvac",
+    "mechanical",
+    "home_improvement",
     "other"
   ],
   "licenseTypesIncluded": [
-    "Maine professional and occupational license records exposed by PFR/OPOR licensee search, including construction-relevant boards where available"
+    "Maine professional and occupational license records exposed by PFR/OPOR licensee search, including construction-relevant boards where available",
+    "Electricians' Examining Board licenses",
+    "Plumbers' Examining Board individual licenses",
+    "Maine Fuel Board oil burner, solid fuel, propane, and natural gas technician licenses",
+    "Door-to-Door Home Repair Seller licenses",
+    "Manufactured Housing Board installer and mechanic licenses where relevant to statewide construction scope"
   ],
   "knownExclusions": [
     "Maine does not have a single statewide general-contractor source represented by this entry.",
     "This broad licensee search spans many boards and professions; construction-relevant records require source-specific filtering.",
+    "Maine DEP asbestos contractor licensing and Maine State Fire Marshal sprinkler endorsements are separate source paths and are not represented by this PFR source entry.",
     "Local permits, municipal contractor rules, business registrations, and non-PFR authorizations are outside this source entry."
   ],
   "hasBulkDownload": true,
@@ -45,17 +53,37 @@
   "testFixturePath": null,
   "officialLookupUrl": "https://www.maine.gov/pfr/consumer/licensee-search",
   "officialBulkDownloadNotes": "The official service offers comma-delimited downloads after interactive entity-type, regulator, and search filtering; it does not expose one stable construction-specific bulk URL.",
-  "researchNotes": "The 2026-06-27 review confirmed separate individual, company, and other-credential searches with electrician, plumber, fuel, fire sprinkler, manufactured-housing, and related regulator filters. Separate source entries are required before these scopes can be represented accurately.",
-  "lastVerifiedAt": "2026-06-27T00:00:00.000Z",
+  "researchNotes": "The 2026-07-04 review confirmed separate individual, company, and other-credential searches with electrician, plumber, fuel, manufactured-housing, and door-to-door home repair seller regulator filters. Separate source entries are still preferred before these scopes can be represented accurately by adapter logic.",
+  "lastVerifiedAt": "2026-07-04T00:00:00.000Z",
   "maintainerNotes": "Do not imply Maine general-contractor coverage from this broad professional-license source.",
   "schemaVersion": "1.0",
-  "researchReviewedAt": "2026-06-27T00:00:00.000Z",
-  "nextReviewAt": "2026-12-27T00:00:00.000Z",
+  "researchReviewedAt": "2026-07-04T00:00:00.000Z",
+  "nextReviewAt": "2027-01-04T00:00:00.000Z",
   "researchEvidence": [
     {
       "url": "https://www.maine.gov/pfr/consumer/licensee-search",
-      "checkedAt": "2026-06-27T00:00:00.000Z",
+      "checkedAt": "2026-07-04T00:00:00.000Z",
       "note": "Official documentation and live search confirmed filtered comma-delimited downloads, separate entity paths, source disclaimers, and construction-relevant regulator choices."
+    },
+    {
+      "url": "https://www.maine.gov/pfr/professionallicensing/professions/electricians",
+      "checkedAt": "2026-07-04T00:00:00.000Z",
+      "note": "Official Electricians' Examining Board page reviewed; the board issues electrician licenses and permits."
+    },
+    {
+      "url": "https://www.maine.gov/pfr/professionallicensing/professions/plumbers-examining-board/licensing/individual-licenses",
+      "checkedAt": "2026-07-04T00:00:00.000Z",
+      "note": "Official Plumbers' Examining Board licensing page reviewed; it defines master, journeyman, trainee, and journeyman-in-training plumber credentials."
+    },
+    {
+      "url": "https://www.maine.gov/pfr/professionallicensing/professions/maine-fuel-board",
+      "checkedAt": "2026-07-04T00:00:00.000Z",
+      "note": "Official Maine Fuel Board page reviewed; it regulates propane and natural gas, oil, solid fuel burner technicians, and related equipment."
+    },
+    {
+      "url": "https://www.maine.gov/pfr/professionallicensing/professions/door-to-door-home-repair-sellers/licensing/door-to-door-home-repair-seller",
+      "checkedAt": "2026-07-04T00:00:00.000Z",
+      "note": "Official Door-to-Door Home Repair Seller licensing page reviewed; it requires a license before door-to-door sales of home repair services."
     }
   ],
   "sourceResearchOutcome": "blocked",
