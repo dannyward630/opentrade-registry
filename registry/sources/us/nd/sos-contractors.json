@@ -25,8 +25,8 @@
     "North Dakota contractor license records exposed by Secretary of State contractor search"
   ],
   "knownExclusions": [
-    "Specialty trade boards, local permits, business registration details, and non-Secretary-of-State authorizations may require separate sources.",
-    "Electrical, plumbing, HVAC, and local contractor requirements may not be fully represented by this source entry.",
+    "Specialty trade boards, local permits, business registration details, and non-Secretary-of-State authorizations require separate sources where available.",
+    "Electrical, plumbing, asbestos, and water-well/geothermal credentials are represented separately where official statewide sources were identified.",
     "Complaint and enforcement information may require separate official pages or requests."
   ],
   "hasBulkDownload": "unknown",
@@ -45,17 +45,29 @@
   "testFixturePath": null,
   "officialLookupUrl": "https://firststop.sos.nd.gov/search/contractor",
   "officialBulkDownloadNotes": "No official bulk download has been confirmed in this phase.",
-  "researchNotes": "Registry-only source for North Dakota Secretary of State contractor search. Future work should map license classes and whether specialty trade board lookups need separate sources.",
-  "lastVerifiedAt": "2026-06-27T00:00:00.000Z",
+  "researchNotes": "Registry-only blocked source for North Dakota Secretary of State contractor licensing. The Secretary of State states that a contractor license is required when the cost, value, or price of a job exceeds $4,000, including subcontractors, general contractors, public contractors, and nonresident contractors.",
+  "verificationReviewedAt": null,
+  "verificationCaveats": [
+    "This source covers North Dakota Secretary of State contractor licensing only.",
+    "The license class is based on maximum project value and does not replace separate trade-board credentials, local permits, or other agency authorizations.",
+    "No matching record means no match in the checked source at the checked time, not proof that another board, local license, permit, or related record does not exist."
+  ],
+  "verificationNotes": "No supported sync or verification adapter is exposed while the interactive FirstStop search contract and allowed reuse remain under review.",
+  "lastVerifiedAt": "2026-07-04T00:00:00.000Z",
   "maintainerNotes": "Keep Secretary of State contractor licensing separate from specialty boards and local licensing.",
   "schemaVersion": "1.0",
-  "researchReviewedAt": "2026-06-27T00:00:00.000Z",
-  "nextReviewAt": "2026-12-27T00:00:00.000Z",
+  "researchReviewedAt": "2026-07-04T00:00:00.000Z",
+  "nextReviewAt": "2027-01-04T00:00:00.000Z",
   "researchEvidence": [
     {
+      "url": "https://www.sos.nd.gov/business/licensing-registration/contractors",
+      "checkedAt": "2026-07-04T00:00:00.000Z",
+      "note": "Official Secretary of State contractor page reviewed; it states that anyone doing work above the $4,000 job threshold must be licensed as a contractor in North Dakota and links the registered contractor search."
+    },
+    {
       "url": "https://firststop.sos.nd.gov/search/contractor",
-      "checkedAt": "2026-06-27T00:00:00.000Z",
-      "note": "Official public source, access shape, and current automation constraints reviewed."
+      "checkedAt": "2026-07-04T00:00:00.000Z",
+      "note": "Official FirstStop contractor search reviewed as the manual lookup path for registered North Dakota contractors."
     }
   ],
   "sourceResearchOutcome": "blocked",
@@ -65,6 +77,7 @@
     "summary": "The official path requires or may require protected interactive access; OpenTrade Registry will not bypass technical controls.",
     "evidenceUrls": [
       "https://firststop.sos.nd.gov/search/contractor",
+      "https://www.sos.nd.gov/business/licensing-registration/contractors",
       "https://www.nd.gov/content.htm?id=Privacy"
     ]
   }

@@ -354,9 +354,13 @@
       "state": "ND",
       "status": "blocked",
       "sourceIds": [
+        "us.nd.deq.asbestos_contractors",
+        "us.nd.dwr.water_well_contractors",
+        "us.nd.ndseb.electrical",
+        "us.nd.plumbing_board.licenses",
         "us.nd.sos.contractors"
       ],
-      "notes": "Official source metadata is retained, but automated ingestion is blocked by documented legal, access, scope, or technical constraints."
+      "notes": "Official source metadata is retained for Secretary of State contractor licensing, NDSEB electrical records, State Plumbing Board credentials, DEQ asbestos companies, and DWR water-well/geothermal licensing, but automated ingestion is blocked by documented legal, access, scope, or technical constraints."
     },
     {
       "state": "OH",

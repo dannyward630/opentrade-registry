@@ -2611,7 +2611,113 @@
         }
       }
     },
-    { "state": "ND", "decisions": {} },
+    {
+      "state": "ND",
+      "decisions": {
+        "general_contracting": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.nd.sos.contractors"],
+          "evidence": [{ "url": "https://www.sos.nd.gov/business/licensing-registration/contractors", "reviewedAt": "2026-07-04T00:00:00.000Z", "note": "The Secretary of State states that when the cost, value, or price of a job exceeds $4,000, the person doing the work must be licensed as a contractor in North Dakota, including subcontractors, general contractors, public contractors, and nonresident contractors." }],
+          "limitations": ["The Secretary of State contractor class is based on maximum project value and does not replace separate trade-board credentials, business registration, local permits, inspections, or other agency authorizations."]
+        },
+        "residential_contracting": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.nd.sos.contractors"],
+          "evidence": [{ "url": "https://www.sos.nd.gov/business/licensing-registration/contractors", "reviewedAt": "2026-07-04T00:00:00.000Z", "note": "The Secretary of State contractor licensing page applies the statewide contractor-license requirement to covered work above the $4,000 job threshold and links the registered contractor search." }],
+          "limitations": ["Residential work may also involve local permits, inspections, and trade-specific credentials depending on scope."]
+        },
+        "commercial_contracting": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.nd.sos.contractors"],
+          "evidence": [{ "url": "https://www.sos.nd.gov/business/licensing-registration/contractors", "reviewedAt": "2026-07-04T00:00:00.000Z", "note": "The Secretary of State identifies subcontractors, general contractors, public contractors, and nonresident contractors as subject to North Dakota contractor licensing when the job exceeds the stated threshold." }],
+          "limitations": ["Commercial work remains subject to project-value class, trade credentials, local permits, and other public-work or owner requirements."]
+        },
+        "electrical": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.nd.ndseb.electrical", "us.nd.sos.contractors"],
+          "evidence": [
+            { "url": "https://www.ndseb.com/", "reviewedAt": "2026-07-04T00:00:00.000Z", "note": "The North Dakota State Electrical Board states that it examines applicants, issues electrical licenses, and has jurisdiction over electrical installations." },
+            { "url": "https://www.ndseb.com/search-1/find-a-licensed-contractor/", "reviewedAt": "2026-07-04T00:00:00.000Z", "note": "NDSEB publishes an official Find a Licensed Contractor search for electrical contractors." }
+          ],
+          "limitations": ["Secretary of State contractor licensing may also apply to electrical contractors performing jobs above the threshold."]
+        },
+        "plumbing": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.nd.plumbing_board.licenses", "us.nd.sos.contractors"],
+          "evidence": [{ "url": "https://www.ndplumbingboard.gov/licensing-license-lookup", "reviewedAt": "2026-07-04T00:00:00.000Z", "note": "The State Plumbing Board license lookup page links plumbing, sewer and water, water conditioning, and backflow licensing areas and exposes active license information." }],
+          "limitations": ["Secretary of State contractor licensing may also apply to plumbing contractors performing jobs above the threshold; local permits and inspections remain outside this board decision."]
+        },
+        "hvac": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.nd.sos.contractors"],
+          "evidence": [{ "url": "https://www.sos.nd.gov/business/licensing-registration/contractors", "reviewedAt": "2026-07-04T00:00:00.000Z", "note": "The Secretary of State contractor-license requirement applies broadly to contractors doing covered work above the $4,000 job threshold." }],
+          "limitations": ["No separate statewide HVAC contractor board source was confirmed in this pass; HVAC work may be subject to Secretary of State contractor licensing, local licensing, permits, and inspections depending on scope."]
+        },
+        "mechanical": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.nd.sos.contractors", "us.nd.plumbing_board.licenses"],
+          "evidence": [
+            { "url": "https://www.sos.nd.gov/business/licensing-registration/contractors", "reviewedAt": "2026-07-04T00:00:00.000Z", "note": "The Secretary of State contractor-license requirement applies broadly to contractors doing covered work above the $4,000 job threshold." },
+            { "url": "https://www.ndplumbingboard.gov/licensing-license-lookup", "reviewedAt": "2026-07-04T00:00:00.000Z", "note": "The State Plumbing Board exposes plumbing, sewer and water, water conditioning, and backflow licensing areas that may overlap mechanical piping scopes." }
+          ],
+          "limitations": ["No separate statewide mechanical contractor board source was confirmed in this pass; mechanical work may require plumbing-board, electrical-board, local, permit, or inspection requirements depending on scope."]
+        },
+        "roofing": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.nd.sos.contractors"],
+          "evidence": [{ "url": "https://www.sos.nd.gov/business/licensing-registration/contractors", "reviewedAt": "2026-07-04T00:00:00.000Z", "note": "The Secretary of State contractor-license requirement applies broadly to contractors doing covered work above the $4,000 job threshold." }],
+          "limitations": ["No separate statewide roofing contractor board source was confirmed in this pass; local permits and inspections may still apply."]
+        },
+        "solar": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.nd.sos.contractors", "us.nd.ndseb.electrical"],
+          "evidence": [
+            { "url": "https://www.sos.nd.gov/business/licensing-registration/contractors", "reviewedAt": "2026-07-04T00:00:00.000Z", "note": "The Secretary of State contractor-license requirement applies broadly to contractors doing covered work above the $4,000 job threshold." },
+            { "url": "https://www.ndseb.com/", "reviewedAt": "2026-07-04T00:00:00.000Z", "note": "NDSEB has jurisdiction over electrical installations, which may apply to photovoltaic solar installation scopes." }
+          ],
+          "limitations": ["Solar work may require electrical credentials and local permits depending on system type and scope; no separate statewide solar contractor board was confirmed."]
+        },
+        "pool_spa": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.nd.sos.contractors", "us.nd.plumbing_board.licenses", "us.nd.ndseb.electrical"],
+          "evidence": [
+            { "url": "https://www.sos.nd.gov/business/licensing-registration/contractors", "reviewedAt": "2026-07-04T00:00:00.000Z", "note": "The Secretary of State contractor-license requirement applies broadly to contractors doing covered work above the $4,000 job threshold." },
+            { "url": "https://www.ndplumbingboard.gov/licensing-license-lookup", "reviewedAt": "2026-07-04T00:00:00.000Z", "note": "The State Plumbing Board licensing areas may apply to pool or spa plumbing scopes." }
+          ],
+          "limitations": ["No separate statewide pool or spa contractor board source was confirmed; plumbing, electrical, local, permit, and inspection requirements may apply depending on scope."]
+        },
+        "asbestos": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.nd.deq.asbestos_contractors", "us.nd.sos.contractors"],
+          "evidence": [
+            { "url": "https://deq.nd.gov/wm/asbestos/", "reviewedAt": "2026-07-04T00:00:00.000Z", "note": "The DEQ asbestos page lists asbestos contractor licenses and related asbestos discipline application fees." },
+            { "url": "https://deq.nd.gov/publications/WM/Asbestos/AsbestosContractors.pdf", "reviewedAt": "2026-07-04T00:00:00.000Z", "note": "DEQ publishes an official Asbestos Licensed Companies PDF roster with license numbers, employers, expiration dates, and discipline flags." }
+          ],
+          "limitations": ["Asbestos abatement companies may also need Secretary of State contractor licensing for covered jobs; the DEQ PDF roster is not yet a supported parser contract."]
+        },
+        "sheet_metal": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.nd.sos.contractors"],
+          "evidence": [{ "url": "https://www.sos.nd.gov/business/licensing-registration/contractors", "reviewedAt": "2026-07-04T00:00:00.000Z", "note": "The Secretary of State contractor-license requirement applies broadly to contractors doing covered work above the $4,000 job threshold." }],
+          "limitations": ["No separate statewide sheet-metal contractor board source was confirmed in this pass; HVAC, mechanical, local, permit, and inspection requirements may apply depending on scope."]
+        },
+        "underground_utility": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.nd.sos.contractors", "us.nd.dwr.water_well_contractors", "us.nd.plumbing_board.licenses"],
+          "evidence": [
+            { "url": "https://www.swc.nd.gov/reg_approp/water_well_contractor/", "reviewedAt": "2026-07-04T00:00:00.000Z", "note": "DWR states it licenses water well contractors, water well pump and pitless unit installers, monitoring well contractors, and geothermal system drillers." },
+            { "url": "https://deq.nd.gov/WQ/1_Groundwater/3_WW.aspx", "reviewedAt": "2026-07-04T00:00:00.000Z", "note": "DEQ states that drilling and construction of water wells or monitoring wells and installation of water well pumps or pitless units must be performed by a DWR-licensed contractor." }
+          ],
+          "limitations": ["This decision covers Secretary of State contractor licensing plus water-well, monitoring-well, pump/pitless, geothermal, plumbing, and sewer/water paths; broader utility-owner requirements, permits, and local authorizations remain outside this decision."]
+        },
+        "home_improvement": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.nd.sos.contractors"],
+          "evidence": [{ "url": "https://www.sos.nd.gov/business/licensing-registration/contractors", "reviewedAt": "2026-07-04T00:00:00.000Z", "note": "The Secretary of State contractor-license requirement applies broadly to contractors doing covered work above the $4,000 job threshold." }],
+          "limitations": ["North Dakota home-improvement coverage is represented through the broad Secretary of State contractor-license path, not a separate statewide home-improvement contractor board; local permits, inspections, and trade credentials may apply."]
+        }
+      }
+    },
     { "state": "NE", "decisions": {} },
     { "state": "NH", "decisions": {} },
     {

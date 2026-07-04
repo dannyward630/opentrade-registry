@@ -1,0 +1,87 @@
+{
+  "id": "us.nd.dwr.water_well_contractors",
+  "name": "North Dakota DWR Water Well Contractor Licensure",
+  "jurisdiction": {
+    "country": "US",
+    "state": "ND"
+  },
+  "agency": {
+    "name": "North Dakota Department of Water Resources",
+    "url": "https://www.swc.nd.gov/"
+  },
+  "sourceType": "html_lookup",
+  "sourceUrl": "https://www.swc.nd.gov/reg_approp/water_well_contractor/",
+  "documentationUrl": "https://www.swc.nd.gov/reg_approp/water_well_contractor/",
+  "dataDictionaryUrl": null,
+  "termsUrl": "https://www.nd.gov/content.htm?id=Privacy",
+  "termsReviewNotes": "North Dakota state privacy terms were identified, but source-specific publication, redistribution, and privacy review has not been completed.",
+  "updateFrequency": "unknown; verify against the official DWR water-well contractor page and certified well drillers database before relying on freshness assumptions",
+  "tradeCoverage": [
+    "underground_utility",
+    "other"
+  ],
+  "licenseTypesIncluded": [
+    "North Dakota water well contractors",
+    "Water well pump and pitless unit installers",
+    "Monitoring well contractors",
+    "Geothermal system drillers"
+  ],
+  "knownExclusions": [
+    "This source is limited to DWR water-well, monitoring-well, pump/pitless, and geothermal drilling/installing licensure and does not represent general contractor, electrical, plumbing, asbestos, local permits, or non-DWR records.",
+    "DWR notes that in-state and out-of-state water-well contractors or pump and pitless unit installers may also need Secretary of State business certification and a general contractor license for jobs of $4,000 or greater.",
+    "No stable parser contract, privacy filter, or redistribution approval has been confirmed for the certified well drillers database."
+  ],
+  "hasBulkDownload": "unknown",
+  "hasLiveLookup": true,
+  "requiresJavaScript": "unknown",
+  "requiresCaptcha": "unknown",
+  "requiresAccount": false,
+  "rateLimitNotes": "No adapter is implemented. Use the official DWR page and certified well drillers database manually until access controls, field shape, update cadence, and allowed reuse are reviewed.",
+  "redistributionStatus": "unknown",
+  "publicRecordsNotes": "Official DWR licensure metadata only. Generated datasets should not be published until privacy and redistribution are approved. Absence from this source is not proof that another credential, contractor license, local authorization, or related record does not exist.",
+  "adapterStatus": "blocked",
+  "sourceDiscoveryStatus": "blocked",
+  "adapterMaturity": "blocked",
+  "adapterQualityLevel": 0,
+  "coverageScope": "state_agency_partial",
+  "adapterPackage": null,
+  "testFixturePath": null,
+  "officialLookupUrl": "https://www.swc.nd.gov/reg_approp/water_well_contractor/",
+  "officialLookupReviewNotes": "DWR links a Certified Well Drillers Database for North Dakota licensed contractors from its water-well contractor licensure page.",
+  "officialBulkDownloadNotes": "No official stable bulk download has been confirmed in this phase.",
+  "researchNotes": "Registry-only blocked source for North Dakota DWR water-well, monitoring-well, pump/pitless, and geothermal licensure. Future adapter work must review the certified well drillers database and preserve DWR/SOS overlap caveats.",
+  "verificationReviewedAt": null,
+  "verificationCaveats": [
+    "This source covers North Dakota DWR water-well, monitoring-well, pump/pitless, and geothermal licensure only.",
+    "DWR records do not replace Secretary of State contractor licensing, trade-board credentials, local permits, or other agency authorizations.",
+    "No matching record means no match in the checked source at the checked time, not proof that another license, permit, or related record does not exist."
+  ],
+  "verificationNotes": "No supported sync or verification adapter is exposed while the official lookup contract and allowed reuse remain under review.",
+  "lastVerifiedAt": "2026-07-04T00:00:00.000Z",
+  "maintainerNotes": "A future adapter should preserve source URL, checked time, raw lookup evidence, and the DWR/SOS dual-licensing caveat.",
+  "schemaVersion": "1.0",
+  "researchReviewedAt": "2026-07-04T00:00:00.000Z",
+  "nextReviewAt": "2027-01-04T00:00:00.000Z",
+  "researchEvidence": [
+    {
+      "url": "https://www.swc.nd.gov/reg_approp/water_well_contractor/",
+      "checkedAt": "2026-07-04T00:00:00.000Z",
+      "note": "Official DWR water-well contractor page reviewed; it states DWR licenses water well contractors, pump and pitless unit installers, monitoring well contractors, and geothermal system drillers and links a certified well drillers database."
+    },
+    {
+      "url": "https://deq.nd.gov/WQ/1_Groundwater/3_WW.aspx",
+      "checkedAt": "2026-07-04T00:00:00.000Z",
+      "note": "Official DEQ water-well information page reviewed; it states all drilling and construction of water wells or monitoring wells and installation of pumps or pitless units must be performed by a DWR-licensed contractor and notes SOS contractor-license overlap for jobs of $4,000 or greater."
+    }
+  ],
+  "sourceResearchOutcome": "blocked",
+  "blocker": {
+    "code": "technical_instability",
+    "summary": "The official certified well drillers path has no adapter-reviewed stable table contract, update cadence, privacy filter, or allowed redistribution path.",
+    "evidenceUrls": [
+      "https://www.swc.nd.gov/reg_approp/water_well_contractor/",
+      "https://deq.nd.gov/WQ/1_Groundwater/3_WW.aspx",
+      "https://www.nd.gov/content.htm?id=Privacy"
+    ]
+  }
+}
