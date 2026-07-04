@@ -3827,12 +3827,39 @@
       }
     },
     {
+      "id": "us.wv.health.asbestos_licenses",
+      "jurisdiction": {
+        "country": "US",
+        "state": "WV"
+      },
+      "boardName": "West Virginia OEHS Asbestos License Holders",
+      "agencyName": "West Virginia Department of Health, Office of Environmental Health Services",
+      "officialUrl": "https://oehs.wvdhhr.org/rtia/licensing/",
+      "sourceIds": [
+        "us.wv.health.asbestos_licenses"
+      ],
+      "trades": [
+        "asbestos"
+      ],
+      "accessPath": "manual_handoff",
+      "coverageLimitations": [
+        "This source is limited to OEHS asbestos and related environmental health license-holder records and does not represent general contractor, HVAC, plumbing, roofing, permit, or business-registration records.",
+        "The lookup covers asbestos, lead, radon, and clandestine drug laboratory remediation license-holder programs; future adapters must filter to asbestos credentials.",
+        "No stable bulk export, parser contract, privacy filter, or redistribution approval has been confirmed."
+      ],
+      "evidence": {
+        "url": "https://oehs.wvdhhr.org/rtia/licensing/",
+        "reviewedAt": "2026-07-04T00:00:00.000Z",
+        "note": "OEHS says complete listings of professionals licensed for asbestos, lead, radon, and remediation activities in West Virginia are available and include individuals, businesses, and laboratories."
+      }
+    },
+    {
       "id": "us.wv.labor.contractors",
       "jurisdiction": {
         "country": "US",
         "state": "WV"
       },
-      "boardName": "West Virginia Division of Labor Contractor License Search",
+      "boardName": "West Virginia Division of Labor Contractor and Trade License Search",
       "agencyName": "West Virginia Division of Labor",
       "officialUrl": "https://wvclboard.wv.gov/",
       "sourceIds": [
@@ -3840,20 +3867,29 @@
       ],
       "trades": [
         "general_contracting",
-        "hvac",
+        "residential_contracting",
+        "commercial_contracting",
+        "electrical",
         "plumbing",
-        "other"
+        "hvac",
+        "mechanical",
+        "roofing",
+        "solar",
+        "pool_spa",
+        "sheet_metal",
+        "underground_utility",
+        "home_improvement"
       ],
       "accessPath": "manual_handoff",
       "coverageLimitations": [
-        "The Division of Labor database search links multiple lists, including contractors, HVAC technicians, plumbers, and manufactured housing licensees; this source entry is primarily scoped to contractor license search.",
-        "Local permits, business registrations, and non-Division-of-Labor authorizations are outside this source entry.",
-        "Separate HVAC and plumbing lists may need separate entries or adapter filters before normalization."
+        "The Division of Labor database search links multiple lists, including contractors, HVAC technicians, plumbers, and manufactured housing licensees; future adapters must keep record types and credentials distinct.",
+        "Asbestos abatement licensing is tracked separately under the West Virginia health asbestos source.",
+        "Local permits, business registrations, electrical worker credentials outside contractor classification evidence, and non-Division-of-Labor authorizations are outside this source entry."
       ],
       "evidence": {
-        "url": "https://wvclboard.wv.gov/",
-        "reviewedAt": "2026-06-27T00:00:00.000Z",
-        "note": "Official public source, access shape, and current automation constraints reviewed."
+        "url": "https://labor.wv.gov/licensing",
+        "reviewedAt": "2026-07-04T00:00:00.000Z",
+        "note": "The Division of Labor states its Licensing Section includes the Contractor Licensing Board, HVAC technician certification, manufactured housing, and plumbing supervision programs and issues or renews contractor, HVAC, housing, and plumber credentials."
       }
     },
     {
