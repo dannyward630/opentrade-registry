@@ -15,10 +15,32 @@ describe("nationwide board trade coverage ledger", () => {
     expect(ledger.jurisdictions).toHaveLength(56);
     expect(new Set(ledger.jurisdictions.map((entry) => entry.state)).size).toBe(56);
     expect(expanded).toHaveLength(56 * BOARD_TRADE_DOMAINS.length);
-    expect(expanded.filter((decision) => decision.outcome === "needs_research")).toHaveLength(196);
-    expect(expanded.filter((decision) => decision.outcome === "covered_by_board")).toHaveLength(484);
+    expect(expanded.filter((decision) => decision.outcome === "needs_research")).toHaveLength(182);
+    expect(expanded.filter((decision) => decision.outcome === "covered_by_board")).toHaveLength(498);
     expect(expanded.filter((decision) => decision.outcome === "not_state_regulated")).toHaveLength(7);
     expect(expanded.filter((decision) => decision.outcome === "local_only")).toHaveLength(97);
+  });
+
+  it("records complete District of Columbia DLCP and DOEE trade coverage", async () => {
+    const ledger = boardTradeCoverageLedgerSchema.parse(await json("registry/board-coverage.json"));
+    const expanded = expandBoardTradeCoverageLedger(ledger).filter((decision) => decision.state === "DC");
+
+    expect(expanded).toHaveLength(BOARD_TRADE_DOMAINS.length);
+    expect(expanded.filter((decision) => decision.outcome === "needs_research")).toEqual([]);
+    expect(expanded.every((decision) => decision.outcome === "covered_by_board")).toBe(true);
+    expect(expanded.find((decision) => decision.tradeDomain === "general_contracting")?.boardIds).toEqual(["us.dc.dlcp.contractors"]);
+    expect(expanded.find((decision) => decision.tradeDomain === "home_improvement")?.boardIds).toEqual(["us.dc.dlcp.contractors"]);
+    expect(expanded.find((decision) => decision.tradeDomain === "electrical")?.boardIds).toEqual(["us.dc.dlcp.industrial_trades"]);
+    expect(expanded.find((decision) => decision.tradeDomain === "plumbing")?.boardIds).toEqual(["us.dc.dlcp.industrial_trades"]);
+    expect(expanded.find((decision) => decision.tradeDomain === "asbestos")?.boardIds).toEqual([
+      "us.dc.dlcp.asbestos_abatement_businesses",
+      "us.dc.dlcp.industrial_trades",
+    ]);
+    expect(expanded.find((decision) => decision.tradeDomain === "solar")?.boardIds).toEqual([
+      "us.dc.dlcp.contractors",
+      "us.dc.dlcp.industrial_trades",
+    ]);
+    expect(expanded.find((decision) => decision.tradeDomain === "underground_utility")?.limitations.join(" ")).toContain("Water or sewer excavation");
   });
 
   it("records complete Oregon contractor, BCD trade, and DEQ asbestos coverage", async () => {

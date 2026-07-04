@@ -617,7 +617,139 @@
         }
       }
     },
-    { "state": "DC", "decisions": {} },
+    {
+      "state": "DC",
+      "decisions": {
+        "general_contracting": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.dc.dlcp.contractors"],
+          "evidence": [
+            { "url": "https://dlcp.dc.gov/node/1618551", "reviewedAt": "2026-07-04T00:00:00.000Z", "note": "DLCP Contractor and Construction Services covers services involving planning, building, altering, repairing, improving, or demolishing structures and lists General Contractor/Construction Manager requirements." },
+            { "url": "https://dlcp.dc.gov/node/1614551", "reviewedAt": "2026-07-04T00:00:00.000Z", "note": "DLCP states Basic Business License and associated public license information can be verified via SCOUT and that subcontractors may need their own BBL." }
+          ],
+          "limitations": ["DLCP business licenses, trade licenses, DOB permits, inspections, federal-area requirements, and project-specific approvals remain separate checks."]
+        },
+        "residential_contracting": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.dc.dlcp.contractors"],
+          "evidence": [
+            { "url": "https://dlcp.dc.gov/node/1618551", "reviewedAt": "2026-07-04T00:00:00.000Z", "note": "DLCP Contractor and Construction Services lists Home Improvement Contractor requirements and General Contractor/Construction Manager requirements." },
+            { "url": "https://dob.dc.gov/node/1620686", "reviewedAt": "2026-07-04T00:00:00.000Z", "note": "DOB Permit Wizard covers new residential building permit applications, including trade, solar, raze, and demolition permits." }
+          ],
+          "limitations": ["Residential contractor coverage is based on DLCP business-license categories; DOB permits and trade-specific credentials remain separate."]
+        },
+        "commercial_contracting": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.dc.dlcp.contractors"],
+          "evidence": [
+            { "url": "https://dlcp.dc.gov/node/1618551", "reviewedAt": "2026-07-04T00:00:00.000Z", "note": "DLCP Contractor and Construction Services lists General Contractor/Construction Manager license terms and requirements." },
+            { "url": "https://dob.dc.gov/page/get-permit", "reviewedAt": "2026-07-04T00:00:00.000Z", "note": "DOB directs commercial projects, solar, demolition, raze, and after-hours permits to the Citizen Access Portal." }
+          ],
+          "limitations": ["Commercial construction may require DOB permits, trade credentials, public-space approvals, inspections, and business-registration checks beyond the DLCP contractor business license."]
+        },
+        "electrical": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.dc.dlcp.industrial_trades"],
+          "evidence": [
+            { "url": "https://dlcp.dc.gov/page/board-industrial-trades1", "reviewedAt": "2026-07-04T00:00:00.000Z", "note": "The DLCP Board of Industrial Trades page states the board license law governs electricians and trade contractors." },
+            { "url": "https://dob.dc.gov/page/get-permit", "reviewedAt": "2026-07-04T00:00:00.000Z", "note": "DOB states trade permits include electric work and only licensed DC contractors for the specific trade may apply." }
+          ],
+          "limitations": ["Electrical contractor, individual electrician, designated master, bond, permit, and inspection status must be checked separately."]
+        },
+        "plumbing": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.dc.dlcp.industrial_trades"],
+          "evidence": [
+            { "url": "https://dlcp.dc.gov/page/board-industrial-trades1", "reviewedAt": "2026-07-04T00:00:00.000Z", "note": "The DLCP Board of Industrial Trades page states the board license law governs plumbers, plumbing and gasfitting, and trade contractors." },
+            { "url": "https://dob.dc.gov/page/get-permit", "reviewedAt": "2026-07-04T00:00:00.000Z", "note": "DOB states trade permits include plumbing work and only licensed DC contractors for the specific trade may apply." }
+          ],
+          "limitations": ["Plumbing, gasfitting, designated master, bond, permit, and inspection status must be checked separately."]
+        },
+        "hvac": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.dc.dlcp.industrial_trades"],
+          "evidence": [
+            { "url": "https://dlcp.dc.gov/page/board-industrial-trades1", "reviewedAt": "2026-07-04T00:00:00.000Z", "note": "The DLCP Board of Industrial Trades page states the board license law governs refrigeration and air conditioning mechanics and related trade contractors." },
+            { "url": "https://dob.dc.gov/page/get-permit", "reviewedAt": "2026-07-04T00:00:00.000Z", "note": "DOB states trade permits include systems installation such as A/C and only licensed DC contractors for the specific trade may apply." }
+          ],
+          "limitations": ["HVAC coverage is tied to refrigeration and air conditioning mechanics plus trade-contractor requirements; permits and inspections remain separate."]
+        },
+        "mechanical": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.dc.dlcp.industrial_trades"],
+          "evidence": [
+            { "url": "https://dlcp.dc.gov/page/board-industrial-trades1", "reviewedAt": "2026-07-04T00:00:00.000Z", "note": "The DLCP Board of Industrial Trades page states the board license law governs refrigeration, air conditioning mechanics, steam and operating engineers, and related trade contractors." },
+            { "url": "https://dob.dc.gov/page/get-permit", "reviewedAt": "2026-07-04T00:00:00.000Z", "note": "DOB states systems installation trade permits and other trade permits require licensed DC contractors for the specific trade." }
+          ],
+          "limitations": ["Mechanical scopes may require distinct refrigeration, air-conditioning, steam-engineer, plumbing/gasfitting, permit, and inspection checks."]
+        },
+        "roofing": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.dc.dlcp.contractors"],
+          "evidence": [
+            { "url": "https://dlcp.dc.gov/node/1618551", "reviewedAt": "2026-07-04T00:00:00.000Z", "note": "DLCP Contractor and Construction Services covers building, altering, repairing, improving, or demolishing structures and appurtenances." },
+            { "url": "https://dlcp.dc.gov/node/1614551", "reviewedAt": "2026-07-04T00:00:00.000Z", "note": "DLCP states Basic Business License public license information can be verified via SCOUT." }
+          ],
+          "limitations": ["No separate statewide/DC roofing-only board was confirmed; roofing is represented through contractor business licensing and permits where applicable."]
+        },
+        "solar": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.dc.dlcp.contractors", "us.dc.dlcp.industrial_trades"],
+          "evidence": [
+            { "url": "https://dob.dc.gov/node/1620686", "reviewedAt": "2026-07-04T00:00:00.000Z", "note": "DOB states the Permit Wizard includes trade and solar permit applications." },
+            { "url": "https://dob.dc.gov/page/get-permit", "reviewedAt": "2026-07-04T00:00:00.000Z", "note": "DOB states trade permits include electric work and only licensed DC contractors for the specific trade may apply." },
+            { "url": "https://dlcp.dc.gov/page/board-industrial-trades1", "reviewedAt": "2026-07-04T00:00:00.000Z", "note": "DLCP Industrial Trades governs electricians and related trade contractors." }
+          ],
+          "limitations": ["Solar work may require contractor business licensing, electrical trade credentials, DOB permits, utility/interconnection approvals, and inspections."]
+        },
+        "pool_spa": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.dc.dlcp.contractors", "us.dc.dlcp.industrial_trades"],
+          "evidence": [
+            { "url": "https://dlcp.dc.gov/node/1618551", "reviewedAt": "2026-07-04T00:00:00.000Z", "note": "DLCP Contractor and Construction Services covers building, altering, repairing, improving, or demolishing structures and appurtenances." },
+            { "url": "https://dob.dc.gov/page/get-permit", "reviewedAt": "2026-07-04T00:00:00.000Z", "note": "DOB trade permits include A/C, electric, plumbing, and water or sewer excavation; only licensed DC contractors for the specific trade may apply." }
+          ],
+          "limitations": ["Pool and spa projects may require contractor business licensing, plumbing/electrical/mechanical trade credentials, DOB permits, inspections, and public-space or site-specific approvals."]
+        },
+        "asbestos": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.dc.dlcp.asbestos_abatement_businesses", "us.dc.dlcp.industrial_trades"],
+          "evidence": [
+            { "url": "https://dlcp.dc.gov/page/asbestosabatementbusiness", "reviewedAt": "2026-07-04T00:00:00.000Z", "note": "DLCP lists Asbestos Abatement Business as a business activity with license terms and application requirements." },
+            { "url": "https://doee.dc.gov/service/asbestos-permitting", "reviewedAt": "2026-07-04T00:00:00.000Z", "note": "DOEE states licensed abatement contractors submit asbestos permit notifications and that businesses must have a valid District basic business license and Clean Hands certificate to perform asbestos abatement." },
+            { "url": "https://dlcp.dc.gov/page/board-industrial-trades1", "reviewedAt": "2026-07-04T00:00:00.000Z", "note": "DLCP Board of Industrial Trades includes asbestos workers among governed trades." }
+          ],
+          "limitations": ["DLCP asbestos business licensing, individual asbestos worker/supervisor credentials, DOEE date- and site-specific permits, and federal notifications are distinct."]
+        },
+        "sheet_metal": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.dc.dlcp.industrial_trades", "us.dc.dlcp.contractors"],
+          "evidence": [
+            { "url": "https://dlcp.dc.gov/page/board-industrial-trades1", "reviewedAt": "2026-07-04T00:00:00.000Z", "note": "DLCP Board of Industrial Trades governs refrigeration and air conditioning mechanics, steam and operating engineers, and trade contractors." },
+            { "url": "https://dlcp.dc.gov/node/1618551", "reviewedAt": "2026-07-04T00:00:00.000Z", "note": "DLCP Contractor and Construction Services covers alteration, repair, improvement, and demolition of structures and appurtenances." }
+          ],
+          "limitations": ["No separate statewide/DC sheet-metal-only board was confirmed; sheet-metal work should be reviewed through applicable mechanical/HVAC trade credentials, contractor business licensing, and permits."]
+        },
+        "underground_utility": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.dc.dlcp.industrial_trades", "us.dc.dlcp.contractors"],
+          "evidence": [
+            { "url": "https://dob.dc.gov/page/get-permit", "reviewedAt": "2026-07-04T00:00:00.000Z", "note": "DOB states trade permits include water or sewer excavation for pipe installation and water main connections, and only licensed DC contractors for the specific trade may apply." },
+            { "url": "https://dlcp.dc.gov/page/board-industrial-trades1", "reviewedAt": "2026-07-04T00:00:00.000Z", "note": "DLCP Board of Industrial Trades governs plumbers, plumbing/gasfitting, and related trade contractors." }
+          ],
+          "limitations": ["Water or sewer excavation, plumbing/gasfitting, public-space, utility-owner, DOB permit, and inspection requirements may all be material."]
+        },
+        "home_improvement": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.dc.dlcp.contractors"],
+          "evidence": [
+            { "url": "https://dlcp.dc.gov/node/1618551", "reviewedAt": "2026-07-04T00:00:00.000Z", "note": "DLCP Contractor and Construction Services lists Home Improvement Contractor requirements and notes Home Improvement Contractors must designate and maintain a Basic Business License for at least one Home Improvement Salesperson." },
+            { "url": "https://dlcp.dc.gov/node/1614551", "reviewedAt": "2026-07-04T00:00:00.000Z", "note": "DLCP identifies Home Improvement Contractor and Home Improvement Salesperson as BBL categories relevant to subcontractors working in the District." }
+          ],
+          "limitations": ["Home-improvement business licenses, salesperson designation, contracts, permits, trade credentials, and inspections remain separate checks."]
+        }
+      }
+    },
     {
       "state": "DE",
       "decisions": {
