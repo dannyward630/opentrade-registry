@@ -2,7 +2,7 @@
 
 This generated matrix tracks the statewide trade-domain research required before OpenTrade Registry can claim complete board coverage. Municipal licensing remains excluded.
 
-Current status: **224 trade-domain decisions still need research**. `board_complete` is blocked until this count reaches zero and every terminal decision has official evidence.
+Current status: **210 trade-domain decisions still need research**. `board_complete` is blocked until this count reaches zero and every terminal decision has official evidence.
 
 Required domains (14): `general_contracting`, `residential_contracting`, `commercial_contracting`, `electrical`, `plumbing`, `hvac`, `mechanical`, `roofing`, `solar`, `pool_spa`, `asbestos`, `sheet_metal`, `underground_utility`, `home_improvement`.
 
@@ -40,7 +40,7 @@ Required domains (14): `general_contracting`, `residential_contracting`, `commer
 | MT | 14 | 0 | resolved |
 | NC | 14 | 0 | resolved |
 | ND | 14 | 0 | resolved |
-| NE | 0 | 14 | research in progress |
+| NE | 14 | 0 | resolved |
 | NH | 0 | 14 | research in progress |
 | NJ | 14 | 0 | resolved |
 | NM | 14 | 0 | resolved |

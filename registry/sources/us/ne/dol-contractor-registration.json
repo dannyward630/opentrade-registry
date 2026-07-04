@@ -19,6 +19,14 @@
     "general_contracting",
     "residential_contracting",
     "commercial_contracting",
+    "roofing",
+    "hvac",
+    "mechanical",
+    "solar",
+    "pool_spa",
+    "sheet_metal",
+    "underground_utility",
+    "home_improvement",
     "other"
   ],
   "licenseTypesIncluded": [
@@ -27,6 +35,7 @@
   "knownExclusions": [
     "Nebraska contractor registration does not ensure quality of work or protect against fraud according to the official search page.",
     "This entry does not represent every trade license, local permit, business registration, or authorization in Nebraska.",
+    "Electrical licensing, asbestos licensing, water-based fire protection certification, water-well contractor materials, and local trade licensing require separate source-specific interpretation.",
     "Sales tax, worker count, and workers compensation fields require source-specific interpretation before normalization."
   ],
   "hasBulkDownload": "unknown",
@@ -45,16 +54,16 @@
   "testFixturePath": null,
   "officialLookupUrl": "https://dol.nebraska.gov/conreg/Search",
   "officialBulkDownloadNotes": "No official bulk download has been confirmed in this phase.",
-  "researchNotes": "Registry-only source for Nebraska contractor registration. Future work should preserve the official caution that registration is not a quality or fraud-protection signal.",
-  "lastVerifiedAt": "2026-06-27T00:00:00.000Z",
+  "researchNotes": "Registry-only source for Nebraska contractor registration. Future work should preserve the official caution that registration is not a quality or fraud-protection signal and separate registration from trade-specific licensing.",
+  "lastVerifiedAt": "2026-07-04T00:00:00.000Z",
   "maintainerNotes": "Avoid turning Nebraska registration into a recommendation or quality assertion.",
   "schemaVersion": "1.0",
-  "researchReviewedAt": "2026-06-27T00:00:00.000Z",
-  "nextReviewAt": "2026-12-27T00:00:00.000Z",
+  "researchReviewedAt": "2026-07-04T00:00:00.000Z",
+  "nextReviewAt": "2027-01-04T00:00:00.000Z",
   "researchEvidence": [
     {
       "url": "https://dol.nebraska.gov/conreg/Search",
-      "checkedAt": "2026-06-27T00:00:00.000Z",
+      "checkedAt": "2026-07-04T00:00:00.000Z",
       "note": "Official public source, access shape, and current automation constraints reviewed."
     }
   ],

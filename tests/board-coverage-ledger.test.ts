@@ -15,8 +15,8 @@ describe("nationwide board trade coverage ledger", () => {
     expect(ledger.jurisdictions).toHaveLength(56);
     expect(new Set(ledger.jurisdictions.map((entry) => entry.state)).size).toBe(56);
     expect(expanded).toHaveLength(56 * BOARD_TRADE_DOMAINS.length);
-    expect(expanded.filter((decision) => decision.outcome === "needs_research")).toHaveLength(224);
-    expect(expanded.filter((decision) => decision.outcome === "covered_by_board")).toHaveLength(462);
+    expect(expanded.filter((decision) => decision.outcome === "needs_research")).toHaveLength(210);
+    expect(expanded.filter((decision) => decision.outcome === "covered_by_board")).toHaveLength(476);
     expect(expanded.filter((decision) => decision.outcome === "not_state_regulated")).toHaveLength(7);
     expect(expanded.filter((decision) => decision.outcome === "local_only")).toHaveLength(91);
   });
@@ -696,6 +696,37 @@ describe("nationwide board trade coverage ledger", () => {
     }
     expect(expanded.find((decision) => decision.tradeDomain === "solar")?.limitations.join(" ")).toContain("utility interconnection");
     expect(expanded.find((decision) => decision.tradeDomain === "mechanical")?.limitations.join(" ")).toContain("broader HVAC");
+  });
+
+  it("records complete Nebraska registration, electrical, fire-protection, water-well, and asbestos coverage", async () => {
+    const ledger = boardTradeCoverageLedgerSchema.parse(await json("registry/board-coverage.json"));
+    const expanded = expandBoardTradeCoverageLedger(ledger).filter((decision) => decision.state === "NE");
+
+    expect(expanded).toHaveLength(BOARD_TRADE_DOMAINS.length);
+    expect(expanded.filter((decision) => decision.outcome === "needs_research")).toEqual([]);
+    expect(expanded.every((decision) => decision.outcome === "covered_by_board")).toBe(true);
+    expect(expanded.find((decision) => decision.tradeDomain === "general_contracting")?.boardIds).toEqual([
+      "us.ne.dol.contractor_registration",
+    ]);
+    expect(expanded.find((decision) => decision.tradeDomain === "electrical")?.boardIds).toEqual([
+      "us.ne.electrical_division.licenses",
+      "us.ne.dol.contractor_registration",
+    ]);
+    expect(expanded.find((decision) => decision.tradeDomain === "asbestos")?.boardIds).toEqual([
+      "us.ne.dhhs.asbestos_business_entities",
+      "us.ne.dol.contractor_registration",
+    ]);
+    expect(expanded.find((decision) => decision.tradeDomain === "underground_utility")?.boardIds).toEqual([
+      "us.ne.dol.contractor_registration",
+      "us.ne.dwee.water_well_contractors",
+      "us.ne.sfm.water_based_fire_protection",
+    ]);
+    expect(expanded.find((decision) => decision.tradeDomain === "plumbing")?.limitations.join(" ")).toContain(
+      "No separate statewide plumbing contractor board",
+    );
+    expect(expanded.find((decision) => decision.tradeDomain === "home_improvement")?.limitations.join(" ")).toContain(
+      "not a separate statewide home-improvement contractor board",
+    );
   });
 
   it("requires board references and evidence for terminal coverage decisions", () => {

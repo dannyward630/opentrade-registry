@@ -1,0 +1,83 @@
+{
+  "id": "us.ne.dwee.water_well_contractors",
+  "name": "Nebraska DWEE Water Well Contractors",
+  "jurisdiction": {
+    "country": "US",
+    "state": "NE"
+  },
+  "agency": {
+    "name": "Nebraska Department of Water, Energy, and Environment",
+    "url": "https://dwee.nebraska.gov/"
+  },
+  "sourceType": "html_lookup",
+  "sourceUrl": "https://dwee.nebraska.gov/groundwater/contractors",
+  "documentationUrl": "https://dwee.nebraska.gov/groundwaterwellregistrations",
+  "dataDictionaryUrl": null,
+  "termsUrl": "https://www.nebraska.gov/policies/",
+  "termsReviewNotes": "Nebraska.gov policies were identified, but source-specific publication, redistribution, and privacy review has not been completed.",
+  "updateFrequency": "unknown; verify against the official DWEE water-well contractor and groundwater-registration pages before relying on freshness assumptions",
+  "tradeCoverage": [
+    "underground_utility",
+    "other"
+  ],
+  "licenseTypesIncluded": [
+    "Nebraska licensed water well contractor resources exposed by DWEE water-well standards and groundwater registration pages"
+  ],
+  "knownExclusions": [
+    "This source is limited to Nebraska DWEE water-well contractor and groundwater-registration materials and does not represent Department of Labor contractor registration, State Electrical Division licenses, Fire Marshal certifications, DHHS asbestos licensing, local permits, or other utility credentials.",
+    "The contractor-facing page includes login-only online registration workflows; do not automate account-gated workflows.",
+    "Registered groundwater well data is separate from contractor licensing and should not be treated as a license roster without source-specific review."
+  ],
+  "hasBulkDownload": "unknown",
+  "hasLiveLookup": "unknown",
+  "requiresJavaScript": "unknown",
+  "requiresCaptcha": "unknown",
+  "requiresAccount": "unknown",
+  "rateLimitNotes": "No adapter is implemented. Use official DWEE pages manually until public contractor lookup shape, access controls, field structure, and allowed reuse are reviewed.",
+  "redistributionStatus": "unknown",
+  "publicRecordsNotes": "Official DWEE water-well contractor metadata only. Absence from this source is not proof that another contractor registration, local license, permit, or related record does not exist.",
+  "adapterStatus": "blocked",
+  "sourceDiscoveryStatus": "blocked",
+  "adapterMaturity": "blocked",
+  "adapterQualityLevel": 0,
+  "coverageScope": "state_agency_partial",
+  "adapterPackage": null,
+  "testFixturePath": null,
+  "officialLookupUrl": "https://dwee.nebraska.gov/groundwater/contractors",
+  "officialLookupReviewNotes": "The official DWEE groundwater contractors page states that licensed contractors are the only people, other than landowners, who can construct and register wells, and it links contractor-only online registration resources.",
+  "officialBulkDownloadNotes": "No official contractor-license bulk download has been confirmed in this phase. Groundwater well-data export is a separate registered-well data source and is not treated as a contractor roster.",
+  "researchNotes": "Registry-only blocked source for Nebraska DWEE water-well contractor materials. Future adapter work must distinguish contractor licensing, contractor-only login workflows, well-registration data, and public lookup data before exposing normalized records.",
+  "verificationReviewedAt": null,
+  "verificationCaveats": [
+    "This source covers Nebraska DWEE water-well contractor materials only.",
+    "No matching record means no match in the checked source at the checked time, not proof that another contractor registration, local license, permit, or related record does not exist."
+  ],
+  "verificationNotes": "No supported sync or verification adapter is exposed while public contractor lookup shape and allowed reuse remain under review.",
+  "lastVerifiedAt": "2026-07-04T00:00:00.000Z",
+  "maintainerNotes": "Do not automate account-gated water-well registration workflows. Preserve the distinction between licensed contractor resources and registered well data.",
+  "schemaVersion": "1.0",
+  "researchReviewedAt": "2026-07-04T00:00:00.000Z",
+  "nextReviewAt": "2027-01-04T00:00:00.000Z",
+  "researchEvidence": [
+    {
+      "url": "https://dwee.nebraska.gov/groundwaterwellregistrations",
+      "checkedAt": "2026-07-04T00:00:00.000Z",
+      "note": "Official DWEE groundwater well registration page reviewed; it states that licensed contractors are the only people, other than landowners, who can construct and register wells."
+    },
+    {
+      "url": "https://dwee.nebraska.gov/groundwater/contractors",
+      "checkedAt": "2026-07-04T00:00:00.000Z",
+      "note": "Official DWEE groundwater contractors page reviewed; it is scoped to licensed water well contractors and contractor-only registration resources."
+    }
+  ],
+  "sourceResearchOutcome": "blocked",
+  "blocker": {
+    "code": "access_controls",
+    "summary": "The confirmed contractor workflows include account-gated registration paths, and no adapter-reviewed public contractor roster, stable lookup contract, privacy filter, or allowed redistribution path has been confirmed.",
+    "evidenceUrls": [
+      "https://dwee.nebraska.gov/groundwater/contractors",
+      "https://dwee.nebraska.gov/groundwaterwellregistrations",
+      "https://www.nebraska.gov/policies/"
+    ]
+  }
+}

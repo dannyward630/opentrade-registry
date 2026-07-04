@@ -1,0 +1,79 @@
+{
+  "id": "us.ne.sfm.water_based_fire_protection",
+  "name": "Nebraska State Fire Marshal Water-Based Fire Protection Contractors",
+  "jurisdiction": {
+    "country": "US",
+    "state": "NE"
+  },
+  "agency": {
+    "name": "Nebraska State Fire Marshal",
+    "url": "https://sfm.nebraska.gov/"
+  },
+  "sourceType": "manual_public_records_file",
+  "sourceUrl": "https://sfm.nebraska.gov/code-enforcement/water-based-fire-protection",
+  "documentationUrl": "https://sfm.nebraska.gov/code-enforcement/water-based-fire-protection",
+  "dataDictionaryUrl": null,
+  "termsUrl": "https://www.nebraska.gov/policies/",
+  "termsReviewNotes": "Nebraska.gov policies were identified, but source-specific publication, redistribution, and privacy review has not been completed.",
+  "updateFrequency": "unknown; the official contractor list is described as updated as needed",
+  "tradeCoverage": [
+    "mechanical",
+    "plumbing",
+    "underground_utility",
+    "other"
+  ],
+  "licenseTypesIncluded": [
+    "Nebraska water-based fire protection contractor certifications listed by the State Fire Marshal"
+  ],
+  "knownExclusions": [
+    "This source is limited to Nebraska State Fire Marshal water-based fire protection contractor certification and does not represent Department of Labor contractor registration, State Electrical Division licenses, DHHS asbestos licensing, water-well contractor licensing, local permits, or other fire-code approvals.",
+    "The State Fire Marshal page links a current contractor list publication, but the roster file shape has not been adapter-reviewed.",
+    "Generated datasets should not be published until privacy and redistribution are approved."
+  ],
+  "hasBulkDownload": true,
+  "hasLiveLookup": false,
+  "requiresJavaScript": false,
+  "requiresCaptcha": false,
+  "requiresAccount": false,
+  "rateLimitNotes": "No adapter is implemented. Use the official State Fire Marshal publication manually until the list format, update cadence, privacy handling, and allowed reuse are reviewed.",
+  "redistributionStatus": "unknown",
+  "publicRecordsNotes": "Official State Fire Marshal water-based fire protection metadata only. Absence from this source is not proof that another contractor registration, local license, permit, or related record does not exist.",
+  "adapterStatus": "blocked",
+  "sourceDiscoveryStatus": "blocked",
+  "adapterMaturity": "blocked",
+  "adapterQualityLevel": 0,
+  "coverageScope": "state_agency_partial",
+  "adapterPackage": null,
+  "testFixturePath": null,
+  "officialLookupUrl": "https://sfm.nebraska.gov/code-enforcement/water-based-fire-protection",
+  "officialLookupReviewNotes": "The State Fire Marshal page states that water-based fire protection contractors need certification and links a current list of certified contractors.",
+  "officialBulkDownloadNotes": "The official page links a contractor list publication, but no adapter-reviewed structured bulk export has been confirmed.",
+  "researchNotes": "Registry-only blocked source for Nebraska water-based fire protection contractor certification. Future adapter work would need a roster-file fixture, source-shape tests, privacy handling, and publication review before exposing normalized records.",
+  "verificationReviewedAt": null,
+  "verificationCaveats": [
+    "This source covers Nebraska State Fire Marshal water-based fire protection contractor certification only.",
+    "No matching record means no match in the checked source at the checked time, not proof that another contractor registration, local license, permit, or related record does not exist."
+  ],
+  "verificationNotes": "No supported sync or verification adapter is exposed while the publication format and allowed reuse remain under review.",
+  "lastVerifiedAt": "2026-07-04T00:00:00.000Z",
+  "maintainerNotes": "Do not parse or publish the roster until extraction accuracy, privacy, and redistribution are reviewed.",
+  "schemaVersion": "1.0",
+  "researchReviewedAt": "2026-07-04T00:00:00.000Z",
+  "nextReviewAt": "2027-01-04T00:00:00.000Z",
+  "researchEvidence": [
+    {
+      "url": "https://sfm.nebraska.gov/code-enforcement/water-based-fire-protection",
+      "checkedAt": "2026-07-04T00:00:00.000Z",
+      "note": "Official State Fire Marshal page reviewed; it states that water-based fire protection system contractors need certification and that a current certified-contractor list is updated as needed."
+    }
+  ],
+  "sourceResearchOutcome": "blocked",
+  "blocker": {
+    "code": "technical_instability",
+    "summary": "The official contractor roster is a linked publication with no adapter-reviewed stable extraction contract, update cadence, privacy filter, or allowed redistribution path.",
+    "evidenceUrls": [
+      "https://sfm.nebraska.gov/code-enforcement/water-based-fire-protection",
+      "https://www.nebraska.gov/policies/"
+    ]
+  }
+}

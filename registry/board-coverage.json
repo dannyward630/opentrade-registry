@@ -2718,7 +2718,284 @@
         }
       }
     },
-    { "state": "NE", "decisions": {} },
+    {
+      "state": "NE",
+      "decisions": {
+        "general_contracting": {
+          "outcome": "covered_by_board",
+          "boardIds": [
+            "us.ne.dol.contractor_registration"
+          ],
+          "evidence": [
+            {
+              "url": "https://dol.nebraska.gov/conreg",
+              "reviewedAt": "2026-07-04T00:00:00.000Z",
+              "note": "The Nebraska Department of Labor states that the Contractor Registration Act requires contractors and subcontractors doing business in Nebraska to register with the department."
+            }
+          ],
+          "limitations": [
+            "Nebraska contractor registration is not a quality or fraud-protection signal, and it does not replace trade-specific licenses, local permits, inspections, business registrations, or other agency authorizations."
+          ]
+        },
+        "residential_contracting": {
+          "outcome": "covered_by_board",
+          "boardIds": [
+            "us.ne.dol.contractor_registration"
+          ],
+          "evidence": [
+            {
+              "url": "https://dol.nebraska.gov/conreg/Search",
+              "reviewedAt": "2026-07-04T00:00:00.000Z",
+              "note": "The official contractor-registration search states that contractor registration is required prior to doing work in Nebraska."
+            }
+          ],
+          "limitations": [
+            "Residential work may also require local contractor licensing, permits, inspections, and trade credentials depending on the municipality and project scope."
+          ]
+        },
+        "commercial_contracting": {
+          "outcome": "covered_by_board",
+          "boardIds": [
+            "us.ne.dol.contractor_registration"
+          ],
+          "evidence": [
+            {
+              "url": "https://dol.nebraska.gov/conreg",
+              "reviewedAt": "2026-07-04T00:00:00.000Z",
+              "note": "The Nebraska Department of Labor contractor-registration page identifies the statewide contractor-registration requirement for contractors and subcontractors doing business in Nebraska."
+            }
+          ],
+          "limitations": [
+            "Commercial projects may also require trade licenses, local permits, inspections, public-work requirements, and other agency authorizations."
+          ]
+        },
+        "electrical": {
+          "outcome": "covered_by_board",
+          "boardIds": [
+            "us.ne.electrical_division.licenses",
+            "us.ne.dol.contractor_registration"
+          ],
+          "evidence": [
+            {
+              "url": "https://electrical.nebraska.gov/",
+              "reviewedAt": "2026-07-04T00:00:00.000Z",
+              "note": "The Nebraska State Electrical Division states that it licenses and inspects electrical systems to ensure electrical safety."
+            },
+            {
+              "url": "https://www.nebraska.gov/sed/search/index.cgi",
+              "reviewedAt": "2026-07-04T00:00:00.000Z",
+              "note": "The official State Electrical Division licensee search includes Electrical Contractor and Class B Electrical Contractor license types."
+            }
+          ],
+          "limitations": [
+            "Electrical work may also require Department of Labor contractor registration, permits, inspections, local approvals, and project-specific authorizations."
+          ]
+        },
+        "plumbing": {
+          "outcome": "covered_by_board",
+          "boardIds": [
+            "us.ne.dol.contractor_registration",
+            "us.ne.sfm.water_based_fire_protection"
+          ],
+          "evidence": [
+            {
+              "url": "https://dol.nebraska.gov/conreg",
+              "reviewedAt": "2026-07-04T00:00:00.000Z",
+              "note": "The Nebraska Department of Labor contractor-registration page documents the statewide contractor-registration requirement for contractors and subcontractors."
+            },
+            {
+              "url": "https://sfm.nebraska.gov/code-enforcement/water-based-fire-protection",
+              "reviewedAt": "2026-07-04T00:00:00.000Z",
+              "note": "The Nebraska State Fire Marshal states that contractors who install, repair, alter, maintain, or inspect water-based fire protection systems need certification."
+            }
+          ],
+          "limitations": [
+            "No separate statewide plumbing contractor board source was confirmed in this pass; plumbing licensing commonly depends on local requirements, while water-based fire protection has a specific State Fire Marshal certification path."
+          ]
+        },
+        "hvac": {
+          "outcome": "covered_by_board",
+          "boardIds": [
+            "us.ne.dol.contractor_registration",
+            "us.ne.electrical_division.licenses"
+          ],
+          "evidence": [
+            {
+              "url": "https://dol.nebraska.gov/conreg",
+              "reviewedAt": "2026-07-04T00:00:00.000Z",
+              "note": "The Nebraska Department of Labor contractor-registration page documents the statewide contractor-registration requirement for contractors and subcontractors."
+            },
+            {
+              "url": "https://www.nebraska.gov/sed/search/index.cgi",
+              "reviewedAt": "2026-07-04T00:00:00.000Z",
+              "note": "The State Electrical Division licensee search includes a Heating & Air Conditioning license type."
+            }
+          ],
+          "limitations": [
+            "No separate statewide HVAC contractor board source was confirmed in this pass; HVAC work may require Department of Labor registration, electrical credentials for covered electrical scopes, local licensing, permits, and inspections."
+          ]
+        },
+        "mechanical": {
+          "outcome": "covered_by_board",
+          "boardIds": [
+            "us.ne.dol.contractor_registration",
+            "us.ne.sfm.water_based_fire_protection"
+          ],
+          "evidence": [
+            {
+              "url": "https://dol.nebraska.gov/conreg",
+              "reviewedAt": "2026-07-04T00:00:00.000Z",
+              "note": "The Nebraska Department of Labor contractor-registration page documents the statewide contractor-registration requirement for contractors and subcontractors."
+            },
+            {
+              "url": "https://sfm.nebraska.gov/code-enforcement/water-based-fire-protection",
+              "reviewedAt": "2026-07-04T00:00:00.000Z",
+              "note": "The Nebraska State Fire Marshal water-based fire protection page describes contractor certification for installation, repair, alteration, maintenance, and inspection of water-based fire protection systems."
+            }
+          ],
+          "limitations": [
+            "No separate statewide mechanical contractor board source was confirmed in this pass; mechanical scopes may require Fire Marshal certification, electrical credentials, local licensing, permits, and inspections depending on work performed."
+          ]
+        },
+        "roofing": {
+          "outcome": "covered_by_board",
+          "boardIds": [
+            "us.ne.dol.contractor_registration"
+          ],
+          "evidence": [
+            {
+              "url": "https://dol.nebraska.gov/conreg",
+              "reviewedAt": "2026-07-04T00:00:00.000Z",
+              "note": "The Nebraska Department of Labor contractor-registration page documents the statewide contractor-registration requirement for contractors and subcontractors."
+            }
+          ],
+          "limitations": [
+            "No separate statewide roofing contractor board source was confirmed in this pass; local licensing, permits, and inspections may still apply."
+          ]
+        },
+        "solar": {
+          "outcome": "covered_by_board",
+          "boardIds": [
+            "us.ne.dol.contractor_registration",
+            "us.ne.electrical_division.licenses"
+          ],
+          "evidence": [
+            {
+              "url": "https://dol.nebraska.gov/conreg",
+              "reviewedAt": "2026-07-04T00:00:00.000Z",
+              "note": "The Nebraska Department of Labor contractor-registration page documents the statewide contractor-registration requirement for contractors and subcontractors."
+            },
+            {
+              "url": "https://electrical.nebraska.gov/",
+              "reviewedAt": "2026-07-04T00:00:00.000Z",
+              "note": "The Nebraska State Electrical Division states that it licenses and inspects electrical systems, which may apply to photovoltaic solar electrical scopes."
+            }
+          ],
+          "limitations": [
+            "No separate statewide solar contractor board source was confirmed; solar work may require electrical credentials, Department of Labor registration, utility interconnection, local permits, and inspections depending on scope."
+          ]
+        },
+        "pool_spa": {
+          "outcome": "covered_by_board",
+          "boardIds": [
+            "us.ne.dol.contractor_registration",
+            "us.ne.electrical_division.licenses"
+          ],
+          "evidence": [
+            {
+              "url": "https://dol.nebraska.gov/conreg",
+              "reviewedAt": "2026-07-04T00:00:00.000Z",
+              "note": "The Nebraska Department of Labor contractor-registration page documents the statewide contractor-registration requirement for contractors and subcontractors."
+            },
+            {
+              "url": "https://electrical.nebraska.gov/",
+              "reviewedAt": "2026-07-04T00:00:00.000Z",
+              "note": "The Nebraska State Electrical Division licensing and inspection role may apply to pool or spa electrical scopes."
+            }
+          ],
+          "limitations": [
+            "No separate statewide pool or spa contractor board source was confirmed; electrical credentials, local plumbing licensing, permits, and inspections may apply depending on scope."
+          ]
+        },
+        "asbestos": {
+          "outcome": "covered_by_board",
+          "boardIds": [
+            "us.ne.dhhs.asbestos_business_entities",
+            "us.ne.dol.contractor_registration"
+          ],
+          "evidence": [
+            {
+              "url": "https://dhhs.ne.gov/licensure/Pages/Asbestos-Occupation-Licensing.aspx",
+              "reviewedAt": "2026-07-04T00:00:00.000Z",
+              "note": "Nebraska DHHS publishes official asbestos occupation licensing information and requirements."
+            },
+            {
+              "url": "https://dwee.nebraska.gov/air/air-compliance/asbestos-program",
+              "reviewedAt": "2026-07-04T00:00:00.000Z",
+              "note": "DWEE states that DHHS oversees the AHERA program and Nebraska Asbestos Control Program while DWEE oversees NESHAP responsibilities."
+            }
+          ],
+          "limitations": [
+            "Asbestos projects may also involve DWEE NESHAP responsibilities, Lancaster County or Omaha local air programs, Department of Labor contractor registration, project notifications, and local requirements."
+          ]
+        },
+        "sheet_metal": {
+          "outcome": "covered_by_board",
+          "boardIds": [
+            "us.ne.dol.contractor_registration"
+          ],
+          "evidence": [
+            {
+              "url": "https://dol.nebraska.gov/conreg",
+              "reviewedAt": "2026-07-04T00:00:00.000Z",
+              "note": "The Nebraska Department of Labor contractor-registration page documents the statewide contractor-registration requirement for contractors and subcontractors."
+            }
+          ],
+          "limitations": [
+            "No separate statewide sheet-metal contractor board source was confirmed in this pass; HVAC, mechanical, electrical, local licensing, permits, and inspections may apply depending on scope."
+          ]
+        },
+        "underground_utility": {
+          "outcome": "covered_by_board",
+          "boardIds": [
+            "us.ne.dol.contractor_registration",
+            "us.ne.dwee.water_well_contractors",
+            "us.ne.sfm.water_based_fire_protection"
+          ],
+          "evidence": [
+            {
+              "url": "https://dwee.nebraska.gov/groundwaterwellregistrations",
+              "reviewedAt": "2026-07-04T00:00:00.000Z",
+              "note": "DWEE states that licensed contractors are the only people, other than landowners, who can construct and register wells."
+            },
+            {
+              "url": "https://sfm.nebraska.gov/code-enforcement/water-based-fire-protection",
+              "reviewedAt": "2026-07-04T00:00:00.000Z",
+              "note": "The State Fire Marshal water-based fire protection certification path may apply to underground fire-main and fire-protection utility scopes."
+            }
+          ],
+          "limitations": [
+            "Underground utility coverage is represented through Department of Labor contractor registration, water-well contractor materials, and water-based fire protection certification; broader utility-owner requirements, one-call obligations, wastewater permits, local permits, and inspections remain outside this decision."
+          ]
+        },
+        "home_improvement": {
+          "outcome": "covered_by_board",
+          "boardIds": [
+            "us.ne.dol.contractor_registration"
+          ],
+          "evidence": [
+            {
+              "url": "https://dol.nebraska.gov/conreg/Search",
+              "reviewedAt": "2026-07-04T00:00:00.000Z",
+              "note": "The official contractor-registration search states that contractor registration is required prior to doing work in Nebraska."
+            }
+          ],
+          "limitations": [
+            "Nebraska home-improvement coverage is represented through broad contractor registration, not a separate statewide home-improvement contractor board; local permits, inspections, and trade credentials may apply."
+          ]
+        }
+      }
+    },
     { "state": "NH", "decisions": {} },
     {
       "state": "NJ",
