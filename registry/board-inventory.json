@@ -2888,6 +2888,124 @@
       }
     },
     {
+      "id": "us.nh.des.asbestos_licenses",
+      "jurisdiction": {
+        "country": "US",
+        "state": "NH"
+      },
+      "boardName": "New Hampshire DES Asbestos Licenses and Certifications",
+      "agencyName": "New Hampshire Department of Environmental Services",
+      "officialUrl": "https://www4.des.state.nh.us/OnestopPub/Air/ContractorLists/Web-AbatementContractors.pdf",
+      "sourceIds": [
+        "us.nh.des.asbestos_licenses"
+      ],
+      "trades": [
+        "asbestos"
+      ],
+      "accessPath": "manual_handoff",
+      "coverageLimitations": [
+        "This source is limited to New Hampshire DES asbestos license and certification records and does not represent OPLC trade licenses, DES water-well credentials, business registrations, local permits, or non-asbestos credentials.",
+        "The abatement-contractor PDF publication has not been adapter-reviewed and may expose contact fields requiring privacy review.",
+        "Generated datasets should not be published until privacy and redistribution are approved."
+      ],
+      "evidence": {
+        "url": "https://www.des.nh.gov/waste/asbestos/license-and-certifications",
+        "reviewedAt": "2026-07-04T00:00:00.000Z",
+        "note": "Official DES asbestos licensing page reviewed; it states that every company or individual performing asbestos-related work in New Hampshire is required to be licensed or certified to perform the work."
+      }
+    },
+    {
+      "id": "us.nh.des.water_well_contractors",
+      "jurisdiction": {
+        "country": "US",
+        "state": "NH"
+      },
+      "boardName": "New Hampshire DES Water Well Contractor and Pump Installer Licensing",
+      "agencyName": "New Hampshire Department of Environmental Services",
+      "officialUrl": "https://www.des.nh.gov/about/boards-and-committees/water-well-board/licensing",
+      "sourceIds": [
+        "us.nh.des.water_well_contractors"
+      ],
+      "trades": [
+        "underground_utility",
+        "other"
+      ],
+      "accessPath": "manual_handoff",
+      "coverageLimitations": [
+        "This source is limited to New Hampshire DES Water Well Board licensing materials and does not represent OPLC trade licenses, DES asbestos records, business registrations, local permits, or other utility credentials.",
+        "No adapter-reviewed public roster, file export, or lookup contract has been confirmed.",
+        "Generated datasets should not be published until privacy and redistribution are approved."
+      ],
+      "evidence": {
+        "url": "https://www.des.nh.gov/about/boards-and-committees/water-well-board/licensing",
+        "reviewedAt": "2026-07-04T00:00:00.000Z",
+        "note": "Official DES Water Well Board licensing page reviewed; it states that contractors or individuals wishing to engage in water well construction or water pump installation in New Hampshire must be licensed."
+      }
+    },
+    {
+      "id": "us.nh.oplc.electricians",
+      "jurisdiction": {
+        "country": "US",
+        "state": "NH"
+      },
+      "boardName": "New Hampshire OPLC Electricians Board License Lookup",
+      "agencyName": "New Hampshire Office of Professional Licensure and Certification",
+      "officialUrl": "https://www.oplc.nh.gov/license-lookup",
+      "sourceIds": [
+        "us.nh.oplc.electricians"
+      ],
+      "trades": [
+        "electrical",
+        "solar",
+        "pool_spa",
+        "other"
+      ],
+      "accessPath": "manual_handoff",
+      "coverageLimitations": [
+        "This source is limited to OPLC Electricians Board records and does not represent mechanical safety licenses, DES asbestos records, DES water-well credentials, business registrations, local permits, or non-electrical credentials.",
+        "The OPLC lookup spans many professions; electrician records require careful filtering before normalization.",
+        "No stable bulk export, parser contract, privacy filter, or redistribution approval has been confirmed."
+      ],
+      "evidence": {
+        "url": "https://www.oplc.nh.gov/find-board/electricians-board",
+        "reviewedAt": "2026-07-04T00:00:00.000Z",
+        "note": "Official OPLC Electricians Board page reviewed; it states that an active and valid New Hampshire electrician license is required to work with 30 volts or higher and lists electrician credential categories."
+      }
+    },
+    {
+      "id": "us.nh.oplc.mechanical_safety",
+      "jurisdiction": {
+        "country": "US",
+        "state": "NH"
+      },
+      "boardName": "New Hampshire OPLC Mechanical Safety and Licensing Board Lookup",
+      "agencyName": "New Hampshire Office of Professional Licensure and Certification",
+      "officialUrl": "https://www.oplc.nh.gov/license-lookup",
+      "sourceIds": [
+        "us.nh.oplc.mechanical_safety"
+      ],
+      "trades": [
+        "plumbing",
+        "hvac",
+        "mechanical",
+        "solar",
+        "pool_spa",
+        "underground_utility",
+        "other"
+      ],
+      "accessPath": "manual_handoff",
+      "coverageLimitations": [
+        "This source is limited to OPLC Mechanical Safety and Licensing Board records and does not represent OPLC electrician records, DES asbestos records, DES water-well credentials, business registrations, local permits, or non-mechanical credentials.",
+        "Mechanical coverage is not a blanket HVAC contractor license; fuel gas, plumbing, business entity, and specialty scopes require source-specific interpretation.",
+        "No stable bulk export, parser contract, privacy filter, or redistribution approval has been confirmed."
+      ],
+      "evidence": {
+        "url": "https://www.oplc.nh.gov/mechanical-safety-and-licensing-board",
+        "reviewedAt": "2026-07-04T00:00:00.000Z",
+        "note": "Official OPLC Mechanical Safety and Licensing Board page reviewed; it describes the board's mission to ensure applicants are qualified for licensure."
+      }
+    },
+    {
       "id": "us.nh.oplc.trades",
       "jurisdiction": {
         "country": "US",

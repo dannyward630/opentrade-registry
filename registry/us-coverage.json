@@ -305,9 +305,13 @@
       "state": "NH",
       "status": "blocked",
       "sourceIds": [
+        "us.nh.des.asbestos_licenses",
+        "us.nh.des.water_well_contractors",
+        "us.nh.oplc.electricians",
+        "us.nh.oplc.mechanical_safety",
         "us.nh.oplc.trades"
       ],
-      "notes": "Official source metadata is retained, but automated ingestion is blocked by documented legal, access, scope, or technical constraints."
+      "notes": "Official source metadata is retained for OPLC electrician records, OPLC mechanical safety/plumbing/fuel gas records, DES asbestos licenses, DES water-well contractor licensing, and the broad OPLC lookup, but automated ingestion is blocked by documented legal, access, scope, or technical constraints."
     },
     {
       "state": "NJ",

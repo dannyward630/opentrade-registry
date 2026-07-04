@@ -1,0 +1,82 @@
+{
+  "id": "us.nh.des.water_well_contractors",
+  "name": "New Hampshire DES Water Well Contractor and Pump Installer Licensing",
+  "jurisdiction": {
+    "country": "US",
+    "state": "NH"
+  },
+  "agency": {
+    "name": "New Hampshire Department of Environmental Services",
+    "url": "https://www.des.nh.gov/"
+  },
+  "sourceType": "html_lookup",
+  "sourceUrl": "https://www.des.nh.gov/about/boards-and-committees/water-well-board/licensing",
+  "documentationUrl": "https://www.des.nh.gov/about/boards-and-committees/water-well-board/licensing",
+  "dataDictionaryUrl": null,
+  "termsUrl": "https://www.nh.gov/policies/",
+  "termsReviewNotes": "NH.gov policies were identified, but source-specific publication, redistribution, and privacy review has not been completed.",
+  "updateFrequency": "unknown; verify against the official DES Water Well Board licensing page before relying on freshness assumptions",
+  "tradeCoverage": [
+    "underground_utility",
+    "other"
+  ],
+  "licenseTypesIncluded": [
+    "New Hampshire water well contractor and pump installer licensing records or official handoff paths where exposed by DES"
+  ],
+  "knownExclusions": [
+    "This source is limited to New Hampshire DES Water Well Board licensing materials and does not represent OPLC trade licenses, DES asbestos records, business registrations, local permits, or other utility credentials.",
+    "No adapter-reviewed public roster, file export, or lookup contract has been confirmed.",
+    "Generated datasets should not be published until privacy and redistribution are approved."
+  ],
+  "hasBulkDownload": "unknown",
+  "hasLiveLookup": "unknown",
+  "requiresJavaScript": "unknown",
+  "requiresCaptcha": "unknown",
+  "requiresAccount": "unknown",
+  "rateLimitNotes": "No adapter is implemented. Use official DES Water Well Board pages manually until public roster shape, access controls, field structure, and allowed reuse are reviewed.",
+  "redistributionStatus": "unknown",
+  "publicRecordsNotes": "Official DES water-well licensing metadata only. Absence from this source is not proof that another license, local authorization, permit, or related record does not exist.",
+  "adapterStatus": "blocked",
+  "sourceDiscoveryStatus": "blocked",
+  "adapterMaturity": "blocked",
+  "adapterQualityLevel": 0,
+  "coverageScope": "state_agency_partial",
+  "adapterPackage": null,
+  "testFixturePath": null,
+  "officialLookupUrl": "https://www.des.nh.gov/about/boards-and-committees/water-well-board/licensing",
+  "officialLookupReviewNotes": "The official DES Water Well Board licensing page states that contractors or individuals wishing to engage in water-well construction or pump installation in New Hampshire must be licensed.",
+  "officialBulkDownloadNotes": "No official contractor-license bulk download has been confirmed in this phase.",
+  "researchNotes": "Registry-only blocked source for New Hampshire DES water-well contractor and pump installer licensing. Future adapter work must identify a stable public roster or official manual handoff before exposing records.",
+  "verificationReviewedAt": null,
+  "verificationCaveats": [
+    "This source covers New Hampshire DES Water Well Board licensing materials only.",
+    "No matching record means no match in the checked source at the checked time, not proof that another license, local authorization, permit, or related record does not exist."
+  ],
+  "verificationNotes": "No supported sync or verification adapter is exposed while public contractor roster shape and allowed reuse remain under review.",
+  "lastVerifiedAt": "2026-07-04T00:00:00.000Z",
+  "maintainerNotes": "Preserve the distinction between licensed water-well contractors, pump installers, well records, local permits, and utility-owner requirements.",
+  "schemaVersion": "1.0",
+  "researchReviewedAt": "2026-07-04T00:00:00.000Z",
+  "nextReviewAt": "2027-01-04T00:00:00.000Z",
+  "researchEvidence": [
+    {
+      "url": "https://www.des.nh.gov/about/boards-and-committees/water-well-board/licensing",
+      "checkedAt": "2026-07-04T00:00:00.000Z",
+      "note": "Official DES Water Well Board licensing page reviewed; it states that contractors or individuals wishing to engage in water well construction or water pump installation in New Hampshire must be licensed."
+    },
+    {
+      "url": "https://www.des.nh.gov/business-and-community/licenses-and-certification",
+      "checkedAt": "2026-07-04T00:00:00.000Z",
+      "note": "Official DES licenses and certification page reviewed as the agency licensing hub for environmental and water-related professional credentials."
+    }
+  ],
+  "sourceResearchOutcome": "blocked",
+  "blocker": {
+    "code": "no_stable_source",
+    "summary": "The official licensing page confirms the regulated credential path, but no adapter-reviewed public roster, stable lookup contract, privacy filter, or allowed redistribution path has been confirmed.",
+    "evidenceUrls": [
+      "https://www.des.nh.gov/about/boards-and-committees/water-well-board/licensing",
+      "https://www.nh.gov/policies/"
+    ]
+  }
+}

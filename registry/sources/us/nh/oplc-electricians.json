@@ -1,0 +1,86 @@
+{
+  "id": "us.nh.oplc.electricians",
+  "name": "New Hampshire OPLC Electricians Board License Lookup",
+  "jurisdiction": {
+    "country": "US",
+    "state": "NH"
+  },
+  "agency": {
+    "name": "New Hampshire Office of Professional Licensure and Certification",
+    "url": "https://www.oplc.nh.gov/"
+  },
+  "sourceType": "html_lookup",
+  "sourceUrl": "https://www.oplc.nh.gov/find-board/electricians-board",
+  "documentationUrl": "https://www.oplc.nh.gov/find-board/electricians-board",
+  "dataDictionaryUrl": null,
+  "termsUrl": "https://www.nh.gov/policies/",
+  "termsReviewNotes": "NH.gov policies were identified, but source-specific publication, redistribution, and privacy review has not been completed.",
+  "updateFrequency": "unknown; verify against the official OPLC lookup before relying on freshness assumptions",
+  "tradeCoverage": [
+    "electrical",
+    "solar",
+    "pool_spa",
+    "other"
+  ],
+  "licenseTypesIncluded": [
+    "New Hampshire electrician license records exposed by OPLC lookup where available",
+    "Apprentice, journeyman, master, and high/medium voltage electrician records where exposed by the official board and lookup"
+  ],
+  "knownExclusions": [
+    "This source is limited to OPLC Electricians Board records and does not represent mechanical safety licenses, DES asbestos records, DES water-well credentials, business registrations, local permits, or non-electrical credentials.",
+    "The OPLC lookup spans many professions; electrician records require careful filtering before normalization.",
+    "No stable bulk export, parser contract, privacy filter, or redistribution approval has been confirmed."
+  ],
+  "hasBulkDownload": "unknown",
+  "hasLiveLookup": true,
+  "requiresJavaScript": "unknown",
+  "requiresCaptcha": "unknown",
+  "requiresAccount": false,
+  "rateLimitNotes": "No adapter is implemented. Use the official OPLC lookup manually until access controls, field shape, update cadence, and allowed reuse are reviewed.",
+  "redistributionStatus": "unknown",
+  "publicRecordsNotes": "Official OPLC electrician metadata only. Generated datasets should not be published until privacy and redistribution are approved. Absence from this source is not proof that another license, local authorization, permit, or related record does not exist.",
+  "adapterStatus": "blocked",
+  "sourceDiscoveryStatus": "blocked",
+  "adapterMaturity": "blocked",
+  "adapterQualityLevel": 0,
+  "coverageScope": "state_agency_partial",
+  "adapterPackage": null,
+  "testFixturePath": null,
+  "officialLookupUrl": "https://www.oplc.nh.gov/license-lookup",
+  "officialLookupReviewNotes": "OPLC offers a public license verification application. The Electricians Board page states that an active and valid New Hampshire electrician license is required to work with 30 volts or higher.",
+  "officialBulkDownloadNotes": "No official stable bulk download has been confirmed in this phase.",
+  "researchNotes": "Registry-only blocked source for New Hampshire electrician records. Future adapter work must distinguish individual license records from business, permit, and inspection evidence before exposing canonical records.",
+  "verificationReviewedAt": null,
+  "verificationCaveats": [
+    "This source covers New Hampshire OPLC Electricians Board records only.",
+    "No matching record means no match in the checked source at the checked time, not proof that another license, local authorization, permit, or related record does not exist."
+  ],
+  "verificationNotes": "No supported sync or verification adapter is exposed while the official lookup contract and allowed reuse remain under review.",
+  "lastVerifiedAt": "2026-07-04T00:00:00.000Z",
+  "maintainerNotes": "A future adapter must preserve source page, checked time, raw lookup evidence, caveats, and profession filters.",
+  "schemaVersion": "1.0",
+  "researchReviewedAt": "2026-07-04T00:00:00.000Z",
+  "nextReviewAt": "2027-01-04T00:00:00.000Z",
+  "researchEvidence": [
+    {
+      "url": "https://www.oplc.nh.gov/find-board/electricians-board",
+      "checkedAt": "2026-07-04T00:00:00.000Z",
+      "note": "Official OPLC Electricians Board page reviewed; it states that an active and valid New Hampshire electrician license is required to work with 30 volts or higher and lists electrician credential categories."
+    },
+    {
+      "url": "https://www.oplc.nh.gov/license-lookup",
+      "checkedAt": "2026-07-04T00:00:00.000Z",
+      "note": "Official OPLC license lookup reviewed as the public verification path for OPLC license records."
+    }
+  ],
+  "sourceResearchOutcome": "blocked",
+  "blocker": {
+    "code": "technical_instability",
+    "summary": "The official OPLC lookup is interactive and broad across professions, with no adapter-reviewed stable table contract, profession filter contract, update cadence, privacy filter, or allowed redistribution path.",
+    "evidenceUrls": [
+      "https://www.oplc.nh.gov/license-lookup",
+      "https://www.oplc.nh.gov/find-board/electricians-board",
+      "https://www.nh.gov/policies/"
+    ]
+  }
+}
