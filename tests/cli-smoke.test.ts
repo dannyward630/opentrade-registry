@@ -120,7 +120,7 @@ describe("opentrade CLI", () => {
     expect(connecticut).toContain("Connecticut DCP eLicense Home Improvement Contractor Lookup");
     expect(connecticut).toContain("maturity: blocked");
     const westVirginia = runCli(["sources", "show", "us.wv.labor.contractors"]).stdout;
-    expect(westVirginia).toContain("West Virginia Division of Labor Contractor License Search");
+    expect(westVirginia).toContain("West Virginia Division of Labor Contractor and Trade License Search");
     expect(westVirginia).toContain("maturity: blocked");
     const florida = runCli(["sources", "show", "us.fl.dbpr.construction"]).stdout;
     expect(florida).toContain("quality level: 4");
@@ -191,7 +191,7 @@ describe("opentrade CLI", () => {
     const kansasWaterWell = runCli(["sources", "show", "us.ks.kdhe.water_well_contractors"]).stdout;
     expect(kansasWaterWell).toContain("Kansas KDHE Licensed Water Well Contractors");
     expect(kansasWaterWell).toContain("bulk_xlsx");
-    expect(runCli(["sources", "validate"]).stdout).toContain("Validated 129 source registry entries.");
+    expect(runCli(["sources", "validate"]).stdout).toContain("Validated 130 source registry entries.");
   }, CLI_SMOKE_TIMEOUT_MS);
 
   it("filters source listings for discovery workflows", () => {
@@ -219,7 +219,7 @@ describe("opentrade CLI", () => {
     expect(bulkCandidatesJson.map((source: { id: string }) => source.id)).toEqual([]);
 
     const blockedJson = JSON.parse(runCli(["sources", "list", "--research-outcome", "blocked", "--json"]).stdout);
-    expect(blockedJson).toHaveLength(120);
+    expect(blockedJson).toHaveLength(121);
     expect(blockedJson.map((source: { id: string }) => source.id)).toContain("us.pa.oag.home_improvement_contractors");
 
     const level4Json = JSON.parse(runCli(["sources", "list", "--quality-level", "4", "--json"]).stdout);
@@ -248,10 +248,10 @@ describe("opentrade CLI", () => {
   it("summarizes terminal source readiness", () => {
     const readiness = runCli(["sources", "readiness"]).stdout;
     expect(readiness).toContain("OpenTrade source readiness");
-    expect(readiness).toContain("sources: 129");
+    expect(readiness).toContain("sources: 130");
     expect(readiness).toContain("implemented adapter sources: 9");
-    expect(readiness).toContain("terminal source decisions: 129");
-    expect(readiness).toContain("blocked sources: 120");
+    expect(readiness).toContain("terminal source decisions: 130");
+    expect(readiness).toContain("blocked sources: 121");
     expect(readiness).toContain("- us.az.roc.contractors (bulk_csv, network_opt_in, level_4)");
     expect(readiness).toContain("- us.ca.cslb.contractors (bulk_csv, local_file_adapter, level_4)");
     expect(readiness).toContain("- us.fl.dbpr.asbestos_contractors (bulk_csv, network_opt_in, level_4)");
@@ -263,13 +263,13 @@ describe("opentrade CLI", () => {
     expect(readiness).toContain("- us.wa.lni.contractors (bulk_csv, network_opt_in, level_4)");
     expect(readiness).toContain("unimplemented bulk-shaped candidates: 0");
     expect(readiness).toContain("research outcomes:");
-    expect(readiness).toContain("- blocked: 120");
+    expect(readiness).toContain("- blocked: 121");
     expect(readiness).toContain("download/export research candidates: 0");
     expect(readiness).toContain("lookup automation constraint sources: 0");
     expect(readiness).toContain("terminal implementation or blocker outcome");
 
     const json = JSON.parse(runCli(["sources", "readiness", "--json"]).stdout);
-    expect(json.sourceCount).toBe(129);
+    expect(json.sourceCount).toBe(130);
     expect(json.implementedAdapterSources.map((source: { id: string }) => source.id)).toEqual([
       "us.az.roc.contractors",
       "us.ca.cslb.contractors",
@@ -284,7 +284,7 @@ describe("opentrade CLI", () => {
     expect(json.unimplementedBulkAdapterCandidates.map((source: { id: string }) => source.id)).toEqual([]);
     expect(json.downloadResearchCandidates).toEqual([]);
     expect(json.lookupAutomationConstraintSources).toEqual([]);
-    expect(json.sourcesByResearchOutcome.blocked).toBe(120);
+    expect(json.sourcesByResearchOutcome.blocked).toBe(121);
     expect(json.registryOnlySourceCount).toBe(0);
   }, CLI_SMOKE_TIMEOUT_MS);
 

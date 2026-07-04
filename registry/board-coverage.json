@@ -3436,7 +3436,98 @@
       }
     },
     { "state": "WI", "decisions": {} },
-    { "state": "WV", "decisions": {} },
+    {
+      "state": "WV",
+      "decisions": {
+        "general_contracting": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.wv.labor.contractors"],
+          "evidence": [{ "url": "https://labor.wv.gov/licensing", "reviewedAt": "2026-07-04T00:00:00.000Z", "note": "The Division of Labor states its Licensing Section includes the Contractor Licensing Board and issues or renews contractor licenses." }],
+          "limitations": ["The Division of Labor lookup is blocked for automation until a stable public source contract is confirmed."]
+        },
+        "residential_contracting": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.wv.labor.contractors"],
+          "evidence": [{ "url": "https://labor.wv.gov/media/243/download?inline=", "reviewedAt": "2026-07-04T00:00:00.000Z", "note": "The Contractor Licensing Board bulletin defines Residential Contractor as construction, repair, or improvement of real property used or intended for residential occupancy." }],
+          "limitations": ["Residential contractor scope excludes crafts for which local ordinance or another state law requires separate licensure."]
+        },
+        "commercial_contracting": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.wv.labor.contractors"],
+          "evidence": [{ "url": "https://labor.wv.gov/media/243/download?inline=", "reviewedAt": "2026-07-04T00:00:00.000Z", "note": "The Contractor Licensing Board bulletin defines General Building Contractor and states that it is considered a commercial, business, or industrial contractor." }],
+          "limitations": ["General building contractors need separate classifications for electrical, plumbing, HVAC, piping, or general engineering work."]
+        },
+        "electrical": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.wv.labor.contractors"],
+          "evidence": [{ "url": "https://labor.wv.gov/media/243/download?inline=", "reviewedAt": "2026-07-04T00:00:00.000Z", "note": "The Contractor Licensing Board bulletin lists Electrical Contractor as an available exam and defines the electrical contractor scope for installing, repairing, altering, or changing electrical wires, fixtures, apparatus, raceways, conduit, and related electrical work." }],
+          "limitations": ["Separate worker, permit, inspection, or fire-marshal requirements may apply and should be checked for the specific work."]
+        },
+        "plumbing": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.wv.labor.contractors"],
+          "evidence": [{ "url": "https://labor.wv.gov/plumber-certification", "reviewedAt": "2026-07-04T00:00:00.000Z", "note": "The Division of Labor states West Virginia law requires plumber certification for plumbing work, subject to listed exemptions." }],
+          "limitations": ["Contractor classification and individual plumber certification may both need to be checked."]
+        },
+        "hvac": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.wv.labor.contractors"],
+          "evidence": [{ "url": "https://labor.wv.gov/licensing/hvac-technician-certification", "reviewedAt": "2026-07-04T00:00:00.000Z", "note": "The Division of Labor states West Virginia law requires HVAC technician certification for heating, ventilating, and cooling system work, subject to listed exemptions." }],
+          "limitations": ["Contractor classification and individual HVAC technician certification may both need to be checked."]
+        },
+        "mechanical": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.wv.labor.contractors"],
+          "evidence": [{ "url": "https://labor.wv.gov/media/243/download?inline=", "reviewedAt": "2026-07-04T00:00:00.000Z", "note": "The Contractor Licensing Board bulletin lists and defines HVAC, Piping Contractor, Plumbing Contractor, and Sprinklers and Fire Protection Contractor classifications." }],
+          "limitations": ["West Virginia represents mechanical work through separate classifications and certifications rather than one unified mechanical board entry."]
+        },
+        "roofing": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.wv.labor.contractors"],
+          "evidence": [{ "url": "https://labor.wv.gov/media/243/download?inline=", "reviewedAt": "2026-07-04T00:00:00.000Z", "note": "The Contractor Licensing Board bulletin includes roofing in the subject areas for the General Building, Multifamily, and Residential contractor examinations." }],
+          "limitations": ["Roofing verification should preserve the contractor classification shown in the official record."]
+        },
+        "solar": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.wv.labor.contractors"],
+          "evidence": [{ "url": "https://labor.wv.gov/media/243/download?inline=", "reviewedAt": "2026-07-04T00:00:00.000Z", "note": "The Contractor Licensing Board bulletin defines General Engineering Contractor work to include electrical generation projects and structures or work incidental to those projects." }],
+          "limitations": ["Solar work may require electrical, general engineering, building, or other classifications depending on project scope."]
+        },
+        "pool_spa": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.wv.labor.contractors"],
+          "evidence": [{ "url": "https://labor.wv.gov/media/243/download?inline=", "reviewedAt": "2026-07-04T00:00:00.000Z", "note": "The Contractor Licensing Board bulletin defines General Engineering Contractor work to include swimming pools." }],
+          "limitations": ["Public versus private pool work and local permits remain outside this statewide source decision."]
+        },
+        "asbestos": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.wv.health.asbestos_licenses"],
+          "evidence": [
+            { "url": "https://oehs.wvdhhr.org/rtia/licensing/", "reviewedAt": "2026-07-04T00:00:00.000Z", "note": "OEHS states complete listings of professionals licensed for asbestos, lead, radon, and remediation activities in West Virginia are available, including individuals, businesses, and laboratories." },
+            { "url": "https://code.wvlegislature.gov/16-32-6/", "reviewedAt": "2026-07-04T00:00:00.000Z", "note": "West Virginia Code states that no person without a valid asbestos contractor license may contract for an asbestos abatement project." }
+          ],
+          "limitations": ["Future adapters must filter asbestos records from broader OEHS license-holder lists and preserve privacy and reuse caveats."]
+        },
+        "sheet_metal": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.wv.labor.contractors"],
+          "evidence": [{ "url": "https://labor.wv.gov/media/243/download?inline=", "reviewedAt": "2026-07-04T00:00:00.000Z", "note": "The Contractor Licensing Board bulletin defines HVAC contracting and references ducting, insulation, and sheet-metal standards in the HVAC examination scope." }],
+          "limitations": ["Sheet-metal work may appear through HVAC, building, or specialty classification evidence rather than a standalone source entry."]
+        },
+        "underground_utility": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.wv.labor.contractors"],
+          "evidence": [{ "url": "https://labor.wv.gov/media/243/download?inline=", "reviewedAt": "2026-07-04T00:00:00.000Z", "note": "The Contractor Licensing Board bulletin defines General Engineering Contractor work to include sewers, sewage disposal systems, pipelines, and related public or private works, and separately defines Utilities (Water and Sewer) Contractor." }],
+          "limitations": ["Utility-owner approvals, permits, and local authorizations remain outside this statewide source decision."]
+        },
+        "home_improvement": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.wv.labor.contractors"],
+          "evidence": [{ "url": "https://labor.wv.gov/media/243/download?inline=", "reviewedAt": "2026-07-04T00:00:00.000Z", "note": "The Contractor Licensing Board bulletin lists Remodeling and Repair Contractor and defines Residential Contractor work to include residential repair and improvement." }],
+          "limitations": ["Local permits, consumer-protection rules, and business registrations remain outside this statewide source decision."]
+        }
+      }
+    },
     { "state": "WY", "decisions": {} }
   ]
 }

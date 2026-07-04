@@ -4,9 +4,9 @@
 
 ## Current Completeness
 
-The inventory currently has `completeness: "representative_source_baseline"`. Its 129 rows migrate every existing state, DC, and major-territory source into the board model. This proves source linkage and terminal access-path handling, but it does not yet claim every material statewide trade board has been identified.
+The inventory currently has `completeness: "representative_source_baseline"`. Its 130 rows migrate every existing state, DC, and major-territory source into the board model. This proves source linkage and terminal access-path handling, but it does not yet claim every material statewide trade board has been identified.
 
-The board-coverage ledger currently resolves `490` of `784` jurisdiction/domain decisions, leaving `294` for research. Virginia is fully resolved after Pennsylvania with DPOR contractor, tradesmen, and asbestos-board paths. Municipal licensing remains excluded.
+The board-coverage ledger currently resolves `504` of `784` jurisdiction/domain decisions, leaving `280` for research. West Virginia is fully resolved after Virginia with Labor contractor, HVAC, plumber, and OEHS asbestos paths. Municipal licensing remains excluded.
 
 The inventory may change to `board_complete` only after every tracked jurisdiction has been reviewed for general contracting, residential, electrical, plumbing, HVAC, mechanical, roofing, solar, asbestos, pool/spa, home-improvement, and other independently regulated statewide trades. Each additional board needs official evidence and a terminal access path.
 
