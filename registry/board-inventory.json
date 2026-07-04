@@ -563,12 +563,39 @@
       }
     },
     {
+      "id": "us.dc.dlcp.asbestos_abatement_businesses",
+      "jurisdiction": {
+        "country": "US",
+        "state": "DC"
+      },
+      "boardName": "District of Columbia DLCP Asbestos Abatement Business Licenses",
+      "agencyName": "District of Columbia Department of Licensing and Consumer Protection",
+      "officialUrl": "https://scout.dcra.dc.gov/",
+      "sourceIds": [
+        "us.dc.dlcp.asbestos_abatement_businesses"
+      ],
+      "trades": [
+        "asbestos"
+      ],
+      "accessPath": "manual_handoff",
+      "coverageLimitations": [
+        "This source is limited to DLCP asbestos abatement business licensing and does not represent individual asbestos worker or supervisor licenses, DOEE permit records, federal asbestos notifications, building permits, or non-asbestos contractor credentials.",
+        "DOEE asbestos permits are date- and site-specific and are not equivalent to a reusable contractor license record.",
+        "No stable bulk export, parser contract, privacy filter, or redistribution approval has been confirmed."
+      ],
+      "evidence": {
+        "url": "https://dlcp.dc.gov/page/asbestosabatementbusiness",
+        "reviewedAt": "2026-07-04T00:00:00.000Z",
+        "note": "Official DLCP asbestos abatement business page reviewed; it lists asbestos abatement business requirements and license terms."
+      }
+    },
+    {
       "id": "us.dc.dlcp.contractors",
       "jurisdiction": {
         "country": "US",
         "state": "DC"
       },
-      "boardName": "District of Columbia DLCP Business License Verification",
+      "boardName": "District of Columbia DLCP Contractor and Construction Services Licenses",
       "agencyName": "District of Columbia Department of Licensing and Consumer Protection",
       "officialUrl": "https://scout.dcra.dc.gov/",
       "sourceIds": [
@@ -576,19 +603,58 @@
       ],
       "trades": [
         "general_contracting",
+        "residential_contracting",
+        "commercial_contracting",
+        "roofing",
+        "pool_spa",
         "home_improvement",
         "other"
       ],
       "accessPath": "manual_handoff",
       "coverageLimitations": [
-        "SCOUT spans business, property, permit, and licensing information; this source entry is not a contractor-only export.",
-        "Occupational and professional licenses, permits, local enforcement records, and business registrations may require separate source entries or filters.",
-        "Contractor category semantics must be reviewed before any adapter treats rows as construction-license records."
+        "This source is scoped to DLCP contractor and construction services business license categories and does not represent Industrial Trades, asbestos, permits, enforcement records, local federal-area requirements, or all construction-related business registrations.",
+        "SCOUT spans business, property, permit, and licensing information; any future adapter must filter to contractor and construction services records before normalization.",
+        "No stable bulk export, parser contract, privacy filter, or redistribution approval has been confirmed."
       ],
       "evidence": {
-        "url": "https://scout.dcra.dc.gov/",
-        "reviewedAt": "2026-06-27T00:00:00.000Z",
-        "note": "Official public source, access shape, and current automation constraints reviewed."
+        "url": "https://dlcp.dc.gov/node/1618551",
+        "reviewedAt": "2026-07-04T00:00:00.000Z",
+        "note": "Official DLCP Contractor and Construction Services page reviewed; it defines services involving planning, building, altering, repairing, improving, or demolishing structures and lists General Contractor/Construction Manager and Home Improvement Contractor requirements."
+      }
+    },
+    {
+      "id": "us.dc.dlcp.industrial_trades",
+      "jurisdiction": {
+        "country": "US",
+        "state": "DC"
+      },
+      "boardName": "District of Columbia DLCP Board of Industrial Trades Licenses",
+      "agencyName": "District of Columbia Department of Licensing and Consumer Protection",
+      "officialUrl": "https://scout.dcra.dc.gov/",
+      "sourceIds": [
+        "us.dc.dlcp.industrial_trades"
+      ],
+      "trades": [
+        "electrical",
+        "plumbing",
+        "hvac",
+        "mechanical",
+        "solar",
+        "pool_spa",
+        "underground_utility",
+        "asbestos",
+        "other"
+      ],
+      "accessPath": "manual_handoff",
+      "coverageLimitations": [
+        "This source is limited to DLCP Board of Industrial Trades records and does not represent DLCP contractor business licenses, DOEE asbestos abatement permits, building permits, inspections, or non-industrial-trade credentials.",
+        "The board page spans individuals and trade contractors; a future adapter must preserve license type, board, qualifier, and business/entity distinctions.",
+        "No stable bulk export, parser contract, privacy filter, or redistribution approval has been confirmed."
+      ],
+      "evidence": {
+        "url": "https://dlcp.dc.gov/page/board-industrial-trades1",
+        "reviewedAt": "2026-07-04T00:00:00.000Z",
+        "note": "Official DLCP Board of Industrial Trades page reviewed; it states that the board governs asbestos workers, plumbers, electricians, refrigeration and air conditioning mechanics, steam engineers, elevator trades, and related trade contractors."
       }
     },
     {

@@ -1,0 +1,86 @@
+{
+  "id": "us.dc.dlcp.asbestos_abatement_businesses",
+  "name": "District of Columbia DLCP Asbestos Abatement Business Licenses",
+  "jurisdiction": {
+    "country": "US",
+    "state": "DC"
+  },
+  "agency": {
+    "name": "District of Columbia Department of Licensing and Consumer Protection",
+    "url": "https://dlcp.dc.gov/"
+  },
+  "sourceType": "html_lookup",
+  "sourceUrl": "https://dlcp.dc.gov/page/asbestosabatementbusiness",
+  "documentationUrl": "https://dlcp.dc.gov/page/asbestosabatementbusiness",
+  "dataDictionaryUrl": null,
+  "termsUrl": "https://dc.gov/page/terms-and-conditions",
+  "updateFrequency": "unknown; verify against DLCP asbestos abatement business licensing and DOEE asbestos permitting pages before relying on freshness assumptions",
+  "tradeCoverage": [
+    "asbestos"
+  ],
+  "licenseTypesIncluded": [
+    "District asbestos abatement business basic business license records exposed by official DLCP lookup paths where available"
+  ],
+  "knownExclusions": [
+    "This source is limited to DLCP asbestos abatement business licensing and does not represent individual asbestos worker or supervisor licenses, DOEE permit records, federal asbestos notifications, building permits, or non-asbestos contractor credentials.",
+    "DOEE asbestos permits are date- and site-specific and are not equivalent to a reusable contractor license record.",
+    "No stable bulk export, parser contract, privacy filter, or redistribution approval has been confirmed."
+  ],
+  "hasBulkDownload": "unknown",
+  "hasLiveLookup": true,
+  "requiresJavaScript": "unknown",
+  "requiresCaptcha": "unknown",
+  "requiresAccount": false,
+  "rateLimitNotes": "No adapter is implemented. Use official DLCP and DOEE pages manually until access controls, field shape, update cadence, and allowed reuse are reviewed.",
+  "redistributionStatus": "unknown",
+  "publicRecordsNotes": "Official DLCP asbestos abatement business metadata only. Absence from this source is not proof that another asbestos license, permit, business registration, or authorization does not exist.",
+  "adapterStatus": "blocked",
+  "sourceDiscoveryStatus": "blocked",
+  "adapterMaturity": "blocked",
+  "adapterQualityLevel": 0,
+  "coverageScope": "state_agency_partial",
+  "adapterPackage": null,
+  "testFixturePath": null,
+  "officialLookupUrl": "https://scout.dcra.dc.gov/",
+  "officialBulkDownloadNotes": "No official asbestos abatement business bulk download has been confirmed in this phase.",
+  "researchNotes": "Registry-only blocked source for DC asbestos abatement business licenses. Future adapter work must keep business licenses, individual asbestos worker/supervisor credentials, and DOEE permit notifications distinct.",
+  "verificationReviewedAt": null,
+  "verificationCaveats": [
+    "This source covers District of Columbia DLCP asbestos abatement business licenses only.",
+    "No matching record means no match in the checked source at the checked time, not proof that another asbestos license, permit, business registration, or authorization does not exist."
+  ],
+  "verificationNotes": "No supported sync or verification adapter is exposed while the official lookup contract and allowed reuse remain under review.",
+  "lastVerifiedAt": "2026-07-04T00:00:00.000Z",
+  "maintainerNotes": "Do not treat DOEE asbestos permits or individual asbestos worker credentials as the same record type as DLCP asbestos abatement business licenses.",
+  "schemaVersion": "1.0",
+  "researchReviewedAt": "2026-07-04T00:00:00.000Z",
+  "nextReviewAt": "2027-01-04T00:00:00.000Z",
+  "researchEvidence": [
+    {
+      "url": "https://dlcp.dc.gov/page/asbestosabatementbusiness",
+      "checkedAt": "2026-07-04T00:00:00.000Z",
+      "note": "Official DLCP asbestos abatement business page reviewed; it lists asbestos abatement business requirements and license terms."
+    },
+    {
+      "url": "https://doee.dc.gov/service/asbestos-permitting",
+      "checkedAt": "2026-07-04T00:00:00.000Z",
+      "note": "Official DOEE asbestos permitting page reviewed; it states licensed abatement contractors submit notification packages online and that businesses must have a valid District basic business license and Clean Hands certificate to perform asbestos abatement in the District."
+    },
+    {
+      "url": "https://scout.dcra.dc.gov/",
+      "checkedAt": "2026-07-04T00:00:00.000Z",
+      "note": "Official SCOUT lookup retained as the broad public verification path, pending adapter review for asbestos abatement business filters."
+    }
+  ],
+  "sourceResearchOutcome": "blocked",
+  "blocker": {
+    "code": "technical_instability",
+    "summary": "The official verification path is interactive and broad across DLCP licenses, with no adapter-reviewed stable asbestos abatement business filter, table contract, update cadence, privacy filter, or allowed redistribution path.",
+    "evidenceUrls": [
+      "https://dlcp.dc.gov/page/asbestosabatementbusiness",
+      "https://doee.dc.gov/service/asbestos-permitting",
+      "https://scout.dcra.dc.gov/",
+      "https://dc.gov/page/terms-and-conditions"
+    ]
+  }
+}

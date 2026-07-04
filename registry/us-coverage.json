@@ -94,9 +94,11 @@
       "state": "DC",
       "status": "blocked",
       "sourceIds": [
-        "us.dc.dlcp.contractors"
+        "us.dc.dlcp.asbestos_abatement_businesses",
+        "us.dc.dlcp.contractors",
+        "us.dc.dlcp.industrial_trades"
       ],
-      "notes": "Official source metadata is retained, but automated ingestion is blocked by documented legal, access, scope, or technical constraints."
+      "notes": "Official source metadata is retained for DLCP contractor and construction services business licenses, DLCP Board of Industrial Trades licenses, and DLCP asbestos abatement business licenses, but automated ingestion is blocked by documented legal, access, scope, or technical constraints."
     },
     {
       "state": "FL",
@@ -282,17 +284,17 @@
       "notes": "Official source metadata is retained, but automated ingestion is blocked by documented legal, access, scope, or technical constraints."
     },
     {
-    "state": "NE",
-    "status": "blocked",
-    "sourceIds": [
-      "us.ne.dhhs.asbestos_business_entities",
-      "us.ne.dol.contractor_registration",
-      "us.ne.dwee.water_well_contractors",
-      "us.ne.electrical_division.licenses",
-      "us.ne.sfm.water_based_fire_protection"
-    ],
-    "notes": "Official source metadata is retained for Department of Labor contractor registration, State Electrical Division records, DHHS asbestos business entities, DWEE water-well contractor materials, and State Fire Marshal water-based fire protection certification, but automated ingestion is blocked by documented legal, access, scope, or technical constraints."
-  },
+      "state": "NE",
+      "status": "blocked",
+      "sourceIds": [
+        "us.ne.dhhs.asbestos_business_entities",
+        "us.ne.dol.contractor_registration",
+        "us.ne.dwee.water_well_contractors",
+        "us.ne.electrical_division.licenses",
+        "us.ne.sfm.water_based_fire_protection"
+      ],
+      "notes": "Official source metadata is retained for Department of Labor contractor registration, State Electrical Division records, DHHS asbestos business entities, DWEE water-well contractor materials, and State Fire Marshal water-based fire protection certification, but automated ingestion is blocked by documented legal, access, scope, or technical constraints."
+    },
     {
       "state": "NV",
       "status": "blocked",

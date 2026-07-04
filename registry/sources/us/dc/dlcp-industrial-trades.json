@@ -1,0 +1,95 @@
+{
+  "id": "us.dc.dlcp.industrial_trades",
+  "name": "District of Columbia DLCP Board of Industrial Trades Licenses",
+  "jurisdiction": {
+    "country": "US",
+    "state": "DC"
+  },
+  "agency": {
+    "name": "District of Columbia Department of Licensing and Consumer Protection",
+    "url": "https://dlcp.dc.gov/"
+  },
+  "sourceType": "html_lookup",
+  "sourceUrl": "https://dlcp.dc.gov/page/board-industrial-trades1",
+  "documentationUrl": "https://dlcp.dc.gov/page/board-industrial-trades1",
+  "dataDictionaryUrl": null,
+  "termsUrl": "https://dc.gov/page/terms-and-conditions",
+  "updateFrequency": "unknown; verify against DLCP Board of Industrial Trades and SCOUT before relying on freshness assumptions",
+  "tradeCoverage": [
+    "electrical",
+    "plumbing",
+    "hvac",
+    "mechanical",
+    "solar",
+    "pool_spa",
+    "underground_utility",
+    "asbestos",
+    "other"
+  ],
+  "licenseTypesIncluded": [
+    "Board of Industrial Trades electrician records exposed by official DLCP lookup paths where available",
+    "Board of Industrial Trades plumber and gasfitter records exposed by official DLCP lookup paths where available",
+    "Board of Industrial Trades refrigeration, air conditioning mechanic, steam engineer, elevator, asbestos worker, and trade contractor records where exposed by official DLCP lookup paths"
+  ],
+  "knownExclusions": [
+    "This source is limited to DLCP Board of Industrial Trades records and does not represent DLCP contractor business licenses, DOEE asbestos abatement permits, building permits, inspections, or non-industrial-trade credentials.",
+    "The board page spans individuals and trade contractors; a future adapter must preserve license type, board, qualifier, and business/entity distinctions.",
+    "No stable bulk export, parser contract, privacy filter, or redistribution approval has been confirmed."
+  ],
+  "hasBulkDownload": "unknown",
+  "hasLiveLookup": true,
+  "requiresJavaScript": "unknown",
+  "requiresCaptcha": "unknown",
+  "requiresAccount": false,
+  "rateLimitNotes": "No adapter is implemented. Use official DLCP lookup paths manually until access controls, field shape, update cadence, and allowed reuse are reviewed.",
+  "redistributionStatus": "unknown",
+  "publicRecordsNotes": "Official DLCP Industrial Trades metadata only. Absence from this source is not proof that another license, permit, business registration, or authorization does not exist elsewhere.",
+  "adapterStatus": "blocked",
+  "sourceDiscoveryStatus": "blocked",
+  "adapterMaturity": "blocked",
+  "adapterQualityLevel": 0,
+  "coverageScope": "state_agency_partial",
+  "adapterPackage": null,
+  "testFixturePath": null,
+  "officialLookupUrl": "https://scout.dcra.dc.gov/",
+  "officialBulkDownloadNotes": "No official Industrial Trades bulk download has been confirmed in this phase.",
+  "researchNotes": "Registry-only blocked source for DC Board of Industrial Trades records. Future adapter work must distinguish individuals, trade contractors, designated masters, bond requirements, and board-specific scopes.",
+  "verificationReviewedAt": null,
+  "verificationCaveats": [
+    "This source covers District of Columbia DLCP Board of Industrial Trades records only.",
+    "No matching record means no match in the checked source at the checked time, not proof that another license, permit, business registration, or authorization does not exist."
+  ],
+  "verificationNotes": "No supported sync or verification adapter is exposed while the official lookup contract and allowed reuse remain under review.",
+  "lastVerifiedAt": "2026-07-04T00:00:00.000Z",
+  "maintainerNotes": "Keep Industrial Trades records separate from DLCP contractor business licenses and DOEE asbestos abatement permitting.",
+  "schemaVersion": "1.0",
+  "researchReviewedAt": "2026-07-04T00:00:00.000Z",
+  "nextReviewAt": "2027-01-04T00:00:00.000Z",
+  "researchEvidence": [
+    {
+      "url": "https://dlcp.dc.gov/page/board-industrial-trades1",
+      "checkedAt": "2026-07-04T00:00:00.000Z",
+      "note": "Official DLCP Board of Industrial Trades page reviewed; it states that the board governs asbestos workers, plumbers, electricians, refrigeration and air conditioning mechanics, steam engineers, elevator trades, and related trade contractors."
+    },
+    {
+      "url": "https://dob.dc.gov/page/get-permit",
+      "checkedAt": "2026-07-04T00:00:00.000Z",
+      "note": "Official DOB permit page reviewed; it states that trade permits include A/C, electric, plumbing, and water or sewer excavation work and that only licensed DC contractors for the specific trade may apply."
+    },
+    {
+      "url": "https://scout.dcra.dc.gov/",
+      "checkedAt": "2026-07-04T00:00:00.000Z",
+      "note": "Official SCOUT lookup retained as the broad public verification path, pending adapter review for Industrial Trades filters."
+    }
+  ],
+  "sourceResearchOutcome": "blocked",
+  "blocker": {
+    "code": "technical_instability",
+    "summary": "The official verification path is interactive and broad across DLCP licenses, with no adapter-reviewed stable Industrial Trades filter, table contract, update cadence, privacy filter, or allowed redistribution path.",
+    "evidenceUrls": [
+      "https://dlcp.dc.gov/page/board-industrial-trades1",
+      "https://scout.dcra.dc.gov/",
+      "https://dc.gov/page/terms-and-conditions"
+    ]
+  }
+}
