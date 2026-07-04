@@ -1,0 +1,83 @@
+{
+  "id": "us.nd.deq.asbestos_contractors",
+  "name": "North Dakota DEQ Asbestos Licensed Companies",
+  "jurisdiction": {
+    "country": "US",
+    "state": "ND"
+  },
+  "agency": {
+    "name": "North Dakota Department of Environmental Quality",
+    "url": "https://deq.nd.gov/"
+  },
+  "sourceType": "manual_public_records_file",
+  "sourceUrl": "https://deq.nd.gov/publications/WM/Asbestos/AsbestosContractors.pdf",
+  "documentationUrl": "https://deq.nd.gov/wm/asbestos/",
+  "dataDictionaryUrl": null,
+  "termsUrl": "https://www.nd.gov/content.htm?id=Privacy",
+  "termsReviewNotes": "North Dakota state privacy terms were identified, but source-specific publication, redistribution, and privacy review has not been completed.",
+  "updateFrequency": "unknown; verify against the official DEQ asbestos publications before relying on freshness assumptions",
+  "tradeCoverage": [
+    "asbestos"
+  ],
+  "licenseTypesIncluded": [
+    "North Dakota asbestos contractor licensed company records in the official DEQ PDF roster",
+    "Asbestos contractor, supervisor, worker, designer, inspector, air monitor, management planner, and project monitor disciplines where exposed by DEQ publications"
+  ],
+  "knownExclusions": [
+    "This source is limited to North Dakota DEQ asbestos program records and does not represent Secretary of State contractor licensing, electrical, plumbing, water-well, local permits, or non-asbestos credentials.",
+    "The PDF roster is not yet implemented as a stable parser contract and may change layout or publication cadence.",
+    "Generated datasets should not be published until privacy and redistribution are approved."
+  ],
+  "hasBulkDownload": true,
+  "hasLiveLookup": false,
+  "requiresJavaScript": false,
+  "requiresCaptcha": false,
+  "requiresAccount": false,
+  "rateLimitNotes": "No adapter is implemented. Use the official PDF manually until PDF layout, update cadence, privacy handling, and allowed reuse are reviewed.",
+  "redistributionStatus": "unknown",
+  "publicRecordsNotes": "Official DEQ asbestos metadata only. Absence from this roster is not proof that another asbestos credential, contractor license, local authorization, or related record does not exist.",
+  "adapterStatus": "blocked",
+  "sourceDiscoveryStatus": "blocked",
+  "adapterMaturity": "blocked",
+  "adapterQualityLevel": 0,
+  "coverageScope": "state_agency_partial",
+  "adapterPackage": null,
+  "testFixturePath": null,
+  "officialLookupUrl": "https://deq.nd.gov/publications/WM/Asbestos/AsbestosContractors.pdf",
+  "officialLookupReviewNotes": "DEQ publishes an official Asbestos Licensed Companies PDF roster with license number, employer, state, phone, expiration date, city, and discipline flags.",
+  "officialBulkDownloadNotes": "The official roster is a PDF file, not an adapter-reviewed structured bulk export.",
+  "researchNotes": "Registry-only blocked source for North Dakota DEQ asbestos licensed companies. Future adapter work would need a PDF extraction fixture, source-shape tests, privacy handling, and publication review before records are exposed.",
+  "verificationReviewedAt": null,
+  "verificationCaveats": [
+    "This source covers North Dakota DEQ asbestos licensed companies only.",
+    "No matching record means no match in the checked source at the checked time, not proof that another asbestos credential, contractor license, local license, permit, or related record does not exist."
+  ],
+  "verificationNotes": "No supported sync or verification adapter is exposed while the PDF table contract and allowed reuse remain under review.",
+  "lastVerifiedAt": "2026-07-04T00:00:00.000Z",
+  "maintainerNotes": "Do not parse or publish the PDF roster until PDF extraction accuracy, privacy, and redistribution are reviewed.",
+  "schemaVersion": "1.0",
+  "researchReviewedAt": "2026-07-04T00:00:00.000Z",
+  "nextReviewAt": "2027-01-04T00:00:00.000Z",
+  "researchEvidence": [
+    {
+      "url": "https://deq.nd.gov/wm/asbestos/",
+      "checkedAt": "2026-07-04T00:00:00.000Z",
+      "note": "Official DEQ asbestos page reviewed; it lists asbestos contractor license and related discipline fees."
+    },
+    {
+      "url": "https://deq.nd.gov/publications/WM/Asbestos/AsbestosContractors.pdf",
+      "checkedAt": "2026-07-04T00:00:00.000Z",
+      "note": "Official DEQ Asbestos Licensed Companies PDF reviewed; it exposes license number, employer, state, phone, expiration date, city, and discipline flags."
+    }
+  ],
+  "sourceResearchOutcome": "blocked",
+  "blocker": {
+    "code": "technical_instability",
+    "summary": "The official asbestos roster is a PDF publication with no adapter-reviewed stable extraction contract, update cadence, privacy filter, or allowed redistribution path.",
+    "evidenceUrls": [
+      "https://deq.nd.gov/wm/asbestos/",
+      "https://deq.nd.gov/publications/WM/Asbestos/AsbestosContractors.pdf",
+      "https://www.nd.gov/content.htm?id=Privacy"
+    ]
+  }
+}

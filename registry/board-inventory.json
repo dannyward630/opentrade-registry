@@ -2593,6 +2593,117 @@
       }
     },
     {
+      "id": "us.nd.deq.asbestos_contractors",
+      "jurisdiction": {
+        "country": "US",
+        "state": "ND"
+      },
+      "boardName": "North Dakota DEQ Asbestos Licensed Companies",
+      "agencyName": "North Dakota Department of Environmental Quality",
+      "officialUrl": "https://deq.nd.gov/publications/WM/Asbestos/AsbestosContractors.pdf",
+      "sourceIds": [
+        "us.nd.deq.asbestos_contractors"
+      ],
+      "trades": [
+        "asbestos"
+      ],
+      "accessPath": "manual_handoff",
+      "coverageLimitations": [
+        "This source is limited to North Dakota DEQ asbestos program records and does not represent Secretary of State contractor licensing, electrical, plumbing, water-well, local permits, or non-asbestos credentials.",
+        "The PDF roster is not yet implemented as a stable parser contract and may change layout or publication cadence.",
+        "Generated datasets should not be published until privacy and redistribution are approved."
+      ],
+      "evidence": {
+        "url": "https://deq.nd.gov/wm/asbestos/",
+        "reviewedAt": "2026-07-04T00:00:00.000Z",
+        "note": "Official DEQ asbestos page reviewed; it lists asbestos contractor license and related discipline fees."
+      }
+    },
+    {
+      "id": "us.nd.dwr.water_well_contractors",
+      "jurisdiction": {
+        "country": "US",
+        "state": "ND"
+      },
+      "boardName": "North Dakota DWR Water Well Contractor Licensure",
+      "agencyName": "North Dakota Department of Water Resources",
+      "officialUrl": "https://www.swc.nd.gov/reg_approp/water_well_contractor/",
+      "sourceIds": [
+        "us.nd.dwr.water_well_contractors"
+      ],
+      "trades": [
+        "underground_utility",
+        "other"
+      ],
+      "accessPath": "manual_handoff",
+      "coverageLimitations": [
+        "This source is limited to DWR water-well, monitoring-well, pump/pitless, and geothermal drilling/installing licensure and does not represent general contractor, electrical, plumbing, asbestos, local permits, or non-DWR records.",
+        "DWR notes that in-state and out-of-state water-well contractors or pump and pitless unit installers may also need Secretary of State business certification and a general contractor license for jobs of $4,000 or greater.",
+        "No stable parser contract, privacy filter, or redistribution approval has been confirmed for the certified well drillers database."
+      ],
+      "evidence": {
+        "url": "https://www.swc.nd.gov/reg_approp/water_well_contractor/",
+        "reviewedAt": "2026-07-04T00:00:00.000Z",
+        "note": "Official DWR water-well contractor page reviewed; it states DWR licenses water well contractors, pump and pitless unit installers, monitoring well contractors, and geothermal system drillers and links a certified well drillers database."
+      }
+    },
+    {
+      "id": "us.nd.ndseb.electrical",
+      "jurisdiction": {
+        "country": "US",
+        "state": "ND"
+      },
+      "boardName": "North Dakota State Electrical Board License Search",
+      "agencyName": "North Dakota State Electrical Board",
+      "officialUrl": "https://www.ndseb.com/search-1/find-a-licensed-contractor/",
+      "sourceIds": [
+        "us.nd.ndseb.electrical"
+      ],
+      "trades": [
+        "electrical",
+        "solar"
+      ],
+      "accessPath": "manual_handoff",
+      "coverageLimitations": [
+        "This source is limited to North Dakota State Electrical Board records and does not represent Secretary of State contractor licensing, plumbing, asbestos, water-well, local permits, or non-electrical credentials.",
+        "Electrical work associated with solar installations may require this source, but solar contractor coverage also depends on project scope and Secretary of State contractor licensing.",
+        "No stable bulk export, parser contract, privacy filter, or redistribution approval has been confirmed."
+      ],
+      "evidence": {
+        "url": "https://www.ndseb.com/",
+        "reviewedAt": "2026-07-04T00:00:00.000Z",
+        "note": "Official NDSEB homepage reviewed; it states the board examines applicants, issues electrical licenses, and has jurisdiction over electrical installations."
+      }
+    },
+    {
+      "id": "us.nd.plumbing_board.licenses",
+      "jurisdiction": {
+        "country": "US",
+        "state": "ND"
+      },
+      "boardName": "North Dakota State Plumbing Board License Lookup",
+      "agencyName": "North Dakota State Plumbing Board",
+      "officialUrl": "https://www.ndplumbingboard.gov/licensing-license-lookup",
+      "sourceIds": [
+        "us.nd.plumbing_board.licenses"
+      ],
+      "trades": [
+        "plumbing",
+        "underground_utility",
+        "other"
+      ],
+      "accessPath": "manual_handoff",
+      "coverageLimitations": [
+        "This source is limited to State Plumbing Board licensing and does not represent Secretary of State contractor licensing, electrical credentials, asbestos licenses, DWR water-well/geothermal licenses, or local permits.",
+        "No stable bulk export, parser contract, privacy filter, or redistribution approval has been confirmed."
+      ],
+      "evidence": {
+        "url": "https://www.ndplumbingboard.gov/",
+        "reviewedAt": "2026-07-04T00:00:00.000Z",
+        "note": "Official State Plumbing Board homepage reviewed; it links lookup of current license holders approved and certified by the board."
+      }
+    },
+    {
       "id": "us.nd.sos.contractors",
       "jurisdiction": {
         "country": "US",
@@ -2612,14 +2723,14 @@
       ],
       "accessPath": "manual_handoff",
       "coverageLimitations": [
-        "Specialty trade boards, local permits, business registration details, and non-Secretary-of-State authorizations may require separate sources.",
-        "Electrical, plumbing, HVAC, and local contractor requirements may not be fully represented by this source entry.",
+        "Specialty trade boards, local permits, business registration details, and non-Secretary-of-State authorizations require separate sources where available.",
+        "Electrical, plumbing, asbestos, and water-well/geothermal credentials are represented separately where official statewide sources were identified.",
         "Complaint and enforcement information may require separate official pages or requests."
       ],
       "evidence": {
-        "url": "https://firststop.sos.nd.gov/search/contractor",
-        "reviewedAt": "2026-06-27T00:00:00.000Z",
-        "note": "Official public source, access shape, and current automation constraints reviewed."
+        "url": "https://www.sos.nd.gov/business/licensing-registration/contractors",
+        "reviewedAt": "2026-07-04T00:00:00.000Z",
+        "note": "Official Secretary of State contractor page reviewed; it states that anyone doing work above the $4,000 job threshold must be licensed as a contractor in North Dakota and links the registered contractor search."
       }
     },
     {

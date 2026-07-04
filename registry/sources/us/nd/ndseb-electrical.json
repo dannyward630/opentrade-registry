@@ -1,0 +1,89 @@
+{
+  "id": "us.nd.ndseb.electrical",
+  "name": "North Dakota State Electrical Board License Search",
+  "jurisdiction": {
+    "country": "US",
+    "state": "ND"
+  },
+  "agency": {
+    "name": "North Dakota State Electrical Board",
+    "url": "https://www.ndseb.com/"
+  },
+  "sourceType": "html_lookup",
+  "sourceUrl": "https://www.ndseb.com/search-1/find-a-licensed-contractor/",
+  "documentationUrl": "https://www.ndseb.com/",
+  "dataDictionaryUrl": null,
+  "termsUrl": "https://www.ndseb.com/privacy-policy/",
+  "termsReviewNotes": "The board site privacy page was identified, but source-specific publication, redistribution, and privacy review has not been completed.",
+  "updateFrequency": "unknown; verify against the official NDSEB lookup before relying on freshness assumptions",
+  "tradeCoverage": [
+    "electrical",
+    "solar"
+  ],
+  "licenseTypesIncluded": [
+    "North Dakota electrical contractor records exposed by the official Find a Licensed Contractor search",
+    "North Dakota electrician license or registration records exposed by the official electrician lookup"
+  ],
+  "knownExclusions": [
+    "This source is limited to North Dakota State Electrical Board records and does not represent Secretary of State contractor licensing, plumbing, asbestos, water-well, local permits, or non-electrical credentials.",
+    "Electrical work associated with solar installations may require this source, but solar contractor coverage also depends on project scope and Secretary of State contractor licensing.",
+    "No stable bulk export, parser contract, privacy filter, or redistribution approval has been confirmed."
+  ],
+  "hasBulkDownload": "unknown",
+  "hasLiveLookup": true,
+  "requiresJavaScript": "unknown",
+  "requiresCaptcha": "unknown",
+  "requiresAccount": false,
+  "rateLimitNotes": "No adapter is implemented. Use the official NDSEB lookup manually until access controls, field shape, update cadence, and allowed reuse are reviewed.",
+  "redistributionStatus": "unknown",
+  "publicRecordsNotes": "Official NDSEB lookup metadata only. Generated datasets should not be published until privacy and redistribution are approved. Absence from this source is not proof that another credential, contractor license, local authorization, or related record does not exist.",
+  "adapterStatus": "blocked",
+  "sourceDiscoveryStatus": "blocked",
+  "adapterMaturity": "blocked",
+  "adapterQualityLevel": 0,
+  "coverageScope": "state_agency_partial",
+  "adapterPackage": null,
+  "testFixturePath": null,
+  "officialLookupUrl": "https://www.ndseb.com/search-1/find-a-licensed-contractor/",
+  "officialLookupReviewNotes": "NDSEB exposes separate public pages to find a licensed contractor and to look up a licensed or registered electrician.",
+  "officialBulkDownloadNotes": "No official stable bulk download has been confirmed in this phase.",
+  "researchNotes": "Registry-only blocked source for North Dakota electrical contractor and electrician lookup paths. Future adapter work must distinguish contractor, electrician, apprentice, registration, and license-number search behavior before exposing normalized records.",
+  "verificationReviewedAt": null,
+  "verificationCaveats": [
+    "This source covers North Dakota State Electrical Board records only.",
+    "No matching record means no match in the checked source at the checked time, not proof that another contractor license, local license, permit, or related record does not exist."
+  ],
+  "verificationNotes": "No supported sync or verification adapter is exposed while the official lookup contract and allowed reuse remain under review.",
+  "lastVerifiedAt": "2026-07-04T00:00:00.000Z",
+  "maintainerNotes": "A future adapter must preserve source page, checked time, raw lookup evidence, caveats, and the distinction between contractor and individual electrician records.",
+  "schemaVersion": "1.0",
+  "researchReviewedAt": "2026-07-04T00:00:00.000Z",
+  "nextReviewAt": "2027-01-04T00:00:00.000Z",
+  "researchEvidence": [
+    {
+      "url": "https://www.ndseb.com/",
+      "checkedAt": "2026-07-04T00:00:00.000Z",
+      "note": "Official NDSEB homepage reviewed; it states the board examines applicants, issues electrical licenses, and has jurisdiction over electrical installations."
+    },
+    {
+      "url": "https://www.ndseb.com/search-1/find-a-licensed-contractor/",
+      "checkedAt": "2026-07-04T00:00:00.000Z",
+      "note": "Official NDSEB licensed-contractor search reviewed; it accepts last name, business name, and city search criteria."
+    },
+    {
+      "url": "https://www.ndseb.com/search-1/lookup-a-licensedorregistered-electrician/",
+      "checkedAt": "2026-07-04T00:00:00.000Z",
+      "note": "Official NDSEB electrician lookup reviewed; it supports last-name and license-or-registration-number search criteria."
+    }
+  ],
+  "sourceResearchOutcome": "blocked",
+  "blocker": {
+    "code": "technical_instability",
+    "summary": "The official NDSEB lookup paths are interactive and have no adapter-reviewed stable table contract, update cadence, privacy filter, or allowed redistribution path.",
+    "evidenceUrls": [
+      "https://www.ndseb.com/search-1/find-a-licensed-contractor/",
+      "https://www.ndseb.com/search-1/lookup-a-licensedorregistered-electrician/",
+      "https://www.ndseb.com/privacy-policy/"
+    ]
+  }
+}

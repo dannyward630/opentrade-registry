@@ -1,0 +1,84 @@
+{
+  "id": "us.nd.plumbing_board.licenses",
+  "name": "North Dakota State Plumbing Board License Lookup",
+  "jurisdiction": {
+    "country": "US",
+    "state": "ND"
+  },
+  "agency": {
+    "name": "North Dakota State Plumbing Board",
+    "url": "https://www.ndplumbingboard.gov/"
+  },
+  "sourceType": "html_lookup",
+  "sourceUrl": "https://www.ndplumbingboard.gov/licensing-license-lookup",
+  "documentationUrl": "https://www.ndplumbingboard.gov/",
+  "dataDictionaryUrl": null,
+  "termsUrl": "https://www.nd.gov/content.htm?id=Privacy",
+  "termsReviewNotes": "North Dakota state privacy terms were identified, but source-specific publication, redistribution, and privacy review has not been completed.",
+  "updateFrequency": "unknown; verify against the official State Plumbing Board lookup before relying on freshness assumptions",
+  "tradeCoverage": [
+    "plumbing",
+    "underground_utility",
+    "other"
+  ],
+  "licenseTypesIncluded": [
+    "North Dakota plumbing license records exposed by the State Plumbing Board license lookup",
+    "Sewer and water licensure records where exposed by the State Plumbing Board",
+    "Water conditioning and certified backflow assembly tester records where exposed by the State Plumbing Board"
+  ],
+  "knownExclusions": [
+    "This source is limited to State Plumbing Board licensing and does not represent Secretary of State contractor licensing, electrical credentials, asbestos licenses, DWR water-well/geothermal licenses, or local permits.",
+    "No stable bulk export, parser contract, privacy filter, or redistribution approval has been confirmed."
+  ],
+  "hasBulkDownload": "unknown",
+  "hasLiveLookup": true,
+  "requiresJavaScript": "unknown",
+  "requiresCaptcha": "unknown",
+  "requiresAccount": false,
+  "rateLimitNotes": "No adapter is implemented. Use the official State Plumbing Board lookup manually until access controls, field shape, update cadence, and allowed reuse are reviewed.",
+  "redistributionStatus": "unknown",
+  "publicRecordsNotes": "Official State Plumbing Board lookup metadata only. Generated datasets should not be published until privacy and redistribution are approved. Absence from this source is not proof that another credential, contractor license, local authorization, or related record does not exist.",
+  "adapterStatus": "blocked",
+  "sourceDiscoveryStatus": "blocked",
+  "adapterMaturity": "blocked",
+  "adapterQualityLevel": 0,
+  "coverageScope": "state_agency_partial",
+  "adapterPackage": null,
+  "testFixturePath": null,
+  "officialLookupUrl": "https://www.ndplumbingboard.gov/licensing-license-lookup",
+  "officialLookupReviewNotes": "The official State Plumbing Board site exposes a License Lookup page and describes plumbing, sewer and water, water conditioning, and backflow certification licensing areas.",
+  "officialBulkDownloadNotes": "No official stable bulk download has been confirmed in this phase.",
+  "researchNotes": "Registry-only blocked source for North Dakota plumbing, sewer and water, water conditioning, and backflow licensing paths. Future adapter work must filter license types and preserve source caveats before exposing normalized records.",
+  "verificationReviewedAt": null,
+  "verificationCaveats": [
+    "This source covers North Dakota State Plumbing Board records only.",
+    "No matching record means no match in the checked source at the checked time, not proof that another contractor license, local license, permit, or related record does not exist."
+  ],
+  "verificationNotes": "No supported sync or verification adapter is exposed while the official lookup contract and allowed reuse remain under review.",
+  "lastVerifiedAt": "2026-07-04T00:00:00.000Z",
+  "maintainerNotes": "A future adapter must distinguish individual and business records if both are exposed by the lookup.",
+  "schemaVersion": "1.0",
+  "researchReviewedAt": "2026-07-04T00:00:00.000Z",
+  "nextReviewAt": "2027-01-04T00:00:00.000Z",
+  "researchEvidence": [
+    {
+      "url": "https://www.ndplumbingboard.gov/",
+      "checkedAt": "2026-07-04T00:00:00.000Z",
+      "note": "Official State Plumbing Board homepage reviewed; it links lookup of current license holders approved and certified by the board."
+    },
+    {
+      "url": "https://www.ndplumbingboard.gov/licensing-license-lookup",
+      "checkedAt": "2026-07-04T00:00:00.000Z",
+      "note": "Official license lookup reviewed; it identifies active license information and links plumbing, sewer and water, water conditioning, and backflow licensing areas."
+    }
+  ],
+  "sourceResearchOutcome": "blocked",
+  "blocker": {
+    "code": "technical_instability",
+    "summary": "The official State Plumbing Board lookup is interactive and has no adapter-reviewed stable table contract, update cadence, privacy filter, or allowed redistribution path.",
+    "evidenceUrls": [
+      "https://www.ndplumbingboard.gov/licensing-license-lookup",
+      "https://www.nd.gov/content.htm?id=Privacy"
+    ]
+  }
+}
