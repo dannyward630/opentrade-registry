@@ -2834,7 +2834,83 @@
         }
       }
     },
-    { "state": "PA", "decisions": {} },
+    {
+      "state": "PA",
+      "decisions": {
+        "general_contracting": {
+          "outcome": "local_only",
+          "evidence": [{ "url": "https://www.pa.gov/agencies/dli/programs-services/labor-management-relations/bureau-of-occupational-and-industrial-safety/uniform-construction-code-home/contractor-licensing", "reviewedAt": "2026-07-04T00:00:00.000Z", "note": "Pennsylvania DLI states that the Commonwealth currently has no licensure or certification requirements for most construction contractors or employees." }],
+          "limitations": ["Home-improvement registration, asbestos or lead certification, crane-operator licensure, municipal licensing, project permits, public procurement requirements, and other specialized rules may still apply."]
+        },
+        "residential_contracting": {
+          "outcome": "local_only",
+          "evidence": [{ "url": "https://www.pa.gov/agencies/dli/programs-services/labor-management-relations/bureau-of-occupational-and-industrial-safety/uniform-construction-code-home/contractor-licensing", "reviewedAt": "2026-07-04T00:00:00.000Z", "note": "Pennsylvania DLI states that most construction contractors have no statewide licensure and that some municipalities have local contractor and trade requirements." }],
+          "limitations": ["Pennsylvania HICPA registration may apply to covered home-improvement work, but it is not a statewide new-home-builder or residential general-contractor license."]
+        },
+        "commercial_contracting": {
+          "outcome": "local_only",
+          "evidence": [{ "url": "https://www.pa.gov/agencies/dli/programs-services/labor-management-relations/bureau-of-occupational-and-industrial-safety/uniform-construction-code-home/contractor-licensing", "reviewedAt": "2026-07-04T00:00:00.000Z", "note": "Pennsylvania DLI states that the Commonwealth currently has no licensure or certification requirements for most construction contractors." }],
+          "limitations": ["State public-work, business, safety, procurement, asbestos, crane, lead, municipal license, and permit requirements may still apply to particular projects."]
+        },
+        "electrical": {
+          "outcome": "local_only",
+          "evidence": [{ "url": "https://www.pa.gov/agencies/dli/programs-services/labor-management-relations/bureau-of-occupational-and-industrial-safety/uniform-construction-code-home/contractor-licensing", "reviewedAt": "2026-07-04T00:00:00.000Z", "note": "Pennsylvania DLI says municipal certification and licensure commonly pertain to electrical contractors or electricians, and that the Commonwealth maintains no records for those local requirements." }],
+          "limitations": ["HICPA registration may apply to electrical work performed as covered home improvement, but statewide electrical contractor licensure was not confirmed."]
+        },
+        "plumbing": {
+          "outcome": "local_only",
+          "evidence": [{ "url": "https://www.pa.gov/agencies/dli/programs-services/labor-management-relations/bureau-of-occupational-and-industrial-safety/uniform-construction-code-home/contractor-licensing", "reviewedAt": "2026-07-04T00:00:00.000Z", "note": "Pennsylvania DLI says municipal certification and licensure commonly pertain to plumbing contractors or plumbers, and that the Commonwealth maintains no records for those local requirements." }],
+          "limitations": ["HICPA registration may apply to plumbing work performed as covered home improvement, but statewide plumbing contractor licensure was not confirmed."]
+        },
+        "hvac": {
+          "outcome": "local_only",
+          "evidence": [{ "url": "https://www.pa.gov/agencies/dli/programs-services/labor-management-relations/bureau-of-occupational-and-industrial-safety/uniform-construction-code-home/contractor-licensing", "reviewedAt": "2026-07-04T00:00:00.000Z", "note": "Pennsylvania DLI states that most construction contractors have no statewide licensure and directs users to local municipalities for contractor and trade requirements." }],
+          "limitations": ["HICPA registration may apply to HVAC work performed as covered home improvement, but statewide HVAC contractor licensure was not confirmed."]
+        },
+        "mechanical": {
+          "outcome": "local_only",
+          "evidence": [{ "url": "https://www.pa.gov/agencies/dli/programs-services/labor-management-relations/bureau-of-occupational-and-industrial-safety/uniform-construction-code-home/contractor-licensing", "reviewedAt": "2026-07-04T00:00:00.000Z", "note": "Pennsylvania DLI states that the Commonwealth has no licensure or certification requirements for most construction contractors and points to municipal requirements for construction trades." }],
+          "limitations": ["Specific mechanical scopes may require local permits, code inspections, HICPA registration when performed as home improvement, or specialized state certifications outside a general mechanical contractor board."]
+        },
+        "roofing": {
+          "outcome": "local_only",
+          "evidence": [{ "url": "https://www.pa.gov/agencies/dli/programs-services/labor-management-relations/bureau-of-occupational-and-industrial-safety/uniform-construction-code-home/contractor-licensing", "reviewedAt": "2026-07-04T00:00:00.000Z", "note": "Pennsylvania DLI states that most construction contractors have no statewide licensure and that local requirements may apply." }],
+          "limitations": ["The OAG HIC search includes roofing as a type of covered home-improvement work, but no standalone statewide roofing contractor board was confirmed."]
+        },
+        "solar": {
+          "outcome": "local_only",
+          "evidence": [{ "url": "https://www.pa.gov/agencies/dli/programs-services/labor-management-relations/bureau-of-occupational-and-industrial-safety/uniform-construction-code-home/contractor-licensing", "reviewedAt": "2026-07-04T00:00:00.000Z", "note": "Pennsylvania DLI states that most construction contractors have no statewide licensure and directs trade licensing questions to municipalities." }],
+          "limitations": ["Solar work may involve local electrical, building, roofing, utility-interconnection, HICPA, and permit requirements; no separate statewide solar contractor board was confirmed."]
+        },
+        "pool_spa": {
+          "outcome": "local_only",
+          "evidence": [{ "url": "https://hicsearch.attorneygeneral.gov/", "reviewedAt": "2026-07-04T00:00:00.000Z", "note": "The official Pennsylvania HIC search includes above-ground and in-ground swimming pools among home-improvement type-of-work values." }],
+          "limitations": ["This is home-improvement registration coverage only; local electrical, plumbing, health, building, and permit requirements may still apply, and no separate statewide pool or spa contractor board was confirmed."]
+        },
+        "asbestos": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.pa.dli.asbestos_contractors"],
+          "evidence": [{ "url": "https://www.pa.gov/agencies/dli/programs-services/labor-management-relations/bureau-of-occupational-and-industrial-safety/asbestos-occupations/asbestos-certification-faqs", "reviewedAt": "2026-07-04T00:00:00.000Z", "note": "Pennsylvania DLI states that asbestos contractor certification for the company is required to conduct asbestos abatement in Pennsylvania." }],
+          "limitations": ["Individual asbestos occupations, training providers, project notifications, lead certification, enforcement records, and demolition requirements may require separate official sources."]
+        },
+        "sheet_metal": {
+          "outcome": "local_only",
+          "evidence": [{ "url": "https://www.pa.gov/agencies/dli/programs-services/labor-management-relations/bureau-of-occupational-and-industrial-safety/uniform-construction-code-home/contractor-licensing", "reviewedAt": "2026-07-04T00:00:00.000Z", "note": "Pennsylvania DLI states that most construction contractors have no statewide licensure and points users to municipalities for trade licensing requirements." }],
+          "limitations": ["Sheet-metal work may require local HVAC, mechanical, fire-safety, building, or permit approvals; no separate statewide sheet-metal contractor board was confirmed."]
+        },
+        "underground_utility": {
+          "outcome": "local_only",
+          "evidence": [{ "url": "https://www.pa.gov/agencies/dli/programs-services/labor-management-relations/bureau-of-occupational-and-industrial-safety/uniform-construction-code-home/contractor-licensing", "reviewedAt": "2026-07-04T00:00:00.000Z", "note": "Pennsylvania DLI states that most construction contractors have no statewide licensure and that construction requirements may be local." }],
+          "limitations": ["Underground utility work may require local permits, utility-owner requirements, environmental permits, excavation rules, plumbing-related requirements, and public-project obligations."]
+        },
+        "home_improvement": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.pa.oag.home_improvement_contractors"],
+          "evidence": [{ "url": "https://www.attorneygeneral.gov/businesses-and-organizations/home-improvement-contractor-registration/", "reviewedAt": "2026-07-04T00:00:00.000Z", "note": "The Pennsylvania Office of Attorney General states that HICPA requires contractors performing at least $5,000 worth of home improvements per year to register with the office." }],
+          "limitations": ["HICPA registration is not an endorsement, recommendation, or approval by the OAG, and the current search displays active registrations only."]
+        }
+      }
+    },
     { "state": "PR", "decisions": {} },
     { "state": "RI", "decisions": {} },
     {

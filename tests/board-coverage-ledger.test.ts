@@ -15,10 +15,10 @@ describe("nationwide board trade coverage ledger", () => {
     expect(ledger.jurisdictions).toHaveLength(56);
     expect(new Set(ledger.jurisdictions.map((entry) => entry.state)).size).toBe(56);
     expect(expanded).toHaveLength(56 * BOARD_TRADE_DOMAINS.length);
-    expect(expanded.filter((decision) => decision.outcome === "needs_research")).toHaveLength(322);
-    expect(expanded.filter((decision) => decision.outcome === "covered_by_board")).toHaveLength(393);
+    expect(expanded.filter((decision) => decision.outcome === "needs_research")).toHaveLength(308);
+    expect(expanded.filter((decision) => decision.outcome === "covered_by_board")).toHaveLength(395);
     expect(expanded.filter((decision) => decision.outcome === "not_state_regulated")).toHaveLength(7);
-    expect(expanded.filter((decision) => decision.outcome === "local_only")).toHaveLength(62);
+    expect(expanded.filter((decision) => decision.outcome === "local_only")).toHaveLength(74);
   });
 
   it("records complete Oregon contractor, BCD trade, and DEQ asbestos coverage", async () => {
@@ -168,6 +168,25 @@ describe("nationwide board trade coverage ledger", () => {
     expect(expanded.find((decision) => decision.tradeDomain === "electrical")?.limitations.join(" ")).toContain("master electrician");
     expect(expanded.find((decision) => decision.tradeDomain === "asbestos")?.limitations.join(" ")).toContain("trade certificate");
     expect(expanded.find((decision) => decision.tradeDomain === "home_improvement")?.limitations.join(" ")).toContain("structural remodeling");
+  });
+
+  it("records Pennsylvania home-improvement, asbestos, and local trade boundaries", async () => {
+    const ledger = boardTradeCoverageLedgerSchema.parse(await json("registry/board-coverage.json"));
+    const expanded = expandBoardTradeCoverageLedger(ledger).filter((decision) => decision.state === "PA");
+
+    expect(expanded.filter((decision) => decision.outcome === "needs_research")).toEqual([]);
+    expect(expanded.find((decision) => decision.tradeDomain === "home_improvement")).toMatchObject({
+      outcome: "covered_by_board",
+      boardIds: ["us.pa.oag.home_improvement_contractors"],
+    });
+    expect(expanded.find((decision) => decision.tradeDomain === "asbestos")).toMatchObject({
+      outcome: "covered_by_board",
+      boardIds: ["us.pa.dli.asbestos_contractors"],
+    });
+    for (const domain of ["general_contracting", "electrical", "plumbing", "hvac", "roofing"]) {
+      expect(expanded.find((decision) => decision.tradeDomain === domain)?.outcome).toBe("local_only");
+    }
+    expect(expanded.find((decision) => decision.tradeDomain === "electrical")?.limitations.join(" ")).toContain("statewide electrical contractor licensure was not confirmed");
   });
 
   it("records complete South Carolina board-specific trade coverage", async () => {
