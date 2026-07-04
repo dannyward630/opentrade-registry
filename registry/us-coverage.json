@@ -204,6 +204,7 @@
       "state": "ME",
       "status": "blocked",
       "sourceIds": [
+        "us.me.dep.asbestos_contractors",
         "us.me.pfr.professional_licenses"
       ],
       "notes": "Official source metadata is retained, but automated ingestion is blocked by documented legal, access, scope, or technical constraints."

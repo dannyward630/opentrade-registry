@@ -1,0 +1,82 @@
+{
+  "id": "us.me.dep.asbestos_contractors",
+  "name": "Maine DEP Licensed Asbestos Abatement Contractors",
+  "jurisdiction": {
+    "country": "US",
+    "state": "ME"
+  },
+  "agency": {
+    "name": "Maine Department of Environmental Protection",
+    "url": "https://www.maine.gov/dep/"
+  },
+  "sourceType": "html_lookup",
+  "sourceUrl": "https://www.maine.gov/dep/waste/asbestos/asbestoscontractors.html",
+  "documentationUrl": "https://www.maine.gov/dep/waste/asbestos/index.html",
+  "dataDictionaryUrl": null,
+  "termsUrl": "https://www.maine.gov/portal/policies/",
+  "termsReviewNotes": "Maine.gov site policies were identified, but source-specific publication, redistribution, and privacy review has not been completed.",
+  "updateFrequency": "unknown; verify against the official DEP asbestos pages before relying on freshness assumptions",
+  "tradeCoverage": [
+    "asbestos"
+  ],
+  "licenseTypesIncluded": [
+    "Maine DEP licensed asbestos abatement contractor businesses where listed by the official asbestos program"
+  ],
+  "knownExclusions": [
+    "This source is limited to Maine DEP asbestos abatement contractor licensing and does not represent general contractor, electrical, plumbing, HVAC, roofing, permit, or local registration records.",
+    "Asbestos consultants, professionals, training providers, project notifications, and other environmental records may be listed separately from contractor businesses.",
+    "No stable bulk export, parser contract, privacy filter, or redistribution approval has been confirmed."
+  ],
+  "hasBulkDownload": "unknown",
+  "hasLiveLookup": true,
+  "requiresJavaScript": false,
+  "requiresCaptcha": false,
+  "requiresAccount": false,
+  "rateLimitNotes": "No adapter is implemented. Use official DEP asbestos pages manually until field shape, update cadence, and allowed reuse are reviewed.",
+  "redistributionStatus": "unknown",
+  "publicRecordsNotes": "Official source metadata only. Generated datasets should not be published until privacy and redistribution are approved. Absence from this source is not proof that another asbestos credential, project authorization, local license, or related record does not exist.",
+  "adapterStatus": "blocked",
+  "sourceDiscoveryStatus": "blocked",
+  "adapterMaturity": "blocked",
+  "adapterQualityLevel": 0,
+  "coverageScope": "state_agency_partial",
+  "adapterPackage": null,
+  "testFixturePath": null,
+  "officialLookupUrl": "https://www.maine.gov/dep/waste/asbestos/asbestoscontractors.html",
+  "officialLookupReviewNotes": "The official DEP page identifies licensed asbestos abatement contractors and describes asbestos abatement activity as removal, repair, or encapsulation.",
+  "officialBulkDownloadNotes": "No stable public bulk export has been confirmed in this phase.",
+  "researchNotes": "Registry-only blocked source for Maine DEP asbestos abatement contractors. Future adapter work must confirm whether the list has a stable table shape and whether publication of normalized contractor records is permitted.",
+  "verificationReviewedAt": null,
+  "verificationCaveats": [
+    "This source covers Maine DEP asbestos abatement contractor businesses only.",
+    "No matching record means no match in the checked source at the checked time, not proof that another asbestos credential, project authorization, local license, or related record does not exist."
+  ],
+  "verificationNotes": "No supported sync or verification adapter is exposed while the official lookup contract and allowed reuse remain under review.",
+  "lastVerifiedAt": "2026-07-04T00:00:00.000Z",
+  "maintainerNotes": "A future adapter must preserve source URL, checked time, caveats, raw lookup evidence, and asbestos-specific filtering before exposing records.",
+  "schemaVersion": "1.0",
+  "researchReviewedAt": "2026-07-04T00:00:00.000Z",
+  "nextReviewAt": "2027-01-04T00:00:00.000Z",
+  "researchEvidence": [
+    {
+      "url": "https://www.maine.gov/dep/waste/asbestos/asbestoscontractors.html",
+      "checkedAt": "2026-07-04T00:00:00.000Z",
+      "note": "Official Maine DEP asbestos page reviewed; it describes licensed asbestos abatement contractor businesses engaged in removal, repair, or encapsulation."
+    },
+    {
+      "url": "https://www.maine.gov/dep/waste/asbestos/index.html",
+      "checkedAt": "2026-07-04T00:00:00.000Z",
+      "note": "Official Maine DEP asbestos program page reviewed as the program documentation path for asbestos permits, licenses, certifications, and contacts."
+    }
+  ],
+  "sourceResearchOutcome": "blocked",
+  "blocker": {
+    "code": "technical_instability",
+    "summary": "The official source appears lookup/list oriented, but no adapter-reviewed table contract, update cadence, privacy filter, or allowed redistribution path has been implemented.",
+    "evidenceUrls": [
+      "https://www.maine.gov/dep/waste/asbestos/asbestoscontractors.html",
+      "https://www.maine.gov/dep/waste/asbestos/index.html",
+      "https://www.maine.gov/portal/policies/"
+    ]
+  }
+}
