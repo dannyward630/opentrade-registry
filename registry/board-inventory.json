@@ -2375,6 +2375,33 @@
       }
     },
     {
+      "id": "us.mt.deq.asbestos_contractors",
+      "jurisdiction": {
+        "country": "US",
+        "state": "MT"
+      },
+      "boardName": "Montana DEQ Accredited Asbestos Contractors and Consultants",
+      "agencyName": "Montana Department of Environmental Quality",
+      "officialUrl": "https://svc.mt.gov/deq/AsbestosPermits/",
+      "sourceIds": [
+        "us.mt.deq.asbestos_contractors"
+      ],
+      "trades": [
+        "asbestos"
+      ],
+      "accessPath": "manual_handoff",
+      "coverageLimitations": [
+        "DEQ states that only companies or contractors who authorized publication are displayed.",
+        "This source is limited to Montana asbestos control program records and does not represent general contractor, electrical, plumbing, HVAC, permit, or local registration records.",
+        "No stable bulk export, parser contract, privacy filter, or redistribution approval has been confirmed."
+      ],
+      "evidence": {
+        "url": "https://deq.mt.gov/cleanupandrec/Programs/asbestos",
+        "reviewedAt": "2026-07-04T00:00:00.000Z",
+        "note": "Official Montana DEQ asbestos page reviewed; it states asbestos projects require Montana-accredited contractors and links contractor and consultant search paths."
+      }
+    },
+    {
       "id": "us.mt.dli.contractor_registration",
       "jurisdiction": {
         "country": "US",
@@ -2390,18 +2417,57 @@
         "general_contracting",
         "residential_contracting",
         "commercial_contracting",
+        "roofing",
+        "solar",
+        "pool_spa",
+        "sheet_metal",
+        "underground_utility",
+        "home_improvement",
         "other"
       ],
       "accessPath": "manual_handoff",
       "coverageLimitations": [
-        "Construction Contractor Registration is not the same as a full trade license or endorsement for every construction activity.",
-        "Professional and occupational licenses, local permits, business registrations, and non-DLI authorizations may require separate official sources.",
+        "Construction Contractor Registration is primarily tied to workers compensation compliance and is not the same as a trade competency license or endorsement for every construction activity.",
+        "Montana DLI professional and occupational licenses are represented separately by us.mt.dli.professional_licenses.",
+        "Montana DEQ asbestos contractor and consultant publication is represented separately by us.mt.deq.asbestos_contractors.",
+        "Local permits, business registrations, utility approvals, and non-DLI authorizations may require separate official sources.",
         "Workers compensation coverage and exemption details need source-specific interpretation before being normalized as compliance facts."
       ],
       "evidence": {
-        "url": "https://erd.dli.mt.gov/work-comp-regulations/montana-contractor/icec-search-old",
-        "reviewedAt": "2026-06-27T00:00:00.000Z",
-        "note": "Official DLI page confirmed the current interactive registration lookup, JavaScript dependency, and separate CCR, ICEC, and professional-license concepts."
+        "url": "https://erd.dli.mt.gov/work-comp-regulations/montana-contractor/construction-contractor-registration",
+        "reviewedAt": "2026-07-04T00:00:00.000Z",
+        "note": "Official DLI construction contractor registration page reviewed; it states all construction contractors with employees must register, defines construction contractor by reference to work that adds to or takes away from real-property improvements, and announces the January 1, 2026 transition to a Construction Contractor License Program."
+      }
+    },
+    {
+      "id": "us.mt.dli.professional_licenses",
+      "jurisdiction": {
+        "country": "US",
+        "state": "MT"
+      },
+      "boardName": "Montana DLI Professional and Occupational Licensee Lookup",
+      "agencyName": "Montana Department of Labor and Industry",
+      "officialUrl": "https://ebizws.mt.gov/PUBLICPORTAL/searchform",
+      "sourceIds": [
+        "us.mt.dli.professional_licenses"
+      ],
+      "trades": [
+        "electrical",
+        "plumbing",
+        "mechanical",
+        "other"
+      ],
+      "accessPath": "manual_handoff",
+      "coverageLimitations": [
+        "This source spans many professional and occupational programs and must be filtered to construction-relevant boards before normalization.",
+        "Construction Contractor Registration and Independent Contractor Exemption Certificate records are represented separately by us.mt.dli.contractor_registration.",
+        "Montana DEQ asbestos contractor and consultant publication is represented separately by us.mt.deq.asbestos_contractors.",
+        "Local permits, municipal contractor rules, business registrations, and non-DLI authorizations are outside this source entry."
+      ],
+      "evidence": {
+        "url": "https://boards.bsd.dli.mt.gov/_global-pages/additional-license-information/lookup-individual",
+        "reviewedAt": "2026-07-04T00:00:00.000Z",
+        "note": "Official DLI lookup page reviewed; it identifies the Licensee Lookup System as the primary source for verifying Montana professional license credentials."
       }
     },
     {

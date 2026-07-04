@@ -10,15 +10,15 @@ describe("board coverage report", () => {
       jurisdictionCount: 56,
       tradeDomainCount: 14,
       decisionCount: 784,
-      resolvedCount: 532,
-      needsResearchCount: 252,
+      resolvedCount: 546,
+      needsResearchCount: 238,
     });
   });
 
   it("fails the release gate while any trade domain remains unresolved", () => {
     const result = run("--require-complete");
     expect(result.status).toBe(1);
-    expect(result.stderr).toMatch(/252.*research/i);
+    expect(result.stderr).toMatch(/238.*research/i);
   });
 });
 
