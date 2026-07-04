@@ -1,6 +1,6 @@
 {
   "id": "us.va.dpor.contractors",
-  "name": "Virginia DPOR Contractor License Lookup",
+  "name": "Virginia DPOR Contractor and Tradesmen License Lookup",
   "jurisdiction": {
     "country": "US",
     "state": "VA"
@@ -10,21 +10,33 @@
     "url": "https://www.dpor.virginia.gov/"
   },
   "sourceType": "html_lookup",
-  "sourceUrl": "https://www.dpor.virginia.gov/LicenseLookup",
+  "sourceUrl": "https://www.dpor.virginia.gov/Boards/Contractors",
   "documentationUrl": "https://www.dpor.virginia.gov/Boards/Contractors",
   "dataDictionaryUrl": null,
   "termsUrl": "https://www.dpor.virginia.gov/LicenseLookup",
-  "updateFrequency": "unknown; verify against the official lookup and disclaimer before relying on freshness assumptions",
+  "updateFrequency": "unknown; verify the official lookup and DPOR board material before relying on freshness assumptions",
   "tradeCoverage": [
-    "contractors",
-    "tradesmen"
+    "general_contracting",
+    "residential_contracting",
+    "commercial_contracting",
+    "electrical",
+    "plumbing",
+    "hvac",
+    "mechanical",
+    "roofing",
+    "solar",
+    "pool_spa",
+    "sheet_metal",
+    "underground_utility",
+    "home_improvement"
   ],
   "licenseTypesIncluded": [
-    "DPOR contractor and trades records exposed by the public lookup"
+    "Virginia DPOR contractor firm licenses, classes, classifications, specialties, and contractor-board tradesmen records exposed by the public lookup"
   ],
   "knownExclusions": [
     "The lookup is not modeled as a confirmed bulk public dataset.",
-    "DPOR scope does not represent every local permit, business registration, or non-DPOR construction authorization in Virginia."
+    "This source does not represent every local permit, business registration, or non-DPOR construction authorization in Virginia.",
+    "DPOR asbestos, lead, and home inspector records are tracked separately under the asbestos board source."
   ],
   "hasBulkDownload": "unknown",
   "hasLiveLookup": true,
@@ -42,17 +54,27 @@
   "testFixturePath": null,
   "officialLookupUrl": "https://www.dpor.virginia.gov/LicenseLookup",
   "officialBulkDownloadNotes": "No official bulk download has been confirmed in this phase.",
-  "researchNotes": "Registry-only source for now because the official path is lookup-oriented and has source-specific legal/disclaimer language.",
-  "lastVerifiedAt": "2026-06-27T00:00:00.000Z",
-  "maintainerNotes": "Future adapter work should preserve DPOR disclaimer wording and avoid treating lookup data as a complete public-records export.",
+  "researchNotes": "Registry-only blocked source for now because the official path is lookup-oriented and no stable machine-readable public export contract has been confirmed.",
+  "lastVerifiedAt": "2026-07-04T00:00:00.000Z",
+  "maintainerNotes": "Future adapter work should preserve DPOR disclaimer wording, source URL, checked time, caveats, and raw lookup evidence before exposing records.",
   "schemaVersion": "1.0",
-  "researchReviewedAt": "2026-06-27T00:00:00.000Z",
-  "nextReviewAt": "2026-12-27T00:00:00.000Z",
+  "researchReviewedAt": "2026-07-04T00:00:00.000Z",
+  "nextReviewAt": "2027-01-04T00:00:00.000Z",
   "researchEvidence": [
     {
-      "url": "https://www.dpor.virginia.gov/LicenseLookup",
-      "checkedAt": "2026-06-27T00:00:00.000Z",
-      "note": "Official public source, access shape, and current automation constraints reviewed."
+      "url": "https://www.dpor.virginia.gov/Boards/Contractors",
+      "checkedAt": "2026-07-04T00:00:00.000Z",
+      "note": "DPOR states that the Board for Contractors licenses businesses engaged in construction, removal, repair, or improvement of facilities and uses license class plus classification or specialty to determine authorized work."
+    },
+    {
+      "url": "https://www.dpor.virginia.gov/Boards/Tradesmen",
+      "checkedAt": "2026-07-04T00:00:00.000Z",
+      "note": "DPOR states that the Board for Contractors regulates individual tradesmen including electrical, plumbing, HVAC, gas fitting, water well construction, and related trades."
+    },
+    {
+      "url": "https://www.dpor.virginia.gov/sites/default/files/boards/Contractors/A501-27REGS.pdf",
+      "checkedAt": "2026-07-04T00:00:00.000Z",
+      "note": "Board for Contractors regulations define commercial, residential, electrical, plumbing, HVAC, home improvement, swimming pool, and related specialty/classification scopes."
     }
   ],
   "sourceResearchOutcome": "blocked",
@@ -61,7 +83,17 @@
     "code": "technical_instability",
     "summary": "No stable, documented machine-readable official interface is currently suitable for an offline-tested adapter.",
     "evidenceUrls": [
-      "https://www.dpor.virginia.gov/LicenseLookup"
+      "https://www.dpor.virginia.gov/Boards/Contractors",
+      "https://www.dpor.virginia.gov/LicenseLookup",
+      "https://www.dpor.virginia.gov/sites/default/files/boards/Contractors/A501-27REGS.pdf"
     ]
-  }
+  },
+  "termsReviewNotes": "DPOR lookup disclaimer and site terms were identified, but source-specific publication and redistribution approval has not been completed.",
+  "officialLookupReviewNotes": "DPOR publishes a public license lookup and board pages for contractor firms, classes, classifications, specialties, and tradesmen regulated by the Board for Contractors.",
+  "verificationReviewedAt": null,
+  "verificationCaveats": [
+    "This source covers DPOR Board for Contractors records exposed by the official lookup and related board pages.",
+    "No matching record means no match in the checked source at the checked time, not proof that a Virginia license, permit, trade credential, or local authorization does not exist."
+  ],
+  "verificationNotes": "No supported sync or verification adapter is exposed while the official lookup contract and allowed reuse remain under review."
 }
