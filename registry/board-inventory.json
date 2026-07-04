@@ -3148,6 +3148,33 @@
       }
     },
     {
+      "id": "us.pa.dli.asbestos_contractors",
+      "jurisdiction": {
+        "country": "US",
+        "state": "PA"
+      },
+      "boardName": "Pennsylvania DLI Certified Asbestos Abatement Companies",
+      "agencyName": "Pennsylvania Department of Labor and Industry",
+      "officialUrl": "https://www.pa.gov/content/dam/copapwp-pagov/en/dli/documents/individuals/labor-management-relations/bois/documents/asbcontr.htm",
+      "sourceIds": [
+        "us.pa.dli.asbestos_contractors"
+      ],
+      "trades": [
+        "asbestos"
+      ],
+      "accessPath": "manual_handoff",
+      "coverageLimitations": [
+        "This source is limited to Pennsylvania DLI asbestos abatement company certification and does not represent general contractor, electrical, plumbing, HVAC, roofing, local permit, or business-registration records.",
+        "Individual asbestos occupations, training providers, lead certification, project notifications, enforcement records, and demolition records may require separate official sources.",
+        "The current public list is an HTML-oriented public-records file without a reviewed parser contract, privacy filter, or redistribution approval."
+      ],
+      "evidence": {
+        "url": "https://www.pa.gov/agencies/dli/programs-services/labor-management-relations/bureau-of-occupational-and-industrial-safety/asbestos-occupations",
+        "reviewedAt": "2026-07-04T00:00:00.000Z",
+        "note": "DLI states that individuals who perform asbestos removal must work for a contractor with current certification and documents the contractor certification application path."
+      }
+    },
+    {
       "id": "us.pa.oag.home_improvement_contractors",
       "jurisdiction": {
         "country": "US",
