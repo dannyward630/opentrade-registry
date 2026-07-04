@@ -1,6 +1,6 @@
 {
   "id": "us.dc.dlcp.contractors",
-  "name": "District of Columbia DLCP Business License Verification",
+  "name": "District of Columbia DLCP Contractor and Construction Services Licenses",
   "jurisdiction": {
     "country": "US",
     "state": "DC"
@@ -10,23 +10,29 @@
     "url": "https://dlcp.dc.gov/"
   },
   "sourceType": "html_lookup",
-  "sourceUrl": "https://scout.dcra.dc.gov/",
-  "documentationUrl": "https://dlcp.dc.gov/service/online-resources",
+  "sourceUrl": "https://dlcp.dc.gov/node/1618551",
+  "documentationUrl": "https://dlcp.dc.gov/node/1618551",
   "dataDictionaryUrl": null,
   "termsUrl": "https://dc.gov/page/terms-and-conditions",
   "updateFrequency": "unknown; verify against SCOUT and DLCP online resources before relying on freshness assumptions",
   "tradeCoverage": [
     "general_contracting",
+    "residential_contracting",
+    "commercial_contracting",
+    "roofing",
+    "pool_spa",
     "home_improvement",
     "other"
   ],
   "licenseTypesIncluded": [
-    "business license records exposed by SCOUT that may include contractor-related license categories"
+    "General Contractor/Construction Manager basic business license records exposed by SCOUT where available",
+    "Home Improvement Contractor basic business license records exposed by SCOUT where available",
+    "Home Improvement Salesperson basic business license records exposed by SCOUT where available"
   ],
   "knownExclusions": [
-    "SCOUT spans business, property, permit, and licensing information; this source entry is not a contractor-only export.",
-    "Occupational and professional licenses, permits, local enforcement records, and business registrations may require separate source entries or filters.",
-    "Contractor category semantics must be reviewed before any adapter treats rows as construction-license records."
+    "This source is scoped to DLCP contractor and construction services business license categories and does not represent Industrial Trades, asbestos, permits, enforcement records, local federal-area requirements, or all construction-related business registrations.",
+    "SCOUT spans business, property, permit, and licensing information; any future adapter must filter to contractor and construction services records before normalization.",
+    "No stable bulk export, parser contract, privacy filter, or redistribution approval has been confirmed."
   ],
   "hasBulkDownload": "unknown",
   "hasLiveLookup": true,
@@ -35,7 +41,7 @@
   "requiresAccount": false,
   "rateLimitNotes": "No adapter is implemented. Prefer official APIs or exports if discovered; do not bypass login walls, CAPTCHAs, or technical controls.",
   "redistributionStatus": "unknown",
-  "publicRecordsNotes": "Official lookup source metadata only. Absence from this source is not proof that a license, permit, registration, or authorization does not exist elsewhere.",
+  "publicRecordsNotes": "Official DLCP contractor and construction services metadata only. Absence from this source is not proof that another license, permit, registration, trade credential, or authorization does not exist elsewhere.",
   "adapterStatus": "blocked",
   "sourceDiscoveryStatus": "blocked",
   "adapterMaturity": "blocked",
@@ -43,26 +49,37 @@
   "adapterPackage": null,
   "testFixturePath": null,
   "officialLookupUrl": "https://scout.dcra.dc.gov/",
-  "officialBulkDownloadNotes": "No official contractor-specific bulk download has been confirmed in this phase.",
-  "researchNotes": "Registry-only source for DC DLCP business license verification. Future work should decide whether contractor-related license categories need a dedicated adapter or separate source entries.",
-  "lastVerifiedAt": "2026-06-27T00:00:00.000Z",
-  "maintainerNotes": "Keep broad business-license scope explicit and avoid treating every SCOUT record as a contractor license.",
+  "officialBulkDownloadNotes": "No official contractor and construction services bulk download has been confirmed in this phase.",
+  "researchNotes": "Registry-only blocked source for DC DLCP contractor and construction services basic business licenses. Future adapter work must filter SCOUT results to General Contractor/Construction Manager, Home Improvement Contractor, and related contractor categories before exposing canonical records.",
+  "lastVerifiedAt": "2026-07-04T00:00:00.000Z",
+  "maintainerNotes": "Keep contractor business licenses separate from Industrial Trades, asbestos, permit, inspection, and business-registration records.",
   "schemaVersion": "1.0",
-  "researchReviewedAt": "2026-06-27T00:00:00.000Z",
-  "nextReviewAt": "2026-12-27T00:00:00.000Z",
+  "researchReviewedAt": "2026-07-04T00:00:00.000Z",
+  "nextReviewAt": "2027-01-04T00:00:00.000Z",
   "researchEvidence": [
     {
+      "url": "https://dlcp.dc.gov/node/1618551",
+      "checkedAt": "2026-07-04T00:00:00.000Z",
+      "note": "Official DLCP Contractor and Construction Services page reviewed; it defines services involving planning, building, altering, repairing, improving, or demolishing structures and lists General Contractor/Construction Manager and Home Improvement Contractor requirements."
+    },
+    {
+      "url": "https://dlcp.dc.gov/node/1614551",
+      "checkedAt": "2026-07-04T00:00:00.000Z",
+      "note": "Official DLCP Business Licensing FAQ reviewed; it states that BBL and associated public license information can be verified via SCOUT and that subcontractors may need their own BBL."
+    },
+    {
       "url": "https://scout.dcra.dc.gov/",
-      "checkedAt": "2026-06-27T00:00:00.000Z",
-      "note": "Official public source, access shape, and current automation constraints reviewed."
+      "checkedAt": "2026-07-04T00:00:00.000Z",
+      "note": "Official SCOUT lookup retained as the public verification path for Basic Business License information."
     }
   ],
   "sourceResearchOutcome": "blocked",
   "adapterQualityLevel": 0,
   "blocker": {
-    "code": "scope_mismatch",
-    "summary": "The official source is too broad or not sufficiently contractor-specific for reliable canonical verification.",
+    "code": "technical_instability",
+    "summary": "The official verification path is an interactive SCOUT lookup with no adapter-reviewed stable contractor-category filter, table contract, update cadence, privacy filter, or allowed redistribution path.",
     "evidenceUrls": [
+      "https://dlcp.dc.gov/node/1618551",
       "https://scout.dcra.dc.gov/",
       "https://dc.gov/page/terms-and-conditions"
     ]

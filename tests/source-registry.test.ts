@@ -71,7 +71,9 @@ describe("source registry", () => {
       "us.ct.dcp.major_contractors",
       "us.ct.dcp.occupational_trades",
       "us.ct.dph.asbestos_contractors",
+      "us.dc.dlcp.asbestos_abatement_businesses",
       "us.dc.dlcp.contractors",
+      "us.dc.dlcp.industrial_trades",
       "us.de.dfm.asbestos_contractors",
       "us.de.dpr.electrical_examiners",
       "us.de.dpr.plumbing_hvacr",
@@ -202,10 +204,10 @@ describe("source registry", () => {
     ]);
     expect(parsed.every((entry) => entry.redistributionStatus === "unknown")).toBe(true);
     expect(parsed.filter((entry) => entry.sourceDiscoveryStatus === "researched")).toHaveLength(9);
-    expect(parsed.filter((entry) => entry.sourceDiscoveryStatus === "blocked")).toHaveLength(137);
+    expect(parsed.filter((entry) => entry.sourceDiscoveryStatus === "blocked")).toHaveLength(139);
     expect(parsed.filter((entry) => entry.adapterMaturity === "network_opt_in")).toHaveLength(7);
     expect(parsed.filter((entry) => entry.adapterMaturity === "local_file_adapter")).toHaveLength(2);
-    expect(parsed.filter((entry) => entry.adapterMaturity === "blocked")).toHaveLength(137);
+    expect(parsed.filter((entry) => entry.adapterMaturity === "blocked")).toHaveLength(139);
     for (const implemented of parsed.filter((entry) => entry.adapterStatus === "implemented")) {
       expect(implemented.adapterQualityLevel, `${implemented.id} should have Level 4 verification quality`).toBe(4);
       expect(implemented.verificationReviewedAt, `${implemented.id} needs a verification review timestamp`).toMatch(/^\d{4}-\d{2}-\d{2}T/);
