@@ -3252,7 +3252,98 @@
         }
       }
     },
-    { "state": "VA", "decisions": {} },
+    {
+      "state": "VA",
+      "decisions": {
+        "general_contracting": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.va.dpor.contractors"],
+          "evidence": [{ "url": "https://www.dpor.virginia.gov/Boards/Contractors", "reviewedAt": "2026-07-04T00:00:00.000Z", "note": "DPOR states that the Board for Contractors licenses businesses engaged in construction, removal, repair, or improvement of facilities, with license class and classification or specialty determining authorized work." }],
+          "limitations": ["The DPOR lookup is blocked for automation; verification remains a manual handoff until a stable public source contract is confirmed."]
+        },
+        "residential_contracting": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.va.dpor.contractors"],
+          "evidence": [{ "url": "https://www.dpor.virginia.gov/sites/default/files/boards/Contractors/A501-27REGS.pdf", "reviewedAt": "2026-07-04T00:00:00.000Z", "note": "Board for Contractors regulations define residential building contractors as covering construction, remodeling, repair, improvement, removal, or demolition on dwellings and townhouses." }],
+          "limitations": ["Electrical, plumbing, HVAC, and gas-fitting services require separate classifications or tradesmen credentials."]
+        },
+        "commercial_contracting": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.va.dpor.contractors"],
+          "evidence": [{ "url": "https://www.dpor.virginia.gov/sites/default/files/boards/Contractors/A501-27REGS.pdf", "reviewedAt": "2026-07-04T00:00:00.000Z", "note": "Board for Contractors regulations define commercial building contractors and include commercial, institutional, governmental, accessory-use, and multi-family building specialty scopes." }],
+          "limitations": ["The license class and specialty/classification determine the allowed value and work scope."]
+        },
+        "electrical": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.va.dpor.contractors"],
+          "evidence": [{ "url": "https://www.dpor.virginia.gov/sites/default/files/boards/Contractors/A501-27REGS.pdf", "reviewedAt": "2026-07-04T00:00:00.000Z", "note": "Board for Contractors regulations define electrical contractors and state that the electrical contractor classification requires a master electrician tradesman license issued by the board." }],
+          "limitations": ["Individual tradesmen credentials must be checked alongside firm contractor records where applicable."]
+        },
+        "plumbing": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.va.dpor.contractors"],
+          "evidence": [{ "url": "https://www.dpor.virginia.gov/sites/default/files/boards/Contractors/A501-27REGS.pdf", "reviewedAt": "2026-07-04T00:00:00.000Z", "note": "Board for Contractors regulations identify plumbing contractors and state that the classification requires a master plumber tradesman license issued by the board." }],
+          "limitations": ["Individual tradesmen credentials must be checked alongside firm contractor records where applicable."]
+        },
+        "hvac": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.va.dpor.contractors"],
+          "evidence": [{ "url": "https://www.dpor.virginia.gov/sites/default/files/boards/Contractors/A501-27REGS.pdf", "reviewedAt": "2026-07-04T00:00:00.000Z", "note": "Board for Contractors regulations identify HVAC contractors and state that the classification requires a master HVAC tradesman license issued by the board." }],
+          "limitations": ["Gas fitting, fire suppression, and related specialties may require separate specialty or tradesmen credentials."]
+        },
+        "mechanical": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.va.dpor.contractors"],
+          "evidence": [{ "url": "https://www.dpor.virginia.gov/Boards/Tradesmen", "reviewedAt": "2026-07-04T00:00:00.000Z", "note": "DPOR states that the Board for Contractors regulates tradesmen in electrical, plumbing, HVAC, gas fitting, water well construction, elevator mechanics, backflow prevention, and building energy analysis." }],
+          "limitations": ["Virginia uses separate contractor classifications, specialties, and tradesmen credentials rather than a single mechanical board entry."]
+        },
+        "roofing": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.va.dpor.contractors"],
+          "evidence": [{ "url": "https://www.dpor.virginia.gov/sites/default/files/boards/Contractors/A501-27REGS.pdf", "reviewedAt": "2026-07-04T00:00:00.000Z", "note": "Board for Contractors regulations include roofing contracting among commercial and residential building classification specialty functions." }],
+          "limitations": ["Residential versus commercial scope and license class still affect verification."]
+        },
+        "solar": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.va.dpor.contractors"],
+          "evidence": [{ "url": "https://www.dpor.virginia.gov/sites/default/files/boards/Contractors/A501-27REGS.pdf", "reviewedAt": "2026-07-04T00:00:00.000Z", "note": "Board for Contractors regulations define alternative energy system contracting and note exclusions for electrical, plumbing, gas fitting, HVAC, and certain utility work." }],
+          "limitations": ["Solar and other alternative-energy projects may require companion electrical, plumbing, gas-fitting, HVAC, or utility credentials depending on the work."]
+        },
+        "pool_spa": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.va.dpor.contractors"],
+          "evidence": [{ "url": "https://www.dpor.virginia.gov/sites/default/files/boards/Contractors/A501-27REGS.pdf", "reviewedAt": "2026-07-04T00:00:00.000Z", "note": "Board for Contractors regulations include swimming pool contracting in commercial and residential building classification specialty functions." }],
+          "limitations": ["Local permits and inspections remain outside this statewide source."]
+        },
+        "asbestos": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.va.dpor.contractors", "us.va.dpor.asbestos_contractors"],
+          "evidence": [
+            { "url": "https://www.dpor.virginia.gov/Boards/ALHI", "reviewedAt": "2026-07-04T00:00:00.000Z", "note": "DPOR states that the Board for Asbestos, Lead, and Home Inspectors licenses individuals engaged in asbestos remediation." },
+            { "url": "https://www.dpor.virginia.gov/sites/default/files/boards/Contractors/A501-27REGS.pdf", "reviewedAt": "2026-07-04T00:00:00.000Z", "note": "Board for Contractors regulations identify asbestos contracting and related asbestos supervisor credential requirements." }
+          ],
+          "limitations": ["A complete asbestos check may require both the contractor-board source and the asbestos-board source; no automated adapter is implemented for either source."]
+        },
+        "sheet_metal": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.va.dpor.contractors"],
+          "evidence": [{ "url": "https://www.dpor.virginia.gov/sites/default/files/boards/Contractors/A501-27REGS.pdf", "reviewedAt": "2026-07-04T00:00:00.000Z", "note": "Board for Contractors regulations include sheet-metal studs in drywall contracting scope and recognize HVAC, fire-suppression, and plumbing specialties that may involve metal ducting or systems work." }],
+          "limitations": ["Sheet-metal verification must preserve the specific contractor classification or specialty printed in the DPOR record."]
+        },
+        "underground_utility": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.va.dpor.contractors"],
+          "evidence": [{ "url": "https://www.dpor.virginia.gov/sites/default/files/boards/Contractors/A501-27REGS.pdf", "reviewedAt": "2026-07-04T00:00:00.000Z", "note": "Board for Contractors regulations define highway/heavy classifications and waterwell/pump contracting, including site utilities, water, gas, sewer connections, and water well systems provider requirements." }],
+          "limitations": ["Utility-owner approvals, local permits, and waterworks or wastewater credentials may still apply."]
+        },
+        "home_improvement": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.va.dpor.contractors"],
+          "evidence": [{ "url": "https://www.dpor.virginia.gov/sites/default/files/boards/Contractors/A501-27REGS.pdf", "reviewedAt": "2026-07-04T00:00:00.000Z", "note": "Board for Contractors regulations define home improvement contracting for repairs or improvements to dwellings or townhouses and related accessory structures." }],
+          "limitations": ["Door-to-door consumer protection and local permit rules remain outside this registry decision."]
+        }
+      }
+    },
     { "state": "VI", "decisions": {} },
     { "state": "VT", "decisions": {} },
     {

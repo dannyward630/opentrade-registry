@@ -454,6 +454,7 @@
       "state": "VA",
       "status": "blocked",
       "sourceIds": [
+        "us.va.dpor.asbestos_contractors",
         "us.va.dpor.contractors"
       ],
       "notes": "Official source metadata is retained, but automated ingestion is blocked by documented legal, access, scope, or technical constraints."

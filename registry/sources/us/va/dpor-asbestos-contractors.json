@@ -1,0 +1,87 @@
+{
+  "id": "us.va.dpor.asbestos_contractors",
+  "name": "Virginia DPOR Asbestos, Lead, and Home Inspectors License Lookup",
+  "jurisdiction": {
+    "country": "US",
+    "state": "VA"
+  },
+  "agency": {
+    "name": "Virginia Department of Professional and Occupational Regulation",
+    "url": "https://www.dpor.virginia.gov/"
+  },
+  "sourceType": "html_lookup",
+  "sourceUrl": "https://www.dpor.virginia.gov/Boards/ALHI",
+  "documentationUrl": "https://www.dpor.virginia.gov/Boards/ALHI",
+  "dataDictionaryUrl": null,
+  "termsUrl": "https://www.dpor.virginia.gov/LicenseLookup",
+  "termsReviewNotes": "DPOR lookup disclaimer and site terms were identified, but source-specific publication and redistribution approval has not been completed.",
+  "updateFrequency": "unknown; verify the official lookup and asbestos board material before relying on freshness assumptions",
+  "tradeCoverage": [
+    "asbestos"
+  ],
+  "licenseTypesIncluded": [
+    "Virginia DPOR asbestos remediation, lead-based paint remediation and renovation, and home inspection records exposed by the public lookup"
+  ],
+  "knownExclusions": [
+    "This source is limited to DPOR Asbestos, Lead, and Home Inspectors board records and does not represent general contractor, electrical, plumbing, HVAC, roofing, permit, or business-registration records.",
+    "The Board for Contractors asbestos specialty and supervisor-credential requirements may require checking the contractor-board source as well as this board source.",
+    "The lookup is not modeled as a confirmed bulk public dataset."
+  ],
+  "hasBulkDownload": "unknown",
+  "hasLiveLookup": true,
+  "requiresJavaScript": "unknown",
+  "requiresCaptcha": "unknown",
+  "requiresAccount": false,
+  "rateLimitNotes": "No adapter is implemented. Any future automated access must account for the official lookup disclaimer and technical controls.",
+  "redistributionStatus": "unknown",
+  "publicRecordsNotes": "Official lookup source metadata only. Generated datasets should not be published until privacy and redistribution are approved. Absence from this source is not proof that another asbestos credential, project authorization, or related record does not exist.",
+  "adapterStatus": "blocked",
+  "sourceDiscoveryStatus": "blocked",
+  "adapterMaturity": "blocked",
+  "adapterQualityLevel": 0,
+  "coverageScope": "state_agency_partial",
+  "adapterPackage": null,
+  "testFixturePath": null,
+  "officialLookupUrl": "https://www.dpor.virginia.gov/LicenseLookup",
+  "officialLookupReviewNotes": "DPOR publishes a public license lookup and an official board page for Asbestos, Lead, and Home Inspectors.",
+  "officialBulkDownloadNotes": "No official bulk download has been confirmed in this phase.",
+  "researchNotes": "Registry-only blocked source for now because the official path is lookup-oriented and no stable machine-readable public export contract has been confirmed.",
+  "verificationReviewedAt": null,
+  "verificationCaveats": [
+    "This source covers Virginia DPOR asbestos, lead, and home inspector board records exposed by the official lookup.",
+    "No matching record means no match in the checked source at the checked time, not proof that another asbestos credential, contractor specialty, project authorization, or related record does not exist."
+  ],
+  "verificationNotes": "No supported sync or verification adapter is exposed while the official lookup contract and allowed reuse remain under review.",
+  "lastVerifiedAt": "2026-07-04T00:00:00.000Z",
+  "maintainerNotes": "A future adapter must preserve DPOR disclaimer wording, source URL, checked time, caveats, and raw lookup evidence before exposing records.",
+  "schemaVersion": "1.0",
+  "researchReviewedAt": "2026-07-04T00:00:00.000Z",
+  "nextReviewAt": "2027-01-04T00:00:00.000Z",
+  "researchEvidence": [
+    {
+      "url": "https://www.dpor.virginia.gov/Boards/ALHI",
+      "checkedAt": "2026-07-04T00:00:00.000Z",
+      "note": "DPOR states that the Board for Asbestos, Lead, and Home Inspectors licenses individuals engaged in asbestos remediation, lead-based paint remediation and renovation, and home inspection."
+    },
+    {
+      "url": "https://www.dpor.virginia.gov/LicenseLookup",
+      "checkedAt": "2026-07-04T00:00:00.000Z",
+      "note": "DPOR provides the public license lookup used for manual verification while no stable machine-readable source is confirmed."
+    },
+    {
+      "url": "https://www.dpor.virginia.gov/sites/default/files/boards/Contractors/A501-27REGS.pdf",
+      "checkedAt": "2026-07-04T00:00:00.000Z",
+      "note": "Board for Contractors regulations identify asbestos contracting and related credential requirements, requiring caveats when checking only one DPOR board source."
+    }
+  ],
+  "sourceResearchOutcome": "blocked",
+  "blocker": {
+    "code": "technical_instability",
+    "summary": "No stable, documented machine-readable official interface is currently suitable for an offline-tested adapter.",
+    "evidenceUrls": [
+      "https://www.dpor.virginia.gov/Boards/ALHI",
+      "https://www.dpor.virginia.gov/LicenseLookup",
+      "https://www.dpor.virginia.gov/sites/default/files/boards/Contractors/A501-27REGS.pdf"
+    ]
+  }
+}
