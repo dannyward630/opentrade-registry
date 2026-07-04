@@ -2434,7 +2434,95 @@
         }
       }
     },
-    { "state": "MT", "decisions": {} },
+    {
+      "state": "MT",
+      "decisions": {
+        "general_contracting": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.mt.dli.contractor_registration"],
+          "evidence": [{ "url": "https://erd.dli.mt.gov/work-comp-regulations/montana-contractor/construction-contractor-registration", "reviewedAt": "2026-07-04T00:00:00.000Z", "note": "Montana DLI states that all construction contractors with employees must register and defines a construction contractor as anyone who adds to or takes away from a structure, project, development, or improvement attached to real estate." }],
+          "limitations": ["Construction Contractor Registration is primarily tied to workers compensation compliance and does not replace trade-specific DLI professional licenses, DEQ asbestos requirements, or local permits."]
+        },
+        "residential_contracting": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.mt.dli.contractor_registration"],
+          "evidence": [{ "url": "https://erd.dli.mt.gov/work-comp-regulations/montana-contractor/construction-contractor-registration", "reviewedAt": "2026-07-04T00:00:00.000Z", "note": "The DLI construction contractor definition applies to improvements attached to real estate, and the official page instructs covered contractors to register through the current process." }],
+          "limitations": ["The source is not a residential competency license; local building permits and trade-specific licenses may still apply."]
+        },
+        "commercial_contracting": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.mt.dli.contractor_registration"],
+          "evidence": [{ "url": "https://erd.dli.mt.gov/work-comp-regulations/montana-contractor/", "reviewedAt": "2026-07-04T00:00:00.000Z", "note": "The Montana Contractor page says the Construction Contractor Registration Unit issues registration to contractors in the construction industry that have employees, are corporations, or are manager-managed limited liability companies." }],
+          "limitations": ["The source is a contractor-registration path, not a comprehensive commercial trade-license endorsement."]
+        },
+        "electrical": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.mt.dli.professional_licenses", "us.mt.dli.contractor_registration"],
+          "evidence": [{ "url": "https://boards.bsd.dli.mt.gov/electrical/", "reviewedAt": "2026-07-04T00:00:00.000Z", "note": "The Montana State Electrical Board states that it licenses and regulates electricians in Montana and directs users to the Licensee Lookup System." }],
+          "limitations": ["Contractor registration and electrical professional licensing are separate requirements and must not be normalized as one credential."]
+        },
+        "plumbing": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.mt.dli.professional_licenses", "us.mt.dli.contractor_registration"],
+          "evidence": [{ "url": "https://boards.bsd.dli.mt.gov/plumbers/license-information/plumber-journeyman", "reviewedAt": "2026-07-04T00:00:00.000Z", "note": "The Montana Board of Plumbers page defines journeyman plumber licensing requirements and points to the Licensee Lookup System for verification." }],
+          "limitations": ["Contractor registration and plumber professional licensing are separate requirements and must not be normalized as one credential."]
+        },
+        "hvac": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.mt.dli.contractor_registration", "us.mt.dli.professional_licenses"],
+          "evidence": [{ "url": "https://erd.dli.mt.gov/work-comp-regulations/montana-contractor/construction-contractor-registration", "reviewedAt": "2026-07-04T00:00:00.000Z", "note": "Montana's construction contractor registration applies broadly to construction contractors adding to or taking away from real-property improvements." }],
+          "limitations": ["No comprehensive statewide HVAC contractor board was confirmed in this source review; fuel, plumbing, electrical, boiler, fire-protection, and local requirements may apply depending on the work."]
+        },
+        "mechanical": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.mt.dli.contractor_registration", "us.mt.dli.professional_licenses"],
+          "evidence": [{ "url": "https://boards.bsd.dli.mt.gov/boiler-operator-program/", "reviewedAt": "2026-07-04T00:00:00.000Z", "note": "The Montana Boiler Operator Program provides a DLI professional-licensing path for boiler operators, while contractor registration covers construction-contractor business status." }],
+          "limitations": ["Mechanical coverage is partial and may require electrical, plumbing, boiler, fire-protection, contractor-registration, or local credentials depending on the work."]
+        },
+        "roofing": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.mt.dli.contractor_registration"],
+          "evidence": [{ "url": "https://erd.dli.mt.gov/work-comp-regulations/montana-contractor/construction-contractor-registration", "reviewedAt": "2026-07-04T00:00:00.000Z", "note": "The official construction contractor definition covers contractors who add to or take away from structures or improvements attached to real estate." }],
+          "limitations": ["This is contractor-registration coverage, not a roofing-specific competency license."]
+        },
+        "solar": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.mt.dli.contractor_registration", "us.mt.dli.professional_licenses"],
+          "evidence": [{ "url": "https://boards.bsd.dli.mt.gov/electrical/", "reviewedAt": "2026-07-04T00:00:00.000Z", "note": "The State Electrical Board regulates electricians in Montana, and construction contractor registration applies to covered construction contractors." }],
+          "limitations": ["Solar projects may require electrical licensing, utility interconnection, building permits, or local approvals in addition to contractor registration."]
+        },
+        "pool_spa": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.mt.dli.contractor_registration", "us.mt.dli.professional_licenses"],
+          "evidence": [{ "url": "https://erd.dli.mt.gov/work-comp-regulations/montana-contractor/construction-contractor-registration", "reviewedAt": "2026-07-04T00:00:00.000Z", "note": "Montana DLI's construction contractor definition is broad enough to cover contractors adding to or taking away from real-property improvements." }],
+          "limitations": ["No separate statewide pool/spa contractor board was confirmed; electrical, plumbing, public-health, or local requirements may apply to specific work."]
+        },
+        "asbestos": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.mt.deq.asbestos_contractors", "us.mt.dli.contractor_registration"],
+          "evidence": [{ "url": "https://deq.mt.gov/cleanupandrec/Programs/asbestos", "reviewedAt": "2026-07-04T00:00:00.000Z", "note": "Montana DEQ states that owners or operators must use Montana-accredited asbestos contractors to identify, remove, and dispose of asbestos-containing material before covered renovation or demolition activities." }],
+          "limitations": ["DEQ only publishes contractors or companies that authorized public display, so absence from the public list is not proof that no accreditation or project authority exists."]
+        },
+        "sheet_metal": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.mt.dli.contractor_registration", "us.mt.dli.professional_licenses"],
+          "evidence": [{ "url": "https://erd.dli.mt.gov/work-comp-regulations/montana-contractor/construction-contractor-registration", "reviewedAt": "2026-07-04T00:00:00.000Z", "note": "Montana DLI's construction contractor definition covers contractors adding to or taking away from structures, projects, developments, or improvements attached to real estate." }],
+          "limitations": ["Sheet-metal work connected to HVAC, fire-protection, boiler, electrical, or plumbing systems may require separate DLI credentials."]
+        },
+        "underground_utility": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.mt.dli.contractor_registration"],
+          "evidence": [{ "url": "https://erd.dli.mt.gov/work-comp-regulations/montana-contractor/construction-contractor-registration", "reviewedAt": "2026-07-04T00:00:00.000Z", "note": "The DLI construction contractor definition applies broadly to construction improvements attached to real estate." }],
+          "limitations": ["Utility-owner approvals, excavation notification, environmental permits, plumbing credentials, public works rules, and local permits may still apply."]
+        },
+        "home_improvement": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.mt.dli.contractor_registration"],
+          "evidence": [{ "url": "https://erd.dli.mt.gov/work-comp-regulations/montana-contractor/construction-contractor-registration", "reviewedAt": "2026-07-04T00:00:00.000Z", "note": "Construction Contractor Registration applies to covered contractors adding to or taking away from real-property structures and improvements." }],
+          "limitations": ["This is contractor-registration coverage and does not replace consumer-contract rules, local permits, or trade-specific credentials."]
+        }
+      }
+    },
     {
       "state": "NC",
       "decisions": {

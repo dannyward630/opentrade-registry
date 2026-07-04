@@ -275,6 +275,8 @@
       "state": "MT",
       "status": "blocked",
       "sourceIds": [
+        "us.mt.deq.asbestos_contractors",
+        "us.mt.dli.professional_licenses",
         "us.mt.dli.contractor_registration"
       ],
       "notes": "Official source metadata is retained, but automated ingestion is blocked by documented legal, access, scope, or technical constraints."

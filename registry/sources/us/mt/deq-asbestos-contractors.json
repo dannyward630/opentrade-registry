@@ -1,0 +1,83 @@
+{
+  "id": "us.mt.deq.asbestos_contractors",
+  "name": "Montana DEQ Accredited Asbestos Contractors and Consultants",
+  "jurisdiction": {
+    "country": "US",
+    "state": "MT"
+  },
+  "agency": {
+    "name": "Montana Department of Environmental Quality",
+    "url": "https://deq.mt.gov/"
+  },
+  "sourceType": "html_lookup",
+  "sourceUrl": "https://deq.mt.gov/cleanupandrec/Programs/asbestos",
+  "documentationUrl": "https://deq.mt.gov/cleanupandrec/Programs/asbestos",
+  "dataDictionaryUrl": null,
+  "termsUrl": "https://mt.gov/discover/disclaimer/",
+  "termsReviewNotes": "Montana.gov disclaimer and site policies were identified, but source-specific publication, redistribution, and privacy review has not been completed.",
+  "updateFrequency": "unknown; verify against Montana DEQ asbestos pages before relying on freshness assumptions",
+  "tradeCoverage": [
+    "asbestos"
+  ],
+  "licenseTypesIncluded": [
+    "Montana-accredited asbestos contractors and consultant companies that authorized public publication",
+    "Approved asbestos project permits in progress where exposed by the official DEQ permit search"
+  ],
+  "knownExclusions": [
+    "DEQ states that only companies or contractors who authorized publication are displayed.",
+    "This source is limited to Montana asbestos control program records and does not represent general contractor, electrical, plumbing, HVAC, permit, or local registration records.",
+    "No stable bulk export, parser contract, privacy filter, or redistribution approval has been confirmed."
+  ],
+  "hasBulkDownload": "unknown",
+  "hasLiveLookup": true,
+  "requiresJavaScript": false,
+  "requiresCaptcha": false,
+  "requiresAccount": false,
+  "rateLimitNotes": "No adapter is implemented. Use official DEQ asbestos pages manually until field shape, update cadence, and allowed reuse are reviewed.",
+  "redistributionStatus": "unknown",
+  "publicRecordsNotes": "Official source metadata only. Generated datasets should not be published until privacy and redistribution are approved. Absence from this source is not proof that another asbestos credential, project permit, local license, or related record does not exist.",
+  "adapterStatus": "blocked",
+  "sourceDiscoveryStatus": "blocked",
+  "adapterMaturity": "blocked",
+  "adapterQualityLevel": 0,
+  "coverageScope": "state_agency_partial",
+  "adapterPackage": null,
+  "testFixturePath": null,
+  "officialLookupUrl": "https://svc.mt.gov/deq/AsbestosPermits/",
+  "officialLookupReviewNotes": "The official DEQ asbestos program page links contractor/consultant searches and an approved asbestos project permit search.",
+  "officialBulkDownloadNotes": "No stable public bulk export has been confirmed in this phase.",
+  "researchNotes": "Registry-only blocked source for Montana DEQ asbestos contractor, consultant, and permit-search metadata. Future adapter work must respect the DEQ publication limitation for companies that authorized public display.",
+  "verificationReviewedAt": null,
+  "verificationCaveats": [
+    "This source covers Montana DEQ asbestos program publication paths only.",
+    "No matching record means no match in the checked source at the checked time, not proof that another asbestos credential, project permit, local license, or related record does not exist."
+  ],
+  "verificationNotes": "No supported sync or verification adapter is exposed while the official lookup contract and allowed reuse remain under review.",
+  "lastVerifiedAt": "2026-07-04T00:00:00.000Z",
+  "maintainerNotes": "A future adapter must preserve DEQ publication caveats, checked time, source URL, raw lookup evidence, and asbestos-specific filtering before exposing records.",
+  "schemaVersion": "1.0",
+  "researchReviewedAt": "2026-07-04T00:00:00.000Z",
+  "nextReviewAt": "2027-01-04T00:00:00.000Z",
+  "researchEvidence": [
+    {
+      "url": "https://deq.mt.gov/cleanupandrec/Programs/asbestos",
+      "checkedAt": "2026-07-04T00:00:00.000Z",
+      "note": "Official Montana DEQ asbestos page reviewed; it states asbestos projects require Montana-accredited contractors and links contractor and consultant search paths."
+    },
+    {
+      "url": "https://svc.mt.gov/deq/AsbestosPermits/",
+      "checkedAt": "2026-07-04T00:00:00.000Z",
+      "note": "Official DEQ approved asbestos project permit search reviewed; it exposes project permit search fields including contractor, address, and city."
+    }
+  ],
+  "sourceResearchOutcome": "blocked",
+  "blocker": {
+    "code": "technical_instability",
+    "summary": "The official DEQ publication paths are lookup/list oriented and have no adapter-reviewed stable table contract, update cadence, privacy filter, or allowed redistribution path.",
+    "evidenceUrls": [
+      "https://deq.mt.gov/cleanupandrec/Programs/asbestos",
+      "https://svc.mt.gov/deq/AsbestosPermits/",
+      "https://mt.gov/discover/disclaimer/"
+    ]
+  }
+}

@@ -19,14 +19,23 @@
     "general_contracting",
     "residential_contracting",
     "commercial_contracting",
+    "roofing",
+    "solar",
+    "pool_spa",
+    "sheet_metal",
+    "underground_utility",
+    "home_improvement",
     "other"
   ],
   "licenseTypesIncluded": [
-    "Montana Construction Contractor Registration and Independent Contractor Exemption Certificate records exposed by DLI search paths"
+    "Montana Construction Contractor Registration and Independent Contractor Exemption Certificate records exposed by DLI search paths",
+    "Future Montana Construction Contractor License Program records after the announced January 1, 2026 transition where exposed by official DLI services"
   ],
   "knownExclusions": [
-    "Construction Contractor Registration is not the same as a full trade license or endorsement for every construction activity.",
-    "Professional and occupational licenses, local permits, business registrations, and non-DLI authorizations may require separate official sources.",
+    "Construction Contractor Registration is primarily tied to workers compensation compliance and is not the same as a trade competency license or endorsement for every construction activity.",
+    "Montana DLI professional and occupational licenses are represented separately by us.mt.dli.professional_licenses.",
+    "Montana DEQ asbestos contractor and consultant publication is represented separately by us.mt.deq.asbestos_contractors.",
+    "Local permits, business registrations, utility approvals, and non-DLI authorizations may require separate official sources.",
     "Workers compensation coverage and exemption details need source-specific interpretation before being normalized as compliance facts."
   ],
   "hasBulkDownload": false,
@@ -44,18 +53,28 @@
   "adapterPackage": null,
   "testFixturePath": null,
   "officialLookupUrl": "https://erd.dli.mt.gov/work-comp-regulations/montana-contractor/icec-search-old",
-  "officialBulkDownloadNotes": "The official DLI page redirects to an interactive contractor-registration and exemption-certificate search; no stable bulk file or API was documented.",
-  "researchNotes": "The source is contractor-specific but combines Construction Contractor Registration and Independent Contractor Exemption Certificate concepts that must remain distinct from trade licensing and workers compensation coverage.",
-  "lastVerifiedAt": "2026-06-27T00:00:00.000Z",
+  "officialBulkDownloadNotes": "The official DLI page links interactive contractor-registration and exemption-certificate searches; no stable bulk file or API was documented.",
+  "researchNotes": "The source is contractor-specific but combines Construction Contractor Registration and Independent Contractor Exemption Certificate concepts that must remain distinct from trade licensing and workers compensation coverage. DLI states that the program will transition to a Construction Contractor License Program beginning January 1, 2026 while contractors continue using the current process until the new portal is ready.",
+  "lastVerifiedAt": "2026-07-04T00:00:00.000Z",
   "maintainerNotes": "Keep CCR, ICEC, professional licenses, and workers compensation concepts separate until their source semantics are reviewed.",
   "schemaVersion": "1.0",
-  "researchReviewedAt": "2026-06-27T00:00:00.000Z",
-  "nextReviewAt": "2026-12-27T00:00:00.000Z",
+  "researchReviewedAt": "2026-07-04T00:00:00.000Z",
+  "nextReviewAt": "2027-01-04T00:00:00.000Z",
   "researchEvidence": [
     {
+      "url": "https://erd.dli.mt.gov/work-comp-regulations/montana-contractor/construction-contractor-registration",
+      "checkedAt": "2026-07-04T00:00:00.000Z",
+      "note": "Official DLI construction contractor registration page reviewed; it states all construction contractors with employees must register, defines construction contractor by reference to work that adds to or takes away from real-property improvements, and announces the January 1, 2026 transition to a Construction Contractor License Program."
+    },
+    {
+      "url": "https://erd.dli.mt.gov/work-comp-regulations/montana-contractor/",
+      "checkedAt": "2026-07-04T00:00:00.000Z",
+      "note": "Official Montana Contractor page reviewed; it identifies DLI units responsible for Independent Contractor Exemption Certificates and Construction Contractor Registration."
+    },
+    {
       "url": "https://erd.dli.mt.gov/work-comp-regulations/montana-contractor/icec-search-old",
-      "checkedAt": "2026-06-27T00:00:00.000Z",
-      "note": "Official DLI page confirmed the current interactive registration lookup, JavaScript dependency, and separate CCR, ICEC, and professional-license concepts."
+      "checkedAt": "2026-07-04T00:00:00.000Z",
+      "note": "Official DLI search path reviewed as the current interactive registration and exemption-certificate lookup."
     }
   ],
   "sourceResearchOutcome": "blocked",

@@ -1,0 +1,107 @@
+{
+  "id": "us.mt.dli.professional_licenses",
+  "name": "Montana DLI Professional and Occupational Licensee Lookup",
+  "jurisdiction": {
+    "country": "US",
+    "state": "MT"
+  },
+  "agency": {
+    "name": "Montana Department of Labor and Industry",
+    "url": "https://dli.mt.gov/"
+  },
+  "sourceType": "html_lookup",
+  "sourceUrl": "https://boards.bsd.dli.mt.gov/",
+  "documentationUrl": "https://boards.bsd.dli.mt.gov/",
+  "dataDictionaryUrl": null,
+  "termsUrl": "https://mt.gov/discover/disclaimer/",
+  "termsReviewNotes": "Montana.gov disclaimer and site policies were identified, but source-specific publication, redistribution, and privacy review has not been completed.",
+  "updateFrequency": "unknown; verify against the official Licensee Lookup System before relying on freshness assumptions",
+  "tradeCoverage": [
+    "electrical",
+    "plumbing",
+    "mechanical",
+    "other"
+  ],
+  "licenseTypesIncluded": [
+    "Montana State Electrical Board licenses, including electrical contractor and electrician records where exposed by the Licensee Lookup System",
+    "Montana Board of Plumbers licenses, including master and journeyman plumber records where exposed by the Licensee Lookup System",
+    "Montana Fire Protection License Program business licenses and individual endorsements where exposed by the Licensee Lookup System",
+    "Montana Boiler Operator Program licenses where exposed by the Licensee Lookup System"
+  ],
+  "knownExclusions": [
+    "This source spans many professional and occupational programs and must be filtered to construction-relevant boards before normalization.",
+    "Construction Contractor Registration and Independent Contractor Exemption Certificate records are represented separately by us.mt.dli.contractor_registration.",
+    "Montana DEQ asbestos contractor and consultant publication is represented separately by us.mt.deq.asbestos_contractors.",
+    "Local permits, municipal contractor rules, business registrations, and non-DLI authorizations are outside this source entry."
+  ],
+  "hasBulkDownload": true,
+  "hasLiveLookup": true,
+  "requiresJavaScript": true,
+  "requiresCaptcha": false,
+  "requiresAccount": false,
+  "rateLimitNotes": "No adapter is implemented. Future work should review the official Licensee Lookup System and downloadable licensee mailing-list behavior before any opt-in network sync.",
+  "redistributionStatus": "unknown",
+  "publicRecordsNotes": "Official DLI licensee lookup metadata only. Absence from this source is not proof that another license, contractor registration, local authorization, or related record does not exist.",
+  "adapterStatus": "blocked",
+  "sourceDiscoveryStatus": "blocked",
+  "adapterMaturity": "blocked",
+  "adapterQualityLevel": 0,
+  "coverageScope": "state_agency_partial",
+  "adapterPackage": null,
+  "testFixturePath": null,
+  "officialLookupUrl": "https://ebizws.mt.gov/PUBLICPORTAL/searchform",
+  "officialLookupReviewNotes": "DLI board pages identify the Licensee Lookup System as the primary source for verifying professional license credentials in Montana.",
+  "officialBulkDownloadNotes": "DLI board pages state that licensee lists can be downloaded by license type from the Licensee Lookup System, but no adapter-reviewed stable construction-specific export contract has been implemented.",
+  "researchNotes": "Registry-only blocked source for Montana professional and occupational construction-relevant boards. Future adapter work should split or filter electrical, plumbing, fire-protection, and boiler records explicitly before exposing normalized records.",
+  "verificationReviewedAt": null,
+  "verificationCaveats": [
+    "This source covers Montana DLI professional and occupational board records only.",
+    "No matching record means no match in the checked source at the checked time, not proof that another board, contractor registration, local license, or related record does not exist."
+  ],
+  "verificationNotes": "No supported sync or verification adapter is exposed while the official lookup/export contract and allowed reuse remain under review.",
+  "lastVerifiedAt": "2026-07-04T00:00:00.000Z",
+  "maintainerNotes": "Do not treat broad Licensee Lookup System records as construction-specific until board filters and license-type mappings are fixture-tested.",
+  "schemaVersion": "1.0",
+  "researchReviewedAt": "2026-07-04T00:00:00.000Z",
+  "nextReviewAt": "2027-01-04T00:00:00.000Z",
+  "researchEvidence": [
+    {
+      "url": "https://boards.bsd.dli.mt.gov/_global-pages/additional-license-information/lookup-individual",
+      "checkedAt": "2026-07-04T00:00:00.000Z",
+      "note": "Official DLI lookup page reviewed; it identifies the Licensee Lookup System as the primary source for verifying Montana professional license credentials."
+    },
+    {
+      "url": "https://boards.bsd.dli.mt.gov/electrical/",
+      "checkedAt": "2026-07-04T00:00:00.000Z",
+      "note": "Official State Electrical Board page reviewed; it references electrical license lookup and downloadable licensee lists."
+    },
+    {
+      "url": "https://boards.bsd.dli.mt.gov/plumbers/license-information/plumber-journeyman",
+      "checkedAt": "2026-07-04T00:00:00.000Z",
+      "note": "Official Board of Plumbers page reviewed; it identifies plumber licensing and the same Licensee Lookup System path."
+    },
+    {
+      "url": "https://boards.bsd.dli.mt.gov/fire-protection/",
+      "checkedAt": "2026-07-04T00:00:00.000Z",
+      "note": "Official Fire Protection License Program page reviewed; it identifies DLI licensing and public portal services for fire-protection licensees."
+    },
+    {
+      "url": "https://boards.bsd.dli.mt.gov/boiler-operator-program/",
+      "checkedAt": "2026-07-04T00:00:00.000Z",
+      "note": "Official Boiler Operator Program page reviewed as a construction-adjacent mechanical credential path exposed through DLI professional licensing."
+    }
+  ],
+  "sourceResearchOutcome": "blocked",
+  "blocker": {
+    "code": "technical_instability",
+    "summary": "The official lookup and mailing-list downloads are interactive and have no adapter-reviewed construction-specific export contract, privacy filter, or redistribution approval.",
+    "evidenceUrls": [
+      "https://boards.bsd.dli.mt.gov/_global-pages/additional-license-information/lookup-individual",
+      "https://boards.bsd.dli.mt.gov/electrical/",
+      "https://boards.bsd.dli.mt.gov/plumbers/license-information/plumber-journeyman",
+      "https://boards.bsd.dli.mt.gov/fire-protection/",
+      "https://boards.bsd.dli.mt.gov/boiler-operator-program/",
+      "https://mt.gov/discover/disclaimer/"
+    ]
+  }
+}
