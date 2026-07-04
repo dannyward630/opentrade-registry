@@ -3560,30 +3560,69 @@
       }
     },
     {
+      "id": "us.va.dpor.asbestos_contractors",
+      "jurisdiction": {
+        "country": "US",
+        "state": "VA"
+      },
+      "boardName": "Virginia DPOR Asbestos, Lead, and Home Inspectors License Lookup",
+      "agencyName": "Virginia Department of Professional and Occupational Regulation",
+      "officialUrl": "https://www.dpor.virginia.gov/LicenseLookup",
+      "sourceIds": [
+        "us.va.dpor.asbestos_contractors"
+      ],
+      "trades": [
+        "asbestos"
+      ],
+      "accessPath": "manual_handoff",
+      "coverageLimitations": [
+        "This source is limited to DPOR Asbestos, Lead, and Home Inspectors board records and does not represent general contractor, electrical, plumbing, HVAC, roofing, permit, or business-registration records.",
+        "The Board for Contractors asbestos specialty and supervisor-credential requirements may require checking the contractor-board source as well as this board source.",
+        "The lookup is not modeled as a confirmed bulk public dataset."
+      ],
+      "evidence": {
+        "url": "https://www.dpor.virginia.gov/Boards/ALHI",
+        "reviewedAt": "2026-07-04T00:00:00.000Z",
+        "note": "DPOR states that the Board for Asbestos, Lead, and Home Inspectors licenses individuals engaged in asbestos remediation, lead-based paint remediation and renovation, and home inspection."
+      }
+    },
+    {
       "id": "us.va.dpor.contractors",
       "jurisdiction": {
         "country": "US",
         "state": "VA"
       },
-      "boardName": "Virginia DPOR Contractor License Lookup",
+      "boardName": "Virginia DPOR Contractor and Tradesmen License Lookup",
       "agencyName": "Virginia Department of Professional and Occupational Regulation",
       "officialUrl": "https://www.dpor.virginia.gov/LicenseLookup",
       "sourceIds": [
         "us.va.dpor.contractors"
       ],
       "trades": [
-        "contractors",
-        "tradesmen"
+        "general_contracting",
+        "residential_contracting",
+        "commercial_contracting",
+        "electrical",
+        "plumbing",
+        "hvac",
+        "mechanical",
+        "roofing",
+        "solar",
+        "pool_spa",
+        "sheet_metal",
+        "underground_utility",
+        "home_improvement"
       ],
       "accessPath": "manual_handoff",
       "coverageLimitations": [
         "The lookup is not modeled as a confirmed bulk public dataset.",
-        "DPOR scope does not represent every local permit, business registration, or non-DPOR construction authorization in Virginia."
+        "This source does not represent every local permit, business registration, or non-DPOR construction authorization in Virginia.",
+        "DPOR asbestos, lead, and home inspector records are tracked separately under the asbestos board source."
       ],
       "evidence": {
-        "url": "https://www.dpor.virginia.gov/LicenseLookup",
-        "reviewedAt": "2026-06-27T00:00:00.000Z",
-        "note": "Official public source, access shape, and current automation constraints reviewed."
+        "url": "https://www.dpor.virginia.gov/Boards/Contractors",
+        "reviewedAt": "2026-07-04T00:00:00.000Z",
+        "note": "DPOR states that the Board for Contractors licenses businesses engaged in construction, removal, repair, or improvement of facilities and uses license class plus classification or specialty to determine authorized work."
       }
     },
     {
