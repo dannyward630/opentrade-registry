@@ -1,0 +1,88 @@
+{
+  "id": "us.nh.des.asbestos_licenses",
+  "name": "New Hampshire DES Asbestos Licenses and Certifications",
+  "jurisdiction": {
+    "country": "US",
+    "state": "NH"
+  },
+  "agency": {
+    "name": "New Hampshire Department of Environmental Services",
+    "url": "https://www.des.nh.gov/"
+  },
+  "sourceType": "manual_public_records_file",
+  "sourceUrl": "https://www4.des.state.nh.us/OnestopPub/Air/ContractorLists/Web-AbatementContractors.pdf",
+  "documentationUrl": "https://www.des.nh.gov/waste/asbestos/license-and-certifications",
+  "dataDictionaryUrl": null,
+  "termsUrl": "https://www.nh.gov/policies/",
+  "termsReviewNotes": "NH.gov policies were identified, but source-specific publication, redistribution, and privacy review has not been completed.",
+  "updateFrequency": "unknown; verify against the official DES asbestos licensing pages and contractor publications before relying on freshness assumptions",
+  "tradeCoverage": [
+    "asbestos"
+  ],
+  "licenseTypesIncluded": [
+    "New Hampshire asbestos abatement contractor records published by DES where available",
+    "New Hampshire asbestos disposal site contractor, worker, supervisor, inspector, management planner, project designer, and related certification records where exposed by DES publications or lookup paths"
+  ],
+  "knownExclusions": [
+    "This source is limited to New Hampshire DES asbestos license and certification records and does not represent OPLC trade licenses, DES water-well credentials, business registrations, local permits, or non-asbestos credentials.",
+    "The abatement-contractor PDF publication has not been adapter-reviewed and may expose contact fields requiring privacy review.",
+    "Generated datasets should not be published until privacy and redistribution are approved."
+  ],
+  "hasBulkDownload": true,
+  "hasLiveLookup": false,
+  "requiresJavaScript": false,
+  "requiresCaptcha": false,
+  "requiresAccount": false,
+  "rateLimitNotes": "No adapter is implemented. Use official DES publications manually until PDF layout, update cadence, privacy handling, and allowed reuse are reviewed.",
+  "redistributionStatus": "unknown",
+  "publicRecordsNotes": "Official DES asbestos metadata only. Generated datasets should not be published until privacy and redistribution are approved. Absence from this source is not proof that another asbestos credential, license, local authorization, permit, or related record does not exist.",
+  "adapterStatus": "blocked",
+  "sourceDiscoveryStatus": "blocked",
+  "adapterMaturity": "blocked",
+  "adapterQualityLevel": 0,
+  "coverageScope": "state_agency_partial",
+  "adapterPackage": null,
+  "testFixturePath": null,
+  "officialLookupUrl": "https://www4.des.state.nh.us/OnestopPub/Air/ContractorLists/Web-AbatementContractors.pdf",
+  "officialLookupReviewNotes": "DES publishes official asbestos licensing guidance and a licensed asbestos abatement contractors PDF publication.",
+  "officialBulkDownloadNotes": "The official contractor roster is a PDF file, not an adapter-reviewed structured bulk export.",
+  "researchNotes": "Registry-only blocked source for New Hampshire DES asbestos records. Future adapter work would need PDF extraction fixtures, source-shape tests, privacy handling, and publication review before exposing normalized records.",
+  "verificationReviewedAt": null,
+  "verificationCaveats": [
+    "This source covers New Hampshire DES asbestos license and certification records only.",
+    "No matching record means no match in the checked source at the checked time, not proof that another asbestos credential, license, local authorization, permit, or related record does not exist."
+  ],
+  "verificationNotes": "No supported sync or verification adapter is exposed while the PDF table contract and allowed reuse remain under review.",
+  "lastVerifiedAt": "2026-07-04T00:00:00.000Z",
+  "maintainerNotes": "Do not parse or publish the PDF roster until PDF extraction accuracy, privacy, and redistribution are reviewed.",
+  "schemaVersion": "1.0",
+  "researchReviewedAt": "2026-07-04T00:00:00.000Z",
+  "nextReviewAt": "2027-01-04T00:00:00.000Z",
+  "researchEvidence": [
+    {
+      "url": "https://www.des.nh.gov/waste/asbestos/license-and-certifications",
+      "checkedAt": "2026-07-04T00:00:00.000Z",
+      "note": "Official DES asbestos licensing page reviewed; it states that every company or individual performing asbestos-related work in New Hampshire is required to be licensed or certified to perform the work."
+    },
+    {
+      "url": "https://www4.des.state.nh.us/OnestopPub/Air/ContractorLists/Web-AbatementContractors.pdf",
+      "checkedAt": "2026-07-04T00:00:00.000Z",
+      "note": "Official DES licensed asbestos abatement contractors PDF identified as a public contractor roster publication."
+    },
+    {
+      "url": "https://www.des.nh.gov/waste/asbestos",
+      "checkedAt": "2026-07-04T00:00:00.000Z",
+      "note": "Official DES asbestos program page reviewed; it states NHDES regulates asbestos requirements related to renovation or demolition projects and licenses required to work on projects."
+    }
+  ],
+  "sourceResearchOutcome": "blocked",
+  "blocker": {
+    "code": "technical_instability",
+    "summary": "The official asbestos contractor roster is a PDF publication with no adapter-reviewed stable extraction contract, update cadence, privacy filter, or allowed redistribution path.",
+    "evidenceUrls": [
+      "https://www4.des.state.nh.us/OnestopPub/Air/ContractorLists/Web-AbatementContractors.pdf",
+      "https://www.des.nh.gov/waste/asbestos/license-and-certifications",
+      "https://www.nh.gov/policies/"
+    ]
+  }
+}

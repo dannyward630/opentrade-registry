@@ -2996,7 +2996,270 @@
         }
       }
     },
-    { "state": "NH", "decisions": {} },
+    {
+      "state": "NH",
+      "decisions": {
+        "general_contracting": {
+          "outcome": "local_only",
+          "evidence": [
+            {
+              "url": "https://gc.nh.gov/rsa/html/XII/155-A/155-A-2.htm",
+              "reviewedAt": "2026-07-04T00:00:00.000Z",
+              "note": "New Hampshire RSA 155-A:2 reserves building-code permit issuance and fees for counties, towns, cities, and village districts where authorized, with State Fire Marshal involvement for state-owned buildings and municipalities without local enforcement mechanisms."
+            }
+          ],
+          "limitations": [
+            "No statewide general contractor licensing board source was confirmed in this pass; building-code compliance, permits, inspections, local land-use controls, and trade-specific state licenses remain separate requirements."
+          ]
+        },
+        "residential_contracting": {
+          "outcome": "local_only",
+          "evidence": [
+            {
+              "url": "https://gc.nh.gov/rsa/html/XII/155-A/155-A-2.htm",
+              "reviewedAt": "2026-07-04T00:00:00.000Z",
+              "note": "New Hampshire RSA 155-A:2 addresses state building-code compliance and permit/enforcement roles rather than establishing a statewide residential contractor license."
+            }
+          ],
+          "limitations": [
+            "Residential work may require local building permits, local inspections, state building-code compliance, and trade-specific credentials depending on scope; no separate statewide residential contractor board source was confirmed."
+          ]
+        },
+        "commercial_contracting": {
+          "outcome": "local_only",
+          "evidence": [
+            {
+              "url": "https://www.firemarshal.dos.nh.gov/prevention-safety/building-safety-construction/state-building-permit-program",
+              "reviewedAt": "2026-07-04T00:00:00.000Z",
+              "note": "The State Fire Marshal's state building permit program administers building-code enforcement and inspections for specified projects and municipalities, which is a permit/code pathway rather than a statewide contractor license roster."
+            }
+          ],
+          "limitations": [
+            "Commercial projects may require state or local building permits, inspections, trade-specific licenses, public-work requirements, and other agency approvals; no separate statewide commercial contractor licensing board source was confirmed."
+          ]
+        },
+        "electrical": {
+          "outcome": "covered_by_board",
+          "boardIds": [
+            "us.nh.oplc.electricians"
+          ],
+          "evidence": [
+            {
+              "url": "https://www.oplc.nh.gov/find-board/electricians-board",
+              "reviewedAt": "2026-07-04T00:00:00.000Z",
+              "note": "The OPLC Electricians Board page states that an active and valid New Hampshire electrician license is required to work with 30 volts or higher and lists electrician credential categories."
+            },
+            {
+              "url": "https://www.oplc.nh.gov/license-lookup",
+              "reviewedAt": "2026-07-04T00:00:00.000Z",
+              "note": "OPLC offers an official application for license verification."
+            }
+          ],
+          "limitations": [
+            "OPLC electrician records are not a general contractor license and do not replace local permits, inspections, utility requirements, or non-electrical credentials."
+          ]
+        },
+        "plumbing": {
+          "outcome": "covered_by_board",
+          "boardIds": [
+            "us.nh.oplc.mechanical_safety"
+          ],
+          "evidence": [
+            {
+              "url": "https://www.oplc.nh.gov/mechanical-safety-and-licensing-board",
+              "reviewedAt": "2026-07-04T00:00:00.000Z",
+              "note": "The OPLC Mechanical Safety and Licensing Board page describes the board's mission to ensure applicants are qualified for licensure."
+            },
+            {
+              "url": "https://www.oplc.nh.gov/sites/g/files/ehbemt441/files/inline-documents/sonh/mechanical-business-entity-application.pdf",
+              "reviewedAt": "2026-07-04T00:00:00.000Z",
+              "note": "The official mechanical business entity application requires a responsible managing employee with a New Hampshire master plumber, fuel gas service, or related license depending on business scope."
+            }
+          ],
+          "limitations": [
+            "Plumbing coverage is tied to OPLC Mechanical Safety and Licensing Board records and mechanical business entity requirements; local permits and inspections remain outside this source."
+          ]
+        },
+        "hvac": {
+          "outcome": "covered_by_board",
+          "boardIds": [
+            "us.nh.oplc.mechanical_safety"
+          ],
+          "evidence": [
+            {
+              "url": "https://www.oplc.nh.gov/applications-mechanical-safety-and-licensing",
+              "reviewedAt": "2026-07-04T00:00:00.000Z",
+              "note": "The official OPLC Mechanical Safety and Licensing applications page lists mechanical business entity and related mechanical safety licensing materials."
+            },
+            {
+              "url": "https://www.oplc.nh.gov/sites/g/files/ehbemt441/files/inline-documents/sonh/mechanical-business-entity-application.pdf",
+              "reviewedAt": "2026-07-04T00:00:00.000Z",
+              "note": "The mechanical business entity application references responsible managing employee licensing for plumbing, fuel gas service, oil heating, domestic appliance, hearth system, and related mechanical scopes."
+            }
+          ],
+          "limitations": [
+            "HVAC coverage is limited to mechanical business entity, fuel gas, oil heating, and specialty scopes documented by OPLC; pure ductwork or other HVAC work may also depend on local permits and inspections."
+          ]
+        },
+        "mechanical": {
+          "outcome": "covered_by_board",
+          "boardIds": [
+            "us.nh.oplc.mechanical_safety"
+          ],
+          "evidence": [
+            {
+              "url": "https://www.oplc.nh.gov/mechanical-safety-and-licensing-board",
+              "reviewedAt": "2026-07-04T00:00:00.000Z",
+              "note": "The OPLC Mechanical Safety and Licensing Board page is the official board path for mechanical safety licensure."
+            },
+            {
+              "url": "https://www.oplc.nh.gov/sites/g/files/ehbemt441/files/inline-documents/sonh/mechanical-business-entity-application.pdf",
+              "reviewedAt": "2026-07-04T00:00:00.000Z",
+              "note": "The official mechanical business entity application documents business entity licensure tied to responsible licensed mechanical, plumbing, or fuel-gas personnel."
+            }
+          ],
+          "limitations": [
+            "Mechanical coverage must preserve specialty scope limits; OPLC mechanical safety records do not replace electrical credentials, DES credentials, local permits, or inspections."
+          ]
+        },
+        "roofing": {
+          "outcome": "local_only",
+          "evidence": [
+            {
+              "url": "https://gc.nh.gov/rsa/html/XII/155-A/155-A-2.htm",
+              "reviewedAt": "2026-07-04T00:00:00.000Z",
+              "note": "New Hampshire RSA 155-A:2 governs building-code compliance and permit/enforcement roles, including local permit authority, rather than a statewide roofing contractor license."
+            }
+          ],
+          "limitations": [
+            "No separate statewide roofing contractor board source was confirmed in this pass; roofing work may still require building permits, local inspections, and asbestos review when applicable."
+          ]
+        },
+        "solar": {
+          "outcome": "covered_by_board",
+          "boardIds": [
+            "us.nh.oplc.electricians",
+            "us.nh.oplc.mechanical_safety"
+          ],
+          "evidence": [
+            {
+              "url": "https://www.oplc.nh.gov/find-board/electricians-board",
+              "reviewedAt": "2026-07-04T00:00:00.000Z",
+              "note": "The OPLC Electricians Board page states that a valid electrician license is required to work with 30 volts or higher, which may apply to photovoltaic solar electrical scopes."
+            },
+            {
+              "url": "https://www.oplc.nh.gov/mechanical-safety-and-licensing-board",
+              "reviewedAt": "2026-07-04T00:00:00.000Z",
+              "note": "The OPLC Mechanical Safety and Licensing Board path may apply to solar thermal, fuel-gas, or related mechanical scopes depending on project type."
+            }
+          ],
+          "limitations": [
+            "No separate statewide solar contractor board source was confirmed; solar work may require electrical credentials, mechanical credentials for thermal or fuel-gas scopes, utility interconnection, local permits, and inspections."
+          ]
+        },
+        "pool_spa": {
+          "outcome": "covered_by_board",
+          "boardIds": [
+            "us.nh.oplc.electricians",
+            "us.nh.oplc.mechanical_safety"
+          ],
+          "evidence": [
+            {
+              "url": "https://www.oplc.nh.gov/find-board/electricians-board",
+              "reviewedAt": "2026-07-04T00:00:00.000Z",
+              "note": "The OPLC Electricians Board license requirement may apply to pool or spa electrical work above the documented voltage threshold."
+            },
+            {
+              "url": "https://www.oplc.nh.gov/sites/g/files/ehbemt441/files/inline-documents/sonh/mechanical-business-entity-application.pdf",
+              "reviewedAt": "2026-07-04T00:00:00.000Z",
+              "note": "The mechanical business entity application ties business entity licensure to plumbing, fuel gas, and related mechanical scopes that may apply to pool or spa systems."
+            }
+          ],
+          "limitations": [
+            "No separate statewide pool or spa contractor board source was confirmed; electrical, plumbing, fuel-gas, local permitting, and inspection requirements may apply depending on scope."
+          ]
+        },
+        "asbestos": {
+          "outcome": "covered_by_board",
+          "boardIds": [
+            "us.nh.des.asbestos_licenses"
+          ],
+          "evidence": [
+            {
+              "url": "https://www.des.nh.gov/waste/asbestos/license-and-certifications",
+              "reviewedAt": "2026-07-04T00:00:00.000Z",
+              "note": "The DES asbestos licensing page states that every company or individual performing asbestos-related work in New Hampshire is required to be licensed or certified to perform the work."
+            },
+            {
+              "url": "https://www4.des.state.nh.us/OnestopPub/Air/ContractorLists/Web-AbatementContractors.pdf",
+              "reviewedAt": "2026-07-04T00:00:00.000Z",
+              "note": "DES publishes an official Licensed Asbestos Abatement Contractors PDF roster."
+            }
+          ],
+          "limitations": [
+            "DES asbestos records do not replace OPLC trade licenses, building permits, demolition/renovation notices, disposal requirements, or local approvals."
+          ]
+        },
+        "sheet_metal": {
+          "outcome": "local_only",
+          "evidence": [
+            {
+              "url": "https://gc.nh.gov/rsa/html/XII/155-A/155-A-2.htm",
+              "reviewedAt": "2026-07-04T00:00:00.000Z",
+              "note": "New Hampshire RSA 155-A:2 governs state building-code and local permit/enforcement responsibilities rather than establishing a statewide sheet-metal contractor license."
+            },
+            {
+              "url": "https://www.oplc.nh.gov/mechanical-safety-and-licensing-board",
+              "reviewedAt": "2026-07-04T00:00:00.000Z",
+              "note": "The OPLC Mechanical Safety and Licensing Board may apply to related mechanical, fuel-gas, or business-entity scopes, but no sheet-metal-only statewide board source was confirmed."
+            }
+          ],
+          "limitations": [
+            "Sheet-metal work may overlap HVAC, mechanical, fuel-gas, local permit, or inspection requirements depending on scope; no separate statewide sheet-metal contractor board source was confirmed."
+          ]
+        },
+        "underground_utility": {
+          "outcome": "covered_by_board",
+          "boardIds": [
+            "us.nh.des.water_well_contractors",
+            "us.nh.oplc.mechanical_safety"
+          ],
+          "evidence": [
+            {
+              "url": "https://www.des.nh.gov/about/boards-and-committees/water-well-board/licensing",
+              "reviewedAt": "2026-07-04T00:00:00.000Z",
+              "note": "The DES Water Well Board licensing page states that contractors or individuals wishing to engage in water-well construction or pump installation in New Hampshire must be licensed."
+            },
+            {
+              "url": "https://www.oplc.nh.gov/sites/g/files/ehbemt441/files/inline-documents/sonh/mechanical-business-entity-application.pdf",
+              "reviewedAt": "2026-07-04T00:00:00.000Z",
+              "note": "The mechanical business entity application documents plumbing, fuel gas, and related mechanical business-entity license paths that may apply to underground utility-related scopes."
+            }
+          ],
+          "limitations": [
+            "Underground utility coverage is represented through water-well contractor and mechanical/plumbing/fuel-gas paths only; utility-owner requirements, excavation permits, wastewater permits, one-call obligations, local permits, and inspections remain outside this decision."
+          ]
+        },
+        "home_improvement": {
+          "outcome": "local_only",
+          "evidence": [
+            {
+              "url": "https://gc.nh.gov/rsa/html/XII/155-A/155-A-2.htm",
+              "reviewedAt": "2026-07-04T00:00:00.000Z",
+              "note": "New Hampshire RSA 155-A:2 addresses building-code compliance and local permit/enforcement responsibilities rather than establishing a statewide home-improvement contractor license."
+            },
+            {
+              "url": "https://www.doj.nh.gov/resources/press-releases/consumer-alert-attorney-general-encourages-public-take-steps-protect-0",
+              "reviewedAt": "2026-07-04T00:00:00.000Z",
+              "note": "The New Hampshire Attorney General publishes consumer guidance for home-improvement contractor issues, but this consumer-protection guidance is not a contractor-license roster."
+            }
+          ],
+          "limitations": [
+            "No separate statewide home-improvement contractor board source was confirmed in this pass; home-improvement work may require local permits, inspections, trade-specific credentials, and consumer-protection review depending on scope."
+          ]
+        }
+      }
+    },
     {
       "state": "NJ",
       "decisions": {

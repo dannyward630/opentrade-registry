@@ -1,0 +1,94 @@
+{
+  "id": "us.nh.oplc.mechanical_safety",
+  "name": "New Hampshire OPLC Mechanical Safety and Licensing Board Lookup",
+  "jurisdiction": {
+    "country": "US",
+    "state": "NH"
+  },
+  "agency": {
+    "name": "New Hampshire Office of Professional Licensure and Certification",
+    "url": "https://www.oplc.nh.gov/"
+  },
+  "sourceType": "html_lookup",
+  "sourceUrl": "https://www.oplc.nh.gov/mechanical-safety-and-licensing-board",
+  "documentationUrl": "https://www.oplc.nh.gov/mechanical-safety-and-licensing-board",
+  "dataDictionaryUrl": null,
+  "termsUrl": "https://www.nh.gov/policies/",
+  "termsReviewNotes": "NH.gov policies were identified, but source-specific publication, redistribution, and privacy review has not been completed.",
+  "updateFrequency": "unknown; verify against the official OPLC lookup before relying on freshness assumptions",
+  "tradeCoverage": [
+    "plumbing",
+    "hvac",
+    "mechanical",
+    "solar",
+    "pool_spa",
+    "underground_utility",
+    "other"
+  ],
+  "licenseTypesIncluded": [
+    "New Hampshire Mechanical Safety and Licensing Board records exposed by OPLC lookup where available",
+    "Mechanical business entity, master plumber, fuel gas fitting, oil heating technician, gas service technician, hearth system, water treatment, and related records where exposed by official board materials"
+  ],
+  "knownExclusions": [
+    "This source is limited to OPLC Mechanical Safety and Licensing Board records and does not represent OPLC electrician records, DES asbestos records, DES water-well credentials, business registrations, local permits, or non-mechanical credentials.",
+    "Mechanical coverage is not a blanket HVAC contractor license; fuel gas, plumbing, business entity, and specialty scopes require source-specific interpretation.",
+    "No stable bulk export, parser contract, privacy filter, or redistribution approval has been confirmed."
+  ],
+  "hasBulkDownload": "unknown",
+  "hasLiveLookup": true,
+  "requiresJavaScript": "unknown",
+  "requiresCaptcha": "unknown",
+  "requiresAccount": false,
+  "rateLimitNotes": "No adapter is implemented. Use the official OPLC lookup manually until access controls, field shape, update cadence, and allowed reuse are reviewed.",
+  "redistributionStatus": "unknown",
+  "publicRecordsNotes": "Official OPLC mechanical-safety metadata only. Generated datasets should not be published until privacy and redistribution are approved. Absence from this source is not proof that another license, local authorization, permit, or related record does not exist.",
+  "adapterStatus": "blocked",
+  "sourceDiscoveryStatus": "blocked",
+  "adapterMaturity": "blocked",
+  "adapterQualityLevel": 0,
+  "coverageScope": "state_agency_partial",
+  "adapterPackage": null,
+  "testFixturePath": null,
+  "officialLookupUrl": "https://www.oplc.nh.gov/license-lookup",
+  "officialLookupReviewNotes": "OPLC offers a public license verification application. Mechanical Safety and Licensing Board materials identify mechanical business entity and plumbing/fuel-gas related licensing paths.",
+  "officialBulkDownloadNotes": "No official stable bulk download has been confirmed in this phase.",
+  "researchNotes": "Registry-only blocked source for New Hampshire mechanical safety, plumbing, fuel gas, and related business entity records. Future adapter work must preserve license-type scope and avoid treating specialty credentials as unrestricted HVAC or mechanical authority.",
+  "verificationReviewedAt": null,
+  "verificationCaveats": [
+    "This source covers New Hampshire OPLC Mechanical Safety and Licensing Board records only.",
+    "No matching record means no match in the checked source at the checked time, not proof that another license, local authorization, permit, or related record does not exist."
+  ],
+  "verificationNotes": "No supported sync or verification adapter is exposed while the official lookup contract and allowed reuse remain under review.",
+  "lastVerifiedAt": "2026-07-04T00:00:00.000Z",
+  "maintainerNotes": "A future adapter must preserve source page, checked time, raw lookup evidence, caveats, and license-type filters.",
+  "schemaVersion": "1.0",
+  "researchReviewedAt": "2026-07-04T00:00:00.000Z",
+  "nextReviewAt": "2027-01-04T00:00:00.000Z",
+  "researchEvidence": [
+    {
+      "url": "https://www.oplc.nh.gov/mechanical-safety-and-licensing-board",
+      "checkedAt": "2026-07-04T00:00:00.000Z",
+      "note": "Official OPLC Mechanical Safety and Licensing Board page reviewed; it describes the board's mission to ensure applicants are qualified for licensure."
+    },
+    {
+      "url": "https://www.oplc.nh.gov/applications-mechanical-safety-and-licensing",
+      "checkedAt": "2026-07-04T00:00:00.000Z",
+      "note": "Official OPLC application page reviewed; it lists Mechanical Business Entity application materials among mechanical safety licensing resources."
+    },
+    {
+      "url": "https://www.oplc.nh.gov/sites/g/files/ehbemt441/files/inline-documents/sonh/mechanical-business-entity-application.pdf",
+      "checkedAt": "2026-07-04T00:00:00.000Z",
+      "note": "Official mechanical business entity application reviewed; it states that a responsible managing employee must hold a New Hampshire master plumber, fuel gas service, or related license depending on scope."
+    }
+  ],
+  "sourceResearchOutcome": "blocked",
+  "blocker": {
+    "code": "technical_instability",
+    "summary": "The official OPLC lookup is interactive and broad across professions, with no adapter-reviewed stable table contract, license-type filter contract, update cadence, privacy filter, or allowed redistribution path.",
+    "evidenceUrls": [
+      "https://www.oplc.nh.gov/license-lookup",
+      "https://www.oplc.nh.gov/mechanical-safety-and-licensing-board",
+      "https://www.nh.gov/policies/"
+    ]
+  }
+}

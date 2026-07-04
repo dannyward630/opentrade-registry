@@ -15,10 +15,10 @@ describe("nationwide board trade coverage ledger", () => {
     expect(ledger.jurisdictions).toHaveLength(56);
     expect(new Set(ledger.jurisdictions.map((entry) => entry.state)).size).toBe(56);
     expect(expanded).toHaveLength(56 * BOARD_TRADE_DOMAINS.length);
-    expect(expanded.filter((decision) => decision.outcome === "needs_research")).toHaveLength(210);
-    expect(expanded.filter((decision) => decision.outcome === "covered_by_board")).toHaveLength(476);
+    expect(expanded.filter((decision) => decision.outcome === "needs_research")).toHaveLength(196);
+    expect(expanded.filter((decision) => decision.outcome === "covered_by_board")).toHaveLength(484);
     expect(expanded.filter((decision) => decision.outcome === "not_state_regulated")).toHaveLength(7);
-    expect(expanded.filter((decision) => decision.outcome === "local_only")).toHaveLength(91);
+    expect(expanded.filter((decision) => decision.outcome === "local_only")).toHaveLength(97);
   });
 
   it("records complete Oregon contractor, BCD trade, and DEQ asbestos coverage", async () => {
@@ -223,6 +223,25 @@ describe("nationwide board trade coverage ledger", () => {
     expect(expanded.find((decision) => decision.tradeDomain === "solar")?.limitations.join(" ")).toContain("electrical or mechanical");
     expect(expanded.find((decision) => decision.tradeDomain === "asbestos")?.limitations.join(" ")).toContain("Environmental Quality");
     expect(expanded.find((decision) => decision.tradeDomain === "pool_spa")?.limitations.join(" ")).toContain("excludes");
+  });
+
+  it("records New Hampshire OPLC, DES, and local building-code boundaries", async () => {
+    const ledger = boardTradeCoverageLedgerSchema.parse(await json("registry/board-coverage.json"));
+    const expanded = expandBoardTradeCoverageLedger(ledger).filter((decision) => decision.state === "NH");
+
+    expect(expanded).toHaveLength(BOARD_TRADE_DOMAINS.length);
+    expect(expanded.filter((decision) => decision.outcome === "needs_research")).toEqual([]);
+    expect(expanded.find((decision) => decision.tradeDomain === "general_contracting")?.outcome).toBe("local_only");
+    expect(expanded.find((decision) => decision.tradeDomain === "roofing")?.outcome).toBe("local_only");
+    expect(expanded.find((decision) => decision.tradeDomain === "home_improvement")?.outcome).toBe("local_only");
+    expect(expanded.find((decision) => decision.tradeDomain === "electrical")?.boardIds).toEqual(["us.nh.oplc.electricians"]);
+    expect(expanded.find((decision) => decision.tradeDomain === "plumbing")?.boardIds).toEqual(["us.nh.oplc.mechanical_safety"]);
+    expect(expanded.find((decision) => decision.tradeDomain === "asbestos")?.boardIds).toEqual(["us.nh.des.asbestos_licenses"]);
+    expect(expanded.find((decision) => decision.tradeDomain === "underground_utility")?.boardIds).toEqual([
+      "us.nh.des.water_well_contractors",
+      "us.nh.oplc.mechanical_safety",
+    ]);
+    expect(expanded.find((decision) => decision.tradeDomain === "sheet_metal")?.limitations.join(" ")).toContain("no separate statewide sheet-metal contractor board");
   });
 
   it("records complete Tennessee contractor classification coverage", async () => {
