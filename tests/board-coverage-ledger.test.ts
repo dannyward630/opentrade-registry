@@ -15,10 +15,10 @@ describe("nationwide board trade coverage ledger", () => {
     expect(ledger.jurisdictions).toHaveLength(56);
     expect(new Set(ledger.jurisdictions.map((entry) => entry.state)).size).toBe(56);
     expect(expanded).toHaveLength(56 * BOARD_TRADE_DOMAINS.length);
-    expect(expanded.filter((decision) => decision.outcome === "needs_research")).toHaveLength(266);
-    expect(expanded.filter((decision) => decision.outcome === "covered_by_board")).toHaveLength(428);
+    expect(expanded.filter((decision) => decision.outcome === "needs_research")).toHaveLength(252);
+    expect(expanded.filter((decision) => decision.outcome === "covered_by_board")).toHaveLength(434);
     expect(expanded.filter((decision) => decision.outcome === "not_state_regulated")).toHaveLength(7);
-    expect(expanded.filter((decision) => decision.outcome === "local_only")).toHaveLength(83);
+    expect(expanded.filter((decision) => decision.outcome === "local_only")).toHaveLength(91);
   });
 
   it("records complete Oregon contractor, BCD trade, and DEQ asbestos coverage", async () => {
