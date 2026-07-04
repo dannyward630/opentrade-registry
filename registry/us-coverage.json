@@ -282,13 +282,17 @@
       "notes": "Official source metadata is retained, but automated ingestion is blocked by documented legal, access, scope, or technical constraints."
     },
     {
-      "state": "NE",
-      "status": "blocked",
-      "sourceIds": [
-        "us.ne.dol.contractor_registration"
-      ],
-      "notes": "Official source metadata is retained, but automated ingestion is blocked by documented legal, access, scope, or technical constraints."
-    },
+    "state": "NE",
+    "status": "blocked",
+    "sourceIds": [
+      "us.ne.dhhs.asbestos_business_entities",
+      "us.ne.dol.contractor_registration",
+      "us.ne.dwee.water_well_contractors",
+      "us.ne.electrical_division.licenses",
+      "us.ne.sfm.water_based_fire_protection"
+    ],
+    "notes": "Official source metadata is retained for Department of Labor contractor registration, State Electrical Division records, DHHS asbestos business entities, DWEE water-well contractor materials, and State Fire Marshal water-based fire protection certification, but automated ingestion is blocked by documented legal, access, scope, or technical constraints."
+  },
     {
       "state": "NV",
       "status": "blocked",

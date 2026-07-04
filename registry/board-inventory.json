@@ -2734,6 +2734,33 @@
       }
     },
     {
+      "id": "us.ne.dhhs.asbestos_business_entities",
+      "jurisdiction": {
+        "country": "US",
+        "state": "NE"
+      },
+      "boardName": "Nebraska DHHS Asbestos Business Entities",
+      "agencyName": "Nebraska Department of Health and Human Services",
+      "officialUrl": "https://dhhs.ne.gov/Asbestos%20Documents/asbestosbusinessentities.pdf",
+      "sourceIds": [
+        "us.ne.dhhs.asbestos_business_entities"
+      ],
+      "trades": [
+        "asbestos"
+      ],
+      "accessPath": "manual_handoff",
+      "coverageLimitations": [
+        "This source is limited to Nebraska DHHS asbestos licensing records and does not represent Department of Labor contractor registration, DWEE NESHAP program notifications, State Electrical Division licenses, Fire Marshal certifications, local permits, or non-asbestos credentials.",
+        "Nebraska asbestos regulation also involves DWEE NESHAP responsibilities, Lincoln Lancaster County Health Department, and Omaha Air Quality Control in some scopes; those are not license rosters in this entry.",
+        "The business-entity PDF publication has not been adapter-reviewed and may expose contact fields requiring privacy review."
+      ],
+      "evidence": {
+        "url": "https://dhhs.ne.gov/licensure/Pages/Asbestos-Occupation-Licensing.aspx",
+        "reviewedAt": "2026-07-04T00:00:00.000Z",
+        "note": "Official DHHS asbestos occupation licensing page reviewed; it documents asbestos occupation licensing requirements and fees."
+      }
+    },
+    {
       "id": "us.ne.dol.contractor_registration",
       "jurisdiction": {
         "country": "US",
@@ -2749,18 +2776,115 @@
         "general_contracting",
         "residential_contracting",
         "commercial_contracting",
+        "roofing",
+        "hvac",
+        "mechanical",
+        "solar",
+        "pool_spa",
+        "sheet_metal",
+        "underground_utility",
+        "home_improvement",
         "other"
       ],
       "accessPath": "manual_handoff",
       "coverageLimitations": [
         "Nebraska contractor registration does not ensure quality of work or protect against fraud according to the official search page.",
         "This entry does not represent every trade license, local permit, business registration, or authorization in Nebraska.",
+        "Electrical licensing, asbestos licensing, water-based fire protection certification, water-well contractor materials, and local trade licensing require separate source-specific interpretation.",
         "Sales tax, worker count, and workers compensation fields require source-specific interpretation before normalization."
       ],
       "evidence": {
         "url": "https://dol.nebraska.gov/conreg/Search",
-        "reviewedAt": "2026-06-27T00:00:00.000Z",
+        "reviewedAt": "2026-07-04T00:00:00.000Z",
         "note": "Official public source, access shape, and current automation constraints reviewed."
+      }
+    },
+    {
+      "id": "us.ne.dwee.water_well_contractors",
+      "jurisdiction": {
+        "country": "US",
+        "state": "NE"
+      },
+      "boardName": "Nebraska DWEE Water Well Contractors",
+      "agencyName": "Nebraska Department of Water, Energy, and Environment",
+      "officialUrl": "https://dwee.nebraska.gov/groundwater/contractors",
+      "sourceIds": [
+        "us.ne.dwee.water_well_contractors"
+      ],
+      "trades": [
+        "underground_utility",
+        "other"
+      ],
+      "accessPath": "manual_handoff",
+      "coverageLimitations": [
+        "This source is limited to Nebraska DWEE water-well contractor and groundwater-registration materials and does not represent Department of Labor contractor registration, State Electrical Division licenses, Fire Marshal certifications, DHHS asbestos licensing, local permits, or other utility credentials.",
+        "The contractor-facing page includes login-only online registration workflows; do not automate account-gated workflows.",
+        "Registered groundwater well data is separate from contractor licensing and should not be treated as a license roster without source-specific review."
+      ],
+      "evidence": {
+        "url": "https://dwee.nebraska.gov/groundwaterwellregistrations",
+        "reviewedAt": "2026-07-04T00:00:00.000Z",
+        "note": "Official DWEE groundwater well registration page reviewed; it states that licensed contractors are the only people, other than landowners, who can construct and register wells."
+      }
+    },
+    {
+      "id": "us.ne.electrical_division.licenses",
+      "jurisdiction": {
+        "country": "US",
+        "state": "NE"
+      },
+      "boardName": "Nebraska State Electrical Division Licensee Search",
+      "agencyName": "Nebraska State Electrical Division",
+      "officialUrl": "https://www.nebraska.gov/sed/search/index.cgi",
+      "sourceIds": [
+        "us.ne.electrical_division.licenses"
+      ],
+      "trades": [
+        "electrical",
+        "solar",
+        "hvac",
+        "other"
+      ],
+      "accessPath": "manual_handoff",
+      "coverageLimitations": [
+        "This source is limited to Nebraska State Electrical Division records and does not represent Department of Labor contractor registration, Fire Marshal water-based fire protection certification, DHHS asbestos licensing, water-well contractor licensing, local permits, or non-electrical credentials.",
+        "The official search includes individual and contractor license types; a future adapter must separate business and individual records before publication.",
+        "No stable bulk export, parser contract, privacy filter, or redistribution approval has been confirmed."
+      ],
+      "evidence": {
+        "url": "https://electrical.nebraska.gov/",
+        "reviewedAt": "2026-07-04T00:00:00.000Z",
+        "note": "Official State Electrical Division homepage reviewed; it states the division licenses and inspects electrical systems for Nebraska electrical safety."
+      }
+    },
+    {
+      "id": "us.ne.sfm.water_based_fire_protection",
+      "jurisdiction": {
+        "country": "US",
+        "state": "NE"
+      },
+      "boardName": "Nebraska State Fire Marshal Water-Based Fire Protection Contractors",
+      "agencyName": "Nebraska State Fire Marshal",
+      "officialUrl": "https://sfm.nebraska.gov/code-enforcement/water-based-fire-protection",
+      "sourceIds": [
+        "us.ne.sfm.water_based_fire_protection"
+      ],
+      "trades": [
+        "mechanical",
+        "plumbing",
+        "underground_utility",
+        "other"
+      ],
+      "accessPath": "manual_handoff",
+      "coverageLimitations": [
+        "This source is limited to Nebraska State Fire Marshal water-based fire protection contractor certification and does not represent Department of Labor contractor registration, State Electrical Division licenses, DHHS asbestos licensing, water-well contractor licensing, local permits, or other fire-code approvals.",
+        "The State Fire Marshal page links a current contractor list publication, but the roster file shape has not been adapter-reviewed.",
+        "Generated datasets should not be published until privacy and redistribution are approved."
+      ],
+      "evidence": {
+        "url": "https://sfm.nebraska.gov/code-enforcement/water-based-fire-protection",
+        "reviewedAt": "2026-07-04T00:00:00.000Z",
+        "note": "Official State Fire Marshal page reviewed; it states that water-based fire protection system contractors need certification and that a current certified-contractor list is updated as needed."
       }
     },
     {

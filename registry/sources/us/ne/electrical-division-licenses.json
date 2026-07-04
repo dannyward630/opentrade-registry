@@ -1,0 +1,91 @@
+{
+  "id": "us.ne.electrical_division.licenses",
+  "name": "Nebraska State Electrical Division Licensee Search",
+  "jurisdiction": {
+    "country": "US",
+    "state": "NE"
+  },
+  "agency": {
+    "name": "Nebraska State Electrical Division",
+    "url": "https://electrical.nebraska.gov/"
+  },
+  "sourceType": "html_lookup",
+  "sourceUrl": "https://www.nebraska.gov/sed/search/index.cgi",
+  "documentationUrl": "https://electrical.nebraska.gov/",
+  "dataDictionaryUrl": null,
+  "termsUrl": "https://www.nebraska.gov/policies/",
+  "termsReviewNotes": "Nebraska.gov policies were identified, but source-specific publication, redistribution, and privacy review has not been completed.",
+  "updateFrequency": "unknown; verify against the official State Electrical Division search before relying on freshness assumptions",
+  "tradeCoverage": [
+    "electrical",
+    "solar",
+    "hvac",
+    "other"
+  ],
+  "licenseTypesIncluded": [
+    "Nebraska electrical contractor records exposed by the State Electrical Division licensee search",
+    "Nebraska master, journeyman, residential wireman, fire alarm installer, heating and air conditioning, irrigation, sign, and related electrical license records where exposed by the official search"
+  ],
+  "knownExclusions": [
+    "This source is limited to Nebraska State Electrical Division records and does not represent Department of Labor contractor registration, Fire Marshal water-based fire protection certification, DHHS asbestos licensing, water-well contractor licensing, local permits, or non-electrical credentials.",
+    "The official search includes individual and contractor license types; a future adapter must separate business and individual records before publication.",
+    "No stable bulk export, parser contract, privacy filter, or redistribution approval has been confirmed."
+  ],
+  "hasBulkDownload": "unknown",
+  "hasLiveLookup": true,
+  "requiresJavaScript": "unknown",
+  "requiresCaptcha": "unknown",
+  "requiresAccount": false,
+  "rateLimitNotes": "No adapter is implemented. Use the official licensee search manually until access controls, field shape, update cadence, and allowed reuse are reviewed.",
+  "redistributionStatus": "unknown",
+  "publicRecordsNotes": "Official electrical-license metadata only. Generated datasets should not be published until privacy and redistribution are approved. Absence from this source is not proof that another contractor registration, local license, permit, or related record does not exist.",
+  "adapterStatus": "blocked",
+  "sourceDiscoveryStatus": "blocked",
+  "adapterMaturity": "blocked",
+  "adapterQualityLevel": 0,
+  "coverageScope": "state_agency_partial",
+  "adapterPackage": null,
+  "testFixturePath": null,
+  "officialLookupUrl": "https://www.nebraska.gov/sed/search/index.cgi",
+  "officialLookupReviewNotes": "The State Electrical Division links an official licensee search covering license types including Electrical Contractor, Class B Electrical Contractor, Fire Alarm Installer, Heating & Air Conditioning, Irrigation, Sign, and individual electrical credentials.",
+  "officialBulkDownloadNotes": "No official stable bulk download has been confirmed in this phase.",
+  "researchNotes": "Registry-only blocked source for Nebraska State Electrical Division licensee records. Future adapter work must distinguish contractor, individual, specialty, and license-type records before exposing normalized verification results.",
+  "verificationReviewedAt": null,
+  "verificationCaveats": [
+    "This source covers Nebraska State Electrical Division records only.",
+    "No matching record means no match in the checked source at the checked time, not proof that another contractor registration, local license, permit, or related record does not exist."
+  ],
+  "verificationNotes": "No supported sync or verification adapter is exposed while the official lookup contract and allowed reuse remain under review.",
+  "lastVerifiedAt": "2026-07-04T00:00:00.000Z",
+  "maintainerNotes": "A future adapter must preserve source page, checked time, raw lookup evidence, caveats, and the distinction between business and individual licensee records.",
+  "schemaVersion": "1.0",
+  "researchReviewedAt": "2026-07-04T00:00:00.000Z",
+  "nextReviewAt": "2027-01-04T00:00:00.000Z",
+  "researchEvidence": [
+    {
+      "url": "https://electrical.nebraska.gov/",
+      "checkedAt": "2026-07-04T00:00:00.000Z",
+      "note": "Official State Electrical Division homepage reviewed; it states the division licenses and inspects electrical systems for Nebraska electrical safety."
+    },
+    {
+      "url": "https://www.nebraska.gov/sed/search/index.cgi",
+      "checkedAt": "2026-07-04T00:00:00.000Z",
+      "note": "Official licensee search reviewed; it exposes license-type search options including electrical contractor and specialty electrical license types."
+    },
+    {
+      "url": "https://electrical.nebraska.gov/electrical-contractor",
+      "checkedAt": "2026-07-04T00:00:00.000Z",
+      "note": "Official Electrical Contractor page reviewed; it describes qualifications and reciprocal licensing for the electrical contractor license."
+    }
+  ],
+  "sourceResearchOutcome": "blocked",
+  "blocker": {
+    "code": "technical_instability",
+    "summary": "The official State Electrical Division lookup path is interactive and has no adapter-reviewed stable table contract, update cadence, privacy filter, or allowed redistribution path.",
+    "evidenceUrls": [
+      "https://www.nebraska.gov/sed/search/index.cgi",
+      "https://electrical.nebraska.gov/",
+      "https://www.nebraska.gov/policies/"
+    ]
+  }
+}
