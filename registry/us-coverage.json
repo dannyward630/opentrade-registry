@@ -385,7 +385,8 @@
       "state": "PA",
       "status": "blocked",
       "sourceIds": [
-        "us.pa.oag.home_improvement_contractors"
+        "us.pa.oag.home_improvement_contractors",
+        "us.pa.dli.asbestos_contractors"
       ],
       "notes": "Official source metadata is retained, but automated ingestion is blocked by documented legal, access, scope, or technical constraints."
     },

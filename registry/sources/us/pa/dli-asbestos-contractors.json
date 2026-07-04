@@ -1,0 +1,87 @@
+{
+  "id": "us.pa.dli.asbestos_contractors",
+  "name": "Pennsylvania DLI Certified Asbestos Abatement Companies",
+  "jurisdiction": {
+    "country": "US",
+    "state": "PA"
+  },
+  "agency": {
+    "name": "Pennsylvania Department of Labor and Industry",
+    "url": "https://www.pa.gov/agencies/dli.html"
+  },
+  "sourceType": "manual_public_records_file",
+  "sourceUrl": "https://www.pa.gov/content/dam/copapwp-pagov/en/dli/documents/individuals/labor-management-relations/bois/documents/asbcontr.htm",
+  "documentationUrl": "https://www.pa.gov/agencies/dli/programs-services/labor-management-relations/bureau-of-occupational-and-industrial-safety/asbestos-occupations",
+  "dataDictionaryUrl": null,
+  "termsUrl": "https://www.pa.gov/privacy-policy",
+  "termsReviewNotes": "Pennsylvania privacy and disclaimer terms were identified for the pa.gov host, but source-specific publication and redistribution approval has not been completed.",
+  "updateFrequency": "unknown; verify the official list timestamp and DLI update behavior before relying on freshness",
+  "tradeCoverage": [
+    "asbestos"
+  ],
+  "licenseTypesIncluded": [
+    "Pennsylvania certified asbestos abatement company records exposed by the official DLI list"
+  ],
+  "knownExclusions": [
+    "This source is limited to Pennsylvania DLI asbestos abatement company certification and does not represent general contractor, electrical, plumbing, HVAC, roofing, local permit, or business-registration records.",
+    "Individual asbestos occupations, training providers, lead certification, project notifications, enforcement records, and demolition records may require separate official sources.",
+    "The current public list is an HTML-oriented public-records file without a reviewed parser contract, privacy filter, or redistribution approval."
+  ],
+  "hasBulkDownload": true,
+  "hasLiveLookup": true,
+  "requiresJavaScript": false,
+  "requiresCaptcha": false,
+  "requiresAccount": false,
+  "rateLimitNotes": "No adapter is implemented. Use the official DLI list manually until parsing, freshness, privacy, and reuse have been reviewed.",
+  "redistributionStatus": "unknown",
+  "publicRecordsNotes": "Official program and list metadata only. Generated datasets should not be published until privacy and redistribution are approved. Absence from this list is not proof that another asbestos credential, project authorization, or related record does not exist.",
+  "adapterStatus": "blocked",
+  "sourceDiscoveryStatus": "blocked",
+  "adapterMaturity": "blocked",
+  "adapterQualityLevel": 0,
+  "coverageScope": "state_agency_partial",
+  "adapterPackage": null,
+  "testFixturePath": null,
+  "officialLookupUrl": "https://www.pa.gov/content/dam/copapwp-pagov/en/dli/documents/individuals/labor-management-relations/bois/documents/asbcontr.htm",
+  "officialLookupReviewNotes": "DLI links and publishes a current certified asbestos abatement companies list from the asbestos certification FAQ.",
+  "officialBulkDownloadNotes": "A public HTML list is available, but no stable parser contract, privacy filter, checksum behavior, or redistribution approval has been established.",
+  "researchNotes": "This is a future manual-file or network opt-in adapter candidate after field-shape, update, privacy, and reuse review.",
+  "verificationReviewedAt": null,
+  "verificationCaveats": [
+    "This source covers Pennsylvania DLI certified asbestos abatement companies only.",
+    "No matching record means no match in the checked source at the checked time, not proof that another asbestos credential, project authorization, or related record does not exist."
+  ],
+  "verificationNotes": "No supported sync or verification adapter is exposed while the official file contract and allowed reuse remain under review.",
+  "lastVerifiedAt": "2026-07-04T00:00:00.000Z",
+  "maintainerNotes": "A future adapter must retain source URL, fetched time, list checksum, caveats, and privacy review before exposing records.",
+  "schemaVersion": "1.0",
+  "researchReviewedAt": "2026-07-04T00:00:00.000Z",
+  "nextReviewAt": "2027-01-04T00:00:00.000Z",
+  "researchEvidence": [
+    {
+      "url": "https://www.pa.gov/agencies/dli/programs-services/labor-management-relations/bureau-of-occupational-and-industrial-safety/asbestos-occupations",
+      "checkedAt": "2026-07-04T00:00:00.000Z",
+      "note": "DLI states that individuals who perform asbestos removal must work for a contractor with current certification and documents the contractor certification application path."
+    },
+    {
+      "url": "https://www.pa.gov/agencies/dli/programs-services/labor-management-relations/bureau-of-occupational-and-industrial-safety/asbestos-occupations/asbestos-certification-faqs",
+      "checkedAt": "2026-07-04T00:00:00.000Z",
+      "note": "DLI states that an asbestos contractor certification for the company is required to conduct asbestos abatement in Pennsylvania."
+    },
+    {
+      "url": "https://www.pa.gov/content/dam/copapwp-pagov/en/dli/documents/individuals/labor-management-relations/bois/documents/asbcontr.htm",
+      "checkedAt": "2026-07-04T00:00:00.000Z",
+      "note": "DLI publishes a certified asbestos abatement companies list with certification number, company, contact, address, and expiration date fields."
+    }
+  ],
+  "sourceResearchOutcome": "blocked",
+  "blocker": {
+    "code": "technical_instability",
+    "summary": "The official list is HTML-oriented and no stable parser, freshness contract, privacy filter, checksum behavior, or redistribution approval has been completed.",
+    "evidenceUrls": [
+      "https://www.pa.gov/agencies/dli/programs-services/labor-management-relations/bureau-of-occupational-and-industrial-safety/asbestos-occupations",
+      "https://www.pa.gov/content/dam/copapwp-pagov/en/dli/documents/individuals/labor-management-relations/bois/documents/asbcontr.htm",
+      "https://www.pa.gov/privacy-policy"
+    ]
+  }
+}
