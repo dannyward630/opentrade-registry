@@ -1,0 +1,95 @@
+{
+  "id": "us.ri.health.asbestos_contractors",
+  "name": "Rhode Island Department of Health Asbestos Contractor List",
+  "jurisdiction": {
+    "country": "US",
+    "state": "RI"
+  },
+  "agency": {
+    "name": "Rhode Island Department of Health",
+    "url": "https://health.ri.gov/"
+  },
+  "sourceType": "html_lookup",
+  "sourceUrl": "https://datahealth.ri.gov/find/asbestos/?prof=264&type=1022",
+  "documentationUrl": "https://health.ri.gov/asbestos/asbestos-control-program",
+  "dataDictionaryUrl": null,
+  "termsUrl": "https://www.ri.gov/policies/",
+  "termsReviewNotes": "Rhode Island state website policies were identified, but source-specific publication, redistribution, and personal-data review has not been completed.",
+  "updateFrequency": "unknown; verify against the RIDOH asbestos licensee list before relying on freshness assumptions",
+  "tradeCoverage": [
+    "asbestos"
+  ],
+  "licenseTypesIncluded": [
+    "Rhode Island Department of Health asbestos contractor licenses",
+    "Rhode Island Department of Health asbestos supervisor and worker license categories referenced by asbestos-control rules"
+  ],
+  "knownExclusions": [
+    "This source is limited to Rhode Island Department of Health asbestos contractor and asbestos-control licensing material.",
+    "It does not represent Rhode Island CRLB contractor registration, DLT professional trades, local permits, municipal contractor licenses, or non-asbestos credentials.",
+    "The public list contains contact and service-chief information and must not be normalized or republished without privacy and publication review."
+  ],
+  "hasBulkDownload": false,
+  "hasLiveLookup": true,
+  "requiresJavaScript": false,
+  "requiresCaptcha": false,
+  "requiresAccount": false,
+  "rateLimitNotes": "No adapter is implemented. Use the official RIDOH list manually until source shape, privacy handling, and allowed reuse are reviewed.",
+  "redistributionStatus": "unknown",
+  "publicRecordsNotes": "Official RIDOH asbestos metadata only. Absence from this source is not proof that another asbestos credential, contractor registration, local license, permit, or related record does not exist.",
+  "adapterStatus": "blocked",
+  "sourceDiscoveryStatus": "blocked",
+  "adapterMaturity": "blocked",
+  "adapterQualityLevel": 0,
+  "coverageScope": "state_agency_partial",
+  "adapterPackage": null,
+  "testFixturePath": null,
+  "officialLookupUrl": "https://datahealth.ri.gov/find/asbestos/?prof=264&type=1022",
+  "officialLookupReviewNotes": "RIDOH exposes an asbestos contractor list with license numbers, contact details, service-chief names, and in-state/out-of-state sections.",
+  "officialBulkDownloadNotes": "No official, documented, redistribution-safe bulk download has been confirmed. The current official path is a browsable HTML list.",
+  "researchNotes": "Registry-only blocked source for Rhode Island asbestos contractor coverage. Future adapter work would require privacy filtering, a tiny hand-authored fixture, source-shape review, and clear separation of company versus individual fields.",
+  "verificationReviewedAt": null,
+  "verificationCaveats": [
+    "This source covers Rhode Island Department of Health asbestos contractor licensing material only.",
+    "No matching record means no match in the checked source at the checked time, not proof that another asbestos credential, contractor registration, local license, permit, or related record does not exist."
+  ],
+  "verificationNotes": "No supported sync or verification adapter is exposed while RIDOH list shape, privacy posture, and allowed reuse remain under review.",
+  "lastVerifiedAt": "2026-07-05T00:00:00.000Z",
+  "maintainerNotes": "Do not commit RIDOH asbestos list rows or generated licensee datasets. Keep any future fixture hand-authored and clearly synthetic.",
+  "schemaVersion": "1.0",
+  "researchReviewedAt": "2026-07-05T00:00:00.000Z",
+  "nextReviewAt": "2027-01-05T00:00:00.000Z",
+  "researchEvidence": [
+    {
+      "url": "https://health.ri.gov/asbestos/asbestos-control-program",
+      "checkedAt": "2026-07-05T00:00:00.000Z",
+      "note": "Official RIDOH asbestos-control program page reviewed through search-result evidence; it describes certification and licensing for asbestos training courses, analytical labs, consultants, competent persons, abatement contractors, and asbestos abatement."
+    },
+    {
+      "url": "https://health.ri.gov/licensing/asbestos-remediation",
+      "checkedAt": "2026-07-05T00:00:00.000Z",
+      "note": "Official RIDOH asbestos-remediation licensing page reviewed through search-result evidence; it documents initial licensing and renewal information."
+    },
+    {
+      "url": "https://datahealth.ri.gov/find/asbestos/?prof=264&type=1022",
+      "checkedAt": "2026-07-05T00:00:00.000Z",
+      "note": "Official RIDOH asbestos contractor list reviewed; it exposes in-state and out-of-state asbestos contractor records with license numbers and contact/service-chief fields."
+    },
+    {
+      "url": "https://rules.sos.ri.gov/regulations/part/216-50-15-1",
+      "checkedAt": "2026-07-05T00:00:00.000Z",
+      "note": "Official asbestos-control rules reviewed; they establish licensing requirements for Asbestos Contractors, Asbestos Supervisors, and Asbestos Workers."
+    }
+  ],
+  "sourceResearchOutcome": "blocked",
+  "blocker": {
+    "code": "technical_instability",
+    "summary": "RIDOH publishes an official browsable asbestos contractor list, but no adapter-reviewed machine-readable source contract, privacy filter, or source-specific publication/redistribution path has been established.",
+    "evidenceUrls": [
+      "https://health.ri.gov/asbestos/asbestos-control-program",
+      "https://health.ri.gov/licensing/asbestos-remediation",
+      "https://datahealth.ri.gov/find/asbestos/?prof=264&type=1022",
+      "https://rules.sos.ri.gov/regulations/part/216-50-15-1",
+      "https://www.ri.gov/policies/"
+    ]
+  }
+}

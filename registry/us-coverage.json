@@ -413,9 +413,11 @@
       "state": "RI",
       "status": "blocked",
       "sourceIds": [
-        "us.ri.crlb.contractors"
+        "us.ri.crlb.contractors",
+        "us.ri.dlt.professional_trades",
+        "us.ri.health.asbestos_contractors"
       ],
-      "notes": "Official source metadata is retained, but automated ingestion is blocked by documented legal, access, scope, or technical constraints."
+      "notes": "Official CRLB contractor-registration, DLT professional-trade, and RIDOH asbestos metadata is retained, but automated ingestion is blocked by documented legal, access, scope, or technical constraints."
     },
     {
       "state": "SC",

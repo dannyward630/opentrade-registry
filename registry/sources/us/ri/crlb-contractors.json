@@ -17,16 +17,26 @@
   "updateFrequency": "unknown; verify against the CRLB search before relying on freshness assumptions",
   "tradeCoverage": [
     "general_contracting",
+    "residential_contracting",
     "commercial_contracting",
     "roofing",
+    "pool_spa",
     "underground_utility",
+    "home_improvement",
     "other"
   ],
   "licenseTypesIncluded": [
-    "contractor registrations and related CRLB license categories exposed by the public search"
+    "contractor registrations and related CRLB license categories exposed by the public search",
+    "commercial roofer licenses",
+    "home inspector licenses",
+    "pump installer licenses",
+    "underground utility licenses",
+    "water filtration and well drilling licenses"
   ],
   "knownExclusions": [
     "CRLB covers contractor registration and several state building office license categories; this source entry does not represent every Rhode Island trade, permit, or business authorization.",
+    "Electrical, plumbing, mechanical, pipefitter, refrigeration, sprinklerfitter, sheet-metal, oil-heat, and other DLT professional trade credentials are represented separately.",
+    "Asbestos contractor licensing is represented separately through Rhode Island Department of Health sources.",
     "Lookup, roster generation, and enforcement-action paths may have different coverage and terms that require separate review.",
     "Complaint and enforcement history is not normalized by this source entry."
   ],
@@ -46,17 +56,32 @@
   "testFixturePath": null,
   "officialLookupUrl": "https://crb.ecms.ri.gov/consumer/search-registrantlicensee",
   "officialBulkDownloadNotes": "The Rhode Island lookup documentation references lookup paths and some roster generation elsewhere, but no CRLB redistribution-safe bulk path is confirmed in this phase.",
-  "researchNotes": "Registry-only source for Rhode Island contractor registration and related CRLB license lookup.",
-  "lastVerifiedAt": "2026-06-27T00:00:00.000Z",
-  "maintainerNotes": "Keep CRLB registration, licensing, and enforcement-action boundaries explicit in future adapter work.",
+  "researchNotes": "Registry-only source for Rhode Island contractor registration and related CRLB license lookup. Official CRLB and DBR pages identify contractor registration, commercial roofer, pump installer, underground utility, water filtration, and well drilling paths.",
+  "lastVerifiedAt": "2026-07-05T00:00:00.000Z",
+  "maintainerNotes": "Keep CRLB registration, licensing, and enforcement-action boundaries explicit in future adapter work. Do not merge DLT professional trade credentials or RIDOH asbestos licensees into this source entry.",
   "schemaVersion": "1.0",
-  "researchReviewedAt": "2026-06-27T00:00:00.000Z",
-  "nextReviewAt": "2026-12-27T00:00:00.000Z",
+  "researchReviewedAt": "2026-07-05T00:00:00.000Z",
+  "nextReviewAt": "2027-01-05T00:00:00.000Z",
   "researchEvidence": [
     {
       "url": "https://crb.ecms.ri.gov/consumer/search-registrantlicensee",
-      "checkedAt": "2026-06-27T00:00:00.000Z",
+      "checkedAt": "2026-07-05T00:00:00.000Z",
       "note": "Official public source, access shape, and current automation constraints reviewed."
+    },
+    {
+      "url": "https://crb.ri.gov/",
+      "checkedAt": "2026-07-05T00:00:00.000Z",
+      "note": "Official CRLB page reviewed through search-result evidence; it states CRLB registers and regulates contractors and licenses Commercial Roofers, Home Inspectors, Pump Installers, Underground Utility contractors, Water Filtration, and Well Drilling categories."
+    },
+    {
+      "url": "https://crb.ri.gov/general-contractor-registration",
+      "checkedAt": "2026-07-05T00:00:00.000Z",
+      "note": "Official CRLB general contractor registration page reviewed through search-result evidence; it describes registration for individuals or businesses working in residential or commercial construction and all subcontractors."
+    },
+    {
+      "url": "https://dbr.ri.gov/about-dbr/lookup-license",
+      "checkedAt": "2026-07-05T00:00:00.000Z",
+      "note": "Official DBR lookup page reviewed through search-result evidence; it lists Contractor Registration, Commercial Roofer License, Pump Installer License, Underground Utility License, and related CRLB categories."
     }
   ],
   "sourceResearchOutcome": "blocked",
@@ -66,6 +91,9 @@
     "summary": "No stable, documented machine-readable official interface is currently suitable for an offline-tested adapter.",
     "evidenceUrls": [
       "https://crb.ecms.ri.gov/consumer/search-registrantlicensee",
+      "https://crb.ri.gov/",
+      "https://crb.ri.gov/general-contractor-registration",
+      "https://dbr.ri.gov/about-dbr/lookup-license",
       "https://www.ri.gov/policies/"
     ]
   }
