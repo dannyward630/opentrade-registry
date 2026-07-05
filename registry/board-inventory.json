@@ -2341,6 +2341,33 @@
       }
     },
     {
+      "id": "us.mo.dnr.asbestos_contractors",
+      "jurisdiction": {
+        "country": "US",
+        "state": "MO"
+      },
+      "boardName": "Missouri DNR Asbestos Professionals and Contractor Registration",
+      "agencyName": "Missouri Department of Natural Resources",
+      "officialUrl": "https://dnr.mo.gov/air/business-industry/asbestos",
+      "sourceIds": [
+        "us.mo.dnr.asbestos_contractors"
+      ],
+      "trades": [
+        "asbestos"
+      ],
+      "accessPath": "manual_handoff",
+      "coverageLimitations": [
+        "This source is limited to Missouri DNR asbestos demolition, renovation, abatement, certification, and registration materials.",
+        "It does not represent Missouri general contractor, electrical, plumbing, HVAC, mechanical, roofing, local permits, municipal contractor licenses, or non-asbestos credentials.",
+        "The public asbestos professional lists may include individuals and must not be published or normalized without privacy review."
+      ],
+      "evidence": {
+        "url": "https://dnr.mo.gov/air/business-industry/asbestos",
+        "reviewedAt": "2026-07-05T00:00:00.000Z",
+        "note": "Official DNR asbestos page reviewed; it states DNR regulates asbestos demolition, renovation, and abatement projects and links asbestos professionals, notifications, forms, statutes, and regulations."
+      }
+    },
+    {
       "id": "us.mo.pr.professional_licenses",
       "jurisdiction": {
         "country": "US",

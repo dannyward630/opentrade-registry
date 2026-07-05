@@ -15,10 +15,33 @@ describe("nationwide board trade coverage ledger", () => {
     expect(ledger.jurisdictions).toHaveLength(56);
     expect(new Set(ledger.jurisdictions.map((entry) => entry.state)).size).toBe(56);
     expect(expanded).toHaveLength(56 * BOARD_TRADE_DOMAINS.length);
-    expect(expanded.filter((decision) => decision.outcome === "needs_research")).toHaveLength(182);
-    expect(expanded.filter((decision) => decision.outcome === "covered_by_board")).toHaveLength(498);
+    expect(expanded.filter((decision) => decision.outcome === "needs_research")).toHaveLength(168);
+    expect(expanded.filter((decision) => decision.outcome === "covered_by_board")).toHaveLength(501);
     expect(expanded.filter((decision) => decision.outcome === "not_state_regulated")).toHaveLength(7);
-    expect(expanded.filter((decision) => decision.outcome === "local_only")).toHaveLength(97);
+    expect(expanded.filter((decision) => decision.outcome === "local_only")).toHaveLength(108);
+  });
+
+  it("records Missouri statewide electrical and asbestos coverage with local contractor boundaries", async () => {
+    const ledger = boardTradeCoverageLedgerSchema.parse(await json("registry/board-coverage.json"));
+    const expanded = expandBoardTradeCoverageLedger(ledger).filter((decision) => decision.state === "MO");
+
+    expect(expanded.filter((decision) => decision.outcome === "needs_research")).toEqual([]);
+    expect(expanded.find((decision) => decision.tradeDomain === "electrical")).toMatchObject({
+      outcome: "covered_by_board",
+      boardIds: ["us.mo.pr.professional_licenses"],
+    });
+    expect(expanded.find((decision) => decision.tradeDomain === "solar")).toMatchObject({
+      outcome: "covered_by_board",
+      boardIds: ["us.mo.pr.professional_licenses"],
+    });
+    expect(expanded.find((decision) => decision.tradeDomain === "asbestos")).toMatchObject({
+      outcome: "covered_by_board",
+      boardIds: ["us.mo.dnr.asbestos_contractors"],
+    });
+    for (const domain of ["general_contracting", "plumbing", "hvac", "mechanical", "roofing", "pool_spa", "home_improvement"]) {
+      expect(expanded.find((decision) => decision.tradeDomain === domain)?.outcome).toBe("local_only");
+    }
+    expect(expanded.find((decision) => decision.tradeDomain === "solar")?.limitations.join(" ")).toContain("electrical-contractor licensing only");
   });
 
   it("records complete District of Columbia DLCP and DOEE trade coverage", async () => {

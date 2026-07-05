@@ -269,6 +269,7 @@
       "state": "MO",
       "status": "blocked",
       "sourceIds": [
+        "us.mo.dnr.asbestos_contractors",
         "us.mo.pr.professional_licenses"
       ],
       "notes": "Official source metadata is retained, but automated ingestion is blocked by documented legal, access, scope, or technical constraints."
