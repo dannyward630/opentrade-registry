@@ -15,10 +15,10 @@ describe("nationwide board trade coverage ledger", () => {
     expect(ledger.jurisdictions).toHaveLength(56);
     expect(new Set(ledger.jurisdictions.map((entry) => entry.state)).size).toBe(56);
     expect(expanded).toHaveLength(56 * BOARD_TRADE_DOMAINS.length);
-    expect(expanded.filter((decision) => decision.outcome === "needs_research")).toHaveLength(126);
-    expect(expanded.filter((decision) => decision.outcome === "covered_by_board")).toHaveLength(537);
+    expect(expanded.filter((decision) => decision.outcome === "needs_research")).toHaveLength(112);
+    expect(expanded.filter((decision) => decision.outcome === "covered_by_board")).toHaveLength(542);
     expect(expanded.filter((decision) => decision.outcome === "not_state_regulated")).toHaveLength(7);
-    expect(expanded.filter((decision) => decision.outcome === "local_only")).toHaveLength(114);
+    expect(expanded.filter((decision) => decision.outcome === "local_only")).toHaveLength(123);
   });
 
   it("records Wisconsin DSPS trade coverage, DHS asbestos certification, and commercial general-contractor boundaries", async () => {
@@ -850,6 +850,43 @@ describe("nationwide board trade coverage ledger", () => {
     }
     expect(expanded.find((decision) => decision.tradeDomain === "solar")?.limitations.join(" ")).toContain("standalone statewide solar");
     expect(expanded.find((decision) => decision.tradeDomain === "underground_utility")?.limitations.join(" ")).toContain("No broad statewide underground-utility");
+  });
+
+  it("records complete South Dakota electrical, plumbing, asbestos, and local-only trade boundaries", async () => {
+    const ledger = boardTradeCoverageLedgerSchema.parse(await json("registry/board-coverage.json"));
+    const expanded = expandBoardTradeCoverageLedger(ledger).filter((decision) => decision.state === "SD");
+
+    expect(expanded).toHaveLength(BOARD_TRADE_DOMAINS.length);
+    expect(expanded.filter((decision) => decision.outcome === "needs_research")).toEqual([]);
+    expect(expanded.find((decision) => decision.tradeDomain === "electrical")).toMatchObject({
+      outcome: "covered_by_board",
+      boardIds: ["us.sd.dlr.electrical"],
+    });
+    expect(expanded.find((decision) => decision.tradeDomain === "solar")?.boardIds).toEqual(["us.sd.dlr.electrical"]);
+    expect(expanded.find((decision) => decision.tradeDomain === "plumbing")?.boardIds).toEqual(["us.sd.dlr.plumbing"]);
+    expect(expanded.find((decision) => decision.tradeDomain === "underground_utility")?.boardIds).toEqual(["us.sd.dlr.plumbing"]);
+    expect(expanded.find((decision) => decision.tradeDomain === "asbestos")?.boardIds).toEqual([
+      "us.sd.danr.asbestos_services",
+    ]);
+    for (const domain of [
+      "general_contracting",
+      "residential_contracting",
+      "commercial_contracting",
+      "hvac",
+      "mechanical",
+      "roofing",
+      "pool_spa",
+      "sheet_metal",
+      "home_improvement",
+    ]) {
+      expect(expanded.find((decision) => decision.tradeDomain === domain)?.outcome, `${domain} should be local-only`).toBe(
+        "local_only",
+      );
+    }
+    expect(expanded.find((decision) => decision.tradeDomain === "general_contracting")?.limitations.join(" ")).toContain(
+      "contractor excise tax",
+    );
+    expect(expanded.find((decision) => decision.tradeDomain === "solar")?.limitations.join(" ")).toContain("standalone statewide solar");
   });
 
   it("requires board references and evidence for terminal coverage decisions", () => {
