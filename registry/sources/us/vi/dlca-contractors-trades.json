@@ -18,20 +18,32 @@
   "updateFrequency": "unknown; verify against the DLCA license search before relying on freshness assumptions",
   "tradeCoverage": [
     "general_contracting",
+    "residential_contracting",
     "commercial_contracting",
     "hvac",
     "electrical",
     "plumbing",
     "mechanical",
+    "roofing",
+    "solar",
+    "pool_spa",
+    "underground_utility",
+    "home_improvement",
     "other",
     "unknown"
   ],
   "licenseTypesIncluded": [
-    "construction contractors and trades records exposed by the official DLCA license search"
+    "construction contractors and trades records exposed by the official DLCA license search",
+    "General Construction Contractor board certification records where exposed by DLCA",
+    "Electricians, Electrical Contractors, and Journeyman Electricians board certification records where exposed by DLCA",
+    "Mechanic (HVAC), Mechanical Contractor (HVAC), and Journeyman Mechanic (HVAC) board certification records where exposed by DLCA",
+    "Plumbers, Plumbing Contractors, and Journeyman Plumbers board certification records where exposed by DLCA",
+    "Specialty-license categories authorized under 27 V.I.C. Chapter 10 where exposed by DLCA"
   ],
   "knownExclusions": [
-    "License-search fields, board certification categories, inactive coverage, and historical records require follow-up review before adapter work.",
-    "Business-license applications, board certifications, complaint records, and enforcement records may need separate official source entries.",
+    "License-search fields, inactive coverage, historical records, specialty-license activation, and profession filters require follow-up review before adapter work.",
+    "Asbestos oversight is not represented as a DLCA contractor/trade license in this source; EPA lists a DPNR AHERA/NESHAP contact and that boundary requires manual source review.",
+    "Business-license applications, complaint records, enforcement records, permits, and municipal approvals may need separate official source entries.",
     "No redistribution permission for generated datasets has been confirmed."
   ],
   "hasBulkDownload": "unknown",
@@ -50,17 +62,27 @@
   "testFixturePath": null,
   "officialLookupUrl": "https://dlca.vi.gov/_new/",
   "officialBulkDownloadNotes": "No official bulk download has been confirmed in this phase.",
-  "researchNotes": "Registry-only source for U.S. Virgin Islands DLCA construction contractors and trades license search. Future work should research license-type filters and fixture-safe search results.",
-  "lastVerifiedAt": "2026-06-27T00:00:00.000Z",
-  "maintainerNotes": "Keep DLCA board-certification and business-license paths distinct unless future source research proves a shared data model.",
+  "researchNotes": "Registry-only source for U.S. Virgin Islands DLCA construction contractors and trades license search. DLCA documents board-certification paths for construction contractors, electrical contractors, plumbing contractors, and mechanical/HVAC contractors, while 27 V.I.C. Chapter 10 authorizes specialty-license categories such as roofing, solar construction, swimming pools, remodeling, sewer pipe cleaning, and transmission/distribution lines.",
+  "lastVerifiedAt": "2026-07-05T00:00:00.000Z",
+  "maintainerNotes": "Keep DLCA board-certification and business-license paths distinct unless future source research proves a shared data model. Do not treat asbestos as a DLCA contractor/trade license without new official evidence.",
   "schemaVersion": "1.0",
-  "researchReviewedAt": "2026-06-27T00:00:00.000Z",
-  "nextReviewAt": "2026-12-27T00:00:00.000Z",
+  "researchReviewedAt": "2026-07-05T00:00:00.000Z",
+  "nextReviewAt": "2027-01-05T00:00:00.000Z",
   "researchEvidence": [
     {
       "url": "https://dlca.vi.gov/_new/",
-      "checkedAt": "2026-06-27T00:00:00.000Z",
-      "note": "Official public source, access shape, and current automation constraints reviewed."
+      "checkedAt": "2026-07-05T00:00:00.000Z",
+      "note": "Official DLCA license-search page reviewed; it exposes Construction Contractors, Electricians/Electrical Contractors, Mechanic/HVAC, and Plumbers/Plumbing Contractors categories."
+    },
+    {
+      "url": "https://dlca.vi.gov/boardcertifications/steps/trades/",
+      "checkedAt": "2026-07-05T00:00:00.000Z",
+      "note": "Official Construction Contractors & Trades page reviewed; it lists construction contractors, electrical contractors, fiber optics installers, mechanical/HVAC contractors, and plumbing contractors."
+    },
+    {
+      "url": "https://dlca.vi.gov/pdf/27_VIC_Chap_10.pdf",
+      "checkedAt": "2026-07-05T00:00:00.000Z",
+      "note": "Official DLCA-hosted 27 V.I.C. Chapter 10 excerpt reviewed for Board of Contractors, Trades, and Crafts composition and specialty-license authority."
     }
   ],
   "sourceResearchOutcome": "blocked",

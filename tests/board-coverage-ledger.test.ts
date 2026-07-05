@@ -15,10 +15,10 @@ describe("nationwide board trade coverage ledger", () => {
     expect(ledger.jurisdictions).toHaveLength(56);
     expect(new Set(ledger.jurisdictions.map((entry) => entry.state)).size).toBe(56);
     expect(expanded).toHaveLength(56 * BOARD_TRADE_DOMAINS.length);
-    expect(expanded.filter((decision) => decision.outcome === "needs_research")).toHaveLength(56);
-    expect(expanded.filter((decision) => decision.outcome === "covered_by_board")).toHaveLength(577);
-    expect(expanded.filter((decision) => decision.outcome === "not_state_regulated")).toHaveLength(7);
-    expect(expanded.filter((decision) => decision.outcome === "local_only")).toHaveLength(144);
+    expect(expanded.filter((decision) => decision.outcome === "needs_research")).toHaveLength(42);
+    expect(expanded.filter((decision) => decision.outcome === "covered_by_board")).toHaveLength(589);
+    expect(expanded.filter((decision) => decision.outcome === "not_state_regulated")).toHaveLength(8);
+    expect(expanded.filter((decision) => decision.outcome === "local_only")).toHaveLength(145);
   });
 
   it("records Wisconsin DSPS trade coverage, DHS asbestos certification, and commercial general-contractor boundaries", async () => {
@@ -1032,6 +1032,47 @@ describe("nationwide board trade coverage ledger", () => {
     );
     expect(expanded.find((decision) => decision.tradeDomain === "solar")?.limitations.join(" ")).toContain(
       "electrical credentials",
+    );
+  });
+
+  it("records complete U.S. Virgin Islands DLCA contractor/trade coverage and asbestos boundary", async () => {
+    const ledger = boardTradeCoverageLedgerSchema.parse(await json("registry/board-coverage.json"));
+    const expanded = expandBoardTradeCoverageLedger(ledger).filter((decision) => decision.state === "VI");
+
+    expect(expanded).toHaveLength(BOARD_TRADE_DOMAINS.length);
+    expect(expanded.filter((decision) => decision.outcome === "needs_research")).toEqual([]);
+    for (const domain of [
+      "general_contracting",
+      "residential_contracting",
+      "commercial_contracting",
+      "electrical",
+      "plumbing",
+      "hvac",
+      "mechanical",
+      "roofing",
+      "solar",
+      "pool_spa",
+      "underground_utility",
+      "home_improvement",
+    ]) {
+      expect(expanded.find((decision) => decision.tradeDomain === domain)).toMatchObject({
+        outcome: "covered_by_board",
+        boardIds: ["us.vi.dlca.contractors_trades"],
+      });
+    }
+    expect(expanded.find((decision) => decision.tradeDomain === "asbestos")).toMatchObject({
+      outcome: "not_state_regulated",
+      boardIds: [],
+    });
+    expect(expanded.find((decision) => decision.tradeDomain === "sheet_metal")).toMatchObject({
+      outcome: "local_only",
+      boardIds: [],
+    });
+    expect(expanded.find((decision) => decision.tradeDomain === "asbestos")?.evidence[0]?.url).toBe(
+      "https://www.epa.gov/asbestos/state-asbestos-contacts",
+    );
+    expect(expanded.find((decision) => decision.tradeDomain === "hvac")?.limitations.join(" ")).toContain(
+      "legacy electrical wording",
     );
   });
 

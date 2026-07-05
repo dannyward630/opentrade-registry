@@ -4934,7 +4934,93 @@
         }
       }
     },
-    { "state": "VI", "decisions": {} },
+    {
+      "state": "VI",
+      "decisions": {
+        "general_contracting": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.vi.dlca.contractors_trades"],
+          "evidence": [{ "url": "https://dlca.vi.gov/boardcertifications/steps/constructioncontractors/", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "DLCA states that construction contractor licensure sets qualifications for persons engaged in construction and requires General Construction Contractor applicants to sit national and state examinations." }],
+          "limitations": ["The DLCA license-search path is blocked for automation and remains a manual official handoff until source shape, terms, and privacy treatment are reviewed."]
+        },
+        "residential_contracting": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.vi.dlca.contractors_trades"],
+          "evidence": [{ "url": "https://dlca.vi.gov/pdf/27_VIC_Chap_10.pdf", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "27 V.I.C. Chapter 10 defines contractor work broadly across erection, building, construction, reconstruction, demolition, repair, maintenance, and related work on public or private projects." }],
+          "limitations": ["Residential scope must still be verified against the license category, business license, project permits, and any local or zoning requirements."]
+        },
+        "commercial_contracting": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.vi.dlca.contractors_trades"],
+          "evidence": [{ "url": "https://dlca.vi.gov/pdf/27_VIC_Chap_10.pdf", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "27 V.I.C. Chapter 10 defines contractor work across public and private projects and identifies General Construction Contractor as a licensed title." }],
+          "limitations": ["Commercial verification may require license class, insurance, tax clearance, business license, and permit review outside the current registry metadata."]
+        },
+        "electrical": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.vi.dlca.contractors_trades"],
+          "evidence": [{ "url": "https://dlca.vi.gov/_new/businesslicense/steps/eecjrequirements/", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "DLCA documents Electricians, Electrical Contractors, and Journeyman Electricians licensure and states that electrical contractors may be granted contractor licenses through the board." }],
+          "limitations": ["Electrical contractor verification should distinguish master electrician, electrical contractor, journeyman, and business-license records."]
+        },
+        "plumbing": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.vi.dlca.contractors_trades"],
+          "evidence": [{ "url": "https://dlca.vi.gov/_new/businesslicense/steps/mppcrequirements/", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "DLCA documents Plumbers, Plumbing Contractors, and Journeyman Plumbers licensure and states that plumbing contractors may be granted contractor licenses through the board." }],
+          "limitations": ["Plumbing contractor verification should distinguish master plumber, plumbing contractor, journeyman, and business-license records."]
+        },
+        "hvac": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.vi.dlca.contractors_trades"],
+          "evidence": [{ "url": "https://dlca.vi.gov/boardcertifications/steps/mechrequirements/", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "DLCA documents Mechanic (HVAC), Mechanical Contractor (HVAC), and Journeyman Mechanic (HVAC) licensure and states that mechanical contractor licenses may be granted through the board." }],
+          "limitations": ["The DLCA page contains some legacy electrical wording in the purpose section; the title, examination, contractor, fee, and board-contact sections identify the HVAC/mechanical credential path."]
+        },
+        "mechanical": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.vi.dlca.contractors_trades"],
+          "evidence": [{ "url": "https://dlca.vi.gov/pdf/27_VIC_Chap_10.pdf", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "27 V.I.C. Chapter 10 defines Mechanical Contractor as a person that contracts to oversee mechanical projects such as heating or cooling systems, refrigeration, piping, and plumbing." }],
+          "limitations": ["Mechanical verification should preserve the distinction between master mechanic, mechanical contractor, plumbing, and business-license records."]
+        },
+        "roofing": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.vi.dlca.contractors_trades"],
+          "evidence": [{ "url": "https://dlca.vi.gov/pdf/27_VIC_Chap_10.pdf", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "Search-indexed text for the official DLCA-hosted 27 V.I.C. Chapter 10 excerpt identifies roofing among board specialty-license categories." }],
+          "limitations": ["The specialty list requires adapter-quality review before records can be classified automatically as roofing."]
+        },
+        "solar": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.vi.dlca.contractors_trades"],
+          "evidence": [{ "url": "https://dlca.vi.gov/pdf/27_VIC_Chap_10.pdf", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "Search-indexed text for the official DLCA-hosted 27 V.I.C. Chapter 10 excerpt identifies solar construction among board specialty-license categories." }],
+          "limitations": ["Solar work may also require electrical credentials, utility interconnection, permits, and business-license checks."]
+        },
+        "pool_spa": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.vi.dlca.contractors_trades"],
+          "evidence": [{ "url": "https://dlca.vi.gov/pdf/27_VIC_Chap_10.pdf", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "Search-indexed text for the official DLCA-hosted 27 V.I.C. Chapter 10 excerpt identifies swimming pools among board specialty-license categories." }],
+          "limitations": ["Pool/spa verification may also require health, building, zoning, and permit review."]
+        },
+        "asbestos": {
+          "outcome": "not_state_regulated",
+          "evidence": [{ "url": "https://www.epa.gov/asbestos/state-asbestos-contacts", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "EPA's state asbestos contacts list identifies a Virgin Islands DPNR AHERA/NESHAP contact, but no territorial asbestos contractor license roster was confirmed in this phase." }],
+          "limitations": ["Asbestos work may be governed by federal AHERA/NESHAP, DPNR contacts, training, notification, permitting, and project-specific requirements even though no OpenTrade territory license source is represented here."]
+        },
+        "sheet_metal": {
+          "outcome": "local_only",
+          "evidence": [{ "url": "https://dlca.vi.gov/boardcertifications/steps/trades/", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "The reviewed DLCA Construction Contractors & Trades page lists construction, electrical, fiber optics, mechanical/HVAC, and plumbing paths, but no distinct sheet-metal credential was identified." }],
+          "limitations": ["Sheet-metal work may overlap HVAC ductwork, general construction, business licensing, and permits, but no distinct territory sheet-metal board source was confirmed."]
+        },
+        "underground_utility": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.vi.dlca.contractors_trades"],
+          "evidence": [{ "url": "https://dlca.vi.gov/pdf/27_VIC_Chap_10.pdf", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "27 V.I.C. Chapter 10 requires a license to engage in any construction trade as a business, and search-indexed official text identifies sewer, transmission, and distribution specialty categories." }],
+          "limitations": ["Underground utility work may also require utility, public-works, environmental, excavation, and permit approvals."]
+        },
+        "home_improvement": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.vi.dlca.contractors_trades"],
+          "evidence": [{ "url": "https://dlca.vi.gov/pdf/27_VIC_Chap_10.pdf", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "27 V.I.C. Chapter 10 defines contractor work to include reconstruction, demolition, repair, maintenance, and related work on public or private projects." }],
+          "limitations": ["Home-improvement verification should preserve license category, business-license, permit, and local-authority caveats."]
+        }
+      }
+    },
     {
       "state": "VT",
       "decisions": {
