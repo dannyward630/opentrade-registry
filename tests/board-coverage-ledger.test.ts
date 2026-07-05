@@ -15,10 +15,10 @@ describe("nationwide board trade coverage ledger", () => {
     expect(ledger.jurisdictions).toHaveLength(56);
     expect(new Set(ledger.jurisdictions.map((entry) => entry.state)).size).toBe(56);
     expect(expanded).toHaveLength(56 * BOARD_TRADE_DOMAINS.length);
-    expect(expanded.filter((decision) => decision.outcome === "needs_research")).toHaveLength(98);
-    expect(expanded.filter((decision) => decision.outcome === "covered_by_board")).toHaveLength(545);
+    expect(expanded.filter((decision) => decision.outcome === "needs_research")).toHaveLength(84);
+    expect(expanded.filter((decision) => decision.outcome === "covered_by_board")).toHaveLength(553);
     expect(expanded.filter((decision) => decision.outcome === "not_state_regulated")).toHaveLength(7);
-    expect(expanded.filter((decision) => decision.outcome === "local_only")).toHaveLength(134);
+    expect(expanded.filter((decision) => decision.outcome === "local_only")).toHaveLength(140);
   });
 
   it("records Wisconsin DSPS trade coverage, DHS asbestos certification, and commercial general-contractor boundaries", async () => {
@@ -928,6 +928,50 @@ describe("nationwide board trade coverage ledger", () => {
     );
     expect(expanded.find((decision) => decision.tradeDomain === "general_contracting")?.limitations.join(" ")).toContain(
       "municipal and local licensing",
+    );
+  });
+
+  it("records complete Vermont SOS residential, DFS trade, Health asbestos, and local-only boundaries", async () => {
+    const ledger = boardTradeCoverageLedgerSchema.parse(await json("registry/board-coverage.json"));
+    const expanded = expandBoardTradeCoverageLedger(ledger).filter((decision) => decision.state === "VT");
+
+    expect(expanded).toHaveLength(BOARD_TRADE_DOMAINS.length);
+    expect(expanded.filter((decision) => decision.outcome === "needs_research")).toEqual([]);
+    expect(expanded.find((decision) => decision.tradeDomain === "residential_contracting")).toMatchObject({
+      outcome: "covered_by_board",
+      boardIds: ["us.vt.sos.residential_contractors"],
+    });
+    for (const domain of ["electrical", "plumbing", "hvac", "mechanical", "solar"]) {
+      expect(expanded.find((decision) => decision.tradeDomain === domain)).toMatchObject({
+        outcome: "covered_by_board",
+        boardIds: ["us.vt.dfs.trade_licensing"],
+      });
+    }
+    expect(expanded.find((decision) => decision.tradeDomain === "asbestos")).toMatchObject({
+      outcome: "covered_by_board",
+      boardIds: ["us.vt.health.asbestos_lead_contractors"],
+    });
+    expect(expanded.find((decision) => decision.tradeDomain === "home_improvement")?.boardIds).toEqual([
+      "us.vt.sos.residential_contractors",
+      "us.vt.health.asbestos_lead_contractors",
+    ]);
+    for (const domain of [
+      "general_contracting",
+      "commercial_contracting",
+      "roofing",
+      "pool_spa",
+      "sheet_metal",
+      "underground_utility",
+    ]) {
+      expect(expanded.find((decision) => decision.tradeDomain === domain)?.outcome, `${domain} should be local-only`).toBe(
+        "local_only",
+      );
+    }
+    expect(expanded.find((decision) => decision.tradeDomain === "hvac")?.limitations.join(" ")).toContain(
+      "No separate statewide HVAC contractor board",
+    );
+    expect(expanded.find((decision) => decision.tradeDomain === "home_improvement")?.limitations.join(" ")).toContain(
+      "RRPM",
     );
   });
 
