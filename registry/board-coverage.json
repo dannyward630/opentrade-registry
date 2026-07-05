@@ -5029,6 +5029,86 @@
         }
       }
     },
-    { "state": "WY", "decisions": {} }
+    {
+      "state": "WY",
+      "decisions": {
+        "general_contracting": {
+          "outcome": "local_only",
+          "evidence": [{ "url": "https://wyoleg.gov/statutes/compress/title16.pdf", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "W.S. 16-6-1101 defines contractor-license reciprocity around licenses issued by a county, city, town, or other Wyoming government entity." }],
+          "limitations": ["No statewide general-contractor licensing board or stable statewide verification source was confirmed in this phase; municipal and local licensing remains outside OpenTrade's statewide board inventory."]
+        },
+        "residential_contracting": {
+          "outcome": "local_only",
+          "evidence": [{ "url": "https://wyoleg.gov/statutes/compress/title16.pdf", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "Wyoming contractor-license reciprocity is described for counties, cities, towns, and other issuing jurisdictions rather than a statewide residential-contractor board." }],
+          "limitations": ["No statewide residential-contractor licensing board or stable statewide verification source was confirmed in this phase."]
+        },
+        "commercial_contracting": {
+          "outcome": "local_only",
+          "evidence": [{ "url": "https://wyoleg.gov/statutes/compress/title16.pdf", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "Wyoming contractor-license reciprocity is described for county, city, town, and other issuing jurisdictions, including contractor licenses required to perform work in a jurisdiction." }],
+          "limitations": ["No statewide commercial-contractor licensing board or stable statewide verification source was confirmed in this phase."]
+        },
+        "electrical": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.wy.firemarshal.electrical"],
+          "evidence": [{ "url": "https://wsfm.wyo.gov/electrical-safety/licensing", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "The Wyoming State Fire Marshal licensing page lists Electrical Contractor and Low Voltage/Limited Contractor license paths and qualifying-personnel requirements." }],
+          "limitations": ["The source is lookup/portal oriented and remains blocked for automated ingestion until a stable, reuse-reviewed interface is confirmed."]
+        },
+        "plumbing": {
+          "outcome": "local_only",
+          "evidence": [{ "url": "https://wyoleg.gov/statutes/compress/title16.pdf", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "W.S. 16-6-1101 references contractor, plumbing, mechanical, or appropriate examinations in the context of local license recognition." }],
+          "limitations": ["No standalone statewide plumbing-contractor board or stable statewide verification source was confirmed in this phase."]
+        },
+        "hvac": {
+          "outcome": "local_only",
+          "evidence": [{ "url": "https://wyoleg.gov/statutes/compress/title16.pdf", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "Wyoming contractor-license reciprocity is described for local issuing jurisdictions; the reviewed state evidence did not identify a statewide HVAC-contractor board." }],
+          "limitations": ["No standalone statewide HVAC-contractor board or stable statewide verification source was confirmed in this phase."]
+        },
+        "mechanical": {
+          "outcome": "local_only",
+          "evidence": [{ "url": "https://wyoleg.gov/statutes/compress/title16.pdf", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "W.S. 16-6-1101 references mechanical examinations in the context of local license recognition." }],
+          "limitations": ["No standalone statewide mechanical-contractor board or stable statewide verification source was confirmed in this phase."]
+        },
+        "roofing": {
+          "outcome": "local_only",
+          "evidence": [{ "url": "https://wyoleg.gov/statutes/compress/title16.pdf", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "Wyoming contractor licensing evidence reviewed for this phase points to local issuing jurisdictions rather than a statewide roofing-contractor board." }],
+          "limitations": ["No standalone statewide roofing-contractor board or stable statewide verification source was confirmed in this phase."]
+        },
+        "solar": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.wy.firemarshal.electrical"],
+          "evidence": [
+            { "url": "https://wsfm.wyo.gov/electrical-safety", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "The State Fire Marshal electrical safety page identifies electrical licensing, wiring permits, electrical plan review, and adopted electrical codes." },
+            { "url": "https://wsfm.wyo.gov/fire-prevention/plan-review", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "The State Fire Marshal plan-review page lists an Electrical PV Plan Checklist among official plan-review materials." }
+          ],
+          "limitations": ["This covers electrical work and electrical plan-review aspects of solar installations only; no standalone statewide solar-contractor board was confirmed."]
+        },
+        "pool_spa": {
+          "outcome": "local_only",
+          "evidence": [{ "url": "https://wyoleg.gov/statutes/compress/title16.pdf", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "Wyoming contractor-license reciprocity is described for local issuing jurisdictions; the reviewed state evidence did not identify a statewide pool/spa contractor board." }],
+          "limitations": ["No standalone statewide pool/spa contractor board or stable statewide verification source was confirmed in this phase."]
+        },
+        "asbestos": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.wy.deq.asbestos"],
+          "evidence": [{ "url": "https://deq.wyoming.gov/aqd/compliance/asbestos/", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "The Wyoming DEQ asbestos page states that the Wyoming Asbestos Program enforces state asbestos regulations for inspections and abatement projects and checks contractor work practices." }],
+          "limitations": ["The public program page does not provide a stable, adapter-reviewed roster or bulk export; verification remains a manual handoff until a stable official path is reviewed."]
+        },
+        "sheet_metal": {
+          "outcome": "local_only",
+          "evidence": [{ "url": "https://wyoleg.gov/statutes/compress/title16.pdf", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "Wyoming contractor-license reciprocity is described for local issuing jurisdictions; the reviewed state evidence did not identify a statewide sheet-metal contractor board." }],
+          "limitations": ["No standalone statewide sheet-metal contractor board or stable statewide verification source was confirmed in this phase."]
+        },
+        "underground_utility": {
+          "outcome": "local_only",
+          "evidence": [{ "url": "https://wyoleg.gov/statutes/compress/title16.pdf", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "W.S. 16-6-1101 describes contractor-license reciprocity for local issuing jurisdictions rather than a statewide underground-utility contractor board." }],
+          "limitations": ["No standalone statewide underground-utility contractor board or stable statewide verification source was confirmed in this phase."]
+        },
+        "home_improvement": {
+          "outcome": "local_only",
+          "evidence": [{ "url": "https://wyoleg.gov/statutes/compress/title16.pdf", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "The statute defines contractor work as improving an owner's property in the context of licenses issued by local Wyoming jurisdictions." }],
+          "limitations": ["No standalone statewide home-improvement contractor board or stable statewide verification source was confirmed in this phase."]
+        }
+      }
+    }
   ]
 }

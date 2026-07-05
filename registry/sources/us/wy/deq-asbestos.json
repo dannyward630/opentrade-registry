@@ -1,0 +1,76 @@
+{
+  "id": "us.wy.deq.asbestos",
+  "name": "Wyoming DEQ Asbestos Program",
+  "jurisdiction": {
+    "country": "US",
+    "state": "WY"
+  },
+  "agency": {
+    "name": "Wyoming Department of Environmental Quality",
+    "url": "https://deq.wyoming.gov/"
+  },
+  "sourceType": "html_lookup",
+  "sourceUrl": "https://deq.wyoming.gov/aqd/compliance/asbestos/",
+  "documentationUrl": "https://deq.wyoming.gov/aqd/compliance/asbestos/",
+  "dataDictionaryUrl": null,
+  "termsUrl": "https://wyoming.gov/usage-policy",
+  "termsReviewNotes": "Wyoming.gov usage policy was identified, but source-specific publication, redistribution, and privacy review has not been completed.",
+  "updateFrequency": "unknown; verify against the official DEQ asbestos program page before relying on freshness assumptions",
+  "tradeCoverage": [
+    "asbestos"
+  ],
+  "licenseTypesIncluded": [
+    "Wyoming DEQ asbestos inspection and abatement program records where exposed by official program paths"
+  ],
+  "knownExclusions": [
+    "This source is limited to Wyoming DEQ asbestos program materials and does not represent general contractor, electrical, plumbing, HVAC, permit, or local registration records.",
+    "The public program page does not provide a stable, adapter-reviewed machine-readable roster or bulk export.",
+    "Generated datasets should not be published until privacy, source shape, and redistribution are approved."
+  ],
+  "hasBulkDownload": "unknown",
+  "hasLiveLookup": false,
+  "requiresJavaScript": false,
+  "requiresCaptcha": false,
+  "requiresAccount": false,
+  "rateLimitNotes": "No adapter is implemented. Use official DEQ asbestos program materials manually until field shape, update cadence, and allowed reuse are reviewed.",
+  "redistributionStatus": "unknown",
+  "publicRecordsNotes": "Official source metadata only. Absence from this source is not proof that another asbestos credential, project notice, local license, or related record does not exist.",
+  "adapterStatus": "blocked",
+  "sourceDiscoveryStatus": "blocked",
+  "adapterMaturity": "blocked",
+  "adapterQualityLevel": 0,
+  "coverageScope": "state_agency_partial",
+  "adapterPackage": null,
+  "testFixturePath": null,
+  "officialLookupUrl": "https://deq.wyoming.gov/aqd/compliance/asbestos/",
+  "officialLookupReviewNotes": "The official DEQ asbestos program page documents inspection and abatement project oversight but no stable public roster or bulk export was confirmed.",
+  "officialBulkDownloadNotes": "No stable public bulk export has been confirmed in this phase.",
+  "researchNotes": "Registry-only blocked source for Wyoming DEQ asbestos inspection and abatement program metadata. Future adapter work must identify a stable official roster or handoff path and preserve privacy and reuse caveats.",
+  "verificationReviewedAt": null,
+  "verificationCaveats": [
+    "This source covers Wyoming DEQ asbestos program materials only.",
+    "No matching record means no match in the checked source at the checked time, not proof that another asbestos credential, project notice, local license, or related record does not exist."
+  ],
+  "verificationNotes": "No supported sync or verification adapter is exposed while the official roster/source contract and allowed reuse remain under review.",
+  "lastVerifiedAt": "2026-07-05T00:00:00.000Z",
+  "maintainerNotes": "A future adapter must preserve asbestos-specific scope, checked time, source URL, raw lookup evidence, and privacy filtering before exposing records.",
+  "schemaVersion": "1.0",
+  "researchReviewedAt": "2026-07-05T00:00:00.000Z",
+  "nextReviewAt": "2027-01-05T00:00:00.000Z",
+  "researchEvidence": [
+    {
+      "url": "https://deq.wyoming.gov/aqd/compliance/asbestos/",
+      "checkedAt": "2026-07-05T00:00:00.000Z",
+      "note": "Official Wyoming DEQ asbestos page reviewed; it states the Wyoming Asbestos Program enforces state asbestos regulations for inspections and abatement projects and checks contractor work practices."
+    }
+  ],
+  "sourceResearchOutcome": "blocked",
+  "blocker": {
+    "code": "no_stable_source",
+    "summary": "The official DEQ asbestos program page documents oversight but no stable public roster, parser contract, update cadence, privacy filter, or allowed redistribution path has been confirmed.",
+    "evidenceUrls": [
+      "https://deq.wyoming.gov/aqd/compliance/asbestos/",
+      "https://wyoming.gov/usage-policy"
+    ]
+  }
+}
