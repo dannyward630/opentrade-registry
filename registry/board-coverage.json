@@ -4534,7 +4534,90 @@
         }
       }
     },
-    { "state": "WI", "decisions": {} },
+    {
+      "state": "WI",
+      "decisions": {
+        "general_contracting": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.wi.dsps.dwelling_trades"],
+          "evidence": [{ "url": "https://dsps.wi.gov/Pages/Professions/DwellingContractor/Default.aspx", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "DSPS states that a person may not obtain a one- and two-family dwelling building permit unless the person holds a Dwelling Contractor or Dwelling Contractor Restricted certification and holds or employs a Dwelling Contractor Qualifier." }],
+          "limitations": ["This decision covers the statewide DSPS dwelling-contractor path for one- and two-family dwelling work only; statewide commercial general-contractor licensing was not confirmed."]
+        },
+        "residential_contracting": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.wi.dsps.dwelling_trades"],
+          "evidence": [{ "url": "https://dsps.wi.gov/Pages/Professions/DwellingContractor/Default.aspx", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "DSPS documents Dwelling Contractor certification and Dwelling Contractor Qualifier requirements for one- and two-family dwelling permits." }]
+        },
+        "commercial_contracting": {
+          "outcome": "local_only",
+          "boardIds": [],
+          "evidence": [{ "url": "https://dsps.wi.gov/Pages/SelfService/LicenseLookUp.aspx", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "DSPS provides credential and plan-status lookups for trades, manufactured homes, commercial buildings, and related programs, but a statewide commercial general-contractor credential was not confirmed in the reviewed official pages." }],
+          "limitations": ["Commercial projects may require DSPS plan review, trade credentials, permits, delegated-agent review, and municipal or local contractor registration; municipal licensing remains outside this registry."]
+        },
+        "electrical": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.wi.dsps.dwelling_trades"],
+          "evidence": [{ "url": "https://dsps.wi.gov/Pages/Professions/ElectricalContractor/Default.aspx", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "DSPS states that no person or entity may engage in or offer to engage in electrical wiring work unless licensed or certified by the Department, subject to statutory exceptions." }]
+        },
+        "plumbing": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.wi.dsps.dwelling_trades"],
+          "evidence": [{ "url": "https://dsps.wi.gov/Pages/Professions/MasterPlumber/Default.aspx", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "DSPS states that no person may engage in or work at plumbing in Wisconsin unless licensed by the Department and documents Master Plumber responsibility for credentialed workers." }]
+        },
+        "hvac": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.wi.dsps.dwelling_trades"],
+          "evidence": [{ "url": "https://dsps.wi.gov/Pages/Professions/HVACContractor/Default.aspx", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "DSPS states that no person, entity, or business may engage or offer to engage in installing or servicing HVAC equipment unless registered as an HVAC Contractor, subject to listed exceptions." }]
+        },
+        "mechanical": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.wi.dsps.dwelling_trades"],
+          "evidence": [{ "url": "https://dsps.wi.gov/Pages/Professions/HVACContractor/Default.aspx", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "DSPS HVAC Contractor registration covers heating, ventilating, and air conditioning equipment installation and servicing." }, { "url": "https://dsps.wi.gov/Pages/Professions/AutomaticFireSprinkler/Contractor/Default.aspx", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "DSPS documents Automatic Fire Sprinkler Contractor and related credentials for installing, maintaining, or repairing automatic fire sprinkler systems." }],
+          "limitations": ["This decision covers confirmed DSPS HVAC and fire-sprinkler mechanical scopes; no separate broad mechanical-contractor license was confirmed."]
+        },
+        "roofing": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.wi.dsps.dwelling_trades"],
+          "evidence": [{ "url": "https://dsps.wi.gov/Pages/Professions/DwellingContractor/Default.aspx", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "DSPS dwelling-contractor certification is required for one- and two-family dwelling permit work under the reviewed official page." }],
+          "limitations": ["This decision is limited to roofing work within covered one- and two-family dwelling contractor scopes; no statewide standalone roofing-contractor board was confirmed."]
+        },
+        "solar": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.wi.dsps.dwelling_trades"],
+          "evidence": [{ "url": "https://dsps.wi.gov/Pages/Professions/ElectricalContractor/Default.aspx", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "DSPS electrical-contractor licensing covers installing, repairing, and maintaining electrical wiring, which supports the electrical portion of solar work." }],
+          "limitations": ["This decision covers electrical-contractor licensing only; solar projects may also require building permits, utility interconnection, plan review, and local approvals."]
+        },
+        "pool_spa": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.wi.dsps.dwelling_trades"],
+          "evidence": [{ "url": "https://dsps.wi.gov/Pages/Professions/MasterPlumber/Default.aspx", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "DSPS plumbing credentials cover plumbing work in Wisconsin." }, { "url": "https://dsps.wi.gov/Pages/Professions/ElectricalContractor/Default.aspx", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "DSPS electrical-contractor credentials cover electrical wiring work in Wisconsin." }],
+          "limitations": ["No pool/spa-only statewide contractor board was confirmed; pool/spa work may involve DSPS plumbing, electrical, plan review, public pool, permit, inspection, and local requirements."]
+        },
+        "asbestos": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.wi.dhs.asbestos_companies"],
+          "evidence": [{ "url": "https://www.dhs.wisconsin.gov/asbestos/index.htm", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "DHS states that its Asbestos Program regulates training and certification of individuals and companies doing asbestos-related work in Wisconsin." }, { "url": "https://www.dhs.wisconsin.gov/asbestos/contractors.htm", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "DHS tells users to verify companies against the current certified company list, links a Microsoft Excel spreadsheet, and states that the list is updated monthly." }],
+          "limitations": ["The DHS source is blocked for automation until spreadsheet shape, privacy handling, and source-specific publication terms are reviewed."]
+        },
+        "sheet_metal": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.wi.dsps.dwelling_trades"],
+          "evidence": [{ "url": "https://dsps.wi.gov/Pages/Professions/HVACContractor/Default.aspx", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "DSPS HVAC Contractor registration covers installing and servicing heating, ventilating, and air conditioning equipment." }],
+          "limitations": ["No standalone sheet-metal board was confirmed; this decision is limited to sheet-metal work within HVAC or other DSPS-regulated scopes."]
+        },
+        "underground_utility": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.wi.dsps.dwelling_trades"],
+          "evidence": [{ "url": "https://dsps.wi.gov/Pages/Professions/UtilityContractor/Default.aspx", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "DSPS states that the Department shall issue a Utility Contractor license for skilled installation of piping that conveys sewage, rain water, other liquid wastes, and water service piping, and documents credentialed-worker requirements." }]
+        },
+        "home_improvement": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.wi.dsps.dwelling_trades"],
+          "evidence": [{ "url": "https://dsps.wi.gov/Pages/Professions/DwellingContractor/Default.aspx", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "DSPS dwelling-contractor certification applies to one- and two-family dwelling permit work, supporting residential improvement coverage within that scope." }],
+          "limitations": ["This decision covers home-improvement work within one- and two-family dwelling contractor scopes; local permits, municipal registration, and non-dwelling work remain separate."]
+        }
+      }
+    },
     {
       "state": "WV",
       "decisions": {

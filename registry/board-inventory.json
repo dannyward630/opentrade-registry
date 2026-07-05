@@ -4365,6 +4365,33 @@
       }
     },
     {
+      "id": "us.wi.dhs.asbestos_companies",
+      "jurisdiction": {
+        "country": "US",
+        "state": "WI"
+      },
+      "boardName": "Wisconsin DHS Certified Asbestos Company List",
+      "agencyName": "Wisconsin Department of Health Services",
+      "officialUrl": "https://www.dhs.wisconsin.gov/asbestos/contractors.htm",
+      "sourceIds": [
+        "us.wi.dhs.asbestos_companies"
+      ],
+      "trades": [
+        "asbestos"
+      ],
+      "accessPath": "manual_handoff",
+      "coverageLimitations": [
+        "This source is limited to Wisconsin DHS asbestos company certification and exterior asbestos company certification.",
+        "It does not represent Wisconsin DSPS dwelling, electrical, plumbing, HVAC, utility, manufactured-home, local permit, municipal contractor, or non-asbestos credentials.",
+        "The downloadable spreadsheet must not be parsed, redistributed, or normalized until file shape, privacy handling, and source-specific publication terms are reviewed."
+      ],
+      "evidence": {
+        "url": "https://www.dhs.wisconsin.gov/asbestos/index.htm",
+        "reviewedAt": "2026-07-05T00:00:00.000Z",
+        "note": "Official DHS asbestos program page reviewed; it states DHS regulates training and certification of individuals and companies doing asbestos-related work in Wisconsin."
+      }
+    },
+    {
       "id": "us.wi.dsps.dwelling_trades",
       "jurisdiction": {
         "country": "US",
@@ -4377,21 +4404,29 @@
         "us.wi.dsps.dwelling_trades"
       ],
       "trades": [
+        "general_contracting",
         "residential_contracting",
+        "commercial_contracting",
         "home_improvement",
         "electrical",
         "hvac",
         "plumbing",
+        "mechanical",
+        "solar",
+        "pool_spa",
+        "underground_utility",
         "other"
       ],
       "accessPath": "manual_handoff",
       "coverageLimitations": [
         "This source entry is broad DSPS lookup metadata and does not yet isolate every construction-relevant credential type.",
+        "Dwelling contractor coverage is limited to one- and two-family dwelling permit requirements and does not establish a statewide commercial general-contractor license.",
+        "Pool, spa, solar, roofing, and sheet-metal coverage is limited to applicable DSPS electrical, plumbing, HVAC, or dwelling-contractor credential scopes where those scopes apply.",
         "Local permits, municipal registrations, and non-DSPS authorizations are outside this source entry."
       ],
       "evidence": {
         "url": "https://license.wi.gov/s/license-lookup",
-        "reviewedAt": "2026-06-27T00:00:00.000Z",
+        "reviewedAt": "2026-07-05T00:00:00.000Z",
         "note": "Official public source, access shape, and current automation constraints reviewed."
       }
     },

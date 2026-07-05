@@ -15,10 +15,30 @@ describe("nationwide board trade coverage ledger", () => {
     expect(ledger.jurisdictions).toHaveLength(56);
     expect(new Set(ledger.jurisdictions.map((entry) => entry.state)).size).toBe(56);
     expect(expanded).toHaveLength(56 * BOARD_TRADE_DOMAINS.length);
-    expect(expanded.filter((decision) => decision.outcome === "needs_research")).toHaveLength(168);
-    expect(expanded.filter((decision) => decision.outcome === "covered_by_board")).toHaveLength(501);
+    expect(expanded.filter((decision) => decision.outcome === "needs_research")).toHaveLength(154);
+    expect(expanded.filter((decision) => decision.outcome === "covered_by_board")).toHaveLength(514);
     expect(expanded.filter((decision) => decision.outcome === "not_state_regulated")).toHaveLength(7);
-    expect(expanded.filter((decision) => decision.outcome === "local_only")).toHaveLength(108);
+    expect(expanded.filter((decision) => decision.outcome === "local_only")).toHaveLength(109);
+  });
+
+  it("records Wisconsin DSPS trade coverage, DHS asbestos certification, and commercial general-contractor boundaries", async () => {
+    const ledger = boardTradeCoverageLedgerSchema.parse(await json("registry/board-coverage.json"));
+    const expanded = expandBoardTradeCoverageLedger(ledger).filter((decision) => decision.state === "WI");
+
+    expect(expanded.filter((decision) => decision.outcome === "needs_research")).toEqual([]);
+    expect(expanded.find((decision) => decision.tradeDomain === "asbestos")).toMatchObject({
+      outcome: "covered_by_board",
+      boardIds: ["us.wi.dhs.asbestos_companies"],
+    });
+    expect(expanded.find((decision) => decision.tradeDomain === "commercial_contracting")?.outcome).toBe("local_only");
+    for (const domain of ["residential_contracting", "electrical", "plumbing", "hvac", "underground_utility", "home_improvement"]) {
+      expect(expanded.find((decision) => decision.tradeDomain === domain)).toMatchObject({
+        outcome: "covered_by_board",
+        boardIds: ["us.wi.dsps.dwelling_trades"],
+      });
+    }
+    expect(expanded.find((decision) => decision.tradeDomain === "general_contracting")?.limitations.join(" ")).toContain("one- and two-family dwelling work only");
+    expect(expanded.find((decision) => decision.tradeDomain === "solar")?.limitations.join(" ")).toContain("electrical-contractor licensing only");
   });
 
   it("records Missouri statewide electrical and asbestos coverage with local contractor boundaries", async () => {
