@@ -15,8 +15,8 @@ describe("nationwide board trade coverage ledger", () => {
     expect(ledger.jurisdictions).toHaveLength(56);
     expect(new Set(ledger.jurisdictions.map((entry) => entry.state)).size).toBe(56);
     expect(expanded).toHaveLength(56 * BOARD_TRADE_DOMAINS.length);
-    expect(expanded.filter((decision) => decision.outcome === "needs_research")).toHaveLength(154);
-    expect(expanded.filter((decision) => decision.outcome === "covered_by_board")).toHaveLength(514);
+    expect(expanded.filter((decision) => decision.outcome === "needs_research")).toHaveLength(140);
+    expect(expanded.filter((decision) => decision.outcome === "covered_by_board")).toHaveLength(528);
     expect(expanded.filter((decision) => decision.outcome === "not_state_regulated")).toHaveLength(7);
     expect(expanded.filter((decision) => decision.outcome === "local_only")).toHaveLength(109);
   });
@@ -39,6 +39,23 @@ describe("nationwide board trade coverage ledger", () => {
     }
     expect(expanded.find((decision) => decision.tradeDomain === "general_contracting")?.limitations.join(" ")).toContain("one- and two-family dwelling work only");
     expect(expanded.find((decision) => decision.tradeDomain === "solar")?.limitations.join(" ")).toContain("electrical-contractor licensing only");
+  });
+
+  it("records Rhode Island CRLB, DLT trade, and RIDOH asbestos coverage", async () => {
+    const ledger = boardTradeCoverageLedgerSchema.parse(await json("registry/board-coverage.json"));
+    const expanded = expandBoardTradeCoverageLedger(ledger).filter((decision) => decision.state === "RI");
+
+    expect(expanded.filter((decision) => decision.outcome === "needs_research")).toEqual([]);
+    expect(expanded.every((decision) => decision.outcome === "covered_by_board")).toBe(true);
+    expect(expanded.find((decision) => decision.tradeDomain === "general_contracting")?.boardIds).toEqual(["us.ri.crlb.contractors"]);
+    expect(expanded.find((decision) => decision.tradeDomain === "electrical")?.boardIds).toEqual(["us.ri.dlt.professional_trades"]);
+    expect(expanded.find((decision) => decision.tradeDomain === "plumbing")?.boardIds).toEqual(["us.ri.dlt.professional_trades"]);
+    expect(expanded.find((decision) => decision.tradeDomain === "asbestos")?.boardIds).toEqual(["us.ri.health.asbestos_contractors"]);
+    expect(expanded.find((decision) => decision.tradeDomain === "solar")?.boardIds).toEqual([
+      "us.ri.crlb.contractors",
+      "us.ri.dlt.professional_trades",
+    ]);
+    expect(expanded.find((decision) => decision.tradeDomain === "pool_spa")?.limitations.join(" ")).toContain("No pool/spa-only statewide contractor board was confirmed");
   });
 
   it("records Missouri statewide electrical and asbestos coverage with local contractor boundaries", async () => {

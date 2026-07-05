@@ -3823,21 +3823,87 @@
       ],
       "trades": [
         "general_contracting",
+        "residential_contracting",
         "commercial_contracting",
         "roofing",
+        "pool_spa",
         "underground_utility",
+        "home_improvement",
         "other"
       ],
       "accessPath": "manual_handoff",
       "coverageLimitations": [
         "CRLB covers contractor registration and several state building office license categories; this source entry does not represent every Rhode Island trade, permit, or business authorization.",
+        "Electrical, plumbing, mechanical, pipefitter, refrigeration, sprinklerfitter, sheet-metal, oil-heat, and other DLT professional trade credentials are represented separately.",
+        "Asbestos contractor licensing is represented separately through Rhode Island Department of Health sources.",
         "Lookup, roster generation, and enforcement-action paths may have different coverage and terms that require separate review.",
         "Complaint and enforcement history is not normalized by this source entry."
       ],
       "evidence": {
         "url": "https://crb.ecms.ri.gov/consumer/search-registrantlicensee",
-        "reviewedAt": "2026-06-27T00:00:00.000Z",
+        "reviewedAt": "2026-07-05T00:00:00.000Z",
         "note": "Official public source, access shape, and current automation constraints reviewed."
+      }
+    },
+    {
+      "id": "us.ri.dlt.professional_trades",
+      "jurisdiction": {
+        "country": "US",
+        "state": "RI"
+      },
+      "boardName": "Rhode Island DLT Professional Regulation Trade Licenses",
+      "agencyName": "Rhode Island Department of Labor and Training, Division of Professional Regulation",
+      "officialUrl": "https://dltweb.dlt.ri.gov/profregsonline/LicenseSearch",
+      "sourceIds": [
+        "us.ri.dlt.professional_trades"
+      ],
+      "trades": [
+        "electrical",
+        "plumbing",
+        "hvac",
+        "mechanical",
+        "solar",
+        "pool_spa",
+        "sheet_metal"
+      ],
+      "accessPath": "manual_handoff",
+      "coverageLimitations": [
+        "This source is limited to Rhode Island DLT professional trade licenses and does not represent CRLB contractor registration, commercial roofer, pump installer, underground utility, or well-drilling categories.",
+        "This source does not represent Rhode Island Department of Health asbestos licenses.",
+        "The public lookup currently blocks simple automated retrieval in this environment; no adapter is implemented.",
+        "Local permits, municipal registrations, business entity registrations, inspections, and non-DLT authorizations are outside this source entry."
+      ],
+      "evidence": {
+        "url": "https://dlt.ri.gov/regulation-and-safety/professional-regulation",
+        "reviewedAt": "2026-07-05T00:00:00.000Z",
+        "note": "Official DLT Professional Regulation page reviewed through search-result evidence; it describes licensing and testing for electricians, mechanical trades, plumbers, and related regulated trades."
+      }
+    },
+    {
+      "id": "us.ri.health.asbestos_contractors",
+      "jurisdiction": {
+        "country": "US",
+        "state": "RI"
+      },
+      "boardName": "Rhode Island Department of Health Asbestos Contractor List",
+      "agencyName": "Rhode Island Department of Health",
+      "officialUrl": "https://datahealth.ri.gov/find/asbestos/?prof=264&type=1022",
+      "sourceIds": [
+        "us.ri.health.asbestos_contractors"
+      ],
+      "trades": [
+        "asbestos"
+      ],
+      "accessPath": "manual_handoff",
+      "coverageLimitations": [
+        "This source is limited to Rhode Island Department of Health asbestos contractor and asbestos-control licensing material.",
+        "It does not represent Rhode Island CRLB contractor registration, DLT professional trades, local permits, municipal contractor licenses, or non-asbestos credentials.",
+        "The public list contains contact and service-chief information and must not be normalized or republished without privacy and publication review."
+      ],
+      "evidence": {
+        "url": "https://health.ri.gov/asbestos/asbestos-control-program",
+        "reviewedAt": "2026-07-05T00:00:00.000Z",
+        "note": "Official RIDOH asbestos-control program page reviewed through search-result evidence; it describes certification and licensing for asbestos training courses, analytical labs, consultants, competent persons, abatement contractors, and asbestos abatement."
       }
     },
     {

@@ -4011,7 +4011,89 @@
       }
     },
     { "state": "PR", "decisions": {} },
-    { "state": "RI", "decisions": {} },
+    {
+      "state": "RI",
+      "decisions": {
+        "general_contracting": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.ri.crlb.contractors"],
+          "evidence": [{ "url": "https://crb.ri.gov/general-contractor-registration", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "Official CRLB general contractor registration page evidence says individuals or businesses working in residential or commercial construction and all subcontractors need registration." }, { "url": "https://www.ri.gov/press/view/11167", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "A Rhode Island government consumer notice states that contractors outside the electrical, plumbing, and mechanical trades are required to be registered with CRLB for construction restoration or repair work." }],
+          "limitations": ["Electrical, plumbing, and mechanical work are separately licensed through Rhode Island DLT professional trade boards."]
+        },
+        "residential_contracting": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.ri.crlb.contractors"],
+          "evidence": [{ "url": "https://crb.ri.gov/general-contractor-registration", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "Official CRLB general contractor registration page evidence includes individuals or businesses working in residential construction and all subcontractors." }]
+        },
+        "commercial_contracting": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.ri.crlb.contractors"],
+          "evidence": [{ "url": "https://crb.ri.gov/general-contractor-registration", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "Official CRLB general contractor registration page evidence includes individuals or businesses working in commercial construction and all subcontractors." }]
+        },
+        "electrical": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.ri.dlt.professional_trades"],
+          "evidence": [{ "url": "https://rules.sos.ri.gov/regulations/part/260-30-15-7", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "Official Board of Examiners of Electricians rules list electrical contractor, fire alarm contractor, electrical sign contractor, lightning-protection contractor, renewable energy professional, and related license categories." }],
+          "limitations": ["General contractors not licensed by DLT as electrical contractors may not bid, solicit, or advertise electrical work under the reviewed rules."]
+        },
+        "plumbing": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.ri.dlt.professional_trades"],
+          "evidence": [{ "url": "https://dlt.ri.gov/regulation-and-safety/professional-regulation", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "Official DLT Professional Regulation evidence identifies plumbers among the licensed and tested professional trades." }, { "url": "https://dlt.ri.gov/media/23346/download?language=en", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "Official DLT plumbing application evidence states plumbing contractor and master irrigator licenses authorize the entity to engage in business, advertise, bid, or work within the credential scope." }]
+        },
+        "hvac": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.ri.dlt.professional_trades"],
+          "evidence": [{ "url": "https://rules.sos.ri.gov/regulations/Part/260-30-15-2", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "Official mechanical-board rules include pipefitters, refrigeration technicians, sprinklerfitters, sheet-metal workers, oil-heat contractors, and Master Mechanical Contractor provisions for heating, cooling, and process work." }]
+        },
+        "mechanical": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.ri.dlt.professional_trades"],
+          "evidence": [{ "url": "https://rules.sos.ri.gov/regulations/Part/260-30-15-2", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "Official rules define a Master Mechanical Contractor category for unlimited heating, cooling, and process work and identify DLT-issued license display requirements." }]
+        },
+        "roofing": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.ri.crlb.contractors"],
+          "evidence": [{ "url": "https://crb.ri.gov/", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "Official CRLB page evidence states the board licenses Commercial Roofers." }, { "url": "https://crb.ri.gov/consumer/complaint-filing-overview", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "Official CRLB consumer guidance evidence identifies roofers among contractor types addressed by the board." }],
+          "limitations": ["Residential roofing may also fall under general contractor registration depending on project scope; commercial roofing is a distinct CRLB license category."]
+        },
+        "solar": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.ri.crlb.contractors", "us.ri.dlt.professional_trades"],
+          "evidence": [{ "url": "https://rules.sos.ri.gov/regulations/part/260-30-15-7", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "Official electrical-board rules list Renewable Energy Professional as an electrical license category." }, { "url": "https://crb.ri.gov/general-contractor-registration", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "Official CRLB general contractor registration evidence covers residential or commercial construction and all subcontractors." }],
+          "limitations": ["Solar projects may require CRLB registration, DLT electrical/renewable-energy credentials, building permits, utility interconnection, and local approvals."]
+        },
+        "pool_spa": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.ri.crlb.contractors", "us.ri.dlt.professional_trades"],
+          "evidence": [{ "url": "https://crb.ri.gov/general-contractor-registration", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "Official CRLB general contractor registration evidence covers residential or commercial construction and all subcontractors." }, { "url": "https://dlt.ri.gov/regulation-and-safety/professional-regulation", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "Official DLT Professional Regulation evidence covers plumbing and other professional trade licenses relevant to pool and spa systems." }],
+          "limitations": ["No pool/spa-only statewide contractor board was confirmed; pool/spa work may involve CRLB registration, plumbing, electrical, permits, inspections, and local requirements."]
+        },
+        "asbestos": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.ri.health.asbestos_contractors"],
+          "evidence": [{ "url": "https://health.ri.gov/asbestos/asbestos-control-program", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "Official RIDOH asbestos-control program evidence describes licensing of asbestos abatement contractors and related asbestos-control participants." }, { "url": "https://datahealth.ri.gov/find/asbestos/?prof=264&type=1022", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "Official RIDOH asbestos contractor list exposes asbestos contractor records with license numbers and contact/service-chief fields." }, { "url": "https://rules.sos.ri.gov/regulations/part/216-50-15-1", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "Official asbestos-control rules establish licensing of Asbestos Contractors, Asbestos Supervisors, and Asbestos Workers." }],
+          "limitations": ["The RIDOH list is blocked for automation until source shape, privacy filtering, and publication terms are reviewed."]
+        },
+        "sheet_metal": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.ri.dlt.professional_trades"],
+          "evidence": [{ "url": "https://rules.sos.ri.gov/regulations/Part/260-30-15-2", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "Official mechanical-board rules identify Sheet Metal Workers within the regulated bureau and licensing framework." }]
+        },
+        "underground_utility": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.ri.crlb.contractors"],
+          "evidence": [{ "url": "https://dbr.ri.gov/about-dbr/lookup-license", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "Official DBR lookup evidence lists Underground Utility License among CRLB lookup categories." }, { "url": "https://crb.ri.gov/licenses/underground-utility-license", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "Official CRLB underground utility license page evidence identifies a dedicated Underground Utility License path." }],
+          "limitations": ["Utility-owner requirements, excavation rules, public-works obligations, environmental permits, and local approvals may also apply."]
+        },
+        "home_improvement": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.ri.crlb.contractors"],
+          "evidence": [{ "url": "https://crb.ri.gov/general-contractor-registration", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "Official CRLB general contractor registration evidence covers residential construction and all subcontractors." }, { "url": "https://www.ri.gov/press/view/11167", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "Rhode Island government consumer guidance states contractors outside electrical, plumbing, and mechanical trades must be registered with CRLB for construction restoration or repair work." }],
+          "limitations": ["Electrical, plumbing, and mechanical portions of home-improvement work may require separate DLT trade credentials."]
+        }
+      }
+    },
     {
       "state": "SC",
       "decisions": {
