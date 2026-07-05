@@ -15,8 +15,8 @@ describe("nationwide board trade coverage ledger", () => {
     expect(ledger.jurisdictions).toHaveLength(56);
     expect(new Set(ledger.jurisdictions.map((entry) => entry.state)).size).toBe(56);
     expect(expanded).toHaveLength(56 * BOARD_TRADE_DOMAINS.length);
-    expect(expanded.filter((decision) => decision.outcome === "needs_research")).toHaveLength(84);
-    expect(expanded.filter((decision) => decision.outcome === "covered_by_board")).toHaveLength(553);
+    expect(expanded.filter((decision) => decision.outcome === "needs_research")).toHaveLength(70);
+    expect(expanded.filter((decision) => decision.outcome === "covered_by_board")).toHaveLength(567);
     expect(expanded.filter((decision) => decision.outcome === "not_state_regulated")).toHaveLength(7);
     expect(expanded.filter((decision) => decision.outcome === "local_only")).toHaveLength(140);
   });
@@ -972,6 +972,29 @@ describe("nationwide board trade coverage ledger", () => {
     );
     expect(expanded.find((decision) => decision.tradeDomain === "home_improvement")?.limitations.join(" ")).toContain(
       "RRPM",
+    );
+  });
+
+  it("records complete Guam CLB general, building, and specialty contractor coverage", async () => {
+    const ledger = boardTradeCoverageLedgerSchema.parse(await json("registry/board-coverage.json"));
+    const expanded = expandBoardTradeCoverageLedger(ledger).filter((decision) => decision.state === "GU");
+
+    expect(expanded).toHaveLength(BOARD_TRADE_DOMAINS.length);
+    expect(expanded.filter((decision) => decision.outcome === "needs_research")).toEqual([]);
+    expect(expanded.every((decision) => decision.outcome === "covered_by_board")).toBe(true);
+    expect(new Set(expanded.flatMap((decision) => decision.boardIds))).toEqual(new Set(["us.gu.clb.contractors"]));
+    expect(expanded.find((decision) => decision.tradeDomain === "solar")?.evidence[0]?.note).toContain("C-53 Solar");
+    expect(expanded.find((decision) => decision.tradeDomain === "pool_spa")?.evidence[0]?.note).toContain(
+      "C-49 Swimming Pool",
+    );
+    expect(expanded.find((decision) => decision.tradeDomain === "home_improvement")?.evidence[0]?.note).toContain(
+      "C-30 Limited Home Improvement",
+    );
+    expect(expanded.find((decision) => decision.tradeDomain === "asbestos")?.limitations.join(" ")).toContain(
+      "Guam EPA",
+    );
+    expect(expanded.find((decision) => decision.tradeDomain === "mechanical")?.limitations.join(" ")).toContain(
+      "classification codes",
     );
   });
 
