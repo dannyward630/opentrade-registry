@@ -4207,7 +4207,91 @@
         }
       }
     },
-    { "state": "PR", "decisions": {} },
+    {
+      "state": "PR",
+      "decisions": {
+        "general_contracting": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.pr.daco.contractors"],
+          "evidence": [{ "url": "https://www.daco.pr.gov/consumidores/listado-contratistas-registrados/", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "DACO states that its contractor registry covers natural and legal persons dedicated to residential construction, essential repairs, roof treatments, carpentry, masonry, and analogous repair work." }],
+          "limitations": ["DACO wording reviewed in this phase focuses on residential construction and home-improvement registration. Commercial, municipal, permit, business-registration, and professional trade credentials require separate checks."]
+        },
+        "residential_contracting": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.pr.daco.contractors"],
+          "evidence": [{ "url": "https://www.daco.pr.gov/consumidores/listado-contratistas-registrados/", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "DACO's official contractor-list page states that persons or entities dedicated to residential construction and analogous residential repair work must be registered to operate legally." }],
+          "limitations": ["The DACO source is blocked for automation and remains a manual official handoff until a stable source contract and reuse terms are confirmed."]
+        },
+        "commercial_contracting": {
+          "outcome": "local_only",
+          "evidence": [{ "url": "https://www.daco.pr.gov/reglamentos/reglamento-para-el-registro-de-contratistas/", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "The DACO regulation summary reviewed for this phase describes the contractor registry purpose in residential real-property improvement terms, not as a complete commercial-contractor licensing board." }],
+          "limitations": ["Commercial contractor registration, permitting, procurement prequalification, and municipal authorization may exist through other Puerto Rico or local paths and require separate source research before representation."]
+        },
+        "electrical": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.pr.estado.examining_boards_trades"],
+          "evidence": [{ "url": "https://www.estado.pr.gov/juntas-examinadoras/peritos-electricistas", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "The Puerto Rico Department of State lists the Peritos Electricistas examining board, online services, legal basis, and board contact details." }],
+          "limitations": ["The PCS lookup is informational and no stable bulk adapter source has been confirmed. DACO registration and business authorization are separate from individual professional credentials."]
+        },
+        "plumbing": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.pr.estado.examining_boards_trades"],
+          "evidence": [{ "url": "https://www.estado.pr.gov/juntas-examinadoras/maestros-y-oficiales-plomeros", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "The Puerto Rico Department of State lists the Maestros y Oficiales Plomeros examining board, application paths, legal basis, and board contact details." }],
+          "limitations": ["The PCS lookup is informational and no stable bulk adapter source has been confirmed. DACO registration and business authorization are separate from individual professional credentials."]
+        },
+        "hvac": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.pr.estado.examining_boards_trades"],
+          "evidence": [{ "url": "https://www.statedepartment.pr.gov/juntas-examinadoras/refrigeration-and-air-conditioning-technicians", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "The Puerto Rico Department of State lists the Refrigeration and Air Conditioning Technicians examining board, online services, legal basis, and board contact details." }],
+          "limitations": ["This decision tracks refrigeration and air-conditioning technician credentials, not a contractor-firm bulk dataset."]
+        },
+        "mechanical": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.pr.estado.examining_boards_trades"],
+          "evidence": [{ "url": "https://www.statedepartment.pr.gov/juntas-examinadoras/refrigeration-and-air-conditioning-technicians", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "The Department of State refrigeration and air-conditioning technician board provides the closest statewide mechanical/HVAC credential evidence found in this phase." }],
+          "limitations": ["No separate statewide mechanical-contractor board or stable bulk source was confirmed. Mechanical work outside refrigeration/air conditioning may require separate research."]
+        },
+        "roofing": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.pr.daco.contractors", "us.pr.estado.examining_boards_trades"],
+          "evidence": [{ "url": "https://www.daco.pr.gov/consumidores/listado-contratistas-registrados/", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "DACO states that roof treatments to correct leaks are within the contractor registry scope, and the Department of State examining-boards page separately lists Impermeabilización de Techos." }],
+          "limitations": ["Roofing and roof-waterproofing scope may require both DACO registration and Department of State credential review depending on the work."]
+        },
+        "solar": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.pr.daco.contractors", "us.pr.estado.examining_boards_trades"],
+          "evidence": [{ "url": "https://www.daco.pr.gov/wp-content/uploads/2025/09/Reporte-de-Contratista-Agosto-2025.pdf", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "A DACO-hosted contractor report includes Paneles Solares as a contractor business type; electrical credential evidence is tracked separately through the Department of State examining boards." }],
+          "limitations": ["Solar installation may involve contractor registration, electrical credentials, permits, utility interconnection, and municipal requirements. The PDF report shape and reuse terms are not adapter-reviewed."]
+        },
+        "pool_spa": {
+          "outcome": "local_only",
+          "evidence": [{ "url": "https://www.daco.pr.gov/consumidores/listado-contratistas-registrados/", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "The reviewed DACO and Department of State pages did not identify a distinct statewide pool/spa contractor board or stable official pool/spa license source." }],
+          "limitations": ["Pool/spa work may still require DACO registration, permits, health/environmental approvals, or municipal authorization depending on the project."]
+        },
+        "asbestos": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.pr.drna.asbestos_contractors"],
+          "evidence": [{ "url": "https://www.drna.pr.gov/acai/asbesto/", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "DRNA's official Air Quality/Asbestos page describes asbestos permit processes, worker-registration submission, and instructions for asbestos consultants and contractors seeking inclusion on DRNA's list." }],
+          "limitations": ["DRNA materials are treated as manual public-records-file metadata until current list shape, certification status, and redistribution terms are reviewed."]
+        },
+        "sheet_metal": {
+          "outcome": "local_only",
+          "evidence": [{ "url": "https://www.estado.pr.gov/juntas-examinadoras", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "The reviewed Puerto Rico Department of State examining-boards page lists electrical, plumbing, roof waterproofing, and refrigeration/air-conditioning boards, but no distinct sheet-metal contractor board was identified." }],
+          "limitations": ["Sheet-metal work may be part of building, HVAC, or local permit scopes. No separate statewide sheet-metal board evidence was confirmed in this phase."]
+        },
+        "underground_utility": {
+          "outcome": "local_only",
+          "evidence": [{ "url": "https://www.daco.pr.gov/consumidores/listado-contratistas-registrados/", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "The reviewed DACO and Department of State pages did not identify a distinct statewide underground-utility contractor board or stable official license source." }],
+          "limitations": ["Underground utility work may require permits, utility authorization, professional supervision, environmental approvals, or municipal authorization outside the tracked sources."]
+        },
+        "home_improvement": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.pr.daco.contractors"],
+          "evidence": [{ "url": "https://www.daco.pr.gov/reglamentos/reglamento-para-el-registro-de-contratistas/", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "DACO's regulation summary states that the registry is intended to protect consumers for defective or nonperformance by businesses doing residential real-property improvements." }],
+          "limitations": ["Home-improvement verification should use neutral no-match wording and preserve DACO residential scope caveats."]
+        }
+      }
+    },
     {
       "state": "RI",
       "decisions": {

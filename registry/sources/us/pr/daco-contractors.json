@@ -19,17 +19,19 @@
     "general_contracting",
     "residential_contracting",
     "roofing",
+    "solar",
     "home_improvement",
     "handyman",
     "other",
     "unknown"
   ],
   "licenseTypesIncluded": [
-    "Puerto Rico DACO registered contractor records exposed by the official registered contractors list"
+    "Puerto Rico DACO registered contractor records exposed by the official registered contractors list",
+    "Residential construction, home-repair, roof-treatment, masonry, carpentry, and analogous residential improvement registration records where exposed by DACO"
   ],
   "knownExclusions": [
-    "The DACO page describes residential construction, home repair, alterations, installations, masonry, carpentry, roof treatments, and analogous repair work; exact category fields require adapter research.",
-    "Professional licenses, municipal permits, business registrations, complaints, fines, and non-DACO authorizations may require separate official sources.",
+    "The DACO page describes residential construction, home repair, alterations, installations, masonry, carpentry, roof treatments, and analogous repair work; commercial contracting and specialist trade scope must be verified against separate official sources.",
+    "Professional licenses, Department of State examining-board credentials, DRNA asbestos records, municipal permits, business registrations, complaints, fines, and non-DACO authorizations require separate official sources.",
     "PDF reports or linked exports must not be redistributed unless terms clearly allow it."
   ],
   "hasBulkDownload": "unknown",
@@ -48,17 +50,22 @@
   "testFixturePath": null,
   "officialLookupUrl": "https://www.daco.pr.gov/consumidores/listado-contratistas-registrados/",
   "officialBulkDownloadNotes": "DACO may publish contractor-list reports, but no stable bulk format or redistribution permission has been confirmed in this phase.",
-  "researchNotes": "Registry-only source for Puerto Rico DACO registered contractors. Future work should research current report links, field names, encoding, and Spanish-language category normalization.",
-  "lastVerifiedAt": "2026-06-27T00:00:00.000Z",
-  "maintainerNotes": "Preserve Spanish source wording and residential/home-improvement scope in future verification caveats.",
+  "researchNotes": "Registry-only source for Puerto Rico DACO registered contractors. DACO's official page describes a residential construction and home-improvement registration scope; linked reports may include business-type labels such as general construction, solar panels, roof waterproofing, plumbing, and electrical service, but field semantics require adapter research.",
+  "lastVerifiedAt": "2026-07-05T00:00:00.000Z",
+  "maintainerNotes": "Preserve Spanish source wording and residential/home-improvement scope in future verification caveats. Do not merge DACO registration with Department of State examining-board credentials.",
   "schemaVersion": "1.0",
-  "researchReviewedAt": "2026-06-27T00:00:00.000Z",
-  "nextReviewAt": "2026-12-27T00:00:00.000Z",
+  "researchReviewedAt": "2026-07-05T00:00:00.000Z",
+  "nextReviewAt": "2027-01-05T00:00:00.000Z",
   "researchEvidence": [
     {
       "url": "https://www.daco.pr.gov/consumidores/listado-contratistas-registrados/",
-      "checkedAt": "2026-06-27T00:00:00.000Z",
-      "note": "Official public source, access shape, and current automation constraints reviewed."
+      "checkedAt": "2026-07-05T00:00:00.000Z",
+      "note": "Official DACO page reviewed; it describes the contractor registry for residential construction, home repairs, alterations, installations, carpentry, masonry, roof treatments, and analogous residential repair work."
+    },
+    {
+      "url": "https://www.daco.pr.gov/reglamentos/reglamento-para-el-registro-de-contratistas/",
+      "checkedAt": "2026-07-05T00:00:00.000Z",
+      "note": "Official DACO regulation summary reviewed; it describes the contractor registry as attached to DACO's construction office and focused on residential real-property improvements."
     }
   ],
   "sourceResearchOutcome": "blocked",
@@ -68,6 +75,7 @@
     "summary": "No stable contractor-specific official file, API, or lookup interface suitable for an adapter was confirmed.",
     "evidenceUrls": [
       "https://www.daco.pr.gov/consumidores/listado-contratistas-registrados/",
+      "https://www.daco.pr.gov/reglamentos/reglamento-para-el-registro-de-contratistas/",
       "https://www.daco.pr.gov/wp-content/uploads/2018/11/8568.pdf"
     ]
   }

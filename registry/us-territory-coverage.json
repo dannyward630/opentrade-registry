@@ -45,9 +45,11 @@
       "name": "Puerto Rico",
       "status": "blocked",
       "sourceIds": [
-        "us.pr.daco.contractors"
+        "us.pr.daco.contractors",
+        "us.pr.drna.asbestos_contractors",
+        "us.pr.estado.examining_boards_trades"
       ],
-      "notes": "Official source metadata is retained, but automated ingestion is blocked by documented legal, access, scope, or technical constraints."
+      "notes": "Official DACO contractor-registration, Department of State examining-board trade, and DRNA asbestos metadata are retained, but automated ingestion is blocked by documented legal, access, scope, or technical constraints."
     },
     {
       "territory": "VI",
