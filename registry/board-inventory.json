@@ -4648,6 +4648,33 @@
       }
     },
     {
+      "id": "us.wy.deq.asbestos",
+      "jurisdiction": {
+        "country": "US",
+        "state": "WY"
+      },
+      "boardName": "Wyoming DEQ Asbestos Program",
+      "agencyName": "Wyoming Department of Environmental Quality",
+      "officialUrl": "https://deq.wyoming.gov/aqd/compliance/asbestos/",
+      "sourceIds": [
+        "us.wy.deq.asbestos"
+      ],
+      "trades": [
+        "asbestos"
+      ],
+      "accessPath": "manual_handoff",
+      "coverageLimitations": [
+        "This source is limited to Wyoming DEQ asbestos program materials and does not represent general contractor, electrical, plumbing, HVAC, permit, or local registration records.",
+        "The public program page does not provide a stable, adapter-reviewed machine-readable roster or bulk export.",
+        "Generated datasets should not be published until privacy, source shape, and redistribution are approved."
+      ],
+      "evidence": {
+        "url": "https://deq.wyoming.gov/aqd/compliance/asbestos/",
+        "reviewedAt": "2026-07-05T00:00:00.000Z",
+        "note": "Official Wyoming DEQ asbestos page reviewed; it states the Wyoming Asbestos Program enforces state asbestos regulations for inspections and abatement projects and checks contractor work practices."
+      }
+    },
+    {
       "id": "us.wy.firemarshal.electrical",
       "jurisdiction": {
         "country": "US",
@@ -4660,18 +4687,20 @@
         "us.wy.firemarshal.electrical"
       ],
       "trades": [
-        "electrical"
+        "electrical",
+        "solar"
       ],
       "accessPath": "manual_handoff",
       "coverageLimitations": [
         "Wyoming general contractor, plumbing, mechanical, and local contractor licenses may be local and are outside this source entry.",
+        "Solar is covered only for electrical work that falls under Wyoming electrical licensing requirements; no standalone statewide solar contractor board was confirmed.",
         "This source entry is scoped to State Fire Marshal electrical licensing and does not represent every construction authorization in Wyoming.",
         "The public portal and lookup behavior need follow-up review before adapter work."
       ],
       "evidence": {
         "url": "https://wsfm.wyo.gov/electrical-safety",
-        "reviewedAt": "2026-06-27T00:00:00.000Z",
-        "note": "Official public source, access shape, and current automation constraints reviewed."
+        "reviewedAt": "2026-07-05T00:00:00.000Z",
+        "note": "Official State Fire Marshal electrical safety page reviewed; it links public portal lookup, wiring permits, licensing, and electrical plan review paths."
       }
     }
   ]
