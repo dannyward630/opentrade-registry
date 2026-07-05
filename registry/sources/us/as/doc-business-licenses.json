@@ -28,6 +28,7 @@
   "knownExclusions": [
     "This is not confirmed as a contractor-specific public lookup source.",
     "License categories, public search availability, and construction-specific fields require follow-up research.",
+    "Contractor-board and specialty-contractor licensing evidence is tracked separately in us.as.dpw.contractors.",
     "Professional board, permit, tax, and enforcement records may require separate official sources."
   ],
   "hasBulkDownload": "unknown",
@@ -47,17 +48,17 @@
   "officialLookupUrl": null,
   "officialLookupReviewNotes": "The official business-license page describes application requirements but did not expose a stable public contractor-specific license lookup during the 2026-06-27 review.",
   "officialBulkDownloadNotes": "No official bulk download has been confirmed in this phase.",
-  "researchNotes": "Registry-only source for American Samoa business licensing. Future work should determine whether construction businesses have a public-records export or a contractor-specific licensing board source.",
-  "lastVerifiedAt": "2026-06-27T00:00:00.000Z",
+  "researchNotes": "Registry-only source for American Samoa business licensing. Contractor-board evidence is now tracked separately in us.as.dpw.contractors; keep this row scoped to business-licensing metadata.",
+  "lastVerifiedAt": "2026-07-05T00:00:00.000Z",
   "maintainerNotes": "Keep this entry framed as territory business-licensing metadata, not as a verified contractor-license lookup.",
   "schemaVersion": "1.0",
-  "researchReviewedAt": "2026-06-27T00:00:00.000Z",
-  "nextReviewAt": "2026-12-27T00:00:00.000Z",
+  "researchReviewedAt": "2026-07-05T00:00:00.000Z",
+  "nextReviewAt": "2027-01-05T00:00:00.000Z",
   "researchEvidence": [
     {
       "url": "https://www.doc.as.gov/applyforbusinesslicense",
-      "checkedAt": "2026-06-27T00:00:00.000Z",
-      "note": "Official public source, access shape, and current automation constraints reviewed."
+      "checkedAt": "2026-07-05T00:00:00.000Z",
+      "note": "Official public source, access shape, and current automation constraints reviewed; contractor-board coverage is tracked separately."
     }
   ],
   "sourceResearchOutcome": "blocked",

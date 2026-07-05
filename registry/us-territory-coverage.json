@@ -18,9 +18,10 @@
       "name": "American Samoa",
       "status": "blocked",
       "sourceIds": [
-        "us.as.doc.business_licenses"
+        "us.as.doc.business_licenses",
+        "us.as.dpw.contractors"
       ],
-      "notes": "Official source metadata is retained, but automated ingestion is blocked by documented legal, access, scope, or technical constraints."
+      "notes": "Official business-licensing and contractor-board metadata is retained, but automated ingestion is blocked because no stable contractor-license roster, export, lookup, or API was confirmed."
     },
     {
       "territory": "GU",
