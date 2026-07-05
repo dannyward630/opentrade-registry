@@ -502,9 +502,10 @@
       "state": "WI",
       "status": "blocked",
       "sourceIds": [
+        "us.wi.dhs.asbestos_companies",
         "us.wi.dsps.dwelling_trades"
       ],
-      "notes": "Official source metadata is retained, but automated ingestion is blocked by documented legal, access, scope, or technical constraints."
+      "notes": "Official DSPS trade-credential metadata and DHS asbestos company certification metadata are retained, but automated ingestion is blocked by documented legal, access, scope, or technical constraints."
     },
     {
       "state": "WY",

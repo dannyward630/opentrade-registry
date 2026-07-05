@@ -1,0 +1,88 @@
+{
+  "id": "us.wi.dhs.asbestos_companies",
+  "name": "Wisconsin DHS Certified Asbestos Company List",
+  "jurisdiction": {
+    "country": "US",
+    "state": "WI"
+  },
+  "agency": {
+    "name": "Wisconsin Department of Health Services",
+    "url": "https://www.dhs.wisconsin.gov/"
+  },
+  "sourceType": "bulk_xlsx",
+  "sourceUrl": "https://www.dhs.wisconsin.gov/asbestos/contractors.htm",
+  "documentationUrl": "https://www.dhs.wisconsin.gov/asbestos/contractors.htm",
+  "dataDictionaryUrl": null,
+  "termsUrl": "https://www.wisconsin.gov/Pages/policies.aspx",
+  "termsReviewNotes": "Wisconsin state website policies were identified, but source-specific publication, redistribution, and privacy review has not been completed.",
+  "updateFrequency": "monthly, according to the official DHS asbestos company certification page",
+  "tradeCoverage": [
+    "asbestos"
+  ],
+  "licenseTypesIncluded": [
+    "Wisconsin DHS asbestos company certification",
+    "Wisconsin DHS exterior asbestos company certification"
+  ],
+  "knownExclusions": [
+    "This source is limited to Wisconsin DHS asbestos company certification and exterior asbestos company certification.",
+    "It does not represent Wisconsin DSPS dwelling, electrical, plumbing, HVAC, utility, manufactured-home, local permit, municipal contractor, or non-asbestos credentials.",
+    "The downloadable spreadsheet must not be parsed, redistributed, or normalized until file shape, privacy handling, and source-specific publication terms are reviewed."
+  ],
+  "hasBulkDownload": true,
+  "hasLiveLookup": false,
+  "requiresJavaScript": false,
+  "requiresCaptcha": false,
+  "requiresAccount": false,
+  "rateLimitNotes": "No adapter is implemented. Use the official DHS page and linked spreadsheet manually until file shape, privacy handling, and allowed reuse are reviewed.",
+  "redistributionStatus": "unknown",
+  "publicRecordsNotes": "Official Wisconsin DHS asbestos company metadata only. Absence from this source is not proof that another asbestos credential, contractor license, local license, permit, or related record does not exist.",
+  "adapterStatus": "blocked",
+  "sourceDiscoveryStatus": "blocked",
+  "adapterMaturity": "blocked",
+  "adapterQualityLevel": 0,
+  "coverageScope": "state_agency_partial",
+  "adapterPackage": null,
+  "testFixturePath": null,
+  "officialLookupUrl": "https://www.dhs.wisconsin.gov/asbestos/contractors.htm",
+  "officialLookupReviewNotes": "The official DHS page instructs users to confirm that companies are on the current certified company list and links a Microsoft Excel spreadsheet.",
+  "officialBulkDownloadNotes": "DHS links a certified asbestos company list as a Microsoft Excel spreadsheet and states that the list is updated monthly, but no adapter-reviewed parser, privacy filter, or publication decision exists yet.",
+  "researchNotes": "Registry-only blocked source for Wisconsin DHS asbestos company certification. Future adapter work should use a tiny hand-authored fixture, review the current spreadsheet columns, and separate company records from any individual certification data.",
+  "verificationReviewedAt": null,
+  "verificationCaveats": [
+    "This source covers Wisconsin DHS asbestos company certification only.",
+    "No matching record means no match in the checked source at the checked time, not proof that another asbestos credential, contractor license, local license, permit, or related record does not exist."
+  ],
+  "verificationNotes": "No supported sync or verification adapter is exposed while the DHS spreadsheet shape, privacy posture, and allowed reuse remain under review.",
+  "lastVerifiedAt": "2026-07-05T00:00:00.000Z",
+  "maintainerNotes": "Do not commit DHS spreadsheet rows or generated asbestos-company datasets. Keep any future fixture hand-authored and clearly synthetic.",
+  "schemaVersion": "1.0",
+  "researchReviewedAt": "2026-07-05T00:00:00.000Z",
+  "nextReviewAt": "2027-01-05T00:00:00.000Z",
+  "researchEvidence": [
+    {
+      "url": "https://www.dhs.wisconsin.gov/asbestos/index.htm",
+      "checkedAt": "2026-07-05T00:00:00.000Z",
+      "note": "Official DHS asbestos program page reviewed; it states DHS regulates training and certification of individuals and companies doing asbestos-related work in Wisconsin."
+    },
+    {
+      "url": "https://www.dhs.wisconsin.gov/asbestos/contractors.htm",
+      "checkedAt": "2026-07-05T00:00:00.000Z",
+      "note": "Official DHS company-certification page reviewed; it says companies named in a contract should be on the current certified company list, links a Microsoft Excel spreadsheet, and states that the list is updated monthly."
+    },
+    {
+      "url": "https://www.wisconsin.gov/Pages/policies.aspx",
+      "checkedAt": "2026-07-05T00:00:00.000Z",
+      "note": "Wisconsin state website policies reviewed for general terms and privacy posture; redistribution rights remain unconfirmed."
+    }
+  ],
+  "sourceResearchOutcome": "blocked",
+  "blocker": {
+    "code": "technical_instability",
+    "summary": "DHS publishes an official monthly Excel list, but no adapter-reviewed file shape, privacy filter, or source-specific publication/redistribution path has been established.",
+    "evidenceUrls": [
+      "https://www.dhs.wisconsin.gov/asbestos/index.htm",
+      "https://www.dhs.wisconsin.gov/asbestos/contractors.htm",
+      "https://www.wisconsin.gov/Pages/policies.aspx"
+    ]
+  }
+}
