@@ -1,0 +1,82 @@
+{
+  "id": "us.sd.dlr.electrical",
+  "name": "South Dakota DLR Electrical Commission Licensing",
+  "jurisdiction": {
+    "country": "US",
+    "state": "SD"
+  },
+  "agency": {
+    "name": "South Dakota Department of Labor and Regulation Electrical Commission",
+    "url": "https://dlr.sd.gov/electrical/default.aspx"
+  },
+  "sourceType": "html_lookup",
+  "sourceUrl": "https://dlr.sd.gov/electrical/default.aspx",
+  "documentationUrl": "https://dlr.sd.gov/electrical/licensing.aspx",
+  "dataDictionaryUrl": null,
+  "termsUrl": "https://sd.gov/cs?id=privacy_policy",
+  "termsReviewNotes": "South Dakota privacy and disclaimer links were identified, but source-specific publication and redistribution approval has not been completed.",
+  "updateFrequency": "unknown; verify against the official Electrical Commission pages before relying on freshness assumptions",
+  "tradeCoverage": [
+    "electrical",
+    "solar"
+  ],
+  "licenseTypesIncluded": [
+    "South Dakota electrical contractor, Class B electrician, journeyman, apprentice, and related electrical license categories described by official Electrical Commission pages"
+  ],
+  "knownExclusions": [
+    "This source entry is scoped to South Dakota Electrical Commission credentials and does not represent general contractor, plumbing, asbestos, local permit, or tax-registration records.",
+    "Solar coverage is limited to electrical work within solar installations and is not a standalone statewide solar-contractor license.",
+    "The official pages describe licensing categories but no stable public bulk dataset or adapter-reviewed lookup contract has been modeled yet."
+  ],
+  "hasBulkDownload": "unknown",
+  "hasLiveLookup": "unknown",
+  "requiresJavaScript": "unknown",
+  "requiresCaptcha": "unknown",
+  "requiresAccount": "unknown",
+  "rateLimitNotes": "No adapter is implemented. Use official Electrical Commission pages manually until access rules, field shape, and reuse are reviewed.",
+  "redistributionStatus": "unknown",
+  "publicRecordsNotes": "Official licensing-page metadata only. Absence from this source is not proof that an electrical authorization, local permit, tax registration, or related record does not exist elsewhere.",
+  "adapterStatus": "blocked",
+  "sourceDiscoveryStatus": "blocked",
+  "adapterMaturity": "blocked",
+  "adapterQualityLevel": 0,
+  "coverageScope": "state_agency_partial",
+  "adapterPackage": null,
+  "testFixturePath": null,
+  "officialLookupUrl": "https://dlr.sd.gov/electrical/default.aspx",
+  "officialBulkDownloadNotes": "No official bulk download or stable lookup endpoint has been confirmed in this phase.",
+  "researchNotes": "Registry-only source for South Dakota Electrical Commission licensing pages. Future work should confirm whether any public lookup or roster exists before implementing verification.",
+  "verificationReviewedAt": null,
+  "verificationCaveats": [
+    "This source covers South Dakota Electrical Commission licensing only.",
+    "No matching record means no match in the checked source at the checked time, not proof that another license, local authorization, permit, tax registration, or related record does not exist."
+  ],
+  "verificationNotes": "No supported sync or verification adapter is exposed while the official lookup/export contract and allowed reuse remain under review.",
+  "lastVerifiedAt": "2026-07-05T00:00:00.000Z",
+  "maintainerNotes": "Keep electrical and solar-electrical coverage separate from general contractor, local permit, and DOR tax-license obligations.",
+  "schemaVersion": "1.0",
+  "researchReviewedAt": "2026-07-05T00:00:00.000Z",
+  "nextReviewAt": "2027-01-05T00:00:00.000Z",
+  "researchEvidence": [
+    {
+      "url": "https://dlr.sd.gov/electrical/default.aspx",
+      "checkedAt": "2026-07-05T00:00:00.000Z",
+      "note": "The official Electrical Commission page states that the commission administers state electrical wiring laws and licenses all electricians within South Dakota."
+    },
+    {
+      "url": "https://dlr.sd.gov/electrical/licensing.aspx",
+      "checkedAt": "2026-07-05T00:00:00.000Z",
+      "note": "The official licensing page describes electrical contractor and Class B electrician application and renewal paths."
+    }
+  ],
+  "sourceResearchOutcome": "blocked",
+  "blocker": {
+    "code": "no_stable_source",
+    "summary": "The official pages document electrical licensing, but no stable public roster, bulk export, or parser contract has been confirmed.",
+    "evidenceUrls": [
+      "https://dlr.sd.gov/electrical/default.aspx",
+      "https://dlr.sd.gov/electrical/licensing.aspx",
+      "https://sd.gov/cs?id=privacy_policy"
+    ]
+  }
+}
