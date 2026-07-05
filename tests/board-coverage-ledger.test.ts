@@ -15,10 +15,40 @@ describe("nationwide board trade coverage ledger", () => {
     expect(ledger.jurisdictions).toHaveLength(56);
     expect(new Set(ledger.jurisdictions.map((entry) => entry.state)).size).toBe(56);
     expect(expanded).toHaveLength(56 * BOARD_TRADE_DOMAINS.length);
-    expect(expanded.filter((decision) => decision.outcome === "needs_research")).toHaveLength(28);
-    expect(expanded.filter((decision) => decision.outcome === "covered_by_board")).toHaveLength(590);
-    expect(expanded.filter((decision) => decision.outcome === "not_state_regulated")).toHaveLength(8);
-    expect(expanded.filter((decision) => decision.outcome === "local_only")).toHaveLength(158);
+    expect(expanded.filter((decision) => decision.outcome === "needs_research")).toHaveLength(14);
+    expect(expanded.filter((decision) => decision.outcome === "covered_by_board")).toHaveLength(601);
+    expect(expanded.filter((decision) => decision.outcome === "not_state_regulated")).toHaveLength(9);
+    expect(expanded.filter((decision) => decision.outcome === "local_only")).toHaveLength(160);
+  });
+
+  it("records American Samoa contractor-board coverage and missing public roster boundaries", async () => {
+    const ledger = boardTradeCoverageLedgerSchema.parse(await json("registry/board-coverage.json"));
+    const expanded = expandBoardTradeCoverageLedger(ledger).filter((decision) => decision.state === "AS");
+
+    expect(expanded).toHaveLength(BOARD_TRADE_DOMAINS.length);
+    expect(expanded.filter((decision) => decision.outcome === "needs_research")).toEqual([]);
+    for (const domain of [
+      "general_contracting",
+      "residential_contracting",
+      "commercial_contracting",
+      "electrical",
+      "plumbing",
+      "hvac",
+      "mechanical",
+      "roofing",
+      "sheet_metal",
+      "underground_utility",
+      "home_improvement",
+    ]) {
+      expect(expanded.find((decision) => decision.tradeDomain === domain)).toMatchObject({
+        outcome: "covered_by_board",
+        boardIds: ["us.as.dpw.contractors"],
+      });
+    }
+    expect(expanded.find((decision) => decision.tradeDomain === "asbestos")?.outcome).toBe("not_state_regulated");
+    expect(expanded.find((decision) => decision.tradeDomain === "solar")?.outcome).toBe("local_only");
+    expect(expanded.find((decision) => decision.tradeDomain === "pool_spa")?.outcome).toBe("local_only");
+    expect(expanded.find((decision) => decision.tradeDomain === "general_contracting")?.limitations.join(" ")).toContain("No stable public roster");
   });
 
   it("records New York DOL asbestos coverage and local contractor boundaries", async () => {
