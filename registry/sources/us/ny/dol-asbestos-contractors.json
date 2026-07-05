@@ -1,0 +1,94 @@
+{
+  "id": "us.ny.dol.asbestos_contractors",
+  "name": "New York Department of Labor Asbestos Contractor Listing",
+  "jurisdiction": {
+    "country": "US",
+    "state": "NY"
+  },
+  "agency": {
+    "name": "New York State Department of Labor",
+    "url": "https://dol.ny.gov/"
+  },
+  "sourceType": "html_lookup",
+  "sourceUrl": "https://dol.ny.gov/asbestos-control-bureau",
+  "documentationUrl": "https://dol.ny.gov/asbestos-control-bureau",
+  "dataDictionaryUrl": null,
+  "termsUrl": "https://www.ny.gov/privacy-policy",
+  "termsReviewNotes": "New York State privacy policy was identified, but source-specific publication, redistribution, and personal-data review has not been completed.",
+  "updateFrequency": "unknown; verify against the official Asbestos Contractors Listing before relying on freshness assumptions",
+  "tradeCoverage": [
+    "asbestos"
+  ],
+  "licenseTypesIncluded": [
+    "New York Department of Labor asbestos contractor licenses exposed through the official Asbestos Contractors Listing",
+    "Asbestos worker and project certification context documented by the Asbestos Control Bureau"
+  ],
+  "knownExclusions": [
+    "This source is limited to New York Department of Labor asbestos contractor licensing and related asbestos program context.",
+    "It does not represent general contractor, electrical, plumbing, HVAC, roofing, solar, pool/spa, sheet-metal, underground utility, local home-improvement, NYC DOB, or county contractor records.",
+    "The official path is a listing/lookup handoff; no stable bulk export, parser contract, privacy filter, or redistribution approval has been confirmed."
+  ],
+  "hasBulkDownload": "unknown",
+  "hasLiveLookup": true,
+  "requiresJavaScript": "unknown",
+  "requiresCaptcha": "unknown",
+  "requiresAccount": false,
+  "rateLimitNotes": "No adapter is implemented. Use the official Asbestos Control Bureau page and contractor listing manually until source shape, access controls, privacy handling, and reuse are reviewed.",
+  "redistributionStatus": "unknown",
+  "publicRecordsNotes": "Official asbestos-program metadata only. Generated datasets should not be published until privacy and redistribution are approved. Absence from this source is not proof that another asbestos credential, project authorization, local authorization, or related record does not exist.",
+  "adapterStatus": "blocked",
+  "sourceDiscoveryStatus": "blocked",
+  "adapterMaturity": "blocked",
+  "adapterQualityLevel": 0,
+  "coverageScope": "state_agency_partial",
+  "adapterPackage": null,
+  "testFixturePath": null,
+  "officialLookupUrl": "https://dol.ny.gov/asbestos-control-bureau",
+  "officialLookupReviewNotes": "DOL links an Asbestos Contractors Listing from the official Asbestos Control Bureau page and states that Industrial Code Rule 56 requires contractor licensing and worker certification.",
+  "officialBulkDownloadNotes": "No stable, documented, redistribution-reviewed bulk download has been confirmed in this phase.",
+  "researchNotes": "Registry-only blocked source for New York asbestos contractor coverage. Future adapter work must preserve contractor versus worker/certification distinctions, checked time, source URL, raw lookup evidence, and no-match caveats.",
+  "verificationReviewedAt": null,
+  "verificationCaveats": [
+    "This source covers New York Department of Labor asbestos contractor licensing material only.",
+    "No matching record means no match in the checked source at the checked time, not proof that another asbestos credential, local authorization, project notification, or related record does not exist."
+  ],
+  "verificationNotes": "No supported sync or verification adapter is exposed while the official listing contract, privacy posture, and allowed reuse remain under review.",
+  "lastVerifiedAt": "2026-07-05T00:00:00.000Z",
+  "maintainerNotes": "Do not commit official listing rows or generated licensee datasets. Keep any future fixture hand-authored and synthetic.",
+  "schemaVersion": "1.0",
+  "researchReviewedAt": "2026-07-05T00:00:00.000Z",
+  "nextReviewAt": "2027-01-05T00:00:00.000Z",
+  "researchEvidence": [
+    {
+      "url": "https://dol.ny.gov/asbestos-control-bureau",
+      "checkedAt": "2026-07-05T00:00:00.000Z",
+      "note": "Official DOL Asbestos Control Bureau page reviewed; it links an Asbestos Contractors Listing and describes DOL oversight of asbestos abatement hazards."
+    },
+    {
+      "url": "https://dol.ny.gov/asbestos-control-bureau",
+      "checkedAt": "2026-07-05T00:00:00.000Z",
+      "note": "Official DOL page reviewed; Industrial Code Rule 56 requires licensing of contractors, certification of persons working on asbestos projects, project notifications, surveys, and abatement methods."
+    },
+    {
+      "url": "https://dol.ny.gov/licensing-and-certification",
+      "checkedAt": "2026-07-05T00:00:00.000Z",
+      "note": "Official DOL licensing page reviewed; it states asbestos contractors must meet strict requirements to be licensed."
+    },
+    {
+      "url": "https://dol.ny.gov/asbestos-new-york-state-facts-and-responsibilities-p224",
+      "checkedAt": "2026-07-05T00:00:00.000Z",
+      "note": "Official DOL asbestos facts publication reviewed; it states that DOL maintains a list of licensed contractors and that asbestos abatement work must use trained workers and certified contractors where required."
+    }
+  ],
+  "sourceResearchOutcome": "blocked",
+  "blocker": {
+    "code": "technical_instability",
+    "summary": "DOL provides an official asbestos contractor listing, but no adapter-reviewed machine-readable source contract, privacy filter, update cadence, checksum behavior, or redistribution path has been established.",
+    "evidenceUrls": [
+      "https://dol.ny.gov/asbestos-control-bureau",
+      "https://dol.ny.gov/licensing-and-certification",
+      "https://dol.ny.gov/asbestos-new-york-state-facts-and-responsibilities-p224",
+      "https://www.ny.gov/privacy-policy"
+    ]
+  }
+}

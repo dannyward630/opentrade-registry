@@ -3850,7 +3850,121 @@
         }
       }
     },
-    { "state": "NY", "decisions": {} },
+    {
+      "state": "NY",
+      "decisions": {
+        "general_contracting": {
+          "outcome": "local_only",
+          "evidence": [
+            { "url": "https://dos.ny.gov/news/consumer-alert-nys-department-states-division-consumer-protection-provides-new-yorkers-tips", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "Official DOS consumer alert states that New York State does not license home improvement contractors and that some counties and municipalities require licensure." },
+            { "url": "https://www.nyc.gov/site/buildings/industry/general-contractor-registration.page", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "NYC DOB general-contractor registration is a local New York City source, not a statewide board." }
+          ],
+          "limitations": ["Major New York City and county contractor programs remain local sources and are outside the statewide board-completion ledger unless separately registered."]
+        },
+        "residential_contracting": {
+          "outcome": "local_only",
+          "evidence": [
+            { "url": "https://dos.ny.gov/news/consumer-alert-nys-department-states-division-consumer-protection-provides-new-yorkers-tips", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "Official DOS consumer guidance states that New York State does not license home improvement contractors and points consumers to local government requirements." },
+            { "url": "https://ag.ny.gov/resources/individuals/consumer-issues/contractors-home-maintenance", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "The Attorney General identifies home-improvement contractor licensing in New York City, Suffolk, Nassau, Westchester, Putnam, Rockland, and Buffalo rather than one statewide residential-contractor board." }
+          ],
+          "limitations": ["This decision does not cover local home-improvement registrations or building permits."]
+        },
+        "commercial_contracting": {
+          "outcome": "local_only",
+          "evidence": [
+            { "url": "https://www.nyc.gov/site/buildings/industry/general-contractor-registration.page", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "NYC DOB describes general-contractor registration for New York City permit activity, demonstrating local rather than statewide coverage." },
+            { "url": "https://dos.ny.gov/licensee-search", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "The statewide DOS licensee search lists active license categories but does not provide a statewide commercial general-contractor category." }
+          ],
+          "limitations": ["Commercial contractor permitting and registration may be administered by local building departments and is outside this statewide ledger."]
+        },
+        "electrical": {
+          "outcome": "local_only",
+          "evidence": [
+            { "url": "https://dos.ny.gov/licensee-search", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "The official DOS active-license search categories reviewed for statewide licensing do not include electrical contractor licensing." },
+            { "url": "https://ag.ny.gov/resources/individuals/consumer-issues/contractors-home-maintenance", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "The Attorney General directs consumers to local licensing checks for home-improvement contractors and related local requirements." }
+          ],
+          "limitations": ["Electrical licensing in New York is handled locally where required; municipal and county credentials remain out of scope."]
+        },
+        "plumbing": {
+          "outcome": "local_only",
+          "evidence": [
+            { "url": "https://dos.ny.gov/licensee-search", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "The official DOS active-license search categories reviewed for statewide licensing do not include plumbing contractor licensing." },
+            { "url": "https://ag.ny.gov/resources/individuals/consumer-issues/contractors-home-maintenance", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "The Attorney General directs consumers to local licensing checks for home-improvement contractors and related local requirements." }
+          ],
+          "limitations": ["Plumbing licensing in New York is handled locally where required; municipal and county credentials remain out of scope."]
+        },
+        "hvac": {
+          "outcome": "local_only",
+          "evidence": [
+            { "url": "https://dos.ny.gov/licensee-search", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "The official DOS active-license search categories reviewed for statewide licensing do not include HVAC contractor licensing." },
+            { "url": "https://dos.ny.gov/news/consumer-alert-nys-department-states-division-consumer-protection-provides-new-yorkers-tips", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "Official DOS consumer guidance points contractor licensure checks to local government requirements where they exist." }
+          ],
+          "limitations": ["HVAC licensing in New York is handled locally where required; municipal and county credentials remain out of scope."]
+        },
+        "mechanical": {
+          "outcome": "local_only",
+          "evidence": [
+            { "url": "https://dos.ny.gov/licensee-search", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "The official DOS active-license search categories reviewed for statewide licensing do not include mechanical contractor licensing." },
+            { "url": "https://www.nyc.gov/site/buildings/industry/general-contractor-registration.page", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "NYC DOB registration is local to New York City permit activity and does not create a statewide mechanical-contractor board." }
+          ],
+          "limitations": ["Mechanical contractor licensing and permits may be administered locally; municipal and county credentials remain out of scope."]
+        },
+        "roofing": {
+          "outcome": "local_only",
+          "evidence": [
+            { "url": "https://dos.ny.gov/news/consumer-alert-nys-department-states-division-consumer-protection-provides-new-yorkers-tips", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "Official DOS consumer guidance states New York State does not license home improvement contractors and points to local licensing requirements where they exist." }
+          ],
+          "limitations": ["Roofing work may fall under local contractor, home-improvement, or permit rules; statewide roofing contractor licensing was not confirmed."]
+        },
+        "solar": {
+          "outcome": "local_only",
+          "evidence": [
+            { "url": "https://dos.ny.gov/licensee-search", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "The official DOS active-license search categories reviewed for statewide licensing do not include solar contractor licensing." },
+            { "url": "https://dos.ny.gov/news/consumer-alert-nys-department-states-division-consumer-protection-provides-new-yorkers-tips", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "Official DOS consumer guidance points contractor licensure checks to local government requirements where they exist." }
+          ],
+          "limitations": ["Solar work may require local permits and locally licensed electrical contractors where applicable; statewide solar-contractor licensing was not confirmed."]
+        },
+        "pool_spa": {
+          "outcome": "local_only",
+          "evidence": [
+            { "url": "https://dos.ny.gov/news/consumer-alert-nys-department-states-division-consumer-protection-provides-new-yorkers-tips", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "Official DOS consumer guidance states New York State does not license home improvement contractors and points to local licensing requirements where they exist." }
+          ],
+          "limitations": ["Pool and spa work may be regulated through local contractor, home-improvement, health, or permit requirements; statewide pool/spa contractor licensing was not confirmed."]
+        },
+        "asbestos": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.ny.dol.asbestos_contractors"],
+          "evidence": [
+            { "url": "https://dol.ny.gov/asbestos-control-bureau", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "Official DOL Asbestos Control Bureau page links an Asbestos Contractors Listing and states that Industrial Code Rule 56 requires licensing of contractors and certification of persons working on asbestos projects." },
+            { "url": "https://dol.ny.gov/licensing-and-certification", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "Official DOL licensing page states asbestos contractors must meet strict requirements to be licensed." }
+          ],
+          "limitations": ["Asbestos contractor licensing does not imply coverage for non-asbestos contractor or trade credentials."]
+        },
+        "sheet_metal": {
+          "outcome": "local_only",
+          "evidence": [
+            { "url": "https://dos.ny.gov/licensee-search", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "The official DOS active-license search categories reviewed for statewide licensing do not include sheet-metal contractor licensing." }
+          ],
+          "limitations": ["Sheet-metal work may be handled through local contractor or mechanical permit requirements; statewide sheet-metal contractor licensing was not confirmed."]
+        },
+        "underground_utility": {
+          "outcome": "local_only",
+          "evidence": [
+            { "url": "https://dos.ny.gov/licensee-search", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "The official DOS active-license search categories reviewed for statewide licensing do not include underground-utility contractor licensing." },
+            { "url": "https://www.nyc.gov/site/buildings/industry/general-contractor-registration.page", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "NYC DOB registration is local to New York City permit activity and does not create a statewide underground-utility contractor board." }
+          ],
+          "limitations": ["Underground utility work may require local permits, utility approvals, or specialized authorizations outside this statewide board ledger."]
+        },
+        "home_improvement": {
+          "outcome": "local_only",
+          "evidence": [
+            { "url": "https://dos.ny.gov/news/consumer-alert-nys-department-states-division-consumer-protection-provides-new-yorkers-tips", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "Official DOS consumer alert states that New York State does not license home improvement contractors and identifies New York City, Suffolk, Nassau, Westchester, Putnam, Rockland, and Buffalo as local licensing examples." },
+            { "url": "https://ag.ny.gov/resources/individuals/consumer-issues/contractors-home-maintenance", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "The Attorney General instructs consumers to check local home-improvement contractor licensing in specified city and county jurisdictions." }
+          ],
+          "limitations": ["Local home-improvement contractor licenses are outside the statewide board-completion ledger unless separately registered as local sources."]
+        }
+      }
+    },
     {
       "state": "OH",
       "decisions": {

@@ -16,16 +16,16 @@
   "termsUrl": "https://www.ny.gov/privacy-policy",
   "updateFrequency": "unknown; the official page notes searches are limited to active licenses only",
   "tradeCoverage": [
-    "home_improvement",
     "other"
   ],
   "licenseTypesIncluded": [
-    "New York Department of State active license records exposed by licensee search, including construction-adjacent license types such as home inspection where available"
+    "New York Department of State active license records exposed by licensee search, including construction-adjacent Home Inspection licenses where available"
   ],
   "knownExclusions": [
-    "New York contractor and home-improvement licensing is often local; this source entry does not represent every city or county contractor license.",
+    "New York State does not license home improvement contractors through this DOS source; home-improvement contractor licensing is handled by listed cities and counties where required.",
     "The DOS search is limited to active licenses and is not a complete historical license source.",
-    "Skilled trades, NYC Department of Buildings licenses, local home-improvement licenses, and county consumer-affairs records require separate source entries."
+    "Skilled trades, NYC Department of Buildings licenses, local home-improvement licenses, and county consumer-affairs records require separate source entries.",
+    "Home Inspection licenses are construction-adjacent professional credentials and must not be treated as contractor licenses."
   ],
   "hasBulkDownload": "unknown",
   "hasLiveLookup": true,
@@ -34,7 +34,7 @@
   "requiresAccount": false,
   "rateLimitNotes": "No adapter is implemented. Prefer official export options if discovered before lookup automation.",
   "redistributionStatus": "unknown",
-  "publicRecordsNotes": "Official DOS active-license lookup metadata only. Absence from this source is not proof that a license, local authorization, or inactive/historical credential does not exist elsewhere.",
+  "publicRecordsNotes": "Official DOS active-license lookup metadata only. Absence from this source is not proof that a home-inspector license, contractor license, local authorization, or inactive/historical credential does not exist elsewhere.",
   "adapterStatus": "blocked",
   "sourceDiscoveryStatus": "blocked",
   "adapterMaturity": "blocked",
@@ -43,17 +43,27 @@
   "testFixturePath": null,
   "officialLookupUrl": "https://dos.ny.gov/licensee-search",
   "officialBulkDownloadNotes": "No official construction-specific bulk download has been confirmed in this phase.",
-  "researchNotes": "Registry-only source for New York DOS licensee search. Future work should add separate entries for NYC DOB and major local contractor licensing sources if the project begins local-source coverage.",
-  "lastVerifiedAt": "2026-06-27T00:00:00.000Z",
-  "maintainerNotes": "Keep active-only and local-licensing limitations prominent.",
+  "researchNotes": "Registry-only source for New York DOS licensee search. DOS Home Inspection licenses are construction-adjacent professional credentials; the board-coverage ledger treats statewide contractor and skilled-trade licensing separately.",
+  "lastVerifiedAt": "2026-07-05T00:00:00.000Z",
+  "maintainerNotes": "Keep active-only, home-inspector-only, and local-contractor-licensing limitations prominent.",
   "schemaVersion": "1.0",
-  "researchReviewedAt": "2026-06-27T00:00:00.000Z",
-  "nextReviewAt": "2026-12-27T00:00:00.000Z",
+  "researchReviewedAt": "2026-07-05T00:00:00.000Z",
+  "nextReviewAt": "2027-01-05T00:00:00.000Z",
   "researchEvidence": [
     {
       "url": "https://dos.ny.gov/licensee-search",
-      "checkedAt": "2026-06-27T00:00:00.000Z",
-      "note": "Official public source, access shape, and current automation constraints reviewed."
+      "checkedAt": "2026-07-05T00:00:00.000Z",
+      "note": "Official DOS page reviewed; it lists searchable active license categories including Home Inspection and states that searches are limited to active licenses only."
+    },
+    {
+      "url": "https://dos.ny.gov/home-inspector",
+      "checkedAt": "2026-07-05T00:00:00.000Z",
+      "note": "Official DOS Home Inspector page reviewed; it defines home inspection as observing and reporting on residential building systems and components, with a two-year license term."
+    },
+    {
+      "url": "https://dos.ny.gov/news/consumer-alert-nys-department-states-division-consumer-protection-provides-new-yorkers-tips",
+      "checkedAt": "2026-07-05T00:00:00.000Z",
+      "note": "Official DOS consumer alert reviewed; it states that New York State does not license home improvement contractors and identifies local jurisdictions that do."
     }
   ],
   "sourceResearchOutcome": "blocked",

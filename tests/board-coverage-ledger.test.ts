@@ -15,10 +15,26 @@ describe("nationwide board trade coverage ledger", () => {
     expect(ledger.jurisdictions).toHaveLength(56);
     expect(new Set(ledger.jurisdictions.map((entry) => entry.state)).size).toBe(56);
     expect(expanded).toHaveLength(56 * BOARD_TRADE_DOMAINS.length);
-    expect(expanded.filter((decision) => decision.outcome === "needs_research")).toHaveLength(42);
-    expect(expanded.filter((decision) => decision.outcome === "covered_by_board")).toHaveLength(589);
+    expect(expanded.filter((decision) => decision.outcome === "needs_research")).toHaveLength(28);
+    expect(expanded.filter((decision) => decision.outcome === "covered_by_board")).toHaveLength(590);
     expect(expanded.filter((decision) => decision.outcome === "not_state_regulated")).toHaveLength(8);
-    expect(expanded.filter((decision) => decision.outcome === "local_only")).toHaveLength(145);
+    expect(expanded.filter((decision) => decision.outcome === "local_only")).toHaveLength(158);
+  });
+
+  it("records New York DOL asbestos coverage and local contractor boundaries", async () => {
+    const ledger = boardTradeCoverageLedgerSchema.parse(await json("registry/board-coverage.json"));
+    const expanded = expandBoardTradeCoverageLedger(ledger).filter((decision) => decision.state === "NY");
+
+    expect(expanded).toHaveLength(BOARD_TRADE_DOMAINS.length);
+    expect(expanded.filter((decision) => decision.outcome === "needs_research")).toEqual([]);
+    expect(expanded.find((decision) => decision.tradeDomain === "asbestos")).toMatchObject({
+      outcome: "covered_by_board",
+      boardIds: ["us.ny.dol.asbestos_contractors"],
+    });
+    for (const domain of BOARD_TRADE_DOMAINS.filter((domain) => domain !== "asbestos")) {
+      expect(expanded.find((decision) => decision.tradeDomain === domain)?.outcome).toBe("local_only");
+    }
+    expect(expanded.find((decision) => decision.tradeDomain === "home_improvement")?.limitations.join(" ")).toContain("Local home-improvement contractor licenses");
   });
 
   it("records Wisconsin DSPS trade coverage, DHS asbestos certification, and commercial general-contractor boundaries", async () => {

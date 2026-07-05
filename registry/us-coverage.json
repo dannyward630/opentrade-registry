@@ -346,9 +346,10 @@
       "state": "NY",
       "status": "blocked",
       "sourceIds": [
+        "us.ny.dol.asbestos_contractors",
         "us.ny.dos.licensee_search"
       ],
-      "notes": "Official source metadata is retained, but automated ingestion is blocked by documented legal, access, scope, or technical constraints."
+      "notes": "Official source metadata is retained for DOS active-license search and DOL asbestos contractor listing paths, but automated ingestion is blocked by documented legal, access, scope, or technical constraints."
     },
     {
       "state": "NC",
