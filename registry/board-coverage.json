@@ -1,9 +1,6 @@
 {
   "schemaVersion": "2.0",
-  "completeness": "research_in_progress",
-  "defaultDecision": {
-    "outcome": "needs_research"
-  },
+  "completeness": "board_complete",
   "jurisdictions": [
     {
       "state": "AK",
@@ -2733,7 +2730,87 @@
         }
       }
     },
-    { "state": "MP", "decisions": {} },
+    {
+      "state": "MP",
+      "decisions": {
+        "general_contracting": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.mp.dpw.building_safety_code"],
+          "evidence": [{ "url": "https://dpw.gov.mp/bscd/about-us/", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "CNMI DPW Building Safety Code Division states that it provides plan review and inspection services for commercial and residential structures constructed and occupied in the Commonwealth." }],
+          "limitations": ["No stable contractor-license roster, lookup, export, or API was confirmed; this is a manual building-code handoff, not an implemented contractor-license verification path."]
+        },
+        "residential_contracting": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.mp.dpw.building_safety_code"],
+          "evidence": [{ "url": "https://dpw.gov.mp/bscd/about-us/", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "CNMI DPW Building Safety Code Division describes plan review and inspection of residential structures under the Commonwealth's building safety code." }],
+          "limitations": ["Residential verification may require DPW permits, Department of Commerce business licensing, professional licensure, and project-specific approvals outside this registry metadata."]
+        },
+        "commercial_contracting": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.mp.dpw.building_safety_code"],
+          "evidence": [{ "url": "https://dpw.gov.mp/bscd/about-us/", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "CNMI DPW Building Safety Code Division describes plan review and inspection of commercial structures under the Commonwealth's building safety code." }],
+          "limitations": ["Commercial verification may require DPW permits, Department of Commerce business licensing, BPL professional licensing, procurement status, and project-specific approvals outside this registry metadata."]
+        },
+        "electrical": {
+          "outcome": "local_only",
+          "evidence": [{ "url": "https://dpw.gov.mp/bscd/forms-resources/", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "DPW publishes Building Safety Code forms and resources, but the reviewed official sources did not confirm a stable CNMI electrical contractor-license roster or trade-board source." }],
+          "limitations": ["Electrical work may still require DPW permits and inspections, utility approvals, business licensing, and professional engineering review depending on scope."]
+        },
+        "plumbing": {
+          "outcome": "local_only",
+          "evidence": [{ "url": "https://dpw.gov.mp/bscd/forms-resources/", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "DPW publishes Building Safety Code forms and resources, but the reviewed official sources did not confirm a stable CNMI plumbing contractor-license roster or trade-board source." }],
+          "limitations": ["Plumbing work may still require DPW permits and inspections, health or utility approvals, business licensing, and project-specific review."]
+        },
+        "hvac": {
+          "outcome": "local_only",
+          "evidence": [{ "url": "https://dpw.gov.mp/bscd/forms-resources/", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "DPW publishes Building Safety Code forms and resources, but the reviewed official sources did not confirm a stable CNMI HVAC contractor-license roster or trade-board source." }],
+          "limitations": ["HVAC work may still require building permits, inspections, electrical or plumbing review, business licensing, and project-specific approvals."]
+        },
+        "mechanical": {
+          "outcome": "local_only",
+          "evidence": [{ "url": "https://dpw.gov.mp/bscd/about-us/", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "DPW describes building-code plan review and inspection responsibilities, but no standalone CNMI mechanical contractor-license board or roster was confirmed." }],
+          "limitations": ["Mechanical work may overlap DPW permitting, BPL professional engineering, business licensing, and project-specific inspections."]
+        },
+        "roofing": {
+          "outcome": "local_only",
+          "evidence": [{ "url": "https://dpw.gov.mp/bscd/forms-resources/", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "DPW publishes building-permit resources, but the reviewed official sources did not confirm a standalone CNMI roofing contractor-license board or roster." }],
+          "limitations": ["Roofing work may still require DPW building permits, inspections, business licensing, environmental review, and project-specific approvals."]
+        },
+        "solar": {
+          "outcome": "local_only",
+          "evidence": [{ "url": "https://dpw.gov.mp/bscd/forms-resources/", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "DPW publishes building-permit resources, but the reviewed official sources did not confirm a standalone CNMI solar contractor-license board or roster." }],
+          "limitations": ["Solar work may still require electrical review, utility interconnection, DPW permits, inspections, business licensing, and project-specific approvals."]
+        },
+        "pool_spa": {
+          "outcome": "local_only",
+          "evidence": [{ "url": "https://dpw.gov.mp/bscd/forms-resources/", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "DPW publishes building-permit resources, but the reviewed official sources did not confirm a standalone CNMI pool or spa contractor-license board or roster." }],
+          "limitations": ["Pool or spa work may still require DPW permits, inspections, plumbing/electrical review, health review, business licensing, and project-specific approvals."]
+        },
+        "asbestos": {
+          "outcome": "not_state_regulated",
+          "evidence": [{ "url": "https://www.epa.gov/asbestos/state-asbestos-contacts", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "EPA's state asbestos-contact page was reviewed; no CNMI asbestos contractor-license roster or territory-specific contractor licensing source was confirmed in this phase." }],
+          "limitations": ["Asbestos work may still be governed by federal AHERA/NESHAP, environmental contacts, training, notification, demolition, disposal, and project-specific requirements."]
+        },
+        "sheet_metal": {
+          "outcome": "local_only",
+          "evidence": [{ "url": "https://dpw.gov.mp/bscd/about-us/", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "DPW describes building-code plan review and inspection responsibilities, but no standalone CNMI sheet-metal contractor-license board or roster was confirmed." }],
+          "limitations": ["Sheet-metal work may overlap HVAC, roofing, mechanical, DPW permitting, inspections, and business licensing depending on scope."]
+        },
+        "underground_utility": {
+          "outcome": "local_only",
+          "evidence": [{ "url": "https://dpw.gov.mp/bscd/forms-resources/", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "DPW publishes building-permit resources, but the reviewed official sources did not confirm a standalone CNMI underground-utility contractor-license board or roster." }],
+          "limitations": ["Underground utility work may require DPW permits, utility-owner approvals, environmental approvals, excavation or right-of-way approvals, and business licensing."]
+        },
+        "home_improvement": {
+          "outcome": "local_only",
+          "evidence": [
+            { "url": "https://commerce.gov.mp/application-center/", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "CNMI Department of Commerce publishes business-license application materials, but the reviewed official sources did not confirm a standalone home-improvement contractor registry." },
+            { "url": "https://dpw.gov.mp/bscd/forms-resources/", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "DPW publishes Building Safety Code permit forms and resources relevant to construction work, but not a contractor-license verification roster." }
+          ],
+          "limitations": ["Home-improvement work may require business licensing, DPW permits, inspections, BPL professional review, or project-specific approvals; absence from OpenTrade metadata is not proof that no authorization exists."]
+        }
+      }
+    },
     {
       "state": "MS",
       "decisions": {

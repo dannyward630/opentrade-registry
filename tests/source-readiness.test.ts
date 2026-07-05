@@ -18,7 +18,7 @@ describe("source readiness helpers", () => {
     const sources = await loadRegistrySources();
     const readiness = buildSourceReadiness(sources);
 
-    expect(readiness.sourceCount).toBe(162);
+    expect(readiness.sourceCount).toBe(163);
     expect(readiness.implementedAdapterSources.map((source) => source.id)).toEqual([
       "us.az.roc.contractors",
       "us.ca.cslb.contractors",
@@ -34,15 +34,15 @@ describe("source readiness helpers", () => {
     expect(readiness.downloadResearchCandidates).toEqual([]);
     expect(readiness.lookupAutomationConstraintSources).toEqual([]);
     expect(readiness.sourcesByResearchOutcome).toEqual({
-      blocked: 153,
+      blocked: 154,
       deprecated: 0,
       local_file_adapter: 2,
       network_opt_in: 7,
       production_ready: 0,
     });
     expect(readiness.registryOnlySourceCount).toBe(0);
-    expect(readiness.blockedSourceCount).toBe(153);
-    expect(readiness.terminalSourceCount).toBe(162);
+    expect(readiness.blockedSourceCount).toBe(154);
+    expect(readiness.terminalSourceCount).toBe(163);
     expect(readiness.note).toContain("terminal");
   });
 
@@ -69,6 +69,7 @@ describe("source readiness helpers", () => {
     expect(getSourceResearchOutcome(requiredSource(byId, "us.as.dpw.contractors"))).toBe("blocked");
     expect(getSourceResearchOutcome(requiredSource(byId, "us.ms.msboc.contractors"))).toBe("blocked");
     expect(getSourceResearchOutcome(requiredSource(byId, "us.mp.bpl.professional_licenses"))).toBe("blocked");
+    expect(getSourceResearchOutcome(requiredSource(byId, "us.mp.dpw.building_safety_code"))).toBe("blocked");
     expect(getSourceResearchOutcome(requiredSource(byId, "us.al.genconbd.general_contractors"))).toBe("blocked");
     expect(getSourceResearchNextAction(requiredSource(byId, "us.pa.oag.home_improvement_contractors"))).toContain("protected interactive access");
   });

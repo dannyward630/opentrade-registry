@@ -2465,13 +2465,45 @@
       "accessPath": "manual_handoff",
       "coverageLimitations": [
         "This source is construction-adjacent professional licensing metadata, not a confirmed contractor-specific registry.",
-        "CNMI business licenses, construction permits, contractor-specific requirements, and local enforcement records may require separate official sources.",
+        "CNMI business licenses, construction permits, contractor-specific requirements, and local enforcement records require separate official sources.",
         "The public lookup/export path and field structure have not been confirmed."
       ],
       "evidence": {
         "url": "https://www.cnmilicensing.gov.mp/",
-        "reviewedAt": "2026-06-27T00:00:00.000Z",
+        "reviewedAt": "2026-07-05T00:00:00.000Z",
         "note": "Official public source, access shape, and current automation constraints reviewed."
+      }
+    },
+    {
+      "id": "us.mp.dpw.building_safety_code",
+      "jurisdiction": {
+        "country": "US",
+        "state": "MP"
+      },
+      "boardName": "CNMI Department of Public Works Building Safety Code Division",
+      "agencyName": "Commonwealth of the Northern Mariana Islands Department of Public Works",
+      "officialUrl": "https://dpw.gov.mp/bscd/about-us/",
+      "sourceIds": [
+        "us.mp.dpw.building_safety_code"
+      ],
+      "trades": [
+        "general_contracting",
+        "residential_contracting",
+        "commercial_contracting",
+        "other",
+        "unknown"
+      ],
+      "accessPath": "blocked",
+      "coverageLimitations": [
+        "This source is not a contractor-license roster, trade-license lookup, bulk export, CSV, XLSX, JSON feed, or API.",
+        "Electrical, plumbing, HVAC, mechanical, roofing, solar, pool/spa, asbestos, sheet-metal, underground-utility, and home-improvement contractor-license records were not confirmed as stable public DPW datasets.",
+        "Business licenses, professional licenses, procurement eligibility, environmental approvals, zoning approvals, enforcement records, and permits may require separate official sources or manual agency contact.",
+        "No redistribution permission for generated datasets has been confirmed."
+      ],
+      "evidence": {
+        "url": "https://dpw.gov.mp/bscd/about-us/",
+        "reviewedAt": "2026-07-05T00:00:00.000Z",
+        "note": "Official DPW Building Safety Code Division page reviewed; it describes plan-review and inspection services for commercial and residential structures in the CNMI."
       }
     },
     {
