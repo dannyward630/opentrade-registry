@@ -15,10 +15,10 @@ describe("nationwide board trade coverage ledger", () => {
     expect(ledger.jurisdictions).toHaveLength(56);
     expect(new Set(ledger.jurisdictions.map((entry) => entry.state)).size).toBe(56);
     expect(expanded).toHaveLength(56 * BOARD_TRADE_DOMAINS.length);
-    expect(expanded.filter((decision) => decision.outcome === "needs_research")).toHaveLength(112);
-    expect(expanded.filter((decision) => decision.outcome === "covered_by_board")).toHaveLength(542);
+    expect(expanded.filter((decision) => decision.outcome === "needs_research")).toHaveLength(98);
+    expect(expanded.filter((decision) => decision.outcome === "covered_by_board")).toHaveLength(545);
     expect(expanded.filter((decision) => decision.outcome === "not_state_regulated")).toHaveLength(7);
-    expect(expanded.filter((decision) => decision.outcome === "local_only")).toHaveLength(123);
+    expect(expanded.filter((decision) => decision.outcome === "local_only")).toHaveLength(134);
   });
 
   it("records Wisconsin DSPS trade coverage, DHS asbestos certification, and commercial general-contractor boundaries", async () => {
@@ -887,6 +887,48 @@ describe("nationwide board trade coverage ledger", () => {
       "contractor excise tax",
     );
     expect(expanded.find((decision) => decision.tradeDomain === "solar")?.limitations.join(" ")).toContain("standalone statewide solar");
+  });
+
+  it("records complete Wyoming electrical, asbestos, and local-only contractor boundaries", async () => {
+    const ledger = boardTradeCoverageLedgerSchema.parse(await json("registry/board-coverage.json"));
+    const expanded = expandBoardTradeCoverageLedger(ledger).filter((decision) => decision.state === "WY");
+
+    expect(expanded).toHaveLength(BOARD_TRADE_DOMAINS.length);
+    expect(expanded.filter((decision) => decision.outcome === "needs_research")).toEqual([]);
+    expect(expanded.find((decision) => decision.tradeDomain === "electrical")).toMatchObject({
+      outcome: "covered_by_board",
+      boardIds: ["us.wy.firemarshal.electrical"],
+    });
+    expect(expanded.find((decision) => decision.tradeDomain === "solar")?.boardIds).toEqual([
+      "us.wy.firemarshal.electrical",
+    ]);
+    expect(expanded.find((decision) => decision.tradeDomain === "asbestos")).toMatchObject({
+      outcome: "covered_by_board",
+      boardIds: ["us.wy.deq.asbestos"],
+    });
+    for (const domain of [
+      "general_contracting",
+      "residential_contracting",
+      "commercial_contracting",
+      "plumbing",
+      "hvac",
+      "mechanical",
+      "roofing",
+      "pool_spa",
+      "sheet_metal",
+      "underground_utility",
+      "home_improvement",
+    ]) {
+      expect(expanded.find((decision) => decision.tradeDomain === domain)?.outcome, `${domain} should be local-only`).toBe(
+        "local_only",
+      );
+    }
+    expect(expanded.find((decision) => decision.tradeDomain === "solar")?.limitations.join(" ")).toContain(
+      "standalone statewide solar",
+    );
+    expect(expanded.find((decision) => decision.tradeDomain === "general_contracting")?.limitations.join(" ")).toContain(
+      "municipal and local licensing",
+    );
   });
 
   it("requires board references and evidence for terminal coverage decisions", () => {
