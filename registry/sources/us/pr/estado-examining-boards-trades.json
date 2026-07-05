@@ -1,0 +1,100 @@
+{
+  "id": "us.pr.estado.examining_boards_trades",
+  "name": "Puerto Rico Department of State Examining Boards Trade Licenses",
+  "jurisdiction": {
+    "country": "US",
+    "state": "PR"
+  },
+  "agency": {
+    "name": "Puerto Rico Department of State",
+    "url": "https://www.estado.pr.gov/"
+  },
+  "sourceType": "html_lookup",
+  "sourceUrl": "https://pr.pcshq.com/lookup/",
+  "documentationUrl": "https://www.estado.pr.gov/juntas-examinadoras",
+  "dataDictionaryUrl": null,
+  "termsUrl": "https://pr.pcshq.com/lookup/en/",
+  "termsReviewNotes": "The PCS lookup page includes an informational-use disclaimer and recommends visiting the Department of State for official certified information. Do not infer redistribution permission from public lookup access.",
+  "updateFrequency": "unknown; verify against the Puerto Rico Department of State and PCS lookup before relying on freshness assumptions",
+  "tradeCoverage": [
+    "electrical",
+    "plumbing",
+    "hvac",
+    "mechanical",
+    "roofing",
+    "other",
+    "unknown"
+  ],
+  "licenseTypesIncluded": [
+    "Peritos Electricistas credentials listed by the Puerto Rico Department of State",
+    "Maestros y Oficiales Plomeros credentials listed by the Puerto Rico Department of State",
+    "Técnicos en Refrigeración y Aire Acondicionado credentials listed by the Puerto Rico Department of State",
+    "Impermeabilización de Techos and other examining-board trade credentials where exposed by the official Department of State or PCS lookup"
+  ],
+  "knownExclusions": [
+    "The PCS lookup is a professional-license lookup, not a contractor-firm bulk dataset.",
+    "DACO contractor registration, DRNA asbestos records, municipal permits, business registrations, complaints, fines, and enforcement records require separate official sources.",
+    "No stable bulk CSV, XLSX, JSON, or API source has been confirmed.",
+    "No redistribution permission for generated datasets has been confirmed."
+  ],
+  "hasBulkDownload": false,
+  "hasLiveLookup": true,
+  "requiresJavaScript": "unknown",
+  "requiresCaptcha": "unknown",
+  "requiresAccount": false,
+  "rateLimitNotes": "No adapter is implemented. Future access should confirm PCS lookup terms, stable query behavior, and source-host allowlisting before any browser or network work.",
+  "redistributionStatus": "unknown",
+  "publicRecordsNotes": "Official Puerto Rico Department of State examining-board metadata only. Absence from this lookup is not proof that a contractor registration, business authorization, permit, or separate credential does not exist elsewhere.",
+  "adapterStatus": "blocked",
+  "sourceDiscoveryStatus": "blocked",
+  "adapterMaturity": "blocked",
+  "coverageScope": "state_agency_partial",
+  "adapterPackage": null,
+  "testFixturePath": null,
+  "officialLookupUrl": "https://pr.pcshq.com/lookup/",
+  "officialLookupReviewNotes": "Department of State points users to the PCS lookup for licensed professionals; the lookup carries its own informational-use disclaimer.",
+  "officialBulkDownloadNotes": "No official bulk download has been confirmed in this phase.",
+  "researchNotes": "Registry-only source for Puerto Rico Department of State examining-board trades including electricians, plumbers, refrigeration/air-conditioning technicians, and roof waterproofing where exposed.",
+  "lastVerifiedAt": "2026-07-05T00:00:00.000Z",
+  "maintainerNotes": "Keep professional-license lookup semantics distinct from DACO contractor registration and DRNA asbestos records.",
+  "schemaVersion": "1.0",
+  "researchReviewedAt": "2026-07-05T00:00:00.000Z",
+  "nextReviewAt": "2027-01-05T00:00:00.000Z",
+  "researchEvidence": [
+    {
+      "url": "https://www.estado.pr.gov/juntas-examinadoras",
+      "checkedAt": "2026-07-05T00:00:00.000Z",
+      "note": "Official Department of State examining-boards page reviewed; it links the licensed-professional search and lists electrical, plumbing, roof waterproofing, and refrigeration/air-conditioning boards."
+    },
+    {
+      "url": "https://www.estado.pr.gov/juntas-examinadoras/peritos-electricistas",
+      "checkedAt": "2026-07-05T00:00:00.000Z",
+      "note": "Official Peritos Electricistas board page reviewed for electrical credential coverage and legal basis."
+    },
+    {
+      "url": "https://www.estado.pr.gov/juntas-examinadoras/maestros-y-oficiales-plomeros",
+      "checkedAt": "2026-07-05T00:00:00.000Z",
+      "note": "Official Maestros y Oficiales Plomeros board page reviewed for plumbing credential coverage and legal basis."
+    },
+    {
+      "url": "https://www.statedepartment.pr.gov/juntas-examinadoras/refrigeration-and-air-conditioning-technicians",
+      "checkedAt": "2026-07-05T00:00:00.000Z",
+      "note": "Official Refrigeration and Air Conditioning Technicians board page reviewed for HVAC/refrigeration credential coverage and legal basis."
+    },
+    {
+      "url": "https://pr.pcshq.com/lookup/en/",
+      "checkedAt": "2026-07-05T00:00:00.000Z",
+      "note": "Official PCS lookup disclaimer reviewed; lookup content is informational and the site recommends Department of State contact for certified information."
+    }
+  ],
+  "sourceResearchOutcome": "blocked",
+  "adapterQualityLevel": 0,
+  "blocker": {
+    "code": "no_stable_source",
+    "summary": "Official lookup metadata is available, but no stable structured source suitable for deterministic adapter implementation has been confirmed.",
+    "evidenceUrls": [
+      "https://www.estado.pr.gov/juntas-examinadoras",
+      "https://pr.pcshq.com/lookup/en/"
+    ]
+  }
+}

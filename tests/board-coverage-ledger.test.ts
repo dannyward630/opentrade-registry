@@ -15,10 +15,10 @@ describe("nationwide board trade coverage ledger", () => {
     expect(ledger.jurisdictions).toHaveLength(56);
     expect(new Set(ledger.jurisdictions.map((entry) => entry.state)).size).toBe(56);
     expect(expanded).toHaveLength(56 * BOARD_TRADE_DOMAINS.length);
-    expect(expanded.filter((decision) => decision.outcome === "needs_research")).toHaveLength(70);
-    expect(expanded.filter((decision) => decision.outcome === "covered_by_board")).toHaveLength(567);
+    expect(expanded.filter((decision) => decision.outcome === "needs_research")).toHaveLength(56);
+    expect(expanded.filter((decision) => decision.outcome === "covered_by_board")).toHaveLength(577);
     expect(expanded.filter((decision) => decision.outcome === "not_state_regulated")).toHaveLength(7);
-    expect(expanded.filter((decision) => decision.outcome === "local_only")).toHaveLength(140);
+    expect(expanded.filter((decision) => decision.outcome === "local_only")).toHaveLength(144);
   });
 
   it("records Wisconsin DSPS trade coverage, DHS asbestos certification, and commercial general-contractor boundaries", async () => {
@@ -995,6 +995,43 @@ describe("nationwide board trade coverage ledger", () => {
     );
     expect(expanded.find((decision) => decision.tradeDomain === "mechanical")?.limitations.join(" ")).toContain(
       "classification codes",
+    );
+  });
+
+  it("records complete Puerto Rico DACO, Department of State, DRNA, and local-only boundaries", async () => {
+    const ledger = boardTradeCoverageLedgerSchema.parse(await json("registry/board-coverage.json"));
+    const expanded = expandBoardTradeCoverageLedger(ledger).filter((decision) => decision.state === "PR");
+
+    expect(expanded).toHaveLength(BOARD_TRADE_DOMAINS.length);
+    expect(expanded.filter((decision) => decision.outcome === "needs_research")).toEqual([]);
+    expect(expanded.find((decision) => decision.tradeDomain === "residential_contracting")).toMatchObject({
+      outcome: "covered_by_board",
+      boardIds: ["us.pr.daco.contractors"],
+    });
+    for (const domain of ["electrical", "plumbing", "hvac", "mechanical"]) {
+      expect(expanded.find((decision) => decision.tradeDomain === domain)).toMatchObject({
+        outcome: "covered_by_board",
+        boardIds: ["us.pr.estado.examining_boards_trades"],
+      });
+    }
+    expect(expanded.find((decision) => decision.tradeDomain === "asbestos")).toMatchObject({
+      outcome: "covered_by_board",
+      boardIds: ["us.pr.drna.asbestos_contractors"],
+    });
+    expect(expanded.find((decision) => decision.tradeDomain === "roofing")?.boardIds).toEqual([
+      "us.pr.daco.contractors",
+      "us.pr.estado.examining_boards_trades",
+    ]);
+    for (const domain of ["commercial_contracting", "pool_spa", "sheet_metal", "underground_utility"]) {
+      expect(expanded.find((decision) => decision.tradeDomain === domain)?.outcome, `${domain} should be local-only`).toBe(
+        "local_only",
+      );
+    }
+    expect(expanded.find((decision) => decision.tradeDomain === "home_improvement")?.evidence[0]?.note).toContain(
+      "residential real-property improvements",
+    );
+    expect(expanded.find((decision) => decision.tradeDomain === "solar")?.limitations.join(" ")).toContain(
+      "electrical credentials",
     );
   });
 

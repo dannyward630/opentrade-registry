@@ -1,0 +1,78 @@
+{
+  "id": "us.pr.drna.asbestos_contractors",
+  "name": "Puerto Rico DRNA Asbestos Consultants and Contractors",
+  "jurisdiction": {
+    "country": "US",
+    "state": "PR"
+  },
+  "agency": {
+    "name": "Departamento de Recursos Naturales y Ambientales de Puerto Rico",
+    "url": "https://www.drna.pr.gov/"
+  },
+  "sourceType": "manual_public_records_file",
+  "sourceUrl": "https://www.drna.pr.gov/acai/asbesto/",
+  "documentationUrl": "https://www.drna.pr.gov/acai/asbesto/",
+  "dataDictionaryUrl": null,
+  "termsUrl": null,
+  "termsReviewNotes": "No dedicated DRNA access, reuse, or website terms page was confirmed during the 2026-07-05 review. Keep redistribution and automation status unknown and do not infer permission from public accessibility.",
+  "updateFrequency": "unknown; verify against DRNA asbestos postings before relying on freshness assumptions",
+  "tradeCoverage": [
+    "asbestos",
+    "other",
+    "unknown"
+  ],
+  "licenseTypesIncluded": [
+    "Asbestos consultants and contractors listed or described by DRNA's Air Quality/Asbestos program",
+    "Asbestos worker, inspector, supervisor, project designer, project planner, and air sampling specialist registry categories where exposed by DRNA materials"
+  ],
+  "knownExclusions": [
+    "The DRNA page describes asbestos registration and permit processes and contractor/consultant list submission; exact active-list status, field shape, and update cadence require follow-up review.",
+    "DACO contractor registration, Department of State examining-board credentials, municipal permits, business registrations, complaints, fines, and enforcement records require separate official sources.",
+    "No stable bulk CSV, XLSX, JSON, or API source has been confirmed.",
+    "No redistribution permission for generated datasets has been confirmed."
+  ],
+  "hasBulkDownload": "unknown",
+  "hasLiveLookup": false,
+  "requiresJavaScript": "unknown",
+  "requiresCaptcha": false,
+  "requiresAccount": false,
+  "rateLimitNotes": "No adapter is implemented. Future access should confirm whether linked contractor/consultant lists are current, official, stable, and redistribution-safe before local-file support.",
+  "redistributionStatus": "unknown",
+  "publicRecordsNotes": "Official DRNA asbestos-program metadata only. Absence from this source is not proof that an asbestos authorization, contractor registration, business authorization, permit, or separate credential does not exist elsewhere.",
+  "adapterStatus": "blocked",
+  "sourceDiscoveryStatus": "blocked",
+  "adapterMaturity": "blocked",
+  "coverageScope": "state_agency_partial",
+  "adapterPackage": null,
+  "testFixturePath": null,
+  "officialLookupUrl": "https://www.drna.pr.gov/acai/asbesto/",
+  "officialBulkDownloadNotes": "DRNA has posted asbestos consultant/contractor materials, but no stable structured source or redistribution permission has been confirmed.",
+  "researchNotes": "Registry-only source for Puerto Rico DRNA asbestos program materials. Future work should verify current contractor-list links, field semantics, and whether asbestos contractor records can be safely represented without overpublishing contact data.",
+  "lastVerifiedAt": "2026-07-05T00:00:00.000Z",
+  "maintainerNotes": "Do not treat older asbestos PDFs as current without a fresh DRNA review. Minimize personal contact data if fixture or adapter work is added later.",
+  "schemaVersion": "1.0",
+  "researchReviewedAt": "2026-07-05T00:00:00.000Z",
+  "nextReviewAt": "2027-01-05T00:00:00.000Z",
+  "researchEvidence": [
+    {
+      "url": "https://www.drna.pr.gov/acai/asbesto/",
+      "checkedAt": "2026-07-05T00:00:00.000Z",
+      "note": "Official DRNA Air Quality/Asbestos page reviewed; it describes asbestos permit processes, worker-registration submission, and instructions for asbestos consultants and contractors seeking inclusion on DRNA's list."
+    },
+    {
+      "url": "https://www.drna.pr.gov/wp-content/uploads/2024/01/ASBESTO-LISTA-DE-CONSULTORES-Y-CONTRATISTAS-LISTA-INTERNA-17ENE2024.pdf",
+      "checkedAt": "2026-07-05T00:00:00.000Z",
+      "note": "DRNA-hosted asbestos consultant/contractor list reviewed as evidence of an official manual public-records-file path, while retaining freshness and redistribution caveats."
+    }
+  ],
+  "sourceResearchOutcome": "blocked",
+  "adapterQualityLevel": 0,
+  "blocker": {
+    "code": "terms",
+    "summary": "Official asbestos-program materials exist, but stable source shape and reuse terms remain unavailable or insufficiently clear for adapter implementation.",
+    "evidenceUrls": [
+      "https://www.drna.pr.gov/acai/asbesto/",
+      "https://www.drna.pr.gov/wp-content/uploads/2024/01/ASBESTO-LISTA-DE-CONSULTORES-Y-CONTRATISTAS-LISTA-INTERNA-17ENE2024.pdf"
+    ]
+  }
+}
