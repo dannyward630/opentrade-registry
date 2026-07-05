@@ -328,12 +328,53 @@
       "coverageLimitations": [
         "This is not confirmed as a contractor-specific public lookup source.",
         "License categories, public search availability, and construction-specific fields require follow-up research.",
+        "Contractor-board and specialty-contractor licensing evidence is tracked separately in us.as.dpw.contractors.",
         "Professional board, permit, tax, and enforcement records may require separate official sources."
       ],
       "evidence": {
         "url": "https://www.doc.as.gov/applyforbusinesslicense",
-        "reviewedAt": "2026-06-27T00:00:00.000Z",
-        "note": "Official public source, access shape, and current automation constraints reviewed."
+        "reviewedAt": "2026-07-05T00:00:00.000Z",
+        "note": "Official public source, access shape, and current automation constraints reviewed; contractor-board coverage is tracked separately."
+      }
+    },
+    {
+      "id": "us.as.dpw.contractors",
+      "jurisdiction": {
+        "country": "US",
+        "state": "AS"
+      },
+      "boardName": "American Samoa Contractors License Board and Administrator",
+      "agencyName": "American Samoa Department of Public Works",
+      "officialUrl": "https://asgpublicworks.as/node/1",
+      "sourceIds": [
+        "us.as.dpw.contractors"
+      ],
+      "trades": [
+        "general_contracting",
+        "residential_contracting",
+        "commercial_contracting",
+        "electrical",
+        "plumbing",
+        "hvac",
+        "mechanical",
+        "roofing",
+        "sheet_metal",
+        "underground_utility",
+        "home_improvement",
+        "other",
+        "unknown"
+      ],
+      "accessPath": "blocked",
+      "coverageLimitations": [
+        "No stable public contractor-license roster, lookup, CSV, XLSX, JSON, or API endpoint was confirmed.",
+        "Business licenses, permits, procurement prequalification, enforcement records, worker credentials, tax records, and environmental approvals may require separate official sources.",
+        "Solar, pool/spa, and asbestos contractor-specific licensing paths were not confirmed in this phase.",
+        "No redistribution permission for generated datasets has been confirmed."
+      ],
+      "evidence": {
+        "url": "https://asgpublicworks.as/node/1",
+        "reviewedAt": "2026-07-05T00:00:00.000Z",
+        "note": "Official Department of Public Works website reviewed for agency identity and public web surface."
       }
     },
     {
