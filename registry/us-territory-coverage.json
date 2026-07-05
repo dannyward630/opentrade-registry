@@ -37,9 +37,10 @@
       "name": "Northern Mariana Islands",
       "status": "blocked",
       "sourceIds": [
-        "us.mp.bpl.professional_licenses"
+        "us.mp.bpl.professional_licenses",
+        "us.mp.dpw.building_safety_code"
       ],
-      "notes": "Official source metadata is retained, but automated ingestion is blocked by documented legal, access, scope, or technical constraints."
+      "notes": "Official professional-licensing and building-safety metadata is retained, but automated ingestion is blocked because no stable contractor-license roster, export, lookup, or API was confirmed."
     },
     {
       "territory": "PR",

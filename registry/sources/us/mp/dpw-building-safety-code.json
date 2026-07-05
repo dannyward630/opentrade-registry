@@ -1,0 +1,88 @@
+{
+  "id": "us.mp.dpw.building_safety_code",
+  "name": "CNMI Department of Public Works Building Safety Code Division",
+  "jurisdiction": {
+    "country": "US",
+    "state": "MP"
+  },
+  "agency": {
+    "name": "Commonwealth of the Northern Mariana Islands Department of Public Works",
+    "url": "https://dpw.gov.mp/"
+  },
+  "sourceType": "manual_public_records_file",
+  "sourceUrl": "https://dpw.gov.mp/bscd/about-us/",
+  "documentationUrl": "https://dpw.gov.mp/bscd/forms-resources/",
+  "dataDictionaryUrl": null,
+  "termsUrl": null,
+  "termsReviewNotes": "No dedicated access, reuse, or website terms page was found in the official CNMI Department of Public Works Building Safety Code Division pages during the 2026-07-05 review. Keep redistribution and automation status unknown.",
+  "updateFrequency": "unknown; no public contractor-license roster, permit-record export, API, or publication cadence was confirmed",
+  "tradeCoverage": [
+    "general_contracting",
+    "residential_contracting",
+    "commercial_contracting",
+    "other",
+    "unknown"
+  ],
+  "licenseTypesIncluded": [
+    "CNMI Building Safety Code Division manual handoff for building-code plan review and inspection context",
+    "Commercial and residential structure plan-review and inspection responsibilities where documented by DPW",
+    "Building Safety Code permit application materials and resources where official forms are published"
+  ],
+  "knownExclusions": [
+    "This source is not a contractor-license roster, trade-license lookup, bulk export, CSV, XLSX, JSON feed, or API.",
+    "Electrical, plumbing, HVAC, mechanical, roofing, solar, pool/spa, asbestos, sheet-metal, underground-utility, and home-improvement contractor-license records were not confirmed as stable public DPW datasets.",
+    "Business licenses, professional licenses, procurement eligibility, environmental approvals, zoning approvals, enforcement records, and permits may require separate official sources or manual agency contact.",
+    "No redistribution permission for generated datasets has been confirmed."
+  ],
+  "hasBulkDownload": false,
+  "hasLiveLookup": false,
+  "requiresJavaScript": "unknown",
+  "requiresCaptcha": "unknown",
+  "requiresAccount": "unknown",
+  "rateLimitNotes": "No adapter is implemented. Future work should use agency-confirmed public records request, permit-record, or official export instructions rather than automated browsing.",
+  "redistributionStatus": "unknown",
+  "publicRecordsNotes": "Official DPW Building Safety Code metadata only. Absence from this source is not proof that a license, business authorization, permit, inspection record, or professional authorization does not exist elsewhere.",
+  "adapterStatus": "blocked",
+  "sourceDiscoveryStatus": "blocked",
+  "adapterMaturity": "blocked",
+  "coverageScope": "state_agency_partial",
+  "adapterPackage": null,
+  "testFixturePath": null,
+  "officialLookupUrl": null,
+  "officialLookupReviewNotes": "No stable official public contractor-license or permit-record lookup was confirmed for CNMI DPW Building Safety Code Division during the 2026-07-05 review.",
+  "officialBulkDownloadNotes": "No official contractor-license, permit-record, or building-inspection bulk file or API was confirmed during the 2026-07-05 review.",
+  "researchNotes": "Registry-only manual handoff for CNMI DPW Building Safety Code Division. DPW documents plan review and inspection responsibility for commercial and residential structures, but does not expose a stable public contractor-license dataset suitable for deterministic ingestion.",
+  "lastVerifiedAt": "2026-07-05T00:00:00.000Z",
+  "maintainerNotes": "Keep this source as a manual official handoff. Do not treat building-code permit materials as license verification records without a separate official source and privacy review.",
+  "schemaVersion": "1.0",
+  "researchReviewedAt": "2026-07-05T00:00:00.000Z",
+  "nextReviewAt": "2027-01-05T00:00:00.000Z",
+  "researchEvidence": [
+    {
+      "url": "https://dpw.gov.mp/bscd/about-us/",
+      "checkedAt": "2026-07-05T00:00:00.000Z",
+      "note": "Official DPW Building Safety Code Division page reviewed; it describes plan-review and inspection services for commercial and residential structures in the CNMI."
+    },
+    {
+      "url": "https://dpw.gov.mp/bscd/forms-resources/",
+      "checkedAt": "2026-07-05T00:00:00.000Z",
+      "note": "Official DPW forms/resources page reviewed; it publishes Building Safety Code permit forms, permit flow charts, and rules/resources."
+    },
+    {
+      "url": "https://dpw.gov.mp/",
+      "checkedAt": "2026-07-05T00:00:00.000Z",
+      "note": "Official DPW website reviewed for agency identity and public web surface."
+    }
+  ],
+  "sourceResearchOutcome": "blocked",
+  "adapterQualityLevel": 0,
+  "blocker": {
+    "code": "no_stable_source",
+    "summary": "The official source documents building-code responsibilities and forms, but no stable public contractor-license roster, lookup, bulk file, JSON feed, or API suitable for deterministic ingestion was confirmed.",
+    "evidenceUrls": [
+      "https://dpw.gov.mp/bscd/about-us/",
+      "https://dpw.gov.mp/bscd/forms-resources/",
+      "https://dpw.gov.mp/"
+    ]
+  }
+}
