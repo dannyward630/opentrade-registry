@@ -4763,7 +4763,92 @@
       }
     },
     { "state": "VI", "decisions": {} },
-    { "state": "VT", "decisions": {} },
+    {
+      "state": "VT",
+      "decisions": {
+        "general_contracting": {
+          "outcome": "local_only",
+          "evidence": [{ "url": "https://sos.vermont.gov/residential-contractors", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "The reviewed statewide residential contractor source is scoped to residential contractor registration, and no standalone statewide general-contractor board was confirmed in this phase." }],
+          "limitations": ["Municipal permits, business registrations, and project-specific authorizations may still apply."]
+        },
+        "residential_contracting": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.vt.sos.residential_contractors"],
+          "evidence": [{ "url": "https://sos.vermont.gov/residential-contractors", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "The Vermont Secretary of State residential contractors page identifies residential contractor registration as an OPR program." }],
+          "limitations": ["Other trades, asbestos/lead program credentials, local permits, and business registrations remain separate."]
+        },
+        "commercial_contracting": {
+          "outcome": "local_only",
+          "evidence": [{ "url": "https://sos.vermont.gov/residential-contractors", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "The reviewed statewide OPR contractor registration evidence is residential; no standalone statewide commercial-contractor board was confirmed in this phase." }],
+          "limitations": ["Commercial projects may require trade licenses, permits, inspections, or local authorizations that are outside this statewide contractor-board decision."]
+        },
+        "electrical": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.vt.dfs.trade_licensing"],
+          "evidence": [{ "url": "https://firesafety.vermont.gov/licensing", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "The Division of Fire Safety trade licensing page lists electrical licensing categories and a licensing ledger including electrical master, journeyman, and specialist credentials." }],
+          "limitations": ["The source includes individual and specialized credentials; future adapter work must preserve credential-type boundaries."]
+        },
+        "plumbing": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.vt.dfs.trade_licensing"],
+          "evidence": [{ "url": "https://firesafety.vermont.gov/licensing", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "The Division of Fire Safety trade licensing page lists plumbing and plumbing specialist licensing categories." }],
+          "limitations": ["Local permits, inspections, and business registrations remain outside this source."]
+        },
+        "hvac": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.vt.dfs.trade_licensing"],
+          "evidence": [{ "url": "https://firesafety.vermont.gov/licensing", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "The Division of Fire Safety licensing ledger lists refrigeration and air conditioning, automatic gas/oil heating, and related gas/oil installer categories." }],
+          "limitations": ["No separate statewide HVAC contractor board was confirmed; this decision is based on DFS trade credentials relevant to HVAC scope."]
+        },
+        "mechanical": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.vt.dfs.trade_licensing"],
+          "evidence": [{ "url": "https://firesafety.vermont.gov/licensing", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "The Division of Fire Safety licensing ledger lists heating system, water heater, gas, oil burner, refrigeration, and related trade categories relevant to mechanical work." }],
+          "limitations": ["No separate statewide mechanical-contractor board was confirmed; this decision is limited to DFS-administered trade credentials."]
+        },
+        "roofing": {
+          "outcome": "local_only",
+          "evidence": [{ "url": "https://sos.vermont.gov/residential-contractors", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "Residential contractor registration may be relevant to residential roofing work, but no standalone statewide roofing contractor board was confirmed in this phase." }],
+          "limitations": ["Residential registration, asbestos/lead rules, local permits, and project-specific rules may still apply depending on scope."]
+        },
+        "solar": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.vt.dfs.trade_licensing"],
+          "evidence": [{ "url": "https://firesafety.vermont.gov/licensing", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "The Division of Fire Safety licensing ledger lists a solar panel installer electrical specialist category." }],
+          "limitations": ["Electrical permits, utility interconnection, incentives, and local authorizations remain outside this source."]
+        },
+        "pool_spa": {
+          "outcome": "local_only",
+          "evidence": [{ "url": "https://firesafety.vermont.gov/licensing", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "The reviewed Division of Fire Safety licensing categories did not identify a standalone statewide pool or spa contractor board." }],
+          "limitations": ["Electrical, plumbing, residential contractor registration, health rules, or local permits may still apply depending on project scope."]
+        },
+        "asbestos": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.vt.health.asbestos_lead_contractors"],
+          "evidence": [{ "url": "https://www.healthvermont.gov/environment/asbestos-lead-requirements/look-licensed-asbestos-and-lead-contractors", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "The Department of Health lookup page directs users to search for licensed asbestos abatement companies and states those companies are licensed to perform asbestos abatement in Vermont." }],
+          "limitations": ["Consultant, company, individual, permit, and project-notification requirements are distinct and must be preserved by future adapter work."]
+        },
+        "sheet_metal": {
+          "outcome": "local_only",
+          "evidence": [{ "url": "https://firesafety.vermont.gov/licensing", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "The reviewed DFS trade licensing categories include HVAC-adjacent credentials but did not identify a standalone statewide sheet-metal contractor board." }],
+          "limitations": ["HVAC, mechanical, residential contractor registration, and local permits may still apply depending on project scope."]
+        },
+        "underground_utility": {
+          "outcome": "local_only",
+          "evidence": [{ "url": "https://firesafety.vermont.gov/licensing", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "The reviewed DFS and SOS statewide licensing evidence did not identify a standalone statewide underground-utility contractor board." }],
+          "limitations": ["Plumbing, water-treatment, environmental, utility-owner, public-works, and local authorizations may still apply depending on project scope."]
+        },
+        "home_improvement": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.vt.sos.residential_contractors", "us.vt.health.asbestos_lead_contractors"],
+          "evidence": [
+            { "url": "https://sos.vermont.gov/residential-contractors", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "The Vermont Secretary of State residential contractors page identifies residential contractor registration as an OPR program." },
+            { "url": "https://www.healthvermont.gov/environment/asbestos-lead-requirements/look-licensed-asbestos-and-lead-contractors", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "The Department of Health lookup page states contractors performing RRPM work for hire need the Lead-Safe RRPM Firm license and at least one RRPM supervisor." }
+          ],
+          "limitations": ["Residential contractor registration, RRPM, lead abatement, asbestos, local permits, and business registrations are distinct requirements and should not be treated as interchangeable."]
+        }
+      }
+    },
     {
       "state": "WA",
       "decisions": {

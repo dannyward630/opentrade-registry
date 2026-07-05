@@ -4380,6 +4380,65 @@
       }
     },
     {
+      "id": "us.vt.dfs.trade_licensing",
+      "jurisdiction": {
+        "country": "US",
+        "state": "VT"
+      },
+      "boardName": "Vermont Division of Fire Safety Trade Licensing",
+      "agencyName": "Vermont Department of Public Safety Division of Fire Safety",
+      "officialUrl": "https://data.vermont.gov/Government/DFS-Licensing-MasterList/cy8e-89cz",
+      "sourceIds": [
+        "us.vt.dfs.trade_licensing"
+      ],
+      "trades": [
+        "electrical",
+        "plumbing",
+        "hvac",
+        "mechanical",
+        "solar"
+      ],
+      "accessPath": "manual_handoff",
+      "coverageLimitations": [
+        "This source entry is scoped to Division of Fire Safety trade licensing and certification records and does not represent general contractor, residential contractor, commercial contractor, roofing, asbestos, local permit, inspection, or business registration records.",
+        "The official master list may include individual credentials, company records, and technical qualified-person records; future normalization must preserve credential type boundaries.",
+        "No OpenTrade adapter has reviewed the current field contract, privacy filters, or redistribution position for published records."
+      ],
+      "evidence": {
+        "url": "https://firesafety.vermont.gov/licensing",
+        "reviewedAt": "2026-07-05T00:00:00.000Z",
+        "note": "Official Division of Fire Safety page reviewed; it says DFS administers licensing and certification of trade groups and lists electrical, plumbing, gas, oil burner, sprinkler, fire alarm, and related trade categories."
+      }
+    },
+    {
+      "id": "us.vt.health.asbestos_lead_contractors",
+      "jurisdiction": {
+        "country": "US",
+        "state": "VT"
+      },
+      "boardName": "Vermont Department of Health Asbestos and Lead Contractor Lookup",
+      "agencyName": "Vermont Department of Health",
+      "officialUrl": "https://www.healthvermont.gov/environment/asbestos-lead-requirements/look-licensed-asbestos-and-lead-contractors",
+      "sourceIds": [
+        "us.vt.health.asbestos_lead_contractors"
+      ],
+      "trades": [
+        "asbestos",
+        "home_improvement"
+      ],
+      "accessPath": "manual_handoff",
+      "coverageLimitations": [
+        "This source entry is scoped to Vermont asbestos and lead program lookup paths and does not represent general contractor, electrical, plumbing, HVAC, residential contractor registration, local permit, or business registration records.",
+        "RRPM, lead abatement, asbestos abatement, consulting, supervisor, worker, and laboratory credentials are distinct and must not be merged without explicit mapping rules.",
+        "No stable bulk export, parser contract, privacy filter, or redistribution approval has been confirmed."
+      ],
+      "evidence": {
+        "url": "https://www.healthvermont.gov/environment/asbestos-lead-requirements/look-licensed-asbestos-and-lead-contractors",
+        "reviewedAt": "2026-07-05T00:00:00.000Z",
+        "note": "Official Department of Health page reviewed; it directs users to lookup asbestos abatement companies and states those companies are licensed to perform asbestos abatement in Vermont."
+      }
+    },
+    {
       "id": "us.vt.sos.residential_contractors",
       "jurisdiction": {
         "country": "US",
@@ -4398,13 +4457,13 @@
       "accessPath": "manual_handoff",
       "coverageLimitations": [
         "This source entry is scoped to Vermont residential contractor registration and OPR lookup context.",
-        "Other trade licenses, local permits, business registrations, and non-OPR authorizations may require separate sources.",
+        "Other trade licenses, asbestos/lead program records, Division of Fire Safety credentials, local permits, business registrations, and non-OPR authorizations may require separate sources.",
         "Some OPR lookup pages may use browser checks or other access controls; do not bypass them."
       ],
       "evidence": {
-        "url": "https://sos.vermont.gov/opr/find-a-professional",
-        "reviewedAt": "2026-06-27T00:00:00.000Z",
-        "note": "Official public source, access shape, and current automation constraints reviewed."
+        "url": "https://sos.vermont.gov/residential-contractors",
+        "reviewedAt": "2026-07-05T00:00:00.000Z",
+        "note": "Official Secretary of State residential contractors page reviewed; it identifies Vermont residential contractor registration as an OPR program."
       }
     },
     {

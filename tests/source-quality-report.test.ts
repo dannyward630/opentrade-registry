@@ -12,22 +12,22 @@ describe("source quality report", () => {
     expect(result.stderr).toBe("");
 
     const report = JSON.parse(result.stdout);
-    expect(report.sourceCount).toBe(156);
+    expect(report.sourceCount).toBe(158);
     expect(report.stateCount).toBe(51);
     expect(report.researchedStateCount).toBe(51);
     expect(report.territoryCount).toBe(5);
     expect(report.researchedTerritoryCount).toBe(5);
     expect(report.coverageByStatus.not_started ?? 0).toBe(0);
-    expect(report.terminalSourceCount).toBe(156);
-    expect(report.blockedSourceCount).toBe(147);
+    expect(report.terminalSourceCount).toBe(158);
+    expect(report.blockedSourceCount).toBe(149);
     expect(report.territoryCoverageByStatus.blocked).toBe(5);
-    expect(report.sourcesByMaturity.blocked).toBe(147);
+    expect(report.sourcesByMaturity.blocked).toBe(149);
     expect(report.sourcesByMaturity.local_file_adapter).toBe(2);
     expect(report.sourcesByMaturity.network_opt_in).toBe(7);
-    expect(report.sourcesByAdapterQualityLevel["0"]).toBe(147);
+    expect(report.sourcesByAdapterQualityLevel["0"]).toBe(149);
     expect(report.sourcesByAdapterQualityLevel["4"]).toBe(9);
     expect(report.sourcesByResearchOutcome).toEqual({
-      blocked: 147,
+      blocked: 149,
       deprecated: 0,
       local_file_adapter: 2,
       network_opt_in: 7,
@@ -236,7 +236,7 @@ describe("source quality report", () => {
     expect(result.stdout).toContain("- us.ks.kdhe.asbestos_contractors (manual_public_records_file, blocked)");
     expect(result.stdout).toContain("- us.nh.des.asbestos_licenses (manual_public_records_file, blocked)");
     expect(result.stdout).toContain("sources by research outcome:");
-    expect(result.stdout).toContain("- blocked: 147");
+    expect(result.stdout).toContain("- blocked: 149");
     expect(result.stdout).toContain("metadata completeness:");
     expect(result.stdout).toContain("sources missing required metadata:");
     expect(result.stdout).toContain("- none");
