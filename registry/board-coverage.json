@@ -3843,7 +3843,116 @@
         }
       }
     },
-    { "state": "OK", "decisions": {} },
+    {
+      "state": "OK",
+      "decisions": {
+        "general_contracting": {
+          "outcome": "local_only",
+          "boardIds": [],
+          "evidence": [{ "url": "https://oklahoma.gov/cib/frequently-asked-questions.html", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "Oklahoma CIB states that general contractors are not currently required to have a state license in Oklahoma and that other construction-related licenses may depend on type and location, including local jurisdiction requirements." }],
+          "limitations": ["No statewide Oklahoma general-contractor license was confirmed; CIB notes local requirements may apply and trade-specific CIB credentials may still be required for regulated trade work."]
+        },
+        "residential_contracting": {
+          "outcome": "local_only",
+          "boardIds": [],
+          "evidence": [{ "url": "https://oklahoma.gov/cib/frequently-asked-questions.html", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "Oklahoma CIB states that general contractors are not currently required to have a state license in Oklahoma and that other construction-related licenses may depend on type and location, including local jurisdiction requirements." }],
+          "limitations": ["No statewide Oklahoma residential-contractor board was confirmed apart from trade-specific CIB requirements and local jurisdiction rules."]
+        },
+        "commercial_contracting": {
+          "outcome": "local_only",
+          "boardIds": [],
+          "evidence": [{ "url": "https://oklahoma.gov/cib/frequently-asked-questions.html", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "Oklahoma CIB states that general contractors are not currently required to have a state license in Oklahoma and that other construction-related licenses may depend on type and location, including local jurisdiction requirements." }],
+          "limitations": ["No statewide Oklahoma commercial general-contractor board was confirmed apart from trade-specific CIB requirements and local jurisdiction rules."]
+        },
+        "electrical": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.ok.cib.trades"],
+          "evidence": [
+            { "url": "https://oklahoma.gov/cib/frequently-asked-questions.html", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "Oklahoma CIB states that it regulates plumbing, electrical, mechanical, roofing, building and construction inspectors, and home inspectors." },
+            { "url": "https://oklahoma.gov/cib/consumers/are-they-licensed.html", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "CIB links official searches for registered roofing contractors and for building/home inspector, electrical, mechanical, and plumbing licensees." },
+            { "url": "https://oklahoma.gov/cib/your-industry/electrical.html", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "CIB electrical licensing materials provide a path to become an Electrical Contractor and describe electrical contractor renewal and active-license requirements." }
+          ]
+        },
+        "plumbing": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.ok.cib.trades"],
+          "evidence": [
+            { "url": "https://oklahoma.gov/cib/frequently-asked-questions.html", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "Oklahoma CIB states that it regulates plumbing, electrical, mechanical, roofing, building and construction inspectors, and home inspectors." },
+            { "url": "https://oklahoma.gov/cib/consumers/are-they-licensed.html", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "CIB links official searches for registered roofing contractors and for building/home inspector, electrical, mechanical, and plumbing licensees." },
+            { "url": "https://oklahoma.gov/cib/your-industry/plumbing/plumbing-contractor.html", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "CIB plumbing contractor materials describe contractor license requirements for applicants in the plumbing trade." }
+          ]
+        },
+        "hvac": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.ok.cib.trades"],
+          "evidence": [
+            { "url": "https://oklahoma.gov/cib/frequently-asked-questions.html", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "Oklahoma CIB states that it regulates plumbing, electrical, mechanical, roofing, building and construction inspectors, and home inspectors." },
+            { "url": "https://oklahoma.gov/cib/consumers/are-they-licensed.html", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "CIB links official searches for registered roofing contractors and for building/home inspector, electrical, mechanical, and plumbing licensees." },
+            { "url": "https://oklahoma.gov/cib/your-industry/mechanical/mechanical-contractor.html", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "CIB mechanical contractor materials list HVAC/R limited and unlimited contractor license categories." }
+          ]
+        },
+        "mechanical": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.ok.cib.trades"],
+          "evidence": [
+            { "url": "https://oklahoma.gov/cib/frequently-asked-questions.html", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "Oklahoma CIB states that it regulates plumbing, electrical, mechanical, roofing, building and construction inspectors, and home inspectors." },
+            { "url": "https://oklahoma.gov/cib/consumers/are-they-licensed.html", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "CIB links official searches for registered roofing contractors and for building/home inspector, electrical, mechanical, and plumbing licensees." },
+            { "url": "https://oklahoma.gov/cib/your-industry/mechanical/mechanical-contractor.html", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "CIB mechanical contractor materials list HVAC/R, refrigeration, natural gas piping, process piping, sheet metal, and ground source piping contractor categories." }
+          ]
+        },
+        "roofing": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.ok.cib.trades"],
+          "evidence": [
+            { "url": "https://oklahoma.gov/cib/frequently-asked-questions.html", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "Oklahoma CIB states that it regulates plumbing, electrical, mechanical, roofing, building and construction inspectors, and home inspectors." },
+            { "url": "https://oklahoma.gov/cib/consumers/are-they-licensed.html", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "CIB links official searches for registered roofing contractors and for building/home inspector, electrical, mechanical, and plumbing licensees." },
+            { "url": "https://oklahoma.gov/cib/frequently-asked-questions.html", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "CIB roofing FAQs describe residential roofing registration insurance and commercial roofing endorsement requirements." }
+          ],
+          "limitations": ["CIB treats roofing as a registration/endorsement path rather than the same contractor-license path used for electrical, plumbing, and mechanical trades."]
+        },
+        "solar": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.ok.cib.trades"],
+          "evidence": [
+            { "url": "https://oklahoma.gov/cib/your-industry/electrical.html", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "CIB electrical continuing-education materials include alternative energy systems and energy storage among electrical trade topics." },
+            { "url": "https://oklahoma.gov/cib/frequently-asked-questions.html", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "Oklahoma CIB states that plumbing, electrical, and mechanical trade work is regulated by CIB even though other construction-related requirements may depend on the type and location of work." }
+          ],
+          "limitations": ["No standalone statewide solar-contractor board was confirmed; CIB coverage is limited to electrical or other regulated trade work within a solar installation."]
+        },
+        "pool_spa": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.ok.cib.trades"],
+          "evidence": [{ "url": "https://oklahoma.gov/cib/frequently-asked-questions.html", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "Oklahoma CIB states that plumbing, electrical, and mechanical trade work is regulated by CIB even though other construction-related requirements may depend on the type and location of work." }],
+          "limitations": ["No standalone statewide pool/spa contractor board was confirmed; CIB coverage is limited to plumbing, electrical, or mechanical components of pool/spa work."]
+        },
+        "asbestos": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.ok.labor.asbestos_contractors"],
+          "evidence": [{ "url": "https://oklahoma.gov/labor/licensing/asbestos-abatement-inspection-and-licensing.html", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "Oklahoma Department of Labor states that it licenses contractors and individuals performing asbestos abatement, inspection, and related work and identifies the abatement contractor application as the company license required to perform friable asbestos abatement." }],
+          "limitations": ["This decision covers ODOL asbestos abatement licensing only and does not cover non-asbestos construction trades."]
+        },
+        "sheet_metal": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.ok.cib.trades"],
+          "evidence": [
+            { "url": "https://oklahoma.gov/cib/frequently-asked-questions.html", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "Oklahoma CIB states that it regulates plumbing, electrical, mechanical, roofing, building and construction inspectors, and home inspectors." },
+            { "url": "https://oklahoma.gov/cib/your-industry/mechanical/mechanical-contractor.html", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "CIB mechanical contractor materials include a Sheet Metal Contractor license category for ferrous and nonferrous duct and exhaust systems." }
+          ]
+        },
+        "underground_utility": {
+          "outcome": "local_only",
+          "boardIds": [],
+          "evidence": [{ "url": "https://oklahoma.gov/cib/frequently-asked-questions.html", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "Oklahoma CIB states that general contractors are not currently required to have a state license in Oklahoma and that other construction-related licenses may depend on type and location, including local jurisdiction requirements." }],
+          "limitations": ["No broad statewide underground-utility contractor board was confirmed; CIB may regulate plumbing, electrical, mechanical, process-piping, or ground-source-piping portions when those scopes apply."]
+        },
+        "home_improvement": {
+          "outcome": "local_only",
+          "boardIds": [],
+          "evidence": [{ "url": "https://oklahoma.gov/cib/frequently-asked-questions.html", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "Oklahoma CIB states that general contractors are not currently required to have a state license in Oklahoma and that other construction-related licenses may depend on type and location, including local jurisdiction requirements." }],
+          "limitations": ["No statewide Oklahoma home-improvement contractor board was confirmed apart from trade-specific CIB requirements and local jurisdiction rules."]
+        }
+      }
+    },
     {
       "state": "OR",
       "decisions": {

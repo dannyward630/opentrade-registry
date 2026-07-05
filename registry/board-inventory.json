@@ -3619,18 +3619,48 @@
         "electrical",
         "mechanical",
         "plumbing",
+        "hvac",
+        "sheet_metal",
         "other"
       ],
       "accessPath": "manual_handoff",
       "coverageLimitations": [
         "General contractor licensing and local permits may be handled locally and are outside this source entry unless CIB-specific.",
         "The CIB site links multiple searches; future adapter work may need separate source entries or per-search filters.",
-        "Search result fields, historical coverage, and bulk access have not been modeled."
+        "Search result fields, historical coverage, and bulk access have not been modeled.",
+        "Pool/spa, solar, underground utility, and sheet-metal work may be covered only when the work falls within CIB electrical, plumbing, or mechanical scopes."
       ],
       "evidence": {
         "url": "https://oklahoma.gov/cib/consumers/are-they-licensed.html",
-        "reviewedAt": "2026-06-27T00:00:00.000Z",
-        "note": "Official public source, access shape, and current automation constraints reviewed."
+        "reviewedAt": "2026-07-05T00:00:00.000Z",
+        "note": "CIB's official consumer page links separate searches for registered roofing contractors and for building/home inspector, electrical, mechanical, and plumbing licensees."
+      }
+    },
+    {
+      "id": "us.ok.labor.asbestos_contractors",
+      "jurisdiction": {
+        "country": "US",
+        "state": "OK"
+      },
+      "boardName": "Oklahoma Department of Labor Asbestos Abatement Licensing",
+      "agencyName": "Oklahoma Department of Labor",
+      "officialUrl": "https://oklahoma.gov/labor/licensing/asbestos-abatement-inspection-and-licensing.html",
+      "sourceIds": [
+        "us.ok.labor.asbestos_contractors"
+      ],
+      "trades": [
+        "asbestos"
+      ],
+      "accessPath": "manual_handoff",
+      "coverageLimitations": [
+        "This source is limited to Oklahoma Department of Labor asbestos abatement, inspection, and related credentials and does not represent general contractor, electrical, plumbing, mechanical, HVAC, roofing, local permit, or business-registration records.",
+        "The official page describes applications and states online licensing is coming soon; no stable public bulk export, parser contract, or public license roster has been confirmed.",
+        "Generated datasets should not be published until source-specific privacy and redistribution review is complete."
+      ],
+      "evidence": {
+        "url": "https://oklahoma.gov/labor/licensing/asbestos-abatement-inspection-and-licensing.html",
+        "reviewedAt": "2026-07-05T00:00:00.000Z",
+        "note": "Oklahoma Department of Labor states that it licenses contractors and individuals performing asbestos abatement, inspection, and related work and identifies the abatement contractor application as the company license required to perform friable asbestos abatement."
       }
     },
     {

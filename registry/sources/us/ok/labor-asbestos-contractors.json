@@ -1,0 +1,76 @@
+{
+  "id": "us.ok.labor.asbestos_contractors",
+  "name": "Oklahoma Department of Labor Asbestos Abatement Licensing",
+  "jurisdiction": {
+    "country": "US",
+    "state": "OK"
+  },
+  "agency": {
+    "name": "Oklahoma Department of Labor",
+    "url": "https://oklahoma.gov/labor.html"
+  },
+  "sourceType": "html_lookup",
+  "sourceUrl": "https://oklahoma.gov/labor/licensing/asbestos-abatement-inspection-and-licensing.html",
+  "documentationUrl": "https://oklahoma.gov/labor/licensing/asbestos-abatement-inspection-and-licensing.html",
+  "dataDictionaryUrl": null,
+  "termsUrl": "https://oklahoma.gov/omes/about/policies-and-disclaimers.html",
+  "termsReviewNotes": "Oklahoma.gov policy pages were identified, but source-specific publication and redistribution approval has not been completed.",
+  "updateFrequency": "unknown; verify against the Oklahoma Department of Labor asbestos licensing program before relying on freshness assumptions",
+  "tradeCoverage": [
+    "asbestos"
+  ],
+  "licenseTypesIncluded": [
+    "Oklahoma Department of Labor asbestos abatement contractor licenses and related asbestos abatement, inspection, planning, design, supervisor, and worker credentials"
+  ],
+  "knownExclusions": [
+    "This source is limited to Oklahoma Department of Labor asbestos abatement, inspection, and related credentials and does not represent general contractor, electrical, plumbing, mechanical, HVAC, roofing, local permit, or business-registration records.",
+    "The official page describes applications and states online licensing is coming soon; no stable public bulk export, parser contract, or public license roster has been confirmed.",
+    "Generated datasets should not be published until source-specific privacy and redistribution review is complete."
+  ],
+  "hasBulkDownload": "unknown",
+  "hasLiveLookup": "unknown",
+  "requiresJavaScript": "unknown",
+  "requiresCaptcha": "unknown",
+  "requiresAccount": "unknown",
+  "rateLimitNotes": "No adapter is implemented. Use the official Oklahoma Department of Labor asbestos licensing page manually until access rules, field shape, and reuse are reviewed.",
+  "redistributionStatus": "unknown",
+  "publicRecordsNotes": "Official source metadata only. Absence from this source is not proof that another asbestos credential, project authorization, local license, or related record does not exist.",
+  "adapterStatus": "blocked",
+  "sourceDiscoveryStatus": "blocked",
+  "adapterMaturity": "blocked",
+  "adapterQualityLevel": 0,
+  "coverageScope": "state_agency_partial",
+  "adapterPackage": null,
+  "testFixturePath": null,
+  "officialLookupUrl": "https://oklahoma.gov/labor/licensing/asbestos-abatement-inspection-and-licensing.html",
+  "officialLookupReviewNotes": "The official Oklahoma Department of Labor page documents asbestos abatement licensing but does not expose a stable public bulk or lookup contract in this phase.",
+  "officialBulkDownloadNotes": "No official bulk download has been confirmed in this phase.",
+  "researchNotes": "Registry-only blocked source for Oklahoma asbestos licensing. Future adapter work must confirm whether online licensing exposes a lawful public search or export path.",
+  "verificationReviewedAt": null,
+  "verificationCaveats": [
+    "This source covers Oklahoma Department of Labor asbestos abatement licensing only.",
+    "No matching record means no match in the checked source at the checked time, not proof that another asbestos credential, project authorization, local license, or related record does not exist."
+  ],
+  "verificationNotes": "No supported sync or verification adapter is exposed while the official lookup/export contract and allowed reuse remain under review.",
+  "lastVerifiedAt": "2026-07-05T00:00:00.000Z",
+  "maintainerNotes": "A future adapter must preserve source URL, checked time, caveats, raw lookup evidence, and asbestos-specific filtering before exposing records.",
+  "schemaVersion": "1.0",
+  "researchReviewedAt": "2026-07-05T00:00:00.000Z",
+  "nextReviewAt": "2027-01-05T00:00:00.000Z",
+  "researchEvidence": [
+    {
+      "url": "https://oklahoma.gov/labor/licensing/asbestos-abatement-inspection-and-licensing.html",
+      "checkedAt": "2026-07-05T00:00:00.000Z",
+      "note": "Oklahoma Department of Labor states that it licenses contractors and individuals performing asbestos abatement, inspection, and related work and identifies the abatement contractor application as the company license required to perform friable asbestos abatement."
+    }
+  ],
+  "sourceResearchOutcome": "blocked",
+  "blocker": {
+    "code": "no_stable_source",
+    "summary": "The official page documents asbestos licensing but no stable public roster, bulk export, or parser contract has been confirmed.",
+    "evidenceUrls": [
+      "https://oklahoma.gov/labor/licensing/asbestos-abatement-inspection-and-licensing.html",
+      "https://oklahoma.gov/omes/about/policies-and-disclaimers.html"
+    ]
+  }
+}
