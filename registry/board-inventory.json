@@ -3830,6 +3830,7 @@
         "general_contracting",
         "residential_contracting",
         "roofing",
+        "solar",
         "home_improvement",
         "handyman",
         "other",
@@ -3837,14 +3838,78 @@
       ],
       "accessPath": "manual_handoff",
       "coverageLimitations": [
-        "The DACO page describes residential construction, home repair, alterations, installations, masonry, carpentry, roof treatments, and analogous repair work; exact category fields require adapter research.",
-        "Professional licenses, municipal permits, business registrations, complaints, fines, and non-DACO authorizations may require separate official sources.",
+        "The DACO page describes residential construction, home repair, alterations, installations, masonry, carpentry, roof treatments, and analogous repair work; commercial contracting and specialist trade scope must be verified against separate official sources.",
+        "Professional licenses, Department of State examining-board credentials, DRNA asbestos records, municipal permits, business registrations, complaints, fines, and non-DACO authorizations require separate official sources.",
         "PDF reports or linked exports must not be redistributed unless terms clearly allow it."
       ],
       "evidence": {
         "url": "https://www.daco.pr.gov/consumidores/listado-contratistas-registrados/",
-        "reviewedAt": "2026-06-27T00:00:00.000Z",
-        "note": "Official public source, access shape, and current automation constraints reviewed."
+        "reviewedAt": "2026-07-05T00:00:00.000Z",
+        "note": "Official DACO page reviewed; it describes the contractor registry for residential construction, home repairs, alterations, installations, carpentry, masonry, roof treatments, and analogous residential repair work."
+      }
+    },
+    {
+      "id": "us.pr.drna.asbestos_contractors",
+      "jurisdiction": {
+        "country": "US",
+        "state": "PR"
+      },
+      "boardName": "Puerto Rico DRNA Asbestos Consultants and Contractors",
+      "agencyName": "Departamento de Recursos Naturales y Ambientales de Puerto Rico",
+      "officialUrl": "https://www.drna.pr.gov/acai/asbesto/",
+      "sourceIds": [
+        "us.pr.drna.asbestos_contractors"
+      ],
+      "trades": [
+        "asbestos",
+        "other",
+        "unknown"
+      ],
+      "accessPath": "manual_handoff",
+      "coverageLimitations": [
+        "The DRNA page describes asbestos registration and permit processes and contractor/consultant list submission; exact active-list status, field shape, and update cadence require follow-up review.",
+        "DACO contractor registration, Department of State examining-board credentials, municipal permits, business registrations, complaints, fines, and enforcement records require separate official sources.",
+        "No stable bulk CSV, XLSX, JSON, or API source has been confirmed.",
+        "No redistribution permission for generated datasets has been confirmed."
+      ],
+      "evidence": {
+        "url": "https://www.drna.pr.gov/acai/asbesto/",
+        "reviewedAt": "2026-07-05T00:00:00.000Z",
+        "note": "Official DRNA Air Quality/Asbestos page reviewed; it describes asbestos permit processes, worker-registration submission, and instructions for asbestos consultants and contractors seeking inclusion on DRNA's list."
+      }
+    },
+    {
+      "id": "us.pr.estado.examining_boards_trades",
+      "jurisdiction": {
+        "country": "US",
+        "state": "PR"
+      },
+      "boardName": "Puerto Rico Department of State Examining Boards Trade Licenses",
+      "agencyName": "Puerto Rico Department of State",
+      "officialUrl": "https://pr.pcshq.com/lookup/",
+      "sourceIds": [
+        "us.pr.estado.examining_boards_trades"
+      ],
+      "trades": [
+        "electrical",
+        "plumbing",
+        "hvac",
+        "mechanical",
+        "roofing",
+        "other",
+        "unknown"
+      ],
+      "accessPath": "manual_handoff",
+      "coverageLimitations": [
+        "The PCS lookup is a professional-license lookup, not a contractor-firm bulk dataset.",
+        "DACO contractor registration, DRNA asbestos records, municipal permits, business registrations, complaints, fines, and enforcement records require separate official sources.",
+        "No stable bulk CSV, XLSX, JSON, or API source has been confirmed.",
+        "No redistribution permission for generated datasets has been confirmed."
+      ],
+      "evidence": {
+        "url": "https://www.estado.pr.gov/juntas-examinadoras",
+        "reviewedAt": "2026-07-05T00:00:00.000Z",
+        "note": "Official Department of State examining-boards page reviewed; it links the licensed-professional search and lists electrical, plumbing, roof waterproofing, and refrigeration/air-conditioning boards."
       }
     },
     {
