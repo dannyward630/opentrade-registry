@@ -516,9 +516,10 @@
       "state": "WY",
       "status": "blocked",
       "sourceIds": [
+        "us.wy.deq.asbestos",
         "us.wy.firemarshal.electrical"
       ],
-      "notes": "Official source metadata is retained, but automated ingestion is blocked by documented legal, access, scope, or technical constraints."
+      "notes": "Official State Fire Marshal electrical and DEQ asbestos metadata are retained, but automated ingestion is blocked by documented legal, access, scope, or technical constraints. Other contractor licensing appears to be local or jurisdictional in the reviewed state evidence."
     }
   ]
 }
