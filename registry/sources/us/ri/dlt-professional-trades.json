@@ -1,0 +1,104 @@
+{
+  "id": "us.ri.dlt.professional_trades",
+  "name": "Rhode Island DLT Professional Regulation Trade Licenses",
+  "jurisdiction": {
+    "country": "US",
+    "state": "RI"
+  },
+  "agency": {
+    "name": "Rhode Island Department of Labor and Training, Division of Professional Regulation",
+    "url": "https://dlt.ri.gov/"
+  },
+  "sourceType": "html_lookup",
+  "sourceUrl": "https://dltweb.dlt.ri.gov/profregsonline/LicenseSearch",
+  "documentationUrl": "https://dlt.ri.gov/regulation-and-safety/professional-regulation",
+  "dataDictionaryUrl": null,
+  "termsUrl": "https://www.ri.gov/policies/",
+  "termsReviewNotes": "Rhode Island state website policies were identified, but source-specific publication, redistribution, and privacy review has not been completed.",
+  "updateFrequency": "unknown; verify against DLT Professional Regulation lookup before relying on freshness assumptions",
+  "tradeCoverage": [
+    "electrical",
+    "plumbing",
+    "hvac",
+    "mechanical",
+    "solar",
+    "pool_spa",
+    "sheet_metal"
+  ],
+  "licenseTypesIncluded": [
+    "Rhode Island electrical contractor and related electrical licenses",
+    "Rhode Island plumbing and irrigation licenses",
+    "Rhode Island pipefitter, refrigeration, sprinklerfitter, sheet-metal, oil-heat, and mechanical licenses exposed by DLT Professional Regulation",
+    "Rhode Island renewable energy professional license category listed in the electrical rules"
+  ],
+  "knownExclusions": [
+    "This source is limited to Rhode Island DLT professional trade licenses and does not represent CRLB contractor registration, commercial roofer, pump installer, underground utility, or well-drilling categories.",
+    "This source does not represent Rhode Island Department of Health asbestos licenses.",
+    "The public lookup currently blocks simple automated retrieval in this environment; no adapter is implemented.",
+    "Local permits, municipal registrations, business entity registrations, inspections, and non-DLT authorizations are outside this source entry."
+  ],
+  "hasBulkDownload": "unknown",
+  "hasLiveLookup": true,
+  "requiresJavaScript": "unknown",
+  "requiresCaptcha": "unknown",
+  "requiresAccount": false,
+  "rateLimitNotes": "No adapter is implemented. Do not bypass portal controls; use official DLT lookup and rules manually until source shape and access rules are reviewed.",
+  "redistributionStatus": "unknown",
+  "publicRecordsNotes": "Official DLT trade-license metadata only. Absence from this source is not proof that a trade license, contractor registration, local license, permit, or related record does not exist.",
+  "adapterStatus": "blocked",
+  "sourceDiscoveryStatus": "blocked",
+  "adapterMaturity": "blocked",
+  "adapterQualityLevel": 0,
+  "coverageScope": "state_agency_partial",
+  "adapterPackage": null,
+  "testFixturePath": null,
+  "officialLookupUrl": "https://dltweb.dlt.ri.gov/profregsonline/LicenseSearch",
+  "officialLookupReviewNotes": "The DLT Professional Regulation online system is an official trade-license lookup, but simple automated retrieval returned a request-rejected page in this environment.",
+  "officialBulkDownloadNotes": "No official, documented, redistribution-safe bulk download has been confirmed for DLT professional trade licenses.",
+  "researchNotes": "Registry-only blocked source for Rhode Island DLT professional trade licenses. Future work should identify stable export options or define a lawful manual-handoff flow for the official lookup.",
+  "verificationReviewedAt": null,
+  "verificationCaveats": [
+    "This source covers Rhode Island DLT professional trade licenses only.",
+    "No matching record means no match in the checked source at the checked time, not proof that another trade license, contractor registration, local license, permit, or related record does not exist."
+  ],
+  "verificationNotes": "No supported sync or verification adapter is exposed while DLT lookup access shape, source terms, privacy posture, and allowed reuse remain under review.",
+  "lastVerifiedAt": "2026-07-05T00:00:00.000Z",
+  "maintainerNotes": "Do not automate the DLT lookup unless access controls, host allowlists, and source terms are reviewed. Keep DLT professional trades separate from CRLB and RIDOH sources.",
+  "schemaVersion": "1.0",
+  "researchReviewedAt": "2026-07-05T00:00:00.000Z",
+  "nextReviewAt": "2027-01-05T00:00:00.000Z",
+  "researchEvidence": [
+    {
+      "url": "https://dlt.ri.gov/regulation-and-safety/professional-regulation",
+      "checkedAt": "2026-07-05T00:00:00.000Z",
+      "note": "Official DLT Professional Regulation page reviewed through search-result evidence; it describes licensing and testing for electricians, mechanical trades, plumbers, and related regulated trades."
+    },
+    {
+      "url": "https://dltweb.dlt.ri.gov/profregsonline/LicenseSearch",
+      "checkedAt": "2026-07-05T00:00:00.000Z",
+      "note": "Official DLT online license search reviewed; search-result evidence describes searching trade licenses by trade, license number, name, city/state, or telephone number."
+    },
+    {
+      "url": "https://rules.sos.ri.gov/regulations/part/260-30-15-7",
+      "checkedAt": "2026-07-05T00:00:00.000Z",
+      "note": "Official electrical board rules reviewed; they list electrical contractor, fire alarm contractor, lightning-protection contractor, renewable energy professional, and related license categories."
+    },
+    {
+      "url": "https://rules.sos.ri.gov/regulations/Part/260-30-15-2",
+      "checkedAt": "2026-07-05T00:00:00.000Z",
+      "note": "Official mechanical-board rules reviewed; they include pipefitters, refrigeration technicians, sprinklerfitters, sheet-metal workers, oil-heat contractors, and Master Mechanical Contractor provisions."
+    }
+  ],
+  "sourceResearchOutcome": "blocked",
+  "blocker": {
+    "code": "access_controls",
+    "summary": "The official DLT lookup is interactive and returned request-rejected responses to simple automated retrieval; OpenTrade Registry will not bypass technical controls.",
+    "evidenceUrls": [
+      "https://dltweb.dlt.ri.gov/profregsonline/LicenseSearch",
+      "https://dlt.ri.gov/regulation-and-safety/professional-regulation",
+      "https://rules.sos.ri.gov/regulations/part/260-30-15-7",
+      "https://rules.sos.ri.gov/regulations/Part/260-30-15-2",
+      "https://www.ri.gov/policies/"
+    ]
+  }
+}
