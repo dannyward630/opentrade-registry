@@ -4,9 +4,9 @@
 
 ## Current Completeness
 
-The inventory currently has `completeness: "representative_source_baseline"`. Its 153 rows migrate every existing state, DC, and major-territory source into the board model. This proves source linkage and terminal access-path handling, but it does not yet claim every material statewide trade board has been identified.
+The inventory currently has `completeness: "representative_source_baseline"`. Its 155 rows migrate every existing state, DC, and major-territory source into the board model. This proves source linkage and terminal access-path handling, but it does not yet claim every material statewide trade board has been identified.
 
-The board-coverage ledger currently resolves `658` of `784` jurisdiction/domain decisions, leaving `126` for research. Missouri is fully resolved with statewide electrical and asbestos evidence plus explicit local-only contractor boundaries. Oklahoma is fully resolved with CIB trade licensing, ODOL asbestos evidence, and explicit local-only general-contractor boundaries. The District of Columbia is fully resolved with DLCP contractor, Industrial Trades, and asbestos abatement business licensing evidence plus DOEE and DOB permit caveats. Municipal licensing remains excluded.
+The board-coverage ledger currently resolves `672` of `784` jurisdiction/domain decisions, leaving `112` for research. Missouri is fully resolved with statewide electrical and asbestos evidence plus explicit local-only contractor boundaries. Oklahoma is fully resolved with CIB trade licensing, ODOL asbestos evidence, and explicit local-only general-contractor boundaries. South Dakota is fully resolved with DLR electrical, DLR plumbing, DANR asbestos evidence, and explicit local-only trade boundaries. The District of Columbia is fully resolved with DLCP contractor, Industrial Trades, and asbestos abatement business licensing evidence plus DOEE and DOB permit caveats. Municipal licensing remains excluded.
 
 The inventory may change to `board_complete` only after every tracked jurisdiction has been reviewed for general contracting, residential, electrical, plumbing, HVAC, mechanical, roofing, solar, asbestos, pool/spa, home-improvement, and other independently regulated statewide trades. Each additional board needs official evidence and a terminal access path.
 
