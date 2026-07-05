@@ -4034,6 +4034,61 @@
       }
     },
     {
+      "id": "us.sd.danr.asbestos_services",
+      "jurisdiction": {
+        "country": "US",
+        "state": "SD"
+      },
+      "boardName": "South Dakota DANR Asbestos Services",
+      "agencyName": "South Dakota Department of Agriculture and Natural Resources",
+      "officialUrl": "https://danr.sd.gov/Environment/WasteManagement/Asbestos/docs/AsbestosServices.pdf",
+      "sourceIds": [
+        "us.sd.danr.asbestos_services"
+      ],
+      "trades": [
+        "asbestos"
+      ],
+      "accessPath": "manual_handoff",
+      "coverageLimitations": [
+        "This source is limited to South Dakota DANR asbestos services and certifications and does not represent general contractor, electrical, plumbing, local permit, tax-registration, or non-asbestos records.",
+        "The public PDF may include individual names, emails, phone numbers, and business addresses, so privacy filtering is required before any generated dataset is exposed.",
+        "No stable parser contract, checksum behavior, or redistribution approval has been completed."
+      ],
+      "evidence": {
+        "url": "https://danr.sd.gov/Environment/WasteManagement/Asbestos/default.aspx",
+        "reviewedAt": "2026-07-05T00:00:00.000Z",
+        "note": "DANR states that its Asbestos Section regulates asbestos abatement projects in South Dakota and provides worker certifications, notices, inspections, and complaint investigations."
+      }
+    },
+    {
+      "id": "us.sd.dlr.electrical",
+      "jurisdiction": {
+        "country": "US",
+        "state": "SD"
+      },
+      "boardName": "South Dakota DLR Electrical Commission Licensing",
+      "agencyName": "South Dakota Department of Labor and Regulation Electrical Commission",
+      "officialUrl": "https://dlr.sd.gov/electrical/default.aspx",
+      "sourceIds": [
+        "us.sd.dlr.electrical"
+      ],
+      "trades": [
+        "electrical",
+        "solar"
+      ],
+      "accessPath": "manual_handoff",
+      "coverageLimitations": [
+        "This source entry is scoped to South Dakota Electrical Commission credentials and does not represent general contractor, plumbing, asbestos, local permit, or tax-registration records.",
+        "Solar coverage is limited to electrical work within solar installations and is not a standalone statewide solar-contractor license.",
+        "The official pages describe licensing categories but no stable public bulk dataset or adapter-reviewed lookup contract has been modeled yet."
+      ],
+      "evidence": {
+        "url": "https://dlr.sd.gov/electrical/default.aspx",
+        "reviewedAt": "2026-07-05T00:00:00.000Z",
+        "note": "The official Electrical Commission page states that the commission administers state electrical wiring laws and licenses all electricians within South Dakota."
+      }
+    },
+    {
       "id": "us.sd.dlr.plumbing",
       "jurisdiction": {
         "country": "US",
@@ -4054,12 +4109,12 @@
       "coverageLimitations": [
         "This source entry is scoped to the South Dakota Plumbing Commission and does not represent every contractor, electrical, local permit, or tax registration source in South Dakota.",
         "The official pages describe licensing categories but no stable public lookup or bulk dataset has been modeled yet.",
-        "Electrical licensing and local contractor licensing should be separate source entries if researched."
+        "Electrical licensing, asbestos services, Department of Revenue contractor excise tax licensing, and local contractor licensing are separate source paths."
       ],
       "evidence": {
         "url": "https://dlr.sd.gov/plumbing/default.aspx",
-        "reviewedAt": "2026-06-27T00:00:00.000Z",
-        "note": "Official public source, access shape, and current automation constraints reviewed."
+        "reviewedAt": "2026-07-05T00:00:00.000Z",
+        "note": "The official Plumbing Commission page states that the commission licenses qualified plumbers, sewer and water installers, appliance installers, manufactured and mobile home installers, underground irrigation installers, water conditioning installers, and individual and small on-site wastewater system installers within South Dakota."
       }
     },
     {

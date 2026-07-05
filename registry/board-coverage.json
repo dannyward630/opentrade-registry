@@ -4288,7 +4288,135 @@
         }
       }
     },
-    { "state": "SD", "decisions": {} },
+    {
+      "state": "SD",
+      "decisions": {
+        "general_contracting": {
+          "outcome": "local_only",
+          "boardIds": [],
+          "evidence": [
+            { "url": "https://dlr.sd.gov/boards_commissions_councils_all.aspx", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "South Dakota DLR's statewide occupational licensing list identifies electrical and plumbing boards but not a statewide general-contractor board." },
+            { "url": "https://dor.sd.gov/businesses/taxes/contractors-excise-tax/", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "South Dakota DOR documents contractor's excise tax obligations for contractors; this is a tax license path rather than a trade-qualification board." }
+          ],
+          "limitations": ["No statewide South Dakota general-contractor qualification board was confirmed; DOR contractor excise tax licensing and local permits or licenses may still be required."]
+        },
+        "residential_contracting": {
+          "outcome": "local_only",
+          "boardIds": [],
+          "evidence": [
+            { "url": "https://dlr.sd.gov/boards_commissions_councils_all.aspx", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "South Dakota DLR's statewide occupational licensing list identifies electrical and plumbing boards but not a statewide residential-contractor board." },
+            { "url": "https://dor.sd.gov/businesses/taxes/contractors-excise-tax/", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "South Dakota DOR documents contractor's excise tax obligations for contractors; this is a tax license path rather than a trade-qualification board." }
+          ],
+          "limitations": ["No statewide South Dakota residential-contractor qualification board was confirmed apart from trade-specific DLR requirements, DOR contractor excise tax obligations, and local rules."]
+        },
+        "commercial_contracting": {
+          "outcome": "local_only",
+          "boardIds": [],
+          "evidence": [
+            { "url": "https://dlr.sd.gov/boards_commissions_councils_all.aspx", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "South Dakota DLR's statewide occupational licensing list identifies electrical and plumbing boards but not a statewide commercial general-contractor board." },
+            { "url": "https://dor.sd.gov/businesses/taxes/contractors-excise-tax/", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "South Dakota DOR documents contractor's excise tax obligations for contractors; this is a tax license path rather than a trade-qualification board." }
+          ],
+          "limitations": ["No statewide South Dakota commercial general-contractor qualification board was confirmed apart from trade-specific DLR requirements, DOR contractor excise tax obligations, and local rules."]
+        },
+        "electrical": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.sd.dlr.electrical"],
+          "evidence": [
+            { "url": "https://dlr.sd.gov/electrical/default.aspx", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "The official Electrical Commission page states that the commission administers state electrical wiring laws and licenses all electricians within South Dakota." },
+            { "url": "https://dlr.sd.gov/electrical/licensing.aspx", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "The official licensing page describes electrical contractor and Class B electrician application and renewal paths." }
+          ]
+        },
+        "plumbing": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.sd.dlr.plumbing"],
+          "evidence": [
+            { "url": "https://dlr.sd.gov/plumbing/default.aspx", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "The official Plumbing Commission page states that the commission licenses qualified plumbers, sewer and water installers, appliance installers, manufactured and mobile home installers, underground irrigation installers, water conditioning installers, and individual and small on-site wastewater system installers within South Dakota." },
+            { "url": "https://dlr.sd.gov/plumbing/licensing.aspx", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "The official licensing page describes plumbing contractor and related specialty contractor application paths." }
+          ]
+        },
+        "hvac": {
+          "outcome": "local_only",
+          "boardIds": [],
+          "evidence": [
+            { "url": "https://dlr.sd.gov/boards_commissions_councils_all.aspx", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "South Dakota DLR's statewide occupational licensing list identifies electrical and plumbing boards but not a statewide HVAC contractor board." },
+            { "url": "https://dor.sd.gov/businesses/taxes/contractors-excise-tax/", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "South Dakota DOR documents contractor's excise tax obligations for contractors; this is a tax license path rather than an HVAC trade-qualification board." }
+          ],
+          "limitations": ["No statewide South Dakota HVAC contractor qualification board was confirmed; electrical or plumbing portions may require DLR credentials and local HVAC licensing may apply."]
+        },
+        "mechanical": {
+          "outcome": "local_only",
+          "boardIds": [],
+          "evidence": [
+            { "url": "https://dlr.sd.gov/boards_commissions_councils_all.aspx", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "South Dakota DLR's statewide occupational licensing list identifies electrical and plumbing boards but not a statewide mechanical contractor board." },
+            { "url": "https://dor.sd.gov/businesses/taxes/contractors-excise-tax/", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "South Dakota DOR documents contractor's excise tax obligations for contractors; this is a tax license path rather than a mechanical trade-qualification board." }
+          ],
+          "limitations": ["No statewide South Dakota mechanical contractor qualification board was confirmed; electrical or plumbing portions may require DLR credentials and local mechanical licensing may apply."]
+        },
+        "roofing": {
+          "outcome": "local_only",
+          "boardIds": [],
+          "evidence": [
+            { "url": "https://dlr.sd.gov/boards_commissions_councils_all.aspx", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "South Dakota DLR's statewide occupational licensing list identifies electrical and plumbing boards but not a statewide roofing contractor board." },
+            { "url": "https://dor.sd.gov/businesses/taxes/contractors-excise-tax/", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "South Dakota DOR documents contractor's excise tax obligations for contractors; this is a tax license path rather than a roofing trade-qualification board." }
+          ],
+          "limitations": ["No statewide South Dakota roofing contractor qualification board was confirmed; DOR contractor excise tax licensing and local rules may still apply."]
+        },
+        "solar": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.sd.dlr.electrical"],
+          "evidence": [
+            { "url": "https://dlr.sd.gov/electrical/default.aspx", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "The official Electrical Commission page states that the commission administers state electrical wiring laws and licenses all electricians within South Dakota." },
+            { "url": "https://dlr.sd.gov/electrical/licensing.aspx", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "The official licensing page describes electrical contractor and Class B electrician application and renewal paths." }
+          ],
+          "limitations": ["No standalone statewide solar-contractor board was confirmed; DLR Electrical coverage is limited to electrical work within solar installations."]
+        },
+        "pool_spa": {
+          "outcome": "local_only",
+          "boardIds": [],
+          "evidence": [
+            { "url": "https://dlr.sd.gov/boards_commissions_councils_all.aspx", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "South Dakota DLR's statewide occupational licensing list identifies electrical and plumbing boards but not a standalone pool/spa contractor board." },
+            { "url": "https://dor.sd.gov/businesses/taxes/contractors-excise-tax/", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "South Dakota DOR documents contractor's excise tax obligations for contractors; this is a tax license path rather than a pool/spa trade-qualification board." }
+          ],
+          "limitations": ["No standalone statewide South Dakota pool/spa contractor qualification board was confirmed; plumbing or electrical components may require DLR credentials and local licensing may apply."]
+        },
+        "asbestos": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.sd.danr.asbestos_services"],
+          "evidence": [
+            { "url": "https://danr.sd.gov/Environment/WasteManagement/Asbestos/default.aspx", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "DANR states that its Asbestos Section regulates asbestos abatement projects in South Dakota and provides worker certifications, notices, inspections, and complaint investigations." },
+            { "url": "https://danr.sd.gov/Environment/WasteManagement/Asbestos/docs/AsbestosServices.pdf", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "DANR publishes an Asbestos Services in the State of South Dakota PDF with inspection and removal service entries and an agency update date." }
+          ],
+          "limitations": ["This decision covers DANR asbestos services only and does not cover non-asbestos construction trades."]
+        },
+        "sheet_metal": {
+          "outcome": "local_only",
+          "boardIds": [],
+          "evidence": [
+            { "url": "https://dlr.sd.gov/boards_commissions_councils_all.aspx", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "South Dakota DLR's statewide occupational licensing list identifies electrical and plumbing boards but not a statewide sheet-metal contractor board." },
+            { "url": "https://dor.sd.gov/businesses/taxes/contractors-excise-tax/", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "South Dakota DOR documents contractor's excise tax obligations for contractors; this is a tax license path rather than a sheet-metal trade-qualification board." }
+          ],
+          "limitations": ["No statewide South Dakota sheet-metal contractor qualification board was confirmed; electrical or plumbing portions may require DLR credentials and local sheet-metal licensing may apply."]
+        },
+        "underground_utility": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.sd.dlr.plumbing"],
+          "evidence": [
+            { "url": "https://dlr.sd.gov/plumbing/default.aspx", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "The official Plumbing Commission page states that the commission licenses sewer and water installers, underground irrigation installers, and individual and small on-site wastewater system installers within South Dakota." },
+            { "url": "https://dlr.sd.gov/plumbing/licensing.aspx", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "The official licensing page describes sewer and water contractor, underground irrigation contractor, and on-site wastewater system installer application paths." }
+          ],
+          "limitations": ["This decision covers Plumbing Commission sewer/water, underground irrigation, and on-site wastewater scopes only; broader utility-owner obligations, DOR tax licensing, and local permits remain outside this board path."]
+        },
+        "home_improvement": {
+          "outcome": "local_only",
+          "boardIds": [],
+          "evidence": [
+            { "url": "https://dlr.sd.gov/boards_commissions_councils_all.aspx", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "South Dakota DLR's statewide occupational licensing list identifies electrical and plumbing boards but not a statewide home-improvement contractor board." },
+            { "url": "https://dor.sd.gov/businesses/taxes/contractors-excise-tax/", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "South Dakota DOR documents contractor's excise tax obligations for contractors; this is a tax license path rather than a home-improvement trade-qualification board." }
+          ],
+          "limitations": ["No statewide South Dakota home-improvement contractor qualification board was confirmed apart from trade-specific DLR requirements, DOR contractor excise tax obligations, and local rules."]
+        }
+      }
+    },
     {
       "state": "TN",
       "decisions": {

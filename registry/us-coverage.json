@@ -434,9 +434,11 @@
       "state": "SD",
       "status": "blocked",
       "sourceIds": [
+        "us.sd.danr.asbestos_services",
+        "us.sd.dlr.electrical",
         "us.sd.dlr.plumbing"
       ],
-      "notes": "Official source metadata is retained, but automated ingestion is blocked by documented legal, access, scope, or technical constraints."
+      "notes": "Official source metadata is retained for South Dakota DLR electrical, DLR plumbing, and DANR asbestos paths, but automated ingestion is blocked by documented legal, access, scope, or technical constraints."
     },
     {
       "state": "TN",

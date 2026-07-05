@@ -12,22 +12,22 @@ describe("source quality report", () => {
     expect(result.stderr).toBe("");
 
     const report = JSON.parse(result.stdout);
-    expect(report.sourceCount).toBe(153);
+    expect(report.sourceCount).toBe(155);
     expect(report.stateCount).toBe(51);
     expect(report.researchedStateCount).toBe(51);
     expect(report.territoryCount).toBe(5);
     expect(report.researchedTerritoryCount).toBe(5);
     expect(report.coverageByStatus.not_started ?? 0).toBe(0);
-    expect(report.terminalSourceCount).toBe(153);
-    expect(report.blockedSourceCount).toBe(144);
+    expect(report.terminalSourceCount).toBe(155);
+    expect(report.blockedSourceCount).toBe(146);
     expect(report.territoryCoverageByStatus.blocked).toBe(5);
-    expect(report.sourcesByMaturity.blocked).toBe(144);
+    expect(report.sourcesByMaturity.blocked).toBe(146);
     expect(report.sourcesByMaturity.local_file_adapter).toBe(2);
     expect(report.sourcesByMaturity.network_opt_in).toBe(7);
-    expect(report.sourcesByAdapterQualityLevel["0"]).toBe(144);
+    expect(report.sourcesByAdapterQualityLevel["0"]).toBe(146);
     expect(report.sourcesByAdapterQualityLevel["4"]).toBe(9);
     expect(report.sourcesByResearchOutcome).toEqual({
-      blocked: 144,
+      blocked: 146,
       deprecated: 0,
       local_file_adapter: 2,
       network_opt_in: 7,
@@ -153,6 +153,11 @@ describe("source quality report", () => {
         sourceType: "manual_public_records_file",
         adapterMaturity: "blocked",
       }),
+      expect.objectContaining({
+        id: "us.sd.danr.asbestos_services",
+        sourceType: "manual_public_records_file",
+        adapterMaturity: "blocked",
+      }),
     ]);
     expect(report.lookupOnlySources.map((source: { id: string }) => source.id)).toContain("us.pa.oag.home_improvement_contractors");
     expect(report.lookupOnlySources.map((source: { id: string }) => source.id)).toContain("us.oh.commerce.ocilb_contractors");
@@ -231,7 +236,7 @@ describe("source quality report", () => {
     expect(result.stdout).toContain("- us.ks.kdhe.asbestos_contractors (manual_public_records_file, blocked)");
     expect(result.stdout).toContain("- us.nh.des.asbestos_licenses (manual_public_records_file, blocked)");
     expect(result.stdout).toContain("sources by research outcome:");
-    expect(result.stdout).toContain("- blocked: 144");
+    expect(result.stdout).toContain("- blocked: 146");
     expect(result.stdout).toContain("metadata completeness:");
     expect(result.stdout).toContain("sources missing required metadata:");
     expect(result.stdout).toContain("- none");

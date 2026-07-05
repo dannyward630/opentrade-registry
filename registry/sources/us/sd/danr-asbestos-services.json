@@ -1,0 +1,82 @@
+{
+  "id": "us.sd.danr.asbestos_services",
+  "name": "South Dakota DANR Asbestos Services",
+  "jurisdiction": {
+    "country": "US",
+    "state": "SD"
+  },
+  "agency": {
+    "name": "South Dakota Department of Agriculture and Natural Resources",
+    "url": "https://danr.sd.gov/"
+  },
+  "sourceType": "manual_public_records_file",
+  "sourceUrl": "https://danr.sd.gov/Environment/WasteManagement/Asbestos/docs/AsbestosServices.pdf",
+  "documentationUrl": "https://danr.sd.gov/Environment/WasteManagement/Asbestos/default.aspx",
+  "dataDictionaryUrl": null,
+  "termsUrl": "https://sd.gov/cs?id=privacy_policy",
+  "termsReviewNotes": "South Dakota privacy and disclaimer links were identified, but source-specific publication and redistribution approval has not been completed.",
+  "updateFrequency": "unknown; the observed public services PDF is dated by the agency and must be checked at use time",
+  "tradeCoverage": [
+    "asbestos"
+  ],
+  "licenseTypesIncluded": [
+    "South Dakota asbestos services and certification records exposed by the official DANR asbestos program page and public services PDF"
+  ],
+  "knownExclusions": [
+    "This source is limited to South Dakota DANR asbestos services and certifications and does not represent general contractor, electrical, plumbing, local permit, tax-registration, or non-asbestos records.",
+    "The public PDF may include individual names, emails, phone numbers, and business addresses, so privacy filtering is required before any generated dataset is exposed.",
+    "No stable parser contract, checksum behavior, or redistribution approval has been completed."
+  ],
+  "hasBulkDownload": true,
+  "hasLiveLookup": false,
+  "requiresJavaScript": false,
+  "requiresCaptcha": false,
+  "requiresAccount": false,
+  "rateLimitNotes": "No adapter is implemented. Use the official DANR page and PDF manually until parsing, freshness, privacy, and reuse have been reviewed.",
+  "redistributionStatus": "unknown",
+  "publicRecordsNotes": "Official program and public-file metadata only. Generated datasets should not be published until privacy and redistribution are approved. Absence from this list is not proof that another asbestos credential, project authorization, or related record does not exist.",
+  "adapterStatus": "blocked",
+  "sourceDiscoveryStatus": "blocked",
+  "adapterMaturity": "blocked",
+  "adapterQualityLevel": 0,
+  "coverageScope": "state_agency_partial",
+  "adapterPackage": null,
+  "testFixturePath": null,
+  "officialLookupUrl": "https://danr.sd.gov/Environment/WasteManagement/Asbestos/docs/AsbestosServices.pdf",
+  "officialLookupReviewNotes": "DANR links a public Asbestos Services PDF from the official asbestos program page.",
+  "officialBulkDownloadNotes": "A public PDF is available, but no stable parser contract, privacy filter, checksum behavior, or redistribution approval has been established.",
+  "researchNotes": "This is a future manual-file or network opt-in adapter candidate after field-shape, update, privacy, and reuse review.",
+  "verificationReviewedAt": null,
+  "verificationCaveats": [
+    "This source covers South Dakota DANR asbestos services only.",
+    "No matching record means no match in the checked source at the checked time, not proof that another asbestos credential, project authorization, local authorization, or related record does not exist."
+  ],
+  "verificationNotes": "No supported sync or verification adapter is exposed while the official file contract, privacy filter, and allowed reuse remain under review.",
+  "lastVerifiedAt": "2026-07-05T00:00:00.000Z",
+  "maintainerNotes": "A future adapter must retain source URL, fetched time, PDF checksum, caveats, and privacy review before exposing records.",
+  "schemaVersion": "1.0",
+  "researchReviewedAt": "2026-07-05T00:00:00.000Z",
+  "nextReviewAt": "2027-01-05T00:00:00.000Z",
+  "researchEvidence": [
+    {
+      "url": "https://danr.sd.gov/Environment/WasteManagement/Asbestos/default.aspx",
+      "checkedAt": "2026-07-05T00:00:00.000Z",
+      "note": "DANR states that its Asbestos Section regulates asbestos abatement projects in South Dakota and provides worker certifications, notices, inspections, and complaint investigations."
+    },
+    {
+      "url": "https://danr.sd.gov/Environment/WasteManagement/Asbestos/docs/AsbestosServices.pdf",
+      "checkedAt": "2026-07-05T00:00:00.000Z",
+      "note": "DANR publishes an Asbestos Services in the State of South Dakota PDF with inspection and removal service entries and an agency update date."
+    }
+  ],
+  "sourceResearchOutcome": "blocked",
+  "blocker": {
+    "code": "technical_instability",
+    "summary": "The official public file is PDF-oriented and no stable parser, freshness contract, privacy filter, checksum behavior, or redistribution approval has been completed.",
+    "evidenceUrls": [
+      "https://danr.sd.gov/Environment/WasteManagement/Asbestos/default.aspx",
+      "https://danr.sd.gov/Environment/WasteManagement/Asbestos/docs/AsbestosServices.pdf",
+      "https://sd.gov/cs?id=privacy_policy"
+    ]
+  }
+}
