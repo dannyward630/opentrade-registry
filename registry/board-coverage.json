@@ -1026,7 +1026,95 @@
         }
       }
     },
-    { "state": "GU", "decisions": {} },
+    {
+      "state": "GU",
+      "decisions": {
+        "general_contracting": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.gu.clb.contractors"],
+          "evidence": [{ "url": "https://clb.guam.gov/wp-content/uploads/2024/09/CLB-App-9.4.24.pdf", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "The official CLB application packet describes a General Engineering Contractor classification covering more than two unrelated heavy construction trades or crafts." }],
+          "limitations": ["Business licenses, permits, environmental approvals, and federal or local project requirements may still apply."]
+        },
+        "residential_contracting": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.gu.clb.contractors"],
+          "evidence": [{ "url": "https://clb.guam.gov/wp-content/uploads/2024/09/CLB-App-9.4.24.pdf", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "The official CLB application packet describes General Building and Limited Home Improvement & Renovation classifications relevant to building and repair work." }],
+          "limitations": ["CLB classifications, business licenses, permits, and consumer-protection rules remain distinct."]
+        },
+        "commercial_contracting": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.gu.clb.contractors"],
+          "evidence": [{ "url": "https://clb.guam.gov/wp-content/uploads/2024/09/CLB-App-9.4.24.pdf", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "The official CLB application packet describes General Building and commercial/institutional equipment specialty classifications." }],
+          "limitations": ["Project permits, inspections, and separate public-works or procurement requirements remain outside this registry decision."]
+        },
+        "electrical": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.gu.clb.contractors"],
+          "evidence": [{ "url": "https://clb.guam.gov/wp-content/uploads/2024/09/CLB-App-9.4.24.pdf", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "The official CLB application packet defines C-13 Electrical Contractor and related electrical specialty classifications." }],
+          "limitations": ["Electrical utility, inspection, and permit requirements may still apply."]
+        },
+        "plumbing": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.gu.clb.contractors"],
+          "evidence": [{ "url": "https://clb.guam.gov/wp-content/uploads/2024/09/CLB-App-9.4.24.pdf", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "The official CLB application packet defines C-37 Plumbing Contractor for water supply, wastewater, and fuel gas piping systems." }],
+          "limitations": ["Public health, sewer, water, and permit approvals may still apply."]
+        },
+        "hvac": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.gu.clb.contractors"],
+          "evidence": [{ "url": "https://clb.guam.gov/wp-content/uploads/2024/09/CLB-App-9.4.24.pdf", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "The official CLB application packet defines C-40 Refrigeration Contractor and C-51 Warm Air Heating, Ventilating & Air Conditioning Contractor classifications." }],
+          "limitations": ["Refrigeration, HVAC, electrical, plumbing, and permit requirements remain separate classification or project boundaries."]
+        },
+        "mechanical": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.gu.clb.contractors"],
+          "evidence": [{ "url": "https://clb.guam.gov/wp-content/uploads/2024/09/CLB-App-9.4.24.pdf", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "The official CLB application packet defines refrigeration, HVAC, plumbing, fire protection, elevator, sheet metal, and related specialty classifications relevant to mechanical scopes." }],
+          "limitations": ["No single mechanical-contractor classification should be inferred; future adapters must preserve CLB classification codes."]
+        },
+        "roofing": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.gu.clb.contractors"],
+          "evidence": [{ "url": "https://clb.guam.gov/wp-content/uploads/2024/09/CLB-App-9.4.24.pdf", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "The official CLB application packet defines C-42 Roofing Contractor." }],
+          "limitations": ["Roofing, waterproofing, asbestos/lead, building permits, and local inspections may still be separate requirements."]
+        },
+        "solar": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.gu.clb.contractors"],
+          "evidence": [{ "url": "https://clb.guam.gov/wp-content/uploads/2024/09/CLB-App-9.4.24.pdf", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "The official CLB application packet defines C-53 Solar Contractor and lists prerequisite classifications." }],
+          "limitations": ["Electrical, plumbing, refrigeration, HVAC, utility interconnection, and permit requirements may still apply."]
+        },
+        "pool_spa": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.gu.clb.contractors"],
+          "evidence": [{ "url": "https://clb.guam.gov/wp-content/uploads/2024/09/CLB-App-9.4.24.pdf", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "The official CLB application packet defines C-49 Swimming Pool Contractor." }],
+          "limitations": ["Electrical, plumbing, health, and permit requirements may still apply depending on project scope."]
+        },
+        "asbestos": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.gu.clb.contractors"],
+          "evidence": [{ "url": "https://clb.guam.gov/contractors-listing/", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "The official CLB listing page links annual contractor listings, and CLB listing evidence includes C-68 asbestos/lead/mold specialty classification usage." }],
+          "limitations": ["Guam EPA, federal asbestos rules, demolition/renovation notification, worker training, disposal, and environmental requirements may still apply."]
+        },
+        "sheet_metal": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.gu.clb.contractors"],
+          "evidence": [{ "url": "https://clb.guam.gov/wp-content/uploads/2024/09/CLB-App-9.4.24.pdf", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "The official CLB application packet defines C-44 Sheet Metal Contractor." }],
+          "limitations": ["HVAC, mechanical, roofing, and permit requirements may still overlap depending on project scope."]
+        },
+        "underground_utility": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.gu.clb.contractors"],
+          "evidence": [{ "url": "https://clb.guam.gov/wp-content/uploads/2024/09/CLB-App-9.4.24.pdf", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "The official CLB application packet defines sewer, sewage disposal, drain, cement pipe laying, excavating, trenching, paving, and well drilling classifications relevant to underground utility work." }],
+          "limitations": ["Utility-owner approvals, water, sewer, environmental, health, and permit requirements may still apply."]
+        },
+        "home_improvement": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.gu.clb.contractors"],
+          "evidence": [{ "url": "https://clb.guam.gov/wp-content/uploads/2024/09/CLB-App-9.4.24.pdf", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "The official CLB application packet defines C-30 Limited Home Improvement & Renovation Contractor." }],
+          "limitations": ["The C-30 scope is limited and does not replace other specialty classifications, permits, business licensing, or consumer-protection requirements."]
+        }
+      }
+    },
     {
       "state": "HI",
       "decisions": {
