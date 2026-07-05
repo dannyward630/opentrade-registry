@@ -3526,6 +3526,33 @@
       }
     },
     {
+      "id": "us.ny.dol.asbestos_contractors",
+      "jurisdiction": {
+        "country": "US",
+        "state": "NY"
+      },
+      "boardName": "New York Department of Labor Asbestos Contractor Listing",
+      "agencyName": "New York State Department of Labor",
+      "officialUrl": "https://dol.ny.gov/asbestos-control-bureau",
+      "sourceIds": [
+        "us.ny.dol.asbestos_contractors"
+      ],
+      "trades": [
+        "asbestos"
+      ],
+      "accessPath": "manual_handoff",
+      "coverageLimitations": [
+        "This source is limited to New York Department of Labor asbestos contractor licensing and related asbestos program context.",
+        "It does not represent general contractor, electrical, plumbing, HVAC, roofing, solar, pool/spa, sheet-metal, underground utility, local home-improvement, NYC DOB, or county contractor records.",
+        "The official path is a listing/lookup handoff; no stable bulk export, parser contract, privacy filter, or redistribution approval has been confirmed."
+      ],
+      "evidence": {
+        "url": "https://dol.ny.gov/asbestos-control-bureau",
+        "reviewedAt": "2026-07-05T00:00:00.000Z",
+        "note": "Official DOL Asbestos Control Bureau page reviewed; it links an Asbestos Contractors Listing and describes DOL oversight of asbestos abatement hazards."
+      }
+    },
+    {
       "id": "us.ny.dos.licensee_search",
       "jurisdiction": {
         "country": "US",
@@ -3538,19 +3565,19 @@
         "us.ny.dos.licensee_search"
       ],
       "trades": [
-        "home_improvement",
         "other"
       ],
       "accessPath": "manual_handoff",
       "coverageLimitations": [
-        "New York contractor and home-improvement licensing is often local; this source entry does not represent every city or county contractor license.",
+        "New York State does not license home improvement contractors through this DOS source; home-improvement contractor licensing is handled by listed cities and counties where required.",
         "The DOS search is limited to active licenses and is not a complete historical license source.",
-        "Skilled trades, NYC Department of Buildings licenses, local home-improvement licenses, and county consumer-affairs records require separate source entries."
+        "Skilled trades, NYC Department of Buildings licenses, local home-improvement licenses, and county consumer-affairs records require separate source entries.",
+        "Home Inspection licenses are construction-adjacent professional credentials and must not be treated as contractor licenses."
       ],
       "evidence": {
         "url": "https://dos.ny.gov/licensee-search",
-        "reviewedAt": "2026-06-27T00:00:00.000Z",
-        "note": "Official public source, access shape, and current automation constraints reviewed."
+        "reviewedAt": "2026-07-05T00:00:00.000Z",
+        "note": "Official DOS page reviewed; it lists searchable active license categories including Home Inspection and states that searches are limited to active licenses only."
       }
     },
     {
