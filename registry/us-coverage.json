@@ -386,9 +386,10 @@
       "state": "OK",
       "status": "blocked",
       "sourceIds": [
-        "us.ok.cib.trades"
+        "us.ok.cib.trades",
+        "us.ok.labor.asbestos_contractors"
       ],
-      "notes": "Official source metadata is retained, but automated ingestion is blocked by documented legal, access, scope, or technical constraints."
+      "notes": "Official source metadata is retained for CIB electrical, plumbing, mechanical, roofing, and ODOL asbestos licensing paths, but automated ingestion is blocked by documented legal, access, scope, or technical constraints."
     },
     {
       "state": "OR",

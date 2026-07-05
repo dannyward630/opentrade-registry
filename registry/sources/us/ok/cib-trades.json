@@ -20,15 +20,19 @@
     "electrical",
     "mechanical",
     "plumbing",
+    "hvac",
+    "sheet_metal",
     "other"
   ],
   "licenseTypesIncluded": [
-    "Oklahoma CIB registered roofing contractor records and building/home inspector, electrical, mechanical, and plumbing licensee records exposed by official lookup links"
+    "Oklahoma CIB registered roofing contractor records and building/home inspector, electrical, mechanical, and plumbing licensee records exposed by official lookup links",
+    "Oklahoma CIB active electrical, plumbing, and mechanical contractor credentials and roofing contractor registrations"
   ],
   "knownExclusions": [
     "General contractor licensing and local permits may be handled locally and are outside this source entry unless CIB-specific.",
     "The CIB site links multiple searches; future adapter work may need separate source entries or per-search filters.",
-    "Search result fields, historical coverage, and bulk access have not been modeled."
+    "Search result fields, historical coverage, and bulk access have not been modeled.",
+    "Pool/spa, solar, underground utility, and sheet-metal work may be covered only when the work falls within CIB electrical, plumbing, or mechanical scopes."
   ],
   "hasBulkDownload": "unknown",
   "hasLiveLookup": true,
@@ -47,16 +51,32 @@
   "officialLookupUrl": "https://oklahoma.gov/cib/consumers/are-they-licensed.html",
   "officialBulkDownloadNotes": "No official bulk download has been confirmed in this phase.",
   "researchNotes": "Registry-only source for Oklahoma CIB lookup links. Future work should decide whether roofing and trade-license searches become separate sources.",
-  "lastVerifiedAt": "2026-06-27T00:00:00.000Z",
+  "verificationReviewedAt": null,
+  "verificationCaveats": [
+    "This source covers Oklahoma CIB electrical, plumbing, mechanical, and roofing records only.",
+    "No matching record means no match in the checked source at the checked time, not proof that a local authorization, permit, business registration, or non-CIB credential does not exist."
+  ],
+  "verificationNotes": "No supported sync or verification adapter is exposed while the official lookup contract and allowed reuse remain under review.",
+  "lastVerifiedAt": "2026-07-05T00:00:00.000Z",
   "maintainerNotes": "Keep CIB source scope separate from local Oklahoma contractor licensing.",
   "schemaVersion": "1.0",
-  "researchReviewedAt": "2026-06-27T00:00:00.000Z",
-  "nextReviewAt": "2026-12-27T00:00:00.000Z",
+  "researchReviewedAt": "2026-07-05T00:00:00.000Z",
+  "nextReviewAt": "2027-01-05T00:00:00.000Z",
   "researchEvidence": [
     {
       "url": "https://oklahoma.gov/cib/consumers/are-they-licensed.html",
-      "checkedAt": "2026-06-27T00:00:00.000Z",
-      "note": "Official public source, access shape, and current automation constraints reviewed."
+      "checkedAt": "2026-07-05T00:00:00.000Z",
+      "note": "CIB's official consumer page links separate searches for registered roofing contractors and for building/home inspector, electrical, mechanical, and plumbing licensees."
+    },
+    {
+      "url": "https://oklahoma.gov/cib/frequently-asked-questions.html",
+      "checkedAt": "2026-07-05T00:00:00.000Z",
+      "note": "CIB states that it regulates plumbing, electrical, mechanical, roofing, building and construction inspectors, and home inspectors, and that general contractors are not currently required to have a state license in Oklahoma."
+    },
+    {
+      "url": "https://oklahoma.gov/cib/your-industry/mechanical/mechanical-contractor.html",
+      "checkedAt": "2026-07-05T00:00:00.000Z",
+      "note": "CIB's mechanical contractor page lists HVAC/R, refrigeration, natural gas piping, process piping, sheet metal, and ground source piping contractor license categories."
     }
   ],
   "sourceResearchOutcome": "blocked",
