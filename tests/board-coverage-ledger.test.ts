@@ -15,10 +15,10 @@ describe("nationwide board trade coverage ledger", () => {
     expect(ledger.jurisdictions).toHaveLength(56);
     expect(new Set(ledger.jurisdictions.map((entry) => entry.state)).size).toBe(56);
     expect(expanded).toHaveLength(56 * BOARD_TRADE_DOMAINS.length);
-    expect(expanded.filter((decision) => decision.outcome === "needs_research")).toHaveLength(140);
-    expect(expanded.filter((decision) => decision.outcome === "covered_by_board")).toHaveLength(528);
+    expect(expanded.filter((decision) => decision.outcome === "needs_research")).toHaveLength(126);
+    expect(expanded.filter((decision) => decision.outcome === "covered_by_board")).toHaveLength(537);
     expect(expanded.filter((decision) => decision.outcome === "not_state_regulated")).toHaveLength(7);
-    expect(expanded.filter((decision) => decision.outcome === "local_only")).toHaveLength(109);
+    expect(expanded.filter((decision) => decision.outcome === "local_only")).toHaveLength(114);
   });
 
   it("records Wisconsin DSPS trade coverage, DHS asbestos certification, and commercial general-contractor boundaries", async () => {
@@ -828,6 +828,28 @@ describe("nationwide board trade coverage ledger", () => {
     expect(expanded.find((decision) => decision.tradeDomain === "home_improvement")?.limitations.join(" ")).toContain(
       "not a separate statewide home-improvement contractor board",
     );
+  });
+
+  it("records complete Oklahoma CIB trade, ODOL asbestos, and local-only contractor boundaries", async () => {
+    const ledger = boardTradeCoverageLedgerSchema.parse(await json("registry/board-coverage.json"));
+    const expanded = expandBoardTradeCoverageLedger(ledger).filter((decision) => decision.state === "OK");
+
+    expect(expanded).toHaveLength(BOARD_TRADE_DOMAINS.length);
+    expect(expanded.filter((decision) => decision.outcome === "needs_research")).toEqual([]);
+    for (const domain of ["electrical", "plumbing", "hvac", "mechanical", "roofing", "solar", "pool_spa", "sheet_metal"]) {
+      expect(expanded.find((decision) => decision.tradeDomain === domain)?.boardIds).toContain("us.ok.cib.trades");
+    }
+    expect(expanded.find((decision) => decision.tradeDomain === "asbestos")).toMatchObject({
+      outcome: "covered_by_board",
+      boardIds: ["us.ok.labor.asbestos_contractors"],
+    });
+    for (const domain of ["general_contracting", "residential_contracting", "commercial_contracting", "underground_utility", "home_improvement"]) {
+      expect(expanded.find((decision) => decision.tradeDomain === domain)?.outcome, `${domain} should be local-only`).toBe(
+        "local_only",
+      );
+    }
+    expect(expanded.find((decision) => decision.tradeDomain === "solar")?.limitations.join(" ")).toContain("standalone statewide solar");
+    expect(expanded.find((decision) => decision.tradeDomain === "underground_utility")?.limitations.join(" ")).toContain("No broad statewide underground-utility");
   });
 
   it("requires board references and evidence for terminal coverage decisions", () => {
