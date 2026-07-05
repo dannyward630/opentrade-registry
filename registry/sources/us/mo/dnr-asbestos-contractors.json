@@ -1,0 +1,89 @@
+{
+  "id": "us.mo.dnr.asbestos_contractors",
+  "name": "Missouri DNR Asbestos Professionals and Contractor Registration",
+  "jurisdiction": {
+    "country": "US",
+    "state": "MO"
+  },
+  "agency": {
+    "name": "Missouri Department of Natural Resources",
+    "url": "https://dnr.mo.gov/"
+  },
+  "sourceType": "html_lookup",
+  "sourceUrl": "https://dnr.mo.gov/air/business-industry/asbestos",
+  "documentationUrl": "https://dnr.mo.gov/air/business-industry/asbestos",
+  "dataDictionaryUrl": null,
+  "termsUrl": "https://mo.gov/privacy-policy",
+  "termsReviewNotes": "Missouri state privacy terms were identified, but source-specific publication, redistribution, and personal-data review has not been completed.",
+  "updateFrequency": "asbestos professional lists are described by DNR as updated daily; contractor registration form revision cadence is document-specific",
+  "tradeCoverage": [
+    "asbestos"
+  ],
+  "licenseTypesIncluded": [
+    "Missouri DNR asbestos contractor registration materials",
+    "Missouri DNR asbestos-related professional certification lists where exposed by the official asbestos page"
+  ],
+  "knownExclusions": [
+    "This source is limited to Missouri DNR asbestos demolition, renovation, abatement, certification, and registration materials.",
+    "It does not represent Missouri general contractor, electrical, plumbing, HVAC, mechanical, roofing, local permits, municipal contractor licenses, or non-asbestos credentials.",
+    "The public asbestos professional lists may include individuals and must not be published or normalized without privacy review."
+  ],
+  "hasBulkDownload": false,
+  "hasLiveLookup": true,
+  "requiresJavaScript": "unknown",
+  "requiresCaptcha": false,
+  "requiresAccount": false,
+  "rateLimitNotes": "No adapter is implemented. Use official DNR pages manually until list shape, update behavior, privacy handling, and allowed reuse are reviewed.",
+  "redistributionStatus": "unknown",
+  "publicRecordsNotes": "Official Missouri DNR asbestos metadata only. Absence from a checked DNR page or list is not proof that another asbestos credential, contractor registration, local license, permit, or related record does not exist.",
+  "adapterStatus": "blocked",
+  "sourceDiscoveryStatus": "blocked",
+  "adapterMaturity": "blocked",
+  "adapterQualityLevel": 0,
+  "coverageScope": "state_agency_partial",
+  "adapterPackage": null,
+  "testFixturePath": null,
+  "officialLookupUrl": "https://dnr.mo.gov/air/business-industry/asbestos",
+  "officialLookupReviewNotes": "The official DNR asbestos page links department-certified asbestos professional lists and asbestos contractor registration materials.",
+  "officialBulkDownloadNotes": "No adapter-reviewed structured bulk export has been confirmed. DNR exposes web pages, linked professional lists, notifications, and PDF/form materials.",
+  "researchNotes": "Registry-only blocked source for Missouri DNR asbestos coverage. Future adapter work would need source-shape fixtures, privacy filtering, publication review, and clear separation between contractor registrations and individual certifications.",
+  "verificationReviewedAt": null,
+  "verificationCaveats": [
+    "This source covers Missouri DNR asbestos program materials only.",
+    "No matching record means no match in the checked source at the checked time, not proof that another asbestos credential, contractor license, local license, permit, or related record does not exist."
+  ],
+  "verificationNotes": "No supported sync or verification adapter is exposed while DNR web/list shape, privacy posture, and allowed reuse remain under review.",
+  "lastVerifiedAt": "2026-07-05T00:00:00.000Z",
+  "maintainerNotes": "Do not parse or publish asbestos professional lists until privacy and redistribution are reviewed.",
+  "schemaVersion": "1.0",
+  "researchReviewedAt": "2026-07-05T00:00:00.000Z",
+  "nextReviewAt": "2027-01-05T00:00:00.000Z",
+  "researchEvidence": [
+    {
+      "url": "https://dnr.mo.gov/air/business-industry/asbestos",
+      "checkedAt": "2026-07-05T00:00:00.000Z",
+      "note": "Official DNR asbestos page reviewed; it states DNR regulates asbestos demolition, renovation, and abatement projects and links asbestos professionals, notifications, forms, statutes, and regulations."
+    },
+    {
+      "url": "https://dnr.mo.gov/air/business-industry/asbestos/occupation-certification",
+      "checkedAt": "2026-07-05T00:00:00.000Z",
+      "note": "Official DNR occupation certification page reviewed; it states DNR regulates asbestos projects and requires certification before individuals participate in asbestos work categories."
+    },
+    {
+      "url": "https://dnr.mo.gov/document-search/asbestos-contractor-registration-application-mo-780-1224",
+      "checkedAt": "2026-07-05T00:00:00.000Z",
+      "note": "Official DNR document page reviewed for the asbestos contractor registration application and current form metadata."
+    }
+  ],
+  "sourceResearchOutcome": "blocked",
+  "blocker": {
+    "code": "technical_instability",
+    "summary": "Official DNR asbestos pages and linked lists exist, but no stable adapter-reviewed machine-readable contractor dataset, privacy filter, or allowed redistribution path has been established.",
+    "evidenceUrls": [
+      "https://dnr.mo.gov/air/business-industry/asbestos",
+      "https://dnr.mo.gov/air/business-industry/asbestos/occupation-certification",
+      "https://dnr.mo.gov/document-search/asbestos-contractor-registration-application-mo-780-1224",
+      "https://mo.gov/privacy-policy"
+    ]
+  }
+}
