@@ -971,20 +971,28 @@
         "commercial_contracting",
         "electrical",
         "plumbing",
+        "hvac",
         "mechanical",
-        "other",
-        "unknown"
+        "roofing",
+        "solar",
+        "pool_spa",
+        "asbestos",
+        "sheet_metal",
+        "underground_utility",
+        "home_improvement",
+        "other"
       ],
       "accessPath": "manual_handoff",
       "coverageLimitations": [
         "Source fields, update cadence, inactive-license coverage, and classification semantics require follow-up review before adapter work.",
         "Business licenses, permits, enforcement records, and other professional licenses may require separate official sources.",
+        "Asbestos, lead, mold, environmental, demolition, notification, and disposal requirements may require Guam EPA or federal program evidence in addition to CLB classification evidence.",
         "No redistribution permission for generated datasets has been confirmed."
       ],
       "evidence": {
         "url": "https://clb.guam.gov/contractors-listing/",
-        "reviewedAt": "2026-06-27T00:00:00.000Z",
-        "note": "Official page exposed 2026 and 2027 annual contractor listings but no stable structured machine-readable interface."
+        "reviewedAt": "2026-07-05T00:00:00.000Z",
+        "note": "Official page reviewed; it identifies the site as the official Guam Contractors Licensing Board website and links annual contractor listings."
       }
     },
     {
