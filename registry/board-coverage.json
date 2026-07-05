@@ -2482,7 +2482,84 @@
         }
       }
     },
-    { "state": "MO", "decisions": {} },
+    {
+      "state": "MO",
+      "decisions": {
+        "general_contracting": {
+          "outcome": "local_only",
+          "evidence": [{ "url": "https://www.kcmo.gov/city-hall/departments/city-planning-development/contractor-licensing", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "Kansas City's official contractor licensing page states that the city Planning and Development Department administers contractor licensing registration and renewals within city limits." }],
+          "limitations": ["No statewide Missouri general-contractor board was confirmed in this research slice; municipal and county licensing remains outside OpenTrade Registry's statewide scope unless separately registered."]
+        },
+        "residential_contracting": {
+          "outcome": "local_only",
+          "evidence": [{ "url": "https://www.kcmo.gov/city-hall/departments/city-planning-development/contractor-licensing", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "Kansas City's official page lists Residential Building Contractors among local certificate-of-qualification and contractor-licensing categories." }],
+          "limitations": ["Residential construction may be licensed locally; a statewide residential-builder board was not confirmed for Missouri."]
+        },
+        "commercial_contracting": {
+          "outcome": "local_only",
+          "evidence": [{ "url": "https://www.kcmo.gov/city-hall/departments/city-planning-development/contractor-licensing", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "Kansas City's official page describes local contractor licensing registration and renewal within city limits rather than a statewide commercial-contractor board." }],
+          "limitations": ["Commercial contractor licensing may be municipal or county specific; statewide commercial-contractor licensure was not confirmed."]
+        },
+        "electrical": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.mo.pr.professional_licenses"],
+          "evidence": [{ "url": "https://pr.mo.gov/electricalcontractors.asp", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "The Missouri Office of Statewide Electrical Contractors page states that the office began accepting electrical-contractor licensure applications on July 1, 2019 and links license search resources." }],
+          "limitations": ["MOPRO is a broad professional-registration lookup and requires filtering to electrical contractor credentials; local electrical licenses may still apply in some jurisdictions."]
+        },
+        "plumbing": {
+          "outcome": "local_only",
+          "evidence": [{ "url": "https://www.sccmo.org/1544/Contractor-Licensing-and-Renewals", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "St. Charles County states that plumbers are required to have a license through the county Building and Code Enforcement Division before doing work in the county that requires a permit." }],
+          "limitations": ["Statewide Missouri plumbing-contractor licensure was not confirmed; local credentials and permits remain outside statewide scope."]
+        },
+        "hvac": {
+          "outcome": "local_only",
+          "evidence": [{ "url": "https://www.sccmo.org/1544/Contractor-Licensing-and-Renewals", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "St. Charles County states that mechanical (HVAC) contractors are required to have a county license before covered work in the county." }],
+          "limitations": ["Statewide Missouri HVAC-contractor licensure was not confirmed; county and municipal HVAC credentials remain outside statewide scope."]
+        },
+        "mechanical": {
+          "outcome": "local_only",
+          "evidence": [{ "url": "https://www.kcmo.gov/city-hall/departments/city-planning-development/contractor-licensing", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "Kansas City's official page lists Mechanical Contractors and pipe-fitter certificate categories under local contractor licensing." }],
+          "limitations": ["Statewide Missouri mechanical-contractor licensure was not confirmed; local mechanical contractor licensing remains outside statewide scope."]
+        },
+        "roofing": {
+          "outcome": "local_only",
+          "evidence": [{ "url": "https://www.kcmo.gov/city-hall/departments/city-planning-development/contractor-licensing", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "Kansas City's official page documents local contractor licensing administration within city limits; no statewide roofing-contractor board was identified in this slice." }],
+          "limitations": ["Roofing may be covered by local contractor licensing or permits; statewide roofing-contractor licensure was not confirmed."]
+        },
+        "solar": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.mo.pr.professional_licenses"],
+          "evidence": [{ "url": "https://pr.mo.gov/electricalcontractors.asp", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "The Office of Statewide Electrical Contractors provides the statewide path for electrical-contractor licensure relevant to electrical portions of solar installation work." }],
+          "limitations": ["This decision covers electrical-contractor licensing only; solar-specific permitting, utility interconnection, structural work, and local licenses remain outside this statewide source."]
+        },
+        "pool_spa": {
+          "outcome": "local_only",
+          "evidence": [{ "url": "https://www.sccmo.org/1544/Contractor-Licensing-and-Renewals", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "St. Charles County states that pool installers are required to have a county license before covered work in the county." }],
+          "limitations": ["Statewide Missouri pool/spa contractor licensure was not confirmed; local pool-installer licensing and permits remain outside statewide scope."]
+        },
+        "asbestos": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.mo.dnr.asbestos_contractors"],
+          "evidence": [{ "url": "https://dnr.mo.gov/air/business-industry/asbestos", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "Missouri DNR states that it is responsible for regulating asbestos demolition, renovation, and abatement projects in Missouri and links asbestos professional and contractor registration materials." }],
+          "limitations": ["DNR asbestos professional lists can include individual credentials; no adapter-reviewed publication or normalization path exists yet."]
+        },
+        "sheet_metal": {
+          "outcome": "local_only",
+          "evidence": [{ "url": "https://www.kcmo.gov/city-hall/departments/city-planning-development/contractor-licensing", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "Kansas City's official page lists local mechanical and pipe-fitter contractor credential categories that may overlap sheet-metal/HVAC work." }],
+          "limitations": ["Statewide Missouri sheet-metal contractor licensure was not confirmed; local mechanical/HVAC credentials remain outside statewide scope."]
+        },
+        "underground_utility": {
+          "outcome": "local_only",
+          "evidence": [{ "url": "https://www.sccmo.org/1544/Contractor-Licensing-and-Renewals", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "St. Charles County lists drainlayers among local contractor license categories required before covered work in the county." }],
+          "limitations": ["Statewide Missouri underground-utility contractor licensure was not confirmed; local drainlayer, permit, and utility requirements remain outside statewide scope."]
+        },
+        "home_improvement": {
+          "outcome": "local_only",
+          "evidence": [{ "url": "https://www.kcmo.gov/city-hall/departments/city-planning-development/contractor-licensing", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "Kansas City's official page includes Residential Building Contractors and local contractor licensing steps, supporting local rather than statewide coverage for home-improvement style work." }],
+          "limitations": ["Statewide Missouri home-improvement contractor registration was not confirmed; city and county credentials remain outside statewide scope."]
+        }
+      }
+    },
     { "state": "MP", "decisions": {} },
     {
       "state": "MS",

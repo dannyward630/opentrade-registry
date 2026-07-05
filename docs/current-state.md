@@ -13,13 +13,13 @@ This is the human-readable snapshot for the released `v1.0.1` line and the v2 mi
 
 ## Coverage
 
-- `148` official source entries.
+- `149` official source entries.
 - All 50 states plus DC have researched coverage rows.
 - American Samoa, Guam, Northern Mariana Islands, Puerto Rico, and the U.S. Virgin Islands have researched territory rows.
 - `9` implemented adapters, all at quality Level 4.
 - `2` local-file adapter outcomes.
 - `7` explicit network opt-in outcomes.
-- `139` terminal blocked outcomes.
+- `140` terminal blocked outcomes.
 - `0` provisional outcomes.
 - `0` fixture-only terminal adapters.
 
@@ -32,6 +32,7 @@ The source-quality gate currently reports no undocumented required-metadata or t
 | `us.az.roc.contractors` | Arizona | `network_opt_in` | dated CSV | Level 4 |
 | `us.ca.cslb.contractors` | California | `local_file_adapter` | CSV/XLSX | Level 4 |
 | `us.fl.dbpr.asbestos_contractors` | Florida | `network_opt_in` | CSV | Level 4 |
+| `us.fl.dbpr.construction` | Florida | `network_opt_in` | CSV | Level 4 |
 | `us.fl.dbpr.electrical_contractors` | Florida | `network_opt_in` | CSV | Level 4 |
 | `us.mn.dli.licenses_registrations` | Minnesota | `local_file_adapter` | CSV/XLSX | Level 4 |
 | `us.or.ccb.active_licenses` | Oregon | `network_opt_in` | CSV | Level 4 |
