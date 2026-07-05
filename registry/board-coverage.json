@@ -253,7 +253,92 @@
         }
       }
     },
-    { "state": "AS", "decisions": {} },
+    {
+      "state": "AS",
+      "decisions": {
+        "general_contracting": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.as.dpw.contractors"],
+          "evidence": [{ "url": "https://asbar.org/regulation/31-0101-authority/", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "American Samoa contractor-license regulations identify Contractors Licensing Board and administrator authority under Chapter 31.05 ASCA." }],
+          "limitations": ["No stable public roster, lookup, or export was confirmed; this is a board-coverage decision, not an implemented verification path."]
+        },
+        "residential_contracting": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.as.dpw.contractors"],
+          "evidence": [{ "url": "https://asbar.org/code-annotated/31-0509-general-building-contractors-license/", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "American Samoa Code Annotated text says a general building contractor license authorizes building or superintendence of structures for support, shelter, and enclosure." }],
+          "limitations": ["Residential scope must still be verified against license classification, business-license, building-permit, and any village or local requirements."]
+        },
+        "commercial_contracting": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.as.dpw.contractors"],
+          "evidence": [{ "url": "https://asbar.org/code-annotated/31-0508-general-engineering-contractors-license/", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "American Samoa contractor-license law includes general engineering and general building contractor classifications relevant to commercial construction scopes." }],
+          "limitations": ["Commercial verification may require license class, business license, procurement status, permits, and project-specific approvals outside this registry metadata."]
+        },
+        "electrical": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.as.dpw.contractors"],
+          "evidence": [{ "url": "https://asbar.org/regulation/31-0152-electrical/", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "American Samoa contractor-license regulation index includes an Electrical specialty classification under contractor-license classifications." }],
+          "limitations": ["Future adapters must preserve contractor classification and any separate worker, utility, inspection, or permit requirements."]
+        },
+        "plumbing": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.as.dpw.contractors"],
+          "evidence": [{ "url": "https://asbar.org/regulation/31-0159-plumbing/", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "American Samoa contractor-license regulation index includes a Plumbing specialty classification under contractor-license classifications." }],
+          "limitations": ["Future adapters must preserve contractor classification and any separate health, utility, inspection, or permit requirements."]
+        },
+        "hvac": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.as.dpw.contractors"],
+          "evidence": [{ "url": "https://asbar.org/regulation/31-0160-refrigeration-and-air-conditioning/", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "American Samoa contractor-license regulations define refrigeration and air-conditioning work across residential, commercial, and industrial buildings." }],
+          "limitations": ["HVAC verification should preserve refrigeration, air-conditioning, electrical, sheet-metal, and permit boundaries."]
+        },
+        "mechanical": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.as.dpw.contractors"],
+          "evidence": [{ "url": "https://asbar.org/regulation-section/title-31-profession/", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "The contractor-license regulation index lists boilers/steamfitting, plumbing, refrigeration and air-conditioning, sheet metal, and related specialty classifications relevant to mechanical scopes." }],
+          "limitations": ["No single mechanical-contractor classification should be inferred; future adapters must preserve the exact specialty classification printed by the source."]
+        },
+        "roofing": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.as.dpw.contractors"],
+          "evidence": [{ "url": "https://asbar.org/regulation/31-0161-roofing-siding-insulation-waterproofing/", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "American Samoa contractor-license regulation index includes a Roofing, siding, insulation, waterproofing specialty classification." }],
+          "limitations": ["Roofing work may also require building permits, environmental approvals, and project-specific inspections."]
+        },
+        "solar": {
+          "outcome": "local_only",
+          "evidence": [{ "url": "https://asbar.org/regulation-section/title-31-profession/", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "The reviewed contractor-license classification index did not identify a distinct solar contractor classification." }],
+          "limitations": ["Solar work may still require electrical contractor classification, utility interconnection, business licensing, and permits."]
+        },
+        "pool_spa": {
+          "outcome": "local_only",
+          "evidence": [{ "url": "https://asbar.org/regulation-section/title-31-profession/", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "The reviewed contractor-license classification index did not identify a distinct pool/spa contractor classification." }],
+          "limitations": ["Pool or spa work may still require plumbing, electrical, building, health, business-license, and permit review."]
+        },
+        "asbestos": {
+          "outcome": "not_state_regulated",
+          "evidence": [{ "url": "https://www.epa.gov/asbestos/state-asbestos-contacts", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "EPA maintains state asbestos-contact guidance, but no American Samoa asbestos contractor license roster or territory-specific contractor licensing source was confirmed in this phase." }],
+          "limitations": ["Asbestos work may still be governed by federal AHERA/NESHAP, AS-EPA, training, notification, demolition, disposal, and project-specific requirements."]
+        },
+        "sheet_metal": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.as.dpw.contractors"],
+          "evidence": [{ "url": "https://asbar.org/regulation/31-0163-sheet-metal/", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "American Samoa contractor-license regulations define sheet-metal work and state that licenses may be obtained for the sheet-metal category only." }],
+          "limitations": ["Sheet-metal work may overlap HVAC, roofing, mechanical, building, and permit requirements."]
+        },
+        "underground_utility": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.as.dpw.contractors"],
+          "evidence": [{ "url": "https://asbar.org/regulation/31-0162-sewer-installation/", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "American Samoa contractor-license regulation index includes excavation/grading and sewer-installation specialty classifications relevant to underground utility work." }],
+          "limitations": ["Utility-owner approvals, excavation permits, environmental approvals, and public-works requirements may still apply."]
+        },
+        "home_improvement": {
+          "outcome": "covered_by_board",
+          "boardIds": ["us.as.dpw.contractors"],
+          "evidence": [{ "url": "https://asbar.org/code-annotated/31-0509-general-building-contractors-license/", "reviewedAt": "2026-07-05T00:00:00.000Z", "note": "The general building contractor license covers building or superintendence of structures and requires competence in at least three unrelated building trades specified in the license." }],
+          "limitations": ["No separate home-improvement registration was confirmed; small residential work may still require business licensing, permits, or local approvals."]
+        }
+      }
+    },
     {
       "state": "AZ",
       "decisions": {
