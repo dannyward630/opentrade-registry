@@ -8,12 +8,16 @@ const check = process.argv.includes("--check");
 const ledger = boardTradeCoverageLedgerSchema.parse(JSON.parse(await readFile(resolve(root, "registry/board-coverage.json"), "utf8")));
 const decisions = expandBoardTradeCoverageLedger(ledger);
 const needsResearch = decisions.filter((decision) => decision.outcome === "needs_research").length;
+const currentStatus =
+  needsResearch === 0 && ledger.completeness === "board_complete"
+    ? "Current status: **all trade-domain decisions are terminal and evidence-backed**. The ledger is marked `board_complete`."
+    : `Current status: **${needsResearch} trade-domain decisions still need research**. \`board_complete\` is blocked until this count reaches zero and every terminal decision has official evidence.`;
 const lines = [
   "# Board Coverage Matrix",
   "",
   "This generated matrix tracks the statewide trade-domain research required before OpenTrade Registry can claim complete board coverage. Municipal licensing remains excluded.",
   "",
-  `Current status: **${needsResearch} trade-domain decisions still need research**. \`board_complete\` is blocked until this count reaches zero and every terminal decision has official evidence.`,
+  currentStatus,
   "",
   `Required domains (${BOARD_TRADE_DOMAINS.length}): ${BOARD_TRADE_DOMAINS.map((domain) => `\`${domain}\``).join(", ")}.`,
   "",
