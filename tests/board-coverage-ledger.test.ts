@@ -11,14 +11,14 @@ describe("nationwide board trade coverage ledger", () => {
   it("tracks every jurisdiction and required trade domain without overstating completeness", async () => {
     const ledger = boardTradeCoverageLedgerSchema.parse(await json("registry/board-coverage.json"));
     const expanded = expandBoardTradeCoverageLedger(ledger);
-    expect(ledger.completeness).toBe("research_in_progress");
+    expect(ledger.completeness).toBe("board_complete");
     expect(ledger.jurisdictions).toHaveLength(56);
     expect(new Set(ledger.jurisdictions.map((entry) => entry.state)).size).toBe(56);
     expect(expanded).toHaveLength(56 * BOARD_TRADE_DOMAINS.length);
-    expect(expanded.filter((decision) => decision.outcome === "needs_research")).toHaveLength(14);
-    expect(expanded.filter((decision) => decision.outcome === "covered_by_board")).toHaveLength(601);
-    expect(expanded.filter((decision) => decision.outcome === "not_state_regulated")).toHaveLength(9);
-    expect(expanded.filter((decision) => decision.outcome === "local_only")).toHaveLength(160);
+    expect(expanded.filter((decision) => decision.outcome === "needs_research")).toHaveLength(0);
+    expect(expanded.filter((decision) => decision.outcome === "covered_by_board")).toHaveLength(604);
+    expect(expanded.filter((decision) => decision.outcome === "not_state_regulated")).toHaveLength(10);
+    expect(expanded.filter((decision) => decision.outcome === "local_only")).toHaveLength(170);
   });
 
   it("records American Samoa contractor-board coverage and missing public roster boundaries", async () => {
@@ -49,6 +49,25 @@ describe("nationwide board trade coverage ledger", () => {
     expect(expanded.find((decision) => decision.tradeDomain === "solar")?.outcome).toBe("local_only");
     expect(expanded.find((decision) => decision.tradeDomain === "pool_spa")?.outcome).toBe("local_only");
     expect(expanded.find((decision) => decision.tradeDomain === "general_contracting")?.limitations.join(" ")).toContain("No stable public roster");
+  });
+
+  it("records Northern Mariana Islands building-safety handoff and trade-source boundaries", async () => {
+    const ledger = boardTradeCoverageLedgerSchema.parse(await json("registry/board-coverage.json"));
+    const expanded = expandBoardTradeCoverageLedger(ledger).filter((decision) => decision.state === "MP");
+
+    expect(expanded).toHaveLength(BOARD_TRADE_DOMAINS.length);
+    expect(expanded.filter((decision) => decision.outcome === "needs_research")).toEqual([]);
+    for (const domain of ["general_contracting", "residential_contracting", "commercial_contracting"]) {
+      expect(expanded.find((decision) => decision.tradeDomain === domain)).toMatchObject({
+        outcome: "covered_by_board",
+        boardIds: ["us.mp.dpw.building_safety_code"],
+      });
+    }
+    expect(expanded.find((decision) => decision.tradeDomain === "asbestos")?.outcome).toBe("not_state_regulated");
+    for (const domain of BOARD_TRADE_DOMAINS.filter((domain) => !["general_contracting", "residential_contracting", "commercial_contracting", "asbestos"].includes(domain))) {
+      expect(expanded.find((decision) => decision.tradeDomain === domain)?.outcome).toBe("local_only");
+    }
+    expect(expanded.find((decision) => decision.tradeDomain === "general_contracting")?.limitations.join(" ")).toContain("manual building-code handoff");
   });
 
   it("records New York DOL asbestos coverage and local contractor boundaries", async () => {

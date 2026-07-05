@@ -12,7 +12,7 @@ describe("web status build", () => {
 
     expect(result.status).toBe(0);
     expect(result.stderr).toBe("");
-    expect(result.stdout).toContain("Built OpenTrade web status page with 162 sources.");
+    expect(result.stdout).toContain("Built OpenTrade web status page with 163 sources.");
 
     const distDir = join(process.cwd(), "apps", "web", "dist");
     const sources = JSON.parse(await readFile(join(distDir, "sources.json"), "utf8")) as Array<{ id: string }>;
@@ -28,12 +28,12 @@ describe("web status build", () => {
     };
     const html = await readFile(join(distDir, "index.html"), "utf8");
 
-    expect(sources).toHaveLength(162);
+    expect(sources).toHaveLength(163);
     expect(sources.map((source) => source.id)).toContain("us.pr.daco.contractors");
-    expect(readiness.sourceCount).toBe(162);
+    expect(readiness.sourceCount).toBe(163);
     expect(readiness.registryOnlySourceCount).toBe(0);
-    expect(readiness.terminalSourceCount).toBe(162);
-    expect(readiness.blockedSourceCount).toBe(153);
+    expect(readiness.terminalSourceCount).toBe(163);
+    expect(readiness.blockedSourceCount).toBe(154);
     expect(readiness.implementedAdapterSources.map((source) => source.id)).toEqual([
       "us.az.roc.contractors",
       "us.ca.cslb.contractors",
@@ -51,6 +51,10 @@ describe("web status build", () => {
     expect(territoryCoverage.territories.find((entry) => entry.territory === "AS")?.sourceIds).toEqual([
       "us.as.doc.business_licenses",
       "us.as.dpw.contractors",
+    ]);
+    expect(territoryCoverage.territories.find((entry) => entry.territory === "MP")?.sourceIds).toEqual([
+      "us.mp.bpl.professional_licenses",
+      "us.mp.dpw.building_safety_code",
     ]);
     expect(html).toContain("<strong>5</strong> territories with entries");
     expect(html).toContain("<strong>0</strong> adapter candidates");
