@@ -1,0 +1,94 @@
+{
+  "id": "us.vt.dfs.trade_licensing",
+  "name": "Vermont Division of Fire Safety Trade Licensing",
+  "jurisdiction": {
+    "country": "US",
+    "state": "VT"
+  },
+  "agency": {
+    "name": "Vermont Department of Public Safety Division of Fire Safety",
+    "url": "https://firesafety.vermont.gov/"
+  },
+  "sourceType": "bulk_csv",
+  "sourceUrl": "https://data.vermont.gov/api/views/cy8e-89cz/rows.csv?accessType=DOWNLOAD",
+  "documentationUrl": "https://firesafety.vermont.gov/licensing",
+  "dataDictionaryUrl": "https://data.vermont.gov/Government/DFS-Licensing-MasterList/cy8e-89cz",
+  "termsUrl": "https://www.vermont.gov/policies",
+  "termsReviewNotes": "Vermont.gov policies and the official DFS licensing page were identified, but source-specific publication, redistribution, and privacy review has not been completed.",
+  "updateFrequency": "unknown; verify against the official Vermont open-data metadata before relying on freshness assumptions",
+  "tradeCoverage": [
+    "electrical",
+    "plumbing",
+    "hvac",
+    "mechanical",
+    "solar"
+  ],
+  "licenseTypesIncluded": [
+    "Vermont Division of Fire Safety active trade licenses and certifications in the DFS Licensing MasterList",
+    "Electrical master, journeyman, and special licenses, including solar photovoltaic and refrigeration or air conditioning special categories where exposed by the official master list",
+    "Plumbing master, journeyman, and specialist licenses, including water heater, heating system, and water treatment specialist categories",
+    "Gas, oil burner, fire alarm, sprinkler, and related trade certifications where exposed by DFS"
+  ],
+  "knownExclusions": [
+    "This source entry is scoped to Division of Fire Safety trade licensing and certification records and does not represent general contractor, residential contractor, commercial contractor, roofing, asbestos, local permit, inspection, or business registration records.",
+    "The official master list may include individual credentials, company records, and technical qualified-person records; future normalization must preserve credential type boundaries.",
+    "No OpenTrade adapter has reviewed the current field contract, privacy filters, or redistribution position for published records."
+  ],
+  "hasBulkDownload": true,
+  "hasLiveLookup": true,
+  "requiresJavaScript": false,
+  "requiresCaptcha": false,
+  "requiresAccount": false,
+  "rateLimitNotes": "No adapter is implemented. Use the official DFS licensing page and Vermont open-data export manually until a bounded adapter and publication review exist.",
+  "redistributionStatus": "unknown",
+  "publicRecordsNotes": "Official DFS trade-license metadata only. Generated datasets should not be published until privacy and redistribution are approved. Absence from this source is not proof that another license, local authorization, permit, or related record does not exist.",
+  "adapterStatus": "blocked",
+  "sourceDiscoveryStatus": "blocked",
+  "adapterMaturity": "blocked",
+  "adapterQualityLevel": 0,
+  "coverageScope": "state_agency_partial",
+  "adapterPackage": null,
+  "testFixturePath": null,
+  "officialLookupUrl": "https://data.vermont.gov/Government/DFS-Licensing-MasterList/cy8e-89cz",
+  "officialLookupReviewNotes": "The DFS licensing page links the official Vermont open-data master list of active Division of Fire Safety licenses and certifications.",
+  "officialBulkDownloadNotes": "The official Vermont open-data dataset exposes a CSV download for the DFS Licensing MasterList. Adapter work must verify field shape, update cadence, row boundaries, privacy handling, and allowed reuse before enabling sync.",
+  "researchNotes": "Registry-only blocked source for Vermont Division of Fire Safety electrical, plumbing, HVAC/mechanical-adjacent, solar photovoltaic, and related trade credentials. This is a strong future adapter candidate because an official Socrata export exists.",
+  "verificationReviewedAt": null,
+  "verificationCaveats": [
+    "This source covers Vermont Division of Fire Safety trade licensing and certification records only.",
+    "No matching record means no match in the checked source at the checked time, not proof that another license, local authorization, permit, or related record does not exist."
+  ],
+  "verificationNotes": "No supported sync or verification adapter is exposed while field shape, privacy, and allowed reuse remain under review.",
+  "lastVerifiedAt": "2026-07-05T00:00:00.000Z",
+  "maintainerNotes": "Prioritize a fixture-first Socrata CSV adapter with explicit credential filtering and personal-data minimization before enabling local-file or opt-in network sync.",
+  "schemaVersion": "1.0",
+  "researchReviewedAt": "2026-07-05T00:00:00.000Z",
+  "nextReviewAt": "2027-01-05T00:00:00.000Z",
+  "researchEvidence": [
+    {
+      "url": "https://firesafety.vermont.gov/licensing",
+      "checkedAt": "2026-07-05T00:00:00.000Z",
+      "note": "Official Division of Fire Safety page reviewed; it says DFS administers licensing and certification of trade groups and lists electrical, plumbing, gas, oil burner, sprinkler, fire alarm, and related trade categories."
+    },
+    {
+      "url": "https://data.vermont.gov/Government/DFS-Licensing-MasterList/cy8e-89cz",
+      "checkedAt": "2026-07-05T00:00:00.000Z",
+      "note": "Official Vermont open-data page reviewed; it identifies the DFS Licensing MasterList as the master list of active licenses with the Division of Fire Safety."
+    },
+    {
+      "url": "https://www.vermont.gov/policies",
+      "checkedAt": "2026-07-05T00:00:00.000Z",
+      "note": "State portal policies reviewed for general privacy, disclaimer, and linking posture."
+    }
+  ],
+  "sourceResearchOutcome": "blocked",
+  "blocker": {
+    "code": "technical_instability",
+    "summary": "An official DFS open-data export exists, but no adapter-reviewed stable field contract, credential filter, privacy review, or allowed redistribution path has been implemented.",
+    "evidenceUrls": [
+      "https://firesafety.vermont.gov/licensing",
+      "https://data.vermont.gov/Government/DFS-Licensing-MasterList/cy8e-89cz",
+      "https://www.vermont.gov/policies"
+    ]
+  }
+}

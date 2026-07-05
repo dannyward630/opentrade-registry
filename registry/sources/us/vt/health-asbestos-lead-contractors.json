@@ -1,0 +1,89 @@
+{
+  "id": "us.vt.health.asbestos_lead_contractors",
+  "name": "Vermont Department of Health Asbestos and Lead Contractor Lookup",
+  "jurisdiction": {
+    "country": "US",
+    "state": "VT"
+  },
+  "agency": {
+    "name": "Vermont Department of Health",
+    "url": "https://www.healthvermont.gov/"
+  },
+  "sourceType": "html_lookup",
+  "sourceUrl": "https://www.healthvermont.gov/environment/asbestos-lead-requirements/look-licensed-asbestos-and-lead-contractors",
+  "documentationUrl": "https://www.healthvermont.gov/environment/asbestos-lead-requirements/look-licensed-asbestos-and-lead-contractors",
+  "dataDictionaryUrl": null,
+  "termsUrl": "https://www.vermont.gov/policies",
+  "termsReviewNotes": "Vermont.gov policies and the Department of Health lookup guidance were identified, but source-specific publication, redistribution, and privacy review has not been completed.",
+  "updateFrequency": "unknown; verify against the official Asbestos & Lead Regulatory Program portal before relying on freshness assumptions",
+  "tradeCoverage": [
+    "asbestos",
+    "home_improvement"
+  ],
+  "licenseTypesIncluded": [
+    "Vermont licensed asbestos abatement companies where exposed by the official Asbestos & Lead Regulatory Program portal",
+    "Vermont Lead-Safe RRPM Firm licenses and related supervisor records where exposed by the official portal",
+    "Lead abatement companies and asbestos/lead consulting companies where exposed by the official portal"
+  ],
+  "knownExclusions": [
+    "This source entry is scoped to Vermont asbestos and lead program lookup paths and does not represent general contractor, electrical, plumbing, HVAC, residential contractor registration, local permit, or business registration records.",
+    "RRPM, lead abatement, asbestos abatement, consulting, supervisor, worker, and laboratory credentials are distinct and must not be merged without explicit mapping rules.",
+    "No stable bulk export, parser contract, privacy filter, or redistribution approval has been confirmed."
+  ],
+  "hasBulkDownload": "unknown",
+  "hasLiveLookup": true,
+  "requiresJavaScript": "unknown",
+  "requiresCaptcha": "unknown",
+  "requiresAccount": false,
+  "rateLimitNotes": "No adapter is implemented. Use the official Department of Health lookup guidance and portal manually until access controls, field shape, update cadence, and allowed reuse are reviewed.",
+  "redistributionStatus": "unknown",
+  "publicRecordsNotes": "Official asbestos and lead program metadata only. Generated datasets should not be published until privacy and redistribution are approved. Absence from this source is not proof that another license, local authorization, permit, or related record does not exist.",
+  "adapterStatus": "blocked",
+  "sourceDiscoveryStatus": "blocked",
+  "adapterMaturity": "blocked",
+  "adapterQualityLevel": 0,
+  "coverageScope": "state_agency_partial",
+  "adapterPackage": null,
+  "testFixturePath": null,
+  "officialLookupUrl": "https://www.healthvermont.gov/environment/asbestos-lead-requirements/look-licensed-asbestos-and-lead-contractors",
+  "officialLookupReviewNotes": "The official Department of Health page routes users to the Asbestos & Lead Regulatory Program Licensing and Permitting Portal for asbestos abatement, lead abatement, RRPM firm, and related searches.",
+  "officialBulkDownloadNotes": "No official stable bulk download has been confirmed in this phase.",
+  "researchNotes": "Registry-only blocked source for Vermont asbestos abatement, lead abatement, and RRPM firm lookup paths. Future adapter work must keep credential categories separate and preserve lead/asbestos program caveats.",
+  "verificationReviewedAt": null,
+  "verificationCaveats": [
+    "This source covers Vermont Department of Health asbestos and lead program records only.",
+    "No matching record means no match in the checked source at the checked time, not proof that another license, local authorization, permit, or related record does not exist."
+  ],
+  "verificationNotes": "No supported sync or verification adapter is exposed while the official portal contract, privacy handling, and allowed reuse remain under review.",
+  "lastVerifiedAt": "2026-07-05T00:00:00.000Z",
+  "maintainerNotes": "A future adapter must preserve asbestos, lead abatement, RRPM firm, supervisor, and company distinctions, plus checked time, source URL, raw lookup evidence, and caveats.",
+  "schemaVersion": "1.0",
+  "researchReviewedAt": "2026-07-05T00:00:00.000Z",
+  "nextReviewAt": "2027-01-05T00:00:00.000Z",
+  "researchEvidence": [
+    {
+      "url": "https://www.healthvermont.gov/environment/asbestos-lead-requirements/look-licensed-asbestos-and-lead-contractors",
+      "checkedAt": "2026-07-05T00:00:00.000Z",
+      "note": "Official Department of Health page reviewed; it directs users to lookup asbestos abatement companies and states those companies are licensed to perform asbestos abatement in Vermont."
+    },
+    {
+      "url": "https://www.healthvermont.gov/environment/asbestos-lead-requirements/look-licensed-asbestos-and-lead-contractors",
+      "checkedAt": "2026-07-05T00:00:00.000Z",
+      "note": "Official Department of Health page reviewed; it states contractors performing RRPM work for hire need the Lead-Safe RRPM Firm license and at least one RRPM supervisor."
+    },
+    {
+      "url": "https://www.vermont.gov/policies",
+      "checkedAt": "2026-07-05T00:00:00.000Z",
+      "note": "State portal policies reviewed for general privacy, disclaimer, and linking posture."
+    }
+  ],
+  "sourceResearchOutcome": "blocked",
+  "blocker": {
+    "code": "technical_instability",
+    "summary": "The official asbestos and lead paths are portal-oriented and have no adapter-reviewed stable field contract, credential filter, update cadence, privacy filter, or allowed redistribution path.",
+    "evidenceUrls": [
+      "https://www.healthvermont.gov/environment/asbestos-lead-requirements/look-licensed-asbestos-and-lead-contractors",
+      "https://www.vermont.gov/policies"
+    ]
+  }
+}

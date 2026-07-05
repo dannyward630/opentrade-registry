@@ -470,6 +470,8 @@
       "state": "VT",
       "status": "blocked",
       "sourceIds": [
+        "us.vt.dfs.trade_licensing",
+        "us.vt.health.asbestos_lead_contractors",
         "us.vt.sos.residential_contractors"
       ],
       "notes": "Official source metadata is retained, but automated ingestion is blocked by documented legal, access, scope, or technical constraints."
