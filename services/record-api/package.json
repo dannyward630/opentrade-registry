@@ -4,7 +4,9 @@
   "private": true,
   "type": "module",
   "description": "Private v2 record search and verification API service for OpenTrade Registry.",
-  "engines": { "node": ">=20" },
+  "engines": {
+    "node": ">=20"
+  },
   "scripts": {
     "build": "tsc -p tsconfig.json",
     "start": "node dist/server.js",
@@ -12,7 +14,7 @@
   },
   "dependencies": {
     "@opentrade-registry/core": "workspace:*",
-    "@supabase/supabase-js": "^2.87.1",
+    "@supabase/supabase-js": "^2.110.0",
     "pg": "^8.16.3"
   },
   "devDependencies": {
