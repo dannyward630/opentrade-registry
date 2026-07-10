@@ -10,6 +10,18 @@ export const boardAccessPathSchema = z.enum([
   "deprecated",
 ]);
 
+export const boardInventoryStatusSchema = z.enum([
+  "source_baseline",
+  "board_verified",
+  "deprecated",
+]);
+
+export const boardIdentityTypeSchema = z.enum([
+  "regulatory_board",
+  "agency_program",
+  "source_endpoint",
+]);
+
 export const BOARD_TRADE_DOMAINS = [
   "general_contracting",
   "residential_contracting",
@@ -103,6 +115,11 @@ export const boardInventoryEntrySchema = z.object({
   }),
   boardName: z.string().min(1),
   agencyName: z.string().min(1),
+  inventoryStatus: boardInventoryStatusSchema,
+  identity: z.object({
+    type: boardIdentityTypeSchema,
+    canonicalName: z.string().min(1),
+  }),
   officialUrl: z.string().url(),
   sourceIds: z.array(z.string().min(1)).min(1),
   trades: z.array(z.string().min(1)).min(1),
@@ -124,14 +141,88 @@ export const nationwideBoardInventorySchema = z.object({
     notes: z.array(z.string().min(1)).min(1),
   }),
   boards: z.array(boardInventoryEntrySchema).min(1),
+}).superRefine((inventory, context) => {
+  if (new Set(inventory.boards.map((board) => board.id)).size !== inventory.boards.length) {
+    context.addIssue({ code: "custom", path: ["boards"], message: "Board inventory IDs must be unique." });
+  }
+
+  const linkedSourceIds = inventory.boards.flatMap((board) => board.sourceIds);
+  if (new Set(linkedSourceIds).size !== linkedSourceIds.length) {
+    context.addIssue({ code: "custom", path: ["boards"], message: "Each source must belong to exactly one board inventory row." });
+  }
+
+  if (inventory.completeness !== "board_complete") return;
+
+  const identityKeys = new Set<string>();
+  for (const [index, board] of inventory.boards.entries()) {
+    if (board.inventoryStatus !== "board_verified") {
+      context.addIssue({
+        code: "custom",
+        path: ["boards", index, "inventoryStatus"],
+        message: "Board-complete inventories cannot include source-baseline or deprecated rows.",
+      });
+    }
+    if (board.identity.type === "source_endpoint") {
+      context.addIssue({
+        code: "custom",
+        path: ["boards", index, "identity", "type"],
+        message: "Board-complete inventories require a regulatory-board or agency-program identity.",
+      });
+    }
+    const key = `${board.jurisdiction.country}:${board.jurisdiction.state}:${board.identity.type}:${board.identity.canonicalName.toLocaleLowerCase()}`;
+    if (identityKeys.has(key)) {
+      context.addIssue({
+        code: "custom",
+        path: ["boards", index, "identity", "canonicalName"],
+        message: "Board-complete inventories cannot duplicate a jurisdictional board identity.",
+      });
+    }
+    identityKeys.add(key);
+  }
 });
 
 export type BoardAccessPath = z.infer<typeof boardAccessPathSchema>;
+export type BoardInventoryStatus = z.infer<typeof boardInventoryStatusSchema>;
+export type BoardIdentityType = z.infer<typeof boardIdentityTypeSchema>;
 export type BoardInventoryEntry = z.infer<typeof boardInventoryEntrySchema>;
 export type NationwideBoardInventory = z.infer<typeof nationwideBoardInventorySchema>;
 export type BoardTradeDomain = z.infer<typeof boardTradeDomainSchema>;
 export type BoardTradeCoverageDecision = z.infer<typeof boardTradeCoverageDecisionSchema>;
 export type BoardTradeCoverageLedger = z.infer<typeof boardTradeCoverageLedgerSchema>;
+
+export function summarizeBoardInventory(inventory: NationwideBoardInventory) {
+  const statusCounts = {
+    source_baseline: 0,
+    board_verified: 0,
+    deprecated: 0,
+  };
+  const identityTypeCounts = {
+    regulatory_board: 0,
+    agency_program: 0,
+    source_endpoint: 0,
+  };
+
+  for (const board of inventory.boards) {
+    statusCounts[board.inventoryStatus] += 1;
+    identityTypeCounts[board.identity.type] += 1;
+  }
+
+  return {
+    completeness: inventory.completeness,
+    boardCount: inventory.boards.length,
+    linkedSourceCount: inventory.boards.flatMap((board) => board.sourceIds).length,
+    statusCounts,
+    identityTypeCounts,
+  };
+}
+
+export function isBoardInventoryComplete(inventory: NationwideBoardInventory) {
+  const summary = summarizeBoardInventory(inventory);
+  return summary.completeness === "board_complete"
+    && summary.statusCounts.source_baseline === 0
+    && summary.statusCounts.deprecated === 0
+    && summary.identityTypeCounts.source_endpoint === 0;
+}
 
 export function expandBoardTradeCoverageLedger(ledger: BoardTradeCoverageLedger) {
   return ledger.jurisdictions.flatMap((jurisdiction) => BOARD_TRADE_DOMAINS.map((tradeDomain) => ({

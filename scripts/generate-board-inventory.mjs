@@ -40,6 +40,11 @@ function toBoardEntry(source) {
     jurisdiction: source.jurisdiction,
     boardName: source.name,
     agencyName: source.agency.name,
+    inventoryStatus: "source_baseline",
+    identity: {
+      type: "source_endpoint",
+      canonicalName: source.name,
+    },
     officialUrl: source.officialLookupUrl ?? source.sourceUrl,
     sourceIds: [source.id],
     trades: source.tradeCoverage.length > 0 ? source.tradeCoverage : ["unknown"],

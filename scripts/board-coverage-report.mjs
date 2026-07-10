@@ -4,7 +4,9 @@ import {
   BOARD_TRADE_DOMAINS,
   boardTradeCoverageLedgerSchema,
   expandBoardTradeCoverageLedger,
+  isBoardInventoryComplete,
   nationwideBoardInventorySchema,
+  summarizeBoardInventory,
 } from "@opentrade-registry/core";
 
 const root = process.cwd();
@@ -27,6 +29,7 @@ if (JSON.stringify(actualJurisdictions) !== JSON.stringify(expectedJurisdictions
 }
 
 const boardIds = new Set(inventory.boards.map((board) => board.id));
+const inventorySummary = summarizeBoardInventory(inventory);
 const decisions = expandBoardTradeCoverageLedger(ledger);
 for (const decision of decisions) {
   for (const boardId of decision.boardIds) {
@@ -37,6 +40,7 @@ for (const decision of decisions) {
 const needsResearchCount = decisions.filter((decision) => decision.outcome === "needs_research").length;
 const report = {
   completeness: ledger.completeness,
+  inventoryCompleteness: inventory.completeness,
   jurisdictionCount: ledger.jurisdictions.length,
   tradeDomainCount: BOARD_TRADE_DOMAINS.length,
   decisionCount: decisions.length,
@@ -52,6 +56,11 @@ else {
 
 if (requireComplete && (ledger.completeness !== "board_complete" || needsResearchCount > 0)) {
   console.error(`${needsResearchCount} trade-domain decisions still need research; board_complete cannot be released.`);
+  process.exitCode = 1;
+}
+
+if (requireComplete && !isBoardInventoryComplete(inventory)) {
+  console.error("The board coverage ledger is terminal, but the board inventory is still a representative source baseline.");
   process.exitCode = 1;
 }
 

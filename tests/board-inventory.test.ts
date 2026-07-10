@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
 import { readFile, readdir } from "node:fs/promises";
 import { join } from "node:path";
-import { nationwideBoardInventorySchema } from "@opentrade-registry/core";
+import { isBoardInventoryComplete, nationwideBoardInventorySchema, summarizeBoardInventory } from "@opentrade-registry/core";
 
 describe("nationwide board inventory", () => {
   it("tracks every registered source exactly once without claiming municipal coverage", async () => {
@@ -16,6 +16,62 @@ describe("nationwide board inventory", () => {
     expect(inventory.boards).toHaveLength(sourceIds.length);
     expect(new Set(inventory.boards.map((board) => board.id)).size).toBe(inventory.boards.length);
     expect([...linkedSourceIds].sort()).toEqual(sourceIds);
+    expect(inventory.boards.every((board) => board.inventoryStatus === "source_baseline")).toBe(true);
+    expect(inventory.boards.every((board) => board.identity.type === "source_endpoint")).toBe(true);
+    expect(isBoardInventoryComplete(inventory)).toBe(false);
+  });
+
+  it("does not permit source-baseline rows in an independently board-complete inventory", () => {
+    const entry = {
+      id: "us.fl.example",
+      jurisdiction: { country: "US" as const, state: "FL" },
+      boardName: "Example Board",
+      agencyName: "Example Agency",
+      inventoryStatus: "source_baseline" as const,
+      identity: { type: "source_endpoint" as const, canonicalName: "Example endpoint" },
+      officialUrl: "https://example.gov/licenses",
+      sourceIds: ["us.fl.example"],
+      trades: ["general_contracting"],
+      accessPath: "manual_handoff" as const,
+      coverageLimitations: ["Fixture only."],
+      evidence: {
+        url: "https://example.gov",
+        reviewedAt: "2026-07-10T00:00:00.000Z",
+        note: "Fixture evidence.",
+      },
+    };
+    expect(nationwideBoardInventorySchema.safeParse({
+      schemaVersion: "2.0",
+      completeness: "board_complete",
+      scope: {
+        jurisdictions: "states_dc_major_territories",
+        municipalLicensing: "excluded",
+        notes: ["Fixture scope."],
+      },
+      boards: [entry],
+    }).success).toBe(false);
+
+    const verified = {
+      ...entry,
+      inventoryStatus: "board_verified" as const,
+      identity: { type: "regulatory_board" as const, canonicalName: "Example Board" },
+    };
+    const inventory = nationwideBoardInventorySchema.parse({
+      schemaVersion: "2.0",
+      completeness: "board_complete",
+      scope: {
+        jurisdictions: "states_dc_major_territories",
+        municipalLicensing: "excluded",
+        notes: ["Fixture scope."],
+      },
+      boards: [verified],
+    });
+    expect(summarizeBoardInventory(inventory)).toMatchObject({
+      boardCount: 1,
+      statusCounts: { board_verified: 1 },
+      identityTypeCounts: { regulatory_board: 1 },
+    });
+    expect(isBoardInventoryComplete(inventory)).toBe(true);
   });
 });
 

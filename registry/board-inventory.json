@@ -18,6 +18,11 @@
       },
       "boardName": "Alaska CBPL Construction Contractor License Search",
       "agencyName": "Alaska Division of Corporations, Business and Professional Licensing",
+      "inventoryStatus": "source_baseline",
+      "identity": {
+        "type": "source_endpoint",
+        "canonicalName": "Alaska CBPL Construction Contractor License Search"
+      },
       "officialUrl": "https://www.commerce.alaska.gov/cbp/main/Search/Professional",
       "sourceIds": [
         "us.ak.commerce.construction_contractors"
@@ -61,6 +66,11 @@
       },
       "boardName": "Alaska CBPL Electrical Administrator License Search",
       "agencyName": "Alaska Division of Corporations, Business and Professional Licensing",
+      "inventoryStatus": "source_baseline",
+      "identity": {
+        "type": "source_endpoint",
+        "canonicalName": "Alaska CBPL Electrical Administrator License Search"
+      },
       "officialUrl": "https://www.commerce.alaska.gov/cbp/main/Search/Professional",
       "sourceIds": [
         "us.ak.commerce.electrical_administrators"
@@ -89,6 +99,11 @@
       },
       "boardName": "Alaska CBPL Mechanical Administrator License Search",
       "agencyName": "Alaska Division of Corporations, Business and Professional Licensing",
+      "inventoryStatus": "source_baseline",
+      "identity": {
+        "type": "source_endpoint",
+        "canonicalName": "Alaska CBPL Mechanical Administrator License Search"
+      },
       "officialUrl": "https://www.commerce.alaska.gov/cbp/main/Search/Professional",
       "sourceIds": [
         "us.ak.commerce.mechanical_administrators"
@@ -122,6 +137,11 @@
       },
       "boardName": "Alabama Board of Electrical Contractors Licensee Search",
       "agencyName": "Alabama Board of Electrical Contractors",
+      "inventoryStatus": "source_baseline",
+      "identity": {
+        "type": "source_endpoint",
+        "canonicalName": "Alabama Board of Electrical Contractors Licensee Search"
+      },
       "officialUrl": "https://alecb-search.kalmservices.net/",
       "sourceIds": [
         "us.al.aecb.electrical_contractors"
@@ -150,6 +170,11 @@
       },
       "boardName": "Alabama Licensing Board for General Contractors License Roster",
       "agencyName": "Alabama Licensing Board for General Contractors",
+      "inventoryStatus": "source_baseline",
+      "identity": {
+        "type": "source_endpoint",
+        "canonicalName": "Alabama Licensing Board for General Contractors License Roster"
+      },
       "officialUrl": "https://licensesearch.alabama.gov/",
       "sourceIds": [
         "us.al.genconbd.general_contractors"
@@ -186,6 +211,11 @@
       },
       "boardName": "Alabama Heating, Air Conditioning and Refrigeration Contractors License Lookup",
       "agencyName": "Alabama Board of Heating, Air Conditioning and Refrigeration Contractors",
+      "inventoryStatus": "source_baseline",
+      "identity": {
+        "type": "source_endpoint",
+        "canonicalName": "Alabama Heating, Air Conditioning and Refrigeration Contractors License Lookup"
+      },
       "officialUrl": "https://hacr.igovsolution.net/online/Lookups/Individual_Lookup.aspx",
       "sourceIds": [
         "us.al.hacr.contractors"
@@ -216,6 +246,11 @@
       },
       "boardName": "Alabama Home Builders Licensure Board License Verification",
       "agencyName": "Alabama Home Builders Licensure Board",
+      "inventoryStatus": "source_baseline",
+      "identity": {
+        "type": "source_endpoint",
+        "canonicalName": "Alabama Home Builders Licensure Board License Verification"
+      },
       "officialUrl": "https://alhobv7prod.glsuite.us/GLSuiteWeb/Clients/ALHOB/Public/LicenseeSearch.aspx",
       "sourceIds": [
         "us.al.hblb.home_builders"
@@ -246,6 +281,11 @@
       },
       "boardName": "Alabama Plumbers and Gas Fitters Examining Board Licensee Search",
       "agencyName": "Alabama Plumbers and Gas Fitters Examining Board",
+      "inventoryStatus": "source_baseline",
+      "identity": {
+        "type": "source_endpoint",
+        "canonicalName": "Alabama Plumbers and Gas Fitters Examining Board Licensee Search"
+      },
       "officialUrl": "https://alpgfb.igovsolution.net/online/Lookups/Individual.aspx",
       "sourceIds": [
         "us.al.pgfb.plumbers_gas_fitters"
@@ -274,6 +314,11 @@
       },
       "boardName": "Arkansas Contractors Licensing Board Licensed Contractor Search",
       "agencyName": "Arkansas Contractors Licensing Board",
+      "inventoryStatus": "source_baseline",
+      "identity": {
+        "type": "source_endpoint",
+        "canonicalName": "Arkansas Contractors Licensing Board Licensed Contractor Search"
+      },
       "officialUrl": "https://labor.arkansas.gov/licensing/arkansas-contractors-licensing-board/find-a-licensed-contractor/",
       "sourceIds": [
         "us.ar.aclb.contractors"
@@ -314,6 +359,11 @@
       },
       "boardName": "American Samoa Department of Commerce Business Licensing",
       "agencyName": "American Samoa Department of Commerce",
+      "inventoryStatus": "source_baseline",
+      "identity": {
+        "type": "source_endpoint",
+        "canonicalName": "American Samoa Department of Commerce Business Licensing"
+      },
       "officialUrl": "https://www.doc.as.gov/applyforbusinesslicense",
       "sourceIds": [
         "us.as.doc.business_licenses"
@@ -345,6 +395,11 @@
       },
       "boardName": "American Samoa Contractors License Board and Administrator",
       "agencyName": "American Samoa Department of Public Works",
+      "inventoryStatus": "source_baseline",
+      "identity": {
+        "type": "source_endpoint",
+        "canonicalName": "American Samoa Contractors License Board and Administrator"
+      },
       "officialUrl": "https://asgpublicworks.as/node/1",
       "sourceIds": [
         "us.as.dpw.contractors"
@@ -385,6 +440,11 @@
       },
       "boardName": "Arizona Registrar of Contractors License Records",
       "agencyName": "Arizona Registrar of Contractors",
+      "inventoryStatus": "source_baseline",
+      "identity": {
+        "type": "source_endpoint",
+        "canonicalName": "Arizona Registrar of Contractors License Records"
+      },
       "officialUrl": "https://azroc.my.site.com/AZRoc/s/contractor-search",
       "sourceIds": [
         "us.az.roc.contractors"
@@ -411,6 +471,11 @@
       },
       "boardName": "California CSLB Master List of Licensed Contractors",
       "agencyName": "Contractors State License Board",
+      "inventoryStatus": "source_baseline",
+      "identity": {
+        "type": "source_endpoint",
+        "canonicalName": "California CSLB Master List of Licensed Contractors"
+      },
       "officialUrl": "https://www.cslb.ca.gov/onlineservices/checklicenseII/checklicense.aspx",
       "sourceIds": [
         "us.ca.cslb.contractors"
@@ -437,6 +502,11 @@
       },
       "boardName": "Colorado CDPHE Certified General Abatement Contractors",
       "agencyName": "Colorado Department of Public Health and Environment",
+      "inventoryStatus": "source_baseline",
+      "identity": {
+        "type": "source_endpoint",
+        "canonicalName": "Colorado CDPHE Certified General Abatement Contractors"
+      },
       "officialUrl": "https://cohealthviz.dphe.state.co.us/#/site/EnvironmentalProgramsPublic/views/Tableau_Air_Asbestos-reports_16715594841490/Generalabatementcontractorsdashboard",
       "sourceIds": [
         "us.co.cdphe.asbestos_contractors"
@@ -464,6 +534,11 @@
       },
       "boardName": "Colorado DORA Division of Professions and Occupations Trade License Lookup",
       "agencyName": "Colorado Department of Regulatory Agencies",
+      "inventoryStatus": "source_baseline",
+      "identity": {
+        "type": "source_endpoint",
+        "canonicalName": "Colorado DORA Division of Professions and Occupations Trade License Lookup"
+      },
       "officialUrl": "https://apps.colorado.gov/dora/licensing/Lookup/LicenseLookup.aspx",
       "sourceIds": [
         "us.co.dora.trades"
@@ -493,6 +568,11 @@
       },
       "boardName": "Connecticut DCP eLicense Home Improvement Contractor Lookup",
       "agencyName": "Connecticut Department of Consumer Protection",
+      "inventoryStatus": "source_baseline",
+      "identity": {
+        "type": "source_endpoint",
+        "canonicalName": "Connecticut DCP eLicense Home Improvement Contractor Lookup"
+      },
       "officialUrl": "https://www.elicense.ct.gov/Lookup/LicenseLookup.aspx",
       "sourceIds": [
         "us.ct.dcp.home_improvement_contractors"
@@ -524,6 +604,11 @@
       },
       "boardName": "Connecticut DCP Major Contractor Lookup",
       "agencyName": "Connecticut Department of Consumer Protection",
+      "inventoryStatus": "source_baseline",
+      "identity": {
+        "type": "source_endpoint",
+        "canonicalName": "Connecticut DCP Major Contractor Lookup"
+      },
       "officialUrl": "https://www.elicense.ct.gov/Lookup/LicenseLookup.aspx",
       "sourceIds": [
         "us.ct.dcp.major_contractors"
@@ -552,6 +637,11 @@
       },
       "boardName": "Connecticut DCP Occupational Trades Lookup",
       "agencyName": "Connecticut Department of Consumer Protection Occupational and Professional Licensing Division",
+      "inventoryStatus": "source_baseline",
+      "identity": {
+        "type": "source_endpoint",
+        "canonicalName": "Connecticut DCP Occupational Trades Lookup"
+      },
       "officialUrl": "https://www.elicense.ct.gov/Lookup/LicenseLookup.aspx",
       "sourceIds": [
         "us.ct.dcp.occupational_trades"
@@ -585,6 +675,11 @@
       },
       "boardName": "Connecticut DPH Asbestos Contractor Lookup",
       "agencyName": "Connecticut Department of Public Health",
+      "inventoryStatus": "source_baseline",
+      "identity": {
+        "type": "source_endpoint",
+        "canonicalName": "Connecticut DPH Asbestos Contractor Lookup"
+      },
       "officialUrl": "https://www.elicense.ct.gov/Lookup/LicenseLookup.aspx",
       "sourceIds": [
         "us.ct.dph.asbestos_contractors"
@@ -611,6 +706,11 @@
       },
       "boardName": "District of Columbia DLCP Asbestos Abatement Business Licenses",
       "agencyName": "District of Columbia Department of Licensing and Consumer Protection",
+      "inventoryStatus": "source_baseline",
+      "identity": {
+        "type": "source_endpoint",
+        "canonicalName": "District of Columbia DLCP Asbestos Abatement Business Licenses"
+      },
       "officialUrl": "https://scout.dcra.dc.gov/",
       "sourceIds": [
         "us.dc.dlcp.asbestos_abatement_businesses"
@@ -638,6 +738,11 @@
       },
       "boardName": "District of Columbia DLCP Contractor and Construction Services Licenses",
       "agencyName": "District of Columbia Department of Licensing and Consumer Protection",
+      "inventoryStatus": "source_baseline",
+      "identity": {
+        "type": "source_endpoint",
+        "canonicalName": "District of Columbia DLCP Contractor and Construction Services Licenses"
+      },
       "officialUrl": "https://scout.dcra.dc.gov/",
       "sourceIds": [
         "us.dc.dlcp.contractors"
@@ -671,6 +776,11 @@
       },
       "boardName": "District of Columbia DLCP Board of Industrial Trades Licenses",
       "agencyName": "District of Columbia Department of Licensing and Consumer Protection",
+      "inventoryStatus": "source_baseline",
+      "identity": {
+        "type": "source_endpoint",
+        "canonicalName": "District of Columbia DLCP Board of Industrial Trades Licenses"
+      },
       "officialUrl": "https://scout.dcra.dc.gov/",
       "sourceIds": [
         "us.dc.dlcp.industrial_trades"
@@ -706,6 +816,11 @@
       },
       "boardName": "Delaware DFM Asbestos Abatement Contractors",
       "agencyName": "Delaware Division of Facilities Management Asbestos Office",
+      "inventoryStatus": "source_baseline",
+      "identity": {
+        "type": "source_endpoint",
+        "canonicalName": "Delaware DFM Asbestos Abatement Contractors"
+      },
       "officialUrl": "https://data.delaware.gov/Licenses-and-Certifications/Certified-Asbestos-Vendors/f677-ahd9",
       "sourceIds": [
         "us.de.dfm.asbestos_contractors"
@@ -733,6 +848,11 @@
       },
       "boardName": "Delaware DPR Board of Electrical Examiners License Lookup",
       "agencyName": "Delaware Division of Professional Regulation",
+      "inventoryStatus": "source_baseline",
+      "identity": {
+        "type": "source_endpoint",
+        "canonicalName": "Delaware DPR Board of Electrical Examiners License Lookup"
+      },
       "officialUrl": "https://delpros.delaware.gov/OH_VerifyLicense",
       "sourceIds": [
         "us.de.dpr.electrical_examiners"
@@ -761,6 +881,11 @@
       },
       "boardName": "Delaware DPR Board of Plumbing and HVACR License Lookup",
       "agencyName": "Delaware Division of Professional Regulation",
+      "inventoryStatus": "source_baseline",
+      "identity": {
+        "type": "source_endpoint",
+        "canonicalName": "Delaware DPR Board of Plumbing and HVACR License Lookup"
+      },
       "officialUrl": "https://delpros.delaware.gov/OH_VerifyLicense",
       "sourceIds": [
         "us.de.dpr.plumbing_hvacr"
@@ -793,6 +918,11 @@
       },
       "boardName": "Delaware Registered Construction Contractors Public Lookup",
       "agencyName": "Delaware Department of Labor",
+      "inventoryStatus": "source_baseline",
+      "identity": {
+        "type": "source_endpoint",
+        "canonicalName": "Delaware Registered Construction Contractors Public Lookup"
+      },
       "officialUrl": "https://contractorregistry.delaware.gov/",
       "sourceIds": [
         "us.de.labor.construction_contractors"
@@ -834,6 +964,11 @@
       },
       "boardName": "Florida DBPR Asbestos Contractor Licenses",
       "agencyName": "Florida Department of Business and Professional Regulation",
+      "inventoryStatus": "source_baseline",
+      "identity": {
+        "type": "source_endpoint",
+        "canonicalName": "Florida DBPR Asbestos Contractor Licenses"
+      },
       "officialUrl": "https://www.myfloridalicense.com/wl11.asp",
       "sourceIds": [
         "us.fl.dbpr.asbestos_contractors"
@@ -860,6 +995,11 @@
       },
       "boardName": "Florida DBPR Construction Industry Licenses",
       "agencyName": "Florida Department of Business and Professional Regulation",
+      "inventoryStatus": "source_baseline",
+      "identity": {
+        "type": "source_endpoint",
+        "canonicalName": "Florida DBPR Construction Industry Licenses"
+      },
       "officialUrl": "https://www.myfloridalicense.com/wl11.asp",
       "sourceIds": [
         "us.fl.dbpr.construction"
@@ -886,6 +1026,11 @@
       },
       "boardName": "Florida DBPR Electrical Contractor Licenses",
       "agencyName": "Florida Department of Business and Professional Regulation",
+      "inventoryStatus": "source_baseline",
+      "identity": {
+        "type": "source_endpoint",
+        "canonicalName": "Florida DBPR Electrical Contractor Licenses"
+      },
       "officialUrl": "https://www.myfloridalicense.com/wl11.asp",
       "sourceIds": [
         "us.fl.dbpr.electrical_contractors"
@@ -912,6 +1057,11 @@
       },
       "boardName": "Georgia EPD Licensed Asbestos Abatement Contractors",
       "agencyName": "Georgia Environmental Protection Division",
+      "inventoryStatus": "source_baseline",
+      "identity": {
+        "type": "source_endpoint",
+        "canonicalName": "Georgia EPD Licensed Asbestos Abatement Contractors"
+      },
       "officialUrl": "https://epd.georgia.gov/about-us/land-protection-branch/recovered-materials-and-abatement/asbestos/asbestos-contractors-and",
       "sourceIds": [
         "us.ga.epd.asbestos_contractors"
@@ -939,6 +1089,11 @@
       },
       "boardName": "Georgia Construction Industry Licensed Trades Search",
       "agencyName": "Georgia Secretary of State State Construction Industry Licensing Board",
+      "inventoryStatus": "source_baseline",
+      "identity": {
+        "type": "source_endpoint",
+        "canonicalName": "Georgia Construction Industry Licensed Trades Search"
+      },
       "officialUrl": "https://goals.sos.ga.gov/GASOSOneStop/s/licensee-search",
       "sourceIds": [
         "us.ga.sos.construction_industry_trades"
@@ -972,6 +1127,11 @@
       },
       "boardName": "Georgia Residential and General Contractors License Search",
       "agencyName": "Georgia Secretary of State Licensing Division",
+      "inventoryStatus": "source_baseline",
+      "identity": {
+        "type": "source_endpoint",
+        "canonicalName": "Georgia Residential and General Contractors License Search"
+      },
       "officialUrl": "https://goals.sos.ga.gov/GASOSOneStop/s/licensee-search",
       "sourceIds": [
         "us.ga.sos.residential_general_contractors"
@@ -1002,6 +1162,11 @@
       },
       "boardName": "Guam Contractors Licensing Board Contractors Listing",
       "agencyName": "Guam Contractors Licensing Board",
+      "inventoryStatus": "source_baseline",
+      "identity": {
+        "type": "source_endpoint",
+        "canonicalName": "Guam Contractors Licensing Board Contractors Listing"
+      },
       "officialUrl": "https://clb.guam.gov/contractors-listing/",
       "sourceIds": [
         "us.gu.clb.contractors"
@@ -1044,6 +1209,11 @@
       },
       "boardName": "Hawaii DCCA PVL Contractor License Search",
       "agencyName": "Hawaii Department of Commerce and Consumer Affairs Professional and Vocational Licensing",
+      "inventoryStatus": "source_baseline",
+      "identity": {
+        "type": "source_endpoint",
+        "canonicalName": "Hawaii DCCA PVL Contractor License Search"
+      },
       "officialUrl": "https://mypvl.dcca.hawaii.gov/public-license-search/",
       "sourceIds": [
         "us.hi.dcca.contractors"
@@ -1085,6 +1255,11 @@
       },
       "boardName": "Iowa DIAL Asbestos Licenses and Permits",
       "agencyName": "Iowa Department of Inspections, Appeals, and Licensing",
+      "inventoryStatus": "source_baseline",
+      "identity": {
+        "type": "source_endpoint",
+        "canonicalName": "Iowa DIAL Asbestos Licenses and Permits"
+      },
       "officialUrl": "https://dial.iowa.gov/licenses/building/asbestos/license",
       "sourceIds": [
         "us.ia.dial.asbestos_licenses"
@@ -1112,6 +1287,11 @@
       },
       "boardName": "Iowa DIAL Contractor Registration Lookup",
       "agencyName": "Iowa Department of Inspections, Appeals, and Licensing",
+      "inventoryStatus": "source_baseline",
+      "identity": {
+        "type": "source_endpoint",
+        "canonicalName": "Iowa DIAL Contractor Registration Lookup"
+      },
       "officialUrl": "https://dial.iowa.gov/i-need/records",
       "sourceIds": [
         "us.ia.dial.contractor_registration"
@@ -1145,6 +1325,11 @@
       },
       "boardName": "Iowa Electrical Examining Board Licensing",
       "agencyName": "Iowa Department of Inspections, Appeals, and Licensing",
+      "inventoryStatus": "source_baseline",
+      "identity": {
+        "type": "source_endpoint",
+        "canonicalName": "Iowa Electrical Examining Board Licensing"
+      },
       "officialUrl": "https://dps-eeb.my.site.com/LicenseSearchPage",
       "sourceIds": [
         "us.ia.dial.electrical_licensing"
@@ -1172,6 +1357,11 @@
       },
       "boardName": "Iowa Plumbing and Mechanical Systems Board Licensing",
       "agencyName": "Iowa Department of Inspections, Appeals, and Licensing",
+      "inventoryStatus": "source_baseline",
+      "identity": {
+        "type": "source_endpoint",
+        "canonicalName": "Iowa Plumbing and Mechanical Systems Board Licensing"
+      },
       "officialUrl": "https://dphregprograms.iowa.gov/PublicPortal/Iowa/IDPH/common/index.jsp",
       "sourceIds": [
         "us.ia.dial.plumbing_mechanical"
@@ -1202,6 +1392,11 @@
       },
       "boardName": "Idaho DEQ Asbestos Renovation and Demolition Compliance",
       "agencyName": "Idaho Department of Environmental Quality",
+      "inventoryStatus": "source_baseline",
+      "identity": {
+        "type": "source_endpoint",
+        "canonicalName": "Idaho DEQ Asbestos Renovation and Demolition Compliance"
+      },
       "officialUrl": "https://www.deq.idaho.gov/air-quality/compliance-assistance/",
       "sourceIds": [
         "us.id.deq.asbestos_compliance"
@@ -1229,6 +1424,11 @@
       },
       "boardName": "Idaho DOPL Contractor Registration Search",
       "agencyName": "Idaho Division of Occupational and Professional Licenses",
+      "inventoryStatus": "source_baseline",
+      "identity": {
+        "type": "source_endpoint",
+        "canonicalName": "Idaho DOPL Contractor Registration Search"
+      },
       "officialUrl": "https://edopl.idaho.gov/OnlineServices/?link=PubSearch",
       "sourceIds": [
         "us.id.dopl.contractors"
@@ -1258,6 +1458,11 @@
       },
       "boardName": "Idaho DOPL Electrical Board License Search",
       "agencyName": "Idaho Division of Occupational and Professional Licenses",
+      "inventoryStatus": "source_baseline",
+      "identity": {
+        "type": "source_endpoint",
+        "canonicalName": "Idaho DOPL Electrical Board License Search"
+      },
       "officialUrl": "https://edopl.idaho.gov/OnlineServices/?link=PubSearch",
       "sourceIds": [
         "us.id.dopl.electrical"
@@ -1286,6 +1491,11 @@
       },
       "boardName": "Idaho DOPL HVAC Board License Search",
       "agencyName": "Idaho Division of Occupational and Professional Licenses",
+      "inventoryStatus": "source_baseline",
+      "identity": {
+        "type": "source_endpoint",
+        "canonicalName": "Idaho DOPL HVAC Board License Search"
+      },
       "officialUrl": "https://edopl.idaho.gov/OnlineServices/?link=PubSearch",
       "sourceIds": [
         "us.id.dopl.hvac"
@@ -1315,6 +1525,11 @@
       },
       "boardName": "Idaho DOPL State Plumbing Board License Search",
       "agencyName": "Idaho Division of Occupational and Professional Licenses",
+      "inventoryStatus": "source_baseline",
+      "identity": {
+        "type": "source_endpoint",
+        "canonicalName": "Idaho DOPL State Plumbing Board License Search"
+      },
       "officialUrl": "https://edopl.idaho.gov/OnlineServices/?link=PubSearch",
       "sourceIds": [
         "us.id.dopl.plumbing"
@@ -1343,6 +1558,11 @@
       },
       "boardName": "Idaho DOPL Public Works Contractors License Board Search",
       "agencyName": "Idaho Division of Occupational and Professional Licenses",
+      "inventoryStatus": "source_baseline",
+      "identity": {
+        "type": "source_endpoint",
+        "canonicalName": "Idaho DOPL Public Works Contractors License Board Search"
+      },
       "officialUrl": "https://edopl.idaho.gov/OnlineServices/?link=PubSearch",
       "sourceIds": [
         "us.id.dopl.public_works_contractors"
@@ -1373,6 +1593,11 @@
       },
       "boardName": "Illinois ICC Distributed Generation Installer Certification",
       "agencyName": "Illinois Commerce Commission",
+      "inventoryStatus": "source_baseline",
+      "identity": {
+        "type": "source_endpoint",
+        "canonicalName": "Illinois ICC Distributed Generation Installer Certification"
+      },
       "officialUrl": "https://icc.illinois.gov/authority/distributed-generation-installer",
       "sourceIds": [
         "us.il.icc.distributed_generation_installers"
@@ -1401,6 +1626,11 @@
       },
       "boardName": "Illinois IDFPR Roofing Contractor License Lookup",
       "agencyName": "Illinois Department of Financial and Professional Regulation",
+      "inventoryStatus": "source_baseline",
+      "identity": {
+        "type": "source_endpoint",
+        "canonicalName": "Illinois IDFPR Roofing Contractor License Lookup"
+      },
       "officialUrl": "https://online-dfpr.micropact.com/Lookup/LicenseLookup.aspx",
       "sourceIds": [
         "us.il.idfpr.roofing_contractors"
@@ -1428,6 +1658,11 @@
       },
       "boardName": "Illinois IDPH Asbestos Licensed Contractors",
       "agencyName": "Illinois Department of Public Health",
+      "inventoryStatus": "source_baseline",
+      "identity": {
+        "type": "source_endpoint",
+        "canonicalName": "Illinois IDPH Asbestos Licensed Contractors"
+      },
       "officialUrl": "https://data.illinois.gov/Health-and-Human-Services/IDPH-Asbestos-Licensed-Contractors/kt5u-9dcu",
       "sourceIds": [
         "us.il.idph.asbestos_contractors"
@@ -1455,6 +1690,11 @@
       },
       "boardName": "Illinois IDPH Plumbing License Verification",
       "agencyName": "Illinois Department of Public Health",
+      "inventoryStatus": "source_baseline",
+      "identity": {
+        "type": "source_endpoint",
+        "canonicalName": "Illinois IDPH Plumbing License Verification"
+      },
       "officialUrl": "https://dph.illinois.gov/topics-services/environmental-health-protection/plumbing.html",
       "sourceIds": [
         "us.il.idph.plumbing"
@@ -1482,6 +1722,11 @@
       },
       "boardName": "Illinois OSFM Fire Sprinkler Contractor Licensing",
       "agencyName": "Office of the Illinois State Fire Marshal",
+      "inventoryStatus": "source_baseline",
+      "identity": {
+        "type": "source_endpoint",
+        "canonicalName": "Illinois OSFM Fire Sprinkler Contractor Licensing"
+      },
       "officialUrl": "https://sfm.illinois.gov/content/dam/soi/en/web/sfm/sfmdocuments/documents/firepreventiondocs/fp-licensedfiresprinklercontractors.pdf",
       "sourceIds": [
         "us.il.sfm.fire_sprinkler_contractors"
@@ -1511,6 +1756,11 @@
       },
       "boardName": "Indiana IDEM Asbestos Licensing",
       "agencyName": "Indiana Department of Environmental Management",
+      "inventoryStatus": "source_baseline",
+      "identity": {
+        "type": "source_endpoint",
+        "canonicalName": "Indiana IDEM Asbestos Licensing"
+      },
       "officialUrl": "https://www.in.gov/idem/asbestos/training-and-licensing/",
       "sourceIds": [
         "us.in.idem.asbestos_licensing"
@@ -1538,6 +1788,11 @@
       },
       "boardName": "Indiana Plumbing Commission License Verification",
       "agencyName": "Indiana Professional Licensing Agency",
+      "inventoryStatus": "source_baseline",
+      "identity": {
+        "type": "source_endpoint",
+        "canonicalName": "Indiana Plumbing Commission License Verification"
+      },
       "officialUrl": "https://mylicense.in.gov/everification/",
       "sourceIds": [
         "us.in.pla.plumbing"
@@ -1565,6 +1820,11 @@
       },
       "boardName": "Indiana PLA MyLicense Professional License Verification",
       "agencyName": "Indiana Professional Licensing Agency",
+      "inventoryStatus": "source_baseline",
+      "identity": {
+        "type": "source_endpoint",
+        "canonicalName": "Indiana PLA MyLicense Professional License Verification"
+      },
       "officialUrl": "https://mylicense.in.gov/everification/",
       "sourceIds": [
         "us.in.pla.professional_licenses"
@@ -1595,6 +1855,11 @@
       },
       "boardName": "Kansas Attorney General Roofing Registration Directory",
       "agencyName": "Kansas Attorney General's Office",
+      "inventoryStatus": "source_baseline",
+      "identity": {
+        "type": "source_endpoint",
+        "canonicalName": "Kansas Attorney General Roofing Registration Directory"
+      },
       "officialUrl": "https://www.ag.ks.gov/divisions/public-protection/resources/roofing-registration-directory",
       "sourceIds": [
         "us.ks.ag.roofing_registration"
@@ -1622,6 +1887,11 @@
       },
       "boardName": "Kansas State Fire Marshal Fire Protection Company Registration",
       "agencyName": "Kansas State Fire Marshal",
+      "inventoryStatus": "source_baseline",
+      "identity": {
+        "type": "source_endpoint",
+        "canonicalName": "Kansas State Fire Marshal Fire Protection Company Registration"
+      },
       "officialUrl": "https://www.firemarshal.ks.gov/185/Licensing",
       "sourceIds": [
         "us.ks.firemarshal.fire_protection_companies"
@@ -1651,6 +1921,11 @@
       },
       "boardName": "Kansas KDHE Licensed Asbestos Abatement Contractors",
       "agencyName": "Kansas Department of Health and Environment",
+      "inventoryStatus": "source_baseline",
+      "identity": {
+        "type": "source_endpoint",
+        "canonicalName": "Kansas KDHE Licensed Asbestos Abatement Contractors"
+      },
       "officialUrl": "https://www.kdhe.ks.gov/240/Asbestos-Resources-Forms",
       "sourceIds": [
         "us.ks.kdhe.asbestos_contractors"
@@ -1678,6 +1953,11 @@
       },
       "boardName": "Kansas KDHE Licensed Water Well Contractors",
       "agencyName": "Kansas Department of Health and Environment",
+      "inventoryStatus": "source_baseline",
+      "identity": {
+        "type": "source_endpoint",
+        "canonicalName": "Kansas KDHE Licensed Water Well Contractors"
+      },
       "officialUrl": "https://www.kdhe.ks.gov/1790/Guidance-Documents-for-Well-Owners",
       "sourceIds": [
         "us.ks.kdhe.water_well_contractors"
@@ -1706,6 +1986,11 @@
       },
       "boardName": "Kentucky DHBC Trade Licensee Search",
       "agencyName": "Kentucky Department of Housing, Buildings and Construction",
+      "inventoryStatus": "source_baseline",
+      "identity": {
+        "type": "source_endpoint",
+        "canonicalName": "Kentucky DHBC Trade Licensee Search"
+      },
       "officialUrl": "https://dhbc.ky.gov/Search/HBC_List_Licensees.aspx",
       "sourceIds": [
         "us.ky.dhbc.trades"
@@ -1739,6 +2024,11 @@
       },
       "boardName": "Kentucky EEC Asbestos Abatement Contractors",
       "agencyName": "Kentucky Energy and Environment Cabinet",
+      "inventoryStatus": "source_baseline",
+      "identity": {
+        "type": "source_endpoint",
+        "canonicalName": "Kentucky EEC Asbestos Abatement Contractors"
+      },
       "officialUrl": "https://eec.ky.gov/Environmental-Protection/Air/asbestos/Pages/default.aspx",
       "sourceIds": [
         "us.ky.eec.asbestos_contractors"
@@ -1766,6 +2056,11 @@
       },
       "boardName": "Louisiana State Licensing Board for Contractors Contractor Search",
       "agencyName": "Louisiana State Licensing Board for Contractors",
+      "inventoryStatus": "source_baseline",
+      "identity": {
+        "type": "source_endpoint",
+        "canonicalName": "Louisiana State Licensing Board for Contractors Contractor Search"
+      },
       "officialUrl": "https://arlspublic.lslbc.louisiana.gov/Public/DetailedSearch/ByNumber",
       "sourceIds": [
         "us.la.lslbc.contractors"
@@ -1807,6 +2102,11 @@
       },
       "boardName": "Massachusetts DCAMM Public Building Contractor Certification",
       "agencyName": "Massachusetts Division of Capital Asset Management and Maintenance",
+      "inventoryStatus": "source_baseline",
+      "identity": {
+        "type": "source_endpoint",
+        "canonicalName": "Massachusetts DCAMM Public Building Contractor Certification"
+      },
       "officialUrl": "https://www.mass.gov/lists/contractors-standing-with-dcamm",
       "sourceIds": [
         "us.ma.dcamm.public_building_contractors"
@@ -1842,6 +2142,11 @@
       },
       "boardName": "Massachusetts DLS Licensed Asbestos Contractors",
       "agencyName": "Massachusetts Department of Labor Standards",
+      "inventoryStatus": "source_baseline",
+      "identity": {
+        "type": "source_endpoint",
+        "canonicalName": "Massachusetts DLS Licensed Asbestos Contractors"
+      },
       "officialUrl": "https://www.mass.gov/info-details/licensed-asbestos-consultants-contractors-labs-training-providers",
       "sourceIds": [
         "us.ma.dls.asbestos_contractors"
@@ -1869,6 +2174,11 @@
       },
       "boardName": "Massachusetts DOL Occupational Trade License Lookup",
       "agencyName": "Massachusetts Division of Occupational Licensure",
+      "inventoryStatus": "source_baseline",
+      "identity": {
+        "type": "source_endpoint",
+        "canonicalName": "Massachusetts DOL Occupational Trade License Lookup"
+      },
       "officialUrl": "https://www.mass.gov/how-to/check-an-occupational-board-license",
       "sourceIds": [
         "us.ma.dol.occupational_trades"
@@ -1903,6 +2213,11 @@
       },
       "boardName": "Massachusetts OPSI Construction Supervisor License Verification",
       "agencyName": "Massachusetts Division of Occupational Licensure Office of Public Safety and Inspections",
+      "inventoryStatus": "source_baseline",
+      "identity": {
+        "type": "source_endpoint",
+        "canonicalName": "Massachusetts OPSI Construction Supervisor License Verification"
+      },
       "officialUrl": "https://madpl.mylicense.com/Verification/",
       "sourceIds": [
         "us.ma.dol.opsi_construction_supervisors"
@@ -1932,6 +2247,11 @@
       },
       "boardName": "Massachusetts OPSI Pipefitters Refrigeration and Sprinkler Fitters",
       "agencyName": "Massachusetts Division of Occupational Licensure Office of Public Safety and Inspections",
+      "inventoryStatus": "source_baseline",
+      "identity": {
+        "type": "source_endpoint",
+        "canonicalName": "Massachusetts OPSI Pipefitters Refrigeration and Sprinkler Fitters"
+      },
       "officialUrl": "https://madpl.mylicense.com/Verification/",
       "sourceIds": [
         "us.ma.dol.opsi_pipefitters_refrigeration_sprinkler"
@@ -1964,6 +2284,11 @@
       },
       "boardName": "Massachusetts Home Improvement Contractor Registration Search",
       "agencyName": "Massachusetts Office of Consumer Affairs and Business Regulation",
+      "inventoryStatus": "source_baseline",
+      "identity": {
+        "type": "source_endpoint",
+        "canonicalName": "Massachusetts Home Improvement Contractor Registration Search"
+      },
       "officialUrl": "https://contractorhub.mass.gov/s/hic-contractor-search",
       "sourceIds": [
         "us.ma.oca.home_improvement_contractors"
@@ -1995,6 +2320,11 @@
       },
       "boardName": "Maryland MHIC Home Improvement Contractor License Search",
       "agencyName": "Maryland Department of Labor Maryland Home Improvement Commission",
+      "inventoryStatus": "source_baseline",
+      "identity": {
+        "type": "source_endpoint",
+        "canonicalName": "Maryland MHIC Home Improvement Contractor License Search"
+      },
       "officialUrl": "https://www.dllr.state.md.us/cgi-bin/ElectronicLicensing/OP_search/OP_search.cgi?calling_app=HIC::HIC_qselect",
       "sourceIds": [
         "us.md.dllr.home_improvement_contractors"
@@ -2025,6 +2355,11 @@
       },
       "boardName": "Maryland State Board of Electricians License Search",
       "agencyName": "Maryland Department of Labor State Board of Electricians",
+      "inventoryStatus": "source_baseline",
+      "identity": {
+        "type": "source_endpoint",
+        "canonicalName": "Maryland State Board of Electricians License Search"
+      },
       "officialUrl": "https://labor.maryland.gov/pq/",
       "sourceIds": [
         "us.md.labor.electricians"
@@ -2054,6 +2389,11 @@
       },
       "boardName": "Maryland Board of HVACR Contractors License Search",
       "agencyName": "Maryland Department of Labor Board of Heating, Ventilation, Air Conditioning and Refrigeration Contractors",
+      "inventoryStatus": "source_baseline",
+      "identity": {
+        "type": "source_endpoint",
+        "canonicalName": "Maryland Board of HVACR Contractors License Search"
+      },
       "officialUrl": "https://www.dllr.state.md.us/cgi-bin/ElectronicLicensing/OP_search/OP_search.cgi?calling_app=HVAC%3A%3AHVAC_qselect",
       "sourceIds": [
         "us.md.labor.hvacr_contractors"
@@ -2084,6 +2424,11 @@
       },
       "boardName": "Maryland Board of Plumbing License Search",
       "agencyName": "Maryland Department of Labor State Board of Plumbing",
+      "inventoryStatus": "source_baseline",
+      "identity": {
+        "type": "source_endpoint",
+        "canonicalName": "Maryland Board of Plumbing License Search"
+      },
       "officialUrl": "https://www.dllr.state.md.us/cgi-bin/ElectronicLicensing/OP_search/OP_search.cgi?calling_app=PLM%3A%3APLM_qselect",
       "sourceIds": [
         "us.md.labor.plumbing_gas"
@@ -2114,6 +2459,11 @@
       },
       "boardName": "Maryland MDE Asbestos Contractor Licensing",
       "agencyName": "Maryland Department of the Environment Asbestos Division",
+      "inventoryStatus": "source_baseline",
+      "identity": {
+        "type": "source_endpoint",
+        "canonicalName": "Maryland MDE Asbestos Contractor Licensing"
+      },
       "officialUrl": "https://mde.maryland.gov/programs/air/asbestos/pages/contractor.aspx",
       "sourceIds": [
         "us.md.mde.asbestos_contractors"
@@ -2141,6 +2491,11 @@
       },
       "boardName": "Maine DEP Licensed Asbestos Abatement Contractors",
       "agencyName": "Maine Department of Environmental Protection",
+      "inventoryStatus": "source_baseline",
+      "identity": {
+        "type": "source_endpoint",
+        "canonicalName": "Maine DEP Licensed Asbestos Abatement Contractors"
+      },
       "officialUrl": "https://www.maine.gov/dep/waste/asbestos/asbestoscontractors.html",
       "sourceIds": [
         "us.me.dep.asbestos_contractors"
@@ -2168,6 +2523,11 @@
       },
       "boardName": "Maine PFR Professional Licensee Search",
       "agencyName": "Maine Department of Professional and Financial Regulation",
+      "inventoryStatus": "source_baseline",
+      "identity": {
+        "type": "source_endpoint",
+        "canonicalName": "Maine PFR Professional Licensee Search"
+      },
       "officialUrl": "https://www.maine.gov/pfr/consumer/licensee-search",
       "sourceIds": [
         "us.me.pfr.professional_licenses"
@@ -2201,6 +2561,11 @@
       },
       "boardName": "Michigan LARA BCC Electrical Contractor License Search",
       "agencyName": "Michigan Department of Licensing and Regulatory Affairs Bureau of Construction Codes",
+      "inventoryStatus": "source_baseline",
+      "identity": {
+        "type": "source_endpoint",
+        "canonicalName": "Michigan LARA BCC Electrical Contractor License Search"
+      },
       "officialUrl": "https://aca3.accela.com/LARA/GeneralProperty/PropertyLookUp.aspx?TabName=APO&isLicensee=Y",
       "sourceIds": [
         "us.mi.lara.bcc_electrical_contractors"
@@ -2230,6 +2595,11 @@
       },
       "boardName": "Michigan LARA BCC Mechanical Contractor License Search",
       "agencyName": "Michigan Department of Licensing and Regulatory Affairs Bureau of Construction Codes",
+      "inventoryStatus": "source_baseline",
+      "identity": {
+        "type": "source_endpoint",
+        "canonicalName": "Michigan LARA BCC Mechanical Contractor License Search"
+      },
       "officialUrl": "https://aca3.accela.com/LARA/GeneralProperty/PropertyLookUp.aspx?TabName=APO&isLicensee=Y",
       "sourceIds": [
         "us.mi.lara.bcc_mechanical_contractors"
@@ -2261,6 +2631,11 @@
       },
       "boardName": "Michigan LARA BCC Plumbing Contractor License Search",
       "agencyName": "Michigan Department of Licensing and Regulatory Affairs Bureau of Construction Codes",
+      "inventoryStatus": "source_baseline",
+      "identity": {
+        "type": "source_endpoint",
+        "canonicalName": "Michigan LARA BCC Plumbing Contractor License Search"
+      },
       "officialUrl": "https://aca3.accela.com/LARA/GeneralProperty/PropertyLookUp.aspx?TabName=APO&isLicensee=Y",
       "sourceIds": [
         "us.mi.lara.bcc_plumbing_contractors"
@@ -2289,6 +2664,11 @@
       },
       "boardName": "Michigan LARA Residential Builder and Maintenance & Alteration License Search",
       "agencyName": "Michigan Department of Licensing and Regulatory Affairs",
+      "inventoryStatus": "source_baseline",
+      "identity": {
+        "type": "source_endpoint",
+        "canonicalName": "Michigan LARA Residential Builder and Maintenance & Alteration License Search"
+      },
       "officialUrl": "https://aca-prod.accela.com/LARA/GeneralProperty/PropertyLookUp.aspx?TabName=APO&isLicensee=Y",
       "sourceIds": [
         "us.mi.lara.residential_builders"
@@ -2317,6 +2697,11 @@
       },
       "boardName": "Michigan LEO MIOSHA Asbestos Abatement Contractor Search",
       "agencyName": "Michigan Department of Labor and Economic Opportunity MIOSHA Asbestos Program",
+      "inventoryStatus": "source_baseline",
+      "identity": {
+        "type": "source_endpoint",
+        "canonicalName": "Michigan LEO MIOSHA Asbestos Abatement Contractor Search"
+      },
       "officialUrl": "https://asbestosprogram.apps.lara.state.mi.us/Contractor/ContractorSearch",
       "sourceIds": [
         "us.mi.leo.miosha_asbestos_contractors"
@@ -2344,6 +2729,11 @@
       },
       "boardName": "Minnesota DLI License and Registration Data",
       "agencyName": "Minnesota Department of Labor and Industry",
+      "inventoryStatus": "source_baseline",
+      "identity": {
+        "type": "source_endpoint",
+        "canonicalName": "Minnesota DLI License and Registration Data"
+      },
       "officialUrl": "https://www.dli.mn.gov/license-and-registration-lookup",
       "sourceIds": [
         "us.mn.dli.licenses_registrations"
@@ -2370,6 +2760,11 @@
       },
       "boardName": "Minnesota MDH Asbestos Contractor Licensing",
       "agencyName": "Minnesota Department of Health",
+      "inventoryStatus": "source_baseline",
+      "identity": {
+        "type": "source_endpoint",
+        "canonicalName": "Minnesota MDH Asbestos Contractor Licensing"
+      },
       "officialUrl": "https://www.health.state.mn.us/communities/environment/asbestos/asbcontrlookup.html",
       "sourceIds": [
         "us.mn.mdh.asbestos_contractors"
@@ -2397,6 +2792,11 @@
       },
       "boardName": "Missouri DNR Asbestos Professionals and Contractor Registration",
       "agencyName": "Missouri Department of Natural Resources",
+      "inventoryStatus": "source_baseline",
+      "identity": {
+        "type": "source_endpoint",
+        "canonicalName": "Missouri DNR Asbestos Professionals and Contractor Registration"
+      },
       "officialUrl": "https://dnr.mo.gov/air/business-industry/asbestos",
       "sourceIds": [
         "us.mo.dnr.asbestos_contractors"
@@ -2424,6 +2824,11 @@
       },
       "boardName": "Missouri Division of Professional Registration License Search",
       "agencyName": "Missouri Division of Professional Registration",
+      "inventoryStatus": "source_baseline",
+      "identity": {
+        "type": "source_endpoint",
+        "canonicalName": "Missouri Division of Professional Registration License Search"
+      },
       "officialUrl": "https://mopro.mo.gov/license/s/license-search",
       "sourceIds": [
         "us.mo.pr.professional_licenses"
@@ -2454,6 +2859,11 @@
       },
       "boardName": "CNMI Board of Professional Licensing Construction-Adjacent Licenses",
       "agencyName": "Commonwealth of the Northern Mariana Islands Board of Professional Licensing",
+      "inventoryStatus": "source_baseline",
+      "identity": {
+        "type": "source_endpoint",
+        "canonicalName": "CNMI Board of Professional Licensing Construction-Adjacent Licenses"
+      },
       "officialUrl": "https://www.cnmilicensing.gov.mp/",
       "sourceIds": [
         "us.mp.bpl.professional_licenses"
@@ -2482,6 +2892,11 @@
       },
       "boardName": "CNMI Department of Public Works Building Safety Code Division",
       "agencyName": "Commonwealth of the Northern Mariana Islands Department of Public Works",
+      "inventoryStatus": "source_baseline",
+      "identity": {
+        "type": "source_endpoint",
+        "canonicalName": "CNMI Department of Public Works Building Safety Code Division"
+      },
       "officialUrl": "https://dpw.gov.mp/bscd/about-us/",
       "sourceIds": [
         "us.mp.dpw.building_safety_code"
@@ -2514,6 +2929,11 @@
       },
       "boardName": "Mississippi State Board of Contractors License Search",
       "agencyName": "Mississippi State Board of Contractors",
+      "inventoryStatus": "source_baseline",
+      "identity": {
+        "type": "source_endpoint",
+        "canonicalName": "Mississippi State Board of Contractors License Search"
+      },
       "officialUrl": "https://search.msboc.us/",
       "sourceIds": [
         "us.ms.msboc.contractors"
@@ -2556,6 +2976,11 @@
       },
       "boardName": "Montana DEQ Accredited Asbestos Contractors and Consultants",
       "agencyName": "Montana Department of Environmental Quality",
+      "inventoryStatus": "source_baseline",
+      "identity": {
+        "type": "source_endpoint",
+        "canonicalName": "Montana DEQ Accredited Asbestos Contractors and Consultants"
+      },
       "officialUrl": "https://svc.mt.gov/deq/AsbestosPermits/",
       "sourceIds": [
         "us.mt.deq.asbestos_contractors"
@@ -2583,6 +3008,11 @@
       },
       "boardName": "Montana DLI Construction Contractor Registration Search",
       "agencyName": "Montana Department of Labor and Industry",
+      "inventoryStatus": "source_baseline",
+      "identity": {
+        "type": "source_endpoint",
+        "canonicalName": "Montana DLI Construction Contractor Registration Search"
+      },
       "officialUrl": "https://erd.dli.mt.gov/work-comp-regulations/montana-contractor/icec-search-old",
       "sourceIds": [
         "us.mt.dli.contractor_registration"
@@ -2621,6 +3051,11 @@
       },
       "boardName": "Montana DLI Professional and Occupational Licensee Lookup",
       "agencyName": "Montana Department of Labor and Industry",
+      "inventoryStatus": "source_baseline",
+      "identity": {
+        "type": "source_endpoint",
+        "canonicalName": "Montana DLI Professional and Occupational Licensee Lookup"
+      },
       "officialUrl": "https://ebizws.mt.gov/PUBLICPORTAL/searchform",
       "sourceIds": [
         "us.mt.dli.professional_licenses"
@@ -2652,6 +3087,11 @@
       },
       "boardName": "North Carolina Board of Examiners of Electrical Contractors Verify License Search",
       "agencyName": "North Carolina State Board of Examiners of Electrical Contractors",
+      "inventoryStatus": "source_baseline",
+      "identity": {
+        "type": "source_endpoint",
+        "canonicalName": "North Carolina Board of Examiners of Electrical Contractors Verify License Search"
+      },
       "officialUrl": "https://arls-public.ncbeec.org/Public/Search",
       "sourceIds": [
         "us.nc.ncbeec.electrical_contractors"
@@ -2680,6 +3120,11 @@
       },
       "boardName": "North Carolina Licensing Board for General Contractors Verify License Search",
       "agencyName": "North Carolina Licensing Board for General Contractors",
+      "inventoryStatus": "source_baseline",
+      "identity": {
+        "type": "source_endpoint",
+        "canonicalName": "North Carolina Licensing Board for General Contractors Verify License Search"
+      },
       "officialUrl": "https://portal.nclbgc.org/Public/Search",
       "sourceIds": [
         "us.nc.nclbgc.general_contractors"
@@ -2716,6 +3161,11 @@
       },
       "boardName": "North Carolina Plumbing, Heating and Fire Sprinkler Contractors Verify License Search",
       "agencyName": "State Board of Examiners of Plumbing, Heating and Fire Sprinkler Contractors",
+      "inventoryStatus": "source_baseline",
+      "identity": {
+        "type": "source_endpoint",
+        "canonicalName": "North Carolina Plumbing, Heating and Fire Sprinkler Contractors Verify License Search"
+      },
       "officialUrl": "https://public.nclicensing.org/Public/Search",
       "sourceIds": [
         "us.nc.nclicensing.plumbing_heating_fire_sprinkler"
@@ -2746,6 +3196,11 @@
       },
       "boardName": "North Carolina State Board of Refrigeration Contractors Verify License Search",
       "agencyName": "North Carolina State Board of Refrigeration Contractors",
+      "inventoryStatus": "source_baseline",
+      "identity": {
+        "type": "source_endpoint",
+        "canonicalName": "North Carolina State Board of Refrigeration Contractors Verify License Search"
+      },
       "officialUrl": "https://ncrefrigerationboard.arlsys.com/Public/Search",
       "sourceIds": [
         "us.nc.refrigerationboard.refrigeration_contractors"
@@ -2774,6 +3229,11 @@
       },
       "boardName": "North Dakota DEQ Asbestos Licensed Companies",
       "agencyName": "North Dakota Department of Environmental Quality",
+      "inventoryStatus": "source_baseline",
+      "identity": {
+        "type": "source_endpoint",
+        "canonicalName": "North Dakota DEQ Asbestos Licensed Companies"
+      },
       "officialUrl": "https://deq.nd.gov/publications/WM/Asbestos/AsbestosContractors.pdf",
       "sourceIds": [
         "us.nd.deq.asbestos_contractors"
@@ -2801,6 +3261,11 @@
       },
       "boardName": "North Dakota DWR Water Well Contractor Licensure",
       "agencyName": "North Dakota Department of Water Resources",
+      "inventoryStatus": "source_baseline",
+      "identity": {
+        "type": "source_endpoint",
+        "canonicalName": "North Dakota DWR Water Well Contractor Licensure"
+      },
       "officialUrl": "https://www.swc.nd.gov/reg_approp/water_well_contractor/",
       "sourceIds": [
         "us.nd.dwr.water_well_contractors"
@@ -2829,6 +3294,11 @@
       },
       "boardName": "North Dakota State Electrical Board License Search",
       "agencyName": "North Dakota State Electrical Board",
+      "inventoryStatus": "source_baseline",
+      "identity": {
+        "type": "source_endpoint",
+        "canonicalName": "North Dakota State Electrical Board License Search"
+      },
       "officialUrl": "https://www.ndseb.com/search-1/find-a-licensed-contractor/",
       "sourceIds": [
         "us.nd.ndseb.electrical"
@@ -2857,6 +3327,11 @@
       },
       "boardName": "North Dakota State Plumbing Board License Lookup",
       "agencyName": "North Dakota State Plumbing Board",
+      "inventoryStatus": "source_baseline",
+      "identity": {
+        "type": "source_endpoint",
+        "canonicalName": "North Dakota State Plumbing Board License Lookup"
+      },
       "officialUrl": "https://www.ndplumbingboard.gov/licensing-license-lookup",
       "sourceIds": [
         "us.nd.plumbing_board.licenses"
@@ -2885,6 +3360,11 @@
       },
       "boardName": "North Dakota Secretary of State Contractor Search",
       "agencyName": "North Dakota Secretary of State",
+      "inventoryStatus": "source_baseline",
+      "identity": {
+        "type": "source_endpoint",
+        "canonicalName": "North Dakota Secretary of State Contractor Search"
+      },
       "officialUrl": "https://firststop.sos.nd.gov/search/contractor",
       "sourceIds": [
         "us.nd.sos.contractors"
@@ -2915,6 +3395,11 @@
       },
       "boardName": "Nebraska DHHS Asbestos Business Entities",
       "agencyName": "Nebraska Department of Health and Human Services",
+      "inventoryStatus": "source_baseline",
+      "identity": {
+        "type": "source_endpoint",
+        "canonicalName": "Nebraska DHHS Asbestos Business Entities"
+      },
       "officialUrl": "https://dhhs.ne.gov/Asbestos%20Documents/asbestosbusinessentities.pdf",
       "sourceIds": [
         "us.ne.dhhs.asbestos_business_entities"
@@ -2942,6 +3427,11 @@
       },
       "boardName": "Nebraska Department of Labor Contractor Registration Search",
       "agencyName": "Nebraska Department of Labor",
+      "inventoryStatus": "source_baseline",
+      "identity": {
+        "type": "source_endpoint",
+        "canonicalName": "Nebraska Department of Labor Contractor Registration Search"
+      },
       "officialUrl": "https://dol.nebraska.gov/conreg/Search",
       "sourceIds": [
         "us.ne.dol.contractor_registration"
@@ -2981,6 +3471,11 @@
       },
       "boardName": "Nebraska DWEE Water Well Contractors",
       "agencyName": "Nebraska Department of Water, Energy, and Environment",
+      "inventoryStatus": "source_baseline",
+      "identity": {
+        "type": "source_endpoint",
+        "canonicalName": "Nebraska DWEE Water Well Contractors"
+      },
       "officialUrl": "https://dwee.nebraska.gov/groundwater/contractors",
       "sourceIds": [
         "us.ne.dwee.water_well_contractors"
@@ -3009,6 +3504,11 @@
       },
       "boardName": "Nebraska State Electrical Division Licensee Search",
       "agencyName": "Nebraska State Electrical Division",
+      "inventoryStatus": "source_baseline",
+      "identity": {
+        "type": "source_endpoint",
+        "canonicalName": "Nebraska State Electrical Division Licensee Search"
+      },
       "officialUrl": "https://www.nebraska.gov/sed/search/index.cgi",
       "sourceIds": [
         "us.ne.electrical_division.licenses"
@@ -3039,6 +3539,11 @@
       },
       "boardName": "Nebraska State Fire Marshal Water-Based Fire Protection Contractors",
       "agencyName": "Nebraska State Fire Marshal",
+      "inventoryStatus": "source_baseline",
+      "identity": {
+        "type": "source_endpoint",
+        "canonicalName": "Nebraska State Fire Marshal Water-Based Fire Protection Contractors"
+      },
       "officialUrl": "https://sfm.nebraska.gov/code-enforcement/water-based-fire-protection",
       "sourceIds": [
         "us.ne.sfm.water_based_fire_protection"
@@ -3069,6 +3574,11 @@
       },
       "boardName": "New Hampshire DES Asbestos Licenses and Certifications",
       "agencyName": "New Hampshire Department of Environmental Services",
+      "inventoryStatus": "source_baseline",
+      "identity": {
+        "type": "source_endpoint",
+        "canonicalName": "New Hampshire DES Asbestos Licenses and Certifications"
+      },
       "officialUrl": "https://www4.des.state.nh.us/OnestopPub/Air/ContractorLists/Web-AbatementContractors.pdf",
       "sourceIds": [
         "us.nh.des.asbestos_licenses"
@@ -3096,6 +3606,11 @@
       },
       "boardName": "New Hampshire DES Water Well Contractor and Pump Installer Licensing",
       "agencyName": "New Hampshire Department of Environmental Services",
+      "inventoryStatus": "source_baseline",
+      "identity": {
+        "type": "source_endpoint",
+        "canonicalName": "New Hampshire DES Water Well Contractor and Pump Installer Licensing"
+      },
       "officialUrl": "https://www.des.nh.gov/about/boards-and-committees/water-well-board/licensing",
       "sourceIds": [
         "us.nh.des.water_well_contractors"
@@ -3124,6 +3639,11 @@
       },
       "boardName": "New Hampshire OPLC Electricians Board License Lookup",
       "agencyName": "New Hampshire Office of Professional Licensure and Certification",
+      "inventoryStatus": "source_baseline",
+      "identity": {
+        "type": "source_endpoint",
+        "canonicalName": "New Hampshire OPLC Electricians Board License Lookup"
+      },
       "officialUrl": "https://www.oplc.nh.gov/license-lookup",
       "sourceIds": [
         "us.nh.oplc.electricians"
@@ -3154,6 +3674,11 @@
       },
       "boardName": "New Hampshire OPLC Mechanical Safety and Licensing Board Lookup",
       "agencyName": "New Hampshire Office of Professional Licensure and Certification",
+      "inventoryStatus": "source_baseline",
+      "identity": {
+        "type": "source_endpoint",
+        "canonicalName": "New Hampshire OPLC Mechanical Safety and Licensing Board Lookup"
+      },
       "officialUrl": "https://www.oplc.nh.gov/license-lookup",
       "sourceIds": [
         "us.nh.oplc.mechanical_safety"
@@ -3187,6 +3712,11 @@
       },
       "boardName": "New Hampshire OPLC License Lookup",
       "agencyName": "New Hampshire Office of Professional Licensure and Certification",
+      "inventoryStatus": "source_baseline",
+      "identity": {
+        "type": "source_endpoint",
+        "canonicalName": "New Hampshire OPLC License Lookup"
+      },
       "officialUrl": "https://www.oplc.nh.gov/license-lookup",
       "sourceIds": [
         "us.nh.oplc.trades"
@@ -3217,6 +3747,11 @@
       },
       "boardName": "New Jersey Electrical Contractor License Verification",
       "agencyName": "New Jersey Division of Consumer Affairs Board of Examiners of Electrical Contractors",
+      "inventoryStatus": "source_baseline",
+      "identity": {
+        "type": "source_endpoint",
+        "canonicalName": "New Jersey Electrical Contractor License Verification"
+      },
       "officialUrl": "https://newjersey.mylicense.com/verification/Search.aspx",
       "sourceIds": [
         "us.nj.dca.electrical_contractors"
@@ -3245,6 +3780,11 @@
       },
       "boardName": "New Jersey Fire Alarm, Burglar Alarm, and Locksmith License Verification",
       "agencyName": "New Jersey Division of Consumer Affairs Fire Alarm, Burglar Alarm and Locksmith Advisory Committee",
+      "inventoryStatus": "source_baseline",
+      "identity": {
+        "type": "source_endpoint",
+        "canonicalName": "New Jersey Fire Alarm, Burglar Alarm, and Locksmith License Verification"
+      },
       "officialUrl": "https://newjersey.mylicense.com/verification/Search.aspx",
       "sourceIds": [
         "us.nj.dca.fire_alarm_locksmith"
@@ -3272,6 +3812,11 @@
       },
       "boardName": "New Jersey Fire Protection Equipment Contractor Certification",
       "agencyName": "New Jersey Department of Community Affairs Division of Fire Safety Contractor Certification Unit",
+      "inventoryStatus": "source_baseline",
+      "identity": {
+        "type": "source_endpoint",
+        "canonicalName": "New Jersey Fire Protection Equipment Contractor Certification"
+      },
       "officialUrl": "https://www.nj.gov/dca/dfs/forms/",
       "sourceIds": [
         "us.nj.dca.fire_protection_equipment_contractors"
@@ -3301,6 +3846,11 @@
       },
       "boardName": "New Jersey Home Elevation Contractor Registration",
       "agencyName": "New Jersey Division of Consumer Affairs Regulated Business Section",
+      "inventoryStatus": "source_baseline",
+      "identity": {
+        "type": "source_endpoint",
+        "canonicalName": "New Jersey Home Elevation Contractor Registration"
+      },
       "officialUrl": "https://newjersey.mylicense.com/verification/Search.aspx?facility=Y",
       "sourceIds": [
         "us.nj.dca.home_elevation_contractors"
@@ -3329,6 +3879,11 @@
       },
       "boardName": "New Jersey Division of Consumer Affairs Home Improvement Contractor Verification",
       "agencyName": "New Jersey Division of Consumer Affairs",
+      "inventoryStatus": "source_baseline",
+      "identity": {
+        "type": "source_endpoint",
+        "canonicalName": "New Jersey Division of Consumer Affairs Home Improvement Contractor Verification"
+      },
       "officialUrl": "https://newjersey.mylicense.com/verification/Search.aspx?facility=Y",
       "sourceIds": [
         "us.nj.dca.home_improvement_contractors"
@@ -3357,6 +3912,11 @@
       },
       "boardName": "New Jersey Master HVACR Contractor License Verification",
       "agencyName": "New Jersey Division of Consumer Affairs State Board of Examiners of HVACR Contractors",
+      "inventoryStatus": "source_baseline",
+      "identity": {
+        "type": "source_endpoint",
+        "canonicalName": "New Jersey Master HVACR Contractor License Verification"
+      },
       "officialUrl": "https://newjersey.mylicense.com/verification/Search.aspx",
       "sourceIds": [
         "us.nj.dca.hvacr_contractors"
@@ -3387,6 +3947,11 @@
       },
       "boardName": "New Jersey Licensed Master Hearth Specialist Verification",
       "agencyName": "New Jersey Division of Consumer Affairs Master Hearth Specialists Advisory Committee",
+      "inventoryStatus": "source_baseline",
+      "identity": {
+        "type": "source_endpoint",
+        "canonicalName": "New Jersey Licensed Master Hearth Specialist Verification"
+      },
       "officialUrl": "https://newjersey.mylicense.com/verification/Search.aspx",
       "sourceIds": [
         "us.nj.dca.master_hearth_specialists"
@@ -3415,6 +3980,11 @@
       },
       "boardName": "New Jersey Master Plumber License Verification",
       "agencyName": "New Jersey Division of Consumer Affairs State Board of Examiners of Master Plumbers",
+      "inventoryStatus": "source_baseline",
+      "identity": {
+        "type": "source_endpoint",
+        "canonicalName": "New Jersey Master Plumber License Verification"
+      },
       "officialUrl": "https://newjersey.mylicense.com/verification/Search.aspx",
       "sourceIds": [
         "us.nj.dca.master_plumbers"
@@ -3441,6 +4011,11 @@
       },
       "boardName": "New Jersey New Home Builder Registration",
       "agencyName": "New Jersey Department of Community Affairs Bureau of Homeowner Protection",
+      "inventoryStatus": "source_baseline",
+      "identity": {
+        "type": "source_endpoint",
+        "canonicalName": "New Jersey New Home Builder Registration"
+      },
       "officialUrl": "https://serviceportal.dca.nj.gov/ultra-bhp-home/",
       "sourceIds": [
         "us.nj.dca.new_home_builders"
@@ -3469,6 +4044,11 @@
       },
       "boardName": "New Jersey Asbestos Abatement Contractor Licensing",
       "agencyName": "New Jersey Department of Labor and Workforce Development Office of Asbestos Control and Licensing",
+      "inventoryStatus": "source_baseline",
+      "identity": {
+        "type": "source_endpoint",
+        "canonicalName": "New Jersey Asbestos Abatement Contractor Licensing"
+      },
       "officialUrl": "https://nj.gov/labor/safetyandhealth/programs-services/asbestos/index.shtml",
       "sourceIds": [
         "us.nj.dol.asbestos_contractors"
@@ -3495,6 +4075,11 @@
       },
       "boardName": "New Jersey Public Works Contractor Registration",
       "agencyName": "New Jersey Department of Labor and Workforce Development Wage and Hour Compliance",
+      "inventoryStatus": "source_baseline",
+      "identity": {
+        "type": "source_endpoint",
+        "canonicalName": "New Jersey Public Works Contractor Registration"
+      },
       "officialUrl": "https://app.powerbigov.us/",
       "sourceIds": [
         "us.nj.dol.public_works_contractors"
@@ -3523,6 +4108,11 @@
       },
       "boardName": "New Mexico RLD Construction Industries License Verification",
       "agencyName": "New Mexico Regulation and Licensing Department",
+      "inventoryStatus": "source_baseline",
+      "identity": {
+        "type": "source_endpoint",
+        "canonicalName": "New Mexico RLD Construction Industries License Verification"
+      },
       "officialUrl": "https://public.psiexams.com/search.jsp",
       "sourceIds": [
         "us.nm.rld.construction_industries"
@@ -3565,6 +4155,11 @@
       },
       "boardName": "Nevada State Contractors Board License Search",
       "agencyName": "Nevada State Contractors Board",
+      "inventoryStatus": "source_baseline",
+      "identity": {
+        "type": "source_endpoint",
+        "canonicalName": "Nevada State Contractors Board License Search"
+      },
       "officialUrl": "https://app.nvcontractorsboard.com/Clients/NVSCB/Public/ContractorLicenseSearch/ContractorLicenseSearch.aspx",
       "sourceIds": [
         "us.nv.nscb.contractors"
@@ -3606,6 +4201,11 @@
       },
       "boardName": "New York Department of Labor Asbestos Contractor Listing",
       "agencyName": "New York State Department of Labor",
+      "inventoryStatus": "source_baseline",
+      "identity": {
+        "type": "source_endpoint",
+        "canonicalName": "New York Department of Labor Asbestos Contractor Listing"
+      },
       "officialUrl": "https://dol.ny.gov/asbestos-control-bureau",
       "sourceIds": [
         "us.ny.dol.asbestos_contractors"
@@ -3633,6 +4233,11 @@
       },
       "boardName": "New York Department of State Licensee Search",
       "agencyName": "New York Department of State Division of Licensing Services",
+      "inventoryStatus": "source_baseline",
+      "identity": {
+        "type": "source_endpoint",
+        "canonicalName": "New York Department of State Licensee Search"
+      },
       "officialUrl": "https://dos.ny.gov/licensee-search",
       "sourceIds": [
         "us.ny.dos.licensee_search"
@@ -3661,6 +4266,11 @@
       },
       "boardName": "Ohio Construction Industry Licensing Board Contractor License Lookup",
       "agencyName": "Ohio Department of Commerce Construction Industry Licensing Board",
+      "inventoryStatus": "source_baseline",
+      "identity": {
+        "type": "source_endpoint",
+        "canonicalName": "Ohio Construction Industry Licensing Board Contractor License Lookup"
+      },
       "officialUrl": "https://elicense4.com.ohio.gov/lookup/licenselookup.aspx",
       "sourceIds": [
         "us.oh.commerce.ocilb_contractors"
@@ -3691,6 +4301,11 @@
       },
       "boardName": "Ohio EPA Asbestos Certification and Licensing",
       "agencyName": "Ohio Environmental Protection Agency",
+      "inventoryStatus": "source_baseline",
+      "identity": {
+        "type": "source_endpoint",
+        "canonicalName": "Ohio EPA Asbestos Certification and Licensing"
+      },
       "officialUrl": "https://ebiz.epa.ohio.gov/",
       "sourceIds": [
         "us.oh.epa.asbestos_licenses"
@@ -3718,6 +4333,11 @@
       },
       "boardName": "Oklahoma Construction Industries Board License Searches",
       "agencyName": "Oklahoma Construction Industries Board",
+      "inventoryStatus": "source_baseline",
+      "identity": {
+        "type": "source_endpoint",
+        "canonicalName": "Oklahoma Construction Industries Board License Searches"
+      },
       "officialUrl": "https://oklahoma.gov/cib/consumers/are-they-licensed.html",
       "sourceIds": [
         "us.ok.cib.trades"
@@ -3752,6 +4372,11 @@
       },
       "boardName": "Oklahoma Department of Labor Asbestos Abatement Licensing",
       "agencyName": "Oklahoma Department of Labor",
+      "inventoryStatus": "source_baseline",
+      "identity": {
+        "type": "source_endpoint",
+        "canonicalName": "Oklahoma Department of Labor Asbestos Abatement Licensing"
+      },
       "officialUrl": "https://oklahoma.gov/labor/licensing/asbestos-abatement-inspection-and-licensing.html",
       "sourceIds": [
         "us.ok.labor.asbestos_contractors"
@@ -3779,6 +4404,11 @@
       },
       "boardName": "Oregon BCD Trade Contractor and Business Licenses",
       "agencyName": "Oregon Building Codes Division",
+      "inventoryStatus": "source_baseline",
+      "identity": {
+        "type": "source_endpoint",
+        "canonicalName": "Oregon BCD Trade Contractor and Business Licenses"
+      },
       "officialUrl": "https://www4.cbs.state.or.us/exs/all/mylicsearch/index.cfm?fuseaction=search.show_search_name&group_id=30",
       "sourceIds": [
         "us.or.bcd.trade_contractors"
@@ -3809,6 +4439,11 @@
       },
       "boardName": "Oregon CCB Active Licenses",
       "agencyName": "Oregon Construction Contractors Board",
+      "inventoryStatus": "source_baseline",
+      "identity": {
+        "type": "source_endpoint",
+        "canonicalName": "Oregon CCB Active Licenses"
+      },
       "officialUrl": "https://search.ccb.state.or.us/search/",
       "sourceIds": [
         "us.or.ccb.active_licenses"
@@ -3835,6 +4470,11 @@
       },
       "boardName": "Oregon DEQ Licensed Asbestos Abatement Contractors",
       "agencyName": "Oregon Department of Environmental Quality",
+      "inventoryStatus": "source_baseline",
+      "identity": {
+        "type": "source_endpoint",
+        "canonicalName": "Oregon DEQ Licensed Asbestos Abatement Contractors"
+      },
       "officialUrl": "https://www.oregon.gov/deq/hazards-and-cleanup/pages/asbestos-for-businesses.aspx",
       "sourceIds": [
         "us.or.deq.asbestos_contractors"
@@ -3862,6 +4502,11 @@
       },
       "boardName": "Pennsylvania DLI Certified Asbestos Abatement Companies",
       "agencyName": "Pennsylvania Department of Labor and Industry",
+      "inventoryStatus": "source_baseline",
+      "identity": {
+        "type": "source_endpoint",
+        "canonicalName": "Pennsylvania DLI Certified Asbestos Abatement Companies"
+      },
       "officialUrl": "https://www.pa.gov/content/dam/copapwp-pagov/en/dli/documents/individuals/labor-management-relations/bois/documents/asbcontr.htm",
       "sourceIds": [
         "us.pa.dli.asbestos_contractors"
@@ -3889,6 +4534,11 @@
       },
       "boardName": "Pennsylvania Office of Attorney General Home Improvement Contractor Search",
       "agencyName": "Pennsylvania Office of Attorney General",
+      "inventoryStatus": "source_baseline",
+      "identity": {
+        "type": "source_endpoint",
+        "canonicalName": "Pennsylvania Office of Attorney General Home Improvement Contractor Search"
+      },
       "officialUrl": "https://hicsearch.attorneygeneral.gov/",
       "sourceIds": [
         "us.pa.oag.home_improvement_contractors"
@@ -3922,6 +4572,11 @@
       },
       "boardName": "Puerto Rico DACO Registered Contractors List",
       "agencyName": "Departamento de Asuntos del Consumidor de Puerto Rico",
+      "inventoryStatus": "source_baseline",
+      "identity": {
+        "type": "source_endpoint",
+        "canonicalName": "Puerto Rico DACO Registered Contractors List"
+      },
       "officialUrl": "https://www.daco.pr.gov/consumidores/listado-contratistas-registrados/",
       "sourceIds": [
         "us.pr.daco.contractors"
@@ -3956,6 +4611,11 @@
       },
       "boardName": "Puerto Rico DRNA Asbestos Consultants and Contractors",
       "agencyName": "Departamento de Recursos Naturales y Ambientales de Puerto Rico",
+      "inventoryStatus": "source_baseline",
+      "identity": {
+        "type": "source_endpoint",
+        "canonicalName": "Puerto Rico DRNA Asbestos Consultants and Contractors"
+      },
       "officialUrl": "https://www.drna.pr.gov/acai/asbesto/",
       "sourceIds": [
         "us.pr.drna.asbestos_contractors"
@@ -3986,6 +4646,11 @@
       },
       "boardName": "Puerto Rico Department of State Examining Boards Trade Licenses",
       "agencyName": "Puerto Rico Department of State",
+      "inventoryStatus": "source_baseline",
+      "identity": {
+        "type": "source_endpoint",
+        "canonicalName": "Puerto Rico Department of State Examining Boards Trade Licenses"
+      },
       "officialUrl": "https://pr.pcshq.com/lookup/",
       "sourceIds": [
         "us.pr.estado.examining_boards_trades"
@@ -4020,6 +4685,11 @@
       },
       "boardName": "Rhode Island CRLB Registrant and Licensee Search",
       "agencyName": "Rhode Island Contractors' Registration and Licensing Board",
+      "inventoryStatus": "source_baseline",
+      "identity": {
+        "type": "source_endpoint",
+        "canonicalName": "Rhode Island CRLB Registrant and Licensee Search"
+      },
       "officialUrl": "https://crb.ecms.ri.gov/consumer/search-registrantlicensee",
       "sourceIds": [
         "us.ri.crlb.contractors"
@@ -4056,6 +4726,11 @@
       },
       "boardName": "Rhode Island DLT Professional Regulation Trade Licenses",
       "agencyName": "Rhode Island Department of Labor and Training, Division of Professional Regulation",
+      "inventoryStatus": "source_baseline",
+      "identity": {
+        "type": "source_endpoint",
+        "canonicalName": "Rhode Island DLT Professional Regulation Trade Licenses"
+      },
       "officialUrl": "https://dltweb.dlt.ri.gov/profregsonline/LicenseSearch",
       "sourceIds": [
         "us.ri.dlt.professional_trades"
@@ -4090,6 +4765,11 @@
       },
       "boardName": "Rhode Island Department of Health Asbestos Contractor List",
       "agencyName": "Rhode Island Department of Health",
+      "inventoryStatus": "source_baseline",
+      "identity": {
+        "type": "source_endpoint",
+        "canonicalName": "Rhode Island Department of Health Asbestos Contractor List"
+      },
       "officialUrl": "https://datahealth.ri.gov/find/asbestos/?prof=264&type=1022",
       "sourceIds": [
         "us.ri.health.asbestos_contractors"
@@ -4117,6 +4797,11 @@
       },
       "boardName": "South Carolina DES Asbestos Contractors and Consultants Search",
       "agencyName": "South Carolina Department of Environmental Services",
+      "inventoryStatus": "source_baseline",
+      "identity": {
+        "type": "source_endpoint",
+        "canonicalName": "South Carolina DES Asbestos Contractors and Consultants Search"
+      },
       "officialUrl": "https://apps.des.sc.gov/AsbestosContractorsAndConsultants/Index/CONTRACT/0",
       "sourceIds": [
         "us.sc.des.asbestos"
@@ -4144,6 +4829,11 @@
       },
       "boardName": "South Carolina LLR Contractor License Lookup",
       "agencyName": "South Carolina Department of Labor, Licensing and Regulation",
+      "inventoryStatus": "source_baseline",
+      "identity": {
+        "type": "source_endpoint",
+        "canonicalName": "South Carolina LLR Contractor License Lookup"
+      },
       "officialUrl": "https://verify.llronline.com/LicLookup/Contractors/Contractor.aspx?div=69",
       "sourceIds": [
         "us.sc.llr.contractors"
@@ -4181,6 +4871,11 @@
       },
       "boardName": "South Carolina Residential Builders Commission License Lookup",
       "agencyName": "South Carolina Residential Builders Commission",
+      "inventoryStatus": "source_baseline",
+      "identity": {
+        "type": "source_endpoint",
+        "canonicalName": "South Carolina Residential Builders Commission License Lookup"
+      },
       "officialUrl": "https://verify.llronline.com/LicLookup/Resbu/Resbu.aspx",
       "sourceIds": [
         "us.sc.llr.residential_builders"
@@ -4214,6 +4909,11 @@
       },
       "boardName": "South Dakota DANR Asbestos Services",
       "agencyName": "South Dakota Department of Agriculture and Natural Resources",
+      "inventoryStatus": "source_baseline",
+      "identity": {
+        "type": "source_endpoint",
+        "canonicalName": "South Dakota DANR Asbestos Services"
+      },
       "officialUrl": "https://danr.sd.gov/Environment/WasteManagement/Asbestos/docs/AsbestosServices.pdf",
       "sourceIds": [
         "us.sd.danr.asbestos_services"
@@ -4241,6 +4941,11 @@
       },
       "boardName": "South Dakota DLR Electrical Commission Licensing",
       "agencyName": "South Dakota Department of Labor and Regulation Electrical Commission",
+      "inventoryStatus": "source_baseline",
+      "identity": {
+        "type": "source_endpoint",
+        "canonicalName": "South Dakota DLR Electrical Commission Licensing"
+      },
       "officialUrl": "https://dlr.sd.gov/electrical/default.aspx",
       "sourceIds": [
         "us.sd.dlr.electrical"
@@ -4269,6 +4974,11 @@
       },
       "boardName": "South Dakota DLR Plumbing Commission Licensing",
       "agencyName": "South Dakota Department of Labor and Regulation Plumbing Commission",
+      "inventoryStatus": "source_baseline",
+      "identity": {
+        "type": "source_endpoint",
+        "canonicalName": "South Dakota DLR Plumbing Commission Licensing"
+      },
       "officialUrl": "https://dlr.sd.gov/plumbing/default.aspx",
       "sourceIds": [
         "us.sd.dlr.plumbing"
@@ -4298,6 +5008,11 @@
       },
       "boardName": "Tennessee Board for Licensing Contractors",
       "agencyName": "Tennessee Department of Commerce and Insurance",
+      "inventoryStatus": "source_baseline",
+      "identity": {
+        "type": "source_endpoint",
+        "canonicalName": "Tennessee Board for Licensing Contractors"
+      },
       "officialUrl": "https://verify.tn.gov/",
       "sourceIds": [
         "us.tn.commerce.contractors"
@@ -4339,6 +5054,11 @@
       },
       "boardName": "Texas DSHS Asbestos License Search",
       "agencyName": "Texas Department of State Health Services",
+      "inventoryStatus": "source_baseline",
+      "identity": {
+        "type": "source_endpoint",
+        "canonicalName": "Texas DSHS Asbestos License Search"
+      },
       "officialUrl": "https://vo.ras.dshs.state.tx.us/",
       "sourceIds": [
         "us.tx.dshs.asbestos"
@@ -4366,6 +5086,11 @@
       },
       "boardName": "Texas TDLR All Licenses",
       "agencyName": "Texas Department of Licensing and Regulation",
+      "inventoryStatus": "source_baseline",
+      "identity": {
+        "type": "source_endpoint",
+        "canonicalName": "Texas TDLR All Licenses"
+      },
       "officialUrl": "https://www.tdlr.texas.gov/verify.htm",
       "sourceIds": [
         "us.tx.tdlr.all_licenses"
@@ -4392,6 +5117,11 @@
       },
       "boardName": "Texas State Board of Plumbing Examiners License Search",
       "agencyName": "Texas State Board of Plumbing Examiners",
+      "inventoryStatus": "source_baseline",
+      "identity": {
+        "type": "source_endpoint",
+        "canonicalName": "Texas State Board of Plumbing Examiners License Search"
+      },
       "officialUrl": "https://vo.licensing.hpc.texas.gov/datamart/selSearchType.do",
       "sourceIds": [
         "us.tx.tsbpe.plumbing"
@@ -4420,6 +5150,11 @@
       },
       "boardName": "Utah DOPL Contractor License Lookup",
       "agencyName": "Utah Division of Professional Licensing",
+      "inventoryStatus": "source_baseline",
+      "identity": {
+        "type": "source_endpoint",
+        "canonicalName": "Utah DOPL Contractor License Lookup"
+      },
       "officialUrl": "https://secure.utah.gov/llv/search/index.html",
       "sourceIds": [
         "us.ut.dopl.contractors"
@@ -4460,6 +5195,11 @@
       },
       "boardName": "Virginia DPOR Asbestos, Lead, and Home Inspectors License Lookup",
       "agencyName": "Virginia Department of Professional and Occupational Regulation",
+      "inventoryStatus": "source_baseline",
+      "identity": {
+        "type": "source_endpoint",
+        "canonicalName": "Virginia DPOR Asbestos, Lead, and Home Inspectors License Lookup"
+      },
       "officialUrl": "https://www.dpor.virginia.gov/LicenseLookup",
       "sourceIds": [
         "us.va.dpor.asbestos_contractors"
@@ -4487,6 +5227,11 @@
       },
       "boardName": "Virginia DPOR Contractor and Tradesmen License Lookup",
       "agencyName": "Virginia Department of Professional and Occupational Regulation",
+      "inventoryStatus": "source_baseline",
+      "identity": {
+        "type": "source_endpoint",
+        "canonicalName": "Virginia DPOR Contractor and Tradesmen License Lookup"
+      },
       "officialUrl": "https://www.dpor.virginia.gov/LicenseLookup",
       "sourceIds": [
         "us.va.dpor.contractors"
@@ -4526,6 +5271,11 @@
       },
       "boardName": "U.S. Virgin Islands DLCA Construction Contractors and Trades License Search",
       "agencyName": "U.S. Virgin Islands Department of Licensing and Consumer Affairs",
+      "inventoryStatus": "source_baseline",
+      "identity": {
+        "type": "source_endpoint",
+        "canonicalName": "U.S. Virgin Islands DLCA Construction Contractors and Trades License Search"
+      },
       "officialUrl": "https://dlca.vi.gov/_new/",
       "sourceIds": [
         "us.vi.dlca.contractors_trades"
@@ -4567,6 +5317,11 @@
       },
       "boardName": "Vermont Division of Fire Safety Trade Licensing",
       "agencyName": "Vermont Department of Public Safety Division of Fire Safety",
+      "inventoryStatus": "source_baseline",
+      "identity": {
+        "type": "source_endpoint",
+        "canonicalName": "Vermont Division of Fire Safety Trade Licensing"
+      },
       "officialUrl": "https://data.vermont.gov/Government/DFS-Licensing-MasterList/cy8e-89cz",
       "sourceIds": [
         "us.vt.dfs.trade_licensing"
@@ -4598,6 +5353,11 @@
       },
       "boardName": "Vermont Department of Health Asbestos and Lead Contractor Lookup",
       "agencyName": "Vermont Department of Health",
+      "inventoryStatus": "source_baseline",
+      "identity": {
+        "type": "source_endpoint",
+        "canonicalName": "Vermont Department of Health Asbestos and Lead Contractor Lookup"
+      },
       "officialUrl": "https://www.healthvermont.gov/environment/asbestos-lead-requirements/look-licensed-asbestos-and-lead-contractors",
       "sourceIds": [
         "us.vt.health.asbestos_lead_contractors"
@@ -4626,6 +5386,11 @@
       },
       "boardName": "Vermont Secretary of State Residential Contractor Registry",
       "agencyName": "Vermont Secretary of State Office of Professional Regulation",
+      "inventoryStatus": "source_baseline",
+      "identity": {
+        "type": "source_endpoint",
+        "canonicalName": "Vermont Secretary of State Residential Contractor Registry"
+      },
       "officialUrl": "https://sos.vermont.gov/opr/find-a-professional",
       "sourceIds": [
         "us.vt.sos.residential_contractors"
@@ -4654,6 +5419,11 @@
       },
       "boardName": "Washington L&I Asbestos Abatement Contractor Certification",
       "agencyName": "Washington State Department of Labor & Industries",
+      "inventoryStatus": "source_baseline",
+      "identity": {
+        "type": "source_endpoint",
+        "canonicalName": "Washington L&I Asbestos Abatement Contractor Certification"
+      },
       "officialUrl": "https://secure.lni.wa.gov/verify/",
       "sourceIds": [
         "us.wa.lni.asbestos_contractors"
@@ -4681,6 +5451,11 @@
       },
       "boardName": "Washington L&I Contractor License Data",
       "agencyName": "Washington State Department of Labor & Industries",
+      "inventoryStatus": "source_baseline",
+      "identity": {
+        "type": "source_endpoint",
+        "canonicalName": "Washington L&I Contractor License Data"
+      },
       "officialUrl": "https://secure.lni.wa.gov/verify/",
       "sourceIds": [
         "us.wa.lni.contractors"
@@ -4707,6 +5482,11 @@
       },
       "boardName": "Washington L&I Electrical Contractor License",
       "agencyName": "Washington State Department of Labor & Industries",
+      "inventoryStatus": "source_baseline",
+      "identity": {
+        "type": "source_endpoint",
+        "canonicalName": "Washington L&I Electrical Contractor License"
+      },
       "officialUrl": "https://secure.lni.wa.gov/verify/",
       "sourceIds": [
         "us.wa.lni.electrical_contractors"
@@ -4735,6 +5515,11 @@
       },
       "boardName": "Washington L&I Plumbing Contractor License",
       "agencyName": "Washington State Department of Labor & Industries",
+      "inventoryStatus": "source_baseline",
+      "identity": {
+        "type": "source_endpoint",
+        "canonicalName": "Washington L&I Plumbing Contractor License"
+      },
       "officialUrl": "https://secure.lni.wa.gov/verify/",
       "sourceIds": [
         "us.wa.lni.plumbing_contractors"
@@ -4762,6 +5547,11 @@
       },
       "boardName": "Wisconsin DHS Certified Asbestos Company List",
       "agencyName": "Wisconsin Department of Health Services",
+      "inventoryStatus": "source_baseline",
+      "identity": {
+        "type": "source_endpoint",
+        "canonicalName": "Wisconsin DHS Certified Asbestos Company List"
+      },
       "officialUrl": "https://www.dhs.wisconsin.gov/asbestos/contractors.htm",
       "sourceIds": [
         "us.wi.dhs.asbestos_companies"
@@ -4789,6 +5579,11 @@
       },
       "boardName": "Wisconsin DSPS LicensE Dwelling and Trades Credential Lookup",
       "agencyName": "Wisconsin Department of Safety and Professional Services",
+      "inventoryStatus": "source_baseline",
+      "identity": {
+        "type": "source_endpoint",
+        "canonicalName": "Wisconsin DSPS LicensE Dwelling and Trades Credential Lookup"
+      },
       "officialUrl": "https://license.wi.gov/s/license-lookup",
       "sourceIds": [
         "us.wi.dsps.dwelling_trades"
@@ -4828,6 +5623,11 @@
       },
       "boardName": "West Virginia OEHS Asbestos License Holders",
       "agencyName": "West Virginia Department of Health, Office of Environmental Health Services",
+      "inventoryStatus": "source_baseline",
+      "identity": {
+        "type": "source_endpoint",
+        "canonicalName": "West Virginia OEHS Asbestos License Holders"
+      },
       "officialUrl": "https://oehs.wvdhhr.org/rtia/licensing/",
       "sourceIds": [
         "us.wv.health.asbestos_licenses"
@@ -4855,6 +5655,11 @@
       },
       "boardName": "West Virginia Division of Labor Contractor and Trade License Search",
       "agencyName": "West Virginia Division of Labor",
+      "inventoryStatus": "source_baseline",
+      "identity": {
+        "type": "source_endpoint",
+        "canonicalName": "West Virginia Division of Labor Contractor and Trade License Search"
+      },
       "officialUrl": "https://wvclboard.wv.gov/",
       "sourceIds": [
         "us.wv.labor.contractors"
@@ -4894,6 +5699,11 @@
       },
       "boardName": "Wyoming DEQ Asbestos Program",
       "agencyName": "Wyoming Department of Environmental Quality",
+      "inventoryStatus": "source_baseline",
+      "identity": {
+        "type": "source_endpoint",
+        "canonicalName": "Wyoming DEQ Asbestos Program"
+      },
       "officialUrl": "https://deq.wyoming.gov/aqd/compliance/asbestos/",
       "sourceIds": [
         "us.wy.deq.asbestos"
@@ -4921,6 +5731,11 @@
       },
       "boardName": "Wyoming State Fire Marshal Electrical Licensing",
       "agencyName": "Wyoming State Fire Marshal's Office",
+      "inventoryStatus": "source_baseline",
+      "identity": {
+        "type": "source_endpoint",
+        "canonicalName": "Wyoming State Fire Marshal Electrical Licensing"
+      },
       "officialUrl": "https://wsfm.wyo.gov/electrical-safety",
       "sourceIds": [
         "us.wy.firemarshal.electrical"
