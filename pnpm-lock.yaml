@@ -255,6 +255,19 @@ importers:
         specifier: ^1.4.11
         version: 1.4.11
 
+  services/ingestion-worker:
+    dependencies:
+      '@opentrade-registry/core':
+        specifier: workspace:*
+        version: link:../../packages/core
+      pg:
+        specifier: ^8.16.3
+        version: 8.22.0
+    devDependencies:
+      '@types/pg':
+        specifier: ^8.15.6
+        version: 8.20.0
+
   services/record-api:
     dependencies:
       '@opentrade-registry/core':
