@@ -48,4 +48,15 @@ describe("v2 Postgres record schema", () => {
     expect(sql).toContain("'dead_letter'");
     expect(sql).toContain("grant execute on function opentrade.fail_worker_job");
   });
+
+  it("registers snapshots and enqueues imports in one idempotent database operation", async () => {
+    const sql = await readFile(join(process.cwd(), "infra/postgres/migrations/0004_snapshot_import_enqueue.sql"), "utf8");
+    expect(sql).toContain("create or replace function opentrade.enqueue_snapshot_import");
+    expect(sql).toContain("source_snapshots_source_sha256_idx");
+    expect(sql).toContain("worker_jobs_snapshot_import_idx");
+    expect(sql).toContain("on conflict do nothing");
+    expect(sql).toContain("for update");
+    expect(sql).toContain("to opentrade_worker");
+    expect(sql).not.toContain("security definer");
+  });
 });
