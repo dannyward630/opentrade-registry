@@ -38,11 +38,17 @@ The current worker entrypoint provides job claiming, heartbeats, cancellation ob
 
 Set `OPENTRADE_WORKER_ADAPTERS` in `infra/.env` to explicitly enable packaged adapter exports. The value is a comma-separated list such as `@opentrade-registry/adapter-fl-dbpr:floridaDbprConstructionAdapter`. An empty value keeps snapshot imports disabled.
 
+Set `SNAPSHOT_STAGING_PATH` to a host directory containing operator-reviewed snapshot files and request JSON. Compose mounts it read-only at `/var/lib/opentrade/staging`. `OPENTRADE_MAX_SNAPSHOT_BYTES` is a hard per-file ceiling; lower it to the largest reviewed source shape when practical. Create the host directory before starting or running the worker.
+
+After uploading and checksum-verifying a snapshot in the private MinIO bucket, enqueue it with the one-shot command documented in [Ingestion And Promotion Contract](../ingestion.md). Enqueueing is idempotent but currently does not perform the MinIO upload or object `HEAD` verification. Do not queue an object key that has not been archived successfully.
+
 Postgres runs the ordered SQL files under `infra/postgres/migrations` only when initializing a new data volume. Existing deployments require an explicit migration runner before schema changes are deployed.
 
 ## Data Guarantees
 
 - source snapshots are immutable and checksum-deduplicated;
+- snapshot deduplication is scoped by source ID and SHA-256;
+- import jobs are idempotent for one snapshot, adapter package, and adapter version;
 - import manifests and record versions are append-only;
 - current records change only through one transaction-scoped promotion function;
 - additions, changes, and removals are recorded during promotion;
