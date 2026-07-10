@@ -76,23 +76,27 @@ begin
     raise exception 'import policy must be a JSON object';
   end if;
 
-  select * into v_snapshot
-  from opentrade.source_snapshots
-  where source_id = p_source_id and sha256 = p_sha256
-  for update;
+  insert into opentrade.source_snapshots (
+    source_id, source_url, object_key, sha256, compressed_bytes,
+    uncompressed_bytes, content_type, etag, last_modified_at, fetched_at, metadata
+  ) values (
+    p_source_id, p_source_url, p_object_key, p_sha256, p_compressed_bytes,
+    p_uncompressed_bytes, p_content_type, p_etag, p_last_modified_at, p_fetched_at,
+    coalesce(p_snapshot_metadata, '{}'::jsonb)
+  )
+  on conflict (source_id, sha256) do nothing
+  returning * into v_snapshot;
 
-  if not found then
-    insert into opentrade.source_snapshots (
-      source_id, source_url, object_key, sha256, compressed_bytes,
-      uncompressed_bytes, content_type, etag, last_modified_at, fetched_at, metadata
-    ) values (
-      p_source_id, p_source_url, p_object_key, p_sha256, p_compressed_bytes,
-      p_uncompressed_bytes, p_content_type, p_etag, p_last_modified_at, p_fetched_at,
-      coalesce(p_snapshot_metadata, '{}'::jsonb)
-    )
-    returning * into v_snapshot;
+  if found then
     v_snapshot_created := true;
-  elsif v_snapshot.object_key <> p_object_key then
+  else
+    select * into strict v_snapshot
+    from opentrade.source_snapshots
+    where source_id = p_source_id and sha256 = p_sha256
+    for update;
+  end if;
+
+  if v_snapshot.object_key <> p_object_key then
     raise exception 'snapshot content is already registered for source % with object key %', p_source_id, v_snapshot.object_key;
   end if;
 

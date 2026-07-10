@@ -54,6 +54,7 @@ describe("v2 Postgres record schema", () => {
     expect(sql).toContain("create or replace function opentrade.enqueue_snapshot_import");
     expect(sql).toContain("source_snapshots_source_sha256_idx");
     expect(sql).toContain("worker_jobs_snapshot_import_idx");
+    expect(sql).toContain("on conflict (source_id, sha256) do nothing");
     expect(sql).toContain("on conflict do nothing");
     expect(sql).toContain("for update");
     expect(sql).toContain("to opentrade_worker");
