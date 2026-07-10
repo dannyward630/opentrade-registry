@@ -13,6 +13,8 @@ The v2 ingestion path treats a source snapshot as immutable input and an import 
 
 `packages/core/src/ingestion/manifest.ts` is the shared offline contract. `assertPromotionReady` rejects non-validated manifests, unresolved schema drift, errors, count mismatches, duplicate source keys, and cross-source records. `buildPromotionPlan` sorts changes by source record key so manifests and tests remain deterministic.
 
+`services/ingestion-worker` is the private lifecycle service built on this contract. It claims jobs through the Postgres functions, dispatches only registered handlers, sends heartbeats, and records completion or failure without writing current records directly. It is available through the opt-in `worker` Compose profile. The default entrypoint has no source-specific handlers yet, so starting the profile is a lifecycle smoke path rather than a production import declaration.
+
 ## Worker Boundary
 
 The existing Postgres foundation in `infra/postgres/migrations/0001_v2_record_platform.sql` provides immutable snapshots, append-only record versions, current records, change history, transactional `promote_import`, and `FOR UPDATE SKIP LOCKED` job claims. Migration `0003_ingestion_worker_hardening.sql` adds heartbeats, stale-job recovery, cancellation requests, retry transitions, and dead-letter state. A worker implementation must call those contracts through the least-privilege worker role; it must not write current records outside the promotion function.
@@ -27,4 +29,4 @@ Worker retries must preserve the manifest and snapshot identifiers, heartbeat wh
 - Raw source snapshots remain private, checksum-linked, and outside git, Vercel, and Supabase metadata storage.
 - Publication disposition and sensitivity policy are evaluated before records become visible through hosted APIs.
 
-The Compose stack and recovery runbook remain deployment work. Until container startup, backup, restore, restart, and disk-pressure drills pass on the host, the private record platform is a foundation rather than a production service.
+The Compose stack and recovery runbook remain deployment work. Until container startup, backup, restore, restart, and disk-pressure drills pass on the host, the private record platform is a foundation rather than a production service. Before enabling a source handler, add its fixture/conformance tests, wire it to manifest staging and promotion, and document its source-specific operational and privacy checks.

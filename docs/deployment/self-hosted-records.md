@@ -28,6 +28,14 @@ This checkout has not yet run the Compose stack because no compatible container 
 5. Verify the `opentrade-snapshots` bucket denies anonymous access.
 6. Start `record-api`, verify `/health`, then test anonymous search limits and the authenticated create/list/revoke key lifecycle before exposing ingress.
 
+The ingestion worker is a separate opt-in profile and requires a dedicated login role with membership in `opentrade_worker`:
+
+```bash
+docker compose --env-file infra/.env -f infra/compose.yaml --profile worker up -d ingestion-worker
+```
+
+The current worker entrypoint provides job claiming, heartbeats, cancellation observation, and failure/dead-letter lifecycle calls. It does not register a source adapter handler yet; queued jobs without an explicitly wired handler are failed safely. Do not treat the profile as production ingestion until a handler has its adapter conformance tests and a successful local promotion drill.
+
 Postgres runs the ordered SQL files under `infra/postgres/migrations` only when initializing a new data volume. Existing deployments require an explicit migration runner before schema changes are deployed.
 
 ## Data Guarantees
@@ -40,4 +48,4 @@ Postgres runs the ordered SQL files under `infra/postgres/migrations` only when 
 - application services inherit narrowly scoped API or worker roles;
 - snapshot ingestion must stop at critical disk thresholds rather than delete history.
 
-Backups, external replication, restore drills, and disk alerts are release blockers before production records are imported.
+Backups, external replication, restore drills, and disk alerts are release blockers before production records are imported. A container runtime has not been installed or started on the current Mac, so these operational checks remain pending.
