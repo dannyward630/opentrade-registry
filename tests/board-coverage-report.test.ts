@@ -7,6 +7,7 @@ describe("board coverage report", () => {
     expect(result.status).toBe(0);
     expect(JSON.parse(result.stdout)).toMatchObject({
       completeness: "board_complete",
+      inventoryCompleteness: "representative_source_baseline",
       jurisdictionCount: 56,
       tradeDomainCount: 14,
       decisionCount: 784,
@@ -15,10 +16,10 @@ describe("board coverage report", () => {
     });
   });
 
-  it("passes the release gate when every trade domain is terminal", () => {
+  it("holds the release gate until the board inventory is independently complete", () => {
     const result = run("--require-complete");
-    expect(result.status).toBe(0);
-    expect(result.stderr).toBe("");
+    expect(result.status).toBe(1);
+    expect(result.stderr).toContain("board inventory is still a representative source baseline");
   });
 });
 

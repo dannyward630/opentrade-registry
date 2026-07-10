@@ -72,6 +72,9 @@ jobs:
       - name: Check source quality
         run: corepack pnpm source:quality --json
 
+      - name: Report board-inventory evidence level
+        run: corepack pnpm board:inventory:report --json
+
       - name: Audit dependencies
         run: corepack pnpm security:audit
 

@@ -1126,13 +1126,57 @@
                     "blocked",
                     "deprecated"
                   ]
+                },
+                "board": {
+                  "anyOf": [
+                    {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "name": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "inventoryStatus": {
+                          "type": "string",
+                          "enum": [
+                            "source_baseline",
+                            "board_verified",
+                            "deprecated"
+                          ]
+                        },
+                        "identityType": {
+                          "type": "string",
+                          "enum": [
+                            "regulatory_board",
+                            "agency_program",
+                            "source_endpoint"
+                          ]
+                        }
+                      },
+                      "required": [
+                        "id",
+                        "name",
+                        "inventoryStatus",
+                        "identityType"
+                      ],
+                      "additionalProperties": false
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
                 }
               },
               "required": [
                 "id",
                 "name",
                 "sourceUrl",
-                "accessPath"
+                "accessPath",
+                "board"
               ],
               "additionalProperties": false
             }

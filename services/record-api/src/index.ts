@@ -83,7 +83,19 @@ export function createRecordApi(options: RecordApiOptions): (request: Request) =
           apiVersion: "2.0",
           count: options.sources.length,
           completeness: options.boardInventory.completeness,
-          sources: options.sources.map((source) => ({ ...source, accessPath: boards.get(source.id)?.accessPath ?? "blocked" })),
+          sources: options.sources.map((source) => {
+            const board = boards.get(source.id);
+            return {
+              ...source,
+              accessPath: board?.accessPath ?? "blocked",
+              board: board ? {
+                id: board.id,
+                name: board.boardName,
+                inventoryStatus: board.inventoryStatus,
+                identityType: board.identity.type,
+              } : null,
+            };
+          }),
         }, 200, request, options.allowedOrigins, "public, max-age=300");
       }
 
