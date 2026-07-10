@@ -132,6 +132,31 @@ export const boardInventoryEntrySchema = z.object({
   }),
 });
 
+export const boardInventoryAuditEntrySchema = boardInventoryEntrySchema
+  .extend({ inventoryStatus: z.literal("board_verified") })
+  .superRefine((board, context) => {
+    if (board.identity.type === "source_endpoint") {
+      context.addIssue({
+        code: "custom",
+        path: ["identity", "type"],
+        message: "Audited boards require a regulatory-board or agency-program identity.",
+      });
+    }
+  });
+
+export const boardInventoryAuditManifestSchema = z.object({
+  schemaVersion: z.literal("1.0"),
+  audits: z.array(boardInventoryAuditEntrySchema),
+}).superRefine((manifest, context) => {
+  if (new Set(manifest.audits.map((audit) => audit.id)).size !== manifest.audits.length) {
+    context.addIssue({ code: "custom", path: ["audits"], message: "Board audit IDs must be unique." });
+  }
+  const sourceIds = manifest.audits.flatMap((audit) => audit.sourceIds);
+  if (new Set(sourceIds).size !== sourceIds.length) {
+    context.addIssue({ code: "custom", path: ["audits"], message: "A source can belong to only one board audit." });
+  }
+});
+
 export const nationwideBoardInventorySchema = z.object({
   schemaVersion: z.literal("2.0"),
   completeness: z.enum(["representative_source_baseline", "board_complete"]),
@@ -185,6 +210,8 @@ export type BoardAccessPath = z.infer<typeof boardAccessPathSchema>;
 export type BoardInventoryStatus = z.infer<typeof boardInventoryStatusSchema>;
 export type BoardIdentityType = z.infer<typeof boardIdentityTypeSchema>;
 export type BoardInventoryEntry = z.infer<typeof boardInventoryEntrySchema>;
+export type BoardInventoryAuditEntry = z.infer<typeof boardInventoryAuditEntrySchema>;
+export type BoardInventoryAuditManifest = z.infer<typeof boardInventoryAuditManifestSchema>;
 export type NationwideBoardInventory = z.infer<typeof nationwideBoardInventorySchema>;
 export type BoardTradeDomain = z.infer<typeof boardTradeDomainSchema>;
 export type BoardTradeCoverageDecision = z.infer<typeof boardTradeCoverageDecisionSchema>;

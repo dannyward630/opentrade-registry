@@ -4,8 +4,10 @@ import { fileURLToPath } from "node:url";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 const outputPath = join(root, "registry", "board-inventory.json");
+const auditsPath = join(root, "registry", "board-audits.json");
 const check = process.argv.includes("--check");
 const sources = await readSources(join(root, "registry", "sources"));
+const audits = await readAudits(auditsPath, sources);
 const inventory = {
   schemaVersion: "2.0",
   completeness: "representative_source_baseline",
@@ -17,7 +19,10 @@ const inventory = {
       "Municipal contractor and trade licensing remains outside the project scope unless separately registered.",
     ],
   },
-  boards: sources.map(toBoardEntry),
+  boards: [
+    ...sources.filter((source) => !audits.sourceIds.has(source.id)).map(toBoardEntry),
+    ...audits.entries,
+  ].toSorted((left, right) => left.id.localeCompare(right.id)),
 };
 const next = `${JSON.stringify(inventory, null, 2)}\n`;
 
@@ -77,4 +82,28 @@ async function readSources(directory) {
     }
   }
   return sources.sort((left, right) => left.id.localeCompare(right.id));
+}
+
+async function readAudits(path, sources) {
+  const manifest = JSON.parse(await readFile(path, "utf8"));
+  const sourceById = new Map(sources.map((source) => [source.id, source]));
+  const sourceIds = new Set();
+  for (const audit of manifest.audits) {
+    if (audit.inventoryStatus !== "board_verified") {
+      throw new Error(`Board audit ${audit.id} must have inventoryStatus board_verified.`);
+    }
+    if (audit.identity?.type === "source_endpoint") {
+      throw new Error(`Board audit ${audit.id} cannot use a source_endpoint identity.`);
+    }
+    for (const sourceId of audit.sourceIds) {
+      const source = sourceById.get(sourceId);
+      if (!source) throw new Error(`Board audit ${audit.id} references unknown source ${sourceId}.`);
+      if (sourceIds.has(sourceId)) throw new Error(`Source ${sourceId} appears in more than one board audit.`);
+      if (source.jurisdiction.state !== audit.jurisdiction.state) {
+        throw new Error(`Board audit ${audit.id} and source ${sourceId} must have the same jurisdiction.`);
+      }
+      sourceIds.add(sourceId);
+    }
+  }
+  return { entries: manifest.audits, sourceIds };
 }

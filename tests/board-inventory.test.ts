@@ -16,8 +16,10 @@ describe("nationwide board inventory", () => {
     expect(inventory.boards).toHaveLength(sourceIds.length);
     expect(new Set(inventory.boards.map((board) => board.id)).size).toBe(inventory.boards.length);
     expect([...linkedSourceIds].sort()).toEqual(sourceIds);
-    expect(inventory.boards.every((board) => board.inventoryStatus === "source_baseline")).toBe(true);
-    expect(inventory.boards.every((board) => board.identity.type === "source_endpoint")).toBe(true);
+    expect(inventory.boards.filter((board) => board.inventoryStatus === "source_baseline")).toHaveLength(sourceIds.length - 1);
+    expect(inventory.boards.filter((board) => board.inventoryStatus === "board_verified")).toHaveLength(1);
+    expect(inventory.boards.filter((board) => board.identity.type === "source_endpoint")).toHaveLength(sourceIds.length - 1);
+    expect(inventory.boards.filter((board) => board.identity.type === "regulatory_board")).toHaveLength(1);
     expect(isBoardInventoryComplete(inventory)).toBe(false);
   });
 

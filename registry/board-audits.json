@@ -1,0 +1,49 @@
+{
+  "schemaVersion": "1.0",
+  "audits": [
+    {
+      "id": "us.az.roc.contractors",
+      "jurisdiction": {
+        "country": "US",
+        "state": "AZ"
+      },
+      "boardName": "Arizona Registrar of Contractors",
+      "agencyName": "Arizona Registrar of Contractors",
+      "inventoryStatus": "board_verified",
+      "identity": {
+        "type": "regulatory_board",
+        "canonicalName": "Arizona Registrar of Contractors"
+      },
+      "officialUrl": "https://roc.az.gov/",
+      "sourceIds": [
+        "us.az.roc.contractors"
+      ],
+      "trades": [
+        "general_contracting",
+        "residential_contracting",
+        "commercial_contracting",
+        "electrical",
+        "plumbing",
+        "hvac",
+        "mechanical",
+        "roofing",
+        "solar",
+        "pool_spa",
+        "sheet_metal",
+        "underground_utility",
+        "home_improvement"
+      ],
+      "accessPath": "network_opt_in",
+      "coverageLimitations": [
+        "The posting-list export contains current active contractors and is not a historical register.",
+        "Arizona ROC jurisdiction does not replace local permits, registrations, or credentials outside the agency's contractor classifications.",
+        "The statewide coverage ledger records asbestos as not state regulated by this board."
+      ],
+      "evidence": {
+        "url": "https://roc.az.gov/license-classifications",
+        "reviewedAt": "2026-07-01T05:25:00.000Z",
+        "note": "Official Arizona ROC classification guidance was reviewed against the statewide trade-domain ledger; it identifies statewide general, residential, commercial, electrical, plumbing, HVAC, mechanical, roofing, solar, pool/spa, sheet-metal, underground-utility, and home-improvement contractor classifications."
+      }
+    }
+  ]
+}
