@@ -29,7 +29,7 @@ OpenTrade Registry currently tracks `163` official sources covering all 50 state
 - `0` provisional research outcomes;
 - `0` default tests that contact agency systems.
 
-The [generated source-status matrix](docs/source-status-matrix.md) is the authoritative public source summary. The v2 [nationwide board inventory](docs/board-inventory.md) keeps a representative source baseline, and the [board coverage matrix](docs/board-coverage-matrix.md) now has terminal, evidence-backed decisions for every tracked jurisdiction/domain pair.
+The [generated source-status matrix](docs/source-status-matrix.md) is the authoritative public source summary. The v2 [nationwide board inventory](docs/board-inventory.md) keeps a representative source baseline: it distinguishes deterministic source rows from independently audited regulatory boards. The [board coverage matrix](docs/board-coverage-matrix.md) has terminal, evidence-backed decisions for every tracked jurisdiction/domain pair, but the board inventory will not claim `board_complete` until its source-baseline rows are audited and consolidated.
 
 | Source | Capability | Input |
 | --- | --- | --- |

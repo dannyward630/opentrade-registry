@@ -9,7 +9,7 @@ V1 remains maintained for source-shape corrections, security updates, dependency
 ## V2 Contract And Inventory
 
 - introduce explicit v2 canonical, source, adapter, and verification contracts with v1 readers;
-- inventory material statewide boards separately instead of treating one representative source as complete state coverage;
+- continue converting the source-baseline inventory into independently audited material statewide boards; the nine supported adapter paths are the first verified board or agency-program records;
 - classify every board as bulk, API, permitted browser lookup, official manual handoff, blocked, or deprecated;
 - record publication, privacy, retention, freshness, synchronization, health, evidence, and source-host policies;
 - keep municipal licensing explicitly out of scope.

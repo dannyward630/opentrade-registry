@@ -47,6 +47,8 @@
     "coverage:health": "node scripts/coverage-health.mjs",
     "board:inventory:generate": "node scripts/generate-board-inventory.mjs",
     "board:inventory:check": "node scripts/generate-board-inventory.mjs --check",
+    "board:inventory:report": "node scripts/board-inventory-report.mjs",
+    "board:inventory:require-complete": "node scripts/board-inventory-report.mjs --require-complete",
     "board:coverage:check": "node scripts/board-coverage-report.mjs",
     "board:coverage:report": "node scripts/board-coverage-report.mjs --json",
     "board:coverage:require-complete": "node scripts/board-coverage-report.mjs --require-complete",

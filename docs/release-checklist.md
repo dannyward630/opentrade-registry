@@ -8,6 +8,7 @@
 - [ ] No high/critical Dependabot, CodeQL, or secret-scanning alert is unresolved.
 - [ ] Node 20/22/24 CI is green on Linux, macOS, and Windows.
 - [ ] All 163 sources have terminal outcomes.
+- [ ] `corepack pnpm board:inventory:require-complete` passes with no source-baseline inventory rows.
 - [ ] All implemented adapters are Level 4 and none are fixture-only terminal outcomes.
 - [ ] CLI file, cache, and explicit-network behavior is covered offline.
 - [ ] No generated dataset, SQLite cache, credential, or bulk download is staged.

@@ -1,0 +1,241 @@
+{
+  "schemaVersion": "1.0",
+  "audits": [
+    {
+      "id": "us.az.roc.contractors",
+      "jurisdiction": {
+        "country": "US",
+        "state": "AZ"
+      },
+      "boardName": "Arizona Registrar of Contractors",
+      "agencyName": "Arizona Registrar of Contractors",
+      "inventoryStatus": "board_verified",
+      "identity": {
+        "type": "regulatory_board",
+        "canonicalName": "Arizona Registrar of Contractors"
+      },
+      "officialUrl": "https://roc.az.gov/",
+      "sourceIds": [
+        "us.az.roc.contractors"
+      ],
+      "trades": [
+        "general_contracting",
+        "residential_contracting",
+        "commercial_contracting",
+        "electrical",
+        "plumbing",
+        "hvac",
+        "mechanical",
+        "roofing",
+        "solar",
+        "pool_spa",
+        "sheet_metal",
+        "underground_utility",
+        "home_improvement"
+      ],
+      "accessPath": "network_opt_in",
+      "coverageLimitations": [
+        "The posting-list export contains current active contractors and is not a historical register.",
+        "Arizona ROC jurisdiction does not replace local permits, registrations, or credentials outside the agency's contractor classifications.",
+        "The statewide coverage ledger records asbestos as not state regulated by this board."
+      ],
+      "evidence": {
+        "url": "https://roc.az.gov/license-classifications",
+        "reviewedAt": "2026-07-01T05:25:00.000Z",
+        "note": "Official Arizona ROC classification guidance was reviewed against the statewide trade-domain ledger; it identifies statewide general, residential, commercial, electrical, plumbing, HVAC, mechanical, roofing, solar, pool/spa, sheet-metal, underground-utility, and home-improvement contractor classifications."
+      }
+    },
+    {
+      "id": "us.ca.cslb.contractors",
+      "jurisdiction": { "country": "US", "state": "CA" },
+      "boardName": "California Contractors State License Board",
+      "agencyName": "California Contractors State License Board",
+      "inventoryStatus": "board_verified",
+      "identity": {
+        "type": "regulatory_board",
+        "canonicalName": "California Contractors State License Board"
+      },
+      "officialUrl": "https://www.cslb.ca.gov/",
+      "sourceIds": ["us.ca.cslb.contractors"],
+      "trades": ["construction"],
+      "accessPath": "local_file",
+      "coverageLimitations": [
+        "The master file includes currently renewed licenses and expired licenses that remain renewable; it excludes cancelled, revoked, and nonrenewable licenses.",
+        "Companion personnel, bond, and workers' compensation files are outside this audited source path."
+      ],
+      "evidence": {
+        "url": "https://www.cslb.ca.gov/onlineservices/dataportal/ContractorList",
+        "reviewedAt": "2026-06-28T00:00:00.000Z",
+        "note": "The official CSLB Data Portal coverage text, direct master CSV header, and representative row shape were reviewed for the local-file adapter path."
+      }
+    },
+    {
+      "id": "us.fl.dbpr.asbestos_contractors",
+      "jurisdiction": { "country": "US", "state": "FL" },
+      "boardName": "Florida DBPR Asbestos Contractors and Consultants Licensing Program",
+      "agencyName": "Florida Department of Business and Professional Regulation",
+      "inventoryStatus": "board_verified",
+      "identity": {
+        "type": "agency_program",
+        "canonicalName": "Florida DBPR Asbestos Contractors and Consultants Licensing Program"
+      },
+      "officialUrl": "https://www2.myfloridalicense.com/asbestos-contractors-and-consultants/public-records/",
+      "sourceIds": ["us.fl.dbpr.asbestos_contractors"],
+      "trades": ["asbestos"],
+      "accessPath": "network_opt_in",
+      "coverageLimitations": [
+        "The bulk download excludes null-and-void, delinquent, and involuntarily inactive records.",
+        "The official source also includes asbestos consultant and business categories; only clearly identified occupation codes are normalized."
+      ],
+      "evidence": {
+        "url": "https://www2.myfloridalicense.com/asbestos-contractors-and-consultants/public-records/",
+        "reviewedAt": "2026-07-01T05:35:00.000Z",
+        "note": "Official DBPR public-records guidance documents the board 59 bulk file, its layout, included statuses, and exclusions."
+      }
+    },
+    {
+      "id": "us.fl.dbpr.construction",
+      "jurisdiction": { "country": "US", "state": "FL" },
+      "boardName": "Florida DBPR Construction Industry Licensing Program",
+      "agencyName": "Florida Department of Business and Professional Regulation",
+      "inventoryStatus": "board_verified",
+      "identity": {
+        "type": "agency_program",
+        "canonicalName": "Florida DBPR Construction Industry Licensing Program"
+      },
+      "officialUrl": "https://www.myfloridalicense.com/wl11.asp",
+      "sourceIds": ["us.fl.dbpr.construction"],
+      "trades": ["construction"],
+      "accessPath": "network_opt_in",
+      "coverageLimitations": [
+        "Coverage and exclusions must be verified against official documentation before generated datasets are redistributed.",
+        "This source is limited to DBPR construction-industry records and does not represent every Florida trade, local license, complaint, or discipline source."
+      ],
+      "evidence": {
+        "url": "https://www.myfloridalicense.com/wl11.asp",
+        "reviewedAt": "2026-06-27T00:00:00.000Z",
+        "note": "The official DBPR bulk source and opt-in network path were reviewed for the construction-industry licensing program."
+      }
+    },
+    {
+      "id": "us.fl.dbpr.electrical_contractors",
+      "jurisdiction": { "country": "US", "state": "FL" },
+      "boardName": "Florida DBPR Electrical Contractors Licensing Program",
+      "agencyName": "Florida Department of Business and Professional Regulation",
+      "inventoryStatus": "board_verified",
+      "identity": {
+        "type": "agency_program",
+        "canonicalName": "Florida DBPR Electrical Contractors Licensing Program"
+      },
+      "officialUrl": "https://www2.myfloridalicense.com/electrical-contractors/public-records/",
+      "sourceIds": ["us.fl.dbpr.electrical_contractors"],
+      "trades": ["electrical"],
+      "accessPath": "network_opt_in",
+      "coverageLimitations": [
+        "The bulk download excludes null-and-void, delinquent, and involuntarily inactive records.",
+        "This source does not represent local permits, local registrations outside DBPR coverage, complaints, or discipline history."
+      ],
+      "evidence": {
+        "url": "https://www2.myfloridalicense.com/electrical-contractors/public-records/",
+        "reviewedAt": "2026-07-01T05:35:00.000Z",
+        "note": "Official DBPR public-records guidance documents the board 08 bulk file, its layout, included statuses, and exclusions."
+      }
+    },
+    {
+      "id": "us.mn.dli.licenses_registrations",
+      "jurisdiction": { "country": "US", "state": "MN" },
+      "boardName": "Minnesota DLI Construction Codes and Licensing License and Registration Export",
+      "agencyName": "Minnesota Department of Labor and Industry",
+      "inventoryStatus": "board_verified",
+      "identity": {
+        "type": "agency_program",
+        "canonicalName": "Minnesota DLI Construction Codes and Licensing License and Registration Program"
+      },
+      "officialUrl": "https://www.dli.mn.gov/license-and-registration-lookup",
+      "sourceIds": ["us.mn.dli.licenses_registrations"],
+      "trades": ["construction codes and licensing"],
+      "accessPath": "local_file",
+      "coverageLimitations": [
+        "The export can include license, bond, certification, and registration types beyond contractor licenses.",
+        "Local permits, business registrations, and sources outside DLI Construction Codes and Licensing are outside this source path."
+      ],
+      "evidence": {
+        "url": "https://www.dli.mn.gov/license-and-registration-lookup",
+        "reviewedAt": "2026-06-28T00:00:00.000Z",
+        "note": "The official DLI page, nightly ZIP link, CSV header, and representative row shape were reviewed for the local-file adapter path."
+      }
+    },
+    {
+      "id": "us.or.ccb.active_licenses",
+      "jurisdiction": { "country": "US", "state": "OR" },
+      "boardName": "Oregon Construction Contractors Board",
+      "agencyName": "Oregon Construction Contractors Board",
+      "inventoryStatus": "board_verified",
+      "identity": {
+        "type": "regulatory_board",
+        "canonicalName": "Oregon Construction Contractors Board"
+      },
+      "officialUrl": "https://search.ccb.state.or.us/search/",
+      "sourceIds": ["us.or.ccb.active_licenses"],
+      "trades": ["construction"],
+      "accessPath": "network_opt_in",
+      "coverageLimitations": [
+        "The source is limited to active licenses; inactive, expired, suspended, historical, local, or other-agency records can be excluded.",
+        "Electrical, plumbing, landscape, asbestos, and other specialized records can be regulated by separate Oregon agencies."
+      ],
+      "evidence": {
+        "url": "https://search.ccb.state.or.us/search/",
+        "reviewedAt": "2026-06-27T00:00:00.000Z",
+        "note": "The official CCB bulk-source and opt-in network path were reviewed for active contractor licenses."
+      }
+    },
+    {
+      "id": "us.tx.tdlr.all_licenses",
+      "jurisdiction": { "country": "US", "state": "TX" },
+      "boardName": "Texas TDLR All Licenses Dataset",
+      "agencyName": "Texas Department of Licensing and Regulation",
+      "inventoryStatus": "board_verified",
+      "identity": {
+        "type": "agency_program",
+        "canonicalName": "Texas TDLR Licensed Programs Dataset"
+      },
+      "officialUrl": "https://www.tdlr.texas.gov/verify.htm",
+      "sourceIds": ["us.tx.tdlr.all_licenses"],
+      "trades": ["multiple regulated trades"],
+      "accessPath": "network_opt_in",
+      "coverageLimitations": [
+        "The dataset spans many TDLR license types and is not limited to construction or skilled-trade licenses.",
+        "Texas licensing is split across state and local authorities; this source does not represent every contractor or trade authorization."
+      ],
+      "evidence": {
+        "url": "https://www.tdlr.texas.gov/verify.htm",
+        "reviewedAt": "2026-06-27T00:00:00.000Z",
+        "note": "The official TDLR bulk-source and opt-in network path were reviewed for the all-licenses dataset."
+      }
+    },
+    {
+      "id": "us.wa.lni.contractors",
+      "jurisdiction": { "country": "US", "state": "WA" },
+      "boardName": "Washington L&I Contractor Registration Program",
+      "agencyName": "Washington State Department of Labor & Industries",
+      "inventoryStatus": "board_verified",
+      "identity": {
+        "type": "agency_program",
+        "canonicalName": "Washington L&I Contractor Registration Program"
+      },
+      "officialUrl": "https://secure.lni.wa.gov/verify/",
+      "sourceIds": ["us.wa.lni.contractors"],
+      "trades": ["contractor registration"],
+      "accessPath": "network_opt_in",
+      "coverageLimitations": [
+        "The source is focused on Washington L&I contractor registration and does not represent every local permit, business registration, or trade authorization in Washington.",
+        "Workers compensation, bond, insurance, infraction, and lawsuit details can require separate official sources or additional field review."
+      ],
+      "evidence": {
+        "url": "https://secure.lni.wa.gov/verify/",
+        "reviewedAt": "2026-06-27T00:00:00.000Z",
+        "note": "The official Washington L&I bulk-source and opt-in network path were reviewed for contractor registration records."
+      }
+    }
+  ]
+}

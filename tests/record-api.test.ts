@@ -35,7 +35,15 @@ describe("v2 record API", () => {
     expect(recordApiSourceListResponseV2Schema.parse(await response.json())).toMatchObject({
       apiVersion: "2.0",
       count: 1,
-      sources: [{ id: "us.fl.dbpr.construction", accessPath: "network_opt_in" }],
+      sources: [{
+        id: "us.fl.dbpr.construction",
+        accessPath: "network_opt_in",
+        board: {
+          id: "us.fl.dbpr.construction",
+          inventoryStatus: "board_verified",
+          identityType: "agency_program",
+        },
+      }],
     });
   });
 
@@ -110,6 +118,8 @@ function inventory(sourceId = "us.fl.dbpr.construction", accessPath = "network_o
       jurisdiction: { country: "US", state: "FL" },
       boardName: "Example board",
       agencyName: "Example agency",
+      inventoryStatus: "board_verified",
+      identity: { type: "agency_program", canonicalName: "Example board" },
       officialUrl: "https://example.gov/lookup",
       sourceIds: [sourceId],
       trades: ["general contracting"],
