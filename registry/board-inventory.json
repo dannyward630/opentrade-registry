@@ -539,14 +539,14 @@
         "country": "US",
         "state": "CO"
       },
-      "boardName": "Colorado DORA Division of Professions and Occupations Trade License Lookup",
+      "boardName": "Colorado DORA Division of Professions and Occupations Trade Licensing Program",
       "agencyName": "Colorado Department of Regulatory Agencies",
-      "inventoryStatus": "source_baseline",
+      "inventoryStatus": "board_verified",
       "identity": {
-        "type": "source_endpoint",
-        "canonicalName": "Colorado DORA Division of Professions and Occupations Trade License Lookup"
+        "type": "agency_program",
+        "canonicalName": "Colorado DORA Division of Professions and Occupations Trade Licensing Program"
       },
-      "officialUrl": "https://apps.colorado.gov/dora/licensing/Lookup/LicenseLookup.aspx",
+      "officialUrl": "https://dora.colorado.gov/check-a-license",
       "sourceIds": [
         "us.co.dora.trades"
       ],
@@ -556,15 +556,15 @@
       ],
       "accessPath": "manual_handoff",
       "coverageLimitations": [
-        "Colorado does not have a single statewide general contractor source represented by this entry.",
-        "DORA consumer guidance says some occupations, including roofers and general contractors, are not licensed statewide and may be subject to city or county rules.",
-        "Local contractor licenses, local permits, and non-DORA authorizations are outside this source entry.",
-        "CDPHE asbestos certification is tracked in a separate source entry."
+        "This source covers DORA trade credentials, including electrical and plumbing programs, and is not a single statewide general-contractor source.",
+        "DORA guidance states that some occupations, including roofers and general contractors, are not licensed statewide and may be subject to city or county rules.",
+        "Local contractor licenses, permits, non-DORA authorizations, and CDPHE asbestos certification are outside this source record.",
+        "The official lookup has no stable documented machine-readable interface suitable for an adapter; OpenTrade does not bypass access controls."
       ],
       "evidence": {
         "url": "https://apps.colorado.gov/dora/licensing/Lookup/LicenseLookup.aspx",
         "reviewedAt": "2026-07-01T08:10:00.000Z",
-        "note": "Official public source, access shape, and current automation constraints reviewed."
+        "note": "Official DORA lookup access, DPO electrical and plumbing program guidance, and DORA consumer scope limitations were reviewed; the source remains an official manual handoff."
       }
     },
     {
@@ -573,14 +573,14 @@
         "country": "US",
         "state": "CT"
       },
-      "boardName": "Connecticut DCP eLicense Home Improvement Contractor Lookup",
+      "boardName": "Connecticut DCP Home Improvement Contractor Registration Program",
       "agencyName": "Connecticut Department of Consumer Protection",
-      "inventoryStatus": "source_baseline",
+      "inventoryStatus": "board_verified",
       "identity": {
-        "type": "source_endpoint",
-        "canonicalName": "Connecticut DCP eLicense Home Improvement Contractor Lookup"
+        "type": "agency_program",
+        "canonicalName": "Connecticut DCP Home Improvement Contractor Registration Program"
       },
-      "officialUrl": "https://www.elicense.ct.gov/Lookup/LicenseLookup.aspx",
+      "officialUrl": "https://portal.ct.gov/dcp/home-improvement",
       "sourceIds": [
         "us.ct.dcp.home_improvement_contractors"
       ],
@@ -593,14 +593,14 @@
       ],
       "accessPath": "manual_handoff",
       "coverageLimitations": [
-        "The eLicense portal covers many license and registration types and this source entry does not isolate every construction-relevant credential.",
-        "Local permits, municipal registrations, and non-DCP authorizations are outside this source entry.",
-        "Roster generation is referenced by the official page, but bulk-export terms and fixture-safe fields require future review."
+        "The eLicense portal covers many license and registration types and does not isolate every construction-relevant credential.",
+        "Local permits, municipal registrations, and non-DCP authorizations are outside this source record.",
+        "Bulk-export terms and fixture-safe fields require future review; the official lookup remains a manual handoff."
       ],
       "evidence": {
-        "url": "https://www.elicense.ct.gov/Lookup/LicenseLookup.aspx",
-        "reviewedAt": "2026-06-27T00:00:00.000Z",
-        "note": "Official public source, access shape, and current automation constraints reviewed."
+        "url": "https://portal.ct.gov/dcp/license-services-division/all-license-applications/home-improvement-applications",
+        "reviewedAt": "2026-07-02T00:00:00.000Z",
+        "note": "Official DCP guidance requires home-improvement and new-home-construction contractor registration and defines covered residential work, including swimming pools and roofs."
       }
     },
     {
@@ -1292,14 +1292,14 @@
         "country": "US",
         "state": "IA"
       },
-      "boardName": "Iowa DIAL Contractor Registration Lookup",
+      "boardName": "Iowa DIAL Contractor Registration Program",
       "agencyName": "Iowa Department of Inspections, Appeals, and Licensing",
-      "inventoryStatus": "source_baseline",
+      "inventoryStatus": "board_verified",
       "identity": {
-        "type": "source_endpoint",
-        "canonicalName": "Iowa DIAL Contractor Registration Lookup"
+        "type": "agency_program",
+        "canonicalName": "Iowa DIAL Contractor Registration Program"
       },
-      "officialUrl": "https://dial.iowa.gov/i-need/records",
+      "officialUrl": "https://dial.iowa.gov/licenses/building/contractors",
       "sourceIds": [
         "us.ia.dial.contractor_registration"
       ],
@@ -1316,12 +1316,13 @@
       "accessPath": "manual_handoff",
       "coverageLimitations": [
         "Iowa contractor registration is not the same as every electrical, plumbing, mechanical, HVAC, or local permit credential.",
-        "Local requirements and separate DIAL trade-board records may need separate source entries or adapter filters."
+        "Local requirements and separate DIAL trade-board records may require separate source entries or filters.",
+        "No stable documented machine-readable interface suitable for an adapter was confirmed."
       ],
       "evidence": {
         "url": "https://dial.iowa.gov/i-need/records",
         "reviewedAt": "2026-06-27T00:00:00.000Z",
-        "note": "Official public source, access shape, and current automation constraints reviewed."
+        "note": "The official DIAL records path and contractor-registration scope were reviewed; the source remains an official manual handoff pending a stable export or lookup integration."
       }
     },
     {
@@ -2218,14 +2219,14 @@
         "country": "US",
         "state": "MA"
       },
-      "boardName": "Massachusetts OPSI Construction Supervisor License Verification",
+      "boardName": "Massachusetts OPSI Construction Supervisor Licensing Program",
       "agencyName": "Massachusetts Division of Occupational Licensure Office of Public Safety and Inspections",
-      "inventoryStatus": "source_baseline",
+      "inventoryStatus": "board_verified",
       "identity": {
-        "type": "source_endpoint",
-        "canonicalName": "Massachusetts OPSI Construction Supervisor License Verification"
+        "type": "agency_program",
+        "canonicalName": "Massachusetts OPSI Construction Supervisor Licensing Program"
       },
-      "officialUrl": "https://madpl.mylicense.com/Verification/",
+      "officialUrl": "https://www.mass.gov/orgs/office-of-public-safety-and-inspections",
       "sourceIds": [
         "us.ma.dol.opsi_construction_supervisors"
       ],
@@ -2237,13 +2238,14 @@
       ],
       "accessPath": "manual_handoff",
       "coverageLimitations": [
-        "This source is scoped to OPSI-issued licenses and does not cover every home improvement registration, local permit, or trade license in Massachusetts.",
-        "Other Massachusetts DOL boards and registration programs may require separate source entries."
+        "This source is scoped to OPSI-issued licenses and does not cover every home-improvement registration, local permit, or trade license in Massachusetts.",
+        "Other Massachusetts DOL boards and registration programs may require separate source entries.",
+        "The official verification portal has no stable documented machine-readable interface suitable for an adapter."
       ],
       "evidence": {
         "url": "https://madpl.mylicense.com/Verification/",
         "reviewedAt": "2026-06-27T00:00:00.000Z",
-        "note": "Official public source, access shape, and current automation constraints reviewed."
+        "note": "The official OPSI verification path and licensing scope were reviewed; the source remains an official manual handoff."
       }
     },
     {
@@ -4271,14 +4273,14 @@
         "country": "US",
         "state": "OH"
       },
-      "boardName": "Ohio Construction Industry Licensing Board Contractor License Lookup",
+      "boardName": "Ohio Construction Industry Licensing Board",
       "agencyName": "Ohio Department of Commerce Construction Industry Licensing Board",
-      "inventoryStatus": "source_baseline",
+      "inventoryStatus": "board_verified",
       "identity": {
-        "type": "source_endpoint",
-        "canonicalName": "Ohio Construction Industry Licensing Board Contractor License Lookup"
+        "type": "regulatory_board",
+        "canonicalName": "Ohio Construction Industry Licensing Board"
       },
-      "officialUrl": "https://elicense4.com.ohio.gov/lookup/licenselookup.aspx",
+      "officialUrl": "https://com.ohio.gov/divisions-and-programs/industrial-compliance/boards/ohio-construction-industry-licensing-board",
       "sourceIds": [
         "us.oh.commerce.ocilb_contractors"
       ],
@@ -4291,13 +4293,14 @@
       ],
       "accessPath": "manual_handoff",
       "coverageLimitations": [
-        "Ohio OCILB covers specific commercial trade contractor licenses and does not represent statewide general contractor licensing.",
-        "Local general contractor licenses, local permits, and non-OCILB authorizations are outside this source entry."
+        "OCILB covers specific commercial trade contractor licenses and does not represent statewide general-contractor licensing.",
+        "Local general-contractor licenses, local permits, and non-OCILB authorizations are outside this board record.",
+        "The official eLicense path has protected interactive access; OpenTrade does not bypass technical controls."
       ],
       "evidence": {
         "url": "https://elicense4.com.ohio.gov/lookup/licenselookup.aspx",
         "reviewedAt": "2026-06-27T00:00:00.000Z",
-        "note": "Official public source, access shape, and current automation constraints reviewed."
+        "note": "The official OCILB verification path and commercial trade scope were reviewed; protected interactive access is preserved as an official manual handoff."
       }
     },
     {

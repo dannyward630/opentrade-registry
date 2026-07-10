@@ -32,6 +32,11 @@ describe("board inventory audits", () => {
       "us.al.hacr.contractors",
       "us.al.hblb.home_builders",
       "us.al.pgfb.plumbers_gas_fitters",
+      "us.co.dora.trades",
+      "us.ct.dcp.home_improvement_contractors",
+      "us.ia.dial.contractor_registration",
+      "us.ma.dol.opsi_construction_supervisors",
+      "us.oh.commerce.ocilb_contractors",
     ]);
     for (const audit of manifest.audits) {
       expect(audit.identity.type).not.toBe("source_endpoint");

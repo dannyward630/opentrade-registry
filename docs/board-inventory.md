@@ -4,7 +4,7 @@
 
 ## Current Completeness
 
-The inventory currently has `completeness: "representative_source_baseline"`. Its 163 rows preserve every existing state, DC, and major-territory source link; 17 board or agency-program rows have been independently audited and the remaining rows are deterministic source baselines. This does not yet claim every material statewide trade board has been identified.
+The inventory currently has `completeness: "representative_source_baseline"`. Its 163 rows preserve every existing state, DC, and major-territory source link; 22 board or agency-program rows have been independently audited and the remaining rows are deterministic source baselines. This does not yet claim every material statewide trade board has been identified.
 
 Every inventory row declares its evidence level:
 
