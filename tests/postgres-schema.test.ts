@@ -35,4 +35,17 @@ describe("v2 Postgres record schema", () => {
     expect(sql).not.toContain("grant all privileges on all tables");
     expect(sql).not.toContain("superuser");
   });
+
+  it("defines worker heartbeat, cancellation, stale recovery, and dead-letter transitions", async () => {
+    const sql = await readFile(join(process.cwd(), "infra/postgres/migrations/0003_ingestion_worker_hardening.sql"), "utf8");
+    expect(sql).toContain("heartbeat_at timestamptz");
+    expect(sql).toContain("cancel_requested_at timestamptz");
+    expect(sql).toContain("dead_lettered_at timestamptz");
+    expect(sql).toContain("status = 'processing' and heartbeat_at < now() - interval '5 minutes'");
+    expect(sql).toContain("create or replace function opentrade.heartbeat_worker_job");
+    expect(sql).toContain("create or replace function opentrade.request_worker_job_cancel");
+    expect(sql).toContain("create or replace function opentrade.fail_worker_job");
+    expect(sql).toContain("'dead_letter'");
+    expect(sql).toContain("grant execute on function opentrade.fail_worker_job");
+  });
 });
