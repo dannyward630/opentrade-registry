@@ -53,6 +53,7 @@ describe("snapshot import enqueue", () => {
     const result = await enqueueSnapshotImport({
       sql: { query } as WorkerSqlClient,
       request: request(),
+      sourcePolicy: policy(),
       allowedRoot: "/snapshots",
       maxBytes: 1_024,
       inspectFile,
@@ -68,10 +69,21 @@ describe("snapshot import enqueue", () => {
 
   it("rejects non-HTTPS, non-allowlisted hosts, and unsafe object keys before database access", async () => {
     const query = vi.fn();
-    const common = { sql: { query } as WorkerSqlClient, allowedRoot: "/snapshots", maxBytes: 1_024, inspectFile: vi.fn() };
+    const common = { sql: { query } as WorkerSqlClient, sourcePolicy: policy(), allowedRoot: "/snapshots", maxBytes: 1_024, inspectFile: vi.fn() };
     await expect(enqueueSnapshotImport({ ...common, request: request({ sourceUrl: "http://data.example.gov/file.csv" }) })).rejects.toThrow("HTTPS");
     await expect(enqueueSnapshotImport({ ...common, request: request({ sourceUrl: "https://evil.example/file.csv" }) })).rejects.toThrow("not allowlisted");
     await expect(enqueueSnapshotImport({ ...common, request: request({ objectKey: "../escape.csv" }) })).rejects.toThrow("object key");
+    expect(query).not.toHaveBeenCalled();
+  });
+
+  it("rejects self-asserted source identity and unreviewed publication", async () => {
+    const query = vi.fn();
+    const common = { sql: { query } as WorkerSqlClient, sourcePolicy: policy(), allowedRoot: "/snapshots", maxBytes: 1_024, inspectFile: vi.fn() };
+    await expect(enqueueSnapshotImport({ ...common, request: request({ sourceId: "us.tx.tdlr.all_licenses" }) })).rejects.toThrow("trusted source policy");
+    await expect(enqueueSnapshotImport({
+      ...common,
+      request: request({ publication: { disposition: "allowed", rawRecordDisposition: "withheld", reviewedAt: "2026-07-10T12:00:00.000Z" } }),
+    })).rejects.toThrow("redistribution status");
     expect(query).not.toHaveBeenCalled();
   });
 });
@@ -80,15 +92,22 @@ function request(overrides: Record<string, unknown> = {}) {
   return {
     sourceId: "us.fl.dbpr.construction",
     sourceUrl: "https://data.example.gov/file.csv",
-    allowedSourceHosts: ["data.example.gov"],
     objectKey: "us/fl/dbpr/a.csv",
     filePath: "/snapshots/fl.csv",
     fetchedAt: "2026-07-10T12:00:00.000Z",
-    adapterPackage: "@opentrade-registry/adapter-fl-dbpr",
-    adapterVersion: "1.0.1",
     strict: true,
     publication: { disposition: "review_required", rawRecordDisposition: "withheld", reviewedAt: "2026-07-10T12:00:00.000Z" },
     sensitivity: { level: "unknown", containsHomeAddress: "unknown", containsPersonalEmail: "unknown", containsPersonalPhone: "unknown" },
     ...overrides,
+  };
+}
+
+function policy() {
+  return {
+    sourceId: "us.fl.dbpr.construction",
+    allowedSourceHosts: ["data.example.gov"],
+    adapterPackage: "@opentrade-registry/adapter-fl-dbpr",
+    adapterVersion: "1.0.1",
+    redistributionStatus: "unknown" as const,
   };
 }

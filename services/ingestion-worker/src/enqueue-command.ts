@@ -1,6 +1,7 @@
 import { readFile } from "node:fs/promises";
 import { enqueueSnapshotImport, type EnqueuedSnapshotImport } from "./enqueue.js";
 import { createPostgresWorkerClient, type PostgresWorkerClient } from "./postgres.js";
+import { loadSnapshotImportSourcePolicy, type SnapshotImportSourcePolicy } from "./source-policy.js";
 
 const maxRequestBytes = 64 * 1024;
 
@@ -8,6 +9,7 @@ export type SnapshotEnqueueCommandDependencies = {
   environment: NodeJS.ProcessEnv;
   readRequest?: (path: string) => Promise<unknown>;
   createClient?: (databaseUrl: string) => PostgresWorkerClient;
+  loadSourcePolicy?: (input: { registryRoot: string; sourceId: string }) => Promise<SnapshotImportSourcePolicy>;
 };
 
 export async function runSnapshotEnqueueCommand(
@@ -17,14 +19,24 @@ export async function runSnapshotEnqueueCommand(
   const requestPath = parseRequestPath(args);
   const databaseUrl = requiredEnvironment(dependencies.environment, "DATABASE_URL");
   const allowedRoot = requiredEnvironment(dependencies.environment, "OPENTRADE_SNAPSHOT_ROOT");
+  const registryRoot = requiredEnvironment(dependencies.environment, "OPENTRADE_REGISTRY_ROOT");
   const maxBytes = positiveInteger(dependencies.environment.OPENTRADE_MAX_SNAPSHOT_BYTES ?? "2147483648", "OPENTRADE_MAX_SNAPSHOT_BYTES");
   const request = await (dependencies.readRequest ?? readRequestFile)(requestPath);
+  const sourceId = requestSourceId(request);
+  const sourcePolicy = await (dependencies.loadSourcePolicy ?? loadSnapshotImportSourcePolicy)({ registryRoot, sourceId });
   const client = (dependencies.createClient ?? createPostgresWorkerClient)(databaseUrl);
   try {
-    return await enqueueSnapshotImport({ sql: client, request, allowedRoot, maxBytes });
+    return await enqueueSnapshotImport({ sql: client, request, sourcePolicy, allowedRoot, maxBytes });
   } finally {
     await client.close();
   }
+}
+
+function requestSourceId(value: unknown): string {
+  if (!value || typeof value !== "object" || typeof (value as { sourceId?: unknown }).sourceId !== "string") {
+    throw new Error("Import request requires sourceId.");
+  }
+  return (value as { sourceId: string }).sourceId;
 }
 
 export function parseRequestPath(args: readonly string[]): string {

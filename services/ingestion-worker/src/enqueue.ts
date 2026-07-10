@@ -1,5 +1,6 @@
 import { z } from "zod";
 import { inspectSnapshotFile, type SnapshotFileInspection } from "./snapshot-file.js";
+import type { SnapshotImportSourcePolicy } from "./source-policy.js";
 import type { WorkerSqlClient } from "./worker.js";
 
 const publicationDispositionSchema = z.enum(["allowed", "review_required", "restricted", "withheld"]);
@@ -8,7 +9,6 @@ const unknownBooleanSchema = z.union([z.boolean(), z.literal("unknown")]);
 export const snapshotImportRequestSchema = z.object({
   sourceId: z.string().min(1),
   sourceUrl: z.string().url(),
-  allowedSourceHosts: z.array(z.string().min(1)).min(1),
   objectKey: z.string().min(1),
   filePath: z.string().min(1),
   fetchedAt: z.string().datetime(),
@@ -17,8 +17,6 @@ export const snapshotImportRequestSchema = z.object({
   etag: z.string().min(1).nullable().optional(),
   uncompressedBytes: z.number().int().nonnegative().nullable().optional(),
   snapshotMetadata: z.record(z.string(), z.unknown()).default({}),
-  adapterPackage: z.string().regex(/^@opentrade-registry\/[a-z0-9-]+$/),
-  adapterVersion: z.string().min(1),
   strict: z.boolean().default(true),
   publication: z.object({
     disposition: publicationDispositionSchema,
@@ -53,13 +51,16 @@ export type EnqueuedSnapshotImport = {
 export async function enqueueSnapshotImport(input: {
   sql: WorkerSqlClient;
   request: unknown;
+  sourcePolicy: SnapshotImportSourcePolicy;
   allowedRoot: string;
   maxBytes: number;
   signal?: AbortSignal;
   inspectFile?: typeof inspectSnapshotFile;
 }): Promise<EnqueuedSnapshotImport> {
   const request = snapshotImportRequestSchema.parse(input.request);
-  assertAllowedSourceUrl(request.sourceUrl, request.allowedSourceHosts);
+  if (request.sourceId !== input.sourcePolicy.sourceId) throw new Error("Snapshot request source does not match the trusted source policy.");
+  assertAllowedSourceUrl(request.sourceUrl, input.sourcePolicy.allowedSourceHosts);
+  assertPublicationPolicy(request, input.sourcePolicy);
   assertSafeObjectKey(request.objectKey);
   const inspection = await (input.inspectFile ?? inspectSnapshotFile)({
     filePath: request.filePath,
@@ -85,8 +86,8 @@ export async function enqueueSnapshotImport(input: {
     request.sourceLastModifiedAt ?? null,
     request.fetchedAt,
     JSON.stringify(request.snapshotMetadata),
-    request.adapterPackage,
-    request.adapterVersion,
+    input.sourcePolicy.adapterPackage,
+    input.sourcePolicy.adapterVersion,
     inspection.filePath,
     request.strict,
     JSON.stringify({ publication: request.publication, sensitivity: request.sensitivity }),
@@ -94,6 +95,14 @@ export async function enqueueSnapshotImport(input: {
   const row = result.rows[0];
   if (!row) throw new Error("Postgres did not return the enqueued snapshot import.");
   return mapEnqueuedImport(row, inspection);
+}
+
+function assertPublicationPolicy(request: SnapshotImportRequest, policy: SnapshotImportSourcePolicy): void {
+  if (policy.redistributionStatus !== "allowed" && (
+    request.publication.disposition === "allowed" || request.publication.rawRecordDisposition === "allowed"
+  )) {
+    throw new Error(`Source ${policy.sourceId} cannot publish records while redistribution status is ${policy.redistributionStatus}.`);
+  }
 }
 
 function assertAllowedSourceUrl(value: string, allowedHosts: readonly string[]): void {

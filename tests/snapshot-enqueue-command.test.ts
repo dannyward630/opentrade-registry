@@ -17,10 +17,12 @@ describe("snapshot enqueue operator command", () => {
       environment: {
         DATABASE_URL: "postgresql://worker@example.invalid/opentrade",
         OPENTRADE_SNAPSHOT_ROOT: "/snapshots",
+        OPENTRADE_REGISTRY_ROOT: "/registry",
         OPENTRADE_MAX_SNAPSHOT_BYTES: "1024",
       },
-      readRequest: async () => ({ invalid: true }),
+      readRequest: async () => ({ sourceId: "us.fl.example", invalid: true }),
       createClient: () => client,
+      loadSourcePolicy: async () => ({ sourceId: "us.fl.example", allowedSourceHosts: ["example.gov"], adapterPackage: "@opentrade-registry/example", adapterVersion: "1.0.0", redistributionStatus: "unknown" }),
     })).rejects.toThrow();
     expect(close).toHaveBeenCalledOnce();
     expect(query).not.toHaveBeenCalled();
