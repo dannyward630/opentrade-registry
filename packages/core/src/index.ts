@@ -5,6 +5,7 @@ export * from "./contracts/version.js";
 export * from "./normalize/fingerprint.js";
 export * from "./normalize/license-number.js";
 export * from "./normalize/text.js";
+export * from "./ingestion/manifest.js";
 export * from "./parse/csv.js";
 export * from "./parse/lines.js";
 export * from "./parse/tabular-file.js";
