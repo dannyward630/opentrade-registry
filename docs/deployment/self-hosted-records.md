@@ -34,7 +34,9 @@ The ingestion worker is a separate opt-in profile and requires a dedicated login
 docker compose --env-file infra/.env -f infra/compose.yaml --profile worker up -d ingestion-worker
 ```
 
-The current worker entrypoint provides job claiming, heartbeats, cancellation observation, and failure/dead-letter lifecycle calls. It does not register a source adapter handler yet; queued jobs without an explicitly wired handler are failed safely. Do not treat the profile as production ingestion until a handler has its adapter conformance tests and a successful local promotion drill.
+The current worker entrypoint provides job claiming, heartbeats, cancellation observation, and failure/dead-letter lifecycle calls. Queued jobs without an explicitly wired handler are failed safely. Do not treat the profile as production ingestion until a handler has its adapter conformance tests and a successful local promotion drill.
+
+Set `OPENTRADE_WORKER_ADAPTERS` in `infra/.env` to explicitly enable packaged adapter exports. The value is a comma-separated list such as `@opentrade-registry/adapter-fl-dbpr:floridaDbprConstructionAdapter`. An empty value keeps snapshot imports disabled.
 
 Postgres runs the ordered SQL files under `infra/postgres/migrations` only when initializing a new data volume. Existing deployments require an explicit migration runner before schema changes are deployed.
 

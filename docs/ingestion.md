@@ -13,7 +13,7 @@ The v2 ingestion path treats a source snapshot as immutable input and an import 
 
 `packages/core/src/ingestion/manifest.ts` is the shared offline contract. `assertPromotionReady` rejects non-validated manifests, unresolved schema drift, errors, count mismatches, duplicate source keys, and cross-source records. `buildPromotionPlan` sorts changes by source record key so manifests and tests remain deterministic.
 
-`services/ingestion-worker` is the private lifecycle service built on this contract. It claims jobs through the Postgres functions, dispatches only registered handlers, sends heartbeats, and records completion or failure without writing current records directly. It is available through the opt-in `worker` Compose profile. The default entrypoint has no source-specific handlers yet, so starting the profile is a lifecycle smoke path rather than a production import declaration.
+`services/ingestion-worker` is the private lifecycle service built on this contract. It claims jobs through the Postgres functions, dispatches only explicitly configured handlers, sends heartbeats, and records completion or failure without writing current records directly. It is available through the opt-in `worker` Compose profile. An empty `OPENTRADE_WORKER_ADAPTERS` value leaves source imports disabled; configuring a package/export pair enables the generic snapshot handler for that adapter, subject to the same manifest, privacy, and promotion gates.
 
 ## Worker Boundary
 

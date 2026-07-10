@@ -11,7 +11,7 @@
 - leaves retry and dead-letter transitions to the database lifecycle functions;
 - does not write `current_records` directly.
 
-The container entrypoint currently registers no source-specific handlers. Unsupported jobs are failed with a structured error. This is deliberate: a worker must not publish records until an adapter handler has passed source-specific privacy, schema-drift, and promotion checks.
+The container entrypoint registers source-specific handlers only when `OPENTRADE_WORKER_ADAPTERS` is explicitly configured. Unsupported jobs are failed with a structured error. This is deliberate: a worker must not publish records until an adapter handler has passed source-specific privacy, schema-drift, and promotion checks.
 
 ## Development
 
@@ -31,4 +31,10 @@ The worker is an opt-in Compose profile. Configure `WORKER_DATABASE_URL` with a 
 docker compose --env-file infra/.env -f infra/compose.yaml --profile worker up -d ingestion-worker
 ```
 
-Do not reuse the database-owner credential. The default Compose start does not launch this service.
+Configure adapters with package/export pairs before starting the profile. For example:
+
+```dotenv
+OPENTRADE_WORKER_ADAPTERS=@opentrade-registry/adapter-fl-dbpr:floridaDbprConstructionAdapter
+```
+
+Multiple adapters are comma-separated. The worker image contains the current working adapter packages, but an empty value leaves `snapshot_import` unregistered. Do not reuse the database-owner credential. The default Compose start does not launch this service.
