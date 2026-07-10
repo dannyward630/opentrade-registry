@@ -9,6 +9,7 @@ import {
   type TradeLicenseSourceAdapter,
 } from "@opentrade-registry/core";
 import { z } from "zod";
+import { inspectSnapshotFile, type SnapshotFileInspection } from "./snapshot-file.js";
 import type { WorkerJobHandler, WorkerJobResult, WorkerSqlClient } from "./worker.js";
 
 export const snapshotImportPayloadSchema = z.object({
@@ -21,6 +22,7 @@ export const snapshotImportPayloadSchema = z.object({
   sourceLastModifiedAt: z.string().datetime().nullable().optional(),
   adapterPackage: z.string().min(1),
   adapterVersion: z.string().min(1),
+  sha256: z.string().regex(/^[a-f0-9]{64}$/),
   strict: z.boolean().default(true),
   publication: z.object({
     disposition: z.enum(["allowed", "review_required", "restricted", "withheld"]),
@@ -91,6 +93,9 @@ export type SnapshotImportHandlerOptions = {
   store: ImportStore;
   now?: () => string;
   sourceRecordKey?: (record: CanonicalTradeLicenseRecord) => string;
+  allowedSnapshotRoot: string;
+  maxSnapshotBytes: number;
+  inspectFile?: typeof inspectSnapshotFile;
 };
 
 export class ImportValidationError extends Error {
@@ -112,6 +117,8 @@ export function createSnapshotImportHandler(options: SnapshotImportHandlerOption
 
     const adapter = options.adapters.get(payload.sourceId);
     if (!adapter) throw new ImportValidationError(`No adapter is registered for ${payload.sourceId}.`);
+
+    await verifySnapshotFile(payload, options);
 
     const startedAt = now();
     const manifest = await options.store.createManifest({
@@ -207,6 +214,8 @@ export function createSnapshotImportHandler(options: SnapshotImportHandlerOption
         throw new ImportValidationError(errorMessage(error));
       }
 
+      await verifySnapshotFile(payload, options);
+
       await options.store.markValidated({ manifest, stats: counts, finishedAt, schemaDrift: [], strict: payload.strict });
       await options.store.promote(manifest);
       return {
@@ -231,6 +240,21 @@ export function createSnapshotImportHandler(options: SnapshotImportHandlerOption
       throw error;
     }
   };
+}
+
+async function verifySnapshotFile(
+  payload: SnapshotImportPayload,
+  options: SnapshotImportHandlerOptions,
+): Promise<SnapshotFileInspection> {
+  const inspection = await (options.inspectFile ?? inspectSnapshotFile)({
+    filePath: payload.filePath,
+    allowedRoot: options.allowedSnapshotRoot,
+    maxBytes: options.maxSnapshotBytes,
+  });
+  if (inspection.sha256 !== payload.sha256) {
+    throw new ImportValidationError("Snapshot file SHA-256 does not match the registered snapshot.");
+  }
+  return inspection;
 }
 
 export function createPostgresImportStore(sql: WorkerSqlClient): ImportStore {

@@ -10,7 +10,14 @@ if (!databaseUrl) throw new Error("DATABASE_URL is required for the ingestion wo
 const sql = createPostgresWorkerClient(databaseUrl);
 const adapters = await loadConfiguredAdapters(parseAdapterSpecs(process.env.OPENTRADE_WORKER_ADAPTERS));
 const handlers: Record<string, WorkerJobHandler> = {};
-if (adapters.size > 0) handlers.snapshot_import = createSnapshotImportHandler({ adapters, store: createPostgresImportStore(sql) });
+if (adapters.size > 0) {
+  handlers.snapshot_import = createSnapshotImportHandler({
+    adapters,
+    store: createPostgresImportStore(sql),
+    allowedSnapshotRoot: requiredEnvironment("OPENTRADE_SNAPSHOT_ROOT"),
+    maxSnapshotBytes: readPositiveInteger("OPENTRADE_MAX_SNAPSHOT_BYTES", 2_147_483_648),
+  });
+}
 const worker = createIngestionWorker({
   sql,
   handlers,
@@ -34,4 +41,10 @@ try {
 function readPositiveInteger(name: string, fallback: number): number {
   const value = Number(process.env[name]);
   return Number.isSafeInteger(value) && value > 0 ? value : fallback;
+}
+
+function requiredEnvironment(name: string): string {
+  const value = process.env[name]?.trim();
+  if (!value) throw new Error(`${name} is required when snapshot import adapters are configured.`);
+  return value;
 }

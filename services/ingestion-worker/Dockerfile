@@ -26,6 +26,7 @@ COPY packages/adapter-wa-lni/package.json packages/adapter-wa-lni/tsconfig.json 
 COPY packages/adapter-wa-lni/src packages/adapter-wa-lni/src
 COPY services/ingestion-worker/package.json services/ingestion-worker/tsconfig.json services/ingestion-worker/
 COPY services/ingestion-worker/src services/ingestion-worker/src
+COPY registry registry
 RUN corepack pnpm install --frozen-lockfile
 RUN corepack pnpm --filter @opentrade-registry/core build \
   && corepack pnpm --filter @opentrade-registry/adapter-ak-commerce build \
@@ -56,6 +57,7 @@ COPY --from=build /workspace/packages/adapter-or-ccb /app/packages/adapter-or-cc
 COPY --from=build /workspace/packages/adapter-tx-tdlr /app/packages/adapter-tx-tdlr
 COPY --from=build /workspace/packages/adapter-wa-lni /app/packages/adapter-wa-lni
 COPY --from=build /workspace/services/ingestion-worker /app/services/ingestion-worker
+COPY --from=build /workspace/registry /app/registry
 WORKDIR /app/services/ingestion-worker
 USER node
 CMD ["node", "dist/main.js"]
