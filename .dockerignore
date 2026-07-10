@@ -1,0 +1,15 @@
+.git
+.github
+node_modules
+**/node_modules
+**/dist
+coverage
+**/coverage
+release-artifacts
+wiki-export
+infra/.env
+out.jsonl
+out.csv
+*.sqlite
+*.db
+*.log
