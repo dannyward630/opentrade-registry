@@ -236,6 +236,182 @@
         "reviewedAt": "2026-06-27T00:00:00.000Z",
         "note": "The official Washington L&I bulk-source and opt-in network path were reviewed for contractor registration records."
       }
+    },
+    {
+      "id": "us.ak.commerce.construction_contractors",
+      "jurisdiction": { "country": "US", "state": "AK" },
+      "boardName": "Alaska CBPL Construction Contractor Licensing Program",
+      "agencyName": "Alaska Division of Corporations, Business and Professional Licensing",
+      "inventoryStatus": "board_verified",
+      "identity": { "type": "agency_program", "canonicalName": "Alaska CBPL Construction Contractor Licensing Program" },
+      "officialUrl": "https://www.commerce.alaska.gov/cbp/main/Search/Professional",
+      "sourceIds": ["us.ak.commerce.construction_contractors"],
+      "trades": ["general_contracting", "residential_contracting", "commercial_contracting", "electrical", "hvac", "mechanical", "plumbing", "pool_spa", "roofing", "solar", "asbestos", "sheet_metal", "underground_utility", "home_improvement", "other"],
+      "accessPath": "manual_handoff",
+      "coverageLimitations": [
+        "The CBPL search spans many programs; this record is scoped to construction contractors, specialties, and related endorsements.",
+        "Electrical and mechanical administrator credentials are audited separately.",
+        "The live search and download endpoints use technical access controls that OpenTrade does not bypass."
+      ],
+      "evidence": {
+        "url": "https://www.commerce.alaska.gov/cbp/main/Search/Professional",
+        "reviewedAt": "2026-06-28T00:00:00.000Z",
+        "note": "The official CBPL contractor lookup and download path were reviewed; automated access was blocked by DataDome, so this remains an official manual handoff."
+      }
+    },
+    {
+      "id": "us.ak.commerce.electrical_administrators",
+      "jurisdiction": { "country": "US", "state": "AK" },
+      "boardName": "Alaska CBPL Electrical Administrator Licensing Program",
+      "agencyName": "Alaska Division of Corporations, Business and Professional Licensing",
+      "inventoryStatus": "board_verified",
+      "identity": { "type": "agency_program", "canonicalName": "Alaska CBPL Electrical Administrator Licensing Program" },
+      "officialUrl": "https://www.commerce.alaska.gov/web/cbpl/ProfessionalLicensing/ElectricalAdministrators",
+      "sourceIds": ["us.ak.commerce.electrical_administrators"],
+      "trades": ["electrical"],
+      "accessPath": "manual_handoff",
+      "coverageLimitations": [
+        "Electrical Administrator credentials are supervisory and do not themselves authorize electrical work.",
+        "Alaska electrician certificates of fitness and construction-contractor records are regulated or tracked separately.",
+        "The live verification path may use technical access controls that OpenTrade does not bypass."
+      ],
+      "evidence": {
+        "url": "https://www.commerce.alaska.gov/web/cbpl/ProfessionalLicensing/ElectricalAdministrators",
+        "reviewedAt": "2026-07-01T00:00:00.000Z",
+        "note": "The official CBPL program page states that the Electrical Administrator program is staffed by CBPL and describes its supervisory contractor requirement."
+      }
+    },
+    {
+      "id": "us.ak.commerce.mechanical_administrators",
+      "jurisdiction": { "country": "US", "state": "AK" },
+      "boardName": "Alaska CBPL Mechanical Administrator Licensing Program",
+      "agencyName": "Alaska Division of Corporations, Business and Professional Licensing",
+      "inventoryStatus": "board_verified",
+      "identity": { "type": "agency_program", "canonicalName": "Alaska CBPL Mechanical Administrator Licensing Program" },
+      "officialUrl": "https://www.commerce.alaska.gov/web/cbpl/ProfessionalLicensing/MechanicalAdministrators",
+      "sourceIds": ["us.ak.commerce.mechanical_administrators"],
+      "trades": ["hvac", "mechanical", "plumbing", "pool_spa", "solar", "sheet_metal"],
+      "accessPath": "manual_handoff",
+      "coverageLimitations": [
+        "Mechanical Administrator credentials are supervisory and are distinct from construction-contractor registrations.",
+        "Alaska plumber credentials and construction-contractor records are regulated or tracked separately.",
+        "The live verification path may use technical access controls that OpenTrade does not bypass."
+      ],
+      "evidence": {
+        "url": "https://www.commerce.alaska.gov/web/cbpl/ProfessionalLicensing/MechanicalAdministrators",
+        "reviewedAt": "2026-07-01T00:00:00.000Z",
+        "note": "The official CBPL program page lists heating, cooling, piping, residential HVAC, plumbing, HVAC/sheet-metal, and refrigeration Mechanical Administrator categories."
+      }
+    },
+    {
+      "id": "us.al.aecb.electrical_contractors",
+      "jurisdiction": { "country": "US", "state": "AL" },
+      "boardName": "Alabama Board of Electrical Contractors",
+      "agencyName": "Alabama Board of Electrical Contractors",
+      "inventoryStatus": "board_verified",
+      "identity": { "type": "regulatory_board", "canonicalName": "Alabama Board of Electrical Contractors" },
+      "officialUrl": "https://aecb.alabama.gov/",
+      "sourceIds": ["us.al.aecb.electrical_contractors"],
+      "trades": ["electrical", "solar"],
+      "accessPath": "manual_handoff",
+      "coverageLimitations": [
+        "The board source is limited to electrical credentials and solar work within electrical scope.",
+        "Residential home builder, general contractor, plumbing, HVAC, local permits, and municipal registrations are separate.",
+        "The public search is retained as an official manual handoff pending a separately reviewed automation path."
+      ],
+      "evidence": {
+        "url": "https://aecb.alabama.gov/",
+        "reviewedAt": "2026-07-01T00:00:00.000Z",
+        "note": "The official board site links a complete roster search for licensed Electrical Contractors, Journeymen, and Provisional Electrical Licensees."
+      }
+    },
+    {
+      "id": "us.al.genconbd.general_contractors",
+      "jurisdiction": { "country": "US", "state": "AL" },
+      "boardName": "Alabama Licensing Board for General Contractors",
+      "agencyName": "Alabama Licensing Board for General Contractors",
+      "inventoryStatus": "board_verified",
+      "identity": { "type": "regulatory_board", "canonicalName": "Alabama Licensing Board for General Contractors" },
+      "officialUrl": "https://genconbd.alabama.gov/",
+      "sourceIds": ["us.al.genconbd.general_contractors"],
+      "trades": ["general_contracting", "commercial_contracting", "roofing", "mechanical", "pool_spa", "sheet_metal", "underground_utility", "asbestos", "solar"],
+      "accessPath": "manual_handoff",
+      "coverageLimitations": [
+        "Residential home-builder licensing and separate electrical, plumbing, HVAC, and related board credentials are outside this board record.",
+        "General-contractor trade scope is subject to statutory project-value thresholds and printed classifications.",
+        "The official search is a manual handoff pending a separately reviewed automation path."
+      ],
+      "evidence": {
+        "url": "https://genconbd.alabama.gov/administrativecodes/230-X-1-.27.pdf",
+        "reviewedAt": "2026-07-01T00:00:00.000Z",
+        "note": "The official classification rule covers building, municipal and utility, swimming pools, mechanical work, electrical work, environmental abatement, and other specialty construction."
+      }
+    },
+    {
+      "id": "us.al.hacr.contractors",
+      "jurisdiction": { "country": "US", "state": "AL" },
+      "boardName": "Alabama Board of Heating, Air Conditioning and Refrigeration Contractors",
+      "agencyName": "Alabama Board of Heating, Air Conditioning and Refrigeration Contractors",
+      "inventoryStatus": "board_verified",
+      "identity": { "type": "regulatory_board", "canonicalName": "Alabama Board of Heating, Air Conditioning and Refrigeration Contractors" },
+      "officialUrl": "https://hacr.alabama.gov/consumers/",
+      "sourceIds": ["us.al.hacr.contractors"],
+      "trades": ["hvac", "mechanical", "sheet_metal"],
+      "accessPath": "manual_handoff",
+      "coverageLimitations": [
+        "Plumbing and gas-fitting credentials are regulated by the Alabama PGFB and tracked separately.",
+        "Sheet-metal coverage is limited to HVAC, refrigeration, and duct scope.",
+        "The public lookup requires a verification-code image and is not approved for automation."
+      ],
+      "evidence": {
+        "url": "https://hacr.alabama.gov/consumers/",
+        "reviewedAt": "2026-07-01T00:00:00.000Z",
+        "note": "The official consumer page links its Find a Licensed Contractor lookup and describes board jurisdiction over contractor complaints."
+      }
+    },
+    {
+      "id": "us.al.hblb.home_builders",
+      "jurisdiction": { "country": "US", "state": "AL" },
+      "boardName": "Alabama Home Builders Licensure Board",
+      "agencyName": "Alabama Home Builders Licensure Board",
+      "inventoryStatus": "board_verified",
+      "identity": { "type": "regulatory_board", "canonicalName": "Alabama Home Builders Licensure Board" },
+      "officialUrl": "https://hblb.alabama.gov/",
+      "sourceIds": ["us.al.hblb.home_builders"],
+      "trades": ["residential_contracting", "roofing", "home_improvement", "solar"],
+      "accessPath": "manual_handoff",
+      "coverageLimitations": [
+        "Commercial and industrial general contractor licensing is tracked through the Alabama Licensing Board for General Contractors.",
+        "Electrical, plumbing, HVAC, local permits, and municipal registrations are outside this board record.",
+        "The board warns that lookup results can omit pending processing and are not official verification."
+      ],
+      "evidence": {
+        "url": "https://hblb.alabama.gov/https-alhobv7prod-glsuite-us-glsuiteweb-clients-alhob-public-licenseesearch-aspx/",
+        "reviewedAt": "2026-07-01T00:00:00.000Z",
+        "note": "The official board page identifies its vendor-hosted search, describes home-builder and roofing licenses, and warns that results can be incomplete and are not official."
+      }
+    },
+    {
+      "id": "us.al.pgfb.plumbers_gas_fitters",
+      "jurisdiction": { "country": "US", "state": "AL" },
+      "boardName": "Alabama Plumbers and Gas Fitters Examining Board",
+      "agencyName": "Alabama Plumbers and Gas Fitters Examining Board",
+      "inventoryStatus": "board_verified",
+      "identity": { "type": "regulatory_board", "canonicalName": "Alabama Plumbers and Gas Fitters Examining Board" },
+      "officialUrl": "https://pgfb.alabama.gov/applicants/how-do-i-become-licensed/",
+      "sourceIds": ["us.al.pgfb.plumbers_gas_fitters"],
+      "trades": ["plumbing", "mechanical"],
+      "accessPath": "manual_handoff",
+      "coverageLimitations": [
+        "HVAC and refrigeration credentials are regulated by the Alabama HACR Board and tracked separately.",
+        "Private onsite wastewater systems, local permits, and municipal registrations are outside this board record.",
+        "The public lookup requires a verification-code image and is not approved for automation."
+      ],
+      "evidence": {
+        "url": "https://pgfb.alabama.gov/applicants/how-do-i-become-licensed/",
+        "reviewedAt": "2026-07-01T00:00:00.000Z",
+        "note": "The official board page defines plumbing and gas-fitting credential levels and requires trade companies to register with a principal master."
+      }
     }
   ]
 }

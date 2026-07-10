@@ -16,11 +16,11 @@ describe("nationwide board inventory", () => {
     expect(inventory.boards).toHaveLength(sourceIds.length);
     expect(new Set(inventory.boards.map((board) => board.id)).size).toBe(inventory.boards.length);
     expect([...linkedSourceIds].sort()).toEqual(sourceIds);
-    expect(inventory.boards.filter((board) => board.inventoryStatus === "source_baseline")).toHaveLength(sourceIds.length - 9);
-    expect(inventory.boards.filter((board) => board.inventoryStatus === "board_verified")).toHaveLength(9);
-    expect(inventory.boards.filter((board) => board.identity.type === "source_endpoint")).toHaveLength(sourceIds.length - 9);
-    expect(inventory.boards.filter((board) => board.identity.type === "regulatory_board")).toHaveLength(3);
-    expect(inventory.boards.filter((board) => board.identity.type === "agency_program")).toHaveLength(6);
+    expect(inventory.boards.filter((board) => board.inventoryStatus === "source_baseline")).toHaveLength(sourceIds.length - 17);
+    expect(inventory.boards.filter((board) => board.inventoryStatus === "board_verified")).toHaveLength(17);
+    expect(inventory.boards.filter((board) => board.identity.type === "source_endpoint")).toHaveLength(sourceIds.length - 17);
+    expect(inventory.boards.filter((board) => board.identity.type === "regulatory_board")).toHaveLength(8);
+    expect(inventory.boards.filter((board) => board.identity.type === "agency_program")).toHaveLength(9);
     expect(isBoardInventoryComplete(inventory)).toBe(false);
   });
 
