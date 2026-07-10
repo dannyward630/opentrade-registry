@@ -18,4 +18,13 @@ describe("self-hosted Compose security", () => {
     expect(environment).toContain("change-me-before-first-start");
     expect(environment).not.toMatch(/eyJ[a-zA-Z0-9_-]{20,}|sb_secret_|service_role/i);
   });
+
+  it("keeps the worker opt-in and requires a separate database credential", async () => {
+    const compose = await readFile(join(process.cwd(), "infra", "compose.yaml"), "utf8");
+    const workerService = compose.slice(compose.indexOf("  ingestion-worker:"));
+    expect(compose).toContain("profiles: [\"worker\"]");
+    expect(compose).toContain("DATABASE_URL: ${WORKER_DATABASE_URL:?set WORKER_DATABASE_URL in infra/.env}");
+    expect(compose).toContain("OPENTRADE_WORKER_HEARTBEAT_INTERVAL_MS");
+    expect(workerService).not.toContain("DATABASE_URL: postgresql://${POSTGRES_USER");
+  });
 });

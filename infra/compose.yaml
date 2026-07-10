@@ -90,6 +90,24 @@ services:
     networks:
       - records
 
+  ingestion-worker:
+    profiles: ["worker"]
+    build:
+      context: ..
+      dockerfile: services/ingestion-worker/Dockerfile
+    restart: unless-stopped
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      DATABASE_URL: ${WORKER_DATABASE_URL:?set WORKER_DATABASE_URL in infra/.env}
+      OPENTRADE_WORKER_QUEUE: ${OPENTRADE_WORKER_QUEUE:-ingestion}
+      OPENTRADE_WORKER_ID: ${OPENTRADE_WORKER_ID:-ingestion-worker-1}
+      OPENTRADE_WORKER_POLL_INTERVAL_MS: ${OPENTRADE_WORKER_POLL_INTERVAL_MS:-1000}
+      OPENTRADE_WORKER_HEARTBEAT_INTERVAL_MS: ${OPENTRADE_WORKER_HEARTBEAT_INTERVAL_MS:-30000}
+    networks:
+      - records
+
 networks:
   records:
     internal: true
