@@ -21,6 +21,7 @@ describe("snapshot import handler", () => {
       adapters: new Map([[sourceId, fakeAdapter([record("CGC0001", "a"), record("CGC0002", "b")])]]),
       store,
       now: () => fetchedAt,
+      ...fileVerification(),
     });
 
     const result = await handler(job({ filePath: "/tmp/sample.csv" }), context());
@@ -48,6 +49,7 @@ describe("snapshot import handler", () => {
       adapters: new Map([[sourceId, fakeAdapter([record("CGC0001", "a"), record("CGC0001", "b")])]]),
       store,
       now: () => fetchedAt,
+      ...fileVerification(),
     });
 
     const result = await handler(job({ filePath: "/tmp/sample.csv" }), context());
@@ -63,6 +65,7 @@ describe("snapshot import handler", () => {
       adapters: new Map([[sourceId, fakeAdapter([record("CGC0001", "a")], true)]]),
       store,
       now: () => fetchedAt,
+      ...fileVerification(),
     });
 
     await expect(handler(job({ filePath: "/tmp/sample.csv" }), context())).rejects.toThrow("error(s)");
@@ -70,6 +73,28 @@ describe("snapshot import handler", () => {
     expect(store.state.promoted).toBe(0);
     expect(store.state.failed).toHaveLength(1);
     expect(store.state.failed[0]?.stats.errorCount).toBe(1);
+  });
+
+  it("does not promote when the snapshot changes during parsing", async () => {
+    const store = memoryStore();
+    let inspection = 0;
+    const handler = createSnapshotImportHandler({
+      adapters: new Map([[sourceId, fakeAdapter([record("CGC0001", "a")])]]),
+      store,
+      now: () => fetchedAt,
+      allowedSnapshotRoot: "/tmp",
+      maxSnapshotBytes: 1_024,
+      inspectFile: async () => ({
+        filePath: "/tmp/sample.csv",
+        sha256: (inspection++ === 0 ? "c" : "d").repeat(64),
+        bytes: 42,
+      }),
+    });
+
+    await expect(handler(job({ filePath: "/tmp/sample.csv" }), context())).rejects.toThrow("SHA-256");
+    expect(store.state.staged).toHaveLength(1);
+    expect(store.state.promoted).toBe(0);
+    expect(store.state.failed).toHaveLength(1);
   });
 });
 
@@ -127,11 +152,20 @@ function job(payload: Record<string, unknown>) {
       fetchedAt,
       adapterPackage: "@opentrade/adapter-fl-dbpr",
       adapterVersion: "1.0.1",
+      sha256: "c".repeat(64),
       strict: true,
       publication: { disposition: "review_required", rawRecordDisposition: "restricted", reviewedAt: fetchedAt },
       sensitivity: { level: "unknown", containsHomeAddress: "unknown", containsPersonalEmail: "unknown", containsPersonalPhone: "unknown" },
       ...payload,
     },
+  };
+}
+
+function fileVerification() {
+  return {
+    allowedSnapshotRoot: "/tmp",
+    maxSnapshotBytes: 1_024,
+    inspectFile: async () => ({ filePath: "/tmp/sample.csv", sha256: "c".repeat(64), bytes: 42 }),
   };
 }
 
