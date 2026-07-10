@@ -51,4 +51,4 @@ docker compose --env-file infra/.env -f infra/compose.yaml --profile worker run 
   --request /var/lib/opentrade/staging/import-request.json
 ```
 
-The command validates the source host and object key, inspects the local file, and calls one idempotent Postgres function that registers the snapshot and queues the import. Repeating the same reviewed request returns the existing snapshot and job. It does not upload to MinIO or verify that the object exists there; that archive check remains an explicit operator prerequisite until the archival service is connected.
+The command loads the source host, adapter package, adapter version, and redistribution status from trusted registry/package metadata; those authority fields cannot be self-asserted by request JSON. It validates the object key, inspects the local file, and calls one idempotent Postgres function that registers the snapshot and queues the import. Repeating the same reviewed request returns the existing snapshot and job. It does not upload to MinIO or verify that the object exists there; that archive check remains an explicit operator prerequisite until the archival service is connected.

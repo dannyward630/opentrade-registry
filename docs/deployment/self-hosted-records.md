@@ -38,7 +38,7 @@ The current worker entrypoint provides job claiming, heartbeats, cancellation ob
 
 Set `OPENTRADE_WORKER_ADAPTERS` in `infra/.env` to explicitly enable packaged adapter exports. The value is a comma-separated list such as `@opentrade-registry/adapter-fl-dbpr:floridaDbprConstructionAdapter`. An empty value keeps snapshot imports disabled.
 
-Set `SNAPSHOT_STAGING_PATH` to a host directory containing operator-reviewed snapshot files and request JSON. Compose mounts it read-only at `/var/lib/opentrade/staging`. `OPENTRADE_MAX_SNAPSHOT_BYTES` is a hard per-file ceiling; lower it to the largest reviewed source shape when practical. Create the host directory before starting or running the worker.
+Set `SNAPSHOT_STAGING_PATH` to a host directory containing operator-reviewed snapshot files and request JSON. Compose mounts it read-only at `/var/lib/opentrade/staging`. The checked-in registry is copied into the worker image at `/app/registry` and supplies trusted source-host and adapter policy to the enqueue command. `OPENTRADE_MAX_SNAPSHOT_BYTES` is a hard per-file ceiling; lower it to the largest reviewed source shape when practical. Create the host directory before starting or running the worker.
 
 After uploading and checksum-verifying a snapshot in the private MinIO bucket, enqueue it with the one-shot command documented in [Ingestion And Promotion Contract](../ingestion.md). Enqueueing is idempotent but currently does not perform the MinIO upload or object `HEAD` verification. Do not queue an object key that has not been archived successfully.
 
