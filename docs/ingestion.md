@@ -15,7 +15,7 @@ The v2 ingestion path treats a source snapshot as immutable input and an import 
 
 ## Worker Boundary
 
-The existing Postgres foundation in `infra/postgres/migrations/0001_v2_record_platform.sql` provides immutable snapshots, append-only record versions, current records, change history, transactional `promote_import`, and `FOR UPDATE SKIP LOCKED` job claims. A worker implementation must call those contracts through the least-privilege worker role; it must not write current records outside the promotion function.
+The existing Postgres foundation in `infra/postgres/migrations/0001_v2_record_platform.sql` provides immutable snapshots, append-only record versions, current records, change history, transactional `promote_import`, and `FOR UPDATE SKIP LOCKED` job claims. Migration `0003_ingestion_worker_hardening.sql` adds heartbeats, stale-job recovery, cancellation requests, retry transitions, and dead-letter state. A worker implementation must call those contracts through the least-privilege worker role; it must not write current records outside the promotion function.
 
 Worker retries must preserve the manifest and snapshot identifiers, heartbeat while processing, isolate malformed rows, record structured failure details, and stop retrying after the configured attempt limit. Cancellation must leave a valid prior current dataset in place. Dead-letter jobs require operator review before replay.
 
