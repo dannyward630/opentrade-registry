@@ -59,7 +59,7 @@ SQLite is optional and local. No cache is sent to the hosted service.
 
 `apps/web` and `api` are the released metadata-only surface. Registry files are primary; Supabase is an optional mirror. Health compares file and database counts plus full normalized metadata.
 
-`services/record-api` and `infra` are the unreleased private v2 foundation. They provide publication-filtered record search, structured verification, developer-key management, versioned Postgres storage, and private MinIO snapshot storage. These services remain optional and do not change local package behavior. Imported agency datasets are never stored in Supabase or Vercel.
+`services/record-api`, `services/ingestion-worker`, and `infra` are the unreleased private v2 foundation. They provide publication-filtered record search, structured verification, developer-key management, versioned Postgres storage, private MinIO snapshot storage, and a guarded worker lifecycle boundary. These services remain optional and do not change local package behavior. Imported agency datasets are never stored in Supabase or Vercel. The worker cannot publish records until a source-specific handler is explicitly registered and tested.
 
 ## Browser Automation
 
