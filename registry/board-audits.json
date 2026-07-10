@@ -412,6 +412,117 @@
         "reviewedAt": "2026-07-01T00:00:00.000Z",
         "note": "The official board page defines plumbing and gas-fitting credential levels and requires trade companies to register with a principal master."
       }
+    },
+    {
+      "id": "us.co.dora.trades",
+      "jurisdiction": { "country": "US", "state": "CO" },
+      "boardName": "Colorado DORA Division of Professions and Occupations Trade Licensing Program",
+      "agencyName": "Colorado Department of Regulatory Agencies",
+      "inventoryStatus": "board_verified",
+      "identity": { "type": "agency_program", "canonicalName": "Colorado DORA Division of Professions and Occupations Trade Licensing Program" },
+      "officialUrl": "https://dora.colorado.gov/check-a-license",
+      "sourceIds": ["us.co.dora.trades"],
+      "trades": ["electrical", "plumbing"],
+      "accessPath": "manual_handoff",
+      "coverageLimitations": [
+        "This source covers DORA trade credentials, including electrical and plumbing programs, and is not a single statewide general-contractor source.",
+        "DORA guidance states that some occupations, including roofers and general contractors, are not licensed statewide and may be subject to city or county rules.",
+        "Local contractor licenses, permits, non-DORA authorizations, and CDPHE asbestos certification are outside this source record.",
+        "The official lookup has no stable documented machine-readable interface suitable for an adapter; OpenTrade does not bypass access controls."
+      ],
+      "evidence": {
+        "url": "https://apps.colorado.gov/dora/licensing/Lookup/LicenseLookup.aspx",
+        "reviewedAt": "2026-07-01T08:10:00.000Z",
+        "note": "Official DORA lookup access, DPO electrical and plumbing program guidance, and DORA consumer scope limitations were reviewed; the source remains an official manual handoff."
+      }
+    },
+    {
+      "id": "us.ct.dcp.home_improvement_contractors",
+      "jurisdiction": { "country": "US", "state": "CT" },
+      "boardName": "Connecticut DCP Home Improvement Contractor Registration Program",
+      "agencyName": "Connecticut Department of Consumer Protection",
+      "inventoryStatus": "board_verified",
+      "identity": { "type": "agency_program", "canonicalName": "Connecticut DCP Home Improvement Contractor Registration Program" },
+      "officialUrl": "https://portal.ct.gov/dcp/home-improvement",
+      "sourceIds": ["us.ct.dcp.home_improvement_contractors"],
+      "trades": ["residential_contracting", "roofing", "pool_spa", "home_improvement", "other"],
+      "accessPath": "manual_handoff",
+      "coverageLimitations": [
+        "The eLicense portal covers many license and registration types and does not isolate every construction-relevant credential.",
+        "Local permits, municipal registrations, and non-DCP authorizations are outside this source record.",
+        "Bulk-export terms and fixture-safe fields require future review; the official lookup remains a manual handoff."
+      ],
+      "evidence": {
+        "url": "https://portal.ct.gov/dcp/license-services-division/all-license-applications/home-improvement-applications",
+        "reviewedAt": "2026-07-02T00:00:00.000Z",
+        "note": "Official DCP guidance requires home-improvement and new-home-construction contractor registration and defines covered residential work, including swimming pools and roofs."
+      }
+    },
+    {
+      "id": "us.ia.dial.contractor_registration",
+      "jurisdiction": { "country": "US", "state": "IA" },
+      "boardName": "Iowa DIAL Contractor Registration Program",
+      "agencyName": "Iowa Department of Inspections, Appeals, and Licensing",
+      "inventoryStatus": "board_verified",
+      "identity": { "type": "agency_program", "canonicalName": "Iowa DIAL Contractor Registration Program" },
+      "officialUrl": "https://dial.iowa.gov/licenses/building/contractors",
+      "sourceIds": ["us.ia.dial.contractor_registration"],
+      "trades": ["general_contracting", "residential_contracting", "commercial_contracting", "electrical", "plumbing", "mechanical", "hvac", "other"],
+      "accessPath": "manual_handoff",
+      "coverageLimitations": [
+        "Iowa contractor registration is not the same as every electrical, plumbing, mechanical, HVAC, or local permit credential.",
+        "Local requirements and separate DIAL trade-board records may require separate source entries or filters.",
+        "No stable documented machine-readable interface suitable for an adapter was confirmed."
+      ],
+      "evidence": {
+        "url": "https://dial.iowa.gov/i-need/records",
+        "reviewedAt": "2026-06-27T00:00:00.000Z",
+        "note": "The official DIAL records path and contractor-registration scope were reviewed; the source remains an official manual handoff pending a stable export or lookup integration."
+      }
+    },
+    {
+      "id": "us.ma.dol.opsi_construction_supervisors",
+      "jurisdiction": { "country": "US", "state": "MA" },
+      "boardName": "Massachusetts OPSI Construction Supervisor Licensing Program",
+      "agencyName": "Massachusetts Division of Occupational Licensure Office of Public Safety and Inspections",
+      "inventoryStatus": "board_verified",
+      "identity": { "type": "agency_program", "canonicalName": "Massachusetts OPSI Construction Supervisor Licensing Program" },
+      "officialUrl": "https://www.mass.gov/orgs/office-of-public-safety-and-inspections",
+      "sourceIds": ["us.ma.dol.opsi_construction_supervisors"],
+      "trades": ["general_contracting", "residential_contracting", "commercial_contracting", "other"],
+      "accessPath": "manual_handoff",
+      "coverageLimitations": [
+        "This source is scoped to OPSI-issued licenses and does not cover every home-improvement registration, local permit, or trade license in Massachusetts.",
+        "Other Massachusetts DOL boards and registration programs may require separate source entries.",
+        "The official verification portal has no stable documented machine-readable interface suitable for an adapter."
+      ],
+      "evidence": {
+        "url": "https://madpl.mylicense.com/Verification/",
+        "reviewedAt": "2026-06-27T00:00:00.000Z",
+        "note": "The official OPSI verification path and licensing scope were reviewed; the source remains an official manual handoff."
+      }
+    },
+    {
+      "id": "us.oh.commerce.ocilb_contractors",
+      "jurisdiction": { "country": "US", "state": "OH" },
+      "boardName": "Ohio Construction Industry Licensing Board",
+      "agencyName": "Ohio Department of Commerce Construction Industry Licensing Board",
+      "inventoryStatus": "board_verified",
+      "identity": { "type": "regulatory_board", "canonicalName": "Ohio Construction Industry Licensing Board" },
+      "officialUrl": "https://com.ohio.gov/divisions-and-programs/industrial-compliance/boards/ohio-construction-industry-licensing-board",
+      "sourceIds": ["us.oh.commerce.ocilb_contractors"],
+      "trades": ["electrical", "hvac", "plumbing", "mechanical", "other"],
+      "accessPath": "manual_handoff",
+      "coverageLimitations": [
+        "OCILB covers specific commercial trade contractor licenses and does not represent statewide general-contractor licensing.",
+        "Local general-contractor licenses, local permits, and non-OCILB authorizations are outside this board record.",
+        "The official eLicense path has protected interactive access; OpenTrade does not bypass technical controls."
+      ],
+      "evidence": {
+        "url": "https://elicense4.com.ohio.gov/lookup/licenselookup.aspx",
+        "reviewedAt": "2026-06-27T00:00:00.000Z",
+        "note": "The official OCILB verification path and commercial trade scope were reviewed; protected interactive access is preserved as an official manual handoff."
+      }
     }
   ]
 }

@@ -23,7 +23,7 @@ This is the human-readable snapshot for the released `v1.0.1` line and the v2 mi
 - `0` provisional outcomes.
 - `0` fixture-only terminal adapters.
 
-The v2 board inventory preserves every source link and currently has `17` independently audited board or agency-program identities. Its remaining `146` rows are intentionally labeled `source_baseline`; the trade-domain ledger is terminal, but the inventory does not claim nationwide board completeness until those source rows are audited and consolidated.
+The v2 board inventory preserves every source link and currently has `22` independently audited board or agency-program identities. Its remaining `141` rows are intentionally labeled `source_baseline`; the trade-domain ledger is terminal, but the inventory does not claim nationwide board completeness until those source rows are audited and consolidated.
 
 The source-quality gate currently reports no undocumented required-metadata or terms-URL gaps. Sources without a stable public lookup, including Indiana IDEM asbestos licensing, record that absence explicitly and route users to official program guidance instead of implying a searchable record exists.
 
