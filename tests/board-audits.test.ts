@@ -14,7 +14,17 @@ describe("board inventory audits", () => {
       readSourceIds(join(process.cwd(), "registry", "sources")),
     ]);
 
-    expect(manifest.audits).toHaveLength(1);
+    expect(manifest.audits.map((audit) => audit.id)).toEqual([
+      "us.az.roc.contractors",
+      "us.ca.cslb.contractors",
+      "us.fl.dbpr.asbestos_contractors",
+      "us.fl.dbpr.construction",
+      "us.fl.dbpr.electrical_contractors",
+      "us.mn.dli.licenses_registrations",
+      "us.or.ccb.active_licenses",
+      "us.tx.tdlr.all_licenses",
+      "us.wa.lni.contractors",
+    ]);
     for (const audit of manifest.audits) {
       expect(audit.identity.type).not.toBe("source_endpoint");
       expect(audit.inventoryStatus).toBe("board_verified");
