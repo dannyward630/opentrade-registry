@@ -6,3 +6,4 @@ export * from "./enqueue.js";
 export * from "./snapshot-file.js";
 export * from "./enqueue-command.js";
 export * from "./source-policy.js";
+export * from "./archive.js";

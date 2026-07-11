@@ -1,4 +1,5 @@
 import { readFile } from "node:fs/promises";
+import { createS3SnapshotArchive, type SnapshotArchive } from "./archive.js";
 import { enqueueSnapshotImport, type EnqueuedSnapshotImport } from "./enqueue.js";
 import { createPostgresWorkerClient, type PostgresWorkerClient } from "./postgres.js";
 import { loadSnapshotImportSourcePolicy, type SnapshotImportSourcePolicy } from "./source-policy.js";
@@ -10,6 +11,12 @@ export type SnapshotEnqueueCommandDependencies = {
   readRequest?: (path: string) => Promise<unknown>;
   createClient?: (databaseUrl: string) => PostgresWorkerClient;
   loadSourcePolicy?: (input: { registryRoot: string; sourceId: string }) => Promise<SnapshotImportSourcePolicy>;
+  createArchive?: (input: {
+    endpoint: string;
+    region: string;
+    accessKeyId: string;
+    secretAccessKey: string;
+  }) => SnapshotArchive;
 };
 
 export async function runSnapshotEnqueueCommand(
@@ -20,13 +27,24 @@ export async function runSnapshotEnqueueCommand(
   const databaseUrl = requiredEnvironment(dependencies.environment, "DATABASE_URL");
   const allowedRoot = requiredEnvironment(dependencies.environment, "OPENTRADE_SNAPSHOT_ROOT");
   const registryRoot = requiredEnvironment(dependencies.environment, "OPENTRADE_REGISTRY_ROOT");
+  const archiveBucket = requiredEnvironment(dependencies.environment, "SNAPSHOT_BUCKET");
+  const archiveEndpoint = requiredEnvironment(dependencies.environment, "SNAPSHOT_ARCHIVE_ENDPOINT");
+  const archiveRegion = requiredEnvironment(dependencies.environment, "SNAPSHOT_ARCHIVE_REGION");
+  const archiveAccessKeyId = requiredEnvironment(dependencies.environment, "SNAPSHOT_ARCHIVE_ACCESS_KEY_ID");
+  const archiveSecretAccessKey = requiredEnvironment(dependencies.environment, "SNAPSHOT_ARCHIVE_SECRET_ACCESS_KEY");
   const maxBytes = positiveInteger(dependencies.environment.OPENTRADE_MAX_SNAPSHOT_BYTES ?? "2147483648", "OPENTRADE_MAX_SNAPSHOT_BYTES");
   const request = await (dependencies.readRequest ?? readRequestFile)(requestPath);
   const sourceId = requestSourceId(request);
   const sourcePolicy = await (dependencies.loadSourcePolicy ?? loadSnapshotImportSourcePolicy)({ registryRoot, sourceId });
+  const archive = (dependencies.createArchive ?? createS3SnapshotArchive)({
+    endpoint: archiveEndpoint,
+    region: archiveRegion,
+    accessKeyId: archiveAccessKeyId,
+    secretAccessKey: archiveSecretAccessKey,
+  });
   const client = (dependencies.createClient ?? createPostgresWorkerClient)(databaseUrl);
   try {
-    return await enqueueSnapshotImport({ sql: client, request, sourcePolicy, allowedRoot, maxBytes });
+    return await enqueueSnapshotImport({ sql: client, request, sourcePolicy, allowedRoot, maxBytes, archiveBucket, archive });
   } finally {
     await client.close();
   }

@@ -50,12 +50,15 @@ describe("snapshot import enqueue", () => {
       job_created: true,
     }] }));
     const inspectFile = vi.fn(async () => ({ filePath: "/snapshots/fl.csv", sha256: "a".repeat(64), bytes: 42 }));
+    const archive = archiveStub();
     const result = await enqueueSnapshotImport({
       sql: { query } as WorkerSqlClient,
-      request: request(),
+      request: request({ snapshotMetadata: { archive: { verifiedAt: "self-asserted" } } }),
       sourcePolicy: policy(),
       allowedRoot: "/snapshots",
       maxBytes: 1_024,
+      archiveBucket: "opentrade-snapshots",
+      archive,
       inspectFile,
     });
     expect(result).toMatchObject({ snapshotDatabaseId: 17, jobDatabaseId: 31, sha256: "a".repeat(64), bytes: 42, jobCreated: true });
@@ -65,11 +68,13 @@ describe("snapshot import enqueue", () => {
     expect(values[0]).toBe("us.fl.dbpr.construction");
     expect(values[3]).toBe("a".repeat(64));
     expect(values[13]).toBe("/snapshots/fl.csv");
+    expect(JSON.parse(String(values[10]))).toMatchObject({ archive: { bucket: "opentrade-snapshots", sha256: "a".repeat(64) } });
+    expect(JSON.parse(String(values[10])).archive.verifiedAt).toBe("2026-07-11T10:00:00.000Z");
   });
 
   it("rejects non-HTTPS, non-allowlisted hosts, and unsafe object keys before database access", async () => {
     const query = vi.fn();
-    const common = { sql: { query } as WorkerSqlClient, sourcePolicy: policy(), allowedRoot: "/snapshots", maxBytes: 1_024, inspectFile: vi.fn() };
+    const common = { sql: { query } as WorkerSqlClient, sourcePolicy: policy(), allowedRoot: "/snapshots", maxBytes: 1_024, archiveBucket: "opentrade-snapshots", archive: archiveStub(), inspectFile: vi.fn() };
     await expect(enqueueSnapshotImport({ ...common, request: request({ sourceUrl: "http://data.example.gov/file.csv" }) })).rejects.toThrow("HTTPS");
     await expect(enqueueSnapshotImport({ ...common, request: request({ sourceUrl: "https://evil.example/file.csv" }) })).rejects.toThrow("not allowlisted");
     await expect(enqueueSnapshotImport({ ...common, request: request({ objectKey: "../escape.csv" }) })).rejects.toThrow("object key");
@@ -78,12 +83,28 @@ describe("snapshot import enqueue", () => {
 
   it("rejects self-asserted source identity and unreviewed publication", async () => {
     const query = vi.fn();
-    const common = { sql: { query } as WorkerSqlClient, sourcePolicy: policy(), allowedRoot: "/snapshots", maxBytes: 1_024, inspectFile: vi.fn() };
+    const common = { sql: { query } as WorkerSqlClient, sourcePolicy: policy(), allowedRoot: "/snapshots", maxBytes: 1_024, archiveBucket: "opentrade-snapshots", archive: archiveStub(), inspectFile: vi.fn() };
     await expect(enqueueSnapshotImport({ ...common, request: request({ sourceId: "us.tx.tdlr.all_licenses" }) })).rejects.toThrow("trusted source policy");
     await expect(enqueueSnapshotImport({
       ...common,
       request: request({ publication: { disposition: "allowed", rawRecordDisposition: "withheld", reviewedAt: "2026-07-10T12:00:00.000Z" } }),
     })).rejects.toThrow("redistribution status");
+    expect(query).not.toHaveBeenCalled();
+  });
+
+  it("does not access Postgres when immutable archive verification fails", async () => {
+    const query = vi.fn();
+    const archive = { ensureArchived: vi.fn(async () => { throw new Error("archive checksum mismatch"); }) };
+    await expect(enqueueSnapshotImport({
+      sql: { query } as WorkerSqlClient,
+      request: request(),
+      sourcePolicy: policy(),
+      allowedRoot: "/snapshots",
+      maxBytes: 1_024,
+      archiveBucket: "opentrade-snapshots",
+      archive,
+      inspectFile: vi.fn(async () => ({ filePath: "/snapshots/fl.csv", sha256: "a".repeat(64), bytes: 42 })),
+    })).rejects.toThrow("archive checksum mismatch");
     expect(query).not.toHaveBeenCalled();
   });
 });
@@ -99,6 +120,18 @@ function request(overrides: Record<string, unknown> = {}) {
     publication: { disposition: "review_required", rawRecordDisposition: "withheld", reviewedAt: "2026-07-10T12:00:00.000Z" },
     sensitivity: { level: "unknown", containsHomeAddress: "unknown", containsPersonalEmail: "unknown", containsPersonalPhone: "unknown" },
     ...overrides,
+  };
+}
+
+function archiveStub() {
+  return {
+    ensureArchived: vi.fn(async (input: { bucket: string; objectKey: string; sha256: string; bytes: number }) => ({
+      ...input,
+      etag: "etag",
+      versionId: null,
+      lastModifiedAt: null,
+      verifiedAt: "2026-07-11T10:00:00.000Z",
+    })),
   };
 }
 

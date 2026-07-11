@@ -19,9 +19,15 @@ describe("snapshot enqueue operator command", () => {
         OPENTRADE_SNAPSHOT_ROOT: "/snapshots",
         OPENTRADE_REGISTRY_ROOT: "/registry",
         OPENTRADE_MAX_SNAPSHOT_BYTES: "1024",
+        SNAPSHOT_BUCKET: "opentrade-snapshots",
+        SNAPSHOT_ARCHIVE_ENDPOINT: "http://minio:9000",
+        SNAPSHOT_ARCHIVE_REGION: "us-east-1",
+        SNAPSHOT_ARCHIVE_ACCESS_KEY_ID: "worker",
+        SNAPSHOT_ARCHIVE_SECRET_ACCESS_KEY: "secret",
       },
       readRequest: async () => ({ sourceId: "us.fl.example", invalid: true }),
       createClient: () => client,
+      createArchive: () => ({ ensureArchived: vi.fn() }),
       loadSourcePolicy: async () => ({ sourceId: "us.fl.example", allowedSourceHosts: ["example.gov"], adapterPackage: "@opentrade-registry/example", adapterVersion: "1.0.0", redistributionStatus: "unknown" }),
     })).rejects.toThrow();
     expect(close).toHaveBeenCalledOnce();
