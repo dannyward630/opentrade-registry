@@ -1,4 +1,5 @@
 import { z } from "zod";
+import type { SnapshotArchive, SnapshotArchiveEvidence } from "./archive.js";
 import { inspectSnapshotFile, type SnapshotFileInspection } from "./snapshot-file.js";
 import type { SnapshotImportSourcePolicy } from "./source-policy.js";
 import type { WorkerSqlClient } from "./worker.js";
@@ -46,6 +47,7 @@ export type EnqueuedSnapshotImport = {
   sha256: string;
   bytes: number;
   filePath: string;
+  archive: SnapshotArchiveEvidence;
 };
 
 export async function enqueueSnapshotImport(input: {
@@ -54,6 +56,8 @@ export async function enqueueSnapshotImport(input: {
   sourcePolicy: SnapshotImportSourcePolicy;
   allowedRoot: string;
   maxBytes: number;
+  archiveBucket: string;
+  archive: SnapshotArchive;
   signal?: AbortSignal;
   inspectFile?: typeof inspectSnapshotFile;
 }): Promise<EnqueuedSnapshotImport> {
@@ -68,6 +72,18 @@ export async function enqueueSnapshotImport(input: {
     maxBytes: input.maxBytes,
     signal: input.signal,
   });
+  const archive = await input.archive.ensureArchived({
+    bucket: input.archiveBucket,
+    objectKey: request.objectKey,
+    filePath: inspection.filePath,
+    sha256: inspection.sha256,
+    bytes: inspection.bytes,
+    sourceId: request.sourceId,
+    fetchedAt: request.fetchedAt,
+    contentType: request.contentType,
+    signal: input.signal,
+  });
+  const snapshotMetadata = { ...request.snapshotMetadata, archive };
 
   const result = await input.sql.query(`
     select * from opentrade.enqueue_snapshot_import(
@@ -85,7 +101,7 @@ export async function enqueueSnapshotImport(input: {
     request.etag ?? null,
     request.sourceLastModifiedAt ?? null,
     request.fetchedAt,
-    JSON.stringify(request.snapshotMetadata),
+    JSON.stringify(snapshotMetadata),
     input.sourcePolicy.adapterPackage,
     input.sourcePolicy.adapterVersion,
     inspection.filePath,
@@ -94,7 +110,7 @@ export async function enqueueSnapshotImport(input: {
   ]);
   const row = result.rows[0];
   if (!row) throw new Error("Postgres did not return the enqueued snapshot import.");
-  return mapEnqueuedImport(row, inspection);
+  return { ...mapEnqueuedImport(row, inspection), archive };
 }
 
 function assertPublicationPolicy(request: SnapshotImportRequest, policy: SnapshotImportSourcePolicy): void {
@@ -119,7 +135,7 @@ function assertSafeObjectKey(value: string): void {
   }
 }
 
-function mapEnqueuedImport(row: Record<string, unknown>, inspection: SnapshotFileInspection): EnqueuedSnapshotImport {
+function mapEnqueuedImport(row: Record<string, unknown>, inspection: SnapshotFileInspection): Omit<EnqueuedSnapshotImport, "archive"> {
   return {
     snapshotDatabaseId: safeInteger(row.snapshot_database_id, "snapshot database ID"),
     snapshotPublicId: requiredString(row.snapshot_public_id, "snapshot public ID"),

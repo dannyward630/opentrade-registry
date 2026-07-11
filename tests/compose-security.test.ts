@@ -26,5 +26,18 @@ describe("self-hosted Compose security", () => {
     expect(compose).toContain("DATABASE_URL: ${WORKER_DATABASE_URL:?set WORKER_DATABASE_URL in infra/.env}");
     expect(compose).toContain("OPENTRADE_WORKER_HEARTBEAT_INTERVAL_MS");
     expect(workerService).not.toContain("DATABASE_URL: postgresql://${POSTGRES_USER");
+    expect(workerService).toContain("SNAPSHOT_ARCHIVE_ACCESS_KEY_ID: ${MINIO_WORKER_USER");
+    expect(workerService).toContain("SNAPSHOT_ARCHIVE_SECRET_ACCESS_KEY: ${MINIO_WORKER_PASSWORD");
+    expect(workerService).not.toContain("MINIO_ROOT_PASSWORD");
+  });
+
+  it("provisions a versioned private bucket with a non-destructive worker boundary", async () => {
+    const compose = await readFile(join(process.cwd(), "infra", "compose.yaml"), "utf8");
+    expect(compose).toContain('mc anonymous set none "local/$${SNAPSHOT_BUCKET}"');
+    expect(compose).toContain('mc version enable "local/$${SNAPSHOT_BUCKET}"');
+    expect(compose).toContain("opentrade-snapshot-writer");
+    expect(compose).toContain("s3:GetObject");
+    expect(compose).toContain("s3:PutObject");
+    expect(compose).not.toContain("s3:DeleteObject");
   });
 });

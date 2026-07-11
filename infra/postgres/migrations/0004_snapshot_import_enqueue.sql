@@ -103,7 +103,7 @@ begin
   v_payload := (coalesce(p_import_policy, '{}'::jsonb) - array[
     'sourceId', 'sourceUrl', 'sourceSnapshotId', 'sourceSnapshotDatabaseId',
     'fetchedAt', 'sourceLastModifiedAt', 'adapterPackage', 'adapterVersion',
-    'filePath', 'strict', 'sha256'
+    'filePath', 'strict', 'sha256', 'objectKey', 'contentType'
   ]) || jsonb_build_object(
     'sourceId', p_source_id,
     'sourceUrl', v_snapshot.source_url,
@@ -118,7 +118,9 @@ begin
     'adapterVersion', p_adapter_version,
     'filePath', p_file_path,
     'strict', p_strict,
-    'sha256', p_sha256
+    'sha256', p_sha256,
+    'objectKey', v_snapshot.object_key,
+    'contentType', v_snapshot.content_type
   );
 
   insert into opentrade.worker_jobs (queue, kind, source_id, payload)

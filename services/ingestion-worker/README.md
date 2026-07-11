@@ -13,7 +13,7 @@
 
 The container entrypoint registers source-specific handlers only when `OPENTRADE_WORKER_ADAPTERS` is explicitly configured. Unsupported jobs are failed with a structured error. This is deliberate: a worker must not publish records until an adapter handler has passed source-specific privacy, schema-drift, and promotion checks.
 
-Before parsing, the handler verifies that the local staging file is a regular file below `OPENTRADE_SNAPSHOT_ROOT`, is within `OPENTRADE_MAX_SNAPSHOT_BYTES`, and matches the registered SHA-256. It verifies the digest again before promotion. The staging mount is read-only in Compose.
+Before enqueue, the operator command verifies that the local staging file is a regular file below `OPENTRADE_SNAPSHOT_ROOT`, is within `OPENTRADE_MAX_SNAPSHOT_BYTES`, and has been stored in the private snapshot bucket with matching byte length, source identity, SHA-256 metadata, and server checksum. Before parsing, and again before promotion, the handler verifies that the read-only staging copy still matches the registered SHA-256.
 
 ## Development
 
@@ -27,7 +27,7 @@ The package is private and is not included in the public npm release set.
 
 ## Compose
 
-The worker is an opt-in Compose profile. Configure `WORKER_DATABASE_URL` with a dedicated login role that is a member of `opentrade_worker`, then start it explicitly:
+The worker is an opt-in Compose profile. Configure `WORKER_DATABASE_URL` with a dedicated login role that is a member of `opentrade_worker`. Configure a separate `MINIO_WORKER_USER` and `MINIO_WORKER_PASSWORD`; `minio-init` grants that identity read/write access to the private versioned snapshot bucket without object deletion or administrative permissions. Then start the worker explicitly:
 
 ```bash
 docker compose --env-file infra/.env -f infra/compose.yaml --profile worker up -d ingestion-worker
@@ -43,7 +43,7 @@ Multiple adapters are comma-separated. The worker image contains the current wor
 
 ## Enqueue A Local Snapshot
 
-Archive the immutable snapshot privately first, place the adapter-readable copy under `SNAPSHOT_STAGING_PATH`, and prepare a reviewed request JSON as described in [the ingestion contract](../../docs/ingestion.md). Then run the one-shot operator command in the worker image:
+Place the reviewed source file under `SNAPSHOT_STAGING_PATH` and prepare a request JSON as described in [the ingestion contract](../../docs/ingestion.md). Then run the one-shot operator command in the worker image:
 
 ```bash
 docker compose --env-file infra/.env -f infra/compose.yaml --profile worker run --rm \
@@ -51,4 +51,4 @@ docker compose --env-file infra/.env -f infra/compose.yaml --profile worker run 
   --request /var/lib/opentrade/staging/import-request.json
 ```
 
-The command loads the source host, adapter package, adapter version, and redistribution status from trusted registry/package metadata; those authority fields cannot be self-asserted by request JSON. It validates the object key, inspects the local file, and calls one idempotent Postgres function that registers the snapshot and queues the import. Repeating the same reviewed request returns the existing snapshot and job. It does not upload to MinIO or verify that the object exists there; that archive check remains an explicit operator prerequisite until the archival service is connected.
+The command loads the source host, adapter package, adapter version, and redistribution status from trusted registry/package metadata; those authority fields cannot be self-asserted by request JSON. It validates the object key, inspects the local file, and conditionally writes the immutable object to MinIO. Existing keys are never overwritten. A successful archive `HEAD` must return the same byte length, source metadata, metadata SHA-256, and server SHA-256 before the command calls the idempotent Postgres enqueue function. Archive evidence is added to snapshot metadata by the trusted command and overrides any request-supplied `archive` field. Repeating the same reviewed request verifies and reuses the existing snapshot and job. The long-running handler repeats archive verification before parsing and immediately before promotion; loss or mutation of the archive prevents publication.

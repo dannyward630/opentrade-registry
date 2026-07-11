@@ -15,7 +15,7 @@ This checkout has not yet run the Compose stack because no compatible container 
 
 ## First Start
 
-1. Create `infra/.env` from `infra/.env.example` and replace every placeholder with unique secrets.
+1. Create `infra/.env` from `infra/.env.example` and replace every placeholder with unique secrets. Use different credentials for the MinIO administrator and snapshot-writer identity.
    Set both `SUPABASE_URL` and `SUPABASE_PUBLISHABLE_KEY` to enable developer key management, or leave both empty for public read-only operation. Never put a Supabase service-role key in this service.
 2. Pin reviewed image digests before production use.
 3. Start the private storage services:
@@ -25,7 +25,7 @@ This checkout has not yet run the Compose stack because no compatible container 
    ```
 
 4. Confirm Postgres and MinIO report healthy status.
-5. Verify the `opentrade-snapshots` bucket denies anonymous access.
+5. Verify the `opentrade-snapshots` bucket denies anonymous access, has versioning enabled, and the worker identity cannot delete objects or administer MinIO.
 6. Start `record-api`, verify `/health`, then test anonymous search limits and the authenticated create/list/revoke key lifecycle before exposing ingress.
 
 The ingestion worker is a separate opt-in profile and requires a dedicated login role with membership in `opentrade_worker`:
@@ -38,9 +38,9 @@ The current worker entrypoint provides job claiming, heartbeats, cancellation ob
 
 Set `OPENTRADE_WORKER_ADAPTERS` in `infra/.env` to explicitly enable packaged adapter exports. The value is a comma-separated list such as `@opentrade-registry/adapter-fl-dbpr:floridaDbprConstructionAdapter`. An empty value keeps snapshot imports disabled.
 
-Set `SNAPSHOT_STAGING_PATH` to a host directory containing operator-reviewed snapshot files and request JSON. Compose mounts it read-only at `/var/lib/opentrade/staging`. The checked-in registry is copied into the worker image at `/app/registry` and supplies trusted source-host and adapter policy to the enqueue command. `OPENTRADE_MAX_SNAPSHOT_BYTES` is a hard per-file ceiling; lower it to the largest reviewed source shape when practical. Create the host directory before starting or running the worker.
+Set `SNAPSHOT_STAGING_PATH` to a host directory containing operator-reviewed snapshot files and request JSON. Compose mounts it read-only at `/var/lib/opentrade/staging`. The checked-in registry is copied into the worker image at `/app/registry` and supplies trusted source-host and adapter policy to the enqueue command. `OPENTRADE_MAX_SNAPSHOT_BYTES` is a hard per-file ceiling; lower it to the largest reviewed source shape when practical. `SNAPSHOT_ARCHIVE_ENDPOINT`, `SNAPSHOT_ARCHIVE_REGION`, `SNAPSHOT_BUCKET`, and the dedicated worker credentials configure the private S3-compatible archive. Create the host staging directory before starting or running the worker.
 
-After uploading and checksum-verifying a snapshot in the private MinIO bucket, enqueue it with the one-shot command documented in [Ingestion And Promotion Contract](../ingestion.md). Enqueueing is idempotent but currently does not perform the MinIO upload or object `HEAD` verification. Do not queue an object key that has not been archived successfully.
+Enqueue a reviewed staging file with the one-shot command documented in [Ingestion And Promotion Contract](../ingestion.md). The command conditionally archives it, verifies the resulting object with `HEAD`, persists archive evidence, and only then registers the snapshot and job. Existing keys are never overwritten. Enqueueing remains idempotent for identical content and adapter versions.
 
 Postgres runs the ordered SQL files under `infra/postgres/migrations` only when initializing a new data volume. Existing deployments require an explicit migration runner before schema changes are deployed.
 
