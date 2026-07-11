@@ -52,6 +52,8 @@ services:
     environment:
       MINIO_ROOT_USER: ${MINIO_ROOT_USER:?set MINIO_ROOT_USER in infra/.env}
       MINIO_ROOT_PASSWORD: ${MINIO_ROOT_PASSWORD:?set MINIO_ROOT_PASSWORD in infra/.env}
+      MINIO_WORKER_USER: ${MINIO_WORKER_USER:?set MINIO_WORKER_USER in infra/.env}
+      MINIO_WORKER_PASSWORD: ${MINIO_WORKER_PASSWORD:?set MINIO_WORKER_PASSWORD in infra/.env}
       SNAPSHOT_BUCKET: ${SNAPSHOT_BUCKET:-opentrade-snapshots}
     entrypoint:
       - /bin/sh
@@ -60,6 +62,11 @@ services:
         mc alias set local http://minio:9000 "$${MINIO_ROOT_USER}" "$${MINIO_ROOT_PASSWORD}"
         mc mb --ignore-existing "local/$${SNAPSHOT_BUCKET}"
         mc anonymous set none "local/$${SNAPSHOT_BUCKET}"
+        mc version enable "local/$${SNAPSHOT_BUCKET}"
+        printf '%s' "{\"Version\":\"2012-10-17\",\"Statement\":[{\"Effect\":\"Allow\",\"Action\":[\"s3:GetBucketLocation\",\"s3:ListBucket\"],\"Resource\":[\"arn:aws:s3:::$${SNAPSHOT_BUCKET}\"]},{\"Effect\":\"Allow\",\"Action\":[\"s3:GetObject\",\"s3:PutObject\"],\"Resource\":[\"arn:aws:s3:::$${SNAPSHOT_BUCKET}/*\"]}]}" > /tmp/snapshot-writer-policy.json
+        mc admin policy create local opentrade-snapshot-writer /tmp/snapshot-writer-policy.json
+        mc admin user info local "$${MINIO_WORKER_USER}" >/dev/null 2>&1 || mc admin user add local "$${MINIO_WORKER_USER}" "$${MINIO_WORKER_PASSWORD}"
+        mc admin policy attach local opentrade-snapshot-writer --user "$${MINIO_WORKER_USER}"
     networks:
       - records
 
@@ -99,6 +106,10 @@ services:
     depends_on:
       postgres:
         condition: service_healthy
+      minio:
+        condition: service_healthy
+      minio-init:
+        condition: service_completed_successfully
     environment:
       DATABASE_URL: ${WORKER_DATABASE_URL:?set WORKER_DATABASE_URL in infra/.env}
       OPENTRADE_WORKER_QUEUE: ${OPENTRADE_WORKER_QUEUE:-ingestion}
@@ -109,6 +120,11 @@ services:
       OPENTRADE_REGISTRY_ROOT: /app/registry
       OPENTRADE_MAX_SNAPSHOT_BYTES: ${OPENTRADE_MAX_SNAPSHOT_BYTES:-2147483648}
       OPENTRADE_WORKER_ADAPTERS: ${OPENTRADE_WORKER_ADAPTERS:-}
+      SNAPSHOT_BUCKET: ${SNAPSHOT_BUCKET:-opentrade-snapshots}
+      SNAPSHOT_ARCHIVE_ENDPOINT: http://minio:9000
+      SNAPSHOT_ARCHIVE_REGION: ${SNAPSHOT_ARCHIVE_REGION:-us-east-1}
+      SNAPSHOT_ARCHIVE_ACCESS_KEY_ID: ${MINIO_WORKER_USER:?set MINIO_WORKER_USER in infra/.env}
+      SNAPSHOT_ARCHIVE_SECRET_ACCESS_KEY: ${MINIO_WORKER_PASSWORD:?set MINIO_WORKER_PASSWORD in infra/.env}
     volumes:
       - ${SNAPSHOT_STAGING_PATH:-./snapshots}:/var/lib/opentrade/staging:ro
     networks:
