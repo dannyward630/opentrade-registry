@@ -93,7 +93,7 @@ The cache remains local. It is not uploaded to the optional hosted metadata serv
 - CSV exports neutralize spreadsheet formula prefixes.
 - Large-file streaming is tested with 25,000 generated rows and a 128 MiB heap-growth ceiling.
 - Dependency audit currently reports no known vulnerabilities.
-- CI covers Node 20/22/24 on Linux, macOS, and Windows, plus dependency review and CodeQL.
+- Pull-request CI runs the complete repository and package gates once on Node 20/Linux. Dependency review remains a pull-request gate, CodeQL scans merged `main` changes and runs weekly, and release verification runs on Node 24. The reduced schedule keeps routine Actions use proportional to the project while preserving the supported Node 20 floor and release checks.
 
 ## Hosted Metadata
 
