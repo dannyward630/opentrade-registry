@@ -6,7 +6,8 @@
 - [ ] `corepack pnpm pack:check` installs all 11 tarballs cleanly.
 - [ ] Development and production dependency audits pass.
 - [ ] No high/critical Dependabot, CodeQL, or secret-scanning alert is unresolved.
-- [ ] Node 20/22/24 CI is green on Linux, macOS, and Windows.
+- [ ] Required Node 20/Linux pull-request CI, dependency review, and the latest post-merge CodeQL scan are green.
+- [ ] The Node 24 release workflow verifies and clean-installs every package artifact.
 - [ ] All 163 sources have terminal outcomes.
 - [ ] `corepack pnpm board:inventory:require-complete` passes with no source-baseline inventory rows.
 - [ ] All implemented adapters are Level 4 and none are fixture-only terminal outcomes.

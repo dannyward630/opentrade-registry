@@ -194,7 +194,7 @@ corepack pnpm db:seed:check
 
 `verify` runs build, type checks, the complete offline test suite, registry validation, coverage consistency, deterministic seed and status-matrix checks, public cleanliness, and generated-file guards. `pack:check` packs every public workspace package and installs the tarballs into a clean temporary project before executing package imports and the CLI.
 
-CI runs Node 20, 22, and 24 on Linux, macOS, and Windows. GitHub dependency review and CodeQL run separately.
+Pull requests run one complete offline verification and package smoke test on the minimum supported runtime, Node 20 on Linux. Dependency review runs separately on pull requests, CodeQL scans merged `main` changes and runs weekly, and the release workflow performs the final Node 24 release verification. CI and CodeQL can also be started manually when broader investigation is needed.
 
 ## Documentation
 
