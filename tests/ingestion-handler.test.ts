@@ -6,6 +6,7 @@ import {
   type ImportStore,
 } from "../services/ingestion-worker/src/import-handler.js";
 import type { WorkerSqlClient } from "../services/ingestion-worker/src/worker.js";
+import type { SnapshotArchive } from "../services/ingestion-worker/src/archive.js";
 import type {
   CanonicalTradeLicenseRecord,
   TradeLicenseSourceAdapter,
@@ -89,9 +90,33 @@ describe("snapshot import handler", () => {
         sha256: (inspection++ === 0 ? "c" : "d").repeat(64),
         bytes: 42,
       }),
+      archiveBucket: "opentrade-snapshots",
+      archive: archiveStub(),
     });
 
     await expect(handler(job({ filePath: "/tmp/sample.csv" }), context())).rejects.toThrow("SHA-256");
+    expect(store.state.staged).toHaveLength(1);
+    expect(store.state.promoted).toBe(0);
+    expect(store.state.failed).toHaveLength(1);
+  });
+
+  it("does not promote when the archived object is unavailable after parsing", async () => {
+    const store = memoryStore();
+    let verification = 0;
+    const handler = createSnapshotImportHandler({
+      adapters: new Map([[sourceId, fakeAdapter([record("CGC0001", "a")])]]),
+      store,
+      now: () => fetchedAt,
+      ...fileVerification(),
+      archive: {
+        async ensureArchived(input) {
+          if (verification++ > 0) throw new Error("archive unavailable");
+          return archiveEvidence(input);
+        },
+      },
+    });
+
+    await expect(handler(job({ filePath: "/tmp/sample.csv" }), context())).rejects.toThrow("archive unavailable");
     expect(store.state.staged).toHaveLength(1);
     expect(store.state.promoted).toBe(0);
     expect(store.state.failed).toHaveLength(1);
@@ -153,6 +178,8 @@ function job(payload: Record<string, unknown>) {
       adapterPackage: "@opentrade/adapter-fl-dbpr",
       adapterVersion: "1.0.1",
       sha256: "c".repeat(64),
+      objectKey: "us/fl/dbpr/snapshot.csv",
+      contentType: "text/csv",
       strict: true,
       publication: { disposition: "review_required", rawRecordDisposition: "restricted", reviewedAt: fetchedAt },
       sensitivity: { level: "unknown", containsHomeAddress: "unknown", containsPersonalEmail: "unknown", containsPersonalPhone: "unknown" },
@@ -166,7 +193,17 @@ function fileVerification() {
     allowedSnapshotRoot: "/tmp",
     maxSnapshotBytes: 1_024,
     inspectFile: async () => ({ filePath: "/tmp/sample.csv", sha256: "c".repeat(64), bytes: 42 }),
+    archiveBucket: "opentrade-snapshots",
+    archive: archiveStub(),
   };
+}
+
+function archiveStub() {
+  return { async ensureArchived(input: Parameters<SnapshotArchive["ensureArchived"]>[0]) { return archiveEvidence(input); } };
+}
+
+function archiveEvidence(input: Parameters<SnapshotArchive["ensureArchived"]>[0]) {
+  return { ...input, etag: "etag", versionId: "version-1", lastModifiedAt: fetchedAt, verifiedAt: fetchedAt };
 }
 
 function context() {

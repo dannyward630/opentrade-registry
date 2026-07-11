@@ -57,6 +57,9 @@ describe("v2 Postgres record schema", () => {
     expect(sql).toContain("on conflict (source_id, sha256) do nothing");
     expect(sql).toContain("on conflict do nothing");
     expect(sql).toContain("for update");
+    expect(sql).toContain("'objectKey', v_snapshot.object_key");
+    expect(sql).toContain("'contentType', v_snapshot.content_type");
+    expect(sql).toContain("'objectKey', 'contentType'");
     expect(sql).toContain("to opentrade_worker");
     expect(sql).not.toContain("security definer");
   });

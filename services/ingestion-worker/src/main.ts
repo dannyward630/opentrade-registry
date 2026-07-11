@@ -3,6 +3,7 @@ import { createPostgresImportStore, createSnapshotImportHandler } from "./import
 import { createPostgresWorkerClient } from "./postgres.js";
 import { loadConfiguredAdapters, parseAdapterSpecs } from "./adapter-loader.js";
 import { createIngestionWorker, type WorkerJobHandler } from "./worker.js";
+import { createS3SnapshotArchive } from "./archive.js";
 
 const databaseUrl = process.env.DATABASE_URL;
 if (!databaseUrl) throw new Error("DATABASE_URL is required for the ingestion worker.");
@@ -11,11 +12,19 @@ const sql = createPostgresWorkerClient(databaseUrl);
 const adapters = await loadConfiguredAdapters(parseAdapterSpecs(process.env.OPENTRADE_WORKER_ADAPTERS));
 const handlers: Record<string, WorkerJobHandler> = {};
 if (adapters.size > 0) {
+  const archive = createS3SnapshotArchive({
+    endpoint: requiredEnvironment("SNAPSHOT_ARCHIVE_ENDPOINT"),
+    region: requiredEnvironment("SNAPSHOT_ARCHIVE_REGION"),
+    accessKeyId: requiredEnvironment("SNAPSHOT_ARCHIVE_ACCESS_KEY_ID"),
+    secretAccessKey: requiredEnvironment("SNAPSHOT_ARCHIVE_SECRET_ACCESS_KEY"),
+  });
   handlers.snapshot_import = createSnapshotImportHandler({
     adapters,
     store: createPostgresImportStore(sql),
     allowedSnapshotRoot: requiredEnvironment("OPENTRADE_SNAPSHOT_ROOT"),
     maxSnapshotBytes: readPositiveInteger("OPENTRADE_MAX_SNAPSHOT_BYTES", 2_147_483_648),
+    archiveBucket: requiredEnvironment("SNAPSHOT_BUCKET"),
+    archive,
   });
 }
 const worker = createIngestionWorker({
