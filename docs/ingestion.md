@@ -50,7 +50,7 @@ The operator command accepts a JSON file rather than a long list of security-sen
 }
 ```
 
-Run it inside the worker image after privately archiving the same bytes under `objectKey`:
+Run it inside the worker image. The command archives the staged bytes under `objectKey` before enqueueing the database job:
 
 ```bash
 docker compose --env-file infra/.env -f infra/compose.yaml --profile worker run --rm \
@@ -58,7 +58,9 @@ docker compose --env-file infra/.env -f infra/compose.yaml --profile worker run 
   --request /var/lib/opentrade/staging/import-request.json
 ```
 
-The command loads source-host and adapter authority from the checked-in registry and installed adapter package. The request cannot provide its own allowlist, adapter identity, or adapter version. A source whose redistribution status is not `allowed` cannot request `allowed` publication. The command also requires HTTPS, a normalized relative object key, a regular staging file confined below `OPENTRADE_SNAPSHOT_ROOT`, and a configured size ceiling. The worker compares the file digest to the database-registered digest before parsing and immediately before promotion. The command currently assumes the private object was uploaded and verified first; MinIO upload and object verification are intentionally not implied by a successful enqueue.
+The command loads source-host and adapter authority from the checked-in registry and installed adapter package. The request cannot provide its own allowlist, adapter identity, adapter version, or trusted archive evidence. A source whose redistribution status is not `allowed` cannot request `allowed` publication. The command also requires HTTPS, a normalized relative object key, a regular staging file confined below `OPENTRADE_SNAPSHOT_ROOT`, and a configured size ceiling.
+
+Before database access, the command writes the object to the configured private S3-compatible bucket using a conditional create. An existing key is reused only when its byte length, source metadata, metadata SHA-256, and server-reported SHA-256 all match the staged file. A conflicting key or checksum mismatch stops enqueue. The verified bucket, key, digest, object version, ETag, timestamps, and byte count are persisted in trusted snapshot metadata. The worker then re-verifies both the staging digest and archive object before parsing and immediately before promotion.
 
 ## Failure And Privacy Rules
 
