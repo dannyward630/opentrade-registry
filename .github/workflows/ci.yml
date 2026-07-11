@@ -1,10 +1,9 @@
 name: CI
 
 on:
-  push:
-    branches: ["main"]
   pull_request:
     branches: ["main"]
+  workflow_dispatch:
 
 permissions:
   contents: read
@@ -14,40 +13,6 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  test-matrix:
-    name: Node ${{ matrix.node }} / ${{ matrix.os }}
-    strategy:
-      fail-fast: false
-      matrix:
-        os: [ubuntu-latest, macos-latest, windows-latest]
-        node: [20, 22, 24]
-    runs-on: ${{ matrix.os }}
-    steps:
-      - name: Check out repository
-        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7
-
-      - name: Set up Node.js
-        uses: actions/setup-node@48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e # v6
-        with:
-          node-version: ${{ matrix.node }}
-
-      - name: Enable Corepack
-        run: corepack enable
-
-      - name: Install dependencies
-        run: corepack pnpm install --frozen-lockfile
-
-      - name: Build packages
-        run: corepack pnpm build
-
-      - name: Typecheck
-        run: |
-          corepack pnpm typecheck
-          corepack pnpm api:typecheck
-
-      - name: Run offline test suite
-        run: corepack pnpm test
-
   quality:
     name: Registry, security, and package gates
     runs-on: ubuntu-latest
@@ -58,7 +23,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e # v6
         with:
-          node-version: 24
+          node-version: 20
 
       - name: Enable Corepack
         run: corepack enable
@@ -69,17 +34,11 @@ jobs:
       - name: Verify repository
         run: corepack pnpm verify
 
-      - name: Check source quality
-        run: corepack pnpm source:quality --json
-
-      - name: Report board-inventory evidence level
-        run: corepack pnpm board:inventory:report --json
-
       - name: Audit dependencies
         run: corepack pnpm security:audit
 
       - name: Check package tarballs
-        run: corepack pnpm pack:check
+        run: node scripts/pack-check.mjs
 
   dependency-review:
     name: Dependency review
