@@ -145,11 +145,13 @@ describe("snapshot import handler", () => {
   it("fails the manifest instead of promoting when storage becomes critical", async () => {
     const store = memoryStore();
     let check = 0;
+    const archive = { ensureArchived: vi.fn(archiveStub().ensureArchived) };
     const handler = createSnapshotImportHandler({
       adapters: new Map([[sourceId, fakeAdapter([record("CGC0001", "a")])]]),
       store,
       now: () => fetchedAt,
       ...fileVerification(),
+      archive,
       storageAdmission: async () => {
         if (check++ > 0) throw new StoragePressureAdmissionError("Snapshot storage is below the ingestion stop threshold.");
         return storagePressure("healthy", 50);
@@ -161,6 +163,7 @@ describe("snapshot import handler", () => {
     expect(store.state.validated).toHaveLength(0);
     expect(store.state.promoted).toBe(0);
     expect(store.state.failed).toHaveLength(1);
+    expect(archive.ensureArchived).toHaveBeenCalledTimes(2);
   });
 
   it("records one structured warning when storage remains below the warning threshold", async () => {

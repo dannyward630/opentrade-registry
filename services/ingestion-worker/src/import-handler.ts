@@ -202,6 +202,7 @@ export function createSnapshotImportHandler(options: SnapshotImportHandlerOption
         await context.heartbeat();
       }
 
+      await verifySnapshot(payload, options, context.signal);
       const promotionStoragePressure = await options.storageAdmission();
       appendStoragePressureWarning(promotionStoragePressure, warnings, counts);
       const finishedAt = now();
@@ -224,8 +225,6 @@ export function createSnapshotImportHandler(options: SnapshotImportHandlerOption
       } catch (error) {
         throw new ImportValidationError(errorMessage(error));
       }
-
-      await verifySnapshot(payload, options, context.signal);
 
       await options.store.markValidated({ manifest, stats: counts, finishedAt, schemaDrift: [], strict: payload.strict });
       await options.store.promote(manifest);

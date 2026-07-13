@@ -125,7 +125,7 @@ services:
       - snapshot-data:/var/lib/opentrade/snapshots:ro
       - runtime-state:/var/run/opentrade
     healthcheck:
-      test: ["CMD", "node", "-e", "const s=JSON.parse(require('node:fs').readFileSync('/var/run/opentrade/storage-health.json','utf8'));if(Date.now()-Date.parse(s.checkedAt)>90000)process.exit(1)"]
+      test: ["CMD", "node", "-e", "const s=JSON.parse(require('node:fs').readFileSync('/var/run/opentrade/storage-health.json','utf8'));if(Date.now()-Date.parse(s.checkedAt)>Number('${OPENTRADE_STORAGE_STATUS_MAX_AGE_MS:-90000}'))process.exit(1)"]
       interval: 10s
       timeout: 5s
       retries: 10
