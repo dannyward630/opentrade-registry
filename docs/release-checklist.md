@@ -6,7 +6,7 @@
 - [ ] `corepack pnpm pack:check` installs all 11 tarballs cleanly.
 - [ ] Development and production dependency audits pass.
 - [ ] No high/critical Dependabot, CodeQL, or secret-scanning alert is unresolved.
-- [ ] Required Node 20/Linux pull-request CI, dependency review, and the latest post-merge CodeQL scan are green.
+- [ ] The required Node 20/Linux pull-request gate, including dependency review, and the latest applicable post-merge CodeQL scan are green.
 - [ ] The Node 24 release workflow verifies and clean-installs every package artifact.
 - [ ] All 163 sources have terminal outcomes.
 - [ ] `corepack pnpm board:inventory:require-complete` passes with no source-baseline inventory rows.

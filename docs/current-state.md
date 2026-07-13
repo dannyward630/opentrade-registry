@@ -93,7 +93,7 @@ The cache remains local. It is not uploaded to the optional hosted metadata serv
 - CSV exports neutralize spreadsheet formula prefixes.
 - Large-file streaming is tested with 25,000 generated rows and a 128 MiB heap-growth ceiling.
 - Dependency audit currently reports no known vulnerabilities.
-- Pull-request CI runs the complete repository and package gates once on Node 20/Linux. Dependency review remains a pull-request gate, CodeQL scans merged `main` changes and runs weekly, and release verification runs on Node 24. The reduced schedule keeps routine Actions use proportional to the project while preserving the supported Node 20 floor and release checks.
+- Pull-request CI uses one Node 20/Linux runner for dependency review, offline repository verification, and package smoke checks. It reuses compiled CLI output and relies on TypeScript-emitting package builds instead of repeating equivalent no-emit package checks; local and release verification remain exhaustive. Markdown-only changes use a dependency-free documentation gate. CodeQL scans executable changes merged to `main` and runs monthly when the repository is otherwise dormant. Routine dependency updates are grouped into at most one npm pull request and one Actions pull request per monthly cycle; security updates and alerts remain independent of that cadence.
 
 ## Hosted Metadata
 
