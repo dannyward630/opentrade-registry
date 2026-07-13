@@ -84,7 +84,7 @@
     "@opentrade-registry/registry": "workspace:*",
     "@opentrade-registry/storage-sqlite": "workspace:*",
     "@supabase/supabase-js": "^2.110.0",
-    "@types/node": "^26.1.0",
+    "@types/node": "^26.1.1",
     "fast-check": "^4.8.0",
     "tsx": "^4.23.0",
     "typescript": "^6.0.3",
