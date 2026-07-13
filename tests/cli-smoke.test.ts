@@ -2,13 +2,10 @@ import { createServer, type Server } from "node:http";
 import { mkdtempSync, readFileSync, rmSync, writeFileSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
-import { createRequire } from "node:module";
 import { spawn, spawnSync } from "node:child_process";
 import { describe, expect, it, vi } from "vitest";
+import { createCliInvocation } from "./helpers/cli-process.js";
 
-const cliPath = join(process.cwd(), "packages", "cli", "src", "index.ts");
-const require = createRequire(import.meta.url);
-const tsxPath = require.resolve("tsx/cli");
 const sampleFixture = join(process.cwd(), "packages", "adapter-fl-dbpr", "fixtures", "construction-license-sample.csv");
 const edgeFixture = join(process.cwd(), "packages", "adapter-fl-dbpr", "fixtures", "construction-license-edge-cases.csv");
 const arizonaFixture = join(process.cwd(), "packages", "adapter-az-roc", "fixtures", "contractor-license-sample.csv");
@@ -1112,7 +1109,8 @@ function closeServer(server: Server): Promise<void> {
 }
 
 function runCli(args: string[], expectedStatus = 0, options: { allowStderr?: boolean } = {}) {
-  const result = spawnSync(process.execPath, [tsxPath, cliPath, "--", ...args], {
+  const invocation = createCliInvocation(args);
+  const result = spawnSync(invocation.command, invocation.args, {
     cwd: process.cwd(),
     encoding: "utf8",
   });
@@ -1126,7 +1124,8 @@ function runCli(args: string[], expectedStatus = 0, options: { allowStderr?: boo
 
 function runCliAsync(args: string[], expectedStatus = 0, options: { allowStderr?: boolean } = {}): Promise<{ stdout: string; stderr: string; status: number | null }> {
   return new Promise((resolve, reject) => {
-    const child = spawn(process.execPath, [tsxPath, cliPath, "--", ...args], {
+    const invocation = createCliInvocation(args);
+    const child = spawn(invocation.command, invocation.args, {
       cwd: process.cwd(),
       encoding: "utf8",
       stdio: ["ignore", "pipe", "pipe"],
