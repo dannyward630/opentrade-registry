@@ -78,9 +78,9 @@ export async function writeStoragePressureStatus(filePath: string, status: Stora
   const validated = storagePressureStatusSchema.parse(status);
   const directory = dirname(filePath);
   const temporaryPath = `${filePath}.${randomUUID()}.tmp`;
-  await mkdir(directory, { recursive: true, mode: 0o700 });
+  await mkdir(directory, { recursive: true, mode: 0o755 });
   try {
-    await writeFile(temporaryPath, `${JSON.stringify(validated)}\n`, { encoding: "utf8", flag: "wx", mode: 0o600 });
+    await writeFile(temporaryPath, `${JSON.stringify(validated)}\n`, { encoding: "utf8", flag: "wx", mode: 0o644 });
     await rename(temporaryPath, filePath);
   } catch (error) {
     await rm(temporaryPath, { force: true }).catch(() => undefined);

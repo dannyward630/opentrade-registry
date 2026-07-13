@@ -1,4 +1,4 @@
-import { mkdtemp, readFile, symlink, writeFile } from "node:fs/promises";
+import { mkdtemp, readFile, stat, symlink, writeFile } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { describe, expect, it, vi } from "vitest";
@@ -61,6 +61,7 @@ describe("storage pressure monitor", () => {
       now: () => Date.parse(checkedAt) + 30_000,
     })).resolves.toMatchObject({ status: "warning", freePercent: 12 });
     expect(JSON.parse(await readFile(filePath, "utf8"))).toEqual(status);
+    expect((await stat(filePath)).mode & 0o777).toBe(0o644);
   });
 
   it("fails closed for critical, stale, future, threshold-mismatched, and malformed state", async () => {
