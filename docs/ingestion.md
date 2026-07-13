@@ -70,4 +70,6 @@ Before database access, the command writes the object to the configured private 
 - Raw source snapshots remain private, checksum-linked, and outside git, Vercel, and Supabase metadata storage.
 - Publication disposition and sensitivity policy are evaluated before records become visible through hosted APIs.
 
-The Compose stack and recovery runbook remain deployment work. Until container startup, backup, restore, restart, and disk-pressure drills pass on the host, the private record platform is a foundation rather than a production service. Before enabling a source handler, add its fixture/conformance tests, wire it to manifest staging and promotion, and document its source-specific operational and privacy checks.
+The Compose worker profile includes a private storage monitor. It writes an atomic capacity observation from the MinIO volume; enqueue and promotion require a fresh, schema-valid observation using the same configured thresholds. Warning observations remain visible in import results, while critical, stale, missing, malformed, future-dated, or threshold-mismatched observations fail closed.
+
+The Compose stack and recovery runbook remain deployment work. Until container startup, backup, restore, restart, alert-delivery, and controlled disk-pressure drills pass on the host, the private record platform is a foundation rather than a production service. Before enabling a source handler, add its fixture/conformance tests, wire it to manifest staging and promotion, and document its source-specific operational and privacy checks.

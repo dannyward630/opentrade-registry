@@ -67,7 +67,7 @@ Supabase tokens are verified server-side. OpenTrade keys use random secrets, loo
 
 ### Postgres, MinIO, Jobs, and Backups
 
-Postgres and MinIO bind to loopback and an internal Compose network and must never be public ingress targets. Application and worker roles receive narrow grants. Jobs use transactional claiming and imports promote atomically. Buckets deny anonymous access. Critical disk pressure stops ingestion rather than deleting history. Backups require encryption, independent credentials, off-host replication, monitored failures, retention policy, and restore drills.
+Postgres and MinIO bind to loopback and an internal Compose network and must never be public ingress targets. Application and worker roles receive narrow grants. Jobs use transactional claiming and imports promote atomically. Buckets deny anonymous access. A credential-free, no-network monitor measures the snapshot filesystem through a read-only mount; workers accept its state through a separate read-only volume. Missing or stale monitoring and critical disk pressure stop ingestion rather than deleting history. Backups require encryption, independent credentials, off-host replication, monitored failures, retention policy, and restore drills.
 
 ### Browser Automation and Web XSS
 
