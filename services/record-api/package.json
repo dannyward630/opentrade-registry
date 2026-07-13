@@ -14,7 +14,7 @@
   },
   "dependencies": {
     "@opentrade-registry/core": "workspace:*",
-    "@supabase/supabase-js": "^2.110.0",
+    "@supabase/supabase-js": "^2.110.2",
     "pg": "^8.16.3"
   },
   "devDependencies": {
