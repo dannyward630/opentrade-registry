@@ -40,4 +40,31 @@ describe("self-hosted Compose security", () => {
     expect(compose).toContain("s3:PutObject");
     expect(compose).not.toContain("s3:DeleteObject");
   });
+
+  it("monitors the snapshot volume without network or write access to snapshots", async () => {
+    const compose = await readFile(join(process.cwd(), "infra", "compose.yaml"), "utf8");
+    const monitorService = compose.slice(compose.indexOf("  storage-monitor:"), compose.indexOf("  ingestion-worker:"));
+    expect(monitorService).toContain("network_mode: none");
+    expect(monitorService).toContain("read_only: true");
+    expect(monitorService).toContain("cap_drop:");
+    expect(monitorService).toContain("- ALL");
+    expect(monitorService).toContain("no-new-privileges:true");
+    expect(monitorService).toContain("snapshot-data:/var/lib/opentrade/snapshots:ro");
+    expect(monitorService).toContain("runtime-state:/var/run/opentrade");
+    expect(monitorService).not.toContain("DATABASE_URL");
+    expect(monitorService).not.toContain("MINIO_ROOT_PASSWORD");
+    expect(monitorService).not.toContain("SNAPSHOT_ARCHIVE_SECRET_ACCESS_KEY");
+  });
+
+  it("requires fresh shared storage health before starting ingestion", async () => {
+    const compose = await readFile(join(process.cwd(), "infra", "compose.yaml"), "utf8");
+    const workerService = compose.slice(compose.indexOf("  ingestion-worker:"));
+    expect(workerService).toContain("storage-monitor:");
+    expect(workerService).toContain("condition: service_healthy");
+    expect(workerService).toContain("OPENTRADE_STORAGE_HEALTH_FILE: /var/run/opentrade/storage-health.json");
+    expect(workerService).toContain("OPENTRADE_STORAGE_STATUS_MAX_AGE_MS");
+    expect(workerService).toContain("OPENTRADE_DISK_WARN_FREE_PERCENT");
+    expect(workerService).toContain("OPENTRADE_DISK_STOP_FREE_PERCENT");
+    expect(workerService).toContain("runtime-state:/var/run/opentrade:ro");
+  });
 });

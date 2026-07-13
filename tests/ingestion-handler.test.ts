@@ -1,4 +1,4 @@
-import { describe, expect, it } from "vitest";
+import { describe, expect, it, vi } from "vitest";
 import {
   createPostgresImportStore,
   createSnapshotImportHandler,
@@ -7,6 +7,7 @@ import {
 } from "../services/ingestion-worker/src/import-handler.js";
 import type { WorkerSqlClient } from "../services/ingestion-worker/src/worker.js";
 import type { SnapshotArchive } from "../services/ingestion-worker/src/archive.js";
+import { StoragePressureAdmissionError } from "../services/ingestion-worker/src/storage-pressure.js";
 import type {
   CanonicalTradeLicenseRecord,
   TradeLicenseSourceAdapter,
@@ -92,6 +93,7 @@ describe("snapshot import handler", () => {
       }),
       archiveBucket: "opentrade-snapshots",
       archive: archiveStub(),
+      storageAdmission: async () => storagePressure("healthy", 50),
     });
 
     await expect(handler(job({ filePath: "/tmp/sample.csv" }), context())).rejects.toThrow("SHA-256");
@@ -120,6 +122,69 @@ describe("snapshot import handler", () => {
     expect(store.state.staged).toHaveLength(1);
     expect(store.state.promoted).toBe(0);
     expect(store.state.failed).toHaveLength(1);
+  });
+
+  it("does not begin an import when storage admission is unavailable", async () => {
+    const store = memoryStore();
+    const archive = { ensureArchived: vi.fn(archiveStub().ensureArchived) };
+    const handler = createSnapshotImportHandler({
+      adapters: new Map([[sourceId, fakeAdapter([record("CGC0001", "a")])]]),
+      store,
+      now: () => fetchedAt,
+      ...fileVerification(),
+      archive,
+      storageAdmission: async () => { throw new StoragePressureAdmissionError("Storage health status is stale."); },
+    });
+
+    await expect(handler(job({ filePath: "/tmp/sample.csv" }), context())).rejects.toThrow("stale");
+    expect(archive.ensureArchived).not.toHaveBeenCalled();
+    expect(store.state.staged).toHaveLength(0);
+    expect(store.state.failed).toHaveLength(0);
+  });
+
+  it("fails the manifest instead of promoting when storage becomes critical", async () => {
+    const store = memoryStore();
+    let check = 0;
+    const archive = { ensureArchived: vi.fn(archiveStub().ensureArchived) };
+    const handler = createSnapshotImportHandler({
+      adapters: new Map([[sourceId, fakeAdapter([record("CGC0001", "a")])]]),
+      store,
+      now: () => fetchedAt,
+      ...fileVerification(),
+      archive,
+      storageAdmission: async () => {
+        if (check++ > 0) throw new StoragePressureAdmissionError("Snapshot storage is below the ingestion stop threshold.");
+        return storagePressure("healthy", 50);
+      },
+    });
+
+    await expect(handler(job({ filePath: "/tmp/sample.csv" }), context())).rejects.toThrow("ingestion stop threshold");
+    expect(store.state.staged).toHaveLength(1);
+    expect(store.state.validated).toHaveLength(0);
+    expect(store.state.promoted).toBe(0);
+    expect(store.state.failed).toHaveLength(1);
+    expect(archive.ensureArchived).toHaveBeenCalledTimes(2);
+  });
+
+  it("records one structured warning when storage remains below the warning threshold", async () => {
+    const store = memoryStore();
+    const handler = createSnapshotImportHandler({
+      adapters: new Map([[sourceId, fakeAdapter([record("CGC0001", "a")])]]),
+      store,
+      now: () => fetchedAt,
+      ...fileVerification(),
+      storageAdmission: async () => storagePressure("warning", 12),
+    });
+
+    await expect(handler(job({ filePath: "/tmp/sample.csv" }), context())).resolves.toMatchObject({
+      warningCount: 1,
+      warnings: ["Snapshot storage warning: 12% free; ingestion stops below 10%."],
+      storagePressure: {
+        started: { status: "warning", freePercent: 12 },
+        promotion: { status: "warning", freePercent: 12 },
+      },
+      promoted: true,
+    });
   });
 });
 
@@ -195,6 +260,21 @@ function fileVerification() {
     inspectFile: async () => ({ filePath: "/tmp/sample.csv", sha256: "c".repeat(64), bytes: 42 }),
     archiveBucket: "opentrade-snapshots",
     archive: archiveStub(),
+    storageAdmission: async () => storagePressure("healthy", 50),
+  };
+}
+
+function storagePressure(status: "healthy" | "warning" | "critical", freePercent: number) {
+  return {
+    schemaVersion: "1.0" as const,
+    path: "/snapshots",
+    status,
+    totalBytes: "100",
+    availableBytes: String(freePercent),
+    freePercent,
+    warningFreePercent: 15,
+    stopFreePercent: 10,
+    checkedAt: fetchedAt,
   };
 }
 

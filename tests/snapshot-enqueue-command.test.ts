@@ -24,11 +24,13 @@ describe("snapshot enqueue operator command", () => {
         SNAPSHOT_ARCHIVE_REGION: "us-east-1",
         SNAPSHOT_ARCHIVE_ACCESS_KEY_ID: "worker",
         SNAPSHOT_ARCHIVE_SECRET_ACCESS_KEY: "secret",
+        OPENTRADE_STORAGE_HEALTH_FILE: "/state/storage-health.json",
       },
       readRequest: async () => ({ sourceId: "us.fl.example", invalid: true }),
       createClient: () => client,
       createArchive: () => ({ ensureArchived: vi.fn() }),
       loadSourcePolicy: async () => ({ sourceId: "us.fl.example", allowedSourceHosts: ["example.gov"], adapterPackage: "@opentrade-registry/example", adapterVersion: "1.0.0", redistributionStatus: "unknown" }),
+      checkStorageAdmission: async () => storagePressure("healthy", 50),
     })).rejects.toThrow();
     expect(close).toHaveBeenCalledOnce();
     expect(query).not.toHaveBeenCalled();
@@ -43,4 +45,49 @@ describe("snapshot enqueue operator command", () => {
     })).rejects.toThrow("DATABASE_URL");
     expect(createClient).not.toHaveBeenCalled();
   });
+
+  it("checks storage admission before reading, archiving, or opening Postgres", async () => {
+    const readRequest = vi.fn();
+    const createArchive = vi.fn();
+    const createClient = vi.fn();
+    await expect(runSnapshotEnqueueCommand(["--request", "/request.json"], {
+      environment: commandEnvironment(),
+      readRequest,
+      createArchive,
+      createClient,
+      checkStorageAdmission: async () => { throw new Error("storage health is critical"); },
+    })).rejects.toThrow("critical");
+    expect(readRequest).not.toHaveBeenCalled();
+    expect(createArchive).not.toHaveBeenCalled();
+    expect(createClient).not.toHaveBeenCalled();
+  });
 });
+
+function commandEnvironment(): NodeJS.ProcessEnv {
+  return {
+    DATABASE_URL: "postgresql://worker@example.invalid/opentrade",
+    OPENTRADE_SNAPSHOT_ROOT: "/snapshots",
+    OPENTRADE_REGISTRY_ROOT: "/registry",
+    OPENTRADE_MAX_SNAPSHOT_BYTES: "1024",
+    SNAPSHOT_BUCKET: "opentrade-snapshots",
+    SNAPSHOT_ARCHIVE_ENDPOINT: "http://minio:9000",
+    SNAPSHOT_ARCHIVE_REGION: "us-east-1",
+    SNAPSHOT_ARCHIVE_ACCESS_KEY_ID: "worker",
+    SNAPSHOT_ARCHIVE_SECRET_ACCESS_KEY: "secret",
+    OPENTRADE_STORAGE_HEALTH_FILE: "/state/storage-health.json",
+  };
+}
+
+function storagePressure(status: "healthy" | "warning" | "critical", freePercent: number) {
+  return {
+    schemaVersion: "1.0" as const,
+    path: "/snapshots",
+    status,
+    totalBytes: "100",
+    availableBytes: String(freePercent),
+    freePercent,
+    warningFreePercent: 15,
+    stopFreePercent: 10,
+    checkedAt: "2026-07-13T10:00:00.000Z",
+  };
+}

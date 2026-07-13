@@ -3,6 +3,7 @@ import { createS3SnapshotArchive, type SnapshotArchive } from "./archive.js";
 import { enqueueSnapshotImport, type EnqueuedSnapshotImport } from "./enqueue.js";
 import { createPostgresWorkerClient, type PostgresWorkerClient } from "./postgres.js";
 import { loadSnapshotImportSourcePolicy, type SnapshotImportSourcePolicy } from "./source-policy.js";
+import { assertStorageAdmission, type StoragePressureStatus } from "./storage-pressure.js";
 
 const maxRequestBytes = 64 * 1024;
 
@@ -17,12 +18,21 @@ export type SnapshotEnqueueCommandDependencies = {
     accessKeyId: string;
     secretAccessKey: string;
   }) => SnapshotArchive;
+  checkStorageAdmission?: typeof assertStorageAdmission;
 };
+
+export type SnapshotEnqueueCommandResult = EnqueuedSnapshotImport & {
+  storagePressure: StoragePressureSummary;
+};
+
+export type StoragePressureSummary = Pick<StoragePressureStatus,
+  "status" | "freePercent" | "warningFreePercent" | "stopFreePercent" | "checkedAt"
+>;
 
 export async function runSnapshotEnqueueCommand(
   args: readonly string[],
   dependencies: SnapshotEnqueueCommandDependencies,
-): Promise<EnqueuedSnapshotImport> {
+): Promise<SnapshotEnqueueCommandResult> {
   const requestPath = parseRequestPath(args);
   const databaseUrl = requiredEnvironment(dependencies.environment, "DATABASE_URL");
   const allowedRoot = requiredEnvironment(dependencies.environment, "OPENTRADE_SNAPSHOT_ROOT");
@@ -32,7 +42,17 @@ export async function runSnapshotEnqueueCommand(
   const archiveRegion = requiredEnvironment(dependencies.environment, "SNAPSHOT_ARCHIVE_REGION");
   const archiveAccessKeyId = requiredEnvironment(dependencies.environment, "SNAPSHOT_ARCHIVE_ACCESS_KEY_ID");
   const archiveSecretAccessKey = requiredEnvironment(dependencies.environment, "SNAPSHOT_ARCHIVE_SECRET_ACCESS_KEY");
+  const storageHealthFile = requiredEnvironment(dependencies.environment, "OPENTRADE_STORAGE_HEALTH_FILE");
+  const storageStatusMaxAgeMs = positiveInteger(dependencies.environment.OPENTRADE_STORAGE_STATUS_MAX_AGE_MS ?? "90000", "OPENTRADE_STORAGE_STATUS_MAX_AGE_MS");
+  const warningFreePercent = percentage(dependencies.environment.OPENTRADE_DISK_WARN_FREE_PERCENT ?? "15", "OPENTRADE_DISK_WARN_FREE_PERCENT");
+  const stopFreePercent = percentage(dependencies.environment.OPENTRADE_DISK_STOP_FREE_PERCENT ?? "10", "OPENTRADE_DISK_STOP_FREE_PERCENT");
   const maxBytes = positiveInteger(dependencies.environment.OPENTRADE_MAX_SNAPSHOT_BYTES ?? "2147483648", "OPENTRADE_MAX_SNAPSHOT_BYTES");
+  const storagePressure = await (dependencies.checkStorageAdmission ?? assertStorageAdmission)({
+    filePath: storageHealthFile,
+    maxAgeMs: storageStatusMaxAgeMs,
+    warningFreePercent,
+    stopFreePercent,
+  });
   const request = await (dependencies.readRequest ?? readRequestFile)(requestPath);
   const sourceId = requestSourceId(request);
   const sourcePolicy = await (dependencies.loadSourcePolicy ?? loadSnapshotImportSourcePolicy)({ registryRoot, sourceId });
@@ -44,7 +64,8 @@ export async function runSnapshotEnqueueCommand(
   });
   const client = (dependencies.createClient ?? createPostgresWorkerClient)(databaseUrl);
   try {
-    return await enqueueSnapshotImport({ sql: client, request, sourcePolicy, allowedRoot, maxBytes, archiveBucket, archive });
+    const result = await enqueueSnapshotImport({ sql: client, request, sourcePolicy, allowedRoot, maxBytes, archiveBucket, archive });
+    return { ...result, storagePressure: summarizeStoragePressure(storagePressure) };
   } finally {
     await client.close();
   }
@@ -84,4 +105,15 @@ function positiveInteger(value: string, name: string): number {
   const parsed = Number(value);
   if (!Number.isSafeInteger(parsed) || parsed < 1) throw new Error(`${name} must be a positive safe integer.`);
   return parsed;
+}
+
+function percentage(value: string, name: string): number {
+  const parsed = Number(value);
+  if (!Number.isFinite(parsed) || parsed <= 0 || parsed >= 100) throw new Error(`${name} must be greater than 0 and less than 100.`);
+  return parsed;
+}
+
+function summarizeStoragePressure(status: StoragePressureStatus): StoragePressureSummary {
+  const { path: _path, totalBytes: _totalBytes, availableBytes: _availableBytes, schemaVersion: _schemaVersion, ...summary } = status;
+  return summary;
 }
