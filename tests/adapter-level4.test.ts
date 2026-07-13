@@ -1,11 +1,7 @@
 import { spawnSync } from "node:child_process";
-import { createRequire } from "node:module";
-import { join } from "node:path";
+import { resolve } from "node:path";
 import { describe, expect, it } from "vitest";
-
-const cliPath = join(process.cwd(), "packages", "cli", "src", "index.ts");
-const require = createRequire(import.meta.url);
-const tsxPath = require.resolve("tsx/cli");
+import { createCliInvocation } from "./helpers/cli-process.js";
 
 const implementedVerificationCases = [
   {
@@ -64,7 +60,7 @@ describe("adapter Level 4 verification semantics", () => {
           "--source",
           verificationCase.sourceId,
           "--file",
-          verificationCase.fixturePath,
+          resolve(process.cwd(), verificationCase.fixturePath),
           "--license",
           verificationCase.missingLicense,
           "--json",
@@ -86,7 +82,8 @@ describe("adapter Level 4 verification semantics", () => {
 });
 
 function runCli(args: string[], expectedStatus = 0) {
-  const result = spawnSync(process.execPath, [tsxPath, cliPath, "--", ...args], {
+  const invocation = createCliInvocation(args);
+  const result = spawnSync(invocation.command, invocation.args, {
     cwd: process.cwd(),
     encoding: "utf8",
   });

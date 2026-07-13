@@ -33,8 +33,10 @@
   },
   "scripts": {
     "verify": "corepack pnpm build && corepack pnpm typecheck && corepack pnpm api:typecheck && corepack pnpm api:spec:check && corepack pnpm test && corepack pnpm registry:validate && corepack pnpm coverage:health && corepack pnpm board:inventory:check && corepack pnpm board:coverage:check && corepack pnpm board:coverage:matrix:check && corepack pnpm db:seed:check && corepack pnpm source:matrix:check && corepack pnpm docs:check && corepack pnpm cleanliness:scan && corepack pnpm files:check",
+    "verify:ci": "corepack pnpm build && corepack pnpm --filter @opentrade-registry/web typecheck && corepack pnpm api:typecheck && corepack pnpm api:spec:check && corepack pnpm test:compiled-cli && corepack pnpm coverage:health && corepack pnpm board:inventory:check && corepack pnpm board:coverage:check && corepack pnpm board:coverage:matrix:check && corepack pnpm db:seed:check && corepack pnpm source:matrix:check && corepack pnpm docs:check && corepack pnpm cleanliness:scan && corepack pnpm files:check",
     "build": "corepack pnpm -r build",
     "test": "vitest run",
+    "test:compiled-cli": "OPENTRADE_TEST_COMPILED_CLI=1 vitest run",
     "test:registry": "vitest run tests/source-registry.test.ts tests/source-quality-report.test.ts",
     "test:adapters": "vitest run tests/adapter-registry.test.ts tests/adapter-conformance.test.ts tests/adapter-level4.test.ts",
     "test:cli": "vitest run tests/cli-smoke.test.ts",
