@@ -4,6 +4,7 @@ import { createPostgresWorkerClient } from "./postgres.js";
 import { loadConfiguredAdapters, parseAdapterSpecs } from "./adapter-loader.js";
 import { createIngestionWorker, type WorkerJobHandler } from "./worker.js";
 import { createS3SnapshotArchive } from "./archive.js";
+import { assertStorageAdmission } from "./storage-pressure.js";
 
 const databaseUrl = process.env.DATABASE_URL;
 if (!databaseUrl) throw new Error("DATABASE_URL is required for the ingestion worker.");
@@ -25,6 +26,12 @@ if (adapters.size > 0) {
     maxSnapshotBytes: readPositiveInteger("OPENTRADE_MAX_SNAPSHOT_BYTES", 2_147_483_648),
     archiveBucket: requiredEnvironment("SNAPSHOT_BUCKET"),
     archive,
+    storageAdmission: () => assertStorageAdmission({
+      filePath: requiredEnvironment("OPENTRADE_STORAGE_HEALTH_FILE"),
+      maxAgeMs: readPositiveInteger("OPENTRADE_STORAGE_STATUS_MAX_AGE_MS", 90_000),
+      warningFreePercent: readPercentage("OPENTRADE_DISK_WARN_FREE_PERCENT", 15),
+      stopFreePercent: readPercentage("OPENTRADE_DISK_STOP_FREE_PERCENT", 10),
+    }),
   });
 }
 const worker = createIngestionWorker({
@@ -55,5 +62,13 @@ function readPositiveInteger(name: string, fallback: number): number {
 function requiredEnvironment(name: string): string {
   const value = process.env[name]?.trim();
   if (!value) throw new Error(`${name} is required when snapshot import adapters are configured.`);
+  return value;
+}
+
+function readPercentage(name: string, fallback: number): number {
+  const configured = process.env[name];
+  if (configured === undefined || configured.trim() === "") return fallback;
+  const value = Number(configured);
+  if (!Number.isFinite(value) || value <= 0 || value >= 100) throw new Error(`${name} must be greater than 0 and less than 100.`);
   return value;
 }

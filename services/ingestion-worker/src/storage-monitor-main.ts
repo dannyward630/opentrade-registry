@@ -27,6 +27,9 @@ function readPositiveInteger(name: string, fallback: number): number {
 }
 
 function readPercentage(name: string, fallback: number): number {
-  const value = Number(process.env[name]);
-  return Number.isFinite(value) && value > 0 && value < 100 ? value : fallback;
+  const configured = process.env[name];
+  if (configured === undefined || configured.trim() === "") return fallback;
+  const value = Number(configured);
+  if (!Number.isFinite(value) || value <= 0 || value >= 100) throw new Error(`${name} must be greater than 0 and less than 100.`);
+  return value;
 }

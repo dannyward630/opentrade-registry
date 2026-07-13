@@ -11,6 +11,7 @@ import {
 import { z } from "zod";
 import type { SnapshotArchive } from "./archive.js";
 import { inspectSnapshotFile, type SnapshotFileInspection } from "./snapshot-file.js";
+import type { StoragePressureStatus } from "./storage-pressure.js";
 import type { WorkerJobHandler, WorkerJobResult, WorkerSqlClient } from "./worker.js";
 
 export const snapshotImportPayloadSchema = z.object({
@@ -101,6 +102,7 @@ export type SnapshotImportHandlerOptions = {
   inspectFile?: typeof inspectSnapshotFile;
   archiveBucket: string;
   archive: SnapshotArchive;
+  storageAdmission: () => Promise<StoragePressureStatus>;
 };
 
 export class ImportValidationError extends Error {
@@ -123,6 +125,7 @@ export function createSnapshotImportHandler(options: SnapshotImportHandlerOption
     const adapter = options.adapters.get(payload.sourceId);
     if (!adapter) throw new ImportValidationError(`No adapter is registered for ${payload.sourceId}.`);
 
+    const initialStoragePressure = await options.storageAdmission();
     await verifySnapshot(payload, options, context.signal);
 
     const startedAt = now();
@@ -147,6 +150,7 @@ export function createSnapshotImportHandler(options: SnapshotImportHandlerOption
     const errors: string[] = [];
     const stagedRecords: StagedImportRecord[] = [];
     const seenKeys = new Set<string>();
+    appendStoragePressureWarning(initialStoragePressure, warnings, counts);
 
     try {
       for await (const raw of adapter.streamRawRecords({
@@ -198,6 +202,8 @@ export function createSnapshotImportHandler(options: SnapshotImportHandlerOption
         await context.heartbeat();
       }
 
+      const promotionStoragePressure = await options.storageAdmission();
+      appendStoragePressureWarning(promotionStoragePressure, warnings, counts);
       const finishedAt = now();
       const manifestContract: ImportManifest = {
         schemaVersion: "2.0",
@@ -232,6 +238,10 @@ export function createSnapshotImportHandler(options: SnapshotImportHandlerOption
         warningCount: counts.warningCount,
         errorCount: counts.errorCount,
         warnings,
+        storagePressure: {
+          started: summarizeStoragePressure(initialStoragePressure),
+          promotion: summarizeStoragePressure(promotionStoragePressure),
+        },
         promoted: true,
       };
     } catch (error) {
@@ -245,6 +255,28 @@ export function createSnapshotImportHandler(options: SnapshotImportHandlerOption
       throw error;
     }
   };
+}
+
+function appendStoragePressureWarning(status: StoragePressureStatus, warnings: string[], counts: ImportCounts): void {
+  if (status.status !== "warning") return;
+  const message = `Snapshot storage warning: ${formatPercent(status.freePercent)}% free; ingestion stops below ${formatPercent(status.stopFreePercent)}%.`;
+  if (warnings.includes(message)) return;
+  warnings.push(message);
+  counts.warningCount += 1;
+}
+
+function summarizeStoragePressure(status: StoragePressureStatus) {
+  return {
+    status: status.status,
+    freePercent: status.freePercent,
+    warningFreePercent: status.warningFreePercent,
+    stopFreePercent: status.stopFreePercent,
+    checkedAt: status.checkedAt,
+  };
+}
+
+function formatPercent(value: number): string {
+  return value.toFixed(2).replace(/\.00$/, "");
 }
 
 async function verifySnapshotFile(
