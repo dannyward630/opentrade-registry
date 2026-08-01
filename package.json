@@ -85,12 +85,12 @@
     "@opentrade-registry/core": "workspace:*",
     "@opentrade-registry/registry": "workspace:*",
     "@opentrade-registry/storage-sqlite": "workspace:*",
-    "@supabase/supabase-js": "^2.110.2",
-    "@types/node": "^26.1.1",
+    "@supabase/supabase-js": "^2.111.0",
+    "@types/node": "^26.1.2",
     "fast-check": "^4.9.0",
     "tsx": "^4.23.1",
     "typescript": "^6.0.3",
-    "vite": "^8.1.4",
+    "vite": "^8.1.5",
     "vitest": "^4.1.10",
     "zod": "^4.4.3"
   }
