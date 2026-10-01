@@ -57,9 +57,9 @@
     "@opentrade-registry/core": "workspace:*",
     "@opentrade-registry/registry": "workspace:*",
     "@opentrade-registry/storage-sqlite": "workspace:*",
-    "zod": "^4.4.3"
+    "zod": "^4.6.5"
   },
   "devDependencies": {
-    "tsx": "^4.23.8"
+    "tsx": "^4.23.15"
   }
 }
