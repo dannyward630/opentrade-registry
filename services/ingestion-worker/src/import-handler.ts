@@ -2,6 +2,7 @@ import {
   assertPromotionReady,
   migrateCanonicalTradeLicenseRecordV1ToV2,
   parseCanonicalTradeLicenseRecord,
+  utcDateTimeSchema,
   type CanonicalTradeLicenseRecord,
   type CanonicalTradeLicenseRecordV2,
   type ImportManifest,
@@ -20,8 +21,8 @@ export const snapshotImportPayloadSchema = z.object({
   sourceUrl: z.string().url(),
   sourceSnapshotId: z.string().min(1),
   sourceSnapshotDatabaseId: z.number().int().positive(),
-  fetchedAt: z.string().datetime(),
-  sourceLastModifiedAt: z.string().datetime().nullable().optional(),
+  fetchedAt: utcDateTimeSchema,
+  sourceLastModifiedAt: utcDateTimeSchema.nullable().optional(),
   adapterPackage: z.string().min(1),
   adapterVersion: z.string().min(1),
   sha256: z.string().regex(/^[a-f0-9]{64}$/),
@@ -31,7 +32,7 @@ export const snapshotImportPayloadSchema = z.object({
   publication: z.object({
     disposition: z.enum(["allowed", "review_required", "restricted", "withheld"]),
     rawRecordDisposition: z.enum(["allowed", "review_required", "restricted", "withheld"]),
-    reviewedAt: z.string().datetime(),
+    reviewedAt: utcDateTimeSchema,
     notes: z.array(z.string().min(1)).optional(),
   }),
   sensitivity: z.object({

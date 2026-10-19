@@ -1,5 +1,6 @@
 import { z } from "zod";
 import { canonicalTradeLicenseRecordV2Schema, type CanonicalTradeLicenseRecord } from "../schema/index.js";
+import { utcDateTimeSchema } from "../schema/utc-date-time.js";
 
 export type VerificationWarning = {
   code: string;
@@ -65,10 +66,10 @@ export const tradeLicenseVerificationResultV2Schema = z.object({
   candidateRecords: z.array(canonicalTradeLicenseRecordV2Schema).optional(),
   warnings: z.array(z.object({ code: z.string().min(1), message: z.string().min(1) })),
   reasons: z.array(z.object({ code: z.string().min(1), message: z.string().min(1) })),
-  checkedAt: z.string().datetime(),
+  checkedAt: utcDateTimeSchema,
   sourceFreshness: z.object({
-    observedAt: z.string().datetime(),
-    staleAt: z.string().datetime().optional(),
+    observedAt: utcDateTimeSchema,
+    staleAt: utcDateTimeSchema.optional(),
   }).optional(),
   manualHandoff: z.object({
     url: z.string().url(),

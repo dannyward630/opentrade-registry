@@ -1,4 +1,5 @@
 import { z } from "zod";
+import { utcDateTimeSchema } from "./utc-date-time.js";
 
 export const tradeCategorySchema = z.enum([
   "general_contracting",
@@ -90,8 +91,8 @@ export const canonicalTradeLicenseRecordSchema = z.object({
     sourceUrl: z.string().url(),
     sourceRecordUrl: z.string().url().nullable().optional(),
     sourceType: sourceTypeSchema,
-    fetchedAt: z.string().datetime(),
-    sourceLastModifiedAt: z.string().datetime().nullable().optional(),
+    fetchedAt: utcDateTimeSchema,
+    sourceLastModifiedAt: utcDateTimeSchema.nullable().optional(),
     importRunId: z.string().nullable().optional(),
     redistributionStatus: sourceRedistributionStatusSchema.optional(),
     caveats: z.array(z.string().min(1)).optional(),
@@ -121,10 +122,10 @@ export const canonicalTradeLicenseRecordSchema = z.object({
     isCurrent: z.boolean().nullable().optional(),
   }),
   dates: z.object({
-    issueDate: z.string().datetime().nullable().optional(),
-    originalLicensureDate: z.string().datetime().nullable().optional(),
-    effectiveDate: z.string().datetime().nullable().optional(),
-    expirationDate: z.string().datetime().nullable().optional(),
+    issueDate: utcDateTimeSchema.nullable().optional(),
+    originalLicensureDate: utcDateTimeSchema.nullable().optional(),
+    effectiveDate: utcDateTimeSchema.nullable().optional(),
+    expirationDate: utcDateTimeSchema.nullable().optional(),
     renewalPeriod: z.string().nullable().optional(),
   }),
   contact: z.object({
@@ -167,11 +168,11 @@ export const canonicalTradeLicenseRecordV2Schema = canonicalTradeLicenseRecordSc
   id: z.string().min(1),
   recordVersion: z.string().min(1),
   sourceSnapshotId: z.string().min(1),
-  observedAt: z.string().datetime(),
+  observedAt: utcDateTimeSchema,
   publication: z.object({
     disposition: recordPublicationDispositionSchema,
     rawRecordDisposition: recordPublicationDispositionSchema,
-    reviewedAt: z.string().datetime(),
+    reviewedAt: utcDateTimeSchema,
     notes: z.array(z.string().min(1)).optional(),
   }),
   sensitivity: z.object({

@@ -1,5 +1,6 @@
 import { z } from "zod";
 import { sourceRedistributionStatusSchema, sourceTypeSchema } from "./canonical-license.js";
+import { utcDateTimeSchema } from "./utc-date-time.js";
 
 const unknownableBooleanSchema = z.union([z.boolean(), z.literal("unknown")]);
 
@@ -28,7 +29,7 @@ export const sourceBlockerCodeSchema = z.enum([
 
 export const sourceResearchEvidenceSchema = z.object({
   url: z.string().url(),
-  checkedAt: z.string().datetime(),
+  checkedAt: utcDateTimeSchema,
   note: z.string().min(1),
 });
 
@@ -59,7 +60,7 @@ export const sourceAccessControlsSchema = z.object({
 export const sourcePublicationPolicySchema = z.object({
   records: z.enum(["allowed", "review_required", "restricted", "withheld"]),
   rawRecords: z.enum(["allowed", "review_required", "restricted", "withheld"]),
-  reviewedAt: z.string().datetime(),
+  reviewedAt: utcDateTimeSchema,
   notes: z.array(z.string().min(1)).optional(),
 });
 
@@ -143,14 +144,14 @@ export const sourceRegistryEntrySchema = z.object({
   officialLookupReviewNotes: z.string().min(1).nullable().optional(),
   officialBulkDownloadNotes: z.string().nullable().optional(),
   researchNotes: z.string().nullable().optional(),
-  verificationReviewedAt: z.string().datetime().nullable().optional(),
+  verificationReviewedAt: utcDateTimeSchema.nullable().optional(),
   verificationCaveats: z.array(z.string().min(1)).optional(),
   verificationNotes: z.string().nullable().optional(),
-  lastVerifiedAt: z.string().datetime().nullable().optional(),
+  lastVerifiedAt: utcDateTimeSchema.nullable().optional(),
   maintainerNotes: z.string().nullable().optional(),
   sourceResearchOutcome: sourceResearchOutcomeSchema.optional(),
-  researchReviewedAt: z.string().datetime().optional(),
-  nextReviewAt: z.string().datetime().optional(),
+  researchReviewedAt: utcDateTimeSchema.optional(),
+  nextReviewAt: utcDateTimeSchema.optional(),
   researchEvidence: z.array(sourceResearchEvidenceSchema).optional(),
   blocker: sourceBlockerSchema.optional(),
 });
@@ -159,8 +160,8 @@ export const sourceRegistryEntryV1Schema = sourceRegistryEntrySchema
   .extend({
     schemaVersion: z.literal("1.0"),
     sourceResearchOutcome: sourceResearchOutcomeSchema,
-    researchReviewedAt: z.string().datetime(),
-    nextReviewAt: z.string().datetime(),
+    researchReviewedAt: utcDateTimeSchema,
+    nextReviewAt: utcDateTimeSchema,
     researchEvidence: z.array(sourceResearchEvidenceSchema).min(1),
     blocker: sourceBlockerSchema.optional(),
   })
@@ -191,8 +192,8 @@ export const sourceRegistryEntryV2Schema = sourceRegistryEntrySchema
   .extend({
     schemaVersion: z.literal("2.0"),
     sourceResearchOutcome: sourceResearchOutcomeSchema,
-    researchReviewedAt: z.string().datetime(),
-    nextReviewAt: z.string().datetime(),
+    researchReviewedAt: utcDateTimeSchema,
+    nextReviewAt: utcDateTimeSchema,
     researchEvidence: z.array(sourceResearchEvidenceSchema).min(1),
     automationMode: sourceAutomationModeSchema,
     allowedSourceHosts: z.array(z.string().min(1).regex(

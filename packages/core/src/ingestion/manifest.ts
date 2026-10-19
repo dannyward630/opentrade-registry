@@ -1,4 +1,5 @@
 import { z } from "zod";
+import { utcDateTimeSchema } from "../schema/utc-date-time.js";
 
 export const importManifestStatusSchema = z.enum([
   "pending",
@@ -23,9 +24,9 @@ export const importManifestSchema = z.object({
   duplicateRecordCount: z.number().int().nonnegative(),
   warningCount: z.number().int().nonnegative(),
   errorCount: z.number().int().nonnegative(),
-  startedAt: z.string().datetime(),
-  finishedAt: z.string().datetime().nullable().optional(),
-  promotedAt: z.string().datetime().nullable().optional(),
+  startedAt: utcDateTimeSchema,
+  finishedAt: utcDateTimeSchema.nullable().optional(),
+  promotedAt: utcDateTimeSchema.nullable().optional(),
   schemaDrift: z.array(z.string().min(1)).default([]),
   strictMode: z.boolean().default(false),
   failure: z.object({ code: z.string().min(1), message: z.string().min(1) }).nullable().optional(),
