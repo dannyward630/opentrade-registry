@@ -1,4 +1,5 @@
 import { z } from "zod";
+import { utcDateTimeSchema } from "./utc-date-time.js";
 
 export const boardAccessPathSchema = z.enum([
   "production_adapter",
@@ -49,7 +50,7 @@ export const boardTradeCoverageOutcomeSchema = z.enum([
 
 export const boardTradeCoverageEvidenceSchema = z.object({
   url: z.string().url(),
-  reviewedAt: z.string().datetime(),
+  reviewedAt: utcDateTimeSchema,
   note: z.string().min(1),
 });
 
@@ -127,7 +128,7 @@ export const boardInventoryEntrySchema = z.object({
   coverageLimitations: z.array(z.string().min(1)).min(1),
   evidence: z.object({
     url: z.string().url(),
-    reviewedAt: z.string().datetime(),
+    reviewedAt: utcDateTimeSchema,
     note: z.string().min(1),
   }),
 });

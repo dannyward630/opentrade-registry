@@ -1,4 +1,5 @@
 import { z } from "zod";
+import { utcDateTimeSchema } from "@opentrade-registry/core";
 import type { SnapshotArchive, SnapshotArchiveEvidence } from "./archive.js";
 import { inspectSnapshotFile, type SnapshotFileInspection } from "./snapshot-file.js";
 import type { SnapshotImportSourcePolicy } from "./source-policy.js";
@@ -12,8 +13,8 @@ export const snapshotImportRequestSchema = z.object({
   sourceUrl: z.string().url(),
   objectKey: z.string().min(1),
   filePath: z.string().min(1),
-  fetchedAt: z.string().datetime(),
-  sourceLastModifiedAt: z.string().datetime().nullable().optional(),
+  fetchedAt: utcDateTimeSchema,
+  sourceLastModifiedAt: utcDateTimeSchema.nullable().optional(),
   contentType: z.string().min(1).nullable().optional(),
   etag: z.string().min(1).nullable().optional(),
   uncompressedBytes: z.number().int().nonnegative().nullable().optional(),
@@ -22,7 +23,7 @@ export const snapshotImportRequestSchema = z.object({
   publication: z.object({
     disposition: publicationDispositionSchema,
     rawRecordDisposition: publicationDispositionSchema,
-    reviewedAt: z.string().datetime(),
+    reviewedAt: utcDateTimeSchema,
     notes: z.array(z.string().min(1)).optional(),
   }),
   sensitivity: z.object({

@@ -2,6 +2,7 @@ import { randomUUID } from "node:crypto";
 import { lstat, mkdir, readFile, rename, rm, statfs, writeFile } from "node:fs/promises";
 import { dirname } from "node:path";
 import { setTimeout as sleep } from "node:timers/promises";
+import { utcDateTimeSchema } from "@opentrade-registry/core";
 import { z } from "zod";
 
 const maxStatusBytes = 8 * 1024;
@@ -15,7 +16,7 @@ export const storagePressureStatusSchema = z.object({
   freePercent: z.number().finite().min(0).max(100),
   warningFreePercent: z.number().finite().gt(0).lt(100),
   stopFreePercent: z.number().finite().gt(0).lt(100),
-  checkedAt: z.string().datetime(),
+  checkedAt: utcDateTimeSchema,
 }).superRefine((value, context) => {
   if (value.stopFreePercent >= value.warningFreePercent) {
     context.addIssue({ code: "custom", path: ["stopFreePercent"], message: "Stop threshold must be below warning threshold." });

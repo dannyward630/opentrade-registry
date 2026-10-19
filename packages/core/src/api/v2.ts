@@ -1,6 +1,7 @@
 import { z } from "zod";
 import { OPENTRADE_V2_API_VERSION } from "../contracts/version.js";
 import { recordSensitivityLevelSchema, tradeCategorySchema } from "../schema/canonical-license.js";
+import { utcDateTimeSchema } from "../schema/utc-date-time.js";
 import {
   boardAccessPathSchema,
   boardIdentityTypeSchema,
@@ -31,7 +32,7 @@ export const recordApiStoredLicenseRecordV2Schema = z.object({
   licenseeName: z.string().nullable(),
   normalizedStatus: z.string().min(1),
   tradeCategories: z.array(tradeCategorySchema),
-  observedAt: z.string().datetime(),
+  observedAt: utcDateTimeSchema,
   publicationDisposition: z.literal("allowed"),
   sensitivityLevel: recordSensitivityLevelSchema,
   sourceUrl: z.string().url(),
@@ -74,7 +75,7 @@ export const recordApiLicenseResponseV2Schema = z.object({
 
 const checkedResponseSchema = z.object({
   apiVersion: apiVersionSchema,
-  checkedAt: z.string().datetime(),
+  checkedAt: utcDateTimeSchema,
 });
 
 export const recordApiVerificationResponseV2Schema = z.discriminatedUnion("result", [
@@ -107,10 +108,10 @@ export const recordApiDeveloperKeyMetadataV2Schema = z.object({
   name: z.string().min(1).max(80),
   keyPrefix: z.string().min(1),
   quotaPerDay: z.number().int().positive(),
-  createdAt: z.string().datetime(),
-  lastUsedAt: z.string().datetime().nullable().optional(),
-  expiresAt: z.string().datetime().nullable().optional(),
-  revokedAt: z.string().datetime().nullable().optional(),
+  createdAt: utcDateTimeSchema,
+  lastUsedAt: utcDateTimeSchema.nullable().optional(),
+  expiresAt: utcDateTimeSchema.nullable().optional(),
+  revokedAt: utcDateTimeSchema.nullable().optional(),
 });
 
 export const recordApiDeveloperKeyListResponseV2Schema = z.object({

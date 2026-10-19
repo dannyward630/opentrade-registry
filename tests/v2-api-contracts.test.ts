@@ -4,6 +4,7 @@ import {
   recordApiErrorResponseV2Schema,
   recordApiSearchResponseV2Schema,
   recordApiVerificationResponseV2Schema,
+  utcDateTimeSchema,
 } from "@opentrade-registry/core";
 
 describe("v2 hosted API contracts", () => {
@@ -32,6 +33,14 @@ describe("v2 hosted API contracts", () => {
       reasons: ["No matching record was found in this source as of the checked time."],
       caveats: ["Coverage is limited to the named source."],
     }).success).toBe(true);
+  });
+
+  it("preserves minute-precision UTC timestamps without allowing local or offset values", () => {
+    expect(utcDateTimeSchema.safeParse("2026-10-19T12:34Z").success).toBe(true);
+    expect(utcDateTimeSchema.safeParse("2026-10-19T12:34:56.789Z").success).toBe(true);
+    expect(utcDateTimeSchema.safeParse("2026-10-19T12:34").success).toBe(false);
+    expect(utcDateTimeSchema.safeParse("2026-10-19T12:34+02:00").success).toBe(false);
+    expect(utcDateTimeSchema.safeParse("2026-02-30T12:34Z").success).toBe(false);
   });
 
   it("rejects unversioned errors and unpublished record dispositions", () => {
